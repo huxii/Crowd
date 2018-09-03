@@ -22,23 +22,22 @@ public class ObjectDragRotationControl : ObjectDragControl
 
     protected override void MouseDown()
     {
-        print("........");
+        base.MouseDown();
     }
 
     protected override void MouseUp()
     {
-        print("00000000");
     }
 
     protected override void MouseDrag()
     {
+        base.MouseDrag();
+
         deltaEulerAngle = new Vector3(
             Mathf.Max(Mathf.Min(deltaEulerAngle.x + deltaMouseWorldPos.x * mouseEulerAngleSensity, maxDelta.x), minDelta.x),
             Mathf.Max(Mathf.Min(deltaEulerAngle.y + deltaMouseWorldPos.y * mouseEulerAngleSensity, maxDelta.y), minDelta.y),
             Mathf.Max(Mathf.Min(deltaEulerAngle.z + deltaMouseWorldPos.z * mouseEulerAngleSensity, maxDelta.z), minDelta.z)
             );
         transform.eulerAngles = origEulerAngles + deltaEulerAngle;
-
-        print("9999999");
     }
 }

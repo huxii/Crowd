@@ -21,6 +21,7 @@ public class ObjectDragTransformControl : ObjectDragControl
 
     protected override void MouseDown()
     {
+        base.MouseDown();
     }
 
     protected override void MouseUp()
@@ -29,6 +30,8 @@ public class ObjectDragTransformControl : ObjectDragControl
 
     protected override void MouseDrag()
     {
+        base.MouseDrag();
+
         deltaPos = new Vector3(
             Mathf.Max(Mathf.Min(deltaPos.x + deltaMouseWorldPos.x, maxDelta.x), minDelta.x),
             Mathf.Max(Mathf.Min(deltaPos.y + deltaMouseWorldPos.y, maxDelta.y), minDelta.y),
