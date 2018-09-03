@@ -1,0 +1,39 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ObjectDragTransformControl : ObjectDragControl
+{
+    private Vector3 deltaPos = new Vector3(0, 0, 0);
+    private Vector3 origPos;
+
+    // Use this for initialization
+    void Start ()
+    {
+        origPos = transform.position;
+    }
+	
+	// Update is called once per frame
+	void Update ()
+    {
+		
+	}
+
+    protected override void MouseDown()
+    {
+    }
+
+    protected override void MouseUp()
+    {
+    }
+
+    protected override void MouseDrag()
+    {
+        deltaPos = new Vector3(
+            Mathf.Max(Mathf.Min(deltaPos.x + deltaMouseWorldPos.x, maxDelta.x), minDelta.x),
+            Mathf.Max(Mathf.Min(deltaPos.y + deltaMouseWorldPos.y, maxDelta.y), minDelta.y),
+            Mathf.Max(Mathf.Min(deltaPos.z + deltaMouseWorldPos.z, maxDelta.z), minDelta.z)
+            );
+        transform.position = origPos + deltaPos;
+    }
+}
