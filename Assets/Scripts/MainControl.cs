@@ -18,7 +18,7 @@ public class MainControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Services.eventManager.ProcessQueuedEvents();
+        //Services.eventManager.ProcessQueuedEvents();
         Services.taskManager.Update();
     }
 }
