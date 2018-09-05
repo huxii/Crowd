@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 
 [CustomEditor(typeof(PathPoint))]
 [CanEditMultipleObjects]
@@ -32,6 +33,13 @@ public class PathPointEditor : Editor
             {
                 pathFinder.ConnectPathPoints(points[0], points[1]);
             }
+        }
+
+        // 1. update the dirty data
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(target);
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         }
     }
 }

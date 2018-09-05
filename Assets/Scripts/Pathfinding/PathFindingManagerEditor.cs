@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 
 [CustomEditor(typeof(PathFindingManager))]
 public class PathFindingManagerEditor : Editor
@@ -15,7 +16,7 @@ public class PathFindingManagerEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        //DrawDefaultInspector();
+        DrawDefaultInspector();
 
         //pathFinder.test = EditorGUILayout.Toggle("haha", pathFinder.test);
 
@@ -23,6 +24,12 @@ public class PathFindingManagerEditor : Editor
         {
             GameObject newPoint = pathFinder.AddPathPoint();
             Selection.activeGameObject = newPoint;
+        }
+
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(target);
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         }
     }
 }

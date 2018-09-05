@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PathFindingManager : MonoBehaviour
 {
+    [System.Serializable]
     public class PathEdge
     {
         public GameObject p1;
         public GameObject p2;
     };
 
+    [SerializeField]
     private List<GameObject> pathPoints = new List<GameObject>();
+    [SerializeField]
     private List<PathEdge> pathEdges = new List<PathEdge>();
     private Vector3 localSpawnPos = new Vector3(0, 0, 0);
 

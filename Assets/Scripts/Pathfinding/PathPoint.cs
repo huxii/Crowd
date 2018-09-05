@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PathPoint : MonoBehaviour
 {
+    // 2. make the datatype (GameObject, struct, etc.) that need to be saved serializable
+    [SerializeField]
     public GameObject followObject = null;
+    [SerializeField]
     public Vector3 followOffset;
 
     // Use this for initialization
