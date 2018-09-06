@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class ObjectDragTransformControl : ObjectDragControl
 {
+    public bool ready = false;
+
+    // tmp solution
+    public GameObject startPathPoint;
+    public GameObject endPathPoint;
+
     private Vector3 deltaPos = new Vector3(0, 0, 0);
     private Vector3 origPos;
 
@@ -38,5 +44,22 @@ public class ObjectDragTransformControl : ObjectDragControl
             Mathf.Max(Mathf.Min(deltaPos.z + deltaMouseWorldPos.z, maxDelta.z), minDelta.z)
             );
         transform.position = origPos + deltaPos;
+
+        if (deltaPos.x <= minDelta.x && deltaPos.y <= minDelta.y && deltaPos.z <= minDelta.z)
+        {
+            if (!ready)
+            {
+                ready = true;
+                Services.pathFindingManager.ConnectPathPoints(startPathPoint, endPathPoint);
+            }
+        }
+        else
+        {
+            if (ready)
+            {
+                ready = false;
+                Services.pathFindingManager.DisconnectPathPoints(startPathPoint, endPathPoint);
+            }
+        }
     }
 }

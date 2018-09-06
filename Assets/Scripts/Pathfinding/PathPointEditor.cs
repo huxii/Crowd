@@ -35,6 +35,15 @@ public class PathPointEditor : Editor
             }
         }
 
+        if (GUILayout.Button("Disconnect"))
+        {
+            GameObject[] points = Selection.gameObjects;
+            if (points.Length == 2 && points[0].GetComponent<PathPoint>() != null && points[1].GetComponent<PathPoint>() != null)
+            {
+                pathFinder.DisconnectPathPoints(points[0], points[1]);
+            }
+        }
+
         // 1. update the dirty data
         if (GUI.changed)
         {

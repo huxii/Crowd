@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class MainControl : MonoBehaviour
 {
+    public GameObject tmpActor;
 
     // Use this for initialization
     void Start()
@@ -18,7 +19,15 @@ public class MainControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Services.eventManager.ProcessQueuedEvents();
+        Services.eventManager.ProcessQueuedEvents();
         Services.taskManager.Update();
+
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+        //    mouseWorldPos = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0);
+        //    Debug.Log(mouseWorldPos);
+        //    Services.pathFindingManager.GoTo(tmpActor, tmpActor.transform.position, mouseWorldPos);            
+        //}
     }
 }

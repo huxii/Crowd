@@ -6,4 +6,5 @@ public class Services : MonoBehaviour
 {
     public static Crowd.EventManager eventManager = new Crowd.EventManager();
     public static Crowd.TaskManager taskManager = new Crowd.TaskManager();
+    public static PathFindingManager pathFindingManager = GameObject.Find("PathFinder").GetComponent<PathFindingManager>();
 }

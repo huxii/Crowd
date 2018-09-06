@@ -7,7 +7,7 @@ using UnityEditor.SceneManagement;
 [CustomEditor(typeof(PathFindingManager))]
 public class PathFindingManagerEditor : Editor
 {
-    private PathFindingManager pathFinder;
+    public static PathFindingManager pathFinder;
 
     void Awake()
     {
