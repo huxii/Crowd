@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class ActorControl : MonoBehaviour
 {
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
@@ -15,16 +15,4 @@ public abstract class ActorControl : MonoBehaviour
     {
 		
 	}
-
-    protected virtual void MouseDown()
-    {
-    }
-
-    protected virtual void MouseUp()
-    {
-    }
-
-    protected virtual void MouseDrag()
-    {
-    }
 }

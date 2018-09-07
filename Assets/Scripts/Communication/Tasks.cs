@@ -19,6 +19,22 @@ public class ActionTask : Task
 }
 */
 
+public class FeedbackTask : Task
+{
+    public Crowd.Event Feedback { get; private set; }
+
+    public FeedbackTask(Crowd.Event e)
+    {
+        Feedback = e;
+    }
+
+    protected override void Init()
+    {
+        Services.eventManager.QueueEvent(Feedback);
+        SetStatus(TaskStatus.SUCCESS);
+    }
+}
+
 public abstract class TimedTask : Task
 {
     public float Duration { get; private set; }

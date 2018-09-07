@@ -13,7 +13,9 @@ public abstract class ObjectControl : ActorControl
     public int totalSlots = 0;
 
     // current slots occupied by the crowd
-    private int currentSlots = 0;
+    protected int currentSlots = 0;
+
+    private float holdTime = 0;
 
     //public enum ObjectControlScheme
     //{
@@ -32,6 +34,7 @@ public abstract class ObjectControl : ActorControl
     // Use this for initialization
     void Start ()
     {
+        Services.eventManager.Register<ManArrivesAtObj>(OnManArrivesAtObj);
     }
 	
 	// Update is called once per frame
@@ -40,28 +43,44 @@ public abstract class ObjectControl : ActorControl
 		
 	}
 
-    public void OnMouseDown()
+    void OnDestroy()
     {
-        MouseDown();
+        Services.eventManager.Unregister<ManArrivesAtObj>(OnManArrivesAtObj);
     }
 
-    public void OnMouseUp()
+    void OnManArrivesAtObj(Crowd.Event e)
     {
-        MouseUp();
+        var manArrivedEvent = e as ManArrivesAtObj;
+        ++currentSlots;
     }
 
-    public void OnMouseDrag()
+    public virtual void Drag(Vector3 deltaPos)
     {
-        if (currentSlots > totalSlots)
-        {
-            // should never happen
-            print("currentSlots > totalSlots");
-        }
-        else
-        if (currentSlots == totalSlots)
-        {
-            // happen when slots are fullfilled
-            MouseDrag();
-        }
+
     }
+
+    //protected override void MouseDown()
+    //{
+    //    holdTime = Time.time;
+    //    Debug.Log("Click on object " + gameObject.name);
+    //}
+
+    //protected override void MouseUp()
+    //{
+    //    base.MouseUp();
+    //    if (Time.time - holdTime > 1f)
+    //    {
+    //        MouseHold();
+    //    }
+    //}
+
+    //protected override void MouseHold()
+    //{
+    //    base.MouseHold();
+
+    //    if (currentSlots < totalSlots)
+    //    {
+    //        Services.gameController.RequestNewMan(gameObject);
+    //    }
+    //}
 }

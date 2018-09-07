@@ -17,8 +17,8 @@ public class ObjectClickControl : ObjectControl
 		
 	}
 
-    protected override void MouseDown()
-    {
-        print("........");
-    }
+    //protected override void MouseDown()
+    //{
+    //    base.MouseDown();
+    //}
 }

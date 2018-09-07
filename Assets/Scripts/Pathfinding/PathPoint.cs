@@ -10,6 +10,9 @@ public class PathPoint : MonoBehaviour
     [SerializeField]
     public Vector3 followOffset;
 
+    [HideInInspector]
+    public float pointSize = 1f;
+
     // Use this for initialization
     void Start()
     {
@@ -34,7 +37,7 @@ public class PathPoint : MonoBehaviour
         UpdatePosition();
 
         Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, 1);
+        Gizmos.DrawWireSphere(transform.position, pointSize);
     }
 
     public void OnDrawGizmosSelected()
@@ -42,6 +45,6 @@ public class PathPoint : MonoBehaviour
         UpdatePosition();
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 1);
+        Gizmos.DrawWireSphere(transform.position, pointSize);
     }
 }
