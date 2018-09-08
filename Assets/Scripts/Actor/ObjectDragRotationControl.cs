@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectDragRotationControl : ObjectDragControl
+public class ObjectDragRotationControl : ObjectControl
 {
     private Vector3 deltaEulerAngle = new Vector3(0, 0, 0);
     private Vector3 origEulerAngles;
@@ -19,15 +19,6 @@ public class ObjectDragRotationControl : ObjectDragControl
     {
 
     }
-
-    //protected override void MouseDown()
-    //{
-    //    base.MouseDown();
-    //}
-
-    //protected override void MouseUp()
-    //{
-    //}
 
     //protected override void MouseDrag()
     //{

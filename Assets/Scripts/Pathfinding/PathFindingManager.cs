@@ -21,10 +21,27 @@ public class PathFindingManager : MonoBehaviour
     [HideInInspector]
     private int namingCounter = 0;
 
+    private class FoundPath
+    {
+        public List<GameObject> points;
+        public Vector3 endPos;
+        public float speed;
+        public Crowd.Event endEvent;
+
+        public FoundPath(Vector3 end)
+        {
+            points = new List<GameObject>();
+            endPos = end;
+            speed = 0;
+            endEvent = null;
+        }
+    };
+    private Dictionary<GameObject, FoundPath> PathTable = new Dictionary<GameObject, FoundPath>();
+
     private Vector3 localSpawnPos = new Vector3(0, 0, 0);
     private float maxDistance = 100000;
     private int[] prePathPoint;
-    private List<GameObject> foundPath;
+    //private List<GameObject> foundPath;
 
     // Use this for initialization
     void Start()
@@ -34,7 +51,52 @@ public class PathFindingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        List<GameObject> keys = new List<GameObject>(PathTable.Keys);
+        foreach (GameObject actor in keys)
+        {
+            FoundPath path = PathTable[actor];
+            if (path.points.Count <= 1)
+            {
+                // should go to the end position
+                if (GoToNextPoint(actor, path.endPos, path.speed))
+                {
+                    // arrived at the final position
+                    if (path.endEvent != null)
+                    {
+                        Services.eventManager.QueueEvent(path.endEvent);
+                    }
 
+                    PathTable.Remove(actor);
+                }
+            }
+            else
+            {
+                // in order to preserve the path information (path.points[0], path.points[1])
+                if (GoToNextPoint(actor, path.points[1], path.speed))
+                {
+                    path.points.RemoveAt(0);
+                }
+            }
+        }
+    }
+
+    private bool GoToNextPoint(GameObject actor, GameObject target, float speed)
+    {
+        return GoToNextPoint(actor, target.transform.position, speed);
+    }
+
+    private bool GoToNextPoint(GameObject actor, Vector3 targetPos, float speed)
+    {
+        Vector3 dir = (targetPos - actor.transform.position).normalized * speed * Time.deltaTime;
+        actor.transform.position = actor.transform.position + dir;
+        if (Vector3.Distance(actor.transform.position, targetPos) <= 0.05f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public GameObject AddPathPoint()
@@ -163,7 +225,7 @@ public class PathFindingManager : MonoBehaviour
         return nearestPathEdge;
     }
 
-    public bool FindPath(Vector3 startPos, Vector3 endPos)
+    private FoundPath FindPath(Vector3 startPos, Vector3 endPos)
     {
         // re-number all the pathpoints
         Dictionary<GameObject, int> IDs = new Dictionary<GameObject, int>();
@@ -197,7 +259,7 @@ public class PathFindingManager : MonoBehaviour
         PathEdge et = FindNearestPathEdge(endPos);
         if (es == null || et == null)
         {
-            return false;
+            return null;
         }
 
         float[] d = new float[N];
@@ -253,15 +315,16 @@ public class PathFindingManager : MonoBehaviour
         }
 
         // two end points - choose the nearer one
-        float endDis0 = d[etp0] + Vector3.Distance(et.p1.transform.position, startPos);
-        float endDis1 = d[etp1] + Vector3.Distance(et.p2.transform.position, startPos);
+        float endDis0 = d[etp0] + Vector3.Distance(et.p1.transform.position, endPos);
+        float endDis1 = d[etp1] + Vector3.Distance(et.p2.transform.position, endPos);
         //Debug.Log(endDis0 + " " + endDis1);
         if (endDis0 >= maxDistance && endDis1 >= maxDistance)
         {
-            return false;
+            return null;
         }
 
-        foundPath = new List<GameObject>();
+        // construct result path
+        FoundPath result = new FoundPath(endPos);
         int curPoint = etp0;
         if (endDis0 > endDis1)
         {
@@ -269,36 +332,38 @@ public class PathFindingManager : MonoBehaviour
         }
         while (curPoint != -1)
         {
-            foundPath.Insert(0, pathPoints[curPoint]);
+            result.points.Insert(0, pathPoints[curPoint]);
             curPoint = prePathPoint[curPoint];
         }
 
-        return true;
+        // the first point of the path would be a fake path point
+        result.points.Insert(0, null);
+
+        return result;
     }
 
-    public bool GoTo(GameObject actor, Vector3 endPos, GameObject dest = null)
+    public bool GoTo(GameObject actor, Vector3 endPos, float speed = 5f, Crowd.Event startEvent = null, Crowd.Event endEvent = null)
     { 
         Vector3 startPos = actor.transform.position;
         //Debug.Log(startPos + "---------" + endPos);
-        if (FindPath(startPos, endPos))
+        FoundPath result = FindPath(startPos, endPos);
+        if (result != null)
         {
-            //Debug.Log("---------");
-            Task curTask = null;
-            Task preTask = new Transport(actor, startPos, foundPath[0].transform.position, Vector3.Distance(startPos, foundPath[0].transform.position) / 3);
-            Services.taskManager.Do(preTask);
-            for (int i = 1; i < foundPath.Count; ++i)
+            result.speed = speed;
+            result.endEvent = endEvent;
+            if (PathTable.ContainsKey(actor))
             {
-                curTask = new Transport(actor, foundPath[i - 1].transform.position, foundPath[i].transform.position, Distance(foundPath[i - 1], foundPath[i]) / 3);
-                preTask.Then(curTask);
-                preTask = curTask;
+                // should abort original path
+                PathTable.Remove(actor);
+            }
+            else
+            {
+                PathTable.Add(actor, result);
             }
 
-            curTask = new Transport(actor, foundPath[foundPath.Count - 1].transform.position, endPos, Vector3.Distance(foundPath[foundPath.Count - 1].transform.position, endPos) / 3);
-            preTask.Then(curTask);
-
-            if (dest)
+            if (startEvent != null)
             {
-                curTask.Then(new FeedbackTask(new ManArrivesAtObj(actor, dest)));
+                Services.eventManager.QueueEvent(startEvent);
             }
 
             return true;
@@ -306,29 +371,4 @@ public class PathFindingManager : MonoBehaviour
 
         return false;
     }
-
-    //public bool GoTo(GameObject actor, Vector3 endPos)
-    //{
-    //    //Debug.Log(startPos + "---------" + endPos);
-    //    Vector3 startPos = actor.transform.position;
-    //    if (FindPath(startPos, endPos))
-    //    {
-    //        Task curTask = null;
-    //        Task preTask = new Transport(actor, startPos, foundPath[0].transform.position, Vector3.Distance(startPos, foundPath[0].transform.position) / 3);
-    //        Services.taskManager.Do(preTask);
-    //        for (int i = 1; i < foundPath.Count; ++i)
-    //        {
-    //            curTask = new Transport(actor, foundPath[i - 1].transform.position, foundPath[i].transform.position, Distance(foundPath[i - 1], foundPath[i]) / 3);
-    //            preTask.Then(curTask);
-    //            preTask = curTask;
-    //        }
-
-    //        curTask = new Transport(actor, foundPath[foundPath.Count - 1].transform.position, endPos, Vector3.Distance(foundPath[foundPath.Count - 1].transform.position, endPos) / 3);
-    //        preTask.Then(curTask);
-
-    //        return true;
-    //    }
-
-    //    return false;
-    //}
 }
