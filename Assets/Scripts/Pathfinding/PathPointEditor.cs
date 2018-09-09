@@ -14,7 +14,7 @@ public class PathPointEditor : Editor
     void Awake()
     {
         pathPoint = (PathPoint)target;
-        pathFinder = pathPoint.transform.parent.gameObject.GetComponent<PathFindingManager>();
+        pathFinder = GameObject.Find("PathFinder").GetComponent<PathFindingManager>();
     }
 
     void OnDestroy()

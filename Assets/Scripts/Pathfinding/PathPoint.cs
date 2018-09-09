@@ -32,7 +32,7 @@ public class PathPoint : MonoBehaviour
         }
     }
 
-    public void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         UpdatePosition();
 
@@ -40,7 +40,7 @@ public class PathPoint : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, pointSize);
     }
 
-    public void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         UpdatePosition();
 

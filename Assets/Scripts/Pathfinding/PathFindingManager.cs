@@ -4,42 +4,44 @@ using UnityEngine;
 
 public class PathFindingManager : MonoBehaviour
 {
-    [System.Serializable]
-    public class PathEdge
-    {
-        public GameObject p1;
-        public GameObject p2;
-    };
-
+    [SerializeField]
+    [HideInInspector]
+    private GameObject pointsObj;
     [SerializeField]
     public float pointSize = 1f;
     [SerializeField]
     private List<GameObject> pathPoints = new List<GameObject>();
     [SerializeField]
-    private List<PathEdge> pathEdges = new List<PathEdge>();
-    [SerializeField]
     [HideInInspector]
     private int namingCounter = 0;
 
+    [SerializeField]
+    [HideInInspector]
+    private GameObject edgesObj;
+    [SerializeField]
+    private List<GameObject> pathEdges = new List<GameObject>();
+    
+
     private class FoundPath
     {
-        public List<GameObject> points;
-        public Vector3 endPos;
+        //public List<GameObject> points;
+        //public Vector3 endPos;
         public float speed;
+        public List<PathEdge> pathEdges;
         public Crowd.Event endEvent;
 
         public FoundPath(Vector3 end)
         {
-            points = new List<GameObject>();
-            endPos = end;
-            speed = 0;
+            pathEdges = new List<PathEdge>();
             endEvent = null;
+            speed = 5f;
         }
     };
     private Dictionary<GameObject, FoundPath> PathTable = new Dictionary<GameObject, FoundPath>();
 
     private Vector3 localSpawnPos = new Vector3(0, 0, 0);
     private float maxDistance = 100000;
+
     private int[] prePathPoint;
     //private List<GameObject> foundPath;
 
@@ -55,11 +57,10 @@ public class PathFindingManager : MonoBehaviour
         foreach (GameObject actor in keys)
         {
             FoundPath path = PathTable[actor];
-            if (path.points.Count <= 1)
+            if (GoToNextPoint(actor, path.pathEdges[0].EndPos(), path.speed))
             {
-                // should go to the end position
-                if (GoToNextPoint(actor, path.endPos, path.speed))
-                {
+                if (path.pathEdges.Count <= 1)
+                {           
                     // arrived at the final position
                     if (path.endEvent != null)
                     {
@@ -68,14 +69,9 @@ public class PathFindingManager : MonoBehaviour
 
                     PathTable.Remove(actor);
                 }
-            }
-            else
-            {
-                // in order to preserve the path information (path.points[0], path.points[1])
-                if (GoToNextPoint(actor, path.points[1], path.speed))
-                {
-                    path.points.RemoveAt(0);
-                }
+
+                // in order to preserve the pre edge
+                path.pathEdges.RemoveAt(0);
             }
         }
     }
@@ -99,11 +95,26 @@ public class PathFindingManager : MonoBehaviour
         }
     }
 
+    private GameObject CreateNewGameObject(string name)
+    {
+        GameObject newObj = new GameObject();
+        newObj.name = name;
+        newObj.transform.SetParent(transform);
+        newObj.transform.localPosition = localSpawnPos;
+        return newObj;
+    }
+
     public GameObject AddPathPoint()
     {
+        if (pointsObj == null)
+        {
+            pointsObj = CreateNewGameObject("PathPoints");
+
+        }
+
         GameObject newPathPoint = new GameObject();
         newPathPoint.name = "PathPoint" + namingCounter;
-        newPathPoint.transform.SetParent(transform);
+        newPathPoint.transform.SetParent(pointsObj.transform);
         newPathPoint.transform.localPosition = localSpawnPos;
         newPathPoint.AddComponent<PathPoint>();
         ++namingCounter;
@@ -114,23 +125,34 @@ public class PathFindingManager : MonoBehaviour
 
     public void RemovePathPoint(GameObject pathPoint)
     {
+        Destroy(pathPoint);
     }
 
-    public void ConnectPathPoints(GameObject p1, GameObject p2)
+    public void ConnectPathPoints(GameObject p0, GameObject p1)
     {
-        PathEdge edge = new PathEdge();
-        edge.p1 = p1;
-        edge.p2 = p2;
-        pathEdges.Add(edge);
-    }
-
-    public void DisconnectPathPoints(GameObject p1, GameObject p2)
-    {
-        foreach (PathEdge edge in pathEdges.ToArray())
+        if (edgesObj == null)
         {
-            if ((edge.p1 == p1 && edge.p2 == p2) || (edge.p1 == p2 && edge.p2 == p1))
+            edgesObj = CreateNewGameObject("PathEdges");
+        }
+
+        GameObject newPathEdge = new GameObject();
+        newPathEdge.name = "PathEdge" + p0.name + p1.name;
+        newPathEdge.transform.SetParent(edgesObj.transform);
+        newPathEdge.transform.localPosition = localSpawnPos;
+        newPathEdge.AddComponent<PathEdgeOnTwoObjects>();
+        newPathEdge.GetComponent<PathEdgeOnTwoObjects>().SetPoints(p0, p1);
+
+        pathEdges.Add(newPathEdge);
+    }
+
+    public void DisconnectPathPoints(GameObject p0, GameObject p1)
+    {
+        foreach (GameObject edge in pathEdges.ToArray())
+        {
+            if ((edge.GetComponent<PathEdgeOnTwoObjects>().P0() == p0 && edge.GetComponent<PathEdgeOnTwoObjects>().P1() == p1) || 
+                (edge.GetComponent<PathEdgeOnTwoObjects>().P0() == p0 && edge.GetComponent<PathEdgeOnTwoObjects>().P1() == p1))
             {
-                pathEdges.Remove(edge);
+                Destroy(edge);
             }
         }
     }
@@ -149,16 +171,36 @@ public class PathFindingManager : MonoBehaviour
             }
         }
 
-        Gizmos.color = Color.white;
-        foreach (PathEdge edge in pathEdges.ToArray())
+        foreach (GameObject edge in pathEdges.ToArray())
         {
-            if (edge.p1 == null || edge.p2 == null)
+            if (edge == null)
             {
                 pathEdges.Remove(edge);
-                continue;
-            }
-            Gizmos.DrawLine(edge.p1.transform.position, edge.p2.transform.position);
+            }  
         }        
+    }
+
+    private Vector3 Clamp(PathEdgeOnTwoObjects edge, Vector3 pos)
+    {
+        Vector3 p0 = edge.P0().transform.position;
+        Vector3 p1 = edge.P1().transform.position;
+        Vector3 p00 = p0 - edge.axisOffset;
+        Vector3 p01 = p0 + edge.axisOffset;
+        Vector3 p10 = p1 - edge.axisOffset;
+        Vector3 p11 = p1 + edge.axisOffset;
+
+        float minx = Mathf.Min(p00.x, p01.x, p10.x, p11.x);
+        float maxx = Mathf.Max(p00.x, p01.x, p10.x, p11.x);
+        float miny = Mathf.Min(p00.y, p01.y, p10.y, p11.y);
+        float maxy = Mathf.Max(p00.y, p01.y, p10.y, p11.y);
+        float minz = Mathf.Min(p00.z, p01.z, p10.z, p11.z);
+        float maxz = Mathf.Max(p00.z, p01.z, p10.z, p11.z);
+
+        float x = Mathf.Min(maxx, Mathf.Max(minx, pos.x));
+        float y = Mathf.Min(maxy, Mathf.Max(miny, pos.y));
+        float z = Mathf.Min(maxz, Mathf.Max(minz, pos.z));
+
+        return new Vector3(x, y, z);
     }
 
     private float CosAngle(Vector3 e0, Vector3 e1)
@@ -176,20 +218,36 @@ public class PathFindingManager : MonoBehaviour
         return Vector3.Distance(p.transform.position, pos);
     }
 
-    private float Distance(PathEdge e, Vector3 pos)
+    private float Distance(PathEdgeOnTwoObjects e, Vector3 pos)
     {
-        Vector3 p1p2 = e.p2.transform.position - e.p1.transform.position;
-        Vector3 p1pos = pos - e.p1.transform.position;
-        Vector3 p2pos = pos - e.p2.transform.position;
-        float e0Cos = CosAngle(p1p2, p1pos);
-        float e1Cos = CosAngle(-p1p2, p2pos);
+        Vector3 p0 = e.P0().transform.position;
+        Vector3 p1 = e.P1().transform.position;
+        Vector3 p0p1 = p1 - p0;
+        Vector3 p0pos = pos - p0;
+        Vector3 p1pos = pos - p1;
+        float e0Cos = CosAngle(p0p1, p0pos);
+        float e1Cos = CosAngle(-p0p1, p1pos);
         if (e0Cos < 0 || e1Cos < 0)
         {
-            return maxDistance;
+            //Debug.Log("out");
+            return Mathf.Min(Vector3.Distance(pos, p0), Vector3.Distance(pos, p1));
         }
-
-        float e0Sin = Mathf.Sqrt(1 - e0Cos * e0Cos);
-        return Vector3.Magnitude(p1pos) * e0Sin;
+        else
+        {
+            if (e.axisOffset.magnitude > 0.01f)
+            {
+                //Debug.Log("plane");
+                Vector3 p00 = p0 + e.axisOffset;
+                Plane plane = new Plane(p0, p1, p00);
+                return Mathf.Abs(plane.GetDistanceToPoint(pos));
+            }
+            else
+            {
+                //Debug.Log("line");
+                float e0Sin = Mathf.Sqrt(1 - e0Cos * e0Cos);
+                return Vector3.Magnitude(p0pos) * e0Sin;
+            }
+        }
     }
 
     private GameObject FindNearestPathPoint(Vector3 pos)
@@ -208,21 +266,30 @@ public class PathFindingManager : MonoBehaviour
         return nearestPathPoint;
     }
 
-    private PathEdge FindNearestPathEdge(Vector3 pos)
+    private GameObject FindNearestPathEdge(Vector3 pos)
     {
         float dist = -1;
-        PathEdge nearestPathEdge = null;
-        foreach (PathEdge pathEdge in pathEdges)
+        GameObject nearestPathEdge = null;
+        foreach (GameObject pathEdge in pathEdges)
         {
-            float tmpDist = Distance(pathEdge, pos);
-            //Debug.Log(pos + " " + pathEdge.p1 + " " + pathEdge.p2 + " " + tmpDist);
+            float tmpDist = Distance(pathEdge.GetComponent<PathEdgeOnTwoObjects>(), pos);
+            Debug.Log(pos + " " + pathEdge + " " + tmpDist);
             if (tmpDist < dist || dist < 0)
             {
                 dist = tmpDist;
                 nearestPathEdge = pathEdge;
             }
         }
-        return nearestPathEdge;
+
+        //if (dist > 1f)
+        //{
+        //    return null;
+        //}
+        //else
+        {
+            Debug.Log(dist + " " + nearestPathEdge);
+            return nearestPathEdge;
+        }
     }
 
     private FoundPath FindPath(Vector3 startPos, Vector3 endPos)
@@ -245,21 +312,30 @@ public class PathFindingManager : MonoBehaviour
                 path[i, j] = maxDistance;
             }
         }
-        foreach (PathEdge pathEdge in pathEdges)
+        foreach (GameObject pathEdge in pathEdges)
         {
-            int id0 = IDs[pathEdge.p1];
-            int id1 = IDs[pathEdge.p2];
-            path[id0, id1] = Distance(pathEdge.p1, pathEdge.p2);
-            path[id1, id0] = Distance(pathEdge.p1, pathEdge.p2);
+            GameObject p0 = pathEdge.GetComponent<PathEdgeOnTwoObjects>().P0();
+            GameObject p1 = pathEdge.GetComponent<PathEdgeOnTwoObjects>().P1();
+
+            int id0 = IDs[p0];
+            int id1 = IDs[p1];
+            path[id0, id1] = Distance(p0, p1);
+            path[id1, id0] = path[id0, id1];
         }
 
         //int s = IDs[FindNearestPathPoint(startPos)];
         //int t = IDs[FindNearestPathPoint(endPos)];
-        PathEdge es = FindNearestPathEdge(startPos);
-        PathEdge et = FindNearestPathEdge(endPos);
+        GameObject es = FindNearestPathEdge(startPos);
+        GameObject et = FindNearestPathEdge(endPos);
         if (es == null || et == null)
         {
             return null;
+        }
+
+        // move in the same "zone"
+        if (es == et)
+        {
+            Debug.Log("same");
         }
 
         float[] d = new float[N];
@@ -267,12 +343,13 @@ public class PathFindingManager : MonoBehaviour
         {
             d[i] = maxDistance;
         }
-        int esp0 = IDs[es.p1];
-        int esp1 = IDs[es.p2];
-        int etp0 = IDs[et.p1];
-        int etp1 = IDs[et.p2];
-        d[esp0] = Vector3.Distance(es.p1.transform.position, startPos);
-        d[esp1] = Vector3.Distance(es.p2.transform.position, startPos);
+        int esp0 = IDs[es.GetComponent<PathEdgeOnTwoObjects>().P0()];
+        int esp1 = IDs[es.GetComponent<PathEdgeOnTwoObjects>().P1()];
+        int etp0 = IDs[et.GetComponent<PathEdgeOnTwoObjects>().P0()];
+        int etp1 = IDs[et.GetComponent<PathEdgeOnTwoObjects>().P1()];
+        d[esp0] = Vector3.Distance(es.GetComponent<PathEdgeOnTwoObjects>().P0().transform.position, startPos);
+        d[esp1] = Vector3.Distance(es.GetComponent<PathEdgeOnTwoObjects>().P1().transform.position, startPos);
+        //d[s] = 0;
 
         prePathPoint = new int[N];
         List<int> queue = new List<int>();
@@ -292,6 +369,9 @@ public class PathFindingManager : MonoBehaviour
         queue.Add(esp1);
         ++tail;
         inQueue[esp1] = true;
+        //queue.Add(s);
+        //++tail;
+        //inQueue[s] = true;
 
         while (head < tail)
         {
@@ -315,8 +395,8 @@ public class PathFindingManager : MonoBehaviour
         }
 
         // two end points - choose the nearer one
-        float endDis0 = d[etp0] + Vector3.Distance(et.p1.transform.position, endPos);
-        float endDis1 = d[etp1] + Vector3.Distance(et.p2.transform.position, endPos);
+        float endDis0 = d[etp0] + Vector3.Distance(et.GetComponent<PathEdgeOnTwoObjects>().P0().transform.position, endPos);
+        float endDis1 = d[etp1] + Vector3.Distance(et.GetComponent<PathEdgeOnTwoObjects>().P1().transform.position, endPos);
         //Debug.Log(endDis0 + " " + endDis1);
         if (endDis0 >= maxDistance && endDis1 >= maxDistance)
         {
@@ -330,14 +410,24 @@ public class PathFindingManager : MonoBehaviour
         {
             curPoint = etp1;
         }
-        while (curPoint != -1)
+
+        Vector3 validEndPos = Clamp(et.GetComponent<PathEdgeOnTwoObjects>(), endPos);
+        result.pathEdges.Insert(0, new PathEdgeOnObjectAndPosition(pathPoints[curPoint], validEndPos));
+
+        while (true)
         {
-            result.points.Insert(0, pathPoints[curPoint]);
+            int prePoint = prePathPoint[curPoint];
+            if (prePoint != -1)
+            {
+                result.pathEdges.Insert(0, new PathEdgeOnTwoObjects(pathPoints[prePoint], pathPoints[curPoint]));
+            }
+            else
+            {
+                break;
+            }
             curPoint = prePathPoint[curPoint];
         }
-
-        // the first point of the path would be a fake path point
-        result.points.Insert(0, null);
+        result.pathEdges.Insert(0, new PathEdgeOnPositionAndObject(startPos, pathPoints[curPoint]));
 
         return result;
     }
