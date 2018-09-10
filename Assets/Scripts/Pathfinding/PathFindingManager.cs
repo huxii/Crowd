@@ -30,7 +30,7 @@ public class PathFindingManager : MonoBehaviour
         public List<DirectedPathEdge> pathEdges;
         public Crowd.Event endEvent;
 
-        public FoundPath(Vector3 end)
+        public FoundPath()
         {
             pathEdges = new List<DirectedPathEdge>();
             endEvent = null;
@@ -337,98 +337,104 @@ public class PathFindingManager : MonoBehaviour
         if (es == et)
         {
             Debug.Log("same");
+            recentPath = new FoundPath();
+            Vector3 validEndPos = Clamp(et.GetComponent<PathEdge>(), endPos);
+            recentPath.pathEdges.Insert(0, new DirectedPathEdgeOnPositions(startPos, validEndPos));
         }
-
-        float[] d = new float[N];
-        for (int i = 0; i < N; ++i)
+        else
         {
-            d[i] = maxDistance;
-        }
-        int esp0 = IDs[es.GetComponent<PathEdge>().P0()];
-        int esp1 = IDs[es.GetComponent<PathEdge>().P1()];
-        int etp0 = IDs[et.GetComponent<PathEdge>().P0()];
-        int etp1 = IDs[et.GetComponent<PathEdge>().P1()];
-        d[esp0] = Vector3.Distance(es.GetComponent<PathEdge>().P0().transform.position, startPos);
-        d[esp1] = Vector3.Distance(es.GetComponent<PathEdge>().P1().transform.position, startPos);
-        //d[s] = 0;
 
-        prePathPoint = new int[N];
-        List<int> queue = new List<int>();
-        bool[] inQueue = new bool[N];
-        for (int i = 0; i < N; ++i)
-        {
-            inQueue[i] = false;
-            prePathPoint[i] = -1;
-        }
-
-        // SPFA starts from two points
-        int head = 0;
-        int tail = 0;
-        queue.Add(esp0);
-        ++tail;
-        inQueue[esp0] = true;
-        queue.Add(esp1);
-        ++tail;
-        inQueue[esp1] = true;
-        //queue.Add(s);
-        //++tail;
-        //inQueue[s] = true;
-
-        while (head < tail)
-        {
-            int o = queue[head];
-            inQueue[o] = false;
+            float[] d = new float[N];
             for (int i = 0; i < N; ++i)
             {
-                if (d[i] > d[o] + path[o, i])
+                d[i] = maxDistance;
+            }
+            int esp0 = IDs[es.GetComponent<PathEdge>().P0()];
+            int esp1 = IDs[es.GetComponent<PathEdge>().P1()];
+            int etp0 = IDs[et.GetComponent<PathEdge>().P0()];
+            int etp1 = IDs[et.GetComponent<PathEdge>().P1()];
+            d[esp0] = Vector3.Distance(es.GetComponent<PathEdge>().P0().transform.position, startPos);
+            d[esp1] = Vector3.Distance(es.GetComponent<PathEdge>().P1().transform.position, startPos);
+            //d[s] = 0;
+
+            prePathPoint = new int[N];
+            List<int> queue = new List<int>();
+            bool[] inQueue = new bool[N];
+            for (int i = 0; i < N; ++i)
+            {
+                inQueue[i] = false;
+                prePathPoint[i] = -1;
+            }
+
+            // SPFA starts from two points
+            int head = 0;
+            int tail = 0;
+            queue.Add(esp0);
+            ++tail;
+            inQueue[esp0] = true;
+            queue.Add(esp1);
+            ++tail;
+            inQueue[esp1] = true;
+            //queue.Add(s);
+            //++tail;
+            //inQueue[s] = true;
+
+            while (head < tail)
+            {
+                int o = queue[head];
+                inQueue[o] = false;
+                for (int i = 0; i < N; ++i)
                 {
-                    d[i] = d[o] + path[o, i];
-                    if (!inQueue[i])
+                    if (d[i] > d[o] + path[o, i])
                     {
-                        queue.Add(i);
-                        inQueue[i] = true;
-                        ++tail;
-                        prePathPoint[i] = o;
+                        d[i] = d[o] + path[o, i];
+                        if (!inQueue[i])
+                        {
+                            queue.Add(i);
+                            inQueue[i] = true;
+                            ++tail;
+                            prePathPoint[i] = o;
+                        }
                     }
                 }
+                ++head;
             }
-            ++head;
-        }
 
-        // two end points - choose the nearer one
-        float endDis0 = d[etp0] + Vector3.Distance(et.GetComponent<PathEdge>().P0().transform.position, endPos);
-        float endDis1 = d[etp1] + Vector3.Distance(et.GetComponent<PathEdge>().P1().transform.position, endPos);
-        //Debug.Log(endDis0 + " " + endDis1);
-        if (endDis0 >= maxDistance && endDis1 >= maxDistance)
-        {
-            return false;
-        }
-
-        // construct result path
-        recentPath = new FoundPath(endPos);
-        int curPoint = etp0;
-        if (endDis0 > endDis1)
-        {
-            curPoint = etp1;
-        }
-
-        Vector3 validEndPos = Clamp(et.GetComponent<PathEdge>(), endPos);
-        recentPath.pathEdges.Insert(0, new DirectedPathEdgeOnObjectAndPosition(pathPoints[curPoint], validEndPos));
-
-        while (true)
-        {
-            int prePoint = prePathPoint[curPoint];
-            if (prePoint != -1)
+            // two end points - choose the nearer one
+            float endDis0 = d[etp0] + Vector3.Distance(et.GetComponent<PathEdge>().P0().transform.position, endPos);
+            float endDis1 = d[etp1] + Vector3.Distance(et.GetComponent<PathEdge>().P1().transform.position, endPos);
+            //Debug.Log(endDis0 + " " + endDis1);
+            if (endDis0 >= maxDistance && endDis1 >= maxDistance)
             {
-                recentPath.pathEdges.Insert(0, new DirectedPathEdgeOnTwoObjects(pathPoints[prePoint], pathPoints[curPoint]));
+                return false;
             }
-            else
+
+            // construct result path
+            recentPath = new FoundPath();
+            int curPoint = etp0;
+            if (endDis0 > endDis1)
             {
-                break;
+                curPoint = etp1;
             }
-            curPoint = prePathPoint[curPoint];
+
+            Vector3 validEndPos = Clamp(et.GetComponent<PathEdge>(), endPos);
+            recentPath.pathEdges.Insert(0, new DirectedPathEdgeOnObjectAndPosition(pathPoints[curPoint], validEndPos));
+
+            while (true)
+            {
+                int prePoint = prePathPoint[curPoint];
+                if (prePoint != -1)
+                {
+                    recentPath.pathEdges.Insert(0, new DirectedPathEdgeOnTwoObjects(pathPoints[prePoint], pathPoints[curPoint]));
+                }
+                else
+                {
+                    break;
+                }
+                curPoint = prePathPoint[curPoint];
+            }
+            recentPath.pathEdges.Insert(0, new DirectedPathEdgeOnPositionAndObject(startPos, pathPoints[curPoint]));
         }
-        recentPath.pathEdges.Insert(0, new DirectedPathEdgeOnPositionAndObject(startPos, pathPoints[curPoint]));
 
         return true;
     }

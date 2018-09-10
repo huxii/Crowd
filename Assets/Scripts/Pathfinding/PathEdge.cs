@@ -153,3 +153,25 @@ public class DirectedPathEdgeOnPositionAndObject : DirectedPathEdge
         return p1.transform.position;
     }
 }
+
+public class DirectedPathEdgeOnPositions : DirectedPathEdge
+{
+    private Vector3 p0pos;
+    private Vector3 p1pos;
+
+    public DirectedPathEdgeOnPositions(Vector3 point0pos, Vector3 point1pos)
+    {
+        p0pos = point0pos;
+        p1pos = point1pos;
+    }
+
+    public override Vector3 StartPos()
+    {
+        return p0pos;
+    }
+
+    public override Vector3 EndPos()
+    {
+        return p1pos;
+    }
+}
