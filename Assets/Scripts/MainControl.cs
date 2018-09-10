@@ -167,7 +167,7 @@ public class MainControl : MonoBehaviour
             return;
         }
 
-        Debug.Log("Double click");
+        Debug.Log("Double click " + selectedMan + " " + mouseClickObject);
         if (selectedMan && mouseClickObject.CompareTag("Object"))
         {
             FillMan(selectedMan, mouseClickObject);

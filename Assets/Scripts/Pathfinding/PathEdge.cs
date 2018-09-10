@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PathEdge : MonoBehaviour
 {
+    // to indicate the "zone" of the edge
     public Vector3 axisOffset;
 
     // Use this for initialization

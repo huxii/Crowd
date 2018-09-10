@@ -23,7 +23,7 @@ public class ObjectDragTransformControl : ObjectControl
 	// Update is called once per frame
 	void Update ()
     {
-		
+        ActivatedUpdate();
 	}
 
     public override void Drag(Vector3 dp)
@@ -39,7 +39,7 @@ public class ObjectDragTransformControl : ObjectControl
                 );
             transform.position = origPos + deltaPos;
 
-            if (deltaPos.x <= minDelta.x && deltaPos.y <= minDelta.y && deltaPos.z <= minDelta.z)
+            if (deltaPos.x <= minDelta.x + 0.01f && deltaPos.y <= minDelta.y + 0.01f && deltaPos.z <= minDelta.z + 0.01f)
             {
                 if (!ready)
                 {

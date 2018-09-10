@@ -6,7 +6,7 @@ public class ObjectDragRotationControl : ObjectControl
 {
     private Vector3 deltaEulerAngle = new Vector3(0, 0, 0);
     private Vector3 origEulerAngles;
-    private float mouseEulerAngleSensity = 60;
+    private float mouseEulerAngleSensity = 5f;
 
     // Use this for initialization
     void Start()
@@ -17,18 +17,23 @@ public class ObjectDragRotationControl : ObjectControl
     // Update is called once per frame
     void Update()
     {
-
+        ActivatedUpdate();
     }
 
-    //protected override void MouseDrag()
-    //{
-    //    base.MouseDrag();
+    public override void Drag(Vector3 dp)
+    {
+        if (ObjectReady())
+        {
+            base.Drag(dp);
 
-    //    deltaEulerAngle = new Vector3(
-    //        Mathf.Max(Mathf.Min(deltaEulerAngle.x + deltaMouseWorldPos.x * mouseEulerAngleSensity, maxDelta.x), minDelta.x),
-    //        Mathf.Max(Mathf.Min(deltaEulerAngle.y + deltaMouseWorldPos.y * mouseEulerAngleSensity, maxDelta.y), minDelta.y),
-    //        Mathf.Max(Mathf.Min(deltaEulerAngle.z + deltaMouseWorldPos.z * mouseEulerAngleSensity, maxDelta.z), minDelta.z)
-    //        );
-    //    transform.eulerAngles = origEulerAngles + deltaEulerAngle;
-    //}
+            float delta = dp.x * mouseEulerAngleSensity;
+            dp = dp * 0.1f;
+            deltaEulerAngle = new Vector3(
+                Mathf.Max(Mathf.Min(deltaEulerAngle.x + delta, maxDelta.x), minDelta.x),
+                Mathf.Max(Mathf.Min(deltaEulerAngle.y + delta, maxDelta.y), minDelta.y),
+                Mathf.Max(Mathf.Min(deltaEulerAngle.z + delta, maxDelta.z), minDelta.z)
+                );
+            transform.eulerAngles = origEulerAngles + deltaEulerAngle;
+        }
+    }
 }

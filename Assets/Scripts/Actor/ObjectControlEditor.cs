@@ -41,6 +41,15 @@ public class ObjectDragTransformControlEditor : ObjectControlEditor
     }
 }
 
+[CustomEditor(typeof(ObjectDragRotationControl))]
+public class ObjectDragRotationControlEditor : ObjectControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
 [CustomEditor(typeof(ObjectClickControl))]
 public class ObjectClickControlEditor : ObjectControlEditor
 {

@@ -14,7 +14,7 @@ public class ObjectClickControl : ObjectControl
 	// Update is called once per frame
 	void Update ()
     {
-		
+        ActivatedUpdate();
 	}
 
     //protected override void MouseDown()

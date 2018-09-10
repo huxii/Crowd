@@ -37,8 +37,18 @@ public abstract class ObjectControl : ActorControl
     public Vector3 minDelta = new Vector3(0, 0, 0);
     public Vector3 maxDelta = new Vector3(0, 0, 0);
 
+    public enum ActivatedType
+    {
+        NONE,
+        ROTATE,
+        ANIMATION,
+    }
+
+    public ActivatedType activatedType;
+
     // current slots occupied by the crowd
     protected int currentSlots = 0;
+    protected bool slotJustFull = false;
 
     protected enum SlotState
     {
@@ -71,7 +81,7 @@ public abstract class ObjectControl : ActorControl
     {		
 	}
 
-    public void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         foreach (SlotAttr slot in slots.ToArray())
         {
@@ -99,6 +109,31 @@ public abstract class ObjectControl : ActorControl
         return newSlot;
     }
 
+    protected void ActivatedUpdate()
+    {
+        if (ObjectReady())
+        {
+            switch (activatedType)
+            {
+                case ActivatedType.ROTATE:
+                    transform.eulerAngles = transform.eulerAngles + new Vector3(0, 20, 0) * Time.deltaTime;
+                    break;
+                case ActivatedType.ANIMATION:
+                    Animation animation = GetComponent<Animation>();
+                    if (slotJustFull && !animation.isPlaying)
+                    {
+                        slotJustFull = false;
+                        animation.Play();
+                    }
+                    break;
+                case ActivatedType.NONE:
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     protected bool ObjectReady()
     {
         return currentSlots >= slots.Count;
@@ -124,6 +159,10 @@ public abstract class ObjectControl : ActorControl
         if (slots[id].state != SlotState.READY)
         {
             ++currentSlots;
+            if (currentSlots == slots.Count)
+            {
+                slotJustFull = true;
+            }
             slots[id].state = SlotState.READY;
             slots[id].man = man;
         }
