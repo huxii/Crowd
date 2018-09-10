@@ -8,12 +8,12 @@ using UnityEditor.SceneManagement;
 [CanEditMultipleObjects]
 public class PathPointEditor : Editor
 {
-    private PathPoint pathPoint;
+    //private PathPoint pathPoint;
     private PathFindingManager pathFinder;
 
     void Awake()
     {
-        pathPoint = (PathPoint)target;
+        //pathPoint = (PathPoint)target;
         pathFinder = GameObject.Find("PathFinder").GetComponent<PathFindingManager>();
     }
 

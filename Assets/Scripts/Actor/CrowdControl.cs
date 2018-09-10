@@ -12,6 +12,9 @@ public class CrowdControl : ActorControl
 
     CrowdState state = CrowdState.IDLE;
 
+    private GameObject workingObject = null;
+    private int workingSlot = -1;
+
     // Use this for initialization
     void Start()
     {
@@ -26,5 +29,21 @@ public class CrowdControl : ActorControl
     public bool IsBusy()
     {
         return (state == CrowdState.BUSY);
+    }
+
+    public void SetWorkingObject(GameObject obj, int slot)
+    {
+        workingObject = obj;
+        workingSlot = slot;
+    }
+
+    public GameObject GetWorkingObject()
+    {
+        return workingObject;
+    }
+
+    public int GetWorkingSlot()
+    {
+        return workingSlot;
     }
 }

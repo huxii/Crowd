@@ -217,6 +217,6 @@ public class Spawn : SequenceTask
 
     protected override void OnTick()
     {
-        GameObject newSpawn = GameObject.Instantiate(gameObject, spawnPos, Quaternion.identity);
+        //GameObject newSpawn = GameObject.Instantiate(gameObject, spawnPos, Quaternion.identity);
     }
 }

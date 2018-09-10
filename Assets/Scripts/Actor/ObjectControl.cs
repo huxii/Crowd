@@ -143,9 +143,9 @@ public abstract class ObjectControl : ActorControl
     {
         if (slots[id].state == SlotState.READY)
         {
-            --currentSlots;
-            slots[id].man = null;
+            --currentSlots;            
         }
+        slots[id].man = null;
         slots[id].state = SlotState.EMPTY;
     }
 
@@ -173,18 +173,18 @@ public abstract class ObjectControl : ActorControl
         return slots[id].obj.transform.position;
     }
 
-    public int GetSlotId(GameObject man)
-    {
-        for (int i = 0; i < slots.Count; ++i)
-        {
-            if (slots[i].man == man)
-            {
-                return i;
-            }
-        }
+    //public int GetSlotId(GameObject man)
+    //{
+    //    for (int i = 0; i < slots.Count; ++i)
+    //    {
+    //        if (slots[i].man == man)
+    //        {
+    //            return i;
+    //        }
+    //    }
 
-        return -1;
-    }
+    //    return -1;
+    //}
 
     public virtual void Drag(Vector3 deltaPos)
     {

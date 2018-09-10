@@ -33,6 +33,11 @@ public class ManLeavesForObj : ManObj
 
 public class ManLeavesFromObj : ManObj
 {
+    public ManLeavesFromObj(GameObject m)
+    : base(m, null, -1)
+    {
+    }
+
     public ManLeavesFromObj(GameObject m, GameObject o, int s)
         : base(m, o, s)
     {

@@ -7,13 +7,13 @@ using UnityEditor.SceneManagement;
 [CustomEditor(typeof(PathEdge))]
 public class PathEdgeEditor : Editor
 {
-    private PathEdge pathEdge;
-    private PathFindingManager pathFinder;
+    //private PathEdge pathEdge;
+    //private PathFindingManager pathFinder;
 
     void Awake()
     {
-        pathEdge = (PathEdge)target;
-        pathFinder = GameObject.Find("PathFinder").GetComponent<PathFindingManager>();
+        //pathEdge = (PathEdge)target;
+        //pathFinder = GameObject.Find("PathFinder").GetComponent<PathFindingManager>();
     }
 
     void OnDestroy()

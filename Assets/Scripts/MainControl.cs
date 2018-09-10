@@ -8,7 +8,6 @@ using UnityEngine;
 
 public class MainControl : MonoBehaviour
 {
-    private GameObject[] crowd;
     private GameObject selectedMan = null;
 
     private GameObject mouseClickObject = null;
@@ -20,8 +19,6 @@ public class MainControl : MonoBehaviour
     void Start()
     {
         RegisterEvents();
-
-        crowd = GameObject.FindGameObjectsWithTag("Man");
     }
 
     // Update is called once per frame
@@ -71,6 +68,7 @@ public class MainControl : MonoBehaviour
         GameObject obj = manLeftForEvent.obj;
         int slotId = manLeftForEvent.slotId;
 
+        man.GetComponent<CrowdControl>().SetWorkingObject(obj, slotId);
         obj.GetComponent<ObjectControl>().PlanSlot(slotId);
     }
 
@@ -81,7 +79,19 @@ public class MainControl : MonoBehaviour
         GameObject obj = manLeftFromEvent.obj;
         int slotId = manLeftFromEvent.slotId;
 
+        if (obj == null)
+        {
+            obj = man.GetComponent<CrowdControl>().GetWorkingObject();
+            slotId = man.GetComponent<CrowdControl>().GetWorkingSlot();
+        }
+
+        if (obj == null || slotId == -1)
+        {
+            return;
+        }
+
         man.transform.SetParent(null);
+        man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
         obj.GetComponent<ObjectControl>().FreeSlot(slotId);
     }
 
@@ -169,7 +179,7 @@ public class MainControl : MonoBehaviour
 
         Debug.Log("Double click " + selectedMan + " " + mouseClickObject);
         if (selectedMan && mouseClickObject.CompareTag("Object"))
-        {
+        { 
             FillMan(selectedMan, mouseClickObject);
         }
     }
@@ -208,42 +218,32 @@ public class MainControl : MonoBehaviour
             return;
         }
 
-        GameObject origObj = null;
-        if (man.transform.parent != null)
+        if (Services.pathFindingManager.FindPath(man, obj.GetComponent<ObjectControl>().GetSlotPos(slotId)))
         {
-            origObj = man.transform.parent.gameObject;
+            UnboundMan(man);
+            Services.pathFindingManager.Move(man, 5, new ManLeavesForObj(man, obj, slotId), new ManArrivesAtObj(man, obj, slotId));
         }
+        //if (Services.pathFindingManager.GoTo(man, obj.GetComponent<ObjectControl>().GetSlotPos(slotId), 5, new ManLeavesForObj(man, obj, slotId), new ManArrivesAtObj(man, obj, slotId)))
+        //{
+        //    UnboundMan(man);
+        //}
+    }
 
-        if (Services.pathFindingManager.GoTo(man, obj.GetComponent<ObjectControl>().GetSlotPos(slotId), 5, new ManLeavesForObj(man, obj, slotId), new ManArrivesAtObj(man, obj, slotId)))
-        {            
-            if (origObj != null && origObj.CompareTag("Object"))
-            {
-                int origSlotId = origObj.GetComponent<ObjectControl>().GetSlotId(man);
-                if (origSlotId != -1)
-                {
-                    Services.eventManager.QueueEvent(new ManLeavesFromObj(man, origObj, origSlotId));
-                }
-            }
-        }
+    public void UnboundMan(GameObject man)
+    {
+        Services.eventManager.QueueEvent(new ManLeavesFromObj(man));
     }
 
     public void MoveMan(GameObject man, Vector3 targetPos)
     {
-        GameObject origObj = null;
-        if (man.transform.parent != null)
+        if (Services.pathFindingManager.FindPath(man, targetPos))
         {
-            origObj = man.transform.parent.gameObject;
+            UnboundMan(man);
+            Services.pathFindingManager.Move(man);
         }
-        if (Services.pathFindingManager.GoTo(man, targetPos))
-        {            
-            if (origObj != null && origObj.CompareTag("Object"))
-            {
-                int origSlotId = origObj.GetComponent<ObjectControl>().GetSlotId(man);
-                if (origSlotId != -1)
-                {
-                    Services.eventManager.QueueEvent(new ManLeavesFromObj(man, origObj, origSlotId));
-                }
-            }
-        }
+        //if (Services.pathFindingManager.GoTo(man, targetPos))
+        //{
+        //    UnboundMan(man);
+        //}
     }
 }

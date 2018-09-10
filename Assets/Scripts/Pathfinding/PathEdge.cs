@@ -7,6 +7,11 @@ public class PathEdge : MonoBehaviour
     // to indicate the "zone" of the edge
     public Vector3 axisOffset;
 
+    [SerializeField]
+    private GameObject p0;
+    [SerializeField]
+    private GameObject p1;
+
     // Use this for initialization
     void Start()
     {
@@ -17,36 +22,6 @@ public class PathEdge : MonoBehaviour
     void Update()
     {
 
-    }
-
-    public virtual Vector3 StartPos()
-    {
-        return new Vector3(0, 0, 0);
-    }
-
-    public virtual Vector3 EndPos()
-    {
-        return new Vector3(0, 0, 0);
-    }
-}
-
-public class PathEdgeOnTwoObjects : PathEdge
-{
-    [SerializeField]
-    private GameObject p0;
-    [SerializeField]
-    private GameObject p1;
-
-    public PathEdgeOnTwoObjects(GameObject point0, GameObject point1)
-    {
-        p0 = point0;
-        p1 = point1;
-    }
-
-    public void SetPoints(GameObject point0, GameObject point1)
-    {
-        p0 = point0;
-        p1 = point1;
     }
 
     private void DrawEdge(Color color)
@@ -80,6 +55,12 @@ public class PathEdgeOnTwoObjects : PathEdge
         DrawEdge(Color.red);
     }
 
+    public void SetPoints(GameObject point0, GameObject point1)
+    {
+        p0 = point0;
+        p1 = point1;
+    }
+
     public GameObject P0()
     {
         return p0;
@@ -88,6 +69,34 @@ public class PathEdgeOnTwoObjects : PathEdge
     public GameObject P1()
     {
         return p1;
+    }
+}
+
+public class DirectedPathEdge
+{
+    // to indicate the "zone" of the edge
+    public Vector3 axisOffset;
+
+    public virtual Vector3 StartPos()
+    {
+        return new Vector3(0, 0, 0);
+    }
+
+    public virtual Vector3 EndPos()
+    {
+        return new Vector3(0, 0, 0);
+    }
+}
+
+public class DirectedPathEdgeOnTwoObjects : DirectedPathEdge
+{
+    private GameObject p0;
+    private GameObject p1;
+
+    public DirectedPathEdgeOnTwoObjects(GameObject point0, GameObject point1)
+    {
+        p0 = point0;
+        p1 = point1;
     }
 
     public override Vector3 StartPos()
@@ -101,14 +110,12 @@ public class PathEdgeOnTwoObjects : PathEdge
     }
 }
 
-public class PathEdgeOnObjectAndPosition : PathEdge
+public class DirectedPathEdgeOnObjectAndPosition : DirectedPathEdge
 {
-    [SerializeField]
     private GameObject p0;
-    [SerializeField]
     private Vector3 p1pos;
 
-    public PathEdgeOnObjectAndPosition(GameObject point0, Vector3 point1pos)
+    public DirectedPathEdgeOnObjectAndPosition(GameObject point0, Vector3 point1pos)
     {
         p0 = point0;
         p1pos = point1pos;
@@ -125,14 +132,12 @@ public class PathEdgeOnObjectAndPosition : PathEdge
     }
 }
 
-public class PathEdgeOnPositionAndObject : PathEdge
+public class DirectedPathEdgeOnPositionAndObject : DirectedPathEdge
 {
-    [SerializeField]
     private Vector3 p0pos;
-    [SerializeField]
     private GameObject p1;
 
-    public PathEdgeOnPositionAndObject(Vector3 point0pos, GameObject point1)
+    public DirectedPathEdgeOnPositionAndObject(Vector3 point0pos, GameObject point1)
     {
         p0pos = point0pos;
         p1 = point1;
