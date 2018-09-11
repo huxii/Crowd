@@ -17,7 +17,6 @@ public class ObjectDragRotationControl : ObjectControl
     // Update is called once per frame
     void Update()
     {
-        ActivatedUpdate();
     }
 
     public override void Drag(Vector3 dp)

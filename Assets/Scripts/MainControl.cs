@@ -223,10 +223,6 @@ public class MainControl : MonoBehaviour
             UnboundMan(man);
             Services.pathFindingManager.Move(man, 5, new ManLeavesForObj(man, obj, slotId), new ManArrivesAtObj(man, obj, slotId));
         }
-        //if (Services.pathFindingManager.GoTo(man, obj.GetComponent<ObjectControl>().GetSlotPos(slotId), 5, new ManLeavesForObj(man, obj, slotId), new ManArrivesAtObj(man, obj, slotId)))
-        //{
-        //    UnboundMan(man);
-        //}
     }
 
     public void UnboundMan(GameObject man)
@@ -241,9 +237,5 @@ public class MainControl : MonoBehaviour
             UnboundMan(man);
             Services.pathFindingManager.Move(man);
         }
-        //if (Services.pathFindingManager.GoTo(man, targetPos))
-        //{
-        //    UnboundMan(man);
-        //}
     }
 }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class PathEdge : MonoBehaviour
 {
     // to indicate the "zone" of the edge
-    public Vector3 axisOffset;
+    public Vector3 minusAxisExpand;
+    public Vector3 positiveAxisExpand;
 
     [SerializeField]
     private GameObject p0;
@@ -35,10 +36,10 @@ public class PathEdge : MonoBehaviour
         Gizmos.color = color;
         Gizmos.DrawLine(p0.transform.position, p1.transform.position);
 
-        Vector3 p00 = p0.transform.position - axisOffset;
-        Vector3 p01 = p0.transform.position + axisOffset;
-        Vector3 p10 = p1.transform.position - axisOffset;
-        Vector3 p11 = p1.transform.position + axisOffset;
+        Vector3 p00 = p0.transform.position - minusAxisExpand;
+        Vector3 p01 = p0.transform.position + positiveAxisExpand;
+        Vector3 p10 = p1.transform.position - minusAxisExpand;
+        Vector3 p11 = p1.transform.position + positiveAxisExpand;
         Gizmos.DrawLine(p00, p10);
         Gizmos.DrawLine(p01, p11);
         Gizmos.DrawLine(p00, p01);

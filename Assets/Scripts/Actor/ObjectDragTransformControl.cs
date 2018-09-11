@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class ObjectDragTransformControl : ObjectControl
 {
-    [HideInInspector]
-    public bool ready = false;
-
-    // tmp solution
-    public GameObject startPathPoint;
-    public GameObject endPathPoint;
-
     private Vector3 deltaPos = new Vector3(0, 0, 0);
     private Vector3 origPos;
 
@@ -23,14 +16,26 @@ public class ObjectDragTransformControl : ObjectControl
 	// Update is called once per frame
 	void Update ()
     {
-        ActivatedUpdate();
 	}
+
+    protected bool AtMinPos()
+    {
+        return (deltaPos.x <= minDelta.x + 0.01f && deltaPos.y <= minDelta.y + 0.01f && deltaPos.z <= minDelta.z + 0.01f);
+    }
+
+    protected bool AtMaxPos()
+    {
+        return (deltaPos.x >= maxDelta.x - 0.01f && deltaPos.y >= maxDelta.y - 0.01f && deltaPos.z >= maxDelta.z - 0.01f);
+    }
 
     public override void Drag(Vector3 dp)
     {
         if (ObjectReady())
         {
             base.Drag(dp);
+
+            bool alreadyMinPos = AtMinPos();
+            bool alreadyMaxPos = AtMaxPos();
 
             deltaPos = new Vector3(
                 Mathf.Max(Mathf.Min(deltaPos.x + dp.x, maxDelta.x), minDelta.x),
@@ -39,21 +44,30 @@ public class ObjectDragTransformControl : ObjectControl
                 );
             transform.position = origPos + deltaPos;
 
-            if (deltaPos.x <= minDelta.x + 0.01f && deltaPos.y <= minDelta.y + 0.01f && deltaPos.z <= minDelta.z + 0.01f)
+            if (AtMinPos())
             {
-                if (!ready)
+                if (!alreadyMinPos)
                 {
-                    ready = true;
-                    Services.pathFindingManager.ConnectPathPoints(startPathPoint, endPathPoint);
+                    OnArriveMinPosition.Invoke();
                 }
             }
             else
+            if (alreadyMinPos)
             {
-                if (ready)
+                OnLeaveMinPosition.Invoke();
+            }
+
+            if (AtMaxPos())
+            {
+                if (!alreadyMaxPos)
                 {
-                    ready = false;
-                    Services.pathFindingManager.DisconnectPathPoints(startPathPoint, endPathPoint);
+                    OnArriveMaxPosition.Invoke();
                 }
+            }
+            else
+            if (alreadyMaxPos)
+            {
+                OnLeaveMaxPosition.Invoke();
             }
         }
     }

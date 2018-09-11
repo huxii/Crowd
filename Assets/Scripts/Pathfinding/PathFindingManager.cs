@@ -185,10 +185,10 @@ public class PathFindingManager : MonoBehaviour
     {
         Vector3 p0 = edge.P0().transform.position;
         Vector3 p1 = edge.P1().transform.position;
-        Vector3 p00 = p0 - edge.axisOffset;
-        Vector3 p01 = p0 + edge.axisOffset;
-        Vector3 p10 = p1 - edge.axisOffset;
-        Vector3 p11 = p1 + edge.axisOffset;
+        Vector3 p00 = p0 - edge.minusAxisExpand;
+        Vector3 p01 = p0 + edge.positiveAxisExpand;
+        Vector3 p10 = p1 - edge.minusAxisExpand;
+        Vector3 p11 = p1 + edge.positiveAxisExpand;
 
         float minx = Mathf.Min(p00.x, p01.x, p10.x, p11.x);
         float maxx = Mathf.Max(p00.x, p01.x, p10.x, p11.x);
@@ -235,19 +235,26 @@ public class PathFindingManager : MonoBehaviour
         }
         else
         {
-            if (e.axisOffset.magnitude > 0.01f)
+            Vector3 p2;
+            if (e.positiveAxisExpand.magnitude > 0.01f)
             {
-                //Debug.Log("plane");
-                Vector3 p00 = p0 + e.axisOffset;
-                Plane plane = new Plane(p0, p1, p00);
-                return Mathf.Abs(plane.GetDistanceToPoint(pos));
+                p2 = p0 + e.positiveAxisExpand;
+            }
+            else
+            if (e.minusAxisExpand.magnitude > 0.01f)
+            {
+                p2 = p0 - e.minusAxisExpand;
             }
             else
             {
-                //Debug.Log("line");
+                // it's a line
                 float e0Sin = Mathf.Sqrt(1 - e0Cos * e0Cos);
                 return Vector3.Magnitude(p0pos) * e0Sin;
             }
+
+            // it's a plane
+            Plane plane = new Plane(p0, p1, p2);
+            return Mathf.Abs(plane.GetDistanceToPoint(pos));
         }
     }
 
