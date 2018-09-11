@@ -42,9 +42,27 @@ public class GameEvents : MonoBehaviour
         Services.pathFindingManager.DisconnectPathPoints(p0, p1);
     }
 
-    public void PlayAnimation(GameObject animationObject)
+    public void PlayAnimation(string animParas)
     {
-        Animation ani = animationObject.GetComponent<Animation>();
+        string[] paras = animParas.Split(',');
+        GameObject obj = GameObject.Find(paras[0]);
+        string animName = paras[1];
+        Animation ani = obj.GetComponent<Animation>();
+        ani[animName].speed = 1;
+        ani.Play();
+    }
+
+    public void RewindAnimation(string animParas)
+    {
+        string[] paras = animParas.Split(',');
+        GameObject obj = GameObject.Find(paras[0]);
+        string animName = paras[1];
+        Animation ani = obj.GetComponent<Animation>();
+        ani[animName].speed = -1;
+        if (!ani.isPlaying)
+        {
+            ani[animName].time = ani[animName].length;
+        }
         ani.Play();
     }
 
