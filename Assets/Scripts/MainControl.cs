@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// how to attach a task to a object (structure or xml)
-// AI: pathfinding
+// TODO: climb ladder & ear animation
 
 public class MainControl : MonoBehaviour
 {
@@ -57,8 +56,12 @@ public class MainControl : MonoBehaviour
         int slotId = manArrivedEvent.slotId;
 
         man.transform.SetParent(obj.transform);
-        selectedMan = null;
         obj.GetComponent<ObjectControl>().ReadySlot(slotId, man);
+
+        if (man == selectedMan)
+        {
+            DeselectMan();
+        }
     }
 
     void OnManLeavesForObj(Crowd.Event e)
@@ -207,7 +210,20 @@ public class MainControl : MonoBehaviour
 
     public void SelectMan(GameObject man)
     {
+        DeselectMan();
+
         selectedMan = man;
+        selectedMan.GetComponent<CrowdControl>().Selected();
+    }
+
+    public void DeselectMan()
+    {
+        if (selectedMan == null)
+        {
+            return;
+        }
+        selectedMan.GetComponent<CrowdControl>().Deselected();
+        selectedMan = null;
     }
 
     public void FillMan(GameObject man, GameObject obj)

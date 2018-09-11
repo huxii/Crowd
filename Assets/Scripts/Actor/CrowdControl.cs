@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CrowdControl : ActorControl
 {
+    public UnityEvent onSelected;
+    public UnityEvent onDeselected;
+
     enum CrowdState
     {
         IDLE,
@@ -45,5 +49,15 @@ public class CrowdControl : ActorControl
     public int GetWorkingSlot()
     {
         return workingSlot;
+    }
+
+    public void Selected()
+    {
+        onSelected.Invoke();
+    }
+
+    public void Deselected()
+    {
+        onDeselected.Invoke();
     }
 }

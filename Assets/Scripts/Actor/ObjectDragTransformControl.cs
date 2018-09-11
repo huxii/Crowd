@@ -48,26 +48,26 @@ public class ObjectDragTransformControl : ObjectControl
             {
                 if (!alreadyMinPos)
                 {
-                    OnArriveMinPosition.Invoke();
+                    onArriveMinPosition.Invoke();
                 }
             }
             else
             if (alreadyMinPos)
             {
-                OnLeaveMinPosition.Invoke();
+                onLeaveMinPosition.Invoke();
             }
 
             if (AtMaxPos())
             {
                 if (!alreadyMaxPos)
                 {
-                    OnArriveMaxPosition.Invoke();
+                    onArriveMaxPosition.Invoke();
                 }
             }
             else
             if (alreadyMaxPos)
             {
-                OnLeaveMaxPosition.Invoke();
+                onLeaveMaxPosition.Invoke();
             }
         }
     }

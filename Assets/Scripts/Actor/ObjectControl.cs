@@ -48,12 +48,12 @@ public abstract class ObjectControl : ActorControl
         READY,
     }
 
-    public UnityEvent OnSlotsFullfilled;
-    public UnityEvent OnSlotsQuitFullfilled;
-    public UnityEvent OnArriveMinPosition;
-    public UnityEvent OnArriveMaxPosition;
-    public UnityEvent OnLeaveMinPosition;
-    public UnityEvent OnLeaveMaxPosition;
+    public UnityEvent onSlotFullfilled;
+    public UnityEvent onSlotQuitFullfilled;
+    public UnityEvent onArriveMinPosition;
+    public UnityEvent onArriveMaxPosition;
+    public UnityEvent onLeaveMinPosition;
+    public UnityEvent onLeaveMaxPosition;
 
     //public enum ObjectControlScheme
     //{
@@ -119,7 +119,7 @@ public abstract class ObjectControl : ActorControl
             if (currentSlots == slots.Count)
             {
                 //Debug.Log("not fullfill");
-                OnSlotsQuitFullfilled.Invoke();
+                onSlotQuitFullfilled.Invoke();
             }
             --currentSlots;            
         }
@@ -140,7 +140,7 @@ public abstract class ObjectControl : ActorControl
             if (currentSlots == slots.Count)
             {
                 //Debug.Log("fullfill");
-                OnSlotsFullfilled.Invoke();
+                onSlotFullfilled.Invoke();
             }
             slots[id].state = SlotState.READY;
             slots[id].man = man;
