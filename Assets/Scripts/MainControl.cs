@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// TODO: distinguish single click and drag & ear animation & deselect on blank
+// TODO: distinguish single click and drag & GoToNextPoint function
 
 public class MainControl : MonoBehaviour
 {
@@ -129,6 +129,10 @@ public class MainControl : MonoBehaviour
                 {
                     mouseClickObject = hit.collider.gameObject;
                     mouseClickPos = hit.point;
+                }
+                else
+                {
+                    mouseClickObject = null;
                 }
             }
         }

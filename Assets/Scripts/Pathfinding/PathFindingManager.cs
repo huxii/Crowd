@@ -92,7 +92,7 @@ public class PathFindingManager : MonoBehaviour
     {
         Vector3 dir = (targetPos - actor.transform.position).normalized * speed * Time.deltaTime;
         actor.transform.position = actor.transform.position + dir;
-        if (Vector3.Distance(actor.transform.position, targetPos) <= 0.05f)
+        if (Vector3.Distance(actor.transform.position, targetPos) <= 0.1f)
         {
             return true;
         }
