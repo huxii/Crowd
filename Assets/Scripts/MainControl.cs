@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// TODO: climb ladder & ear animation
+// TODO: distinguish single click and drag & ear animation & deselect on blank
 
 public class MainControl : MonoBehaviour
 {
@@ -148,10 +148,11 @@ public class MainControl : MonoBehaviour
     {
         if (mouseClickObject == null)
         {
+            DeselectMan();
             return;
         }
 
-        Debug.Log("Single click");
+        Debug.Log("Single click " + mouseClickObject);
         if (mouseClickObject.CompareTag("Man"))
         {
             SelectMan(mouseClickObject);

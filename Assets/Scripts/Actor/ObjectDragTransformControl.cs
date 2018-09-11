@@ -30,7 +30,7 @@ public class ObjectDragTransformControl : ObjectControl
 
     public override void Drag(Vector3 dp)
     {
-        if (ObjectReady())
+        if (ObjectReady() && !locked)
         {
             base.Drag(dp);
 

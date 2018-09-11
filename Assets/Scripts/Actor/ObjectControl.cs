@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-// TODO: click task & feedback to switch state
-
-// TODO: click task
-// cycle time / number of cycles / is looping
-
 public abstract class ObjectControl : ActorControl
 {
     [System.Serializable]
@@ -40,6 +35,8 @@ public abstract class ObjectControl : ActorControl
 
     // current slots occupied by the crowd
     protected int currentSlots = 0;
+
+    protected bool locked = false;
 
     protected enum SlotState
     {
@@ -152,6 +149,16 @@ public abstract class ObjectControl : ActorControl
         return slots[id].obj.transform.position;
     }
 
+    public void Lock()
+    {
+        locked = true;
+    }
+
+    public void Unlock()
+    {
+        locked = false;
+    }
+
     //public int GetSlotId(GameObject man)
     //{
     //    for (int i = 0; i < slots.Count; ++i)
@@ -167,7 +174,6 @@ public abstract class ObjectControl : ActorControl
 
     public virtual void Drag(Vector3 deltaPos)
     {
-
     }
 
     public virtual int FindEmptySlot()

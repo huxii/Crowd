@@ -87,6 +87,19 @@ public class DirectedPathEdge
     {
         return new Vector3(0, 0, 0);
     }
+
+    public virtual GameObject LockedObject()
+    {
+        return null;
+    }
+
+    public virtual void Lock()
+    {
+    }
+
+    public virtual void Unlock()
+    {
+    }
 }
 
 public class DirectedPathEdgeOnTwoObjects : DirectedPathEdge
@@ -109,6 +122,22 @@ public class DirectedPathEdgeOnTwoObjects : DirectedPathEdge
     {
         return p1.transform.position;
     }
+
+    public override void Lock()
+    {
+        if (p0.GetComponent<PathPoint>().followObject)
+        {
+            p0.GetComponent<PathPoint>().followObject.GetComponent<ObjectControl>().Lock();
+        }
+    }
+
+    public override void Unlock()
+    {
+        if (p0.GetComponent<PathPoint>().followObject)
+        {
+            p0.GetComponent<PathPoint>().followObject.GetComponent<ObjectControl>().Unlock();
+        }
+    }
 }
 
 public class DirectedPathEdgeOnObjectAndPosition : DirectedPathEdge
@@ -130,6 +159,22 @@ public class DirectedPathEdgeOnObjectAndPosition : DirectedPathEdge
     public override Vector3 EndPos()
     {
         return p1pos;
+    }
+
+    public override void Lock()
+    {
+        if (p0.GetComponent<PathPoint>().followObject)
+        {
+            p0.GetComponent<PathPoint>().followObject.GetComponent<ObjectControl>().Lock();
+        }
+    }
+
+    public override void Unlock()
+    {
+        if (p0.GetComponent<PathPoint>().followObject)
+        {
+            p0.GetComponent<PathPoint>().followObject.GetComponent<ObjectControl>().Unlock();
+        }
     }
 }
 

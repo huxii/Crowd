@@ -61,7 +61,7 @@ public class PathFindingManager : MonoBehaviour
             if (GoToNextPoint(actor, path.pathEdges[0].EndPos(), path.speed))
             {
                 if (path.pathEdges.Count <= 1)
-                {           
+                {
                     // arrived at the final position
                     if (path.endEvent != null)
                     {
@@ -69,6 +69,12 @@ public class PathFindingManager : MonoBehaviour
                     }
 
                     PathTable.Remove(actor);
+                }
+                else
+                {                
+                    // walking out of path 0
+                    path.pathEdges[0].Unlock();
+                    path.pathEdges[1].Lock();
                 }
 
                 // in order to preserve the pre edge
