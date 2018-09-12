@@ -8,4 +8,6 @@ public class Services : MonoBehaviour
     public static Crowd.TaskManager taskManager = new Crowd.TaskManager();
     public static PathFindingManager pathFindingManager = GameObject.Find("PathFinder").GetComponent<PathFindingManager>();
     public static MainControl gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainControl>();
+    public static InputControl inputController = new InputControl();
+    public static CameraControl cameraController = new CameraControl();
 }
