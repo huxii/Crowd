@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// TODO: distinguish single click and drag
+// TODO: double click twice
 
 public class MainControl : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class MainControl : MonoBehaviour
     private Vector3 mouseClickPos;
     private bool oneClick = false;
     private float doubleClickTime = 0;
+    private float singleClickTime = 0;
 
     // Use this for initialization
     void Start()
@@ -112,6 +113,23 @@ public class MainControl : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            singleClickTime = Time.time;
+
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 100f))
+            {
+                mouseClickObject = hit.collider.gameObject;
+                mouseClickPos = hit.point;
+            }
+            else
+            {
+                mouseClickObject = null;
+            }
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
             // get a second click before it's timed out, treated as a double click
             if (oneClick)
             {
@@ -120,20 +138,12 @@ public class MainControl : MonoBehaviour
             }
             else
             {
-                oneClick = true;
-                doubleClickTime = Time.time;
+                if (Time.time - singleClickTime < 0.3f)
+                {
+                    oneClick = true;
+                }
 
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit, 100f))
-                {
-                    mouseClickObject = hit.collider.gameObject;
-                    mouseClickPos = hit.point;
-                }
-                else
-                {
-                    mouseClickObject = null;
-                }
+                doubleClickTime = Time.time;
             }
         }
 
