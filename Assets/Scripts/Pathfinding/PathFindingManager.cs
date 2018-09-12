@@ -465,6 +465,11 @@ public class PathFindingManager : MonoBehaviour
             return;
         }
 
+        if (startEvent != null)
+        {
+            Services.eventManager.QueueEvent(startEvent);
+        }
+
         recentPath.speed = speed;
         recentPath.endEvent = endEvent;
         if (PathTable.ContainsKey(actor))
@@ -472,16 +477,8 @@ public class PathFindingManager : MonoBehaviour
             // should abort original path
             PathTable.Remove(actor);
         }
-        else
-        {
-            PathTable.Add(actor, recentPath);
-        }
 
-        if (startEvent != null)
-        {
-            Services.eventManager.QueueEvent(startEvent);
-        }
-
+        PathTable.Add(actor, recentPath);
         recentPath = null;
     }
 }

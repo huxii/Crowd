@@ -37,6 +37,7 @@ namespace Crowd
 
         public void ProcessQueuedEvents()
         {
+            // events are inserted at the beginning of the queue
             for (int i = queuedEvents.Count - 1; i >= 0; --i)
             {
                 Fire(queuedEvents[i]);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// TODO: double click twice
+// TODO: on ladder / off ladder path & rotate viewport when drag on nothing
 
 public class MainControl : MonoBehaviour
 {
@@ -112,7 +112,7 @@ public class MainControl : MonoBehaviour
         }
 
         if (Input.GetMouseButtonDown(0))
-        {
+        { 
             singleClickTime = Time.time;
 
             RaycastHit hit;
@@ -138,6 +138,7 @@ public class MainControl : MonoBehaviour
             }
             else
             {
+                // when it's not a drag
                 if (Time.time - singleClickTime < 0.3f)
                 {
                     oneClick = true;
