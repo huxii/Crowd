@@ -90,16 +90,15 @@ public class PathFindingManager : MonoBehaviour
 
     private bool GoToNextPoint(GameObject actor, Vector3 targetPos, float speed)
     {
-        Vector3 dir = (targetPos - actor.transform.position).normalized * speed * Time.deltaTime;
-        actor.transform.position = actor.transform.position + dir;
-        if (Vector3.Distance(actor.transform.position, targetPos) <= 0.1f)
+        if (Vector3.Distance(targetPos, actor.transform.position) <= speed * Time.deltaTime)
         {
+            actor.transform.position = targetPos;
             return true;
         }
-        else
-        {
-            return false;
-        }
+
+        Vector3 dir = (targetPos - actor.transform.position).normalized * speed * Time.deltaTime;
+        actor.transform.position = actor.transform.position + dir;
+        return false;
     }
 
     private GameObject CreateNewGameObject(string name)

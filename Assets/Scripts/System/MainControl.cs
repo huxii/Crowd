@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// TODO: distinguish single click and drag & GoToNextPoint function
+// TODO: distinguish single click and drag
 
 public class MainControl : MonoBehaviour
 {
