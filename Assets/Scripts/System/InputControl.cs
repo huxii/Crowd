@@ -83,6 +83,11 @@ public class InputControl : MonoBehaviour
         {
             // mouse up
         }
+
+        if (Input.GetAxis("Mouse ScrollWheel") != 0)
+        {
+            Services.cameraController.Zoom(Input.GetAxis("Mouse ScrollWheel"));
+        }
     }
 
     private void MouseSingleClick()
@@ -133,11 +138,7 @@ public class InputControl : MonoBehaviour
     {
         if (mouseClickObject == null)
         {
-            // rotate viewport
-            Vector3 mouseDelta = (Input.mousePosition - mouseDragPos) * Time.time;
-            //Debug.Log(mouseDelta);
-            Services.cameraController.Orbit(mouseDelta.x / Screen.width * 10f, mouseDelta.y / Screen.height / 10f);
-            mouseDragPos = Input.mousePosition;
+            RotateViewport();
         }
         else
         {
@@ -150,13 +151,26 @@ public class InputControl : MonoBehaviour
                 Vector3 mouseDelta = newMouseClickPos - mouseClickPos;
 
                 if (mouseClickObject.GetComponent<ObjectControl>())
-                {                   
+                {
                     mouseClickObject.GetComponent<ObjectControl>().Drag(mouseDelta);
                 }
 
                 mouseClickPos = newMouseClickPos;
             }
+            else
+            {
+                RotateViewport();
+            }
         }
+    }
+
+    public void RotateViewport()
+    {            
+        // rotate viewport
+        Vector3 mouseDelta = (Input.mousePosition - mouseDragPos) * Time.time;
+        //Debug.Log(mouseDelta);
+        Services.cameraController.Orbit(mouseDelta.x, mouseDelta.y);
+        mouseDragPos = Input.mousePosition;
     }
 
     public void SelectMan(GameObject man)
