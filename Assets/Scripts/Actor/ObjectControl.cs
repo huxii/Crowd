@@ -12,8 +12,6 @@ public abstract class ObjectControl : ActorControl
     protected bool readyToDeactivate = false;
     protected bool isActivated = false;
 
-    private Sequence animationSequence;
-
     //public enum ObjectControlScheme
     //{
     //    DRAG_TRANSFORMATION,
@@ -75,15 +73,5 @@ public abstract class ObjectControl : ActorControl
             readyToDeactivate = false;
             Deactivate();
         }
-    }
-
-    public void SetSequence(Sequence seq)
-    {
-        animationSequence = seq;
-    }
-
-    public Sequence GetSequence()
-    {
-        return animationSequence;
     }
 }

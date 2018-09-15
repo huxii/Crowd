@@ -110,6 +110,29 @@ public class PathFindingManager : MonoBehaviour
         return newObj;
     }
 
+    private void UpdateArrays()
+    {
+        foreach (GameObject point in pathPoints.ToArray())
+        {
+            if (point == null)
+            {
+                pathPoints.Remove(point);
+            }
+            else
+            {
+                point.GetComponent<PathPoint>().pointSize = pointSize;
+            }
+        }
+
+        foreach (GameObject edge in pathEdges.ToArray())
+        {
+            if (edge == null)
+            {
+                pathEdges.Remove(edge);
+            }
+        }
+    }
+
     public GameObject AddPathPoint()
     {
         if (pointsObj == null)
@@ -149,6 +172,8 @@ public class PathFindingManager : MonoBehaviour
         newPathEdge.GetComponent<PathEdge>().SetPoints(p0, p1);
 
         pathEdges.Add(newPathEdge);
+
+        UpdateArrays();
     }
 
     public void DisconnectPathPoints(GameObject p0, GameObject p1)
@@ -161,29 +186,13 @@ public class PathFindingManager : MonoBehaviour
                 DestroyImmediate(edge);
             }
         }
+
+        UpdateArrays();
     }
 
     public void OnDrawGizmos()
     {
-        foreach (GameObject point in pathPoints.ToArray())
-        {
-            if (point == null)
-            {
-                pathPoints.Remove(point);
-            }
-            else
-            {
-                point.GetComponent<PathPoint>().pointSize = pointSize;
-            }
-        }
-
-        foreach (GameObject edge in pathEdges.ToArray())
-        {
-            if (edge == null)
-            {
-                pathEdges.Remove(edge);
-            }  
-        }        
+        UpdateArrays();       
     }
 
     private Vector3 Clamp(PathEdge edge, Vector3 pos)

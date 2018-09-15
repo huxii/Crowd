@@ -1,10 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 // the objects that control or are controlled by primary objects
 public class ObjectSecondaryControl : ObjectControl
 {
+    [Serializable]
+    public struct AnchoredObj
+    {
+        public GameObject parentObj;
+        public GameObject childObj;
+    }
+
+    public List<AnchoredObj> anochoredObjs;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -13,7 +23,10 @@ public class ObjectSecondaryControl : ObjectControl
 	// Update is called once per frame
 	void Update ()
     {
-		
+        foreach (AnchoredObj pair in anochoredObjs)
+        {
+            pair.childObj.transform.position = pair.parentObj.transform.position;
+        }
 	}
 
     public void LockChildren()
