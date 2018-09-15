@@ -26,6 +26,8 @@ public abstract class ObjectPrimaryControl : ObjectControl
         READY,
     }
 
+    public bool needDelayToDeactivate = false;
+
     [SerializeField]
     public float slotGizmoSize = 1f;
 
@@ -90,7 +92,14 @@ public abstract class ObjectPrimaryControl : ObjectControl
         {
             if (currentSlots == slots.Count)
             {
-                Deactivate();
+                if (needDelayToDeactivate)
+                {
+                    DelayToDeactivate();
+                }
+                else
+                {
+                    Deactivate();
+                }
             }
             --currentSlots;
         }

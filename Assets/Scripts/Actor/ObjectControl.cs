@@ -8,7 +8,6 @@ public abstract class ObjectControl : ActorControl
 {
     public UnityEvent onActivated;
     public UnityEvent onDeactivated;
-    public UnityEvent onDelayDeactivated;
 
     protected bool readyToDeactivate = false;
 
@@ -52,29 +51,14 @@ public abstract class ObjectControl : ActorControl
         onActivated.Invoke();
     }
 
-    public void Deactivate(bool force = false)
+    public void Deactivate()
     {
-        if (force)
-        {
-            onDeactivated.Invoke();
-        }
-        else
-        {
-            if (onDelayDeactivated == null)
-            {
-                Deactivate(true);
-            }
-            else
-            {
-                DelayToDeactivate();
-            }
-        }
+        onDeactivated.Invoke();
     }
 
     public void DelayToDeactivate()
     {
         readyToDeactivate = true;
-        onDelayDeactivated.Invoke();
     }
 
     public void Pause()
@@ -82,7 +66,7 @@ public abstract class ObjectControl : ActorControl
         if (readyToDeactivate)
         {
             readyToDeactivate = false;
-            Deactivate(true);
+            Deactivate();
         }
     }
 
