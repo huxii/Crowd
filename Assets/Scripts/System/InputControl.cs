@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InputControl : MonoBehaviour
 {
-    private GameObject selectedMan = null;
     private GameObject mouseClickObject = null;
     private Vector3 mouseClickPos;
     private Vector3 mouseDragPos;
@@ -92,46 +91,16 @@ public class InputControl : MonoBehaviour
 
     private void MouseSingleClick()
     {
-        if (mouseClickObject == null)
-        {
-            DeselectMan();
-            return;
-        }
-
         Debug.Log("Single click " + mouseClickObject);
-        if (mouseClickObject.CompareTag("Man"))
-        {
-            SelectMan(mouseClickObject);
-        }
-        else
-        if (mouseClickObject.CompareTag("Object"))
-        {
-            if (selectedMan)
-            {
-                MoveMan(selectedMan, mouseClickPos);
-            }
-        }
-        else
-        {
-            if (selectedMan)
-            {
-                MoveMan(selectedMan, mouseClickPos);
-            }
-        }
+
+        Services.gameController.ClickOn(mouseClickObject, mouseClickPos);
     }
 
     private void MouseDoubleClick()
     {
-        if (mouseClickObject == null)
-        {
-            return;
-        }
+        Debug.Log("Double click " + mouseClickObject);
 
-        Debug.Log("Double click " + selectedMan + " " + mouseClickObject);
-        if (selectedMan && mouseClickObject.CompareTag("Object"))
-        {
-            FillMan(selectedMan, mouseClickObject);
-        }
+        Services.gameController.DoubleClickOn(mouseClickObject);
     }
 
     private void MouseDrag()
@@ -150,10 +119,7 @@ public class InputControl : MonoBehaviour
                 Vector3 newMouseClickPos = hit.point;
                 Vector3 mouseDelta = newMouseClickPos - mouseClickPos;
 
-                if (mouseClickObject.GetComponent<ObjectControl>())
-                {
-                    mouseClickObject.GetComponent<ObjectControl>().Drag(mouseDelta);
-                }
+                Services.gameController.DragOn(mouseClickObject, mouseDelta);
 
                 mouseClickPos = newMouseClickPos;
             }
@@ -171,57 +137,5 @@ public class InputControl : MonoBehaviour
         //Debug.Log(mouseDelta);
         Services.cameraController.Orbit(mouseDelta.x, mouseDelta.y);
         mouseDragPos = Input.mousePosition;
-    }
-
-    public void SelectMan(GameObject man)
-    {
-        DeselectMan();
-
-        selectedMan = man;
-        selectedMan.GetComponent<CrowdControl>().Selected();
-    }
-
-    public void DeselectMan()
-    {
-        if (selectedMan == null)
-        {
-            return;
-        }
-        selectedMan.GetComponent<CrowdControl>().Deselected();
-        selectedMan = null;
-    }
-
-    public void FillMan(GameObject man, GameObject obj)
-    {
-        int slotId = obj.GetComponent<ObjectControl>().FindEmptySlot();
-        if (slotId == -1)
-        {
-            return;
-        }
-
-        if (Services.pathFindingManager.FindPath(man, obj.GetComponent<ObjectControl>().GetSlotPos(slotId)))
-        {
-            UnboundMan(man);
-            Services.pathFindingManager.Move(man, 5, new ManLeavesForObj(man, obj, slotId), new ManArrivesAtObj(man, obj, slotId));
-        }
-    }
-
-    public void UnboundMan(GameObject man)
-    {
-        Services.eventManager.QueueEvent(new ManLeavesFromObj(man));
-    }
-
-    public void MoveMan(GameObject man, Vector3 targetPos)
-    {
-        if (Services.pathFindingManager.FindPath(man, targetPos))
-        {
-            UnboundMan(man);
-            Services.pathFindingManager.Move(man);
-        }
-    }
-
-    public GameObject SelectedMan()
-    {
-        return selectedMan;
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public abstract class ActorControl : MonoBehaviour
 {
+    // 1. can't move    2. slots won't work
+    protected bool locked = false;
+
     // Use this for initialization
     void Start ()
     {
@@ -15,4 +18,19 @@ public abstract class ActorControl : MonoBehaviour
     {
 		
 	}
+
+    public virtual void Lock()
+    {
+        locked = true;
+    }
+
+    public virtual void Unlock()
+    {
+        locked = false;
+    }
+
+    public bool IsLocked()
+    {
+        return locked;
+    }
 }

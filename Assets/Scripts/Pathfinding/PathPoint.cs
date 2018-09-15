@@ -35,12 +35,14 @@ public class PathPoint : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        UpdatePosition();
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, pointSize);
     }
 
     private void OnDrawGizmosSelected()
     {
+        UpdatePosition();
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, pointSize);
     }

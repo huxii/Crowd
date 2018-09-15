@@ -13,14 +13,18 @@ public class ObjectControlEditor : Editor
     {
         objectController = (ObjectControl)target;
     }
+}
 
+[CustomEditor(typeof(ObjectPrimaryControl))]
+public class ObjectPrimaryControlEditor : ObjectControlEditor
+{
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
         if (GUILayout.Button("Add Slot"))
         {
-            GameObject newSlot = objectController.AddSlot();
+            GameObject newSlot = ((ObjectPrimaryControl)objectController).AddSlot();
             Selection.activeGameObject = newSlot;
         }
 
@@ -32,8 +36,26 @@ public class ObjectControlEditor : Editor
     }
 }
 
+[CustomEditor(typeof(ObjectClickControl))]
+public class ObjectClickControlEditor : ObjectPrimaryControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
+[CustomEditor(typeof(ObjectDragControl))]
+public class ObjectDragControlEditor : ObjectPrimaryControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
 [CustomEditor(typeof(ObjectDragTransformControl))]
-public class ObjectDragTransformControlEditor : ObjectControlEditor
+public class ObjectDragTransformControlEditor : ObjectDragControlEditor
 {
     public override void OnInspectorGUI()
     {
@@ -42,7 +64,7 @@ public class ObjectDragTransformControlEditor : ObjectControlEditor
 }
 
 [CustomEditor(typeof(ObjectDragRotationControl))]
-public class ObjectDragRotationControlEditor : ObjectControlEditor
+public class ObjectDragRotationControlEditor : ObjectDragControlEditor
 {
     public override void OnInspectorGUI()
     {
@@ -50,8 +72,8 @@ public class ObjectDragRotationControlEditor : ObjectControlEditor
     }
 }
 
-[CustomEditor(typeof(ObjectClickControl))]
-public class ObjectClickControlEditor : ObjectControlEditor
+[CustomEditor(typeof(ObjectSecondaryControl))]
+public class ObjectSecondaryControlEditor : ObjectControlEditor
 {
     public override void OnInspectorGUI()
     {

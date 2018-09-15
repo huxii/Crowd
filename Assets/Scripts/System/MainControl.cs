@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class MainControl : MonoBehaviour
 {
+    private GameObject selectedMan = null;
+
     // Use this for initialization
     void Start()
     {
@@ -48,11 +50,11 @@ public class MainControl : MonoBehaviour
         int slotId = manArrivedEvent.slotId;
 
         man.transform.SetParent(obj.transform);
-        obj.GetComponent<ObjectControl>().ReadySlot(slotId, man);
+        obj.GetComponent<ObjectPrimaryControl>().ReadySlot(slotId, man);
 
-        if (man == Services.inputController.SelectedMan())
+        if (man == selectedMan)
         {
-            Services.inputController.DeselectMan();
+            DeselectMan();
         }
     }
 
@@ -64,7 +66,7 @@ public class MainControl : MonoBehaviour
         int slotId = manLeftForEvent.slotId;
 
         man.GetComponent<CrowdControl>().SetWorkingObject(obj, slotId);
-        obj.GetComponent<ObjectControl>().PlanSlot(slotId);
+        obj.GetComponent<ObjectPrimaryControl>().PlanSlot(slotId);
     }
 
     void OnManLeavesFromObj(Crowd.Event e)
@@ -87,6 +89,113 @@ public class MainControl : MonoBehaviour
 
         man.transform.SetParent(null);
         man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
-        obj.GetComponent<ObjectControl>().FreeSlot(slotId);
+        obj.GetComponent<ObjectPrimaryControl>().FreeSlot(slotId);
+    }
+
+    private void SelectMan(GameObject man)
+    {
+        DeselectMan();
+
+        selectedMan = man;
+        selectedMan.GetComponent<CrowdControl>().Selected();
+    }
+
+    private void DeselectMan()
+    {
+        if (selectedMan == null)
+        {
+            return;
+        }
+        selectedMan.GetComponent<CrowdControl>().Deselected();
+        selectedMan = null;
+    }
+
+    private void FillMan(GameObject man, GameObject obj)
+    {
+        if (!obj.GetComponent<ObjectPrimaryControl>() || man.GetComponent<CrowdControl>().IsLocked())
+        {
+            return;
+        }
+
+        int slotId = obj.GetComponent<ObjectPrimaryControl>().FindEmptySlot();
+        if (slotId == -1)
+        {
+            return;
+        }
+
+        if (Services.pathFindingManager.FindPath(man, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId)))
+        {
+            UnboundMan(man);
+            Services.pathFindingManager.Move(man, 5, new ManLeavesForObj(man, obj, slotId), new ManArrivesAtObj(man, obj, slotId));
+        }
+    }
+
+    private void UnboundMan(GameObject man)
+    {
+        Services.eventManager.QueueEvent(new ManLeavesFromObj(man));
+    }
+
+    private void MoveMan(GameObject man, Vector3 targetPos)
+    {
+        if (man.GetComponent<CrowdControl>().IsLocked())
+        {
+            return;
+        }
+
+        if (Services.pathFindingManager.FindPath(man, targetPos))
+        {
+            UnboundMan(man);
+            Services.pathFindingManager.Move(man);
+        }
+    }
+
+    public void DragOn(GameObject obj, Vector3 delta)
+    {
+        if (obj != null && obj.GetComponent<ObjectControl>())
+        {
+            obj.GetComponent<ObjectControl>().Drag(delta);
+        }
+    }
+
+    public void ClickOn(GameObject mouseClickObject, Vector3 mouseClickPos)
+    {
+        if (mouseClickObject == null)
+        {
+            DeselectMan();
+            return;
+        }
+
+        if (mouseClickObject.CompareTag("Man"))
+        {
+            SelectMan(mouseClickObject);
+        }
+        else
+        if (mouseClickObject.CompareTag("Object"))
+        {
+            if (selectedMan)
+            {
+                MoveMan(selectedMan, mouseClickPos);
+            }
+        }
+        else
+        {
+            if (selectedMan)
+            {
+                MoveMan(selectedMan, mouseClickPos);
+            }
+        }
+    }
+
+    public void DoubleClickOn(GameObject mouseClickObject)
+    {
+        if (mouseClickObject == null)
+        {
+            return;
+        }
+
+        if (selectedMan && mouseClickObject.CompareTag("Object"))
+        {
+            FillMan(selectedMan, mouseClickObject);
+        }
     }
 }

@@ -66,9 +66,48 @@ public class GameEvents : MonoBehaviour
         ani.Play();
     }
 
-    public void Rotate(GameObject obj)
+    public void DotweenRotate(string para)
     {
-        obj.transform.DORotate(new Vector3(0, 180, 0), 5f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Incremental);        
+        string[] paras = para.Split(',');
+        GameObject obj = GameObject.Find(paras[0]);
+        string axis = paras[1];
+        float inc = float.Parse(paras[2]);
+
+        Vector3 deltaRot = new Vector3(0, 0, 0);
+        if (axis.ToLower() == "x")
+        {
+            deltaRot = new Vector3(inc, 0, 0);
+        }
+        else
+        if (axis.ToLower() == "y")
+        {
+            deltaRot = new Vector3(0, inc, 0);
+        }
+        else
+        if (axis.ToLower() == "z")
+        {
+            deltaRot = new Vector3(0, 0, inc);
+        }
+
+        int incNumber = (int)(Mathf.Abs(360f / inc));
+        Sequence seq = DOTween.Sequence();
+        Vector3 targetRot = obj.transform.eulerAngles + deltaRot;
+        for (int i = 0; i < incNumber; ++i)
+        {
+            seq.Append(obj.transform.DORotate(targetRot, 1f)
+                //.OnStart(()=> obj.GetComponent<ObjectControl>().UnreadyToDeactivate())
+                .OnComplete(() => obj.GetComponent<ObjectControl>().Pause())
+                .SetEase(Ease.Linear).SetDelay(0.3f));
+            targetRot += deltaRot;
+        }        
+        seq.SetLoops(-1, LoopType.Restart);
+        obj.GetComponent<ObjectControl>().SetSequence(seq);
+    }
+
+    public void DotweenKillSequence(GameObject obj)
+    {
+        //DOTween.Kill(obj);
+        obj.GetComponent<ObjectControl>().GetSequence().Kill();
     }
 
     public void DotweenKillTransform(Transform objTransform)

@@ -294,11 +294,11 @@ public class PathFindingManager : MonoBehaviour
             }
         }
 
-        //if (dist > 1f)
-        //{
-        //    return null;
-        //}
-        //else
+        if (dist > 1.5f)
+        {
+            return null;
+        }
+        else
         {
             //Debug.Log(dist + " " + nearestPathEdge);
             return nearestPathEdge;
@@ -340,6 +340,7 @@ public class PathFindingManager : MonoBehaviour
         //int t = IDs[FindNearestPathPoint(endPos)];
         GameObject es = FindNearestPathEdge(startPos);
         GameObject et = FindNearestPathEdge(endPos);
+        //Debug.Log(es + " " + et);
         if (es == null || et == null)
         {
             return false;
@@ -348,7 +349,7 @@ public class PathFindingManager : MonoBehaviour
         // move in the same "zone"
         if (es == et)
         {
-            Debug.Log("same");
+            //Debug.Log("same");
             recentPath = new FoundPath();
             Vector3 validEndPos = Clamp(et.GetComponent<PathEdge>(), endPos);
             recentPath.pathEdges.Insert(0, new DirectedPathEdgeOnPositions(startPos, validEndPos));

@@ -2,55 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public abstract class ObjectControl : ActorControl
 {
-    [System.Serializable]
-    protected class SlotAttr
-    {
-        public SlotState state;
-        public GameObject obj;
-        public GameObject man;
+    public UnityEvent onActivated;
+    public UnityEvent onDeactivated;
+    public UnityEvent onDelayDeactivated;
 
-        public SlotAttr(GameObject o, GameObject m = null)
-        {
-            state = SlotState.EMPTY;
-            obj = o;
-            man = m;
-        }
-    };
+    protected bool readyToDeactivate = false;
 
-    [SerializeField]
-    public float slotGizmoSize = 1f;
-    [SerializeField]
-    protected List<SlotAttr> slots;
-    [HideInInspector]
-    [SerializeField]
-    private float namingCounter = 0;
-    private Vector3 localSpawnPos = new Vector3(0, 0, 0);
-
-    // the range of dragging
-    public Vector3 minDelta = new Vector3(0, 0, 0);
-    public Vector3 maxDelta = new Vector3(0, 0, 0);
-
-    // current slots occupied by the crowd
-    protected int currentSlots = 0;
-
-    protected bool locked = false;
-
-    protected enum SlotState
-    {
-        EMPTY,
-        PLANNED,
-        READY,
-    }
-
-    public UnityEvent onSlotFullfilled;
-    public UnityEvent onSlotQuitFullfilled;
-    public UnityEvent onArriveMinPosition;
-    public UnityEvent onArriveMaxPosition;
-    public UnityEvent onLeaveMinPosition;
-    public UnityEvent onLeaveMaxPosition;
+    private Sequence animationSequence;
 
     //public enum ObjectControlScheme
     //{
@@ -76,117 +38,61 @@ public abstract class ObjectControl : ActorControl
     {		
 	}
 
-    private void OnDrawGizmos()
-    {
-        foreach (SlotAttr slot in slots.ToArray())
-        {
-            if (slot.obj == null)
-            {
-                slots.Remove(slot);
-            }
-            else
-            {
-                Gizmos.color = Color.green;
-                Gizmos.DrawWireSphere(slot.obj.transform.position, slotGizmoSize);
-            }
-        }
-    }
-
-    public GameObject AddSlot()
-    {
-        GameObject newSlot = new GameObject();
-        newSlot.name = "Slot" + namingCounter;
-        newSlot.transform.SetParent(transform);
-        newSlot.transform.localPosition = localSpawnPos;
-        ++namingCounter;
-
-        slots.Add(new SlotAttr(newSlot));
-        return newSlot;
-    }
-
-    protected bool ObjectReady()
-    {
-        return currentSlots >= slots.Count;
-    }
-
-    public void FreeSlot(int id)
-    {
-        if (slots[id].state == SlotState.READY)
-        {
-            if (currentSlots == slots.Count)
-            {
-                //Debug.Log("not fullfill");
-                onSlotQuitFullfilled.Invoke();
-            }
-            --currentSlots;            
-        }
-        slots[id].man = null;
-        slots[id].state = SlotState.EMPTY;
-    }
-
-    public void PlanSlot(int id)
-    {
-        slots[id].state = SlotState.PLANNED;
-    }
-
-    public void ReadySlot(int id, GameObject man)
-    {
-        if (slots[id].state != SlotState.READY)
-        {
-            ++currentSlots;
-            if (currentSlots == slots.Count)
-            {
-                //Debug.Log("fullfill");
-                onSlotFullfilled.Invoke();
-            }
-            slots[id].state = SlotState.READY;
-            slots[id].man = man;
-        }
-    }
-
-    public Vector3 GetSlotPos(int id)
-    {
-        return slots[id].obj.transform.position;
-    }
-
-    public void Lock()
-    {
-        locked = true;
-    }
-
-    public void Unlock()
-    {
-        locked = false;
-    }
-
-    //public int GetSlotId(GameObject man)
-    //{
-    //    for (int i = 0; i < slots.Count; ++i)
-    //    {
-    //        if (slots[i].man == man)
-    //        {
-    //            return i;
-    //        }
-    //    }
-
-    //    return -1;
-    //}
-
     public virtual void Drag(Vector3 deltaPos)
     {
     }
 
-    public virtual int FindEmptySlot()
+    public virtual bool IsActivated()
     {
-        for (int i = 0; i < slots.Count; ++i)
+        return false;
+    }
+
+    public void Activate()
+    {
+        onActivated.Invoke();
+    }
+
+    public void Deactivate(bool force = false)
+    {
+        if (force)
         {
-            SlotAttr slot = slots[i];
-            if (slot.state == SlotState.EMPTY)
+            onDeactivated.Invoke();
+        }
+        else
+        {
+            if (onDelayDeactivated == null)
             {
-                return i;
+                Deactivate(true);
+            }
+            else
+            {
+                DelayToDeactivate();
             }
         }
+    }
 
-        return -1;
+    public void DelayToDeactivate()
+    {
+        readyToDeactivate = true;
+        onDelayDeactivated.Invoke();
+    }
+
+    public void Pause()
+    {
+        if (readyToDeactivate)
+        {
+            readyToDeactivate = false;
+            Deactivate(true);
+        }
+    }
+
+    public void SetSequence(Sequence seq)
+    {
+        animationSequence = seq;
+    }
+
+    public Sequence GetSequence()
+    {
+        return animationSequence;
     }
 }

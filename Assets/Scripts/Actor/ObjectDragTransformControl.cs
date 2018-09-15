@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectDragTransformControl : ObjectControl
+public class ObjectDragTransformControl : ObjectDragControl
 {
     private Vector3 deltaPos = new Vector3(0, 0, 0);
     private Vector3 origPos;
@@ -30,7 +30,7 @@ public class ObjectDragTransformControl : ObjectControl
 
     public override void Drag(Vector3 dp)
     {
-        if (ObjectReady() && !locked)
+        if (IsActivated() && !locked)
         {
             base.Drag(dp);
 

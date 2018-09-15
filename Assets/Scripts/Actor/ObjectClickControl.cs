@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectClickControl : ObjectControl
+public class ObjectClickControl : ObjectPrimaryControl
 {
 
 	// Use this for initialization

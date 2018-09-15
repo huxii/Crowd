@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectDragRotationControl : ObjectControl
+public class ObjectDragRotationControl : ObjectDragControl
 {
     private Vector3 deltaEulerAngle = new Vector3(0, 0, 0);
     private Vector3 origEulerAngles;
@@ -21,7 +21,7 @@ public class ObjectDragRotationControl : ObjectControl
 
     public override void Drag(Vector3 dp)
     {
-        if (ObjectReady() && !locked)
+        if (IsActivated() && !locked)
         {
             base.Drag(dp);
 
