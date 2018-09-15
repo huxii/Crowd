@@ -10,6 +10,7 @@ public abstract class ObjectControl : ActorControl
     public UnityEvent onDeactivated;
 
     protected bool readyToDeactivate = false;
+    protected bool isActivated = false;
 
     private Sequence animationSequence;
 
@@ -37,22 +38,28 @@ public abstract class ObjectControl : ActorControl
     {		
 	}
 
+    public virtual void Click()
+    {
+    }
+
     public virtual void Drag(Vector3 deltaPos)
     {
     }
 
-    public virtual bool IsActivated()
+    public bool IsActivated()
     {
-        return false;
+        return isActivated;
     }
 
-    public void Activate()
+    public virtual void Activate()
     {
+        isActivated = true;
         onActivated.Invoke();
     }
 
-    public void Deactivate()
+    public virtual void Deactivate()
     {
+        isActivated = false;
         onDeactivated.Invoke();
     }
 

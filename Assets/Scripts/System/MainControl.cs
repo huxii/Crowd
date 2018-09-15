@@ -176,6 +176,10 @@ public class MainControl : MonoBehaviour
             {
                 MoveMan(selectedMan, mouseClickPos);
             }
+            else
+            {
+                mouseClickObject.GetComponent<ObjectControl>().Click();
+            }
         }
         else
         {

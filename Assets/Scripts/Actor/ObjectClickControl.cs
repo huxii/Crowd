@@ -16,8 +16,27 @@ public class ObjectClickControl : ObjectPrimaryControl
     {
 	}
 
-    //protected override void MouseDown()
-    //{
-    //    base.MouseDown();
-    //}
+    public override void Click()
+    {
+        base.Click();
+
+        if (IsReady())
+        {
+            if (IsActivated())
+            {
+                if (needDelayToDeactivate)
+                {
+                    DelayToDeactivate();
+                }
+                else
+                {
+                    Deactivate();
+                }
+            }
+            else
+            {
+                Activate();
+            }
+        }
+    }
 }

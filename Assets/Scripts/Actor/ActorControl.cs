@@ -19,12 +19,12 @@ public abstract class ActorControl : MonoBehaviour
 		
 	}
 
-    public virtual void Lock()
+    public void Lock()
     {
         locked = true;
     }
 
-    public virtual void Unlock()
+    public void Unlock()
     {
         locked = false;
     }

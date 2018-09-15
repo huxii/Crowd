@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// the objects that control or are controlled by primary objects
 public class ObjectSecondaryControl : ObjectControl
 {
 	// Use this for initialization
@@ -15,10 +16,8 @@ public class ObjectSecondaryControl : ObjectControl
 		
 	}
 
-    public override void Lock()
+    public void LockChildren()
     {
-        base.Lock();
-
         foreach (Transform child in gameObject.GetComponentsInChildren<Transform>())
         {
             Debug.Log(child.gameObject);
@@ -29,10 +28,8 @@ public class ObjectSecondaryControl : ObjectControl
         }
     }
 
-    public override void Unlock()
+    public void UnlockChildren()
     {
-        base.Unlock();
-
         foreach (Transform child in gameObject.GetComponentsInChildren<Transform>())
         {
             if (child.gameObject.CompareTag("Object") || child.gameObject.CompareTag("Man"))
@@ -40,5 +37,19 @@ public class ObjectSecondaryControl : ObjectControl
                 child.gameObject.GetComponent<ActorControl>().Unlock();
             }
         }
+    }
+
+    public override void Activate()
+    {
+        base.Activate();
+
+        LockChildren();
+    }
+
+    public override void Deactivate()
+    {
+        base.Deactivate();
+
+        UnlockChildren();
     }
 }

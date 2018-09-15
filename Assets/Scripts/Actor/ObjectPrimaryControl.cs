@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// the object with certain amount of slots that can be filled with crowd
+// player will directly operate those objects
 public abstract class ObjectPrimaryControl : ObjectControl
 {
     [System.Serializable]
@@ -69,7 +71,7 @@ public abstract class ObjectPrimaryControl : ObjectControl
         }
     }
 
-    public override bool IsActivated()
+    public bool IsReady()
     {
         return currentSlots >= slots.Count;
     }
@@ -92,6 +94,7 @@ public abstract class ObjectPrimaryControl : ObjectControl
         {
             if (currentSlots == slots.Count)
             {
+                // force to deactivate
                 if (needDelayToDeactivate)
                 {
                     DelayToDeactivate();
@@ -117,10 +120,10 @@ public abstract class ObjectPrimaryControl : ObjectControl
         if (slots[id].state != SlotState.READY)
         {
             ++currentSlots;
-            if (currentSlots == slots.Count)
-            {
-                Activate();
-            }
+            //if (currentSlots == slots.Count)
+            //{
+            //    Activate();
+            //}
             slots[id].state = SlotState.READY;
             slots[id].man = man;
         }
