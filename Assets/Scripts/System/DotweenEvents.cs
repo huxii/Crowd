@@ -54,6 +54,32 @@ public class DotweenEvents : MonoBehaviour
         }
     }
 
+    public void Move(string para)
+    {
+        string[] paras = para.Split(',');
+        GameObject obj = GameObject.Find(paras[0]);
+        string axis = paras[1];
+        float inc = float.Parse(paras[2]);
+
+        Vector3 deltaPos = new Vector3(0, 0, 0);
+        if (axis.ToLower() == "x")
+        {
+            deltaPos = new Vector3(inc, 0, 0);
+        }
+        else
+        if (axis.ToLower() == "y")
+        {
+            deltaPos = new Vector3(0, inc, 0);
+        }
+        else
+        if (axis.ToLower() == "z")
+        {
+            deltaPos = new Vector3(0, 0, inc);
+        }
+
+        obj.transform.DOMove(obj.transform.position + deltaPos, 1f);
+    }
+
     public void KillSequence(GameObject obj)
     {
         //DOTween.Kill(obj);
