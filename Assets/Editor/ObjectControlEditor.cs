@@ -45,6 +45,15 @@ public class ObjectClickControlEditor : ObjectPrimaryControlEditor
     }
 }
 
+[CustomEditor(typeof(ObjectAutoControl))]
+public class ObjectAutoControlEditor : ObjectPrimaryControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
 [CustomEditor(typeof(ObjectDragControl))]
 public class ObjectDragControlEditor : ObjectPrimaryControlEditor
 {

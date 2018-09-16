@@ -120,10 +120,10 @@ public abstract class ObjectPrimaryControl : ObjectControl
         if (slots[id].state != SlotState.READY)
         {
             ++currentSlots;
-            //if (currentSlots == slots.Count)
-            //{
-            //    Activate();
-            //}
+            if (currentSlots == slots.Count)
+            {
+                Ready();
+            }
             slots[id].state = SlotState.READY;
             slots[id].man = man;
         }
@@ -132,6 +132,11 @@ public abstract class ObjectPrimaryControl : ObjectControl
     public Vector3 GetSlotPos(int id)
     {
         return slots[id].obj.transform.position;
+    }
+
+    public GameObject GetSlotObject(int id)
+    {
+        return slots[id].obj;
     }
 
     //public int GetSlotId(GameObject man)

@@ -49,7 +49,7 @@ public class MainControl : MonoBehaviour
         GameObject obj = manArrivedEvent.obj;
         int slotId = manArrivedEvent.slotId;
 
-        man.transform.SetParent(obj.transform);
+        man.transform.SetParent(obj.GetComponent<ObjectPrimaryControl>().GetSlotObject(slotId).transform);
         obj.GetComponent<ObjectPrimaryControl>().ReadySlot(slotId, man);
 
         if (man == selectedMan)

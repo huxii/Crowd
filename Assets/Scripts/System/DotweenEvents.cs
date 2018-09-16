@@ -15,6 +15,11 @@ public class DotweenEvents : MonoBehaviour
         string axis = paras[1];
         float inc = float.Parse(paras[2]);
 
+        if (obj == null)
+        {
+            return;
+        }
+
         Vector3 deltaRot = new Vector3(0, 0, 0);
         if (axis.ToLower() == "x")
         {
@@ -38,7 +43,7 @@ public class DotweenEvents : MonoBehaviour
         {
             seq.Append(obj.transform.DORotate(targetRot, 1f)
                 //.OnStart(()=> obj.GetComponent<ObjectControl>().UnreadyToDeactivate())
-                .OnComplete(() => obj.GetComponent<ObjectControl>().Pause())
+                .OnComplete(() => { if(obj.GetComponent<ObjectControl>()) obj.GetComponent<ObjectControl>().Pause(); })
                 .SetEase(Ease.Linear).SetDelay(0.3f));
             targetRot += deltaRot;
         }
@@ -61,6 +66,11 @@ public class DotweenEvents : MonoBehaviour
         string axis = paras[1];
         float inc = float.Parse(paras[2]);
 
+        if (obj == null)
+        {
+            return;
+        }
+
         Vector3 deltaPos = new Vector3(0, 0, 0);
         if (axis.ToLower() == "x")
         {
@@ -80,10 +90,41 @@ public class DotweenEvents : MonoBehaviour
         obj.transform.DOMove(obj.transform.position + deltaPos, 1f);
     }
 
+    public void Scale(string para)
+    {
+        string[] paras = para.Split(',');
+        GameObject obj = GameObject.Find(paras[0]);
+        string axis = paras[1];
+        float inc = float.Parse(paras[2]);
+
+        if (obj == null)
+        {
+            return;
+        }
+
+        Vector3 newScale = obj.transform.localScale;
+        if (axis.ToLower() == "x")
+        {
+            newScale  = new Vector3(inc, newScale.y, newScale.z);
+        }
+        else
+        if (axis.ToLower() == "y")
+        {
+            newScale = new Vector3(newScale.x, inc, newScale.z);
+        }
+        else
+        if (axis.ToLower() == "z")
+        {
+            newScale = new Vector3(newScale.x, newScale.y, inc);
+        }
+
+        obj.transform.DOScale(newScale, 1f);
+    }
+
     public void KillSequence(GameObject obj)
     {
         //DOTween.Kill(obj);
-        if (sequenceDict.ContainsKey(obj))
+        if (obj != null && sequenceDict.ContainsKey(obj))
         {
             sequenceDict[obj].Kill();
         }
