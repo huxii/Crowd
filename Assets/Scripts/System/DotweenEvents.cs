@@ -14,6 +14,8 @@ public class DotweenEvents : MonoBehaviour
         GameObject obj = GameObject.Find(paras[0]);
         string axis = paras[1];
         float inc = float.Parse(paras[2]);
+        bool isInfinite = (paras[3].ToLower() == "true");
+        Debug.Log(paras[3].ToLower());
 
         if (obj == null)
         {
@@ -36,26 +38,34 @@ public class DotweenEvents : MonoBehaviour
             deltaRot = new Vector3(0, 0, inc);
         }
 
-        int incNumber = (int)(Mathf.Abs(360f / inc));
-        Sequence seq = DOTween.Sequence();
-        Vector3 targetRot = obj.transform.eulerAngles + deltaRot;
-        for (int i = 0; i < incNumber; ++i)
+        if (isInfinite)
         {
-            seq.Append(obj.transform.DORotate(targetRot, 1f)
-                //.OnStart(()=> obj.GetComponent<ObjectControl>().UnreadyToDeactivate())
-                .OnComplete(() => { if(obj.GetComponent<ObjectControl>()) obj.GetComponent<ObjectControl>().Pause(); })
-                .SetEase(Ease.Linear).SetDelay(0.3f));
-            targetRot += deltaRot;
-        }
-        seq.SetLoops(-1, LoopType.Restart);
-        
-        if (sequenceDict.ContainsKey(obj))
-        {
-            sequenceDict[obj] = seq;
+            int incNumber = (int)(Mathf.Abs(360f / inc));
+            Sequence seq = DOTween.Sequence();
+            Vector3 targetRot = obj.transform.eulerAngles + deltaRot;
+            for (int i = 0; i < incNumber; ++i)
+            {
+                seq.Append(obj.transform.DORotate(targetRot, 1f)
+                    //.OnStart(()=> obj.GetComponent<ObjectControl>().UnreadyToDeactivate())
+                    .OnComplete(() => { if (obj.GetComponent<ObjectControl>()) obj.GetComponent<ObjectControl>().Pause(); })
+                    .SetEase(Ease.Linear).SetDelay(0.3f));
+                targetRot += deltaRot;
+            }
+            seq.SetLoops(-1, LoopType.Restart);
+
+            if (sequenceDict.ContainsKey(obj))
+            {
+                sequenceDict[obj] = seq;
+            }
+            else
+            {
+                sequenceDict.Add(obj, seq);
+            }
         }
         else
         {
-            sequenceDict.Add(obj, seq);
+            Vector3 targetRot = obj.transform.eulerAngles + deltaRot;
+            obj.transform.DORotate(targetRot, 1f);
         }
     }
 
