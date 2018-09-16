@@ -8,7 +8,11 @@ public class PathPoint : MonoBehaviour
     [SerializeField]
     public GameObject followObject = null;
     [SerializeField]
+    public GameObject followPoint = null;
+    [SerializeField]
     public Vector3 followOffset;
+    [SerializeField]
+    public bool isBorder = false;
 
     [HideInInspector]
     public float pointSize = 1f;
@@ -30,6 +34,11 @@ public class PathPoint : MonoBehaviour
         if (followObject != null)
         {
             transform.position = followObject.transform.position + followOffset;
+        }
+        else
+        if (followPoint != null)
+        {
+            transform.position = followPoint.transform.position + followOffset;
         }
     }
 

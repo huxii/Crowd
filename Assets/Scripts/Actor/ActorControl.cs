@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class ActorControl : MonoBehaviour
 {
     // 1. can't move    2. slots won't work
+    [SerializeField]
     protected bool locked = false;
 
     // Use this for initialization

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// TODO: on ladder / off ladder path & zoom in/zoom out and open lids
+// TODO: zoom in/zoom out and open lids
 
 public class MainControl : MonoBehaviour
 {

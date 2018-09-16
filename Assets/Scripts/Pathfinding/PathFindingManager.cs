@@ -21,7 +21,6 @@ public class PathFindingManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> pathEdges = new List<GameObject>();
     
-
     private class FoundPath
     {
         //public List<GameObject> points;
@@ -37,7 +36,9 @@ public class PathFindingManager : MonoBehaviour
             speed = 5f;
         }
     };
-    private Dictionary<GameObject, FoundPath> PathTable = new Dictionary<GameObject, FoundPath>();
+    private Dictionary<GameObject, FoundPath> pathTable = new Dictionary<GameObject, FoundPath>();
+
+    private List<KeyValuePair<GameObject, GameObject>> borderTable = new List<KeyValuePair<GameObject, GameObject>>();
 
     private Vector3 localSpawnPos = new Vector3(0, 0, 0);
     private float maxDistance = 100000;
@@ -54,10 +55,10 @@ public class PathFindingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        List<GameObject> keys = new List<GameObject>(PathTable.Keys);
+        List<GameObject> keys = new List<GameObject>(pathTable.Keys);
         foreach (GameObject actor in keys)
         {
-            FoundPath path = PathTable[actor];
+            FoundPath path = pathTable[actor];
             if (GoToNextPoint(actor, path.pathEdges[0].EndPos(), path.speed))
             {
                 if (path.pathEdges.Count <= 1)
@@ -68,13 +69,27 @@ public class PathFindingManager : MonoBehaviour
                         Services.eventManager.QueueEvent(path.endEvent);
                     }
 
-                    PathTable.Remove(actor);
+                    pathTable.Remove(actor);
                 }
                 else
-                {                
+                {
                     // walking out of path 0
-                    path.pathEdges[0].Unlock();
-                    path.pathEdges[1].Lock();
+                    GameObject middlePoint = path.pathEdges[0].AcrossPoint();
+                    if (middlePoint.GetComponent<PathPoint>().followObject != null && middlePoint.GetComponent<PathPoint>().isBorder)
+                    {
+                        GameObject followObj = middlePoint.GetComponent<PathPoint>().followObject;
+                        KeyValuePair<GameObject, GameObject> pair = new KeyValuePair<GameObject, GameObject>(actor, followObj);
+                        if (borderTable.Contains(pair))
+                        {
+                            borderTable.Remove(pair);
+                            followObj.GetComponent<ObjectControl>().Unlock();
+                        }
+                        else
+                        {
+                            borderTable.Add(pair);
+                            followObj.GetComponent<ObjectControl>().Lock();
+                        }
+                    }
                 }
 
                 // in order to preserve the pre edge
@@ -482,13 +497,13 @@ public class PathFindingManager : MonoBehaviour
 
         recentPath.speed = speed;
         recentPath.endEvent = endEvent;
-        if (PathTable.ContainsKey(actor))
+        if (pathTable.ContainsKey(actor))
         {
             // should abort original path
-            PathTable.Remove(actor);
+            pathTable.Remove(actor);
         }
 
-        PathTable.Add(actor, recentPath);
+        pathTable.Add(actor, recentPath);
         recentPath = null;
     }
 }
