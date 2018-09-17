@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// TODO: zoom in/zoom out and open lids & falling & drag object will rotate viewport & click on steer will auto walk to it
+// TODO: zoom in/zoom out and open lids & falling & drag object will rotate viewport
 
 public class MainControl : MonoBehaviour
 {
@@ -172,7 +172,7 @@ public class MainControl : MonoBehaviour
         else
         if (mouseClickObject.CompareTag("Object"))
         {
-            if (selectedMan)
+            if (selectedMan && mouseClickObject.GetComponent<ObjectControl>().isWalkable)
             {
                 MoveMan(selectedMan, mouseClickPos);
             }

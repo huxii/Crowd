@@ -9,6 +9,8 @@ public abstract class ObjectControl : ActorControl
     public UnityEvent onActivated;
     public UnityEvent onDeactivated;
 
+    public bool isWalkable = false;
+
     protected bool readyToDeactivate = false;
     protected bool isActivated = false;
 
