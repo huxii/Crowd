@@ -195,7 +195,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.107899845, y: -0.00000008588787, z: 0.0000000039686885, w: 0.99416184}
+  m_LocalRotation: {x: 0.10789975, y: -0.0000000858877, z: 0.0000000039686037, w: 0.9941618}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1364,7 +1364,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 311973762}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.81, y: -5.68, z: -2.63}
+  m_LocalPosition: {x: 1.38, y: 2.12, z: 0.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1535302770}
@@ -1951,7 +1951,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 467152574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.78, y: 2.18, z: -0.93}
+  m_LocalPosition: {x: -1.78, y: 2.99, z: -0.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 87941723}
@@ -3445,7 +3445,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PathPoint31,PathPoint27
+          m_StringArgument: PathPoint31, PathPoint27
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1428080938}
@@ -3456,7 +3456,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PathPoint31,PathPoint27
+          m_StringArgument: PathPoint31, PathPoint27
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -3472,7 +3472,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PathPoint31,PathPoint27
+          m_StringArgument: PathPoint31, PathPoint27
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1428080938}
@@ -4497,7 +4497,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: 0.08987074, y: -0.0000001216132, z: -0.000000013403951, w: 0.9959535}
+  m_LocalRotation: {x: 0.089870475, y: -0.0000001216132, z: -0.0000000134043665, w: 0.9959535}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4849,7 +4849,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Wheel,z,-45,true
+          m_StringArgument: Wheel, z, -45, 1, true
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -5141,7 +5141,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Steer,y,-90,true
+          m_StringArgument: Steer, y, -90, 1, true
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1428080941}
@@ -5152,7 +5152,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MovingPlatform,x,90,false
+          m_StringArgument: MovingPlatform, x, 90, 1, false
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1428080938}
@@ -5163,7 +5163,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PathPoint34,PathPoint23
+          m_StringArgument: PathPoint34, PathPoint23
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -5201,7 +5201,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MovingPlatform,x,-90,false
+          m_StringArgument: MovingPlatform, x, -90, 1, false
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1428080938}
@@ -5212,7 +5212,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PathPoint34,PathPoint23
+          m_StringArgument: PathPoint34, PathPoint23
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -5785,8 +5785,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1511694096}
-  - component: {fileID: 1511694097}
   - component: {fileID: 1511694098}
+  - component: {fileID: 1511694097}
   m_Layer: 0
   m_Name: Rope1
   m_TagString: Object
@@ -5832,7 +5832,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: RopeModel1,y,7.85
+          m_StringArgument: RopeModel1, y, 8.5, 1
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1428080941}
@@ -5843,7 +5843,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: RopeModel0,y,0.1
+          m_StringArgument: RopeModel0, y, 0.1, 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Zigzag
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bell, z, 20, 0.125, 16
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -5859,7 +5870,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: RopeModel1,y,1
+          m_StringArgument: RopeModel1, y, 1, 1
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1428080941}
@@ -5870,7 +5881,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: RopeModel0,y,1
+          m_StringArgument: RopeModel0, y, 1, 1
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -5882,6 +5893,7 @@ MonoBehaviour:
     obj: {fileID: 1780256158}
     man: {fileID: 0}
   namingCounter: 1
+  timeToAutoDeactivate: 1
 --- !u!65 &1511694098
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7276,7 +7288,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1780256158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.78999996, y: -2, z: 0}
+  m_LocalPosition: {x: 0.78999996, y: -1.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1511694096}

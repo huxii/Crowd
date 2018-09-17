@@ -130,7 +130,7 @@ public class MainControl : MonoBehaviour
         }
     }
 
-    private void UnboundMan(GameObject man)
+    public void UnboundMan(GameObject man)
     {
         Services.eventManager.QueueEvent(new ManLeavesFromObj(man));
     }

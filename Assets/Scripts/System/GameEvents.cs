@@ -6,11 +6,13 @@ using DG.Tweening;
 
 public class GameEvents : MonoBehaviour
 {
+    char[] spliters = { ',', ' ' };
+
     // unity events only allow one or zero parameter.
     // so combine two game objects into one by names (eg. "gameobject0, gameobject1")
     public void ConnectPathPoints(string pointsName)
     {
-        string[] pointsNames = pointsName.Split(',');
+        string[] pointsNames = pointsName.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
         if (pointsNames.Length != 2)
         {
             return;
@@ -27,7 +29,7 @@ public class GameEvents : MonoBehaviour
 
     public void DisconnectPathPoints(string pointsName)
     {
-        string[] pointsNames = pointsName.Split(',');
+        string[] pointsNames = pointsName.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
         if (pointsNames.Length != 2)
         {
             return;
@@ -44,7 +46,7 @@ public class GameEvents : MonoBehaviour
 
     public void SetFollowPathPoint(string pointsName)
     {
-        string[] pointsNames = pointsName.Split(',');
+        string[] pointsNames = pointsName.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
         if (pointsNames.Length != 2)
         {
             return;
@@ -58,7 +60,7 @@ public class GameEvents : MonoBehaviour
 
     public void ClearFollowPathPoint(string pointsName)
     {
-        string[] pointsNames = pointsName.Split(',');
+        string[] pointsNames = pointsName.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
         if (pointsNames.Length != 1)
         {
             return;
@@ -71,7 +73,7 @@ public class GameEvents : MonoBehaviour
 
     public void PlayAnimation(string animParas)
     {
-        string[] paras = animParas.Split(',');
+        string[] paras = animParas.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
         GameObject obj = GameObject.Find(paras[0]);
         string animName = paras[1];
         Animation ani = obj.GetComponent<Animation>();
@@ -81,7 +83,7 @@ public class GameEvents : MonoBehaviour
 
     public void RewindAnimation(string animParas)
     {
-        string[] paras = animParas.Split(',');
+        string[] paras = animParas.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
         GameObject obj = GameObject.Find(paras[0]);
         string animName = paras[1];
         Animation ani = obj.GetComponent<Animation>();

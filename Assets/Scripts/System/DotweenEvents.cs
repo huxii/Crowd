@@ -8,14 +8,17 @@ public class DotweenEvents : MonoBehaviour
 {
     private Dictionary<GameObject, Sequence> sequenceDict = new Dictionary<GameObject, Sequence>();
 
+    char[] spliters = { ',', ' ' };
+
+    // objName axis inc time isInfinite
     public void Rotate(string para)
-    {
-        string[] paras = para.Split(',');
+    {        
+        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
         GameObject obj = GameObject.Find(paras[0]);
         string axis = paras[1];
         float inc = float.Parse(paras[2]);
-        bool isInfinite = (paras[3].ToLower() == "true");
-        Debug.Log(paras[3].ToLower());
+        float time = float.Parse(paras[3]);
+        bool isInfinite = (paras[4].ToLower() == "true");
 
         if (obj == null)
         {
@@ -45,7 +48,7 @@ public class DotweenEvents : MonoBehaviour
             Vector3 targetRot = obj.transform.eulerAngles + deltaRot;
             for (int i = 0; i < incNumber; ++i)
             {
-                seq.Append(obj.transform.DORotate(targetRot, 1f)
+                seq.Append(obj.transform.DORotate(targetRot, time)
                     //.OnStart(()=> obj.GetComponent<ObjectControl>().UnreadyToDeactivate())
                     .OnComplete(() => { if (obj.GetComponent<ObjectControl>()) obj.GetComponent<ObjectControl>().Pause(); })
                     .SetEase(Ease.Linear).SetDelay(0.3f));
@@ -65,16 +68,17 @@ public class DotweenEvents : MonoBehaviour
         else
         {
             Vector3 targetRot = obj.transform.eulerAngles + deltaRot;
-            obj.transform.DORotate(targetRot, 1f);
+            obj.transform.DORotate(targetRot, time);
         }
     }
 
     public void Move(string para)
     {
-        string[] paras = para.Split(',');
+        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
         GameObject obj = GameObject.Find(paras[0]);
         string axis = paras[1];
         float inc = float.Parse(paras[2]);
+        float time = float.Parse(paras[3]);
 
         if (obj == null)
         {
@@ -97,15 +101,16 @@ public class DotweenEvents : MonoBehaviour
             deltaPos = new Vector3(0, 0, inc);
         }
 
-        obj.transform.DOMove(obj.transform.position + deltaPos, 1f);
+        obj.transform.DOMove(obj.transform.position + deltaPos, time);
     }
 
     public void Scale(string para)
     {
-        string[] paras = para.Split(',');
+        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
         GameObject obj = GameObject.Find(paras[0]);
         string axis = paras[1];
         float inc = float.Parse(paras[2]);
+        float time = float.Parse(paras[3]);
 
         if (obj == null)
         {
@@ -128,7 +133,44 @@ public class DotweenEvents : MonoBehaviour
             newScale = new Vector3(newScale.x, newScale.y, inc);
         }
 
-        obj.transform.DOScale(newScale, 1f);
+        obj.transform.DOScale(newScale, time);
+    }
+
+    public void Zigzag(string para)
+    {
+        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
+        GameObject obj = GameObject.Find(paras[0]);
+        string axis = paras[1];
+        float inc = float.Parse(paras[2]);
+        float time = float.Parse(paras[3]);
+        int loop = int.Parse(paras[4]);
+
+        Sequence seq = DOTween.Sequence();
+        Vector3 deltaRot = new Vector3(0, 0, 0);
+        if (axis.ToLower() == "x")
+        {
+            deltaRot = new Vector3(inc, 0, 0);
+        }
+        else
+        if (axis.ToLower() == "y")
+        {
+            deltaRot = new Vector3(0, inc, 0);
+        }
+        else
+        if (axis.ToLower() == "z")
+        {
+            deltaRot = new Vector3(0, 0, inc);
+        }
+
+        Vector3 origRot = transform.eulerAngles;
+        Vector3 leftRot = origRot - deltaRot;
+        Vector3 rightRot = origRot + deltaRot;
+
+        seq.Append(obj.transform.DORotate(leftRot, 0.25f * time).SetEase(Ease.Linear));
+        seq.Append(obj.transform.DORotate(origRot, 0.25f * time).SetEase(Ease.Linear));
+        seq.Append(obj.transform.DORotate(rightRot, 0.25f * time).SetEase(Ease.Linear));
+        seq.Append(obj.transform.DORotate(origRot, 0.25f * time).SetEase(Ease.Linear));
+        seq.SetLoops(loop, LoopType.Restart);
     }
 
     public void KillSequence(GameObject obj)
