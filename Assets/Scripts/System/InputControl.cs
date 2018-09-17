@@ -121,14 +121,21 @@ public class InputControl : MonoBehaviour
                 Vector3 newMouseClickPos = hit.point;
                 Vector3 mouseDelta = newMouseClickPos - mouseClickPos;
 
-                Services.gameController.DragOn(mouseClickObject, mouseDelta);
+                if (mouseClickObject.CompareTag("Object"))
+                {
+                    Services.gameController.DragOn(mouseClickObject, mouseDelta);
+                }
+                else
+                {
+                    RotateViewport();
+                }
 
                 mouseClickPos = newMouseClickPos;
             }
-            else
-            {
-                RotateViewport();
-            }
+            //else
+            //{
+            //    RotateViewport();
+            //}
         }
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// TODO: zoom in/zoom out and open lids & falling & drag object will rotate viewport
+// TODO: zoom in/zoom out and open lids & falling
 
 public class MainControl : MonoBehaviour
 {
