@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// TODO: zoom in/zoom out and open lids & falling
+// TODO: zoom in/zoom out and open lids & falling & drag object will rotate viewport & click on steer will auto walk to it
 
 public class MainControl : MonoBehaviour
 {

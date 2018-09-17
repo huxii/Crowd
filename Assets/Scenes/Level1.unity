@@ -195,7 +195,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.10790031, y: -0.00000008588719, z: 0.0000000039684074, w: 0.9941618}
+  m_LocalRotation: {x: 0.1079002, y: -0.000000085887145, z: 0.0000000039683807, w: 0.9941618}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2393,7 +2393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minusAxisExpand: {x: 0, y: 0, z: 0.72}
-  positiveAxisExpand: {x: 0, y: 0, z: 1.54}
+  positiveAxisExpand: {x: 0, y: 0, z: 0.8}
   p0: {fileID: 2080485363}
   p1: {fileID: 1550893563}
 --- !u!1 &845631950
@@ -2420,7 +2420,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 845631950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.71, y: -5.92, z: -0.54}
+  m_LocalPosition: {x: -1.93, y: -5.86, z: -2.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1050350003}
@@ -2810,7 +2810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minusAxisExpand: {x: 0, y: 0, z: 2.5}
-  positiveAxisExpand: {x: 0, y: 0, z: 3}
+  positiveAxisExpand: {x: 0, y: 0, z: 1.8}
   p0: {fileID: 1423813613}
   p1: {fileID: 209898652}
 --- !u!1 &911341488
@@ -3287,9 +3287,9 @@ MonoBehaviour:
     obj: {fileID: 308937338}
     man: {fileID: 0}
   namingCounter: 6
-  minDelta: {x: -2.4, y: 0, z: 0}
+  minDelta: {x: -1.5, y: 0, z: 0}
   maxDelta: {x: 0, y: 0, z: 0}
-  minValidDelta: {x: -2.4, y: 0, z: 0}
+  minValidDelta: {x: -1.5, y: 0, z: 0}
   maxValidDelta: {x: -1, y: 0, z: 0}
   onArriveValidRange:
     m_PersistentCalls:
@@ -4326,7 +4326,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: 0.08987074, y: -0.0000001216132, z: -0.000000013405549, w: 0.9959535}
+  m_LocalRotation: {x: 0.08987074, y: -0.0000001216132, z: -0.000000013405636, w: 0.9959535}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7554,7 +7554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minusAxisExpand: {x: 0, y: 0, z: 0.72}
-  positiveAxisExpand: {x: 0, y: 0, z: 1.54}
+  positiveAxisExpand: {x: 0, y: 0, z: 0.8}
   p0: {fileID: 2080485363}
   p1: {fileID: 265858539}
 --- !u!1 &1872862164
@@ -7889,7 +7889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minusAxisExpand: {x: 0, y: 0, z: 2.5}
-  positiveAxisExpand: {x: 0, y: 0, z: 3}
+  positiveAxisExpand: {x: 0, y: 0, z: 1.8}
   p0: {fileID: 209898652}
   p1: {fileID: 1619645049}
 --- !u!1 &1964087586
