@@ -195,7 +195,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.107900195, y: -0.000000085887926, z: 0.000000003968746, w: 0.9941618}
+  m_LocalRotation: {x: 0.107899845, y: -0.00000008588787, z: 0.0000000039686885, w: 0.99416184}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1264,8 +1264,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 308513511}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.22, y: 0.41, z: 2.59}
-  m_LocalScale: {x: 1.009267, y: 3.8171701, z: 0.16860901}
+  m_LocalPosition: {x: 0.22, y: 0.61, z: 2.59}
+  m_LocalScale: {x: 1.009267, y: 3.5504363, z: 0.16860901}
   m_Children: []
   m_Father: {fileID: 1743202443}
   m_RootOrder: 0
@@ -2114,7 +2114,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.10790054, y: 0, z: 0, w: 0.9941617}
+  m_LocalRotation: {x: 0.107899725, y: 0, z: 0, w: 0.99416184}
   m_LocalPosition: {x: 0, y: 8, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2635,7 +2635,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 845631950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.91, y: -1.45, z: -1.09}
+  m_LocalPosition: {x: -1.71, y: -5.92, z: -0.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1050350003}
@@ -3430,9 +3430,11 @@ MonoBehaviour:
     obj: {fileID: 308937338}
     man: {fileID: 0}
   namingCounter: 6
-  minDelta: {x: -1.55, y: 0, z: 0}
+  minDelta: {x: -2.4, y: 0, z: 0}
   maxDelta: {x: 0, y: 0, z: 0}
-  onArriveMinPosition:
+  minValidDelta: {x: -2.4, y: 0, z: 0}
+  maxValidDelta: {x: -1, y: 0, z: 0}
+  onArriveValidRange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1428080938}
@@ -3443,17 +3445,23 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PathPoint27,PathPoint32
+          m_StringArgument: PathPoint31,PathPoint27
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: SetFollowPathPoint
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PathPoint31,PathPoint27
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  onArriveMaxPosition:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onLeaveMinPosition:
+  onLeaveValidRange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1428080938}
@@ -3464,14 +3472,20 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PathPoint27,PathPoint32
+          m_StringArgument: PathPoint31,PathPoint27
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onLeaveMaxPosition:
-    m_PersistentCalls:
-      m_Calls: []
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: ClearFollowPathPoint
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PathPoint31
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1045740970
@@ -4483,7 +4497,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: 0.08987061, y: -0.0000001216132, z: -0.00000001340383, w: 0.9959535}
+  m_LocalRotation: {x: 0.08987074, y: -0.0000001216132, z: -0.000000013403951, w: 0.9959535}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6721,22 +6735,14 @@ MonoBehaviour:
   namingCounter: 1
   minDelta: {x: 0, y: 0, z: -20}
   maxDelta: {x: 0, y: 0, z: 20}
-  onArriveMinPosition:
+  minValidDelta: {x: 0, y: 0, z: 0}
+  maxValidDelta: {x: 0, y: 0, z: 0}
+  onArriveValidRange:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  onArriveMaxPosition:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onLeaveMinPosition:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onLeaveMaxPosition:
+  onLeaveValidRange:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -8233,7 +8239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followObject: {fileID: 0}
   followPoint: {fileID: 0}
-  followOffset: {x: 0, y: 0, z: 0}
+  followOffset: {x: 0, y: 0, z: 1.56}
   isBorder: 0
   pointSize: 0.3
 --- !u!4 &2080485365

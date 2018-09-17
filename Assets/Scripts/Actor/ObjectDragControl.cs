@@ -9,10 +9,11 @@ public abstract class ObjectDragControl : ObjectPrimaryControl
     public Vector3 minDelta = new Vector3(0, 0, 0);
     public Vector3 maxDelta = new Vector3(0, 0, 0);
 
-    public UnityEvent onArriveMinPosition;
-    public UnityEvent onArriveMaxPosition;
-    public UnityEvent onLeaveMinPosition;
-    public UnityEvent onLeaveMaxPosition;
+    public Vector3 minValidDelta = new Vector3(0, 0, 0);
+    public Vector3 maxValidDelta = new Vector3(0, 0, 0);
+
+    public UnityEvent onArriveValidRange;
+    public UnityEvent onLeaveValidRange;
 
     // Use this for initialization
     void Start ()

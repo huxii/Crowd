@@ -42,6 +42,33 @@ public class GameEvents : MonoBehaviour
         Services.pathFindingManager.DisconnectPathPoints(p0, p1);
     }
 
+    public void SetFollowPathPoint(string pointsName)
+    {
+        string[] pointsNames = pointsName.Split(',');
+        if (pointsNames.Length != 2)
+        {
+            return;
+        }
+
+        GameObject p0 = GameObject.Find(pointsNames[0]);
+        GameObject p1 = GameObject.Find(pointsNames[1]);
+
+        p0.GetComponent<PathPoint>().followPoint = p1;
+    }
+
+    public void ClearFollowPathPoint(string pointsName)
+    {
+        string[] pointsNames = pointsName.Split(',');
+        if (pointsNames.Length != 1)
+        {
+            return;
+        }
+
+        GameObject p0 = GameObject.Find(pointsNames[0]);
+
+        p0.GetComponent<PathPoint>().followPoint = null;
+    }
+
     public void PlayAnimation(string animParas)
     {
         string[] paras = animParas.Split(',');

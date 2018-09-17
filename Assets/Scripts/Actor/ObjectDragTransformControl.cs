@@ -18,14 +18,11 @@ public class ObjectDragTransformControl : ObjectDragControl
     {
 	}
 
-    protected bool AtMinPos()
+    protected bool InRange()
     {
-        return (deltaPos.x <= minDelta.x + 0.01f && deltaPos.y <= minDelta.y + 0.01f && deltaPos.z <= minDelta.z + 0.01f);
-    }
-
-    protected bool AtMaxPos()
-    {
-        return (deltaPos.x >= maxDelta.x - 0.01f && deltaPos.y >= maxDelta.y - 0.01f && deltaPos.z >= maxDelta.z - 0.01f);
+        return (deltaPos.x >= minValidDelta.x - 0.01f && deltaPos.x <= maxValidDelta.x + 0.01f
+            && deltaPos.y >= minValidDelta.y - 0.01f && deltaPos.y <= maxValidDelta.y + 0.01f
+            && deltaPos.z >= minValidDelta.z - 0.01f && deltaPos.z <= maxValidDelta.z + 0.01f);
     }
 
     public override void Drag(Vector3 dp)
@@ -34,8 +31,7 @@ public class ObjectDragTransformControl : ObjectDragControl
         {
             base.Drag(dp);
 
-            bool alreadyMinPos = AtMinPos();
-            bool alreadyMaxPos = AtMaxPos();
+            bool alreadyInRange = InRange();
 
             deltaPos = new Vector3(
                 Mathf.Max(Mathf.Min(deltaPos.x + dp.x, maxDelta.x), minDelta.x),
@@ -44,30 +40,19 @@ public class ObjectDragTransformControl : ObjectDragControl
                 );
             transform.position = origPos + deltaPos;
 
-            if (AtMinPos())
+            if (InRange())
             {
-                if (!alreadyMinPos)
+                if (!alreadyInRange)
                 {
-                    onArriveMinPosition.Invoke();
+                    onArriveValidRange.Invoke();
                 }
             }
             else
-            if (alreadyMinPos)
             {
-                onLeaveMinPosition.Invoke();
-            }
-
-            if (AtMaxPos())
-            {
-                if (!alreadyMaxPos)
+                if (alreadyInRange)
                 {
-                    onArriveMaxPosition.Invoke();
+                    onLeaveValidRange.Invoke();
                 }
-            }
-            else
-            if (alreadyMaxPos)
-            {
-                onLeaveMaxPosition.Invoke();
             }
         }
     }
