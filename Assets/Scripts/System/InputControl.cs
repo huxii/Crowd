@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InputControl : MonoBehaviour
 {
+    public float doubleClickTolerence = 0.1f;
+
     private GameObject mouseClickObject = null;
     private Vector3 mouseClickPos;
     private Vector3 mouseDragPos;
@@ -25,7 +27,7 @@ public class InputControl : MonoBehaviour
 
     public void DetectMouse()
     {
-        if (Time.time - doubleClickTime > 0.3f)
+        if (Time.time - doubleClickTime > doubleClickTolerence)
         {
             // clicked one time but timed out, treated as a single click
             if (oneClick)
@@ -64,7 +66,7 @@ public class InputControl : MonoBehaviour
             else
             {
                 // when it's not a drag
-                if (Time.time - singleClickTime < 0.3f)
+                if (Time.time - singleClickTime < doubleClickTolerence)
                 {
                     oneClick = true;
                 }
