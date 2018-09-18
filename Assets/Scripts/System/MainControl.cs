@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-// TODO: zoom in/zoom out and open lids & falling
+// TODO: zoom in/zoom out and open lids
 
 public class MainControl : MonoBehaviour
 {

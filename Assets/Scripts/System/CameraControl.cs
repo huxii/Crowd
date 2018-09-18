@@ -16,8 +16,8 @@ public class CameraControl : MonoBehaviour
         public Vector2 sensitivity;
     }
 
-    public CameraAttr zoomInAttr;
-    public CameraAttr zoomOutAttr;
+    public List<CameraAttr> zoomLevelAttrs;
+    private int zoomLevel = 0;
 
     private CinemachineFreeLook freeLookCam;
     private CameraAttr targetCameraAttr;
@@ -69,16 +69,22 @@ public class CameraControl : MonoBehaviour
 
     private void ZoomOut()
     {
-        targetCameraAttr = zoomOutAttr;
-
-        targetAngle.x = Mathf.Max(Mathf.Min(targetAngle.x, targetCameraAttr.angleRange.y), targetCameraAttr.angleRange.x);
+        if (zoomLevel >= 1)
+        {
+            --zoomLevel;
+            targetCameraAttr = zoomLevelAttrs[zoomLevel];
+            targetAngle.x = Mathf.Max(Mathf.Min(targetAngle.x, targetCameraAttr.angleRange.y), targetCameraAttr.angleRange.x);
+        }
     }
 
     private void ZoomIn()
     {
-        targetCameraAttr = zoomInAttr;
-
-        targetAngle.x = Mathf.Max(Mathf.Min(targetAngle.x, targetCameraAttr.angleRange.y), targetCameraAttr.angleRange.x);
+        if (zoomLevel < zoomLevelAttrs.Count - 1)
+        {
+            ++zoomLevel;
+            targetCameraAttr = zoomLevelAttrs[zoomLevel];
+            targetAngle.x = Mathf.Max(Mathf.Min(targetAngle.x, targetCameraAttr.angleRange.y), targetCameraAttr.angleRange.x);
+        }
     }
 
     public void Zoom(float delta)
