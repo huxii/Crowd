@@ -85,6 +85,11 @@ public class InputControl : MonoBehaviour
             // mouse up
         }
 
+        if (Input.GetMouseButton(1))
+        {
+            MouseRightDrag();
+        }
+
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
         {
             Services.cameraController.Zoom(Input.GetAxis("Mouse ScrollWheel"));
@@ -109,7 +114,7 @@ public class InputControl : MonoBehaviour
     {
         if (mouseClickObject == null)
         {
-            RotateViewport();
+            TranslateViewport();
         }
         else
         {
@@ -127,16 +132,24 @@ public class InputControl : MonoBehaviour
                 }
                 else
                 {
-                    RotateViewport();
+                    TranslateViewport();
                 }
 
                 mouseClickPos = newMouseClickPos;
             }
-            //else
-            //{
-            //    RotateViewport();
-            //}
         }
+    }
+
+    private void MouseRightDrag()
+    {
+        RotateViewport();
+    }
+
+    public void TranslateViewport()
+    {
+        Vector3 mouseDelta = (Input.mousePosition - mouseDragPos) * Time.time;
+        Services.cameraController.Translate(mouseDelta.x * 0.03f, mouseDelta.y * 0.03f);
+        mouseDragPos = Input.mousePosition;
     }
 
     public void RotateViewport()

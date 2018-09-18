@@ -14,7 +14,10 @@ public class CameraControl : MonoBehaviour
         public Vector2 bottomRigOrbit;
         public Vector2 angleRange;
         public Vector2 sensitivity;
+        public Vector4 translateRange;
     }
+
+    public GameObject pivots;
 
     public List<CameraAttr> zoomLevelAttrs;
     private int zoomLevel = 0;
@@ -22,6 +25,8 @@ public class CameraControl : MonoBehaviour
     private CinemachineFreeLook freeLookCam;
     private CameraAttr targetCameraAttr;
     private Vector2 targetAngle;
+    private Vector3 targetDeltaTranslate;
+    private Vector3 origTranslate;
 
     private void Awake()
     {
@@ -31,6 +36,8 @@ public class CameraControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        origTranslate = pivots.transform.position;
+
         ZoomIn();
         targetAngle = new Vector2(freeLookCam.m_XAxis.Value, freeLookCam.m_YAxis.Value);
     }
@@ -53,6 +60,22 @@ public class CameraControl : MonoBehaviour
         freeLookCam.m_Orbits[0] = new CinemachineFreeLook.Orbit(topOrbit.x, topOrbit.y);
         freeLookCam.m_Orbits[1] = new CinemachineFreeLook.Orbit(middleOrbit.x, middleOrbit.y);
         freeLookCam.m_Orbits[2] = new CinemachineFreeLook.Orbit(bottomOrbit.x, bottomOrbit.y);
+
+        pivots.transform.position = Vector3.Lerp(pivots.transform.position, origTranslate + targetDeltaTranslate, Time.deltaTime * 2f);
+    }
+
+    public void ResetTranslate()
+    {
+        targetDeltaTranslate = new Vector3(0, 0, 0);
+    }
+
+    public void Translate(float x, float y)
+    {
+        float nx = targetDeltaTranslate.x - x;
+        float ny = targetDeltaTranslate.y - y;
+        nx = Mathf.Min(targetCameraAttr.translateRange[2], Mathf.Max(targetCameraAttr.translateRange[0], nx));
+        ny = Mathf.Min(targetCameraAttr.translateRange[3], Mathf.Max(targetCameraAttr.translateRange[1], ny));
+        targetDeltaTranslate = new Vector3(nx, ny, 0);
     }
 
     public void Orbit(float x, float y)
@@ -71,6 +94,8 @@ public class CameraControl : MonoBehaviour
     {
         if (zoomLevel >= 1)
         {
+            ResetTranslate();
+
             --zoomLevel;
             targetCameraAttr = zoomLevelAttrs[zoomLevel];
             targetAngle.x = Mathf.Max(Mathf.Min(targetAngle.x, targetCameraAttr.angleRange.y), targetCameraAttr.angleRange.x);
@@ -81,6 +106,8 @@ public class CameraControl : MonoBehaviour
     {
         if (zoomLevel < zoomLevelAttrs.Count - 1)
         {
+            ResetTranslate();
+
             ++zoomLevel;
             targetCameraAttr = zoomLevelAttrs[zoomLevel];
             targetAngle.x = Mathf.Max(Mathf.Min(targetAngle.x, targetCameraAttr.angleRange.y), targetCameraAttr.angleRange.x);
