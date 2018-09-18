@@ -20,20 +20,20 @@ public class ObjectClickControl : ObjectPrimaryControl
     {
         base.Click();
 
-        if (IsReady())
+        if (IsActivated())
         {
-            if (IsActivated())
+            if (needDelayToDeactivate)
             {
-                if (needDelayToDeactivate)
-                {
-                    DelayToDeactivate();
-                }
-                else
-                {
-                    Deactivate();
-                }
+                DelayToDeactivate();
             }
             else
+            {
+                Deactivate();
+            }
+        }
+        else
+        {
+            if (IsReady())
             {
                 Activate();
             }

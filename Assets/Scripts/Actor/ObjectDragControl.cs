@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public abstract class ObjectDragControl : ObjectPrimaryControl
 {    
+    [Header("Dragging Range")]
     // the range of dragging
     public Vector3 minDelta = new Vector3(0, 0, 0);
     public Vector3 maxDelta = new Vector3(0, 0, 0);

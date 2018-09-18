@@ -9,7 +9,9 @@ public abstract class ObjectControl : ActorControl
     public UnityEvent onActivated;
     public UnityEvent onDeactivated;
 
+    [Header("Walkable Attribute")]
     public bool isWalkable = false;
+    protected List<GameObject> menOnThis = null;
 
     protected bool readyToDeactivate = false;
     protected bool isActivated = false;
@@ -57,6 +59,7 @@ public abstract class ObjectControl : ActorControl
 
     public virtual void Activate()
     {
+        readyToDeactivate = false;
         isActivated = true;
         onActivated.Invoke();
     }
@@ -78,6 +81,27 @@ public abstract class ObjectControl : ActorControl
         {
             readyToDeactivate = false;
             Deactivate();
+        }
+    }
+
+    public void ManAcrossBorder(GameObject man)
+    {
+        if (menOnThis == null)
+        {
+            menOnThis = new List<GameObject>();
+        }
+
+        if (menOnThis.Contains(man))
+        {
+            // this man has across the border once, he is now walking out
+            Unlock();
+            menOnThis.Remove(man);
+        }
+        else
+        {
+            // in
+            Lock();
+            menOnThis.Add(man);
         }
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Man
   - Object
+  - Ground
   layers:
   - Default
   - TransparentFX

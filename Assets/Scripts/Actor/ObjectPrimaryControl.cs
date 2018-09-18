@@ -28,8 +28,7 @@ public abstract class ObjectPrimaryControl : ObjectControl
         READY,
     }
 
-    public bool needDelayToDeactivate = false;
-
+    [Header("Slots Attribute")]
     [SerializeField]
     public float slotGizmoSize = 1f;
 
@@ -42,6 +41,9 @@ public abstract class ObjectPrimaryControl : ObjectControl
 
     // current slots occupied by the crowd
     protected int currentSlots = 0;
+
+    [Header("Deactivate Option")]
+    public bool needDelayToDeactivate = false;
 
     // Use this for initialization
     void Start ()

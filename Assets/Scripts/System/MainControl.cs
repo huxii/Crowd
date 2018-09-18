@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 
 // TODO: zoom in/zoom out and open lids & falling
 
@@ -33,6 +33,7 @@ public class MainControl : MonoBehaviour
         Services.eventManager.Register<ManArrivesAtObj>(OnManArrivesAtObj);
         Services.eventManager.Register<ManLeavesForObj>(OnManLeavesForObj);
         Services.eventManager.Register<ManLeavesFromObj>(OnManLeavesFromObj);
+        Services.eventManager.Register<ManAcrossBorder>(OnManAcrossBorder);
     }
 
     void UnregisterEvents()
@@ -40,6 +41,7 @@ public class MainControl : MonoBehaviour
         Services.eventManager.Unregister<ManArrivesAtObj>(OnManArrivesAtObj);
         Services.eventManager.Unregister<ManLeavesForObj>(OnManLeavesForObj);
         Services.eventManager.Unregister<ManLeavesFromObj>(OnManLeavesFromObj);
+        Services.eventManager.Unregister<ManAcrossBorder>(OnManAcrossBorder);
     }
 
     void OnManArrivesAtObj(Crowd.Event e)
@@ -90,6 +92,18 @@ public class MainControl : MonoBehaviour
         man.transform.SetParent(null);
         man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
         obj.GetComponent<ObjectPrimaryControl>().FreeSlot(slotId);
+    }
+
+    void OnManAcrossBorder(Crowd.Event e)
+    {
+        var manAcrossBorderEvent = e as ManAcrossBorder;
+        GameObject man = manAcrossBorderEvent.man;
+        GameObject obj = manAcrossBorderEvent.obj;
+
+        if (obj != null && obj.GetComponent<ObjectControl>())
+        {
+            obj.GetComponent<ObjectControl>().ManAcrossBorder(man);
+        }
     }
 
     private void SelectMan(GameObject man)
@@ -146,6 +160,29 @@ public class MainControl : MonoBehaviour
         {
             UnboundMan(man);
             Services.pathFindingManager.Move(man);
+        }
+    }
+
+    public void DropMan(GameObject man)
+    {
+        if (selectedMan == man)
+        {
+            DeselectMan();
+        }
+
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(man.transform.position, Vector3.down, 100f);
+        if (hits != null)
+        {
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.transform.gameObject.CompareTag("Ground"))
+                {
+                    Vector3 landPos = hit.point;
+                    man.transform.DOMove(landPos, 1f).SetEase(Ease.InCubic);
+                    break;
+                }
+            }
         }
     }
 

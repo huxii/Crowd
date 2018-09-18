@@ -77,19 +77,25 @@ public class PathFindingManager : MonoBehaviour
                     GameObject middlePoint = path.pathEdges[0].AcrossPoint();
                     if (middlePoint.GetComponent<PathPoint>().followObject != null && middlePoint.GetComponent<PathPoint>().isBorder)
                     {
-                        GameObject followObj = middlePoint.GetComponent<PathPoint>().followObject;
-                        KeyValuePair<GameObject, GameObject> pair = new KeyValuePair<GameObject, GameObject>(actor, followObj);
-                        if (borderTable.Contains(pair))
-                        {
-                            borderTable.Remove(pair);
-                            followObj.GetComponent<ObjectControl>().Unlock();
-                        }
-                        else
-                        {
-                            borderTable.Add(pair);
-                            followObj.GetComponent<ObjectControl>().Lock();
-                        }
+                        Services.eventManager.QueueEvent(new ManAcrossBorder(actor, middlePoint.GetComponent<PathPoint>().followObject));
                     }
+
+                    //GameObject middlePoint = path.pathEdges[0].AcrossPoint();
+                    //if (middlePoint.GetComponent<PathPoint>().followObject != null && middlePoint.GetComponent<PathPoint>().isBorder)
+                    //{
+                    //    GameObject followObj = middlePoint.GetComponent<PathPoint>().followObject;
+                    //    KeyValuePair<GameObject, GameObject> pair = new KeyValuePair<GameObject, GameObject>(actor, followObj);
+                    //    if (borderTable.Contains(pair))
+                    //    {
+                    //        borderTable.Remove(pair);
+                    //        followObj.GetComponent<ObjectControl>().Unlock();
+                    //    }
+                    //    else
+                    //    {
+                    //        borderTable.Add(pair);
+                    //        followObj.GetComponent<ObjectControl>().Lock();
+                    //    }
+                    //}
                 }
 
                 // in order to preserve the pre edge
