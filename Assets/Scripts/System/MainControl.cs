@@ -15,7 +15,7 @@ public class MainControl : MonoBehaviour
         RegisterEvents();
 
         // do a favor for outline shader
-        //Services.utils.RecalculateNormals();
+        Services.utils.RecalculateNormals();
     }
 
     // Update is called once per frame

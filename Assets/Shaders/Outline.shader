@@ -103,11 +103,17 @@
 
 			float4 vert(vertexInput v) : SV_POSITION
 			{
-				float4 clipPosition = UnityObjectToClipPos(v.vertex);
-				float3 clipNormal = mul((float3x3) UNITY_MATRIX_VP, mul((float3x3) UNITY_MATRIX_M, /*v.color.xyz*/v.normal));
+				float3 normalDirection = v.color.xyz;
+				float4 position = v.vertex;
 
-				float2 offset = normalize(clipNormal.xy) * _OutlineWidth * clipPosition.w;
-				clipPosition.xy += offset;
+				float ramp = 0;
+				//float3 lightDirection = normalize(_WorldSpaceLightPos0.xyz);
+				//float ramp = clamp(dot(normalDirection, lightDirection), 0, 0.8);
+
+				float4 clipPosition = UnityObjectToClipPos(position);
+				float3 clipNormal = mul((float3x3) UNITY_MATRIX_VP, mul((float3x3) UNITY_MATRIX_M, normalDirection));
+
+				clipPosition.xy += normalize(clipNormal.xy) * _OutlineWidth * clipPosition.w / _ScreenParams.xy * 50;
 
 				return clipPosition;
 			}

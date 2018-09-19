@@ -31,7 +31,7 @@ Material:
     - _Outline: 0.1
     - _OutlineStyle: 0
     - _OutlineThickness: 0.159
-    - _OutlineWidth: 0.005
+    - _OutlineWidth: 0.672
     - _Size: 1.04
     m_Colors:
     - _Color: {r: 0.23642753, g: 0.6509434, b: 0.42641395, a: 1}
