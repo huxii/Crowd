@@ -61,6 +61,9 @@ public class Utils
                     Vector3 p0 = verts[v0];
                     Vector3 p1 = verts[v1];
                     Vector3 p2 = verts[v2];
+                    //Vector3 p0 = obj.transform.TransformPoint(verts[v0]);
+                    //Vector3 p1 = obj.transform.TransformPoint(verts[v1]);
+                    //Vector3 p2 = obj.transform.TransformPoint(verts[v2]);
                     Vector3 p0p1 = p1 - p0;
                     Vector3 p0p2 = p2 - p0;
                     Vector3 normal = Vector3.Cross(p0p1, p0p2);

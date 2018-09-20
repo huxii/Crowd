@@ -65,20 +65,25 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0.1
+    - _OutlineWidth: 0.08
     - _Parallax: 0.02
     - _RimPower: 0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _TransitionRange: 0.051
+    - _TwilightWidth: 0.093
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
+    - _BrightColor: {r: 0.990566, g: 0.97942585, b: 0.75226945, a: 1}
     - _Color: {r: 1, g: 0.9795611, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0.7169812, g: 0.68876195, b: 0.40922037, a: 1}
+    - _OutlineColor: {r: 0.5660378, g: 0.37521738, b: 0.21092917, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShadowColor: {r: 0.9811321, g: 0.96786255, b: 0.66180134, a: 1}
+    - _TwilightColor: {r: 0.9622642, g: 0.783931, b: 0.4493592, a: 1}
     - _XNegativeColor: {r: 1, g: 1, b: 1, a: 1}
     - _XPositiveColor: {r: 1, g: 1, b: 1, a: 1}
-    - _YNegativeColor: {r: 0.8490566, g: 0.79925776, b: 0.4285333, a: 1}
-    - _YPositiveColor: {r: 1, g: 0.99496853, b: 0.8537736, a: 1}
+    - _YNegativeColor: {r: 1, g: 1, b: 1, a: 1}
+    - _YPositiveColor: {r: 1, g: 1, b: 1, a: 1}
