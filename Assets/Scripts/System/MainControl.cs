@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-// TODO: zoom in/zoom out and open lids & hold icon
-// & man hiding behind something becomes unclickable
-// & ferris wheel models
+// TODO: zoom in/zoom out and open lids & hold icon & ferris wheel models
 
 public class MainControl : MonoBehaviour
 {

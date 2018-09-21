@@ -57,8 +57,6 @@ public class InputControl : MonoBehaviour
             {
                 mouseClickObject = null;
             }
-
-            MouseSingleClick();
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -123,6 +121,10 @@ public class InputControl : MonoBehaviour
 
     private void MouseUp()
     {
+        if (Time.time - singleClickTime < 0.5f)
+        {
+            MouseSingleClick();
+        }
     }
 
     private void MouseHoldRelease()
