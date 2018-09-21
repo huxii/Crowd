@@ -129,9 +129,9 @@
 
 				float4 yColor = lerp(_YNegativeColor * tex, _YPositiveColor * tex, i.tex.y);
 
-				float4 lightFinal = diffuseColor + UNITY_LIGHTMODEL_AMBIENT + rimLight;
+				float4 lightFinal = diffuseColor * yColor + UNITY_LIGHTMODEL_AMBIENT + rimLight;
 
-				return yColor * lightFinal;
+				return lightFinal;
 
 			}
 

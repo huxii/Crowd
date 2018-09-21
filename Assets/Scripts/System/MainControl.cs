@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-// TODO: zoom in/zoom out and open lids
+// TODO: zoom in/zoom out and open lids & hold icon
+// & moving platform bug & man hiding behind something becomes unclickable & change material color
+// & ferris wheel models & down arrow
 
 public class MainControl : MonoBehaviour
 {
@@ -231,6 +233,19 @@ public class MainControl : MonoBehaviour
     }
 
     public void DoubleClickOn(GameObject mouseClickObject)
+    {
+        if (mouseClickObject == null)
+        {
+            return;
+        }
+
+        if (selectedMan && mouseClickObject.CompareTag("Object"))
+        {
+            FillMan(selectedMan, mouseClickObject);
+        }
+    }
+
+    public void HoldRelease(GameObject mouseClickObject)
     {
         if (mouseClickObject == null)
         {

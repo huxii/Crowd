@@ -13,6 +13,9 @@ public class InputControl : MonoBehaviour
     private float doubleClickTime = 0;
     private float singleClickTime = 0;
 
+    private float holdTime = 1f;
+    private bool isHoldUp = false;
+
     // Use this for initialization
     void Start()
     {
@@ -32,7 +35,7 @@ public class InputControl : MonoBehaviour
             // clicked one time but timed out, treated as a single click
             if (oneClick)
             {
-                MouseSingleClick();
+                //MouseSingleClick();
                 oneClick = false;
             }
         }
@@ -41,6 +44,7 @@ public class InputControl : MonoBehaviour
         {
             mouseDragPos = Input.mousePosition;
             singleClickTime = Time.time;
+            isHoldUp = false;
 
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -53,6 +57,8 @@ public class InputControl : MonoBehaviour
             {
                 mouseClickObject = null;
             }
+
+            MouseSingleClick();
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -78,11 +84,16 @@ public class InputControl : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             MouseDrag();
+
+            if (Time.time - singleClickTime > holdTime)
+            {
+                MouseHoldRelease();
+            }
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            // mouse up
+            MouseUp();
         }
 
         if (Input.GetMouseButton(1))
@@ -105,9 +116,26 @@ public class InputControl : MonoBehaviour
 
     private void MouseDoubleClick()
     {
-        Debug.Log("Double click " + mouseClickObject);
+        //Debug.Log("Double click " + mouseClickObject);
 
-        Services.gameController.DoubleClickOn(mouseClickObject);
+        //Services.gameController.DoubleClickOn(mouseClickObject);
+    }
+
+    private void MouseUp()
+    {
+    }
+
+    private void MouseHoldRelease()
+    {
+        if (isHoldUp)
+        {
+            return;
+        }
+
+        Debug.Log("Hold " + mouseClickObject);
+
+        isHoldUp = true;
+        Services.gameController.HoldRelease(mouseClickObject);
     }
 
     private void MouseDrag()
