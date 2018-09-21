@@ -8,10 +8,13 @@ using DG.Tweening;
 public class MainControl : MonoBehaviour
 {
     private GameObject selectedMan = null;
+    private GameObject menObj = null;
 
     // Use this for initialization
     void Start()
     {
+        menObj = GameObject.Find("Actors");
+
         RegisterEvents();
 
         // do a favor for outline shader
@@ -92,7 +95,7 @@ public class MainControl : MonoBehaviour
             return;
         }
 
-        man.transform.SetParent(null);
+        man.transform.SetParent(menObj.transform);
         man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
         obj.GetComponent<ObjectPrimaryControl>().FreeSlot(slotId);
     }
