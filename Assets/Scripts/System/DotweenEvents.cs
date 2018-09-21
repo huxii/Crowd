@@ -67,7 +67,7 @@ public class DotweenEvents : MonoBehaviour
         }
         else
         {
-            Vector3 targetRot = obj.transform.eulerAngles + deltaRot;
+            Vector3 targetRot = deltaRot;
             obj.transform.DORotate(targetRot, time);
         }
     }
