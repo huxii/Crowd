@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 
 // TODO: zoom in/zoom out and open lids & hold icon
-// & moving platform bug & man hiding behind something becomes unclickable & change material color
+// & moving platform bug & man hiding behind something becomes unclickable
 // & ferris wheel models & down arrow
 
 public class MainControl : MonoBehaviour
