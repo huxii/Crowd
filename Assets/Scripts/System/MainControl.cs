@@ -224,6 +224,7 @@ public class MainControl : MonoBehaviour
             }
         }
         else
+        if (mouseClickObject.CompareTag("Ground"))
         {
             if (selectedMan)
             {
