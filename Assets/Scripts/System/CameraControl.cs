@@ -116,7 +116,8 @@ public class CameraControl : MonoBehaviour
 
     public void Zoom(float delta)
     {
-        if (delta == 0)
+        // 0.1f is the scale of mouse wheel
+        if (Mathf.Abs(delta) < 0.1f)
         {
             return;
         }

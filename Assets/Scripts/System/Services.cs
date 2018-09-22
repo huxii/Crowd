@@ -10,5 +10,6 @@ public class Services : MonoBehaviour
     public static MainControl gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainControl>();
     public static InputControl inputController = gameController.gameObject.GetComponent<InputControl>();
     public static CameraControl cameraController = gameController.gameObject.GetComponent<CameraControl>();
+    public static HUDControl hudController = gameController.gameObject.GetComponent<HUDControl>();
     public static Utils utils = new Utils();
 }

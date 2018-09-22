@@ -247,7 +247,17 @@ public class MainControl : MonoBehaviour
         }
     }
 
+    public void HoldStart(GameObject mouseClickObject)
+    {
+        Services.hudController.CreateHoldIcon(mouseClickObject);
+    }
+
     public void HoldRelease(GameObject mouseClickObject)
+    {
+        Services.hudController.DestroyHoldIcon(mouseClickObject);
+    }
+
+    public void HoldEnd(GameObject mouseClickObject)
     {
         if (mouseClickObject == null)
         {
