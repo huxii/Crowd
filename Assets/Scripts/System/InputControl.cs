@@ -4,22 +4,32 @@ using UnityEngine;
 
 public class InputControl : MonoBehaviour
 {
+    // single click
     private GameObject mouseClickObject = null;
     private Vector3 mouseClickPos;
     private Vector3 mouseDragPos;
-    private bool oneClick = false;
-    private float doubleClickTime = 0;
     private float singleClickTime = 0;
 
+    // double click
+    private float doubleClickTime = 0;
     private float doubleClickTolerence = 0.2f;
+    private bool oneClick = false;
+    
+    // hold 
     private float holdTime = 1f;
     private bool isHoldUp = false;
+
+    // pinch
     private float deltaPinchMag = 0;
+
+    // gyroscope
+    private bool gyroEnabled;
+    private Gyroscope gyro;
 
     // Use this for initialization
     void Start()
     {
-
+        gyroEnabled = EnableGyro();
     }
 
     // Update is called once per frame
@@ -28,20 +38,32 @@ public class InputControl : MonoBehaviour
 
     }
 
-    public void DetectMouse()
+    bool EnableGyro()
     {
-        if (Time.time - doubleClickTime > doubleClickTolerence)
+        if (SystemInfo.supportsGyroscope)
         {
-            // clicked one time but timed out, treated as a single click
-            if (oneClick)
-            {
-                //MouseSingleClick();
-                oneClick = false;
-            }
+            gyro = Input.gyro;
+            gyro.enabled = true;
+            return true;
         }
 
-        if (Input.touchCount == 1)
+        return false;
+    }
+
+    public void DetectMouse()
+    {
+        if (Input.touchCount < 2)
         {
+            if (Time.time - doubleClickTime > doubleClickTolerence)
+            {
+                // clicked one time but timed out, treated as a single click
+                if (oneClick)
+                {
+                    //MouseSingleClick();
+                    oneClick = false;
+                }
+            }
+
             if (Input.GetMouseButtonDown(0))
             {
                 singleClickTime = Time.time;
@@ -115,6 +137,11 @@ public class InputControl : MonoBehaviour
                 Zoom(deltaPinchMag);
                 deltaPinchMag = 0;
             }
+        }
+
+        if (gyroEnabled)
+        {
+            Services.cameraController.Orbit(gyro.attitude.x, gyro.attitude.y);
         }
     }
 

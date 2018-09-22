@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-// TODO: zoom in/zoom out and open lids & hold icon & ferris wheel models
+// TODO: zoom in/zoom out and open lids & ferris wheel models & gyroscope
 
 public class MainControl : MonoBehaviour
 {
@@ -249,11 +249,24 @@ public class MainControl : MonoBehaviour
 
     public void HoldStart(GameObject mouseClickObject)
     {
-        Services.hudController.CreateHoldIcon(mouseClickObject);
+        if (mouseClickObject == null)
+        {
+            return;
+        }
+
+        if (selectedMan && mouseClickObject.GetComponent<ObjectPrimaryControl>() && !mouseClickObject.GetComponent<ObjectPrimaryControl>().IsReady())
+        {
+            Services.hudController.CreateHoldIcon(mouseClickObject);
+        }
     }
 
     public void HoldRelease(GameObject mouseClickObject)
     {
+        if (mouseClickObject == null)
+        {
+            return;
+        }
+
         Services.hudController.DestroyHoldIcon(mouseClickObject);
     }
 
@@ -266,6 +279,7 @@ public class MainControl : MonoBehaviour
 
         if (selectedMan && mouseClickObject.CompareTag("Object"))
         {
+            Services.hudController.DestroyHoldIcon(mouseClickObject);
             FillMan(selectedMan, mouseClickObject);
         }
     }
