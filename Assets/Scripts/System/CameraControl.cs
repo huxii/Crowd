@@ -52,7 +52,7 @@ public class CameraControl : MonoBehaviour
             x -= 360;
         }
         freeLookCam.m_XAxis.Value = Mathf.Lerp(x, targetAngle.x, Time.deltaTime * 8f);
-        freeLookCam.m_YAxis.Value = Mathf.Lerp(freeLookCam.m_YAxis.Value, targetAngle.y, Time.deltaTime * 2f);
+        freeLookCam.m_YAxis.Value = Mathf.Lerp(freeLookCam.m_YAxis.Value, targetAngle.y, Time.deltaTime * 8f);
 
         Vector2 topOrbit = Vector2.Lerp(new Vector2(freeLookCam.m_Orbits[0].m_Height, freeLookCam.m_Orbits[0].m_Radius), targetCameraAttr.topRigOrbit, Time.deltaTime * 8f);
         Vector2 middleOrbit = Vector2.Lerp(new Vector2(freeLookCam.m_Orbits[1].m_Height, freeLookCam.m_Orbits[1].m_Radius), targetCameraAttr.middleRigOrbit, Time.deltaTime * 8f);
@@ -80,14 +80,13 @@ public class CameraControl : MonoBehaviour
 
     public void Orbit(float x, float y)
     {
-        float newAngle = targetAngle.x + x / Screen.width * targetCameraAttr.sensitivity.x;
-        //if (targetCameraAttr.angleRange.x < 360 && targetCameraAttr.angleRange.y < 360)
-        {
-            newAngle = Mathf.Max(Mathf.Min(newAngle, targetCameraAttr.angleRange.y), targetCameraAttr.angleRange.x);
-        }
-        targetAngle.x = newAngle;
+        float newAngleX = targetAngle.x + x / Screen.width * targetCameraAttr.sensitivity.x;
+        newAngleX = Mathf.Max(Mathf.Min(newAngleX, targetCameraAttr.angleRange.y), targetCameraAttr.angleRange.x);
+        targetAngle.x = newAngleX;
 
-        targetAngle.y -= y / Screen.width * targetCameraAttr.sensitivity.y;
+        float newAngleY = targetAngle.y - y / Screen.height * targetCameraAttr.sensitivity.y;
+        newAngleY = Mathf.Max(Mathf.Min(newAngleY, 1.0f), 0);
+        targetAngle.y = newAngleY;
     }
 
     private void ZoomOut()

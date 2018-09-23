@@ -22,32 +22,15 @@ public class InputControl : MonoBehaviour
     // pinch
     private float deltaPinchMag = 0;
 
-    // gyroscope
-    private bool gyroEnabled;
-    private Gyroscope gyro;
-
     // Use this for initialization
     void Start()
     {
-        gyroEnabled = EnableGyro();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-    }
-
-    bool EnableGyro()
-    {
-        if (SystemInfo.supportsGyroscope)
-        {
-            gyro = Input.gyro;
-            gyro.enabled = true;
-            return true;
-        }
-
-        return false;
     }
 
     public void DetectMouse()
@@ -129,7 +112,7 @@ public class InputControl : MonoBehaviour
 
             float preMag = (touchPrePos0 - touchPrePos1).magnitude;
             float deltaMag = (touch0.position - touch1.position).magnitude;
-            float magDiff = preMag - deltaMag;
+            float magDiff = deltaMag - preMag;
             deltaPinchMag += magDiff;
 
             if (Mathf.Abs(deltaPinchMag) > 200f)
@@ -139,10 +122,7 @@ public class InputControl : MonoBehaviour
             }
         }
 
-        if (gyroEnabled)
-        {
-            Services.cameraController.Orbit(gyro.attitude.x, gyro.attitude.y);
-        }
+        Services.cameraController.Orbit(Input.acceleration.x * 2500f, Input.acceleration.y * 200f);
     }
 
     private void MouseSingleClick()
