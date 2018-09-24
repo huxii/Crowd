@@ -122,7 +122,7 @@ public class InputControl : MonoBehaviour
             }
         }
 
-        Services.cameraController.Orbit(Input.acceleration.x * 2500f, Input.acceleration.y * 200f);
+        Services.cameraController.Orbit(Input.acceleration.x * 2500f, (Input.acceleration.y + 0.5f) * 1500f);
     }
 
     private void MouseSingleClick()
