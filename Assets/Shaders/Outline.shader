@@ -101,7 +101,7 @@
 				float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld);
 				float3 normalDirection = i.normalDir;
 				float3 lightDirection = normalize(_WorldSpaceLightPos0.xyz);
-				float diffuseReflection = atten * max(0.0, dot(normalDirection, lightDirection));
+				float diffuseReflection = atten * min(1.0, max(0.0, dot(normalDirection, lightDirection)));
 				float4 diffuseColor;
 				if (diffuseReflection <= 0.5 - _DiffuseTransitionRange / 2)
 				{
@@ -118,7 +118,7 @@
 					diffuseColor = lerp(_ShadowColor, _BrightColor, (diffuseReflection - 0.5 + _DiffuseTransitionRange / 2) / _DiffuseTransitionRange) * _LightColor0;
 				}
 
-				if ((atten < 1.0 - (1.0 - _ShadowLineWidth) / 2 && atten > (1.0 - _ShadowLineWidth) / 2 && diffuseReflection > 0.5 - _DiffuseTransitionRange / 2)
+				if ((atten < 0.99 && atten > 0.01 && diffuseReflection > 0.49 && diffuseReflection < 0.95)
 					|| (diffuseReflection > 0.5 - _ShadowLineWidth / 64 && diffuseReflection < 0.5 + _ShadowLineWidth / 64))
 				{
 					diffuseColor = _ShadowLineColor * _LightColor0;
