@@ -195,7 +195,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.015116636, y: 0.00000051437013, z: -0.00000001291143, w: 0.99988574}
+  m_LocalRotation: {x: 0.015116575, y: 0.00000051437013, z: -0.000000012911407, w: 0.99988574}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4724,8 +4724,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.0030009313, y: 0.00000049426035, z: -0.000000023019092,
-    w: 0.9999955}
+  m_LocalRotation: {x: -0.0030008862, y: 0.00000049426035, z: -0.00000002301912, w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5608,6 +5607,7 @@ GameObject:
   - component: {fileID: 1428080940}
   - component: {fileID: 1428080939}
   - component: {fileID: 1428080942}
+  - component: {fileID: 1428080943}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -5715,6 +5715,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdProgressBar: {fileID: 2064285630}
+--- !u!114 &1428080943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1428080935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ead6ce37bd4304f97580756e8473b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1441255137
 GameObject:
   m_ObjectHideFlags: 0
