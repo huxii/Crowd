@@ -19,6 +19,8 @@ public class MainControl : MonoBehaviour
 
         // do a favor for outline shader
         Services.utils.RecalculateNormals();
+
+        CheckPlatform();
     }
 
     // Update is called once per frame
@@ -48,6 +50,16 @@ public class MainControl : MonoBehaviour
         Services.eventManager.Unregister<ManLeavesForObj>(OnManLeavesForObj);
         Services.eventManager.Unregister<ManLeavesFromObj>(OnManLeavesFromObj);
         Services.eventManager.Unregister<ManAcrossBorder>(OnManAcrossBorder);
+    }
+
+    void CheckPlatform()
+    {
+        switch (Application.platform)
+        {
+            case RuntimePlatform.IPhonePlayer:
+                Application.targetFrameRate = 60;
+                break;
+        }
     }
 
     void OnManArrivesAtObj(Crowd.Event e)
