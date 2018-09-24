@@ -48,7 +48,7 @@ Material:
     - _RimBoost: 2
     - _RimExp: 4
     - _RimPower: 6.13
-    - _ShadowLineWidth: 0.458
+    - _ShadowLineWidth: 1
     - _ShadowTransitionRange: 0.034
     - _Size: 1.04
     - _SpecBoost: 0.3

@@ -118,8 +118,12 @@
 					diffuseColor = lerp(_ShadowColor, _BrightColor, (diffuseReflection - 0.5 + _DiffuseTransitionRange / 2) / _DiffuseTransitionRange) * _LightColor0;
 				}
 
-				if ((atten < 0.99 && atten > 0.01 && diffuseReflection > 0.49 && diffuseReflection < 0.95)
-					|| (diffuseReflection > 0.5 - _ShadowLineWidth / 64 && diffuseReflection < 0.5 + _ShadowLineWidth / 64))
+				if (atten < _ShadowLineWidth && atten > 1 - _ShadowLineWidth && diffuseReflection > 0.49 && diffuseReflection < 0.95)
+				{
+					diffuseColor = lerp(_ShadowLineColor * _LightColor0, diffuseColor, atten - 0.8);
+				}
+
+				if (diffuseReflection > 0.5 - _ShadowLineWidth / 128 && diffuseReflection < 0.5 + _ShadowLineWidth / 128)
 				{
 					diffuseColor = _ShadowLineColor * _LightColor0;
 				}
