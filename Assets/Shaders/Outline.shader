@@ -114,10 +114,12 @@
 				}
 				else
 				{
+					//return float4(0, 0, 0, 1);
 					diffuseColor = lerp(_ShadowColor, _BrightColor, (diffuseReflection - 0.5 + _DiffuseTransitionRange / 2) / _DiffuseTransitionRange) * _LightColor0;
-				}		
+				}
 
-				if (diffuseReflection > 0.5 - _ShadowLineWidth / 2 && diffuseReflection < 0.5 + _ShadowLineWidth / 2)
+				if ((atten < 1.0 - (1.0 - _ShadowLineWidth) / 2 && atten > (1.0 - _ShadowLineWidth) / 2 && diffuseReflection > 0.5 - _DiffuseTransitionRange / 2)
+					|| (diffuseReflection > 0.5 - _ShadowLineWidth / 64 && diffuseReflection < 0.5 + _ShadowLineWidth / 64))
 				{
 					diffuseColor = _ShadowLineColor * _LightColor0;
 				}

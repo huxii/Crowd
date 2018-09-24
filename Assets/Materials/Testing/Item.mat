@@ -36,7 +36,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _ColoredOutline: 0
-    - _DiffuseTransitionRange: 0.054
+    - _DiffuseTransitionRange: 0
     - _DottedLineFreq: 0.2
     - _DottedLineThickness: 0.2
     - _Glossiness: 0.202
@@ -48,7 +48,7 @@ Material:
     - _RimBoost: 2
     - _RimExp: 4
     - _RimPower: 6.13
-    - _ShadowLineWidth: 0
+    - _ShadowLineWidth: 1
     - _ShadowTransitionRange: 0.034
     - _Size: 1.04
     - _SpecBoost: 0.3
@@ -62,7 +62,7 @@ Material:
     - _OutlineColor: {r: 0.3364428, g: 0.4245283, b: 0.28635636, a: 1}
     - _RimColor: {r: 0.22737095, g: 0.5377358, b: 0.20038268, a: 1}
     - _ShadowColor: {r: 0.48718405, g: 0.72719055, b: 0.8679245, a: 1}
-    - _ShadowLineColor: {r: 0.4313378, g: 0.754717, b: 0.4236383, a: 1}
+    - _ShadowLineColor: {r: 0.18276078, g: 0.3962264, b: 0.17755428, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _TwilightColor: {r: 0.37373215, g: 0.5660378, b: 0.35510862, a: 1}
     - _XNegativeColor: {r: 0.56697226, g: 0.8773585, b: 0.63910085, a: 1}
