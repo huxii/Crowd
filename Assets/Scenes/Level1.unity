@@ -186,7 +186,7 @@ MonoBehaviour:
     FieldOfView: 40
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 1000
     Dutch: 0
   m_ComponentOwner: {fileID: 1804687660}
 --- !u!4 &23892180
@@ -195,7 +195,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.015116575, y: 0.00000051437013, z: -0.000000012911407, w: 0.99988574}
+  m_LocalRotation: {x: 0.01511647, y: 0.0000005143702, z: -0.000000012911677, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -569,7 +569,7 @@ MonoBehaviour:
     FieldOfView: 40
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 1000
     Dutch: 0
   m_YAxis:
     Value: 0.5
@@ -1354,7 +1354,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.9811321, g: 0.96143126, b: 0.6247775, a: 1}
+  m_Color: {r: 0.9245283, g: 0.9245283, b: 0.75444996, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -2041,7 +2041,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 5000
+  far clip plane: 1000
   field of view: 40
   orthographic: 0
   orthographic size: 10
@@ -4715,7 +4715,7 @@ MonoBehaviour:
     FieldOfView: 40
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 1000
     Dutch: 0
   m_ComponentOwner: {fileID: 1792354975}
 --- !u!4 &1199475900
@@ -4724,7 +4724,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.0030008862, y: 0.00000049426035, z: -0.00000002301912, w: 0.9999955}
+  m_LocalRotation: {x: -0.0030009216, y: 0.00000049426035, z: -0.000000023019355,
+    w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5692,6 +5693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2317ac0c5963b174a9441fb2e3cbef14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gyroEnabled: 0
 --- !u!114 &1428080941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8338,7 +8340,7 @@ MonoBehaviour:
     FieldOfView: 40
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 1000
     Dutch: 0
   m_ComponentOwner: {fileID: 1118751676}
 --- !u!4 &1904641034

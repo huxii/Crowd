@@ -85,7 +85,7 @@
 
 				o.pos = UnityObjectToClipPos(v.vertex);
 				o.posWorld = mul(unity_ObjectToWorld, v.vertex);
-				o.normalDir = mul(v.normal, unity_WorldToObject).xyz;
+				o.normalDir = normalize(mul(v.normal, unity_WorldToObject).xyz);
 				o.tex = v.texcoord;
 
 				TRANSFER_VERTEX_TO_FRAGMENT(o);
@@ -174,7 +174,7 @@
 
 			float4 vert(vertexInput v) : SV_POSITION
 			{
-				float3 normalDirection = v.color.xyz;
+				float3 normalDirection = normalize(v.color.xyz);
 				float4 position = v.vertex;
 
 				float3 lightDirection = normalize(_WorldSpaceLightPos0.xyz);
