@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InputControl : MonoBehaviour
 {
+    public bool gyroEnabled = false;
+
     // single click
     private GameObject mouseClickObject = null;
     private Vector3 mouseClickPos;
@@ -92,7 +94,7 @@ public class InputControl : MonoBehaviour
             // only on PC
             if (Input.GetMouseButton(1))
             {
-                MouseRightHold();
+                TranslateViewport();
             }
 
             if (Input.GetAxis("Mouse ScrollWheel") != 0)
@@ -101,28 +103,37 @@ public class InputControl : MonoBehaviour
             }
         }
         else
-        // only on mobile
         if (Input.touchCount == 2)
         {
             Touch touch0 = Input.GetTouch(0);
             Touch touch1 = Input.GetTouch(1);
 
-            Vector2 touchPrePos0 = touch0.position - touch0.deltaPosition;
-            Vector2 touchPrePos1 = touch1.position - touch1.deltaPosition;
-
-            float preMag = (touchPrePos0 - touchPrePos1).magnitude;
-            float deltaMag = (touch0.position - touch1.position).magnitude;
-            float magDiff = deltaMag - preMag;
-            deltaPinchMag += magDiff;
-
-            if (Mathf.Abs(deltaPinchMag) > 200f)
+            if (Vector2.Angle(touch0.deltaPosition, touch1.deltaPosition) < 90f)
             {
-                Zoom(deltaPinchMag);
-                deltaPinchMag = 0;
+                TranslateViewport(touch0.deltaPosition.x, touch0.deltaPosition.y);
+            }
+            else
+            {
+                Vector2 touchPrePos0 = touch0.position - touch0.deltaPosition;
+                Vector2 touchPrePos1 = touch1.position - touch1.deltaPosition;
+
+                float preMag = (touchPrePos0 - touchPrePos1).magnitude;
+                float deltaMag = (touch0.position - touch1.position).magnitude;
+                float magDiff = deltaMag - preMag;
+                deltaPinchMag += magDiff;
+
+                if (Mathf.Abs(deltaPinchMag) > 200f)
+                {
+                    Zoom(deltaPinchMag);
+                    deltaPinchMag = 0;
+                }
             }
         }
 
-        Services.cameraController.Orbit(Input.acceleration.x * 2500f, (Input.acceleration.y + 0.5f) * 1500f);
+        if (gyroEnabled)
+        {
+            Services.cameraController.Orbit(Input.acceleration.x * 2500f, (Input.acceleration.y + 0.5f) * 1500f);
+        }
     }
 
     private void MouseSingleClick()
@@ -186,7 +197,7 @@ public class InputControl : MonoBehaviour
     {
         if (mouseClickObject == null)
         {
-            TranslateViewport();
+            RotateViewport();
         }
         else
         {
@@ -204,7 +215,7 @@ public class InputControl : MonoBehaviour
                 }
                 else
                 {
-                    TranslateViewport();
+                    RotateViewport();
                 }
 
                 mouseClickPos = newMouseClickPos;
@@ -212,15 +223,15 @@ public class InputControl : MonoBehaviour
         }
     }
 
-    private void MouseRightHold()
+    public void TranslateViewport(float x, float y)
     {
-        RotateViewport();
+        Services.cameraController.Translate(x, y);
     }
 
     public void TranslateViewport()
     {
         Vector3 mouseDelta = (Input.mousePosition - mouseDragPos) * Time.time;
-        Services.cameraController.Translate(mouseDelta.x * 0.03f, mouseDelta.y * 0.03f);
+        TranslateViewport(mouseDelta.x * 0.03f, mouseDelta.y * 0.03f);
         mouseDragPos = Input.mousePosition;
     }
 
