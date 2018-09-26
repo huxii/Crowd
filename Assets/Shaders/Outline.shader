@@ -12,8 +12,9 @@
 		[Header(Lighting)]
 		_ShadowColor("Shadow Color", Color) = (1, 1, 1, 1)
 		_BrightColor("Bright Color", Color) = (1, 1, 1, 1)
-		_ShadowLineWidth("Shadow Line Width", Range(0, 1)) = 0.01
 		_ShadowLineColor("Shadow Line Color", Color) = (1, 1, 1, 1)
+		_ShadowLineWidth("Shadow Line Width", Range(0, 1)) = 0.01
+		_DiffuseLineWidth("Diffuse Line Width", Range(0, 1)) = 0.01
 		_DiffuseTransitionRange("Diffuse Transition Range", Range(0, 1)) = 0.1
 
 		_RimColor("Rim Color", Color) = (1, 1, 1, 1)
@@ -50,8 +51,9 @@
 
 			uniform float4 _ShadowColor;
 			uniform float4 _BrightColor;
-			uniform float _ShadowLineWidth;
 			uniform float4 _ShadowLineColor;
+			uniform float _ShadowLineWidth;
+			uniform float _DiffuseLineWidth;
 			uniform float _DiffuseTransitionRange;
 
 			uniform float4 _XPositiveColor;
@@ -118,12 +120,12 @@
 					diffuseColor = lerp(_ShadowColor, _BrightColor, (diffuseReflection - 0.5 + _DiffuseTransitionRange / 2) / _DiffuseTransitionRange) * _LightColor0;
 				}
 
-				if (atten < 0.99 && atten > 0.01 && diffuseReflection > 0.49 && diffuseReflection < 0.95)
+				if (atten < _ShadowLineWidth && atten > (1 - _ShadowLineWidth) && diffuseReflection > 0.4 && diffuseReflection < 0.9)
 				{
 					diffuseColor = lerp(_ShadowLineColor * _LightColor0, diffuseColor, atten - 0.8);
 				}
 
-				if (diffuseReflection > 0.5 - _ShadowLineWidth / 128 && diffuseReflection < 0.5 + _ShadowLineWidth / 128)
+				if (diffuseReflection > 0.5 - _DiffuseLineWidth / 128 && diffuseReflection < 0.5 + _DiffuseLineWidth / 128)
 				{
 					diffuseColor = _ShadowLineColor * _LightColor0;
 				}
