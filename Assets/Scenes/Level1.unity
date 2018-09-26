@@ -195,7 +195,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.015116744, y: 0.0000005143702, z: -0.000000012912453, w: 0.9998858}
+  m_LocalRotation: {x: 0.015116764, y: 0.0000005143702, z: -0.000000012912526, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1847,7 +1847,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
-  slotGizmoSize: 0.2
+  progressBarPosOffset: {x: 0, y: -0.5, z: -0.6}
+  gizmoSize: 0.2
   slots:
   - state: 0
     obj: {fileID: 1559466340}
@@ -2098,7 +2099,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
-  slotGizmoSize: 0.2
+  progressBarPosOffset: {x: 0, y: -0.5, z: -0.6}
+  gizmoSize: 0.2
   slots:
   - state: 0
     obj: {fileID: 604165171}
@@ -3460,7 +3462,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 1
-  slotGizmoSize: 0.2
+  progressBarPosOffset: {x: 0, y: 0, z: -0.5}
+  gizmoSize: 0.2
   slots:
   - state: 0
     obj: {fileID: 308937338}
@@ -4612,7 +4615,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.0030010622, y: 0.00000049426035, z: -0.000000023019778,
+  m_LocalRotation: {x: -0.0030008173, y: 0.00000049426035, z: -0.000000023019947,
     w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -4831,7 +4834,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
-  slotGizmoSize: 0.2
+  progressBarPosOffset: {x: 0, y: -0.5, z: -0.6}
+  gizmoSize: 0.2
   slots:
   - state: 0
     obj: {fileID: 1706916218}
@@ -5409,7 +5413,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
-  slotGizmoSize: 0.2
+  progressBarPosOffset: {x: 0, y: -0.5, z: -1.5}
+  gizmoSize: 0.2
   slots:
   - state: 0
     obj: {fileID: 1709809788}
@@ -6132,7 +6137,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
-  slotGizmoSize: 0.2
+  progressBarPosOffset: {x: 0.75, y: 0, z: -0.6}
+  gizmoSize: 0.2
   slots:
   - state: 0
     obj: {fileID: 1780256158}
@@ -6670,7 +6676,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
-  slotGizmoSize: 0.2
+  progressBarPosOffset: {x: 0, y: -0.5, z: -0.6}
+  gizmoSize: 0.2
   slots:
   - state: 0
     obj: {fileID: 1872862164}
@@ -7178,7 +7185,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
-  slotGizmoSize: 0.2
+  progressBarPosOffset: {x: 0, y: 0, z: 0}
+  gizmoSize: 0.2
   slots: []
   namingCounter: 1
   needDelayToDeactivate: 0

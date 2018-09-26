@@ -28,10 +28,12 @@ public abstract class ObjectPrimaryControl : ObjectControl
         READY,
     }
 
-    [Header("Slots Attribute")]
+    [Header("UI")]
+    public Vector3 progressBarPosOffset = new Vector3(0, 0, 0);
     [SerializeField]
-    public float slotGizmoSize = 1f;
+    public float gizmoSize = 0.2f;
 
+    [Header("Slots Attribute")]
     [SerializeField]
     protected List<SlotAttr> slots = new List<SlotAttr>();
     [HideInInspector]
@@ -68,9 +70,12 @@ public abstract class ObjectPrimaryControl : ObjectControl
             else
             {
                 Gizmos.color = Color.green;
-                Gizmos.DrawWireSphere(slot.obj.transform.position, slotGizmoSize);
+                Gizmos.DrawWireSphere(slot.obj.transform.position, gizmoSize);
             }
         }
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position + progressBarPosOffset, new Vector3(gizmoSize, gizmoSize, gizmoSize));
     }
 
     public bool IsReady()

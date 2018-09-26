@@ -268,7 +268,7 @@ public class MainControl : MonoBehaviour
 
         if (selectedMan && mouseClickObject.GetComponent<ObjectPrimaryControl>() && !mouseClickObject.GetComponent<ObjectPrimaryControl>().IsReady())
         {
-            Services.hudController.CreateHoldIcon(mouseClickObject);
+            Services.hudController.CreateHoldIcon(mouseClickObject, mouseClickObject.GetComponent<ObjectPrimaryControl>().progressBarPosOffset);
         }
     }
 

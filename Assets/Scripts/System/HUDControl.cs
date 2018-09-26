@@ -22,10 +22,10 @@ public class HUDControl : MonoBehaviour
         }
     }
 
-    public void CreateHoldIcon(GameObject obj)
+    public void CreateHoldIcon(GameObject obj, Vector3 offset)
     {
         holdProgressBar.SetActive(true);
-        holdProgressBar.transform.position = obj.transform.position + new Vector3(0, 0, -2);
+        holdProgressBar.transform.position = obj.transform.position + offset;
         holdProgressBar.GetComponent<Image>().fillAmount = 0;
     }
 
