@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-// TODO: zoom in/zoom out and open lids & ferris wheel models & gyroscope
+// TODO: models?
 
 public class MainControl : MonoBehaviour
 {

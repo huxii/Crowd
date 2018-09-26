@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Cinemachine;
-using DG.Tweening;
 
 public class CameraControl : MonoBehaviour
 {
     // cinemachine : x - 0~360    y - 0~1.0
     // cameracontrol: x - 0~360    y - 0~180
     // should convert when applying angles to cinemachine
+
+    public UnityEvent onEnterMaxZoomOut;
+    public UnityEvent onExitMaxZoomOut;
+
     [System.Serializable]
     public class CameraAttr
     {
@@ -162,6 +166,11 @@ public class CameraControl : MonoBehaviour
             --zoomLevel;
             targetCameraAttr = zoomLevelAttrs[zoomLevel];
             targetAngle = targetCameraAttr.angleZero;
+
+            if (zoomLevel == 0)
+            {
+                onEnterMaxZoomOut.Invoke();
+            }
         }
     }
 
@@ -169,6 +178,11 @@ public class CameraControl : MonoBehaviour
     {
         if (zoomLevel < zoomLevelAttrs.Count - 1)
         {
+            if (zoomLevel == 0)
+            {
+                onExitMaxZoomOut.Invoke();
+            }
+
             ResetTranslate();
 
             ++zoomLevel;
