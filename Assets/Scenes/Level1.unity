@@ -195,7 +195,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.015117184, y: 0.0000005143702, z: -0.00000001291234, w: 0.9998858}
+  m_LocalRotation: {x: 0.015116524, y: 0.0000005143702, z: -0.000000012912066, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1977,7 +1977,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.015117395, y: -0, z: -0, w: 0.99988574}
+  m_LocalRotation: {x: 0.015116576, y: -0, z: -0, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 1, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4611,7 +4611,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.0030011483, y: 0.00000049426035, z: -0.000000023019473,
+  m_LocalRotation: {x: -0.0030009411, y: 0.00000049426035, z: -0.000000023019625,
     w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -5551,19 +5551,22 @@ MonoBehaviour:
   - topRigOrbit: {x: 5, y: 42}
     middleRigOrbit: {x: 0, y: 45}
     bottomRigOrbit: {x: -5, y: 42}
-    angleRange: {x: -180, y: 180}
+    angleRange: {x: -360, y: 360}
+    angleZero: {x: 180, y: 0.5}
     sensitivity: {x: 3, y: 0.08}
     translateRange: {x: -1, y: -1, z: 1, w: 1}
   - topRigOrbit: {x: 10, y: 29}
     middleRigOrbit: {x: 0, y: 30}
     bottomRigOrbit: {x: -3, y: 29}
     angleRange: {x: -20, y: 20}
+    angleZero: {x: 0, y: 0.5}
     sensitivity: {x: 1, y: 0.08}
     translateRange: {x: -1, y: -1, z: 1, w: 1}
   - topRigOrbit: {x: 8, y: 17}
     middleRigOrbit: {x: 0, y: 18}
     bottomRigOrbit: {x: -1, y: 17}
     angleRange: {x: -10, y: 10}
+    angleZero: {x: 0, y: 0.5}
     sensitivity: {x: 1, y: 0.08}
     translateRange: {x: -1, y: -1, z: 1, w: 1}
 --- !u!114 &1428080940
