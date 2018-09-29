@@ -319,7 +319,7 @@ public class PathFindingManager : MonoBehaviour
             }
         }
 
-        if (dist > 1.5f)
+        if (dist > 1f)
         {
             return null;
         }

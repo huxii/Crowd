@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-// TODO: main menu & MerryGoRound pause & camera readjust & ferris wheel load man position
+// TODO: main menu & MerryGoRound pause & camera readjust
 
 public class MainControl : MonoBehaviour
 {
