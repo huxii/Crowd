@@ -138,6 +138,10 @@ public class MainControl : MonoBehaviour
             man.GetComponent<CrowdControl>().Selected();
             selecetedMen.Add(man);
         }
+        else
+        {
+            DeselectMan(man);
+        }
     }
 
     private void DeselectMan()
