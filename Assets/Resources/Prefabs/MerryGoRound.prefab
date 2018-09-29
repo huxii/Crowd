@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4031031965746914}
   m_Layer: 0
-  m_Name: FerryGoRound
+  m_Name: MerryGoRound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

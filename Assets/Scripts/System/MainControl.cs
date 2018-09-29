@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-// TODO: models?
+// TODO: main menu & MerryGoRound pause
 
 public class MainControl : MonoBehaviour
 {
