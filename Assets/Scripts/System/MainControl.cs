@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-// TODO: main menu & MerryGoRound pause
+// TODO: main menu & MerryGoRound pause & camera readjust & ferris wheel load man position
 
 public class MainControl : MonoBehaviour
 {
@@ -188,7 +188,7 @@ public class MainControl : MonoBehaviour
             {
                 UnboundMan(man);
                 OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
-                Services.pathFindingManager.Move(man, 0.1f, new ManArrivesAtObj(man, obj, slotId));
+                Services.pathFindingManager.Move(man, 0.05f, new ManArrivesAtObj(man, obj, slotId));
             }
         }
         //foreach (GameObject man in men)

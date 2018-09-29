@@ -80,6 +80,7 @@ public class PathFindingManager : MonoBehaviour
                     }
 
                     pathTable.Remove(actor);
+                    actor.GetComponent<CrowdControl>().Stop();
                 }
                 else
                 {

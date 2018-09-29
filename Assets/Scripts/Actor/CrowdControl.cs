@@ -48,6 +48,10 @@ public class CrowdControl : ActorControl
                 isMoving = false;
             }
         }
+        else
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+        }
     }
 
     void OnDrawGizmos()
@@ -101,6 +105,11 @@ public class CrowdControl : ActorControl
         onDeselected.Invoke();
     }
 
+    public void Stop()
+    {
+        isMoving = false;
+    }
+
     public void MoveTo(Vector3 pos, float tol)
     {
         isMoving = true;
@@ -110,15 +119,15 @@ public class CrowdControl : ActorControl
 
     public void WalkAcross(GameObject obj)
     {
-        if (onObj == obj)
-        {
-            onObj = null;
-            SetKinematic(false);
-        }
-        else
-        {
-            onObj = obj;
-            SetKinematic(true);
-        }
+        //if (onObj == obj)
+        //{
+        //    onObj = null;
+        //    SetKinematic(false);
+        //}
+        //else
+        //{
+        //    onObj = obj;
+        //    SetKinematic(true);
+        //}
     }
 }
