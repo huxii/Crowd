@@ -167,9 +167,16 @@ public class MainControl : MonoBehaviour
         }
 
         SortedDictionary<float, GameObject> sortByDistance = new SortedDictionary<float, GameObject>();
+        float diffKey = 0;
+        foreach (GameObject selectedMan in selecetedMen)
+        {
+            sortByDistance.Add(diffKey, selectedMan);
+            diffKey += 1e-12f;
+        }
+        
         foreach (GameObject man in men)
         {
-            if (man.GetComponent<CrowdControl>().IsBusy() == false && !man.GetComponent<CrowdControl>().IsLocked())
+            if (!sortByDistance.ContainsValue(man) && man.GetComponent<CrowdControl>().IsBusy() == false && !man.GetComponent<CrowdControl>().IsLocked())
             {
                 sortByDistance.Add(Vector3.Distance(man.transform.position, obj.transform.position), man);
             }
