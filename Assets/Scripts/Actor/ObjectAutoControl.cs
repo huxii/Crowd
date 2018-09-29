@@ -5,10 +5,6 @@ using UnityEngine;
 // automatically activate when slots are filled
 public class ObjectAutoControl : ObjectPrimaryControl
 {
-    public float timeToAutoDeactivate = 1f;
-
-    private float timer = 0;
-
 	// Use this for initialization
 	void Start ()
     {
@@ -18,40 +14,12 @@ public class ObjectAutoControl : ObjectPrimaryControl
 	// Update is called once per frame
 	void Update ()
     {
-        if (IsActivated())
-        {
-            if (timer < timeToAutoDeactivate)
-            {
-                timer += Time.deltaTime;
-                if (timer >= timeToAutoDeactivate)
-                {
-                    Deactivate();
-                }
-            }
-        }
-        else
-        {
-            timer = 0;
-        }
 	}
 
-    public override void Ready()
+    public override void OnSlotsFull()
     {
-        base.Ready();
+        base.OnSlotsFull();
 
         Activate();
-    }
-
-    public override void Deactivate()
-    {
-        base.Deactivate();
-
-        foreach (SlotAttr slot in slots)
-        {
-            if (slot.man != null)
-            {
-                Services.gameController.UnboundMan(slot.man);
-            }
-        }
     }
 }

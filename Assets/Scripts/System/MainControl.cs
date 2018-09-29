@@ -75,10 +75,7 @@ public class MainControl : MonoBehaviour
         man.transform.SetParent(obj.GetComponent<ObjectPrimaryControl>().GetSlotObject(slotId).transform);
         obj.GetComponent<ObjectPrimaryControl>().ReadySlot(slotId, man);
 
-        if (selecetedMen.Contains(man))
-        {
-            DeselectMan();
-        }
+        DeselectMan(man);
     }
 
     void OnManLeavesForObj(Crowd.Event e)
@@ -125,6 +122,11 @@ public class MainControl : MonoBehaviour
         {
             obj.GetComponent<ObjectControl>().ManAcrossBorder(man);
         }
+
+        if (man != null && man.GetComponent<CrowdControl>())
+        {
+            man.GetComponent<CrowdControl>().WalkAcross(obj);
+        }
     }
 
     private void SelectMan(GameObject man)
@@ -159,13 +161,23 @@ public class MainControl : MonoBehaviour
 
     private void FillMan(GameObject obj)
     {
-        if (!obj.GetComponent<ObjectPrimaryControl>() /*|| man.GetComponent<CrowdControl>().IsLocked()*/)
+        if (!obj.GetComponent<ObjectPrimaryControl>() || obj.GetComponent<ObjectPrimaryControl>().GetEmptySlotNum() == 0)
         {
             return;
         }
 
+        SortedDictionary<float, GameObject> sortByDistance = new SortedDictionary<float, GameObject>();
         foreach (GameObject man in men)
         {
+            if (man.GetComponent<CrowdControl>().IsBusy() == false && !man.GetComponent<CrowdControl>().IsLocked())
+            {
+                sortByDistance.Add(Vector3.Distance(man.transform.position, obj.transform.position), man);
+            }
+        }
+
+        foreach (KeyValuePair<float, GameObject> pair in sortByDistance)
+        {
+            GameObject man = pair.Value;
             int slotId = obj.GetComponent<ObjectPrimaryControl>().FindEmptySlot();
             if (slotId == -1)
             {
@@ -179,11 +191,26 @@ public class MainControl : MonoBehaviour
                 Services.pathFindingManager.Move(man, 0.1f, new ManArrivesAtObj(man, obj, slotId));
             }
         }
+        //foreach (GameObject man in men)
+        //{
+        //    int slotId = obj.GetComponent<ObjectPrimaryControl>().FindEmptySlot();
+        //    if (slotId == -1)
+        //    {
+        //        return;
+        //    }
+
+        //    if (Services.pathFindingManager.FindPath(man, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId)))
+        //    {
+        //        UnboundMan(man);
+        //        OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
+        //        Services.pathFindingManager.Move(man, 0.1f, new ManArrivesAtObj(man, obj, slotId));
+        //    }
+        //}
     }
 
     public void UnboundMan(GameObject man)
     {
-        Services.eventManager.QueueEvent(new ManLeavesFromObj(man));
+        OnManLeavesFromObj(new ManLeavesFromObj(man));
     }
 
     private bool MoveMan(GameObject man, float tol, Vector3 targetPos)

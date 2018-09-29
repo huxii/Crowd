@@ -29,7 +29,7 @@ public abstract class ObjectPrimaryControl : ObjectControl
     }
 
     [Header("UI")]
-    public Vector3 progressBarPosOffset = new Vector3(0, 0, 0);
+    //public Vector3 progressBarPosOffset = new Vector3(0, 0, 0);
     [SerializeField]
     public float gizmoSize = 0.2f;
 
@@ -74,8 +74,8 @@ public abstract class ObjectPrimaryControl : ObjectControl
             }
         }
 
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(transform.position + progressBarPosOffset, new Vector3(gizmoSize, gizmoSize, gizmoSize));
+        //Gizmos.color = Color.yellow;
+        //Gizmos.DrawWireCube(transform.position + progressBarPosOffset, new Vector3(gizmoSize, gizmoSize, gizmoSize));
     }
 
     public bool IsReady()
@@ -101,15 +101,7 @@ public abstract class ObjectPrimaryControl : ObjectControl
         {
             if (currentSlots == slots.Count)
             {
-                // force to deactivate
-                if (needDelayToDeactivate)
-                {
-                    DelayToDeactivate();
-                }
-                else
-                {
-                    Deactivate();
-                }
+                OnSlotsNotFull();
             }
             --currentSlots;
         }
@@ -129,7 +121,7 @@ public abstract class ObjectPrimaryControl : ObjectControl
             ++currentSlots;
             if (currentSlots == slots.Count)
             {
-                Ready();
+                OnSlotsFull();
             }
             slots[id].state = SlotState.READY;
             slots[id].man = man;
@@ -144,6 +136,11 @@ public abstract class ObjectPrimaryControl : ObjectControl
     public GameObject GetSlotObject(int id)
     {
         return slots[id].obj;
+    }
+
+    public int GetEmptySlotNum()
+    {
+        return slots.Count - currentSlots;
     }
 
     //public int GetSlotId(GameObject man)
@@ -176,5 +173,22 @@ public abstract class ObjectPrimaryControl : ObjectControl
         }
 
         return -1;
+    }
+
+    public virtual void OnSlotsFull()
+    {
+    }
+
+    public virtual void OnSlotsNotFull()
+    {
+        // force to deactivate
+        if (needDelayToDeactivate)
+        {
+            DelayToDeactivate();
+        }
+        else
+        {
+            Deactivate();
+        }
     }
 }

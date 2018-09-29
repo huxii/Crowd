@@ -10,14 +10,6 @@ public class CrowdControl : ActorControl
 
     public float speed = 5f;
 
-    enum CrowdState
-    {
-        IDLE,
-        BUSY
-    };
-
-    CrowdState state = CrowdState.IDLE;
-
     private GameObject workingObject = null;
     private int workingSlot = -1;
 
@@ -25,6 +17,8 @@ public class CrowdControl : ActorControl
     private Vector3 targetPos;
     private float targetPosTol = 0f;
     private Rigidbody rb;
+
+    private GameObject onObj = null;
 
     // Use this for initialization
     void Start()
@@ -41,7 +35,7 @@ public class CrowdControl : ActorControl
 
     void FixedUpdate()
     {
-        //if (isMoving)
+        if (isMoving)
         {
             if (Vector3.Distance(targetPos, transform.position) > targetPosTol)
             {
@@ -49,10 +43,10 @@ public class CrowdControl : ActorControl
                 //rb.velocity = (targetPos - transform.position).normalized * speed;
                 rb.MovePosition(transform.position + (targetPos - transform.position).normalized * speed * Time.deltaTime);
             }
-            //else
-            //{
-            //    isMoving = false;
-            //}
+            else
+            {
+                isMoving = false;
+            }
         }
     }
 
@@ -62,15 +56,29 @@ public class CrowdControl : ActorControl
         UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.up, targetPosTol);
     }
 
+    private void SetKinematic(bool isKinematic)
+    {
+        rb.isKinematic = isKinematic;
+    }
+
     public bool IsBusy()
     {
-        return (state == CrowdState.BUSY);
+        return (workingObject != null);
     }
 
     public void SetWorkingObject(GameObject obj, int slot)
     {
         workingObject = obj;
         workingSlot = slot;
+
+        if (obj == null)
+        {
+            SetKinematic(false);
+        }
+        else
+        {
+            SetKinematic(true);
+        }
     }
 
     public GameObject GetWorkingObject()
@@ -98,5 +106,19 @@ public class CrowdControl : ActorControl
         isMoving = true;
         targetPos = pos;
         targetPosTol = tol;
+    }
+
+    public void WalkAcross(GameObject obj)
+    {
+        if (onObj == obj)
+        {
+            onObj = null;
+            SetKinematic(false);
+        }
+        else
+        {
+            onObj = obj;
+            SetKinematic(true);
+        }
     }
 }

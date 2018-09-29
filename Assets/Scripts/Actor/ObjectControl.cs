@@ -48,10 +48,6 @@ public abstract class ObjectControl : ActorControl
     {
     }
 
-    public virtual void Ready()
-    {
-    }
-
     public bool IsActivated()
     {
         return isActivated;
