@@ -64,7 +64,7 @@ public class PathFindingManager : MonoBehaviour
 
             if (!path.hasStarted)
             {
-                actor.GetComponent<CrowdControl>().MoveTo(path.pathEdges[0].EndPos(), path.tol);
+                Services.gameController.MoveManTo(actor, path.pathEdges[0].EndPos(), path.tol);
                 path.hasStarted = true;
             }
 
@@ -80,7 +80,7 @@ public class PathFindingManager : MonoBehaviour
                     }
 
                     pathTable.Remove(actor);
-                    actor.GetComponent<CrowdControl>().Stop();
+                    Services.gameController.StopMan(actor);
                 }
                 else
                 {
@@ -88,10 +88,10 @@ public class PathFindingManager : MonoBehaviour
                     GameObject middlePoint = path.pathEdges[0].AcrossPoint();
                     if (middlePoint.GetComponent<PathPoint>().followObject != null && middlePoint.GetComponent<PathPoint>().isBorder)
                     {
-                        Services.eventManager.QueueEvent(new ManAcrossBorder(actor, middlePoint.GetComponent<PathPoint>().followObject));
+                        Services.gameController.ManAcrossBorder(actor, middlePoint.GetComponent<PathPoint>().followObject);
                     }
 
-                    actor.GetComponent<CrowdControl>().MoveTo(path.pathEdges[1].EndPos(), path.tol);
+                    Services.gameController.MoveManTo(actor, path.pathEdges[1].EndPos(), path.tol);
                 }
 
                 path.pathEdges.RemoveAt(0);               
@@ -154,7 +154,6 @@ public class PathFindingManager : MonoBehaviour
         if (pointsObj == null)
         {
             pointsObj = CreateNewGameObject("PathPoints");
-
         }
 
         GameObject newPathPoint = new GameObject();

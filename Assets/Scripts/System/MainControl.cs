@@ -44,7 +44,6 @@ public class MainControl : MonoBehaviour
         Services.eventManager.Register<ManArrivesAtObj>(OnManArrivesAtObj);
         Services.eventManager.Register<ManLeavesForObj>(OnManLeavesForObj);
         Services.eventManager.Register<ManLeavesFromObj>(OnManLeavesFromObj);
-        Services.eventManager.Register<ManAcrossBorder>(OnManAcrossBorder);
     }
 
     void UnregisterEvents()
@@ -52,7 +51,6 @@ public class MainControl : MonoBehaviour
         Services.eventManager.Unregister<ManArrivesAtObj>(OnManArrivesAtObj);
         Services.eventManager.Unregister<ManLeavesForObj>(OnManLeavesForObj);
         Services.eventManager.Unregister<ManLeavesFromObj>(OnManLeavesFromObj);
-        Services.eventManager.Unregister<ManAcrossBorder>(OnManAcrossBorder);
     }
 
     void CheckPlatform()
@@ -110,23 +108,6 @@ public class MainControl : MonoBehaviour
         man.transform.SetParent(menParentObj.transform);
         man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
         obj.GetComponent<ObjectPrimaryControl>().FreeSlot(slotId);
-    }
-
-    void OnManAcrossBorder(Crowd.Event e)
-    {
-        var manAcrossBorderEvent = e as ManAcrossBorder;
-        GameObject man = manAcrossBorderEvent.man;
-        GameObject obj = manAcrossBorderEvent.obj;
-
-        if (obj != null && obj.GetComponent<ObjectControl>())
-        {
-            obj.GetComponent<ObjectControl>().ManAcrossBorder(man);
-        }
-
-        if (man != null && man.GetComponent<CrowdControl>())
-        {
-            man.GetComponent<CrowdControl>().WalkAcross(obj);
-        }
     }
 
     private void SelectMan(GameObject man)
@@ -202,21 +183,6 @@ public class MainControl : MonoBehaviour
                 Services.pathFindingManager.Move(man, 0.05f, new ManArrivesAtObj(man, obj, slotId));
             }
         }
-        //foreach (GameObject man in men)
-        //{
-        //    int slotId = obj.GetComponent<ObjectPrimaryControl>().FindEmptySlot();
-        //    if (slotId == -1)
-        //    {
-        //        return;
-        //    }
-
-        //    if (Services.pathFindingManager.FindPath(man, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId)))
-        //    {
-        //        UnboundMan(man);
-        //        OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
-        //        Services.pathFindingManager.Move(man, 0.1f, new ManArrivesAtObj(man, obj, slotId));
-        //    }
-        //}
     }
 
     public void UnboundMan(GameObject man)
@@ -224,7 +190,17 @@ public class MainControl : MonoBehaviour
         OnManLeavesFromObj(new ManLeavesFromObj(man));
     }
 
-    private bool MoveMan(GameObject man, float tol, Vector3 targetPos)
+    public void StopMan(GameObject man)
+    {
+        man.GetComponent<CrowdControl>().Stop();
+    }
+
+    public void MoveManTo(GameObject man, Vector3 targetPos, float tol)
+    {
+        man.GetComponent<CrowdControl>().MoveTo(targetPos, tol);
+    }
+
+    private bool MoveMan(GameObject man, Vector3 targetPos, float tol)
     {
         if (man.GetComponent<CrowdControl>().IsLocked())
         {
@@ -245,7 +221,7 @@ public class MainControl : MonoBehaviour
     {
         foreach (GameObject man in selecetedMen)
         {
-            MoveMan(man, selecetedMen.Count * 0.15f, targetPos);
+            MoveMan(man, targetPos, selecetedMen.Count * 0.15f);
         }
     }
 
@@ -296,23 +272,11 @@ public class MainControl : MonoBehaviour
         if (mouseClickObject.CompareTag("Object"))
         {
             FillMan(mouseClickObject);
-            //if (selectedMan && mouseClickObject.GetComponent<ObjectControl>().isWalkable)
-            //{
-            //    MoveMan(selectedMan, mouseClickPos);
-            //}
-            //else
-            //{
-            //    mouseClickObject.GetComponent<ObjectControl>().Click();
-            //}
         }
         else
         if (mouseClickObject.CompareTag("Ground"))
         {
             MoveMen(mouseClickPos);
-            //if (selectedMan)
-            //{
-            //    MoveMan(selectedMan, mouseClickPos);
-            //}
         }
     }
 
@@ -364,5 +328,18 @@ public class MainControl : MonoBehaviour
         //    Services.hudController.DestroyHoldIcon(mouseClickObject);
         //    FillMan(selectedMan, mouseClickObject);
         //}
+    }
+
+    public void ManAcrossBorder(GameObject man, GameObject obj)
+    {
+        if (obj != null && obj.GetComponent<ObjectControl>())
+        {
+            obj.GetComponent<ObjectControl>().ManAcrossBorder(man);
+        }
+
+        if (man != null && man.GetComponent<CrowdControl>())
+        {
+            man.GetComponent<CrowdControl>().WalkAcross(obj);
+        }
     }
 }

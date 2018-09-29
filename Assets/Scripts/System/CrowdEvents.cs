@@ -43,11 +43,3 @@ public class ManLeavesFromObj : ManObj
     {
     }
 }
-
-public class ManAcrossBorder : ManObj
-{
-    public ManAcrossBorder(GameObject m, GameObject o)
-    : base(m, o, -1)
-    {
-    }
-}
