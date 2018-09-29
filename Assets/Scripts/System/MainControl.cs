@@ -7,13 +7,16 @@ using DG.Tweening;
 
 public class MainControl : MonoBehaviour
 {
-    private GameObject selectedMan = null;
-    private GameObject menObj = null;
+    //private GameObject selectedMan = null;
+    private GameObject[] men;
+    private List<GameObject> selecetedMen = new List<GameObject>();
+    private GameObject menParentObj = null;
 
     // Use this for initialization
     void Start()
     {
-        menObj = GameObject.Find("Actors");
+        men = GameObject.FindGameObjectsWithTag("Man");
+        menParentObj = GameObject.Find("Actors");
 
         RegisterEvents();
 
@@ -72,7 +75,7 @@ public class MainControl : MonoBehaviour
         man.transform.SetParent(obj.GetComponent<ObjectPrimaryControl>().GetSlotObject(slotId).transform);
         obj.GetComponent<ObjectPrimaryControl>().ReadySlot(slotId, man);
 
-        if (man == selectedMan)
+        if (selecetedMen.Contains(man))
         {
             DeselectMan();
         }
@@ -107,7 +110,7 @@ public class MainControl : MonoBehaviour
             return;
         }
 
-        man.transform.SetParent(menObj.transform);
+        man.transform.SetParent(menParentObj.transform);
         man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
         obj.GetComponent<ObjectPrimaryControl>().FreeSlot(slotId);
     }
@@ -126,39 +129,55 @@ public class MainControl : MonoBehaviour
 
     private void SelectMan(GameObject man)
     {
-        DeselectMan();
+        //DeselectMan();
 
-        selectedMan = man;
-        selectedMan.GetComponent<CrowdControl>().Selected();
+        if (!selecetedMen.Contains(man))
+        {
+            man.GetComponent<CrowdControl>().Selected();
+            selecetedMen.Add(man);
+        }
     }
 
     private void DeselectMan()
     {
-        if (selectedMan == null)
+        foreach (GameObject man in selecetedMen)
         {
-            return;
+            man.GetComponent<CrowdControl>().Deselected();
         }
-        selectedMan.GetComponent<CrowdControl>().Deselected();
-        selectedMan = null;
+
+        selecetedMen.Clear();
     }
 
-    private void FillMan(GameObject man, GameObject obj)
+    private void DeselectMan(GameObject man)
     {
-        if (!obj.GetComponent<ObjectPrimaryControl>() || man.GetComponent<CrowdControl>().IsLocked())
+        if (selecetedMen.Contains(man))
+        {
+            man.GetComponent<CrowdControl>().Deselected();
+            selecetedMen.Remove(man);
+        }
+    }
+
+    private void FillMan(GameObject obj)
+    {
+        if (!obj.GetComponent<ObjectPrimaryControl>() /*|| man.GetComponent<CrowdControl>().IsLocked()*/)
         {
             return;
         }
 
-        int slotId = obj.GetComponent<ObjectPrimaryControl>().FindEmptySlot();
-        if (slotId == -1)
+        foreach (GameObject man in men)
         {
-            return;
-        }
+            int slotId = obj.GetComponent<ObjectPrimaryControl>().FindEmptySlot();
+            if (slotId == -1)
+            {
+                return;
+            }
 
-        if (Services.pathFindingManager.FindPath(man, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId)))
-        {
-            UnboundMan(man);
-            Services.pathFindingManager.Move(man, 5, new ManLeavesForObj(man, obj, slotId), new ManArrivesAtObj(man, obj, slotId));
+            if (Services.pathFindingManager.FindPath(man, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId)))
+            {
+                UnboundMan(man);
+                OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
+                Services.pathFindingManager.Move(man, 0.1f, new ManArrivesAtObj(man, obj, slotId));
+            }
         }
     }
 
@@ -167,25 +186,36 @@ public class MainControl : MonoBehaviour
         Services.eventManager.QueueEvent(new ManLeavesFromObj(man));
     }
 
-    private void MoveMan(GameObject man, Vector3 targetPos)
+    private bool MoveMan(GameObject man, float tol, Vector3 targetPos)
     {
         if (man.GetComponent<CrowdControl>().IsLocked())
         {
-            return;
+            return false;
         }
 
         if (Services.pathFindingManager.FindPath(man, targetPos))
         {
             UnboundMan(man);
-            Services.pathFindingManager.Move(man);
+            Services.pathFindingManager.Move(man, tol);
+            return true;
+        }
+
+        return false;
+    }
+
+    private void MoveMen(Vector3 targetPos)
+    {
+        foreach (GameObject man in selecetedMen)
+        {
+            MoveMan(man, selecetedMen.Count * 0.15f, targetPos);
         }
     }
 
     public void DropMan(GameObject man)
     {
-        if (selectedMan == man)
+        if (selecetedMen.Contains(man))
         {
-            DeselectMan();
+            DeselectMan(man);
         }
 
         RaycastHit[] hits;
@@ -227,22 +257,24 @@ public class MainControl : MonoBehaviour
         else
         if (mouseClickObject.CompareTag("Object"))
         {
-            if (selectedMan && mouseClickObject.GetComponent<ObjectControl>().isWalkable)
-            {
-                MoveMan(selectedMan, mouseClickPos);
-            }
-            else
-            {
-                mouseClickObject.GetComponent<ObjectControl>().Click();
-            }
+            FillMan(mouseClickObject);
+            //if (selectedMan && mouseClickObject.GetComponent<ObjectControl>().isWalkable)
+            //{
+            //    MoveMan(selectedMan, mouseClickPos);
+            //}
+            //else
+            //{
+            //    mouseClickObject.GetComponent<ObjectControl>().Click();
+            //}
         }
         else
         if (mouseClickObject.CompareTag("Ground"))
         {
-            if (selectedMan)
-            {
-                MoveMan(selectedMan, mouseClickPos);
-            }
+            MoveMen(mouseClickPos);
+            //if (selectedMan)
+            //{
+            //    MoveMan(selectedMan, mouseClickPos);
+            //}
         }
     }
 
@@ -253,10 +285,10 @@ public class MainControl : MonoBehaviour
             return;
         }
 
-        if (selectedMan && mouseClickObject.CompareTag("Object"))
-        {
-            FillMan(selectedMan, mouseClickObject);
-        }
+        //if (selectedMan && mouseClickObject.CompareTag("Object"))
+        //{
+        //    FillMan(selectedMan, mouseClickObject);
+        //}
     }
 
     public void HoldStart(GameObject mouseClickObject)
@@ -266,10 +298,10 @@ public class MainControl : MonoBehaviour
             return;
         }
 
-        if (selectedMan && mouseClickObject.GetComponent<ObjectPrimaryControl>() && !mouseClickObject.GetComponent<ObjectPrimaryControl>().IsReady())
-        {
-            Services.hudController.CreateHoldIcon(mouseClickObject, mouseClickObject.GetComponent<ObjectPrimaryControl>().progressBarPosOffset);
-        }
+        //if (selectedMan && mouseClickObject.GetComponent<ObjectPrimaryControl>() && !mouseClickObject.GetComponent<ObjectPrimaryControl>().IsReady())
+        //{
+        //    Services.hudController.CreateHoldIcon(mouseClickObject, mouseClickObject.GetComponent<ObjectPrimaryControl>().progressBarPosOffset);
+        //}
     }
 
     public void HoldRelease(GameObject mouseClickObject)
@@ -289,10 +321,10 @@ public class MainControl : MonoBehaviour
             return;
         }
 
-        if (selectedMan && mouseClickObject.CompareTag("Object"))
-        {
-            Services.hudController.DestroyHoldIcon(mouseClickObject);
-            FillMan(selectedMan, mouseClickObject);
-        }
+        //if (selectedMan && mouseClickObject.CompareTag("Object"))
+        //{
+        //    Services.hudController.DestroyHoldIcon(mouseClickObject);
+        //    FillMan(selectedMan, mouseClickObject);
+        //}
     }
 }

@@ -195,7 +195,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.015116764, y: 0.0000005143702, z: -0.000000012912526, w: 0.9998858}
+  m_LocalRotation: {x: 0.0151167875, y: 0.0000005143702, z: -0.000000012912752, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1130,6 +1130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 311973763}
   - component: {fileID: 311973765}
+  - component: {fileID: 311973766}
   - component: {fileID: 311973764}
   m_Layer: 0
   m_Name: TempActor (2)
@@ -1144,7 +1145,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 311973762}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.14, y: -5.66, z: -3.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1197,6 +1198,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  speed: 5
 --- !u!136 &311973765
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1206,10 +1208,25 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.35
+  m_Radius: 0.29
   m_Height: 1.3
   m_Direction: 1
-  m_Center: {x: 0, y: 0.66, z: 0}
+  m_Center: {x: 0, y: 0.6, z: 0}
+--- !u!54 &311973766
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 311973762}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &323033194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,7 +1996,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.015116576, y: -0, z: -0, w: 0.9998858}
+  m_LocalRotation: {x: 0.015117395, y: -0, z: -0, w: 0.99988574}
   m_LocalPosition: {x: 0, y: 1, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2609,6 +2626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 845631951}
   - component: {fileID: 845631953}
+  - component: {fileID: 845631954}
   - component: {fileID: 845631952}
   m_Layer: 0
   m_Name: TempActor
@@ -2623,7 +2641,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 845631950}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.93, y: -5.72, z: -2.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2676,6 +2694,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  speed: 5
 --- !u!136 &845631953
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2685,10 +2704,25 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.35
+  m_Radius: 0.29
   m_Height: 1.3
   m_Direction: 1
-  m_Center: {x: 0, y: 0.66, z: 0}
+  m_Center: {x: 0, y: 0.6, z: 0}
+--- !u!54 &845631954
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 845631950}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &851994106
 GameObject:
   m_ObjectHideFlags: 0
@@ -4093,6 +4127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1120861182}
   - component: {fileID: 1120861184}
+  - component: {fileID: 1120861185}
   - component: {fileID: 1120861183}
   m_Layer: 0
   m_Name: TempActor (1)
@@ -4107,7 +4142,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1120861181}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.73, y: -5.68, z: -2.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4160,6 +4195,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  speed: 5
 --- !u!136 &1120861184
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4169,10 +4205,25 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.35
+  m_Radius: 0.29
   m_Height: 1.3
   m_Direction: 1
-  m_Center: {x: 0, y: 0.66, z: 0}
+  m_Center: {x: 0, y: 0.6, z: 0}
+--- !u!54 &1120861185
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1120861181}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1152191950
 GameObject:
   m_ObjectHideFlags: 0
@@ -4615,7 +4666,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.0030008173, y: 0.00000049426035, z: -0.000000023019947,
+  m_LocalRotation: {x: -0.0030009295, y: 0.00000049426035, z: -0.000000023020057,
     w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -5278,6 +5329,7 @@ GameObject:
   - component: {fileID: 1393315769}
   - component: {fileID: 1393315771}
   - component: {fileID: 1393315770}
+  - component: {fileID: 1393315772}
   m_Layer: 0
   m_Name: Steer
   m_TagString: Object
@@ -5434,11 +5486,39 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1393315768}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.5, y: 3.41, z: 2}
   m_Center: {x: 0, y: -0.24, z: 0}
+--- !u!114 &1393315772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1393315768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 845caef0cb5c2f148ba836a5ba0efb71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  progressBarPosOffset: {x: 0, y: 0, z: 0}
+  gizmoSize: 0.2
+  slots: []
+  namingCounter: 0
+  needDelayToDeactivate: 0
+  timeToAutoDeactivate: 1
 --- !u!1 &1423813613
 GameObject:
   m_ObjectHideFlags: 0
@@ -8116,6 +8196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1818698869}
   - component: {fileID: 1818698871}
+  - component: {fileID: 1818698872}
   - component: {fileID: 1818698870}
   m_Layer: 0
   m_Name: TempActor (3)
@@ -8130,7 +8211,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1818698868}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.06, y: -5.68, z: -3.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8183,6 +8264,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  speed: 5
 --- !u!136 &1818698871
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8192,10 +8274,25 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.35
+  m_Radius: 0.29
   m_Height: 1.3
   m_Direction: 1
-  m_Center: {x: 0, y: 0.66, z: 0}
+  m_Center: {x: 0, y: 0.6, z: 0}
+--- !u!54 &1818698872
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1818698868}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1836870237
 GameObject:
   m_ObjectHideFlags: 0

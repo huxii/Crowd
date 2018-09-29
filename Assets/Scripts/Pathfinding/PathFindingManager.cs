@@ -25,15 +25,17 @@ public class PathFindingManager : MonoBehaviour
     {
         //public List<GameObject> points;
         //public Vector3 endPos;
-        public float speed;
+        public bool hasStarted;
         public List<DirectedPathEdge> pathEdges;
         public Crowd.Event endEvent;
+        public float tol;
 
         public FoundPath()
         {
             pathEdges = new List<DirectedPathEdge>();
             endEvent = null;
-            speed = 5f;
+            hasStarted = false;
+            tol = 0;
         }
     };
     private Dictionary<GameObject, FoundPath> pathTable = new Dictionary<GameObject, FoundPath>();
@@ -59,7 +61,15 @@ public class PathFindingManager : MonoBehaviour
         foreach (GameObject actor in keys)
         {
             FoundPath path = pathTable[actor];
-            if (GoToNextPoint(actor, path.pathEdges[0].EndPos(), path.speed))
+
+            if (!path.hasStarted)
+            {
+                actor.GetComponent<CrowdControl>().MoveTo(path.pathEdges[0].EndPos(), path.tol);
+                path.hasStarted = true;
+            }
+
+            //if (GoToNextPoint(actor, path.pathEdges[0].EndPos(), path.speed))
+            if (Vector3.Distance(actor.transform.position, path.pathEdges[0].EndPos()) <= path.tol)
             {
                 if (path.pathEdges.Count <= 1)
                 {
@@ -80,26 +90,10 @@ public class PathFindingManager : MonoBehaviour
                         Services.eventManager.QueueEvent(new ManAcrossBorder(actor, middlePoint.GetComponent<PathPoint>().followObject));
                     }
 
-                    //GameObject middlePoint = path.pathEdges[0].AcrossPoint();
-                    //if (middlePoint.GetComponent<PathPoint>().followObject != null && middlePoint.GetComponent<PathPoint>().isBorder)
-                    //{
-                    //    GameObject followObj = middlePoint.GetComponent<PathPoint>().followObject;
-                    //    KeyValuePair<GameObject, GameObject> pair = new KeyValuePair<GameObject, GameObject>(actor, followObj);
-                    //    if (borderTable.Contains(pair))
-                    //    {
-                    //        borderTable.Remove(pair);
-                    //        followObj.GetComponent<ObjectControl>().Unlock();
-                    //    }
-                    //    else
-                    //    {
-                    //        borderTable.Add(pair);
-                    //        followObj.GetComponent<ObjectControl>().Lock();
-                    //    }
-                    //}
+                    actor.GetComponent<CrowdControl>().MoveTo(path.pathEdges[1].EndPos(), path.tol);
                 }
 
-                // in order to preserve the pre edge
-                path.pathEdges.RemoveAt(0);
+                path.pathEdges.RemoveAt(0);               
             }
         }
     }
@@ -489,20 +483,15 @@ public class PathFindingManager : MonoBehaviour
         return FindPath(startPos, endPos);
     }
 
-    public void Move(GameObject actor, float speed = 5f, Crowd.Event startEvent = null, Crowd.Event endEvent = null)
+    public void Move(GameObject actor, float posTol, Crowd.Event endEvent = null)
     { 
         if (recentPath == null)
         {
             return;
         }
 
-        if (startEvent != null)
-        {
-            Services.eventManager.QueueEvent(startEvent);
-        }
-
-        recentPath.speed = speed;
         recentPath.endEvent = endEvent;
+        recentPath.tol = posTol;
         if (pathTable.ContainsKey(actor))
         {
             // should abort original path

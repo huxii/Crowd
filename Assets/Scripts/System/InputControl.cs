@@ -82,7 +82,7 @@ public class InputControl : MonoBehaviour
 
                 if (Time.time - singleClickTime > holdTime)
                 {
-                    MouseHoldEnd();
+                    //MouseHoldEnd();
                 }
             }
 
@@ -166,7 +166,7 @@ public class InputControl : MonoBehaviour
             mouseClickObject = null;
         }
 
-        Services.gameController.HoldStart(mouseClickObject);
+        //Services.gameController.HoldStart(mouseClickObject);
     }
 
     private void MouseUp()
