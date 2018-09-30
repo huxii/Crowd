@@ -92,10 +92,10 @@ public class InputControl : MonoBehaviour
             }
 
             // only on PC
-            if (Input.GetMouseButton(1))
-            {
-                TranslateViewport();
-            }
+            //if (Input.GetMouseButton(1))
+            //{
+            //    TranslateViewport();
+            //}
 
             if (Input.GetAxis("Mouse ScrollWheel") != 0)
             {
@@ -110,7 +110,7 @@ public class InputControl : MonoBehaviour
 
             if (Vector2.Angle(touch0.deltaPosition, touch1.deltaPosition) < 90f)
             {
-                TranslateViewport(touch0.deltaPosition.x, touch0.deltaPosition.y);
+                //TranslateViewport(touch0.deltaPosition.x, touch0.deltaPosition.y);
             }
             else
             {
@@ -122,7 +122,7 @@ public class InputControl : MonoBehaviour
                 float magDiff = deltaMag - preMag;
                 deltaPinchMag += magDiff;
 
-                if (Mathf.Abs(deltaPinchMag) > 200f)
+                if (Mathf.Abs(deltaPinchMag) > 600f)
                 {
                     Zoom(deltaPinchMag);
                     deltaPinchMag = 0;
