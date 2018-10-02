@@ -195,7 +195,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.015117177, y: 0.0000005143702, z: -0.000000012913377, w: 0.9998858}
+  m_LocalRotation: {x: 0.015116639, y: 0.0000005143702, z: -0.000000012913107, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2095,7 +2095,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.015117395, y: -0, z: -0, w: 0.99988574}
+  m_LocalRotation: {x: 0.015116576, y: -0, z: -0, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 1, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2159,14 +2159,14 @@ MonoBehaviour:
   wobbTex: {fileID: 2800000, guid: 8be85bd2bfb6f4047a837ae6d1ba9465, type: 3}
   wobbScale: 0
   wobbPower: 0.01
-  edgeSize: 1.5
-  edgePower: 1.5
+  edgeSize: 1.8
+  edgePower: 1.2
   paperDataset:
-  - paperTex: {fileID: 2800000, guid: 7dcb018f3a65ef04c97081b8a922088f, type: 3}
+  - paperTex: {fileID: 2800000, guid: e958c6041cfe445e987c73751e8d4082, type: 3}
     paperScale: 2
-    paperPower: 0.5
+    paperPower: 0.6
   - paperTex: {fileID: 2800000, guid: cb969bf9a5efd694daf116123a09a2d9, type: 3}
-    paperScale: 20
+    paperScale: 0.1
     paperPower: 0.5
 --- !u!1 &627371154
 GameObject:
@@ -4904,8 +4904,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.0030009956, y: 0.00000049426035, z: -0.000000023020354,
-    w: 0.9999955}
+  m_LocalRotation: {x: -0.003000792, y: 0.00000049426035, z: -0.000000023020458, w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
