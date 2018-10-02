@@ -18,7 +18,27 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DiffTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -26,7 +46,19 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -35,30 +67,45 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _BumpScale: 1
     - _ColoredOutline: 0
-    - _DiffuseLineWidth: 0.225
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DiffuseLineWidth: 0
     - _DiffuseTransitionRange: 0.013
     - _DottedLineFreq: 0.2
     - _DottedLineThickness: 0.2
+    - _DstBlend: 0
+    - _GlossMapScale: 1
     - _Glossiness: 0.202
+    - _GlossyReflections: 1
     - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
     - _Outline: 0.1
     - _OutlineStyle: 0
     - _OutlineThickness: 0.159
-    - _OutlineWidth: 0.1
+    - _OutlineWidth: 0
+    - _Parallax: 0.02
     - _RimBoost: 2
     - _RimExp: 4
     - _RimPower: 8.82
-    - _ShadowLineWidth: 1
+    - _ShadowLineWidth: 0
     - _ShadowTransitionRange: 0.034
     - _Size: 1.04
+    - _SmoothnessTextureChannel: 0
     - _SpecBoost: 0.3
     - _SpecExp: 20
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
     - _TransitionRange: 0.012
     - _TwilightWidth: 0.028
+    - _UVSec: 0
+    - _ZWrite: 1
     m_Colors:
     - _BrightColor: {r: 0.71342117, g: 0.8808238, b: 0.9056604, a: 1}
     - _Color: {r: 0.23642753, g: 0.6509434, b: 0.42641395, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Outline: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0.3364428, g: 0.4245283, b: 0.28635636, a: 1}
     - _RimColor: {r: 0.22737095, g: 0.5377358, b: 0.20038268, a: 1}

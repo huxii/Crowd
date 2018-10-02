@@ -195,7 +195,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.015116575, y: 0.0000005143702, z: -0.0000000129129525, w: 0.9998858}
+  m_LocalRotation: {x: 0.01511658, y: 0.0000005143702, z: -0.000000012913063, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2033,6 +2033,8 @@ GameObject:
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
+  - component: {fileID: 534669907}
+  - component: {fileID: 534669908}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2130,6 +2132,42 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp-firstpass,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &534669907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 2137f6ba706b23d419c56bdce291de1b, type: 2}
+--- !u!114 &534669908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b6c841f50664341aab94ebfca8773f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter: {fileID: 4800000, guid: ef0a0ed723ba01248ae3d32f6272ebb5, type: 3}
+  wobbTex: {fileID: 2800000, guid: 8be85bd2bfb6f4047a837ae6d1ba9465, type: 3}
+  wobbScale: 0
+  wobbPower: 0.01
+  edgeSize: 1.5
+  edgePower: 1.5
+  paperDataset:
+  - paperTex: {fileID: 2800000, guid: 7dcb018f3a65ef04c97081b8a922088f, type: 3}
+    paperScale: 0.5
+    paperPower: 0.5
+  - paperTex: {fileID: 2800000, guid: cb969bf9a5efd694daf116123a09a2d9, type: 3}
+    paperScale: 0.5
+    paperPower: 0.5
 --- !u!1 &627371154
 GameObject:
   m_ObjectHideFlags: 0
@@ -4866,7 +4904,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.003001045, y: 0.00000049426035, z: -0.00000002302024, w: 0.9999955}
+  m_LocalRotation: {x: -0.0030009076, y: 0.00000049426035, z: -0.000000023020391,
+    w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

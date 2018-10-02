@@ -58,7 +58,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DiffuseLineWidth: 0.247
+    - _DiffuseLineWidth: 0
     - _DiffuseTransitionRange: 0.084
     - _DstBlend: 0
     - _GlossMapScale: 1
@@ -67,10 +67,10 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0.08
+    - _OutlineWidth: 0
     - _Parallax: 0.02
     - _RimPower: 8.82
-    - _ShadowLineWidth: 1
+    - _ShadowLineWidth: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
