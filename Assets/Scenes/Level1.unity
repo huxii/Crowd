@@ -195,7 +195,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.01511658, y: 0.0000005143702, z: -0.000000012913063, w: 0.9998858}
+  m_LocalRotation: {x: 0.015117177, y: 0.0000005143702, z: -0.000000012913377, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2095,7 +2095,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.015116576, y: -0, z: -0, w: 0.9998858}
+  m_LocalRotation: {x: 0.015117395, y: -0, z: -0, w: 0.99988574}
   m_LocalPosition: {x: 0, y: 1, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2163,10 +2163,10 @@ MonoBehaviour:
   edgePower: 1.5
   paperDataset:
   - paperTex: {fileID: 2800000, guid: 7dcb018f3a65ef04c97081b8a922088f, type: 3}
-    paperScale: 0.5
+    paperScale: 2
     paperPower: 0.5
   - paperTex: {fileID: 2800000, guid: cb969bf9a5efd694daf116123a09a2d9, type: 3}
-    paperScale: 0.5
+    paperScale: 20
     paperPower: 0.5
 --- !u!1 &627371154
 GameObject:
@@ -4904,7 +4904,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.0030009076, y: 0.00000049426035, z: -0.000000023020391,
+  m_LocalRotation: {x: -0.0030009956, y: 0.00000049426035, z: -0.000000023020354,
     w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
