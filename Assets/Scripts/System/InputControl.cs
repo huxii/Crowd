@@ -122,7 +122,7 @@ public class InputControl : MonoBehaviour
                 float magDiff = deltaMag - preMag;
                 deltaPinchMag += magDiff;
 
-                if (Mathf.Abs(deltaPinchMag) > 600f)
+                if (Mathf.Abs(deltaPinchMag) > 400f)
                 {
                     Zoom(deltaPinchMag);
                     deltaPinchMag = 0;
