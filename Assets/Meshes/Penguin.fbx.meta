@@ -1,0 +1,622 @@
+fileFormatVersion: 2
+guid: b2e9286c22cb687469da9f0cc667f429
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Axis
+    100002: Axis 1
+    100004: Back
+    100006: Back 1
+    100008: Base
+    100010: Base 1
+    100012: Base 2
+    100014: Boat
+    100016: Boat 1
+    100018: Buckle
+    100020: Buckle1
+    100022: Buckle2
+    100024: Buckle3
+    100026: Buckle4
+    100028: Buckle5
+    100030: Buckle6
+    100032: Buckle7
+    100034: Cart
+    100036: Cart1
+    100038: Cart2
+    100040: Cart3
+    100042: CartDoor
+    100044: CartDoor 1
+    100046: CartDoor 2
+    100048: CartDoor 3
+    100050: Chimney
+    100052: Chimney0
+    100054: Chimney1
+    100056: Coach
+    100058: Coach 1
+    100060: Coach 2
+    100062: Coach 3
+    100064: Coach1
+    100066: Coach1 1
+    100068: Coach1 2
+    100070: Coach1 3
+    100072: Ears
+    100074: FerrisWheel
+    100076: Front
+    100078: FrontShell
+    100080: Gear
+    100082: Gear 1
+    100084: Gear 2
+    100086: Gear1
+    100088: Gear10
+    100090: Gear2
+    100092: Gear3
+    100094: Gear4
+    100096: Gear5
+    100098: Gear6
+    100100: Gear7
+    100102: Gear8
+    100104: Gear9
+    100106: GearHandle
+    100108: GearLid
+    100110: Gears
+    100112: Inner
+    100114: Kanban
+    100116: Kanban 1
+    100118: Ladder
+    100120: Ladder0
+    100122: Left_Ear
+    100124: Left_Paw
+    100126: Link
+    100128: Link 1
+    100130: Link 2
+    100132: Link 3
+    100134: MerryGoRound
+    100136: MovingPlatform
+    100138: Nail0
+    100140: Nail1
+    100142: Nuts
+    100144: Outter
+    100146: Paddle0
+    100148: Paddle0 1
+    100150: Paddle0 2
+    100152: Paddle1
+    100154: Paddle1 1
+    100156: Paddle1 2
+    100158: Paws
+    100160: Penguin
+    100162: //RootNode
+    100164: Pivot
+    100166: Platform
+    100168: Platform1
+    100170: Platform2
+    100172: Platform3
+    100174: Platform5
+    100176: PlatformDeco
+    100178: Pole
+    100180: Pole 1
+    100182: Pole 2
+    100184: polySurface5
+    100186: Pulley
+    100188: Right_Ear
+    100190: Right_Paw
+    100192: Rod0
+    100194: Rod2
+    100196: Rope
+    100198: Seat
+    100200: Seat1
+    100202: Seat2
+    100204: Settings
+    100206: SmallGears
+    100208: Stair0
+    100210: Stair1
+    100212: Stair2
+    100214: Stair3
+    100216: Stair4
+    100218: Stair5
+    100220: Stair6
+    100222: Stair7
+    100224: Stair8
+    100226: Star
+    100228: Top
+    100230: Top_ball
+    100232: Wheel
+    100234: Wheel 1
+    100236: Wheel 2
+    100238: Wheel 3
+    100240: Wheel0
+    100242: Wheel0 1
+    100244: Wheel1
+    100246: Wheel2
+    100248: Wheel3
+    400000: Axis
+    400002: Axis 1
+    400004: Back
+    400006: Back 1
+    400008: Base
+    400010: Base 1
+    400012: Base 2
+    400014: Boat
+    400016: Boat 1
+    400018: Buckle
+    400020: Buckle1
+    400022: Buckle2
+    400024: Buckle3
+    400026: Buckle4
+    400028: Buckle5
+    400030: Buckle6
+    400032: Buckle7
+    400034: Cart
+    400036: Cart1
+    400038: Cart2
+    400040: Cart3
+    400042: CartDoor
+    400044: CartDoor 1
+    400046: CartDoor 2
+    400048: CartDoor 3
+    400050: Chimney
+    400052: Chimney0
+    400054: Chimney1
+    400056: Coach
+    400058: Coach 1
+    400060: Coach 2
+    400062: Coach 3
+    400064: Coach1
+    400066: Coach1 1
+    400068: Coach1 2
+    400070: Coach1 3
+    400072: Ears
+    400074: FerrisWheel
+    400076: Front
+    400078: FrontShell
+    400080: Gear
+    400082: Gear 1
+    400084: Gear 2
+    400086: Gear1
+    400088: Gear10
+    400090: Gear2
+    400092: Gear3
+    400094: Gear4
+    400096: Gear5
+    400098: Gear6
+    400100: Gear7
+    400102: Gear8
+    400104: Gear9
+    400106: GearHandle
+    400108: GearLid
+    400110: Gears
+    400112: Inner
+    400114: Kanban
+    400116: Kanban 1
+    400118: Ladder
+    400120: Ladder0
+    400122: Left_Ear
+    400124: Left_Paw
+    400126: Link
+    400128: Link 1
+    400130: Link 2
+    400132: Link 3
+    400134: MerryGoRound
+    400136: MovingPlatform
+    400138: Nail0
+    400140: Nail1
+    400142: Nuts
+    400144: Outter
+    400146: Paddle0
+    400148: Paddle0 1
+    400150: Paddle0 2
+    400152: Paddle1
+    400154: Paddle1 1
+    400156: Paddle1 2
+    400158: Paws
+    400160: Penguin
+    400162: //RootNode
+    400164: Pivot
+    400166: Platform
+    400168: Platform1
+    400170: Platform2
+    400172: Platform3
+    400174: Platform5
+    400176: PlatformDeco
+    400178: Pole
+    400180: Pole 1
+    400182: Pole 2
+    400184: polySurface5
+    400186: Pulley
+    400188: Right_Ear
+    400190: Right_Paw
+    400192: Rod0
+    400194: Rod2
+    400196: Rope
+    400198: Seat
+    400200: Seat1
+    400202: Seat2
+    400204: Settings
+    400206: SmallGears
+    400208: Stair0
+    400210: Stair1
+    400212: Stair2
+    400214: Stair3
+    400216: Stair4
+    400218: Stair5
+    400220: Stair6
+    400222: Stair7
+    400224: Stair8
+    400226: Star
+    400228: Top
+    400230: Top_ball
+    400232: Wheel
+    400234: Wheel 1
+    400236: Wheel 2
+    400238: Wheel 3
+    400240: Wheel0
+    400242: Wheel0 1
+    400244: Wheel1
+    400246: Wheel2
+    400248: Wheel3
+    2100000: lambert1
+    2100002: lambert2
+    2300000: Axis
+    2300002: Axis 1
+    2300004: Back
+    2300006: Back 1
+    2300008: Base
+    2300010: Base 1
+    2300012: Base 2
+    2300014: Boat 1
+    2300016: Buckle
+    2300018: Buckle1
+    2300020: Buckle2
+    2300022: Buckle3
+    2300024: Buckle4
+    2300026: Buckle5
+    2300028: Buckle6
+    2300030: Buckle7
+    2300032: CartDoor
+    2300034: CartDoor 1
+    2300036: CartDoor 2
+    2300038: CartDoor 3
+    2300040: Chimney0
+    2300042: Chimney1
+    2300044: Coach
+    2300046: Coach 1
+    2300048: Coach 2
+    2300050: Coach 3
+    2300052: Coach1
+    2300054: Coach1 1
+    2300056: Coach1 2
+    2300058: Coach1 3
+    2300060: Front
+    2300062: Gear
+    2300064: Gear 1
+    2300066: Gear 2
+    2300068: Gear1
+    2300070: Gear10
+    2300072: Gear5
+    2300074: Gear6
+    2300076: Gear7
+    2300078: Gear8
+    2300080: Gear9
+    2300082: GearHandle
+    2300084: GearLid
+    2300086: Kanban 1
+    2300088: Ladder0
+    2300090: Left_Ear
+    2300092: Left_Paw
+    2300094: Link
+    2300096: Link 1
+    2300098: Link 2
+    2300100: Link 3
+    2300102: Nail0
+    2300104: Nail1
+    2300106: Nuts
+    2300108: Paddle0
+    2300110: Paddle0 1
+    2300112: Paddle0 2
+    2300114: Paddle1
+    2300116: Paddle1 1
+    2300118: Paddle1 2
+    2300120: Pivot
+    2300122: Platform
+    2300124: Platform1
+    2300126: Platform2
+    2300128: Platform3
+    2300130: PlatformDeco
+    2300132: Pole
+    2300134: Pole 1
+    2300136: Pole 2
+    2300138: polySurface5
+    2300140: Right_Ear
+    2300142: Right_Paw
+    2300144: Rod0
+    2300146: Rod2
+    2300148: Rope
+    2300150: Stair0
+    2300152: Stair1
+    2300154: Stair2
+    2300156: Stair3
+    2300158: Stair4
+    2300160: Stair5
+    2300162: Stair6
+    2300164: Stair7
+    2300166: Stair8
+    2300168: Star
+    2300170: Top
+    2300172: Top_ball
+    2300174: Wheel 1
+    2300176: Wheel 2
+    2300178: Wheel 3
+    2300180: Wheel0
+    2300182: Wheel1
+    2300184: Wheel2
+    2300186: Wheel3
+    3300000: Axis
+    3300002: Axis 1
+    3300004: Back
+    3300006: Back 1
+    3300008: Base
+    3300010: Base 1
+    3300012: Base 2
+    3300014: Boat 1
+    3300016: Buckle
+    3300018: Buckle1
+    3300020: Buckle2
+    3300022: Buckle3
+    3300024: Buckle4
+    3300026: Buckle5
+    3300028: Buckle6
+    3300030: Buckle7
+    3300032: CartDoor
+    3300034: CartDoor 1
+    3300036: CartDoor 2
+    3300038: CartDoor 3
+    3300040: Chimney0
+    3300042: Chimney1
+    3300044: Coach
+    3300046: Coach 1
+    3300048: Coach 2
+    3300050: Coach 3
+    3300052: Coach1
+    3300054: Coach1 1
+    3300056: Coach1 2
+    3300058: Coach1 3
+    3300060: Front
+    3300062: Gear
+    3300064: Gear 1
+    3300066: Gear 2
+    3300068: Gear1
+    3300070: Gear10
+    3300072: Gear5
+    3300074: Gear6
+    3300076: Gear7
+    3300078: Gear8
+    3300080: Gear9
+    3300082: GearHandle
+    3300084: GearLid
+    3300086: Kanban 1
+    3300088: Ladder0
+    3300090: Left_Ear
+    3300092: Left_Paw
+    3300094: Link
+    3300096: Link 1
+    3300098: Link 2
+    3300100: Link 3
+    3300102: Nail0
+    3300104: Nail1
+    3300106: Nuts
+    3300108: Paddle0
+    3300110: Paddle0 1
+    3300112: Paddle0 2
+    3300114: Paddle1
+    3300116: Paddle1 1
+    3300118: Paddle1 2
+    3300120: Pivot
+    3300122: Platform
+    3300124: Platform1
+    3300126: Platform2
+    3300128: Platform3
+    3300130: PlatformDeco
+    3300132: Pole
+    3300134: Pole 1
+    3300136: Pole 2
+    3300138: polySurface5
+    3300140: Right_Ear
+    3300142: Right_Paw
+    3300144: Rod0
+    3300146: Rod2
+    3300148: Rope
+    3300150: Stair0
+    3300152: Stair1
+    3300154: Stair2
+    3300156: Stair3
+    3300158: Stair4
+    3300160: Stair5
+    3300162: Stair6
+    3300164: Stair7
+    3300166: Stair8
+    3300168: Star
+    3300170: Top
+    3300172: Top_ball
+    3300174: Wheel 1
+    3300176: Wheel 2
+    3300178: Wheel 3
+    3300180: Wheel0
+    3300182: Wheel1
+    3300184: Wheel2
+    3300186: Wheel3
+    4300000: Gear5
+    4300002: Rod0
+    4300004: Rod2
+    4300006: Star
+    4300008: Rope
+    4300010: Gear10
+    4300012: Platform2
+    4300014: polySurface5
+    4300016: Base
+    4300018: Wheel0
+    4300020: Wheel1
+    4300022: Wheel2
+    4300024: Wheel3
+    4300026: Back
+    4300028: Stair0
+    4300030: Stair1
+    4300032: Stair2
+    4300034: Stair3
+    4300036: Stair4
+    4300038: Stair5
+    4300040: Stair6
+    4300042: Stair7
+    4300044: Stair8
+    4300046: Link
+    4300048: Coach1
+    4300050: CartDoor
+    4300052: Coach
+    4300054: Base
+    4300056: Pivot
+    4300058: Buckle
+    4300060: Buckle1
+    4300062: Buckle2
+    4300064: Buckle3
+    4300066: Buckle4
+    4300068: Buckle5
+    4300070: Buckle6
+    4300072: Buckle7
+    4300074: Link
+    4300076: Coach1
+    4300078: CartDoor
+    4300080: Coach
+    4300082: Link
+    4300084: Coach1
+    4300086: CartDoor
+    4300088: Coach
+    4300090: Link
+    4300092: Coach1
+    4300094: CartDoor
+    4300096: Coach
+    4300098: Gear
+    4300100: Top
+    4300102: Top_ball
+    4300104: Gear1
+    4300106: Base
+    4300108: Nuts
+    4300110: Pole
+    4300112: Wheel
+    4300114: Paddle0
+    4300116: Paddle1
+    4300118: Pole
+    4300120: Wheel
+    4300122: Paddle0
+    4300124: Paddle1
+    4300126: Pole
+    4300128: Wheel
+    4300130: Paddle0
+    4300132: Paddle1
+    4300134: Platform1
+    4300136: Ladder0
+    4300138: PlatformDeco
+    4300140: Boat
+    4300142: Platform3
+    4300144: Chimney1
+    4300146: Chimney0
+    4300148: GearLid
+    4300150: Platform
+    4300152: GearHandle
+    4300154: Kanban
+    4300156: Nail0
+    4300158: Nail1
+    4300160: Gear
+    4300162: Axis
+    4300164: Gear
+    4300166: Axis
+    4300168: Gear6
+    4300170: Gear7
+    4300172: Gear8
+    4300174: Gear9
+    4300176: Back
+    4300178: Left_Ear
+    4300180: Right_Ear
+    4300182: Front
+    4300184: Left_Paw
+    4300186: Right_Paw
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
