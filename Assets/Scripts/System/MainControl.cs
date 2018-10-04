@@ -221,6 +221,10 @@ public class MainControl : MonoBehaviour
             Services.pathFindingManager.Move(man, tol);
             return true;
         }
+        else
+        {
+            man.GetComponent<CrowdControl>().OrderFailed();
+        }
 
         return false;
     }
