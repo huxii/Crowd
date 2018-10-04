@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class CrowdControl : ActorControl
 {
@@ -129,5 +130,12 @@ public class CrowdControl : ActorControl
         //    onObj = obj;
         //    SetKinematic(true);
         //}
+    }
+
+    public void OrderFailed()
+    {
+        Sequence newSeq = DOTween.Sequence();
+        newSeq.Append(GetComponentInChildren<MeshRenderer>().material.DOColor(new Color(1.0f, 0.0f, 0.0f), 0.1f));
+        newSeq.Append(GetComponentInChildren<MeshRenderer>().material.DOColor(new Color(0.0f, 1.0f, 0.0f), 0.1f).SetDelay(0.3f));
     }
 }

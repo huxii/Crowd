@@ -140,7 +140,14 @@ public abstract class ObjectPrimaryControl : ObjectControl
 
     public int GetEmptySlotNum()
     {
-        return slots.Count - currentSlots;
+        if (IsLocked())
+        {
+            return 0;
+        }
+        else
+        {
+            return slots.Count - currentSlots;
+        }
     }
 
     //public int GetSlotId(GameObject man)

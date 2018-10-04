@@ -195,7 +195,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.015117249, y: 0.0000005143702, z: -0.000000012913448, w: 0.9998858}
+  m_LocalRotation: {x: 0.015116703, y: 0.0000005143702, z: -0.0000000129131745, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1155,7 +1155,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 768ffdf2b6949054488c74579e87288b,
+          m_ObjectArgument: {fileID: 2100000, guid: da3f7cbef35c54d4b97576ffd99dcf80,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
@@ -2095,7 +2095,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.015117395, y: -0, z: -0, w: 0.99988574}
+  m_LocalRotation: {x: 0.015116576, y: -0, z: -0, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 1, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2774,7 +2774,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 768ffdf2b6949054488c74579e87288b,
+          m_ObjectArgument: {fileID: 2100000, guid: da3f7cbef35c54d4b97576ffd99dcf80,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
@@ -4374,7 +4374,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 768ffdf2b6949054488c74579e87288b,
+          m_ObjectArgument: {fileID: 2100000, guid: da3f7cbef35c54d4b97576ffd99dcf80,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
@@ -4904,8 +4904,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.0030011064, y: 0.00000049426035, z: -0.000000023020325,
-    w: 0.9999955}
+  m_LocalRotation: {x: -0.003001053, y: 0.00000049426035, z: -0.000000023020357, w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8699,7 +8698,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 768ffdf2b6949054488c74579e87288b,
+          m_ObjectArgument: {fileID: 2100000, guid: da3f7cbef35c54d4b97576ffd99dcf80,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0

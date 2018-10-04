@@ -148,6 +148,10 @@ public class MainControl : MonoBehaviour
     {
         if (!obj.GetComponent<ObjectPrimaryControl>() || obj.GetComponent<ObjectPrimaryControl>().GetEmptySlotNum() == 0)
         {
+            foreach (GameObject man in selecetedMen)
+            {
+                man.GetComponent<CrowdControl>().OrderFailed();
+            }
             return;
         }
 
@@ -181,6 +185,10 @@ public class MainControl : MonoBehaviour
                 UnboundMan(man);
                 OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
                 Services.pathFindingManager.Move(man, 0.05f, new ManArrivesAtObj(man, obj, slotId));
+            }
+            else
+            {
+                man.GetComponent<CrowdControl>().OrderFailed();
             }
         }
     }
