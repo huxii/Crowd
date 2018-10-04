@@ -128,6 +128,23 @@ ModelImporter:
     100244: Wheel1
     100246: Wheel2
     100248: Wheel3
+    100250: BackShell
+    100252: BackShell 1
+    100254: BackShellModel
+    100256: CartModel
+    100258: CartModel 1
+    100260: CartModel 2
+    100262: CartModel 3
+    100264: Gear11
+    100266: Interactable
+    100268: LadderModel
+    100270: MerryGoRoundModel
+    100272: MovingPlatformModel
+    100274: PulleyModel
+    100276: WheelModel
+    100278: GearRod
+    100280: GearRod1
+    100282: GearRod2
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -253,6 +270,23 @@ ModelImporter:
     400244: Wheel1
     400246: Wheel2
     400248: Wheel3
+    400250: BackShell
+    400252: BackShell 1
+    400254: BackShellModel
+    400256: CartModel
+    400258: CartModel 1
+    400260: CartModel 2
+    400262: CartModel 3
+    400264: Gear11
+    400266: Interactable
+    400268: LadderModel
+    400270: MerryGoRoundModel
+    400272: MovingPlatformModel
+    400274: PulleyModel
+    400276: WheelModel
+    400278: GearRod
+    400280: GearRod1
+    400282: GearRod2
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -349,6 +383,11 @@ ModelImporter:
     2300182: Wheel1
     2300184: Wheel2
     2300186: Wheel3
+    2300188: BackShell 1
+    2300190: Gear11
+    2300192: GearRod
+    2300194: GearRod1
+    2300196: GearRod2
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -443,6 +482,11 @@ ModelImporter:
     3300182: Wheel1
     3300184: Wheel2
     3300186: Wheel3
+    3300188: BackShell 1
+    3300190: Gear11
+    3300192: GearRod
+    3300194: GearRod1
+    3300196: GearRod2
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -537,6 +581,11 @@ ModelImporter:
     4300182: Front
     4300184: Left_Paw
     4300186: Right_Paw
+    4300188: Gear11
+    4300190: BackShell
+    4300192: GearRod
+    4300194: GearRod1
+    4300196: GearRod2
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -571,9 +620,9 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importVisibility: 1
+    importVisibility: 0
     importBlendShapes: 1
-    importCameras: 1
+    importCameras: 0
     importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
