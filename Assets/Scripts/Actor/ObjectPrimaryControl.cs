@@ -34,6 +34,7 @@ public abstract class ObjectPrimaryControl : ObjectControl
     public float gizmoSize = 0.2f;
 
     [Header("Slots Attribute")]
+    protected GameObject slotsObj = null;
     [SerializeField]
     protected List<SlotAttr> slots = new List<SlotAttr>();
     [HideInInspector]
@@ -85,9 +86,17 @@ public abstract class ObjectPrimaryControl : ObjectControl
 
     public GameObject AddSlot()
     {
+        if (slotsObj == null)
+        {
+            slotsObj = new GameObject();
+            slotsObj.name = "Slots";
+            slotsObj.transform.SetParent(transform);
+            slotsObj.transform.localPosition = localSpawnPos;
+        }
+
         GameObject newSlot = new GameObject();
         newSlot.name = "Slot" + namingCounter;
-        newSlot.transform.SetParent(transform);
+        newSlot.transform.SetParent(slotsObj.transform);
         newSlot.transform.localPosition = localSpawnPos;
         ++namingCounter;
 

@@ -134,8 +134,9 @@ public class CrowdControl : ActorControl
 
     public void OrderFailed()
     {
+        Color origColor = GetComponentInChildren<MeshRenderer>().material.color;
         Sequence newSeq = DOTween.Sequence();
         newSeq.Append(GetComponentInChildren<MeshRenderer>().material.DOColor(new Color(1.0f, 0.0f, 0.0f), 0.1f));
-        newSeq.Append(GetComponentInChildren<MeshRenderer>().material.DOColor(new Color(0.0f, 1.0f, 0.0f), 0.1f).SetDelay(0.3f));
+        newSeq.Append(GetComponentInChildren<MeshRenderer>().material.DOColor(origColor, 0.1f).SetDelay(0.3f));
     }
 }

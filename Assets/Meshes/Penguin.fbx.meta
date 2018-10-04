@@ -145,6 +145,16 @@ ModelImporter:
     100278: GearRod
     100280: GearRod1
     100282: GearRod2
+    100284: Puddle
+    100286: Rope 1
+    100288: Rope1
+    100290: Rope0
+    100292: Puddle 1
+    100294: PuddleModel
+    100296: Rope0 1
+    100298: Rope1 1
+    100300: Rope00
+    100302: Rope10
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -287,6 +297,16 @@ ModelImporter:
     400278: GearRod
     400280: GearRod1
     400282: GearRod2
+    400284: Puddle
+    400286: Rope 1
+    400288: Rope1
+    400290: Rope0
+    400292: Puddle 1
+    400294: PuddleModel
+    400296: Rope0 1
+    400298: Rope1 1
+    400300: Rope00
+    400302: Rope10
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -388,6 +408,14 @@ ModelImporter:
     2300192: GearRod
     2300194: GearRod1
     2300196: GearRod2
+    2300198: Puddle
+    2300200: Rope 1
+    2300202: Rope1
+    2300204: Puddle 1
+    2300206: Rope0 1
+    2300208: Rope1 1
+    2300210: Rope00
+    2300212: Rope10
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -487,6 +515,14 @@ ModelImporter:
     3300192: GearRod
     3300194: GearRod1
     3300196: GearRod2
+    3300198: Puddle
+    3300200: Rope 1
+    3300202: Rope1
+    3300204: Puddle 1
+    3300206: Rope0 1
+    3300208: Rope1 1
+    3300210: Rope00
+    3300212: Rope10
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -586,6 +622,12 @@ ModelImporter:
     4300192: GearRod
     4300194: GearRod1
     4300196: GearRod2
+    4300198: Puddle
+    4300200: Rope1
+    4300202: Rope
+    4300204: Rope0
+    4300206: Rope00
+    4300208: Rope10
   externalObjects: {}
   materials:
     importMaterials: 0

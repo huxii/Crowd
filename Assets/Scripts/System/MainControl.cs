@@ -290,6 +290,13 @@ public class MainControl : MonoBehaviour
         {
             MoveMen(mouseClickPos);
         }
+        else
+        {
+            foreach (GameObject man in selecetedMen)
+            {
+                man.GetComponent<CrowdControl>().OrderFailed();
+            }
+        }
     }
 
     public void DoubleClickOn(GameObject mouseClickObject)

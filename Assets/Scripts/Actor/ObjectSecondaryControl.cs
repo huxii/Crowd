@@ -5,23 +5,23 @@ using UnityEngine;
 
 // the objects that control or are controlled by primary objects
 public class ObjectSecondaryControl : ObjectControl
-{ 
+{
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-	}
+    }
 
     public void LockChildren()
     {
         foreach (Transform child in gameObject.GetComponentsInChildren<Transform>())
         {
-            Debug.Log(child.gameObject);
+            //Debug.Log(child.gameObject);
             if (child.gameObject.CompareTag("Object") || child.gameObject.CompareTag("Man"))
             {
                 child.gameObject.GetComponent<ActorControl>().Lock();
@@ -40,11 +40,34 @@ public class ObjectSecondaryControl : ObjectControl
         }
     }
 
+    public void ActivateChildren()
+    {
+        foreach (Transform child in gameObject.GetComponentsInChildren<Transform>())
+        {
+            if (child.gameObject.CompareTag("Object"))
+            {
+                child.gameObject.GetComponent<ObjectControl>().Activate();
+            }
+        }
+    }
+
+    public void DeactivateChildren()
+    {
+        foreach (Transform child in gameObject.GetComponentsInChildren<Transform>())
+        {
+            if (child.gameObject.CompareTag("Object"))
+            {
+                child.gameObject.GetComponent<ObjectControl>().Deactivate();
+            }
+        }
+    }
+
     public override void Activate()
     {
         base.Activate();
 
         LockChildren();
+        ActivateChildren();
     }
 
     public override void Deactivate()
@@ -52,5 +75,6 @@ public class ObjectSecondaryControl : ObjectControl
         base.Deactivate();
 
         UnlockChildren();
+        DeactivateChildren();
     }
 }
