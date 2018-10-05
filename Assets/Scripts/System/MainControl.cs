@@ -201,6 +201,11 @@ public class MainControl : MonoBehaviour
         }
 
         GameObject obj = man.GetComponent<CrowdControl>().GetWorkingObject();
+        if (obj == null)
+        {
+            return;
+        }
+
         Vector3 targetPos = obj.GetComponent<ObjectPrimaryControl>().GetFreeManSlotPos();
         if (Services.pathFindingManager.FindPath(man, targetPos))
         {
@@ -263,7 +268,10 @@ public class MainControl : MonoBehaviour
         {
             foreach (GameObject man in men)
             {
-                MoveMan(man, targetPos, men.Length * 0.15f);
+                if (!man.GetComponent<CrowdControl>().IsBusy())
+                {
+                    MoveMan(man, targetPos, men.Length * 0.15f);
+                }
             }
         }
     }
