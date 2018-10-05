@@ -130,23 +130,29 @@ public class MainControl : MonoBehaviour
         }
     }
 
-    public void FillMan(GameObject obj, List<GameObject> selectedMen)
+    public void FillMan(GameObject obj, List<GameObject> selectedMen = null)
     {
         if (!obj.GetComponent<ObjectPrimaryControl>() || obj.GetComponent<ObjectPrimaryControl>().GetEmptySlotNum() == 0)
         {
-            foreach (GameObject man in selectedMen)
+            if (selectedMen != null)
             {
-                man.GetComponent<CrowdControl>().OrderFailed();
+                foreach (GameObject man in selectedMen)
+                {
+                    man.GetComponent<CrowdControl>().OrderFailed();
+                }
             }
             return;
         }
 
         SortedDictionary<float, GameObject> sortByDistance = new SortedDictionary<float, GameObject>();
-        float diffKey = 0;
-        foreach (GameObject selectedMan in selectedMen)
+        if (selectedMen != null)
         {
-            sortByDistance.Add(diffKey, selectedMan);
-            diffKey += 1e-12f;
+            float diffKey = 0;
+            foreach (GameObject selectedMan in selectedMen)
+            {
+                sortByDistance.Add(diffKey, selectedMan);
+                diffKey += 1e-12f;
+            }
         }
 
         foreach (GameObject man in men)
@@ -187,6 +193,27 @@ public class MainControl : MonoBehaviour
         }
     }
 
+    public void FreeMan(GameObject man)
+    {
+        if (man.GetComponent<CrowdControl>().IsLocked())
+        {
+            return;
+        }
+
+        GameObject obj = man.GetComponent<CrowdControl>().GetWorkingObject();
+        Vector3 targetPos = obj.GetComponent<ObjectPrimaryControl>().GetFreeManSlotPos();
+        if (Services.pathFindingManager.FindPath(man, targetPos))
+        {
+            UnboundMan(man);
+            Services.pathFindingManager.Move(man, 0.05f);
+        }
+        else
+        {
+            //man.GetComponent<CrowdControl>().OrderFailed();
+            Debug.Log("Should never happen though");
+        }
+    }
+
     public void UnboundMan(GameObject man)
     {
         OnManLeavesFromObj(new ManLeavesFromObj(man));
@@ -223,11 +250,21 @@ public class MainControl : MonoBehaviour
         return false;
     }
 
-    public void MoveMen(Vector3 targetPos, List<GameObject> selectedMen)
+    public void MoveMen(Vector3 targetPos, List<GameObject> selectedMen = null)
     {
-        foreach (GameObject man in selectedMen)
+        if (selectedMen != null)
         {
-            MoveMan(man, targetPos, selectedMen.Count * 0.15f);
+            foreach (GameObject man in selectedMen)
+            {
+                MoveMan(man, targetPos, selectedMen.Count * 0.15f);
+            }
+        }
+        else
+        {
+            foreach (GameObject man in men)
+            {
+                MoveMan(man, targetPos, men.Length * 0.15f);
+            }
         }
     }
 

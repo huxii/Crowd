@@ -271,7 +271,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.015116671, y: 0.0000005143702, z: -0.000000012914224, w: 0.9998858}
+  m_LocalRotation: {x: 0.015116461, y: 0.0000005143702, z: -0.000000012914166, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1533,6 +1533,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0.15, y: -1.6, z: -1.1}
   slots:
   - state: 0
     obj: {fileID: 1755827074}
@@ -4104,6 +4105,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 1
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0, y: 0.05, z: -0.8}
   slots:
   - state: 0
     obj: {fileID: 139523396}
@@ -4550,6 +4552,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0, y: 0, z: 0}
   slots:
   - state: 0
     obj: {fileID: 320377336}
@@ -4884,6 +4887,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0.15, y: -1.6, z: -1.1}
   slots:
   - state: 0
     obj: {fileID: 530223640}
@@ -6118,6 +6122,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0, y: 0, z: 0}
   slots:
   - state: 0
     obj: {fileID: 503716240}
@@ -9364,6 +9369,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0.15, y: -1.6, z: -1.1}
   slots:
   - state: 0
     obj: {fileID: 368434173}
@@ -9525,6 +9531,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 1
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0, y: 0, z: 0}
   slots:
   - state: 0
     obj: {fileID: 308937338}
@@ -11366,8 +11373,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.0030009104, y: 0.00000049426035, z: -0.000000023021252,
-    w: 0.9999955}
+  m_LocalRotation: {x: -0.003001064, y: 0.00000049426035, z: -0.000000023021215, w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -12025,6 +12031,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0, y: 0, z: 0}
   slots:
   - state: 0
     obj: {fileID: 1605996129}
@@ -12503,6 +12510,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0.15, y: -1.6, z: -1.1}
   slots:
   - state: 0
     obj: {fileID: 1078232000}
@@ -13063,6 +13071,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0, y: 0, z: 0}
   slots:
   - state: 0
     obj: {fileID: 413581898}
@@ -13253,6 +13262,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0, y: 0, z: 0}
   slots:
   - state: 0
     obj: {fileID: 60654591}
@@ -13742,10 +13752,10 @@ GameObject:
   - component: {fileID: 1428080938}
   - component: {fileID: 1428080941}
   - component: {fileID: 1428080936}
-  - component: {fileID: 1428080940}
   - component: {fileID: 1428080939}
   - component: {fileID: 1428080942}
   - component: {fileID: 1428080943}
+  - component: {fileID: 1428080940}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -13862,7 +13872,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1428080935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2317ac0c5963b174a9441fb2e3cbef14, type: 3}
+  m_Script: {fileID: 11500000, guid: 69c96976c38ecc84a92f74cba945d912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gyroEnabled: 0
@@ -14670,6 +14680,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0, y: 0, z: 0}
   slots:
   - state: 0
     obj: {fileID: 1780256158}
@@ -15246,6 +15257,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0, y: 0, z: 0}
   slots:
   - state: 0
     obj: {fileID: 108974441}
@@ -16054,6 +16066,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0, y: 0, z: 0}
   slots: []
   namingCounter: 1
   needDelayToDeactivate: 0
@@ -16887,6 +16900,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0, y: 0, z: 0}
   slots: []
   namingCounter: 0
   needDelayToDeactivate: 1
@@ -17001,6 +17015,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: 0, y: 0, z: 0}
   slots:
   - state: 0
     obj: {fileID: 1619006293}
@@ -17888,6 +17903,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   gizmoSize: 0.2
+  freeManSlotOffset: {x: -1.4, y: 0, z: 0}
   slots:
   - state: 0
     obj: {fileID: 1504804172}

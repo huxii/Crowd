@@ -28,12 +28,11 @@ public abstract class ObjectPrimaryControl : ObjectControl
         READY,
     }
 
-    [Header("UI")]
+    [Header("Slots")]
     //public Vector3 progressBarPosOffset = new Vector3(0, 0, 0);
-    [SerializeField]
     public float gizmoSize = 0.2f;
+    public Vector3 freeManSlotOffset = new Vector3(0, 0, 0);
 
-    [Header("Slots Attribute")]
     protected GameObject slotsObj = null;
     [SerializeField]
     protected List<SlotAttr> slots = new List<SlotAttr>();
@@ -75,8 +74,8 @@ public abstract class ObjectPrimaryControl : ObjectControl
             }
         }
 
-        //Gizmos.color = Color.yellow;
-        //Gizmos.DrawWireCube(transform.position + progressBarPosOffset, new Vector3(gizmoSize, gizmoSize, gizmoSize));
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(transform.position + freeManSlotOffset, new Vector3(gizmoSize, gizmoSize, gizmoSize));
     }
 
     public bool IsReady()
@@ -157,6 +156,11 @@ public abstract class ObjectPrimaryControl : ObjectControl
         {
             return slots.Count - currentSlots;
         }
+    }
+
+    public Vector3 GetFreeManSlotPos()
+    {
+        return transform.position + freeManSlotOffset;
     }
 
     //public int GetSlotId(GameObject man)
