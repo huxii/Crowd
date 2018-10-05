@@ -1,16 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ObjectDragTransformControl : ObjectDragControl
 {
-    private Vector3 deltaPos = new Vector3(0, 0, 0);
-    private Vector3 origPos;
+    [Header("Dragging Configuration")]
+    public Vector3 minValidDelta = new Vector3(0, 0, 0);
+    public Vector3 maxValidDelta = new Vector3(0, 0, 0);
+
+    public UnityEvent onArriveValidRange;
+    public UnityEvent onLeaveValidRange;
 
     // Use this for initialization
     void Start ()
     {
-        origPos = transform.position;
+        Init();
     }
 	
 	// Update is called once per frame
@@ -18,7 +23,7 @@ public class ObjectDragTransformControl : ObjectDragControl
     {
 	}
 
-    protected bool InRange()
+    protected bool InValidRange()
     {
         return (deltaPos.x >= minValidDelta.x - 0.01f && deltaPos.x <= maxValidDelta.x + 0.01f
             && deltaPos.y >= minValidDelta.y - 0.01f && deltaPos.y <= maxValidDelta.y + 0.01f
@@ -31,7 +36,7 @@ public class ObjectDragTransformControl : ObjectDragControl
         {
             base.Drag(dp);
 
-            bool alreadyInRange = InRange();
+            bool alreadyInRange = InValidRange();
 
             deltaPos = new Vector3(
                 Mathf.Max(Mathf.Min(deltaPos.x + dp.x, maxDelta.x), minDelta.x),
@@ -40,7 +45,7 @@ public class ObjectDragTransformControl : ObjectDragControl
                 );
             transform.position = origPos + deltaPos;
 
-            if (InRange())
+            if (InValidRange())
             {
                 if (!alreadyInRange)
                 {

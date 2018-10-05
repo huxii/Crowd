@@ -16,6 +16,17 @@ public class ObjectAutoControl : ObjectPrimaryControl
     {
 	}
 
+    protected void FreeAllMan()
+    {
+        foreach (SlotAttr slot in slots)
+        {
+            if (slot.man != null)
+            {
+                Services.gameController.FreeMan(slot.man);
+            }
+        }
+    }
+
     public override void OnSlotsFull()
     {
         base.OnSlotsFull();

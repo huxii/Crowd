@@ -48,6 +48,10 @@ public abstract class ObjectControl : ActorControl
     {
     }
 
+    public virtual void Swipe()
+    {
+    }
+
     public bool IsActivated()
     {
         return isActivated;

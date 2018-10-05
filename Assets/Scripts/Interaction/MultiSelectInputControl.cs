@@ -83,7 +83,7 @@ public class MultiSelectInputControl : InputControl
         else
         if (mouseClickObject.CompareTag("Object"))
         {
-            Services.gameController.FillMan(mouseClickObject, selectedMen);
+            Services.gameController.InteractMan(mouseClickObject, mouseClickPos, selectedMen);
         }
         else
         if (mouseClickObject.CompareTag("Ground"))

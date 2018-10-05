@@ -35,11 +35,11 @@ public class NoSelectInputControl : InputControl
         {
             if (orderMode == OrderMode.SINGLEMAN)
             {
-                Services.gameController.FillSingleMan(mouseClickObject);
+                Services.gameController.InteractSingleMan(mouseClickObject, mouseClickPos);
             }
             else
             {
-                Services.gameController.FillMan(mouseClickObject);
+                Services.gameController.InteractMan(mouseClickObject, mouseClickPos);
             }
         }
         else

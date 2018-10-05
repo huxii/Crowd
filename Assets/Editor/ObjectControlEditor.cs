@@ -45,24 +45,6 @@ public class ObjectClickControlEditor : ObjectPrimaryControlEditor
     }
 }
 
-[CustomEditor(typeof(ObjectAutoControl))]
-public class ObjectAutoControlEditor : ObjectPrimaryControlEditor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-    }
-}
-
-[CustomEditor(typeof(ObjectOneTimeControl))]
-public class ObjectOneTimeControlEditor : ObjectPrimaryControlEditor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-    }
-}
-
 [CustomEditor(typeof(ObjectDragControl))]
 public class ObjectDragControlEditor : ObjectPrimaryControlEditor
 {
@@ -72,8 +54,8 @@ public class ObjectDragControlEditor : ObjectPrimaryControlEditor
     }
 }
 
-[CustomEditor(typeof(ObjectDragTransformControl))]
-public class ObjectDragTransformControlEditor : ObjectDragControlEditor
+[CustomEditor(typeof(ObjectAutoControl))]
+public class ObjectAutoControlEditor : ObjectPrimaryControlEditor
 {
     public override void OnInspectorGUI()
     {
@@ -81,8 +63,26 @@ public class ObjectDragTransformControlEditor : ObjectDragControlEditor
     }
 }
 
-[CustomEditor(typeof(ObjectDragRotationControl))]
-public class ObjectDragRotationControlEditor : ObjectDragControlEditor
+[CustomEditor(typeof(ObjectAutoDeactivateControl))]
+public class ObjectAutoDeactivateControlEditor : ObjectAutoControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
+[CustomEditor(typeof(ObjectOneTimeSwipeControl))]
+public class ObjectOneTimeSwipeControlEditor : ObjectAutoControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
+[CustomEditor(typeof(ObjectDragTransformControl))]
+public class ObjectDragTransformControlEditor : ObjectDragControlEditor
 {
     public override void OnInspectorGUI()
     {

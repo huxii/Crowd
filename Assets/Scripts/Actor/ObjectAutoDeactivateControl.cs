@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// automatically activate when slots are filled
-public class ObjectOneTimeControl : ObjectPrimaryControl
+// automatically deactivate after some time
+public class ObjectAutoDeactivateControl : ObjectAutoControl
 {
     public float timeToAutoDeactivate = 1f;
 
@@ -38,20 +38,12 @@ public class ObjectOneTimeControl : ObjectPrimaryControl
     public override void OnSlotsFull()
     {
         base.OnSlotsFull();
-
-        Activate();
     }
 
     public override void Deactivate()
     {
         base.Deactivate();
 
-        foreach (SlotAttr slot in slots)
-        {
-            if (slot.man != null)
-            {
-                Services.gameController.UnboundMan(slot.man);
-            }
-        }
+        FreeAllMan();
     }
 }

@@ -9,7 +9,6 @@ public abstract class InputControl : MonoBehaviour
     // single click
     protected GameObject mouseClickObject = null;
     protected Vector3 mouseClickPos;
-    protected Vector3 mouseDragPos;
     protected float singleClickTime = 0;
 
     // double click
@@ -20,6 +19,10 @@ public abstract class InputControl : MonoBehaviour
     // hold 
     protected float holdTime = 1f;
     protected bool isHoldUp = false;
+
+    // drag
+    protected Vector3 mouseDragScreenPos;
+    protected Vector3 mouseClickScreenPos;
 
     // pinch
     protected float deltaPinchMag = 0;
@@ -139,7 +142,9 @@ public abstract class InputControl : MonoBehaviour
     private void MouseDown()
     {
         isHoldUp = false;
-        mouseDragPos = Input.mousePosition;
+        mouseDragScreenPos = Input.mousePosition;
+        mouseClickScreenPos = Input.mousePosition;
+
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 100f))
@@ -157,13 +162,18 @@ public abstract class InputControl : MonoBehaviour
 
     private void MouseUp()
     {
+        if (Vector3.Distance(Input.mousePosition, mouseClickScreenPos) > 1f)
+        {
+            Services.gameController.SwipeOn(mouseClickObject);
+        }
+        else
         if (Time.time - singleClickTime < 0.5f)
         {
             MouseSingleClick();
         }
 
         isHoldUp = true;
-        Services.hudController.DestroyHoldIcon(mouseClickObject);
+        //Services.hudController.DestroyHoldIcon(mouseClickObject);
     }
 
     private void MouseHoldEnd()
@@ -176,7 +186,7 @@ public abstract class InputControl : MonoBehaviour
         Debug.Log("Hold " + mouseClickObject);
 
         isHoldUp = true;
-        Services.hudController.DestroyHoldIcon(mouseClickObject);
+        //Services.hudController.DestroyHoldIcon(mouseClickObject);
     }
 
     protected virtual void MouseSingleClick()
@@ -228,18 +238,18 @@ public abstract class InputControl : MonoBehaviour
 
     protected void TranslateViewport()
     {
-        Vector3 mouseDelta = (Input.mousePosition - mouseDragPos) * Time.time;
+        Vector3 mouseDelta = (Input.mousePosition - mouseDragScreenPos) * Time.time;
         TranslateViewport(mouseDelta.x * 0.03f, mouseDelta.y * 0.03f);
-        mouseDragPos = Input.mousePosition;
+        mouseDragScreenPos = Input.mousePosition;
     }
 
     protected void RotateViewport()
     {            
         // rotate viewport
-        Vector3 mouseDelta = (Input.mousePosition - mouseDragPos) * Time.time;
+        Vector3 mouseDelta = (Input.mousePosition - mouseDragScreenPos) * Time.time;
         //Debug.Log(mouseDelta);
         Services.cameraController.Orbit(mouseDelta.x, mouseDelta.y);
-        mouseDragPos = Input.mousePosition;
+        mouseDragScreenPos = Input.mousePosition;
     }
 
     protected void Zoom(float delta)

@@ -130,9 +130,26 @@ public class MainControl : MonoBehaviour
         }
     }
 
-    public void FillMan(GameObject obj, List<GameObject> selectedMen = null)
+    public void InteractMan(GameObject obj, Vector3 pos, List<GameObject> selectedMen = null)
     {
-        if (!obj.GetComponent<ObjectPrimaryControl>() || obj.GetComponent<ObjectPrimaryControl>().GetEmptySlotNum() == 0)
+        if (!obj.GetComponent<ObjectPrimaryControl>())
+        {
+            return;
+        }
+
+        // this obj is walkable
+        if (obj.GetComponent<ObjectPrimaryControl>().IsLocked())
+        {
+            if (obj.GetComponent<ObjectPrimaryControl>().isWalkable)
+            {
+                MoveMen(pos, selectedMen);
+            }
+
+            return;
+        }
+
+        // no slots anymore
+        if (obj.GetComponent<ObjectPrimaryControl>().GetEmptySlotNum() == 0)
         {
             if (selectedMen != null)
             {
@@ -185,10 +202,21 @@ public class MainControl : MonoBehaviour
         }
     }
 
-    public void FillSingleMan(GameObject obj)
+    public void InteractSingleMan(GameObject obj, Vector3 pos)
     {
-        if (!obj.GetComponent<ObjectPrimaryControl>() || obj.GetComponent<ObjectPrimaryControl>().GetEmptySlotNum() == 0)
+        if (!obj.GetComponent<ObjectPrimaryControl>())
         {
+            return;
+        }
+
+        // this obj is walkable
+        if (obj.GetComponent<ObjectPrimaryControl>().IsLocked())
+        {
+            if (obj.GetComponent<ObjectPrimaryControl>().isWalkable)
+            {
+                MoveMen(pos);
+            }
+
             return;
         }
 
@@ -372,6 +400,14 @@ public class MainControl : MonoBehaviour
         if (obj != null && obj.GetComponent<ObjectControl>())
         {
             obj.GetComponent<ObjectControl>().Drag(delta);
+        }
+    }
+
+    public void SwipeOn(GameObject obj)
+    {
+        if (obj != null && obj.GetComponent<ObjectControl>())
+        {
+            obj.GetComponent<ObjectControl>().Swipe();
         }
     }
 
