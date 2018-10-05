@@ -43,3 +43,12 @@ public class ManLeavesFromObj : ManObj
     {
     }
 }
+
+public class ManDrop : Crowd.Event
+{
+    public readonly GameObject man;
+    public ManDrop(GameObject m)
+    {
+        man = m;
+    }
+}

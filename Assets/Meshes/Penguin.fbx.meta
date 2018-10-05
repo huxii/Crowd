@@ -155,6 +155,7 @@ ModelImporter:
     100298: Rope1 1
     100300: Rope00
     100302: Rope10
+    100304: Bell
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -307,6 +308,7 @@ ModelImporter:
     400298: Rope1 1
     400300: Rope00
     400302: Rope10
+    400304: Bell
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -416,6 +418,7 @@ ModelImporter:
     2300208: Rope1 1
     2300210: Rope00
     2300212: Rope10
+    2300214: Bell
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -523,6 +526,7 @@ ModelImporter:
     3300208: Rope1 1
     3300210: Rope00
     3300212: Rope10
+    3300214: Bell
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -628,6 +632,7 @@ ModelImporter:
     4300204: Rope0
     4300206: Rope00
     4300208: Rope10
+    4300210: Bell
   externalObjects: {}
   materials:
     importMaterials: 0

@@ -2,27 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputControl : MonoBehaviour
+public abstract class InputControl : MonoBehaviour
 {
     public bool gyroEnabled = false;
 
     // single click
-    private GameObject mouseClickObject = null;
-    private Vector3 mouseClickPos;
-    private Vector3 mouseDragPos;
-    private float singleClickTime = 0;
+    protected GameObject mouseClickObject = null;
+    protected Vector3 mouseClickPos;
+    protected Vector3 mouseDragPos;
+    protected float singleClickTime = 0;
 
     // double click
-    private float doubleClickTime = 0;
-    private float doubleClickTolerence = 0.2f;
-    private bool oneClick = false;
-    
+    protected float doubleClickTime = 0;
+    protected float doubleClickTolerence = 0.2f;
+    protected bool oneClick = false;
+
     // hold 
-    private float holdTime = 1f;
-    private bool isHoldUp = false;
+    protected float holdTime = 1f;
+    protected bool isHoldUp = false;
 
     // pinch
-    private float deltaPinchMag = 0;
+    protected float deltaPinchMag = 0;
 
     // Use this for initialization
     void Start()
@@ -35,7 +35,7 @@ public class InputControl : MonoBehaviour
 
     }
 
-    public void DetectMouse()
+    protected void DetectMouse()
     {
         if (Input.touchCount < 2)
         {
@@ -136,20 +136,6 @@ public class InputControl : MonoBehaviour
         }
     }
 
-    private void MouseSingleClick()
-    {
-        Debug.Log("Single click " + mouseClickObject);
-
-        Services.gameController.ClickOn(mouseClickObject, mouseClickPos);
-    }
-
-    private void MouseDoubleClick()
-    {
-        //Debug.Log("Double click " + mouseClickObject);
-
-        //Services.gameController.DoubleClickOn(mouseClickObject);
-    }
-
     private void MouseDown()
     {
         isHoldUp = false;
@@ -177,7 +163,7 @@ public class InputControl : MonoBehaviour
         }
 
         isHoldUp = true;
-        Services.gameController.HoldRelease(mouseClickObject);
+        Services.hudController.DestroyHoldIcon(mouseClickObject);
     }
 
     private void MouseHoldEnd()
@@ -190,10 +176,22 @@ public class InputControl : MonoBehaviour
         Debug.Log("Hold " + mouseClickObject);
 
         isHoldUp = true;
-        Services.gameController.HoldEnd(mouseClickObject);
+        Services.hudController.DestroyHoldIcon(mouseClickObject);
     }
 
-    private void MouseHold()
+    protected virtual void MouseSingleClick()
+    {
+        Debug.Log("Single click " + mouseClickObject);
+    }
+
+    protected virtual void MouseDoubleClick()
+    {
+        //Debug.Log("Double click " + mouseClickObject);
+
+        //Services.gameController.DoubleClickOn(mouseClickObject);
+    }
+
+    protected virtual void MouseHold()
     {
         if (mouseClickObject == null)
         {
@@ -223,19 +221,19 @@ public class InputControl : MonoBehaviour
         }
     }
 
-    public void TranslateViewport(float x, float y)
+    protected void TranslateViewport(float x, float y)
     {
         Services.cameraController.Translate(x, y);
     }
 
-    public void TranslateViewport()
+    protected void TranslateViewport()
     {
         Vector3 mouseDelta = (Input.mousePosition - mouseDragPos) * Time.time;
         TranslateViewport(mouseDelta.x * 0.03f, mouseDelta.y * 0.03f);
         mouseDragPos = Input.mousePosition;
     }
 
-    public void RotateViewport()
+    protected void RotateViewport()
     {            
         // rotate viewport
         Vector3 mouseDelta = (Input.mousePosition - mouseDragPos) * Time.time;
@@ -244,7 +242,7 @@ public class InputControl : MonoBehaviour
         mouseDragPos = Input.mousePosition;
     }
 
-    public void Zoom(float delta)
+    protected void Zoom(float delta)
     {
         Debug.Log("Pinch " + delta);
         Services.cameraController.Zoom(delta);

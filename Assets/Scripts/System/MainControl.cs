@@ -9,7 +9,6 @@ public class MainControl : MonoBehaviour
 {
     //private GameObject selectedMan = null;
     private GameObject[] men;
-    private List<GameObject> selecetedMen = new List<GameObject>();
     private GameObject menParentObj = null;
 
     // Use this for initialization
@@ -21,7 +20,7 @@ public class MainControl : MonoBehaviour
         RegisterEvents();
 
         // do a favor for outline shader
-        Services.utils.RecalculateNormals();
+        //Services.utils.RecalculateNormals();
 
         CheckPlatform();
     }
@@ -31,12 +30,11 @@ public class MainControl : MonoBehaviour
     {
         Services.eventManager.ProcessQueuedEvents();
         Services.taskManager.Update();
-        Services.inputController.DetectMouse();
     }
 
     void OnDestroy()
     {
-        UnregisterEvents();   
+        UnregisterEvents();
     }
 
     void RegisterEvents()
@@ -72,8 +70,6 @@ public class MainControl : MonoBehaviour
 
         man.transform.SetParent(obj.GetComponent<ObjectPrimaryControl>().GetSlotObject(slotId).transform);
         obj.GetComponent<ObjectPrimaryControl>().ReadySlot(slotId, man);
-
-        DeselectMan(man);
     }
 
     void OnManLeavesForObj(Crowd.Event e)
@@ -110,45 +106,35 @@ public class MainControl : MonoBehaviour
         obj.GetComponent<ObjectPrimaryControl>().FreeSlot(slotId);
     }
 
-    private void SelectMan(GameObject man)
+    public void SelectMan(GameObject man)
     {
-        //DeselectMan();
-
-        if (!selecetedMen.Contains(man))
+        if (man != null && man.GetComponent<CrowdControl>())
         {
             man.GetComponent<CrowdControl>().Selected();
-            selecetedMen.Add(man);
-        }
-        else
-        {
-            DeselectMan(man);
         }
     }
 
-    private void DeselectMan()
+    public void DeselectMan(GameObject man)
     {
-        foreach (GameObject man in selecetedMen)
+        if (man != null && man.GetComponent<CrowdControl>())
         {
             man.GetComponent<CrowdControl>().Deselected();
         }
-
-        selecetedMen.Clear();
     }
 
-    private void DeselectMan(GameObject man)
+    public void DeselectMan(List<GameObject> selectedMen)
     {
-        if (selecetedMen.Contains(man))
+        foreach (GameObject man in selectedMen)
         {
             man.GetComponent<CrowdControl>().Deselected();
-            selecetedMen.Remove(man);
         }
     }
 
-    private void FillMan(GameObject obj)
+    public void FillMan(GameObject obj, List<GameObject> selectedMen)
     {
         if (!obj.GetComponent<ObjectPrimaryControl>() || obj.GetComponent<ObjectPrimaryControl>().GetEmptySlotNum() == 0)
         {
-            foreach (GameObject man in selecetedMen)
+            foreach (GameObject man in selectedMen)
             {
                 man.GetComponent<CrowdControl>().OrderFailed();
             }
@@ -157,12 +143,12 @@ public class MainControl : MonoBehaviour
 
         SortedDictionary<float, GameObject> sortByDistance = new SortedDictionary<float, GameObject>();
         float diffKey = 0;
-        foreach (GameObject selectedMan in selecetedMen)
+        foreach (GameObject selectedMan in selectedMen)
         {
             sortByDistance.Add(diffKey, selectedMan);
             diffKey += 1e-12f;
         }
-        
+
         foreach (GameObject man in men)
         {
             if (!sortByDistance.ContainsValue(man) && man.GetComponent<CrowdControl>().IsBusy() == false && !man.GetComponent<CrowdControl>().IsLocked())
@@ -193,6 +179,14 @@ public class MainControl : MonoBehaviour
         }
     }
 
+    public void OrderFailed(GameObject man)
+    {
+        if (man != null && man.GetComponent<CrowdControl>())
+        {
+            man.GetComponent<CrowdControl>().OrderFailed();
+        }
+    }
+
     public void UnboundMan(GameObject man)
     {
         OnManLeavesFromObj(new ManLeavesFromObj(man));
@@ -208,7 +202,7 @@ public class MainControl : MonoBehaviour
         man.GetComponent<CrowdControl>().MoveTo(targetPos, tol);
     }
 
-    private bool MoveMan(GameObject man, Vector3 targetPos, float tol)
+    public bool MoveMan(GameObject man, Vector3 targetPos, float tol)
     {
         if (man.GetComponent<CrowdControl>().IsLocked())
         {
@@ -229,20 +223,17 @@ public class MainControl : MonoBehaviour
         return false;
     }
 
-    private void MoveMen(Vector3 targetPos)
+    public void MoveMen(Vector3 targetPos, List<GameObject> selectedMen)
     {
-        foreach (GameObject man in selecetedMen)
+        foreach (GameObject man in selectedMen)
         {
-            MoveMan(man, targetPos, selecetedMen.Count * 0.15f);
+            MoveMan(man, targetPos, selectedMen.Count * 0.15f);
         }
     }
 
     public void DropMan(GameObject man)
     {
-        if (selecetedMen.Contains(man))
-        {
-            DeselectMan(man);
-        }
+        Services.eventManager.Fire(new ManDrop(man));
 
         RaycastHit[] hits;
         hits = Physics.RaycastAll(man.transform.position, Vector3.down, 100f);
@@ -268,86 +259,86 @@ public class MainControl : MonoBehaviour
         }
     }
 
-    public void ClickOn(GameObject mouseClickObject, Vector3 mouseClickPos)
-    {
-        if (mouseClickObject == null)
-        {
-            DeselectMan();
-            return;
-        }
+    //public void ClickOn(GameObject mouseClickObject, Vector3 mouseClickPos)
+    //{
+    //    if (mouseClickObject == null)
+    //    {
+    //        DeselectMan();
+    //        return;
+    //    }
 
-        if (mouseClickObject.CompareTag("Man"))
-        {
-            SelectMan(mouseClickObject);
-        }
-        else
-        if (mouseClickObject.CompareTag("Object"))
-        {
-            FillMan(mouseClickObject);
-        }
-        else
-        if (mouseClickObject.CompareTag("Ground"))
-        {
-            MoveMen(mouseClickPos);
-        }
-        else
-        {
-            foreach (GameObject man in selecetedMen)
-            {
-                man.GetComponent<CrowdControl>().OrderFailed();
-            }
-        }
-    }
+    //    if (mouseClickObject.CompareTag("Man"))
+    //    {
+    //        SelectMan(mouseClickObject);
+    //    }
+    //    else
+    //    if (mouseClickObject.CompareTag("Object"))
+    //    {
+    //        FillMan(mouseClickObject);
+    //    }
+    //    else
+    //    if (mouseClickObject.CompareTag("Ground"))
+    //    {
+    //        MoveMen(mouseClickPos);
+    //    }
+    //    else
+    //    {
+    //        foreach (GameObject man in selecetedMen)
+    //        {
+    //            man.GetComponent<CrowdControl>().OrderFailed();
+    //        }
+    //    }
+    //}
 
-    public void DoubleClickOn(GameObject mouseClickObject)
-    {
-        if (mouseClickObject == null)
-        {
-            return;
-        }
+    //public void DoubleClickOn(GameObject mouseClickObject)
+    //{
+    //    if (mouseClickObject == null)
+    //    {
+    //        return;
+    //    }
 
-        //if (selectedMan && mouseClickObject.CompareTag("Object"))
-        //{
-        //    FillMan(selectedMan, mouseClickObject);
-        //}
-    }
+    //    //if (selectedMan && mouseClickObject.CompareTag("Object"))
+    //    //{
+    //    //    FillMan(selectedMan, mouseClickObject);
+    //    //}
+    //}
 
-    public void HoldStart(GameObject mouseClickObject)
-    {
-        if (mouseClickObject == null)
-        {
-            return;
-        }
+    //public void HoldStart(GameObject mouseClickObject)
+    //{
+    //    if (mouseClickObject == null)
+    //    {
+    //        return;
+    //    }
 
-        //if (selectedMan && mouseClickObject.GetComponent<ObjectPrimaryControl>() && !mouseClickObject.GetComponent<ObjectPrimaryControl>().IsReady())
-        //{
-        //    Services.hudController.CreateHoldIcon(mouseClickObject, mouseClickObject.GetComponent<ObjectPrimaryControl>().progressBarPosOffset);
-        //}
-    }
+    //    //if (selectedMan && mouseClickObject.GetComponent<ObjectPrimaryControl>() && !mouseClickObject.GetComponent<ObjectPrimaryControl>().IsReady())
+    //    //{
+    //    //    Services.hudController.CreateHoldIcon(mouseClickObject, mouseClickObject.GetComponent<ObjectPrimaryControl>().progressBarPosOffset);
+    //    //}
+    //}
 
-    public void HoldRelease(GameObject mouseClickObject)
-    {
-        if (mouseClickObject == null)
-        {
-            return;
-        }
+    //public void HoldRelease(GameObject mouseClickObject)
+    //{
+    //    if (mouseClickObject == null)
+    //    {
+    //        return;
+    //    }
 
-        Services.hudController.DestroyHoldIcon(mouseClickObject);
-    }
+    //    Services.hudController.DestroyHoldIcon(mouseClickObject);
+    //}
 
-    public void HoldEnd(GameObject mouseClickObject)
-    {
-        if (mouseClickObject == null)
-        {
-            return;
-        }
+    //public void HoldEnd(GameObject mouseClickObject)
+    //{
+    //    if (mouseClickObject == null)
+    //    {
+    //        return;
+    //    }
 
-        //if (selectedMan && mouseClickObject.CompareTag("Object"))
-        //{
-        //    Services.hudController.DestroyHoldIcon(mouseClickObject);
-        //    FillMan(selectedMan, mouseClickObject);
-        //}
-    }
+    //    //if (selectedMan && mouseClickObject.CompareTag("Object"))
+    //    //{
+    //    //    Services.hudController.DestroyHoldIcon(mouseClickObject);
+    //    //    FillMan(selectedMan, mouseClickObject);
+    //    //}
+    //}
 
     public void ManAcrossBorder(GameObject man, GameObject obj)
     {
