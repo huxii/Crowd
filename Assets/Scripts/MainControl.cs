@@ -185,6 +185,48 @@ public class MainControl : MonoBehaviour
         }
     }
 
+    public void FillSingleMan(GameObject obj)
+    {
+        if (!obj.GetComponent<ObjectPrimaryControl>() || obj.GetComponent<ObjectPrimaryControl>().GetEmptySlotNum() == 0)
+        {
+            return;
+        }
+
+        int slotId = obj.GetComponent<ObjectPrimaryControl>().FindEmptySlot();
+        if (slotId == -1)
+        {
+            return;
+        }
+
+        GameObject nearestMan = null;
+        float maxDistance = float.MaxValue;
+        foreach (GameObject man in men)
+        {
+            if (!man.GetComponent<CrowdControl>().IsBusy() && !man.GetComponent<CrowdControl>().IsLocked() && 
+                Vector3.Distance(man.transform.position, obj.transform.position) < maxDistance)
+            {
+                maxDistance = Vector3.Distance(man.transform.position, obj.transform.position);
+                nearestMan = man;
+            }
+        }
+
+        if (nearestMan == null)
+        {
+            return;
+        }
+
+        if (Services.pathFindingManager.FindPath(nearestMan, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId)))
+        {
+            UnboundMan(nearestMan);
+            OnManLeavesForObj(new ManLeavesForObj(nearestMan, obj, slotId));
+            Services.pathFindingManager.Move(nearestMan, 0.05f, new ManArrivesAtObj(nearestMan, obj, slotId));
+        }
+        else
+        {
+            nearestMan.GetComponent<CrowdControl>().OrderFailed();
+        }
+    }
+
     public void OrderFailed(GameObject man)
     {
         if (man != null && man.GetComponent<CrowdControl>())
@@ -253,6 +295,35 @@ public class MainControl : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void MoveNearestMan(Vector3 targetPos)
+    {
+        GameObject nearestMan = null;
+        float maxDistance = float.MaxValue;
+        foreach (GameObject man in men)
+        {
+            if (Vector3.Distance(man.transform.position, targetPos) < maxDistance)
+            {
+                maxDistance = Vector3.Distance(man.transform.position, targetPos);
+                nearestMan = man;
+            }
+        }
+
+        if (nearestMan == null)
+        {
+            return;
+        }
+
+        if (Services.pathFindingManager.FindPath(nearestMan, targetPos))
+        {
+            UnboundMan(nearestMan);
+            Services.pathFindingManager.Move(nearestMan, 0.15f);
+        }
+        else
+        {
+            nearestMan.GetComponent<CrowdControl>().OrderFailed();
+        }
     }
 
     public void MoveMen(Vector3 targetPos, List<GameObject> selectedMen = null)

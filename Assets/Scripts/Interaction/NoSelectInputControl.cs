@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class NoSelectInputControl : InputControl
 {
+    public enum OrderMode
+    {
+        SINGLEMAN,
+        ALLMAN,
+    };
+
+    public OrderMode orderMode = OrderMode.SINGLEMAN;
+
     private void Update()
     {
         DetectMouse();
@@ -25,12 +33,26 @@ public class NoSelectInputControl : InputControl
         else
         if (mouseClickObject.CompareTag("Object"))
         {
-            Services.gameController.FillMan(mouseClickObject);
+            if (orderMode == OrderMode.SINGLEMAN)
+            {
+                Services.gameController.FillSingleMan(mouseClickObject);
+            }
+            else
+            {
+                Services.gameController.FillMan(mouseClickObject);
+            }
         }
         else
         if (mouseClickObject.CompareTag("Ground"))
         {
-            Services.gameController.MoveMen(mouseClickPos);
+            //if (orderMode == OrderMode.SINGLEMAN)
+            //{
+            //    Services.gameController.MoveNearestMan(mouseClickPos);
+            //}
+            //else
+            {
+                Services.gameController.MoveMen(mouseClickPos);
+            }
         }
     }
 }
