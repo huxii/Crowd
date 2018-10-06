@@ -117,18 +117,28 @@ public abstract class InputControl : MonoBehaviour
             }
             else
             {
-                Vector2 touchPrePos0 = touch0.position - touch0.deltaPosition;
-                Vector2 touchPrePos1 = touch1.position - touch1.deltaPosition;
-
-                float preMag = (touchPrePos0 - touchPrePos1).magnitude;
-                float deltaMag = (touch0.position - touch1.position).magnitude;
-                float magDiff = deltaMag - preMag;
-                deltaPinchMag += magDiff;
-
-                if (Mathf.Abs(deltaPinchMag) > 400f)
+                switch (touch0.phase)
                 {
-                    Zoom(deltaPinchMag);
-                    deltaPinchMag = 0;
+                    case TouchPhase.Began:
+                        deltaPinchMag = 0;
+                        break;
+                    case TouchPhase.Moved:
+                        Vector2 touchPrePos0 = touch0.position - touch0.deltaPosition;
+                        Vector2 touchPrePos1 = touch1.position - touch1.deltaPosition;
+
+                        float preMag = (touchPrePos0 - touchPrePos1).magnitude;
+                        float deltaMag = (touch0.position - touch1.position).magnitude;
+                        float magDiff = deltaMag - preMag;
+                        deltaPinchMag += magDiff;
+
+                        if (Mathf.Abs(deltaPinchMag) > 400f)
+                        {
+                            Zoom(deltaPinchMag);
+                            deltaPinchMag = -float.MaxValue;
+                        }
+                        break;
+                    case TouchPhase.Ended:
+                        break;
                 }
             }
         }
