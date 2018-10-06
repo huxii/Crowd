@@ -21,6 +21,7 @@ public class CrowdControl : ActorControl
     private Rigidbody rb;
 
     private GameObject onObj = null;
+    private Sequence matSeq = null;
 
     // Use this for initialization
     void Start()
@@ -135,9 +136,14 @@ public class CrowdControl : ActorControl
 
     public void OrderFailed()
     {
-        Color origColor = GetComponentInChildren<MeshRenderer>().material.color;
-        Sequence newSeq = DOTween.Sequence();
-        newSeq.Append(GetComponentInChildren<MeshRenderer>().material.DOColor(new Color(1.0f, 0.0f, 0.0f), 0.1f));
-        newSeq.Append(GetComponentInChildren<MeshRenderer>().material.DOColor(origColor, 0.1f).SetDelay(0.3f));
+        Material mat = GetComponentInChildren<MeshRenderer>().material;
+        if (matSeq != null && matSeq.IsPlaying())
+        {
+            return;
+        }
+        Color origColor = mat.color;
+        matSeq = DOTween.Sequence();
+        matSeq.Append(mat.DOColor(new Color(1.0f, 0.0f, 0.0f), 0.1f));
+        matSeq.Append(mat.DOColor(origColor, 0.1f).SetDelay(0.3f));
     }
 }
