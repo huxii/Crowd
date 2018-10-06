@@ -241,7 +241,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.015116877, y: 0.0000005143702, z: -0.000000012914715, w: 0.9998858}
+  m_LocalRotation: {x: 0.015117117, y: 0.0000005143702, z: -0.00000001291485, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1088,6 +1088,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
+  menOnThis: []
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.5, y: -1.7, z: -1.2}
   slots:
@@ -3153,6 +3154,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 1
+  menOnThis: []
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0, y: 0.1, z: -0.6}
   slots:
@@ -3592,6 +3594,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
+  menOnThis: []
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   slots:
@@ -4739,6 +4742,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 1
+  menOnThis: []
   clearMenOnDeactivated: 1
 --- !u!1 &616245825
 GameObject:
@@ -7344,6 +7348,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
+  menOnThis: []
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   slots:
@@ -8493,7 +8498,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.003000786, y: 0.00000049426035, z: -0.000000023021611, w: 0.9999955}
+  m_LocalRotation: {x: -0.0030010534, y: 0.00000049426035, z: -0.000000023021489,
+    w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9201,6 +9207,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
+  menOnThis: []
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   slots:
@@ -9444,6 +9451,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
+  menOnThis: []
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0, y: 0, z: 0}
   slots:
@@ -11184,9 +11192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8640ab31eb8f5fb409ef41d4921255a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followObject: {fileID: 0}
+  followObject: {fileID: 604847175}
   followPoint: {fileID: 0}
-  followOffset: {x: -0.74, y: 0.07, z: -1.62}
+  followOffset: {x: -0.74, y: 0.11, z: -1.35}
   isBorder: 1
   pointSize: 0.3
 --- !u!4 &1699858766
@@ -11196,7 +11204,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1699858764}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.993, y: 11.081, z: 0.6}
+  m_LocalPosition: {x: -0.9888687, y: 11.069149, z: 0.58893704}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 87941723}
@@ -11969,6 +11977,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
+  menOnThis: []
   gizmoSize: 0.2
   freeManSlotOffset: {x: -1.5, y: 0, z: 0}
   slots:
@@ -12202,6 +12211,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
+  menOnThis: []
 --- !u!1 &1852349576
 GameObject:
   m_ObjectHideFlags: 0
@@ -13853,9 +13863,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8640ab31eb8f5fb409ef41d4921255a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followObject: {fileID: 0}
+  followObject: {fileID: 604847175}
   followPoint: {fileID: 0}
-  followOffset: {x: 1.32, y: 0.07, z: -1.62}
+  followOffset: {x: 1.32, y: 0.11, z: -1.35}
   isBorder: 1
   pointSize: 0.3
 --- !u!4 &2111216574
@@ -13865,7 +13875,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2111216572}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1429998, y: 11.081, z: 0.6}
+  m_LocalPosition: {x: 1.0711313, y: 11.069149, z: 0.58893704}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 87941723}

@@ -11,6 +11,7 @@ public abstract class ObjectControl : ActorControl
 
     [Header("Walkable Attribute")]
     public bool isWalkable = false;
+    [SerializeField]
     protected List<GameObject> menOnThis = null;
 
     protected bool isActivated = false;
