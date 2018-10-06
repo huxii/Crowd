@@ -241,7 +241,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.015117117, y: 0.0000005143702, z: -0.00000001291485, w: 0.9998858}
+  m_LocalRotation: {x: 0.015116747, y: 0.0000005143702, z: -0.000000012914665, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3151,6 +3151,17 @@ MonoBehaviour:
           m_StringArgument: PathPoint27, PathPoint31
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: SetFollowPathPoint
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PathPoint31, PathPoint27
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 1
@@ -4278,7 +4289,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.015117395, y: -0, z: -0, w: 0.99988574}
+  m_LocalRotation: {x: 0.015116576, y: -0, z: -0, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 9.5, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -8498,7 +8509,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.0030010534, y: 0.00000049426035, z: -0.000000023021489,
+  m_LocalRotation: {x: -0.0030008457, y: 0.00000049426035, z: -0.000000023021595,
     w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -9937,14 +9948,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1428080941}
-        m_MethodName: Rotate
+        m_MethodName: RotateTo
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: BackShell, y, 0, 1, false
+          m_StringArgument: BackShell, y, 0, 1
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -9953,14 +9964,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1428080941}
-        m_MethodName: Rotate
+        m_MethodName: RotateTo
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: BackShell, y, -160, 1, false
+          m_StringArgument: BackShell, y, -160, 1
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
