@@ -316,7 +316,7 @@ public class PathFindingManager : MonoBehaviour
             }
         }
 
-        if (dist > 1f)
+        if (dist > 0.7f)
         {
             return null;
         }

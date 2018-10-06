@@ -79,13 +79,13 @@ public abstract class ObjectControl : ActorControl
         if (menOnThis.Contains(man))
         {
             // this man has across the border once, he is now walking out
-            Unlock();
+            //Unlock();
             menOnThis.Remove(man);
         }
         else
         {
             // in
-            Lock();
+            //Lock();
             menOnThis.Add(man);
         }
     }

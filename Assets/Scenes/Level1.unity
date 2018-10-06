@@ -241,7 +241,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.0151169505, y: 0.0000005143702, z: -0.000000012914981, w: 0.9998858}
+  m_LocalRotation: {x: 0.015117222, y: 0.0000005143702, z: -0.00000001291515, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1589,7 +1589,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 216731136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.98, y: 5.8, z: -0.3}
+  m_LocalPosition: {x: 2.98, y: 5.8, z: -0.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1151754935}
@@ -1605,7 +1605,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.25, y: 0.05, z: 2}
+  m_Size: {x: 3.25, y: 0.05, z: 1.8}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &217020758
 GameObject:
@@ -1908,7 +1908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axis: 0
   minusAxisExpand: {x: 0, y: 0, z: 0.45}
-  positiveAxisExpand: {x: 0, y: 0, z: 1.38}
+  positiveAxisExpand: {x: 0, y: 0, z: 0.6}
   p0: {fileID: 1622243635}
   p1: {fileID: 301603418}
 --- !u!1 &235611390
@@ -6633,8 +6633,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 50, y: 80, z: 5}
-  m_Center: {x: -20, y: 10, z: 0}
+  m_Size: {x: 45, y: 80, z: 5}
+  m_Center: {x: -22, y: 10, z: 0}
 --- !u!1 &887572644
 GameObject:
   m_ObjectHideFlags: 0
@@ -8633,7 +8633,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.0030009327, y: 0.00000049426035, z: -0.000000023021716,
+  m_LocalRotation: {x: -0.0030011265, y: 0.00000049426035, z: -0.000000023021643,
     w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -8835,7 +8835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axis: 0
   minusAxisExpand: {x: 0, y: 0, z: 0.45}
-  positiveAxisExpand: {x: 0, y: 0, z: 1.39}
+  positiveAxisExpand: {x: 0, y: 0, z: 0.7}
   p0: {fileID: 1545986414}
   p1: {fileID: 301603418}
 --- !u!1 &1236146719
@@ -10350,7 +10350,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 41.46, y: 70.4, z: 5}
+  m_Size: {x: 45, y: 70.4, z: 5}
   m_Center: {x: 0, y: 40.7, z: 13.5}
 --- !u!65 &1469481709
 BoxCollider:
@@ -10363,7 +10363,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 5, y: 70.4, z: 30}
-  m_Center: {x: 23.4, y: 40.7, z: 1.5}
+  m_Center: {x: 25, y: 40.7, z: 1.5}
 --- !u!65 &1469481710
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10375,7 +10375,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 5, y: 70.4, z: 30}
-  m_Center: {x: -23.4, y: 40.7, z: 1.5}
+  m_Center: {x: -25, y: 40.7, z: 1.5}
 --- !u!1 &1479731928
 GameObject:
   m_ObjectHideFlags: 0
