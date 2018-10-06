@@ -238,7 +238,7 @@ public abstract class InputControl : MonoBehaviour
 
     protected void TranslateViewport()
     {
-        Vector3 mouseDelta = (Input.mousePosition - mouseDragScreenPos) * Time.time;
+        Vector3 mouseDelta = Input.mousePosition - mouseDragScreenPos;
         TranslateViewport(mouseDelta.x * 0.03f, mouseDelta.y * 0.03f);
         mouseDragScreenPos = Input.mousePosition;
     }
@@ -246,7 +246,7 @@ public abstract class InputControl : MonoBehaviour
     protected void RotateViewport()
     {            
         // rotate viewport
-        Vector3 mouseDelta = (Input.mousePosition - mouseDragScreenPos) * Time.time;
+        Vector3 mouseDelta = Input.mousePosition - mouseDragScreenPos;
         //Debug.Log(mouseDelta);
         Services.cameraController.Orbit(mouseDelta.x, mouseDelta.y);
         mouseDragScreenPos = Input.mousePosition;
