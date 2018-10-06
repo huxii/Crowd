@@ -5,6 +5,7 @@ using UnityEngine;
 // automatically deactivate after some time
 public class ObjectAutoDeactivateControl : ObjectAutoControl
 {
+    [Header("Auto Deactivate Settings")]
     public float timeToAutoDeactivate = 1f;
 
     private float timer = 0;

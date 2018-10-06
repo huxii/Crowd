@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class ObjectOneTimeSwipeControl : ObjectAutoControl
 {
+    [Header("Swipe Settings")]
     public Vector3 swipeOffset;
 
     // Use this for initialization

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // automatically activate when slots are filled
-public class ObjectAutoControl : ObjectPrimaryControl
+public abstract class ObjectAutoControl : ObjectPrimaryControl
 {
 	// Use this for initialization
 	void Start ()

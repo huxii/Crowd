@@ -10,7 +10,6 @@ public class DotweenEvents : MonoBehaviour
 
     char[] spliters = { ',', ' ' };
 
-    // objName axis inc time isInfinite
     public void Rotate(string para)
     {        
         string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
@@ -18,9 +17,8 @@ public class DotweenEvents : MonoBehaviour
         string axis = paras[1];
         float inc = float.Parse(paras[2]);
         float time = float.Parse(paras[3]);
-        bool isInfinite = (paras[4].ToLower() == "true");
 
-        if (obj == null)
+        if (obj == null || DOTween.IsTweening(obj))
         {
             return;
         }
@@ -41,35 +39,68 @@ public class DotweenEvents : MonoBehaviour
             deltaRot = new Vector3(0, 0, inc);
         }
 
-        if (isInfinite)
-        {
-            int incNumber = (int)(Mathf.Abs(360f / inc));
-            Sequence seq = DOTween.Sequence();
-            Vector3 targetRot = obj.transform.eulerAngles + deltaRot;
-            for (int i = 0; i < incNumber; ++i)
-            {
-                seq.Append(obj.transform.DORotate(targetRot, time)
-                    //.OnStart(()=> obj.GetComponent<ObjectControl>().UnreadyToDeactivate())
-                    .OnComplete(() => { if (obj.GetComponent<ObjectControl>()) obj.GetComponent<ObjectControl>().Pause(); })
-                    .SetEase(Ease.Linear).SetDelay(0.3f));
-                targetRot += deltaRot;
-            }
-            seq.SetLoops(-1, LoopType.Restart);
+        //if (isInfinite)
+        //{
+        //    int incNumber = (int)(Mathf.Abs(360f / inc));
+        //    Sequence seq = DOTween.Sequence();
+        //    Vector3 targetRot = obj.transform.eulerAngles + deltaRot;
+        //    for (int i = 0; i < incNumber; ++i)
+        //    {
+        //        seq.Append(obj.transform.DORotate(targetRot, time)
+        //            //.OnStart(()=> obj.GetComponent<ObjectControl>().UnreadyToDeactivate())
+        //            .OnComplete(() => { if (obj.GetComponent<ObjectControl>()) obj.GetComponent<ObjectControl>().Pause(); })
+        //            .SetEase(Ease.Linear).SetDelay(0.3f));
+        //        targetRot += deltaRot;
+        //    }
+        //    seq.SetLoops(-1, LoopType.Restart);
 
-            if (sequenceDict.ContainsKey(obj))
-            {
-                sequenceDict[obj] = seq;
-            }
-            else
-            {
-                sequenceDict.Add(obj, seq);
-            }
+        //    if (sequenceDict.ContainsKey(obj))
+        //    {
+        //        sequenceDict[obj] = seq;
+        //    }
+        //    else
+        //    {
+        //        sequenceDict.Add(obj, seq);
+        //    }
+        //}
+        //else
+        {
+            
+            Vector3 targetRot = deltaRot + obj.transform.localEulerAngles;
+            obj.transform.DOLocalRotate(targetRot, time);
+        }
+    }
+
+    public void RotateTo(string para)
+    {
+        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
+        GameObject obj = GameObject.Find(paras[0]);
+        string axis = paras[1];
+        float angle = float.Parse(paras[2]);
+        float time = float.Parse(paras[3]);
+
+        if (obj == null)
+        {
+            return;
+        }
+
+        Vector3 targetRot = new Vector3(0, 0, 0);
+        if (axis.ToLower() == "x")
+        {
+            targetRot = new Vector3(angle, 0, 0);
         }
         else
+        if (axis.ToLower() == "y")
         {
-            Vector3 targetRot = deltaRot;
-            obj.transform.DORotate(targetRot, time);
+            targetRot = new Vector3(0, angle, 0);
         }
+        else
+        if (axis.ToLower() == "z")
+        {
+            targetRot = new Vector3(0, 0, angle);
+        }
+
+        obj.transform.DOLocalRotate(targetRot, time);
     }
 
     public void Move(string para)

@@ -44,9 +44,6 @@ public abstract class ObjectPrimaryControl : ObjectControl
     // current slots occupied by the crowd
     protected int currentSlots = 0;
 
-    [Header("Deactivate Option")]
-    public bool needDelayToDeactivate = false;
-
     // Use this for initialization
     void Start ()
     {
@@ -211,14 +208,6 @@ public abstract class ObjectPrimaryControl : ObjectControl
 
     public virtual void OnSlotsNotFull()
     {
-        // force to deactivate
-        if (needDelayToDeactivate)
-        {
-            DelayToDeactivate();
-        }
-        else
-        {
-            Deactivate();
-        }
+        Deactivate();
     }
 }

@@ -63,8 +63,26 @@ public class ObjectAutoControlEditor : ObjectPrimaryControlEditor
     }
 }
 
+[CustomEditor(typeof(ObjectAutoBasicControl))]
+public class ObjectAutoBasicControlEditor : ObjectAutoControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
 [CustomEditor(typeof(ObjectAutoDeactivateControl))]
 public class ObjectAutoDeactivateControlEditor : ObjectAutoControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
+[CustomEditor(typeof(ObjectAutoLoopControl))]
+public class ObjectAutoLoopControlEditor : ObjectAutoControlEditor
 {
     public override void OnInspectorGUI()
     {

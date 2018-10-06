@@ -22,14 +22,7 @@ public class ObjectClickControl : ObjectPrimaryControl
 
         if (IsActivated())
         {
-            if (needDelayToDeactivate)
-            {
-                DelayToDeactivate();
-            }
-            else
-            {
-                Deactivate();
-            }
+            Deactivate();
         }
         else
         {

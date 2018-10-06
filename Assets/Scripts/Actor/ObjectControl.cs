@@ -13,7 +13,6 @@ public abstract class ObjectControl : ActorControl
     public bool isWalkable = false;
     protected List<GameObject> menOnThis = null;
 
-    protected bool readyToDeactivate = false;
     protected bool isActivated = false;
 
     //public enum ObjectControlScheme
@@ -59,7 +58,6 @@ public abstract class ObjectControl : ActorControl
 
     public virtual void Activate()
     {
-        readyToDeactivate = false;
         isActivated = true;
         onActivated.Invoke();
     }
@@ -68,20 +66,6 @@ public abstract class ObjectControl : ActorControl
     {
         isActivated = false;
         onDeactivated.Invoke();
-    }
-
-    public void DelayToDeactivate()
-    {
-        readyToDeactivate = true;
-    }
-
-    public void Pause()
-    {
-        if (readyToDeactivate)
-        {
-            readyToDeactivate = false;
-            Deactivate();
-        }
     }
 
     public void ManAcrossBorder(GameObject man)
