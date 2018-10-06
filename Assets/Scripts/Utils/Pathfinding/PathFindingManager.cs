@@ -374,6 +374,10 @@ public class PathFindingManager : MonoBehaviour
             //Debug.Log("same");
             recentPath = new FoundPath();
             Vector3 validEndPos = Clamp(et.GetComponent<PathEdge>(), endPos);
+            if (Vector3.Distance(validEndPos, endPos) > clampTol)
+            {
+                return false;
+            }
             recentPath.pathEdges.Insert(0, new DirectedPathEdgeOnPositions(startPos, validEndPos));
         }
         else

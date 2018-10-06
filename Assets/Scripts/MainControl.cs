@@ -189,7 +189,7 @@ public class MainControl : MonoBehaviour
                 return;
             }
 
-            if (Services.pathFindingManager.FindPath(man, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId), 0.1f))
+            if (Services.pathFindingManager.FindPath(man, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId), 0.01f))
             {
                 UnboundMan(man);
                 OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
