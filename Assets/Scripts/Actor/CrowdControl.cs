@@ -59,8 +59,8 @@ public class CrowdControl : ActorControl
 
     void OnDrawGizmos()
     {
-        Handles.color = Color.yellow;
-        Handles.DrawWireDisc(transform.position, Vector3.up, targetPosTol);
+        //Handles.color = Color.yellow;
+        //Handles.DrawWireDisc(transform.position, Vector3.up, targetPosTol);
     }
 
     private void SetKinematic(bool isKinematic)

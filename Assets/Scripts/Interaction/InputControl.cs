@@ -25,6 +25,7 @@ public abstract class InputControl : MonoBehaviour
     protected Vector3 mouseClickScreenPos;
 
     // pinch
+    protected bool pinchEnded = false;
     protected float deltaPinchMag = 0;
 
     // Use this for initialization
@@ -110,34 +111,44 @@ public abstract class InputControl : MonoBehaviour
         {
             Touch touch0 = Input.GetTouch(0);
             Touch touch1 = Input.GetTouch(1);
-
-            if (Vector2.Angle(touch0.deltaPosition, touch1.deltaPosition) < 90f)
-            {
+            //Debug.Log(deltaPinchMag + " " + pinchEnded + " " + touch0.phase);
+            //if (Vector2.Angle(touch0.deltaPosition, touch1.deltaPosition) < 90f)
+            //{
                 //TranslateViewport(touch0.deltaPosition.x, touch0.deltaPosition.y);
-            }
-            else
+            //}
+            //else
             {
                 switch (touch0.phase)
                 {
                     case TouchPhase.Began:
+                        pinchEnded = false;
                         deltaPinchMag = 0;
                         break;
                     case TouchPhase.Moved:
-                        Vector2 touchPrePos0 = touch0.position - touch0.deltaPosition;
-                        Vector2 touchPrePos1 = touch1.position - touch1.deltaPosition;
-
-                        float preMag = (touchPrePos0 - touchPrePos1).magnitude;
-                        float deltaMag = (touch0.position - touch1.position).magnitude;
-                        float magDiff = deltaMag - preMag;
-                        deltaPinchMag += magDiff;
-
-                        if (Mathf.Abs(deltaPinchMag) > 400f)
+                        if (!pinchEnded)
                         {
-                            Zoom(deltaPinchMag);
-                            deltaPinchMag = -float.MaxValue;
+                            Vector2 touchPrePos0 = touch0.position - touch0.deltaPosition;
+                            Vector2 touchPrePos1 = touch1.position - touch1.deltaPosition;
+
+                            float preMag = (touchPrePos0 - touchPrePos1).magnitude;
+                            float deltaMag = (touch0.position - touch1.position).magnitude;
+                            float magDiff = deltaMag - preMag;
+                            deltaPinchMag += magDiff;
+
+                            if (Mathf.Abs(deltaPinchMag) > 1f)
+                            {
+                                Zoom(deltaPinchMag);
+                                pinchEnded = true;
+                            }
                         }
                         break;
                     case TouchPhase.Ended:
+                        pinchEnded = false;
+                        deltaPinchMag = 0;
+                        break;
+                    default:
+                        pinchEnded = false;
+                        deltaPinchMag = 0;
                         break;
                 }
             }
