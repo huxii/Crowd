@@ -212,12 +212,10 @@ public class PathFindingManager : MonoBehaviour
 
     private Vector3 Clamp(PathEdge edge, Vector3 pos)
     {
-        Vector3 p0 = edge.P0().transform.position;
-        Vector3 p1 = edge.P1().transform.position;
-        Vector3 p00 = p0 - edge.minusAxisExpand;
-        Vector3 p01 = p0 + edge.positiveAxisExpand;
-        Vector3 p10 = p1 - edge.minusAxisExpand;
-        Vector3 p11 = p1 + edge.positiveAxisExpand;
+        Vector3 p00 = edge.P00();
+        Vector3 p01 = edge.P01();
+        Vector3 p10 = edge.P10();
+        Vector3 p11 = edge.P11();
 
         float minx = Mathf.Min(p00.x, p01.x, p10.x, p11.x);
         float maxx = Mathf.Max(p00.x, p01.x, p10.x, p11.x);

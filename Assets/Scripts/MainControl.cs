@@ -56,7 +56,7 @@ public class MainControl : MonoBehaviour
         switch (Application.platform)
         {
             case RuntimePlatform.IPhonePlayer:
-                Application.targetFrameRate = 60;
+                Application.targetFrameRate = 30;
                 break;
         }
     }

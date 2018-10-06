@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class PathEdge : MonoBehaviour
 {
+    public enum Orientation
+    {
+        EDGE,
+        X,
+        Y,
+        Z
+    };
+
+    public Orientation axis = Orientation.EDGE;
+
     // to indicate the "zone" of the edge
     public Vector3 minusAxisExpand;
     public Vector3 positiveAxisExpand;
@@ -36,10 +46,10 @@ public class PathEdge : MonoBehaviour
         Gizmos.color = color;
         Gizmos.DrawLine(p0.transform.position, p1.transform.position);
 
-        Vector3 p00 = p0.transform.position - minusAxisExpand;
-        Vector3 p01 = p0.transform.position + positiveAxisExpand;
-        Vector3 p10 = p1.transform.position - minusAxisExpand;
-        Vector3 p11 = p1.transform.position + positiveAxisExpand;
+        Vector3 p00 = P00();
+        Vector3 p01 = P01();
+        Vector3 p10 = P10();
+        Vector3 p11 = P11();
         Gizmos.DrawLine(p00, p10);
         Gizmos.DrawLine(p01, p11);
         Gizmos.DrawLine(p00, p01);
@@ -70,6 +80,78 @@ public class PathEdge : MonoBehaviour
     public GameObject P1()
     {
         return p1;
+    }
+
+    public Vector3 P00()
+    {
+        Vector3 middle = (p0.transform.position + p1.transform.position) / 2;
+        switch (axis)
+        {
+            case Orientation.EDGE:
+                return p0.transform.position - minusAxisExpand;
+            case Orientation.X:
+                return new Vector3(p0.transform.position.x, middle.y, middle.z) - minusAxisExpand;
+            case Orientation.Y:
+                return new Vector3(middle.x, p0.transform.position.y, middle.z) - minusAxisExpand;
+            case Orientation.Z:
+                return new Vector3(middle.x, middle.y, p0.transform.position.z) - minusAxisExpand;
+        }
+
+        return p0.transform.position - minusAxisExpand;
+    }
+
+    public Vector3 P01()
+    {
+        Vector3 middle = (p0.transform.position + p1.transform.position) / 2;
+        switch (axis)
+        {
+            case Orientation.EDGE:
+                return p0.transform.position + positiveAxisExpand;
+            case Orientation.X:
+                return new Vector3(p0.transform.position.x, middle.y, middle.z) + positiveAxisExpand;
+            case Orientation.Y:
+                return new Vector3(middle.x, p0.transform.position.y, middle.z) + positiveAxisExpand;
+            case Orientation.Z:
+                return new Vector3(middle.x, middle.y, p0.transform.position.z) + positiveAxisExpand;
+        }
+
+        return p0.transform.position + positiveAxisExpand;
+    }
+
+    public Vector3 P10()
+    {
+        Vector3 middle = (p0.transform.position + p1.transform.position) / 2;
+        switch (axis)
+        {
+            case Orientation.EDGE:
+                return p1.transform.position - minusAxisExpand;
+            case Orientation.X:
+                return new Vector3(p1.transform.position.x, middle.y, middle.z) - minusAxisExpand;
+            case Orientation.Y:
+                return new Vector3(middle.x, p1.transform.position.y, middle.z) - minusAxisExpand;
+            case Orientation.Z:
+                return new Vector3(middle.x, middle.y, p1.transform.position.z) - minusAxisExpand;
+        }
+
+        return p1.transform.position - minusAxisExpand;
+    }
+
+    public Vector3 P11()
+    {
+        Vector3 middle = (p0.transform.position + p1.transform.position) / 2;
+        switch (axis)
+        {
+            case Orientation.EDGE:
+                return p1.transform.position + positiveAxisExpand;
+            case Orientation.X:
+                return new Vector3(p1.transform.position.x, middle.y, middle.z) + positiveAxisExpand;
+            case Orientation.Y:
+                return new Vector3(middle.x, p1.transform.position.y, middle.z) + positiveAxisExpand;
+            case Orientation.Z:
+                return new Vector3(middle.x, middle.y, p1.transform.position.z) + positiveAxisExpand;
+        }
+
+        return p1.transform.position + positiveAxisExpand;
     }
 }
 
