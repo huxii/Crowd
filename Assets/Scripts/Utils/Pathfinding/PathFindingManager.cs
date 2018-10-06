@@ -60,6 +60,10 @@ public class PathFindingManager : MonoBehaviour
         List<GameObject> keys = new List<GameObject>(pathTable.Keys);
         foreach (GameObject actor in keys)
         {
+            if (actor == null)
+            {
+                pathTable.Remove(actor);
+            }
             FoundPath path = pathTable[actor];
 
             if (!path.hasStarted)
@@ -281,7 +285,18 @@ public class PathFindingManager : MonoBehaviour
 
             // it's a plane
             Plane plane = new Plane(p0, p1, p2);
-            return Mathf.Abs(plane.GetDistanceToPoint(pos));
+            Vector3 pp =  plane.ClosestPointOnPlane(pos);
+            Vector3 d0 = p0 - e.minusAxisExpand;
+            Vector3 d1 = p1 + e.positiveAxisExpand;
+            Vector3 d2 = p0 + e.positiveAxisExpand;
+            if (Vector3.Distance(pp, d0) + Vector3.Distance(pp, d1) > Vector3.Distance(d0, d2) + Vector3.Distance(d1, d2))
+            {
+                return -1;
+            }
+            else
+            {
+                return Mathf.Abs(plane.GetDistanceToPoint(pos));
+            }
         }
     }
 
@@ -308,19 +323,28 @@ public class PathFindingManager : MonoBehaviour
         foreach (GameObject pathEdge in pathEdges)
         {
             float tmpDist = Distance(pathEdge.GetComponent<PathEdge>(), pos);
-            //Debug.Log(pos + " " + pathEdge + " " + tmpDist);
+            if (tmpDist == -1)
+            {
+                continue;
+            }
+            Debug.Log(pos + " " + pathEdge + " " + tmpDist);
             if (tmpDist < dist || dist < 0)
             {
                 dist = tmpDist;
                 nearestPathEdge = pathEdge;
             }
+            else
+            if (tmpDist == dist)
+            {
+                //Debug.Log("hahahahaha,,,,");
+            }
         }
 
-        if (dist > 1f)
-        {
-            return null;
-        }
-        else
+        //if (dist > 1f)
+        //{
+        //    return null;
+        //}
+        //else
         {
             //Debug.Log(dist + " " + nearestPathEdge);
             return nearestPathEdge;

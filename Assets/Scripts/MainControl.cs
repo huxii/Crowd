@@ -306,7 +306,7 @@ public class MainControl : MonoBehaviour
 
     public bool MoveMan(GameObject man, Vector3 targetPos, float tol)
     {
-        if (man.GetComponent<CrowdControl>().IsLocked())
+        if (man == null || man.GetComponent<CrowdControl>().IsBusy() || man.GetComponent<CrowdControl>().IsLocked())
         {
             return false;
         }
@@ -367,10 +367,7 @@ public class MainControl : MonoBehaviour
         {
             foreach (GameObject man in men)
             {
-                if (!man.GetComponent<CrowdControl>().IsBusy())
-                {
-                    MoveMan(man, targetPos, men.Length * 0.15f);
-                }
+                MoveMan(man, targetPos, men.Length * 0.15f);
             }
         }
     }
