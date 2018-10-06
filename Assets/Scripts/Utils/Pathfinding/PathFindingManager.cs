@@ -316,7 +316,7 @@ public class PathFindingManager : MonoBehaviour
             }
         }
 
-        if (dist > 0.7f)
+        if (dist > 1f)
         {
             return null;
         }
@@ -327,7 +327,7 @@ public class PathFindingManager : MonoBehaviour
         }
     }
 
-    private bool FindPath(Vector3 startPos, Vector3 endPos)
+    private bool FindPath(Vector3 startPos, Vector3 endPos, float clampTol)
     {
         // re-number all the pathpoints
         Dictionary<GameObject, int> IDs = new Dictionary<GameObject, int>();
@@ -453,6 +453,11 @@ public class PathFindingManager : MonoBehaviour
             }
 
             Vector3 validEndPos = Clamp(et.GetComponent<PathEdge>(), endPos);
+            if (Vector3.Distance(validEndPos, endPos) > clampTol)
+            {
+                return false;
+            }
+
             recentPath.pathEdges.Insert(0, new DirectedPathEdgeOnObjectAndPosition(pathPoints[curPoint], validEndPos));
 
             while (true)
@@ -474,11 +479,11 @@ public class PathFindingManager : MonoBehaviour
         return true;
     }
 
-    public bool FindPath(GameObject actor, Vector3 endPos)
+    public bool FindPath(GameObject actor, Vector3 endPos, float clampTol = 0.5f)
     {
         Vector3 startPos = actor.transform.position;
         //Debug.Log(startPos + "---------" + endPos);
-        return FindPath(startPos, endPos);
+        return FindPath(startPos, endPos, clampTol);
     }
 
     public void Move(GameObject actor, float posTol, Crowd.Event endEvent = null)

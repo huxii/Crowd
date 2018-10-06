@@ -189,7 +189,7 @@ public class MainControl : MonoBehaviour
                 return;
             }
 
-            if (Services.pathFindingManager.FindPath(man, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId)))
+            if (Services.pathFindingManager.FindPath(man, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId), 0.1f))
             {
                 UnboundMan(man);
                 OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
@@ -243,7 +243,7 @@ public class MainControl : MonoBehaviour
             return;
         }
 
-        if (Services.pathFindingManager.FindPath(nearestMan, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId)))
+        if (Services.pathFindingManager.FindPath(nearestMan, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId), 0.1f))
         {
             UnboundMan(nearestMan);
             OnManLeavesForObj(new ManLeavesForObj(nearestMan, obj, slotId));
