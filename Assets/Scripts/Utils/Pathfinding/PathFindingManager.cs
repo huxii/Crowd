@@ -321,61 +321,41 @@ public class PathFindingManager : MonoBehaviour
 
     private GameObject FindNearestPathEdge(Vector3 pos)
     {
-        PointToEdgeDistance dist = null;
-        GameObject nearestPathEdge = null;
+        PointToEdgeDistance distIn = null;
+        GameObject nearestPathEdgeIn = null;
+        PointToEdgeDistance distOut = null;
+        GameObject nearestPathEdgeOut = null;
         foreach (GameObject pathEdge in pathEdges)
         {
             // will pick the edge whose zone covers the point, but distance should not be too long
             PointToEdgeDistance tmpDist = Distance(pathEdge.GetComponent<PathEdge>(), pos);
             if (!tmpDist.isOutside)
             {
-                if (dist == null)
+                if (distIn == null || distIn.distance > tmpDist.distance)
                 {
-                    dist = tmpDist;
-                    nearestPathEdge = pathEdge;
-                }
-                else
-                if (dist.isOutside)
-                {
-                    if (tmpDist.distance - dist.distance < 1.2f)
-                    {
-                        dist = tmpDist;
-                        nearestPathEdge = pathEdge;
-                    }
-                }
-                else
-                if (dist.distance > tmpDist.distance)
-                {
-                    dist = tmpDist;
-                    nearestPathEdge = pathEdge;
+                    distIn = tmpDist;
+                    nearestPathEdgeIn = pathEdge;
                 }
             }
             else
             {
-                if (dist == null)
+                if (distOut == null || distOut.distance > tmpDist.distance)
                 {
-                    dist = tmpDist;
-                    nearestPathEdge = pathEdge;
-                }
-                else
-                if (dist.distance - tmpDist.distance > 1.2f)
-                {
-                    dist = tmpDist;
-                    nearestPathEdge = pathEdge;
+                    distOut = tmpDist;
+                    nearestPathEdgeOut = pathEdge;
                 }
             }
 
-            //Debug.Log(pos + " " + pathEdge + " " + tmpDist.distance + " " + tmpDist.isOutside);
+            Debug.Log(pos + " " + pathEdge + " " + tmpDist.distance + " " + tmpDist.isOutside);
         }
 
-        //if (dist > 1f)
-        //{
-        //    return null;
-        //}
-        //else
+        if (distIn != null && distIn.distance < 0.15f)
         {
-            //Debug.Log(dist + " " + nearestPathEdge);
-            return nearestPathEdge;
+            return nearestPathEdgeIn;
+        }
+        else
+        {
+            return nearestPathEdgeOut;
         }
     }
 

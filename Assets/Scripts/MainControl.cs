@@ -360,14 +360,14 @@ public class MainControl : MonoBehaviour
         {
             foreach (GameObject man in selectedMen)
             {
-                MoveMan(man, targetPos, selectedMen.Count * 0.15f);
+                MoveMan(man, targetPos, (selectedMen.Count - 1) * 0.15f + 0.05f);
             }
         }
         else
         {
             foreach (GameObject man in men)
             {
-                MoveMan(man, targetPos, men.Length * 0.15f);
+                MoveMan(man, targetPos, (men.Length - 1) * 0.15f + 0.05f);
             }
         }
     }
