@@ -8,6 +8,7 @@ public class ObjectOneTimeSwipeControl : ObjectAutoControl
 {
     [Header("Swipe Settings")]
     public Vector3 swipeOffset;
+    public UnityEvent onReachEnd;
 
     // Use this for initialization
     void Start()
@@ -29,6 +30,7 @@ public class ObjectOneTimeSwipeControl : ObjectAutoControl
                     FreeAllMan();
                     Lock();
                     Deactivate();
+                    onReachEnd.Invoke();
                 }
                 );
         }

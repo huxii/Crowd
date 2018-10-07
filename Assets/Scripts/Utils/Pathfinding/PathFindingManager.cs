@@ -20,6 +20,18 @@ public class PathFindingManager : MonoBehaviour
     private GameObject edgesObj;
     [SerializeField]
     private List<GameObject> pathEdges = new List<GameObject>();
+
+    private class PointToEdgeDistance
+    {
+        public PointToEdgeDistance(float d, bool o)
+        {
+            distance = d;
+            isOutside = o;
+        }
+
+        public float distance;
+        public bool isOutside;
+    }
     
     private class FoundPath
     {
@@ -250,53 +262,44 @@ public class PathFindingManager : MonoBehaviour
         return Vector3.Distance(p.transform.position, pos);
     }
 
-    private float Distance(PathEdge e, Vector3 pos)
+    private PointToEdgeDistance Distance(PathEdge e, Vector3 pos)
     {
         Vector3 p0 = e.P0().transform.position;
         Vector3 p1 = e.P1().transform.position;
-        Vector3 p0p1 = p1 - p0;
-        Vector3 p0pos = pos - p0;
-        Vector3 p1pos = pos - p1;
-        float e0Cos = CosAngle(p0p1, p0pos);
-        float e1Cos = CosAngle(-p0p1, p1pos);
-        if (e0Cos < 0 || e1Cos < 0)
+
+        if (e.positiveAxisExpand.magnitude > 0.01f || e.minusAxisExpand.magnitude > 0.01f)
         {
-            //Debug.Log("out");
-            return Mathf.Min(Vector3.Distance(pos, p0), Vector3.Distance(pos, p1));
-        }
-        else
-        {
+            // it's a plane
             Vector3 p2;
-            if (e.positiveAxisExpand.magnitude > 0.01f)
+            if (e.positiveAxisExpand.magnitude > e.minusAxisExpand.magnitude)
             {
                 p2 = p0 + e.positiveAxisExpand;
             }
             else
-            if (e.minusAxisExpand.magnitude > 0.01f)
             {
                 p2 = p0 - e.minusAxisExpand;
             }
-            else
-            {
-                // it's a line
-                float e0Sin = Mathf.Sqrt(1 - e0Cos * e0Cos);
-                return Vector3.Magnitude(p0pos) * e0Sin;
-            }
 
-            // it's a plane
             Plane plane = new Plane(p0, p1, p2);
-            Vector3 pp =  plane.ClosestPointOnPlane(pos);
-            Vector3 d0 = p0 - e.minusAxisExpand;
-            Vector3 d1 = p1 + e.positiveAxisExpand;
-            Vector3 d2 = p0 + e.positiveAxisExpand;
-            if (Vector3.Distance(pp, d0) + Vector3.Distance(pp, d1) > Vector3.Distance(d0, d2) + Vector3.Distance(d1, d2))
-            {
-                return -1;
-            }
-            else
-            {
-                return Mathf.Abs(plane.GetDistanceToPoint(pos));
-            }
+            Vector3 pp = plane.ClosestPointOnPlane(pos);
+            Vector3 pp0 = e.P00();
+            Vector3 pp1 = e.P01();
+            Vector3 pp2 = e.P11();
+            Vector3 pp3 = e.P10();
+
+            //Debug.Log(Vector3.Distance(pp, d0) + Vector3.Distance(pp, d1) + " " + Vector3.Distance(d0, d2) + Vector3.Distance(d1, d2));
+
+            return new PointToEdgeDistance(Mathf.Abs(plane.GetDistanceToPoint(pos)),
+                Vector3.Dot(Vector3.Cross(pp1 - pp0, pp - pp0), Vector3.Cross(pp3 - pp2, pp - pp2)) < 0
+                || Vector3.Dot(Vector3.Cross(pp0 - pp3, pp - pp3), Vector3.Cross(pp2 - pp1, pp - pp1)) < 0);
+        }
+        else
+        {
+            // it's a line
+            Vector3 p0p1 = p1 - p0;
+            Vector3 p0pos = pos - p0;
+
+            return new PointToEdgeDistance(Vector3.Cross(p0p1, p0pos).magnitude / p0p1.magnitude, Vector3.Dot(p0p1, p0pos) < 0);
         }
     }
 
@@ -318,26 +321,51 @@ public class PathFindingManager : MonoBehaviour
 
     private GameObject FindNearestPathEdge(Vector3 pos)
     {
-        float dist = -1;
+        PointToEdgeDistance dist = null;
         GameObject nearestPathEdge = null;
         foreach (GameObject pathEdge in pathEdges)
         {
-            float tmpDist = Distance(pathEdge.GetComponent<PathEdge>(), pos);
-            if (tmpDist == -1)
+            // will pick the edge whose zone covers the point, but distance should not be too long
+            PointToEdgeDistance tmpDist = Distance(pathEdge.GetComponent<PathEdge>(), pos);
+            if (!tmpDist.isOutside)
             {
-                continue;
-            }
-            Debug.Log(pos + " " + pathEdge + " " + tmpDist);
-            if (tmpDist < dist || dist < 0)
-            {
-                dist = tmpDist;
-                nearestPathEdge = pathEdge;
+                if (dist == null)
+                {
+                    dist = tmpDist;
+                    nearestPathEdge = pathEdge;
+                }
+                else
+                if (dist.isOutside)
+                {
+                    if (tmpDist.distance - dist.distance < 1.2f)
+                    {
+                        dist = tmpDist;
+                        nearestPathEdge = pathEdge;
+                    }
+                }
+                else
+                if (dist.distance > tmpDist.distance)
+                {
+                    dist = tmpDist;
+                    nearestPathEdge = pathEdge;
+                }
             }
             else
-            if (tmpDist == dist)
             {
-                //Debug.Log("hahahahaha,,,,");
+                if (dist == null)
+                {
+                    dist = tmpDist;
+                    nearestPathEdge = pathEdge;
+                }
+                else
+                if (dist.distance - tmpDist.distance > 1.2f)
+                {
+                    dist = tmpDist;
+                    nearestPathEdge = pathEdge;
+                }
             }
+
+            //Debug.Log(pos + " " + pathEdge + " " + tmpDist.distance + " " + tmpDist.isOutside);
         }
 
         //if (dist > 1f)
