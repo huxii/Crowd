@@ -103,13 +103,13 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _BrightColor: {r: 0.990566, g: 0.7989943, b: 0.90088737, a: 1}
+    - _BrightColor: {r: 0.9716981, g: 0.91211283, b: 0.9437295, a: 1}
     - _Color: {r: 0.23642753, g: 0.6509434, b: 0.42641395, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Outline: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0.3364428, g: 0.4245283, b: 0.28635636, a: 1}
     - _RimColor: {r: 0.22737095, g: 0.5377358, b: 0.20038268, a: 1}
-    - _ShadowColor: {r: 0.6037736, g: 0.33891064, b: 0.48611933, a: 1}
+    - _ShadowColor: {r: 0.8773585, g: 0.63318795, b: 0.7696362, a: 1}
     - _ShadowLineColor: {r: 0.18276078, g: 0.3962264, b: 0.17755428, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _TwilightColor: {r: 0.37373215, g: 0.5660378, b: 0.35510862, a: 1}

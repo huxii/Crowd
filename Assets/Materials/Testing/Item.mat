@@ -103,7 +103,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _BrightColor: {r: 0.71342117, g: 0.8808238, b: 0.9056604, a: 1}
+    - _BrightColor: {r: 0.6918832, g: 0.84636843, b: 0.8679245, a: 1}
     - _Color: {r: 0.23642753, g: 0.6509434, b: 0.42641395, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Outline: {r: 0, g: 0, b: 0, a: 1}
