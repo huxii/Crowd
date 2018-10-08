@@ -160,6 +160,30 @@ ModelImporter:
     100308: pPlane1
     100310: Belly
     100312: Body
+    100314: Light0
+    100316: Light0 1
+    100318: Light0 2
+    100320: Light0 3
+    100322: Light1
+    100324: Light1 1
+    100326: Light1 2
+    100328: Light1 3
+    100330: Light2
+    100332: Light2 1
+    100334: Light2 2
+    100336: Light2 3
+    100338: Light3
+    100340: Light3 1
+    100342: Light3 2
+    100344: Light3 3
+    100346: Light4
+    100348: Light4 1
+    100350: Light4 2
+    100352: Light4 3
+    100354: Lights
+    100356: Lights1
+    100358: Lights2
+    100360: Lights3
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -317,6 +341,30 @@ ModelImporter:
     400308: pPlane1
     400310: Belly
     400312: Body
+    400314: Light0
+    400316: Light0 1
+    400318: Light0 2
+    400320: Light0 3
+    400322: Light1
+    400324: Light1 1
+    400326: Light1 2
+    400328: Light1 3
+    400330: Light2
+    400332: Light2 1
+    400334: Light2 2
+    400336: Light2 3
+    400338: Light3
+    400340: Light3 1
+    400342: Light3 2
+    400344: Light3 3
+    400346: Light4
+    400348: Light4 1
+    400350: Light4 2
+    400352: Light4 3
+    400354: Lights
+    400356: Lights1
+    400358: Lights2
+    400360: Lights3
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -430,6 +478,26 @@ ModelImporter:
     2300216: pPlane1
     2300218: Belly
     2300220: Body
+    2300222: Light0
+    2300224: Light0 1
+    2300226: Light0 2
+    2300228: Light0 3
+    2300230: Light1
+    2300232: Light1 1
+    2300234: Light1 2
+    2300236: Light1 3
+    2300238: Light2
+    2300240: Light2 1
+    2300242: Light2 2
+    2300244: Light2 3
+    2300246: Light3
+    2300248: Light3 1
+    2300250: Light3 2
+    2300252: Light3 3
+    2300254: Light4
+    2300256: Light4 1
+    2300258: Light4 2
+    2300260: Light4 3
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -541,6 +609,26 @@ ModelImporter:
     3300216: pPlane1
     3300218: Belly
     3300220: Body
+    3300222: Light0
+    3300224: Light0 1
+    3300226: Light0 2
+    3300228: Light0 3
+    3300230: Light1
+    3300232: Light1 1
+    3300234: Light1 2
+    3300236: Light1 3
+    3300238: Light2
+    3300240: Light2 1
+    3300242: Light2 2
+    3300244: Light2 3
+    3300246: Light3
+    3300248: Light3 1
+    3300250: Light3 2
+    3300252: Light3 3
+    3300254: Light4
+    3300256: Light4 1
+    3300258: Light4 2
+    3300260: Light4 3
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -650,6 +738,26 @@ ModelImporter:
     4300212: pPlane1
     4300214: Body
     4300216: Belly
+    4300218: Light0
+    4300220: Light1
+    4300222: Light2
+    4300224: Light3
+    4300226: Light4
+    4300228: Light0
+    4300230: Light1
+    4300232: Light2
+    4300234: Light3
+    4300236: Light4
+    4300238: Light0
+    4300240: Light1
+    4300242: Light2
+    4300244: Light3
+    4300246: Light4
+    4300248: Light0
+    4300250: Light1
+    4300252: Light2
+    4300254: Light3
+    4300256: Light4
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
