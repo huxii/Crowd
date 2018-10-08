@@ -184,6 +184,28 @@ ModelImporter:
     100356: Lights1
     100358: Lights2
     100360: Lights3
+    100362: Chimney2
+    100364: GearBg
+    100366: GearBg1
+    100368: GearBg2
+    100370: GearBg3
+    100372: GearBg4
+    100374: GearBg5
+    100376: GearBg6
+    100378: GearChi
+    100380: GearChi1
+    100382: GearGroupBg
+    100384: GearsBehindWheel
+    100386: RopeBg
+    100388: RopeBg1
+    100390: RopeSmall
+    100392: RopeSmall1
+    100394: RopeSmall2
+    100396: RopeSmall3
+    100398: Clock
+    100400: HourHand
+    100402: MinuteHand
+    100404: SecondHand
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -365,6 +387,28 @@ ModelImporter:
     400356: Lights1
     400358: Lights2
     400360: Lights3
+    400362: Chimney2
+    400364: GearBg
+    400366: GearBg1
+    400368: GearBg2
+    400370: GearBg3
+    400372: GearBg4
+    400374: GearBg5
+    400376: GearBg6
+    400378: GearChi
+    400380: GearChi1
+    400382: GearGroupBg
+    400384: GearsBehindWheel
+    400386: RopeBg
+    400388: RopeBg1
+    400390: RopeSmall
+    400392: RopeSmall1
+    400394: RopeSmall2
+    400396: RopeSmall3
+    400398: Clock
+    400400: HourHand
+    400402: MinuteHand
+    400404: SecondHand
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -498,6 +542,25 @@ ModelImporter:
     2300256: Light4 1
     2300258: Light4 2
     2300260: Light4 3
+    2300262: Chimney2
+    2300264: GearBg
+    2300266: GearBg1
+    2300268: GearBg2
+    2300270: GearBg3
+    2300272: GearBg4
+    2300274: GearBg5
+    2300276: GearBg6
+    2300278: GearChi
+    2300280: GearChi1
+    2300282: RopeBg
+    2300284: RopeBg1
+    2300286: RopeSmall
+    2300288: RopeSmall1
+    2300290: RopeSmall2
+    2300292: RopeSmall3
+    2300294: HourHand
+    2300296: MinuteHand
+    2300298: SecondHand
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -629,6 +692,25 @@ ModelImporter:
     3300256: Light4 1
     3300258: Light4 2
     3300260: Light4 3
+    3300262: Chimney2
+    3300264: GearBg
+    3300266: GearBg1
+    3300268: GearBg2
+    3300270: GearBg3
+    3300272: GearBg4
+    3300274: GearBg5
+    3300276: GearBg6
+    3300278: GearChi
+    3300280: GearChi1
+    3300282: RopeBg
+    3300284: RopeBg1
+    3300286: RopeSmall
+    3300288: RopeSmall1
+    3300290: RopeSmall2
+    3300292: RopeSmall3
+    3300294: HourHand
+    3300296: MinuteHand
+    3300298: SecondHand
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -758,6 +840,25 @@ ModelImporter:
     4300252: Light2
     4300254: Light3
     4300256: Light4
+    4300258: Chimney2
+    4300260: RopeSmall
+    4300262: RopeSmall1
+    4300264: RopeSmall2
+    4300266: RopeSmall3
+    4300268: GearChi1
+    4300270: GearChi
+    4300272: GearBg6
+    4300274: GearBg5
+    4300276: GearBg4
+    4300278: GearBg3
+    4300280: GearBg2
+    4300282: GearBg
+    4300284: GearBg1
+    4300286: RopeBg
+    4300288: RopeBg1
+    4300290: HourHand
+    4300292: MinuteHand
+    4300294: SecondHand
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
