@@ -346,7 +346,7 @@ public class PathFindingManager : MonoBehaviour
                 }
             }
 
-            Debug.Log(pos + " " + pathEdge + " " + tmpDist.distance + " " + tmpDist.isOutside);
+            //Debug.Log(pos + " " + pathEdge + " " + tmpDist.distance + " " + tmpDist.isOutside);
         }
 
         if (distIn != null && distIn.distance < 0.15f)
@@ -394,7 +394,7 @@ public class PathFindingManager : MonoBehaviour
         //int t = IDs[FindNearestPathPoint(endPos)];
         GameObject es = FindNearestPathEdge(startPos);
         GameObject et = FindNearestPathEdge(endPos);
-        Debug.Log(es + " " + et);
+        //Debug.Log(es + " " + et);
         if (es == null || et == null)
         {
             return false;

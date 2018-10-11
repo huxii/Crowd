@@ -160,14 +160,15 @@ public abstract class ObjectPrimaryControl : ObjectControl
         return transform.position + freeManSlotOffset;
     }
 
-    public void FreeMan()
+    public void FreeAllMan()
     {
-        if (slots.Count != 1)
+        foreach (SlotAttr slot in slots)
         {
-            return;
+            if (slot.man != null)
+            {
+                Services.gameController.FreeMan(slot.man);
+            }
         }
-
-        Services.gameController.FreeMan(slots[0].man);
     }
 
     //public int GetSlotId(GameObject man)

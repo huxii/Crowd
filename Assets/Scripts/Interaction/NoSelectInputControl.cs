@@ -28,7 +28,10 @@ public class NoSelectInputControl : InputControl
         
         if (mouseClickObject.CompareTag("Man"))
         {
-            Services.gameController.FreeMan(mouseClickObject);
+            if (orderMode == OrderMode.SINGLEMAN)
+            {
+                Services.gameController.FreeMan(mouseClickObject);
+            }
         }
         else
         if (mouseClickObject.CompareTag("Object"))
