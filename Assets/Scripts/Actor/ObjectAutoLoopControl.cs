@@ -8,8 +8,10 @@ public class ObjectAutoLoopControl : ObjectAutoControl
     [Header("Loop Settings")]
     public float loopInterval = 1f;
     public UnityEvent loopEvent;
+    public UnityEvent doubleLoopEvent;
 
     private float timer = 0;
+    private float doubleTimer = 0;
 
 	// Use this for initialization
 	void Start ()
@@ -23,10 +25,17 @@ public class ObjectAutoLoopControl : ObjectAutoControl
         if (IsActivated())
         {
             timer += Time.deltaTime;
+            doubleTimer += Time.deltaTime;
             if (timer >= loopInterval)
             {
                 loopEvent.Invoke();
                 timer = 0;
+            }
+
+            if (doubleTimer >= 2 * loopInterval)
+            {
+                doubleLoopEvent.Invoke();
+                doubleTimer = 0;
             }
         }
 	}
@@ -35,6 +44,7 @@ public class ObjectAutoLoopControl : ObjectAutoControl
     {
         base.Activate();
 
-        timer = 0.5f;
+        timer = loopInterval / 2;
+        doubleTimer = 2 * loopInterval - loopInterval / 2;
     }
 }

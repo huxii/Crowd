@@ -167,6 +167,40 @@ public class DotweenEvents : MonoBehaviour
         obj.transform.DOScale(newScale, time);
     }
 
+    public void Zig(string para)
+    {
+        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
+        GameObject obj = GameObject.Find(paras[0]);
+        string axis = paras[1];
+        float inc = float.Parse(paras[2]);
+        float time = float.Parse(paras[3]);
+        int loop = int.Parse(paras[4]);
+
+        Sequence seq = DOTween.Sequence();
+        Vector3 deltaRot = new Vector3(0, 0, 0);
+        if (axis.ToLower() == "x")
+        {
+            deltaRot = new Vector3(inc, 0, 0);
+        }
+        else
+        if (axis.ToLower() == "y")
+        {
+            deltaRot = new Vector3(0, inc, 0);
+        }
+        else
+        if (axis.ToLower() == "z")
+        {
+            deltaRot = new Vector3(0, 0, inc);
+        }
+
+        Vector3 origRot = transform.eulerAngles;
+        Vector3 rightRot = origRot + deltaRot;
+
+        seq.Append(obj.transform.DORotate(rightRot, 0.5f * time).SetEase(Ease.Linear));
+        seq.Append(obj.transform.DORotate(origRot, 0.5f * time).SetEase(Ease.Linear));
+        seq.SetLoops(loop, LoopType.Restart);
+    }
+
     public void Zigzag(string para)
     {
         string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
