@@ -94,4 +94,9 @@ public class GameEvents : MonoBehaviour
         }
         ani.Play();
     }
+
+    public void LoadScene(string scene)
+    {
+        Services.sceneManager.LoadScene(scene);
+    }
 }
