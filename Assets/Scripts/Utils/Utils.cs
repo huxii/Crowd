@@ -35,6 +35,10 @@ public class Utils
             {
                 Mesh mesh = obj.GetComponent<MeshFilter>().sharedMesh;
                 Material mat = obj.GetComponent<MeshRenderer>().material;
+                if (mesh == null)
+                {
+                    continue;
+                }
                 //if (mat.GetFloat("_OutlineWidth") <= 0)
                 //{
                 //    continue;

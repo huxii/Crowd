@@ -346,10 +346,10 @@ public class PathFindingManager : MonoBehaviour
                 }
             }
 
-            //Debug.Log(pos + " " + pathEdge + " " + tmpDist.distance + " " + tmpDist.isOutside);
+            Debug.Log(pos + " " + pathEdge + " " + tmpDist.distance + " " + tmpDist.isOutside);
         }
 
-        if (distIn != null && distIn.distance < 0.15f)
+        if (distIn != null /*&& distIn.distance < 0.15f*/)
         {
             return nearestPathEdgeIn;
         }
