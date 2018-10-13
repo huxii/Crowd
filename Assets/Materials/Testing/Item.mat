@@ -43,7 +43,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: af21d4a807024184c863a83b173692a5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -103,14 +103,14 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _BrightColor: {r: 0.6918832, g: 0.84636843, b: 0.8679245, a: 1}
+    - _BrightColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.23642753, g: 0.6509434, b: 0.42641395, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Outline: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0.3364428, g: 0.4245283, b: 0.28635636, a: 1}
     - _RimColor: {r: 0.22737095, g: 0.5377358, b: 0.20038268, a: 1}
-    - _ShadowColor: {r: 0.31510323, g: 0.55003244, b: 0.6886792, a: 1}
-    - _ShadowLineColor: {r: 0.18276078, g: 0.3962264, b: 0.17755428, a: 1}
+    - _ShadowColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShadowLineColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _TwilightColor: {r: 0.37373215, g: 0.5660378, b: 0.35510862, a: 1}
     - _XNegativeColor: {r: 0.56697226, g: 0.8773585, b: 0.63910085, a: 1}
