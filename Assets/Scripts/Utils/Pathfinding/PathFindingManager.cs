@@ -394,7 +394,7 @@ public class PathFindingManager : MonoBehaviour
         //int t = IDs[FindNearestPathPoint(endPos)];
         GameObject es = FindNearestPathEdge(startPos);
         GameObject et = FindNearestPathEdge(endPos);
-        //Debug.Log(es + " " + et);
+        Debug.Log(es + " " + et);
         if (es == null || et == null)
         {
             return false;

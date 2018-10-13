@@ -285,16 +285,18 @@ public class MainControl : MonoBehaviour
         }
 
         Vector3 targetPos = obj.GetComponent<ObjectPrimaryControl>().GetFreeManSlotPos();
-        if (Services.pathFindingManager.FindPath(man, targetPos))
-        {
-            UnboundMan(man);
-            Services.pathFindingManager.Move(man, 0.05f);
-        }
-        else
-        {
-            //man.GetComponent<CrowdControl>().OrderFailed();
-            Debug.Log("Should never happen though");
-        }
+        UnboundMan(man);
+        MoveManTo(man, targetPos, 0.1f);
+        //if (Services.pathFindingManager.FindPath(man, targetPos))
+        //{
+        //    UnboundMan(man);
+        //    Services.pathFindingManager.Move(man, 0.05f);
+        //}
+        //else
+        //{
+        //    //man.GetComponent<CrowdControl>().OrderFailed();
+        //    Debug.Log("Should never happen though");
+        //}
     }
 
     public void UnboundMan(GameObject man)
