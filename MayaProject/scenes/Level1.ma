@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Level1.ma
-//Last modified: Sat, Oct 13, 2018 04:09:39 PM
+//Last modified: Sat, Oct 13, 2018 05:07:02 PM
 //Codeset: 1252
 requires maya "2018";
 requires "stereoCamera" "10.0";
@@ -15,8 +15,8 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "69C2E574-45FA-86C5-802E-A39F733991CA";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 1.418460524885943 0.88847490098244009 0.96707787920055555 ;
-	setAttr ".r" -type "double3" 339.26164833927231 413.0000000064561 0 ;
+	setAttr ".t" -type "double3" 0.075099972694856382 1.793384851187086 1.9202605366702505 ;
+	setAttr ".r" -type "double3" 320.66164833927036 360.60000000644339 -4.2244058131747794e-16 ;
 	setAttr ".rp" -type "double3" -3.552713678800501e-17 0 0 ;
 	setAttr ".rpt" -type "double3" -1.5528555425668138e-16 1.6490924591784268e-16 4.2163101041090293e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
@@ -26,12 +26,12 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.001;
 	setAttr ".fcp" 100;
 	setAttr ".fd" 0.05;
-	setAttr ".coi" 1.7335396783308852;
+	setAttr ".coi" 2.3839960147704256;
 	setAttr ".ow" 0.1;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 12.369760513305664 27.462691307067871 -0.85959626734256744 ;
+	setAttr ".tp" -type "double3" 5.5791878700256348 28.21728515625 7.6540794372558594 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 	setAttr ".ai_translator" -type "string" "perspective";
 createNode transform -s -n "top";
@@ -68,7 +68,7 @@ createNode camera -s -n "frontShape" -p "front";
 	setAttr ".fcp" 100;
 	setAttr ".fd" 0.05;
 	setAttr ".coi" 10.092231966104988;
-	setAttr ".ow" 0.025336111374859308;
+	setAttr ".ow" 0.64037634272400701;
 	setAttr ".imn" -type "string" "front";
 	setAttr ".den" -type "string" "front_depth";
 	setAttr ".man" -type "string" "front_mask";
@@ -79,7 +79,7 @@ createNode camera -s -n "frontShape" -p "front";
 createNode transform -s -n "side";
 	rename -uid "2744D650-4E7C-1DC6-BA99-4BB4646D91F7";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 10.076611039752754 0.29506442360290913 -0.0075943723152459702 ;
+	setAttr ".t" -type "double3" 10.076611039752754 0.2790703009236839 0.022939861890547548 ;
 	setAttr ".r" -type "double3" 0 89.999999999999986 0 ;
 createNode camera -s -n "sideShape" -p "side";
 	rename -uid "20AB63EE-4379-F9DD-4B1B-BFA8F79D4CDB";
@@ -90,7 +90,7 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".fcp" 100;
 	setAttr ".fd" 0.05;
 	setAttr ".coi" 10.08060724985102;
-	setAttr ".ow" 0.04814076013285367;
+	setAttr ".ow" 0.2355498067304071;
 	setAttr ".imn" -type "string" "side";
 	setAttr ".den" -type "string" "side_depth";
 	setAttr ".man" -type "string" "side_mask";
@@ -30214,10 +30214,12 @@ createNode transform -n "Base" -p "|Meshes|Inner|Interactable|FerrisWheel|WheelM
 createNode mesh -n "BaseShape" -p "|Meshes|Inner|Interactable|FerrisWheel|WheelModel|Wheel|Base";
 	rename -uid "B2B8003E-48CF-4A1D-85DE-24B023A0DB69";
 	setAttr -k off ".v";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:491]";
+	setAttr -s 2 ".iog[0].og";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[68:195]";
+	setAttr ".iog[0].og[1].gcl" -type "componentList" 2 "f[0:67]" "f[196:491]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.066724538803100586 0.22295641899108887 ;
+	setAttr ".pv" -type "double2" 0.44236719608306885 0.16131597757339478 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 929 ".uvst[0].uvsp";
 	setAttr ".uvst[0].uvsp[0:249]" -type "float2" 0.68944776 0.0070712566 0.68945956
@@ -62073,9 +62075,9 @@ createNode lambert -n "lambert3";
 createNode shadingEngine -n "lambert3SG";
 	rename -uid "9DD427C7-484B-30C2-5046-60823548A420";
 	setAttr ".ihi" 0;
-	setAttr -s 140 ".dsm";
+	setAttr -s 141 ".dsm";
 	setAttr ".ro" yes;
-	setAttr -s 2 ".gn";
+	setAttr -s 4 ".gn";
 createNode materialInfo -n "materialInfo2";
 	rename -uid "C4DFAE94-4EB2-B2A7-FC79-62A047CBEA9A";
 createNode file -n "file1";
@@ -62092,6 +62094,15 @@ createNode groupId -n "groupId72";
 	setAttr ".ihi" 0;
 createNode groupId -n "groupId73";
 	rename -uid "2CD64050-4AD2-EC8F-1276-B1B9D8E0E2D0";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId74";
+	rename -uid "4B467D74-403E-445B-A41C-D38B2D732C6A";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId75";
+	rename -uid "22A911A8-49E0-F490-1C27-C2A96E2D397E";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId76";
+	rename -uid "5023AC2D-4B51-356B-7790-64B2CD28C9F4";
 	setAttr ".ihi" 0;
 select -ne :time1;
 	setAttr ".o" 1;
@@ -62113,8 +62124,9 @@ select -ne :defaultRenderUtilityList1;
 select -ne :defaultRenderingList1;
 select -ne :defaultTextureList1;
 select -ne :initialShadingGroup;
-	setAttr -s 76 ".dsm";
+	setAttr -s 77 ".dsm";
 	setAttr ".ro" yes;
+	setAttr -s 2 ".gn";
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
 select -ne :defaultRenderGlobals;
@@ -62130,6 +62142,16 @@ connectAttr "lambert3SG.mwc" "Gear50Shape.iog.og[2].gco";
 connectAttr "groupId73.id" "Gear50Shape.iog.og[3].gid";
 connectAttr ":initialShadingGroup.mwc" "Gear50Shape.iog.og[3].gco";
 connectAttr "groupId72.id" "Gear50Shape.ciog.cog[0].cgid";
+connectAttr "groupId74.id" "|Meshes|Inner|Interactable|FerrisWheel|WheelModel|Wheel|Base|BaseShape.iog.og[0].gid"
+		;
+connectAttr ":initialShadingGroup.mwc" "|Meshes|Inner|Interactable|FerrisWheel|WheelModel|Wheel|Base|BaseShape.iog.og[0].gco"
+		;
+connectAttr "groupId76.id" "|Meshes|Inner|Interactable|FerrisWheel|WheelModel|Wheel|Base|BaseShape.iog.og[1].gid"
+		;
+connectAttr "lambert3SG.mwc" "|Meshes|Inner|Interactable|FerrisWheel|WheelModel|Wheel|Base|BaseShape.iog.og[1].gco"
+		;
+connectAttr "groupId75.id" "|Meshes|Inner|Interactable|FerrisWheel|WheelModel|Wheel|Base|BaseShape.ciog.cog[0].cgid"
+		;
 connectAttr "groupId57.id" "BodyShape.iog.og[0].gid";
 connectAttr "groupId59.id" "BodyShape.iog.og[3].gid";
 connectAttr "UVRef.di" "UVPlane.do";
@@ -62276,8 +62298,6 @@ connectAttr "|Meshes|Inner|Interactable|FerrisWheel|WheelModel|Wheel|Lights1|Lig
 		 -na;
 connectAttr "|Meshes|Inner|Interactable|FerrisWheel|WheelModel|Wheel|Lights1|Light0|LightShape0.iog" "lambert3SG.dsm"
 		 -na;
-connectAttr "|Meshes|Inner|Interactable|FerrisWheel|WheelModel|Wheel|Base|BaseShape.iog" "lambert3SG.dsm"
-		 -na;
 connectAttr "|Meshes|Inner|Interactable|FerrisWheel|WheelModel|Wheel|Lights|Light4|LightShape4.iog" "lambert3SG.dsm"
 		 -na;
 connectAttr "|Meshes|Inner|Interactable|FerrisWheel|WheelModel|Wheel|Lights|Light3|LightShape3.iog" "lambert3SG.dsm"
@@ -62371,8 +62391,14 @@ connectAttr "Gear50Shape.iog.og[2]" "lambert3SG.dsm" -na;
 connectAttr "Gear50Shape.ciog.cog[0]" "lambert3SG.dsm" -na;
 connectAttr "PlatformHandleShape.iog" "lambert3SG.dsm" -na;
 connectAttr "Platform2HandleShape.iog" "lambert3SG.dsm" -na;
+connectAttr "|Meshes|Inner|Interactable|FerrisWheel|WheelModel|Wheel|Base|BaseShape.ciog.cog[0]" "lambert3SG.dsm"
+		 -na;
+connectAttr "|Meshes|Inner|Interactable|FerrisWheel|WheelModel|Wheel|Base|BaseShape.iog.og[1]" "lambert3SG.dsm"
+		 -na;
 connectAttr "groupId71.msg" "lambert3SG.gn" -na;
 connectAttr "groupId72.msg" "lambert3SG.gn" -na;
+connectAttr "groupId75.msg" "lambert3SG.gn" -na;
+connectAttr "groupId76.msg" "lambert3SG.gn" -na;
 connectAttr "lambert3SG.msg" "materialInfo2.sg";
 connectAttr "lambert3.msg" "materialInfo2.m";
 connectAttr "file1.msg" "materialInfo2.t" -na;
@@ -62481,5 +62507,8 @@ connectAttr "Gear5Tooth41Shape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Gear5Tooth42Shape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Gear5Tooth43Shape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Gear5Tooth44Shape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "|Meshes|Inner|Interactable|FerrisWheel|WheelModel|Wheel|Base|BaseShape.iog.og[0]" ":initialShadingGroup.dsm"
+		 -na;
 connectAttr "groupId73.msg" ":initialShadingGroup.gn" -na;
+connectAttr "groupId74.msg" ":initialShadingGroup.gn" -na;
 // End of Level1.ma
