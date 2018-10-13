@@ -31,9 +31,15 @@ public class Utils
         GameObject[] objs = GameObject.FindObjectsOfType(typeof(GameObject)) as GameObject[];
         foreach (GameObject obj in objs)
         {
-            if (obj.GetComponent<MeshFilter>())
+            if (obj.GetComponent<MeshFilter>() && obj.GetComponent<MeshRenderer>())
             {
                 Mesh mesh = obj.GetComponent<MeshFilter>().sharedMesh;
+                Material mat = obj.GetComponent<MeshRenderer>().material;
+                //if (mat.GetFloat("_OutlineWidth") <= 0)
+                //{
+                //    continue;
+                //}
+
                 Vector3[] verts = mesh.vertices;
                 int[] tris = mesh.triangles;
                 Color[] unionColors = new Color[verts.Length];

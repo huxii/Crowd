@@ -4,6 +4,7 @@
 	{
 		[Header(Base)]
 		_MainTex("Texture", 2D) = "white" {}
+		 [KeywordEnum(Multiply, AlphaCutOut)] _BlendMode("Blend mode", Float) = 0
 		_XPositiveColor("X+ Color", Color) = (1, 1, 1, 1)
 		_XNegativeColor("X- Color", Color) = (1, 1, 1, 1)
 		_YPositiveColor("Y+ Color", Color) = (1, 1, 1, 1)
@@ -48,6 +49,7 @@
 
 			uniform sampler2D _MainTex;
 			uniform float4 _MainTex_ST;
+			uniform float _BlendMode;
 
 			uniform float4 _ShadowColor;
 			uniform float4 _BrightColor;
@@ -96,10 +98,15 @@
 			}
 
 			float4 frag(vertexOutput i) : COLOR
-			{
-				float atten = LIGHT_ATTENUATION(i);
+			{ 
+				
 				float4 tex = tex2D(_MainTex, i.tex.xy);
+				if (_BlendMode == 1)
+				{
+					clip(tex.a - 0.05);
+				}
 
+				float atten = LIGHT_ATTENUATION(i);
 				float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld);
 				float3 normalDirection = i.normalDir;
 				float3 lightDirection = normalize(_WorldSpaceLightPos0.xyz);
@@ -140,7 +147,6 @@
 				float4 lightFinal = diffuseColor * yColor + UNITY_LIGHTMODEL_AMBIENT + rimLight;
 
 				return lightFinal;
-
 			}
 
 			ENDCG
