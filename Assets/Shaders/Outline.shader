@@ -103,7 +103,7 @@
 				float4 tex = tex2D(_MainTex, i.tex.xy);
 				if (_BlendMode == 1)
 				{
-					clip(tex.a - 0.05);
+					clip(tex.a - 0.3);
 				}
 
 				float atten = LIGHT_ATTENUATION(i);
