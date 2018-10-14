@@ -11,12 +11,17 @@ public class DotweenEvents : MonoBehaviour
     char[] spliters = { ',', ' ' };
 
     public void Rotate(string para)
-    {        
+    {
         string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
         GameObject obj = GameObject.Find(paras[0]);
         string axis = paras[1];
         float inc = float.Parse(paras[2]);
         float time = float.Parse(paras[3]);
+        int loop = 1;
+        if (paras.Length >= 5)
+        {
+            loop = int.Parse(paras[4]);
+        }
 
         if (obj == null || DOTween.IsTweening(obj))
         {
@@ -67,7 +72,7 @@ public class DotweenEvents : MonoBehaviour
         {
             
             Vector3 targetRot = deltaRot + obj.transform.localEulerAngles;
-            obj.transform.DOLocalRotate(targetRot, time);
+            obj.transform.DOLocalRotate(targetRot, time).SetLoops(loop).SetEase(Ease.Linear);
         }
     }
 
