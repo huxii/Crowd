@@ -213,6 +213,7 @@ public abstract class InputControl : MonoBehaviour
     protected virtual void MouseSingleClick()
     {
         Debug.Log("Single click " + mouseClickObject);
+        Services.gameController.FocusCamera(mouseClickPos);
     }
 
     protected virtual void MouseDoubleClick()
@@ -260,17 +261,23 @@ public abstract class InputControl : MonoBehaviour
     protected void TranslateViewport()
     {
         Vector3 mouseDelta = Input.mousePosition - mouseDragScreenPos;
-        TranslateViewport(mouseDelta.x * 0.03f, mouseDelta.y * 0.03f);
-        mouseDragScreenPos = Input.mousePosition;
+        if (mouseDelta.magnitude > 0.1f)
+        {
+            TranslateViewport(mouseDelta.x * 0.03f, mouseDelta.y * 0.03f);
+            mouseDragScreenPos = Input.mousePosition;
+        }
     }
 
     protected void RotateViewport()
     {            
         // rotate viewport
         Vector3 mouseDelta = Input.mousePosition - mouseDragScreenPos;
-        //Debug.Log(mouseDelta);
-        Services.cameraController.Orbit(mouseDelta.x, mouseDelta.y);
-        mouseDragScreenPos = Input.mousePosition;
+        if (mouseDelta.magnitude > 0.1f)
+        {
+            //Debug.Log(mouseDelta);
+            Services.cameraController.Orbit(mouseDelta.x, mouseDelta.y);
+            mouseDragScreenPos = Input.mousePosition;
+        }
     }
 
     protected void Zoom(float delta)

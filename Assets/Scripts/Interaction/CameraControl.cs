@@ -27,6 +27,7 @@ public class CameraControl : MonoBehaviour
 
     public GameObject pivots;
 
+    public int maxZoomLevel = 0;
     public List<CameraAttr> zoomLevelAttrs;
     private int zoomLevel = 0;
 
@@ -35,6 +36,10 @@ public class CameraControl : MonoBehaviour
     private Vector2 targetAngle;
     private Vector3 targetDeltaTranslate;
     private Vector3 origTranslate;
+    private Vector2 cameraSpeed;
+
+    private Vector2 zoomCameraSpeed = new Vector2(8, 8);
+    private Vector2 clickCameraSpeed = new Vector2(1, 1);
 
     private void Awake()
     {
@@ -72,7 +77,7 @@ public class CameraControl : MonoBehaviour
         {
             if (targetAngleX > x)
             {
-                freeLookCam.m_XAxis.Value -= (x - targetAngleX + 360f) * Time.deltaTime * 8f;
+                freeLookCam.m_XAxis.Value -= (x - targetAngleX + 360f) * Time.deltaTime * cameraSpeed.x;
                 if (freeLookCam.m_XAxis.Value < 0.01f)
                 {
                     freeLookCam.m_XAxis.Value = 360f;
@@ -80,7 +85,7 @@ public class CameraControl : MonoBehaviour
             }
             else
             {
-                freeLookCam.m_XAxis.Value += (360 - x + targetAngleX) * Time.deltaTime * 8f;
+                freeLookCam.m_XAxis.Value += (360 - x + targetAngleX) * Time.deltaTime * cameraSpeed.x;
                 if (freeLookCam.m_XAxis.Value > 359.99f)
                 {
                     freeLookCam.m_XAxis.Value = 0f;
@@ -89,7 +94,7 @@ public class CameraControl : MonoBehaviour
         }
         else
         {
-            freeLookCam.m_XAxis.Value = Mathf.Lerp(freeLookCam.m_XAxis.Value, targetAngleX, Time.deltaTime * 8f);
+            freeLookCam.m_XAxis.Value = Mathf.Lerp(freeLookCam.m_XAxis.Value, targetAngleX, Time.deltaTime * cameraSpeed.x);
         }
 
         float y = freeLookCam.m_YAxis.Value * 180;
@@ -99,7 +104,7 @@ public class CameraControl : MonoBehaviour
         }
         else
         {
-            freeLookCam.m_YAxis.Value = Mathf.Lerp(y, targetAngle.y, Time.deltaTime * 8f) / 180;
+            freeLookCam.m_YAxis.Value = Mathf.Lerp(y, targetAngle.y, Time.deltaTime * cameraSpeed.y) / 180;
         }
 
         Vector2 topOrbit = Vector2.Lerp(new Vector2(freeLookCam.m_Orbits[0].m_Height, freeLookCam.m_Orbits[0].m_Radius), targetCameraAttr.topRigOrbit, Time.deltaTime * 8f);
@@ -155,6 +160,23 @@ public class CameraControl : MonoBehaviour
         float newAngleY = targetAngle.y - y / Screen.height * targetCameraAttr.sensitivity.y;
         newAngleY = Mathf.Max(Mathf.Min(newAngleY, 180), 0);
         targetAngle.y = newAngleY;
+
+        cameraSpeed = zoomCameraSpeed;
+    }
+
+    public void SetOrbit(float x, float y)
+    {
+        if (x >= 0 && x <= 1)
+        {
+            targetAngle.x = targetCameraAttr.angleRange.x + x * (targetCameraAttr.angleRange.y - targetCameraAttr.angleRange.x);
+        }
+
+        if (y >= 0 && y <= 1)
+        {
+            targetAngle.y = y * 180f;
+        }
+
+        cameraSpeed = clickCameraSpeed;
     }
 
     private void ZoomOut()
@@ -162,6 +184,7 @@ public class CameraControl : MonoBehaviour
         if (zoomLevel >= 1)
         {
             ResetTranslate();
+            cameraSpeed = zoomCameraSpeed;
 
             --zoomLevel;
             targetCameraAttr = zoomLevelAttrs[zoomLevel];
@@ -176,7 +199,7 @@ public class CameraControl : MonoBehaviour
 
     private void ZoomIn()
     {
-        if (zoomLevel < zoomLevelAttrs.Count - 1)
+        if (zoomLevel < maxZoomLevel - 1)
         {
             if (zoomLevel == 0)
             {
@@ -184,6 +207,7 @@ public class CameraControl : MonoBehaviour
             }
 
             ResetTranslate();
+            cameraSpeed = zoomCameraSpeed;
 
             ++zoomLevel;
             targetCameraAttr = zoomLevelAttrs[zoomLevel];
