@@ -11,6 +11,10 @@ public class MainControl : MonoBehaviour
     private GameObject[] men;
     private GameObject menParentObj = null;
 
+    // nav mesh
+    private Vector2 navMeshMinBound = new Vector3(float.MaxValue, float.MaxValue);
+    private Vector2 navMeshMaxBound = new Vector3(-float.MaxValue, -float.MaxValue);
+
     // Use this for initialization
     void Start()
     {
@@ -21,6 +25,8 @@ public class MainControl : MonoBehaviour
 
         // do a favor for outline shader
         Services.utils.RecalculateNormals();
+
+        DetectNavMeshBounds();
 
         CheckPlatform();
     }
@@ -58,6 +64,30 @@ public class MainControl : MonoBehaviour
             case RuntimePlatform.IPhonePlayer:
                 Application.targetFrameRate = 30;
                 break;
+        }
+    }
+
+    private void DetectNavMeshBounds()
+    {
+        GameObject[] navs = GameObject.FindGameObjectsWithTag("Ground");
+        foreach (GameObject nav in navs)
+        {
+            Collider collider = nav.GetComponent<BoxCollider>();
+            if (collider != null)
+            {
+                Vector3 c_min = collider.bounds.min;
+                Vector3 c_max = collider.bounds.max;
+
+                navMeshMinBound = new Vector2(
+                    Mathf.Min(c_min.x, navMeshMinBound.x),
+                    Mathf.Min(c_min.y, navMeshMinBound.y)
+                    );
+
+                navMeshMaxBound = new Vector2(
+                    Mathf.Max(c_max.x, navMeshMaxBound.x),
+                    Mathf.Max(c_max.y, navMeshMaxBound.y)
+                    );
+            }
         }
     }
 
@@ -418,86 +448,14 @@ public class MainControl : MonoBehaviour
         }
     }
 
-    //public void ClickOn(GameObject mouseClickObject, Vector3 mouseClickPos)
-    //{
-    //    if (mouseClickObject == null)
-    //    {
-    //        DeselectMan();
-    //        return;
-    //    }
+    public void FocusCamera(Vector3 pos)
+    {
+        float ratioX = Mathf.Clamp((pos.x - navMeshMinBound.x) / (navMeshMaxBound.x - navMeshMinBound.x), 0, 1);
+        float ratioY = Mathf.Clamp((pos.y - navMeshMinBound.y) / (navMeshMaxBound.y - navMeshMinBound.y), 0, 1);
+        Services.cameraController.SetOrbit(-1, Mathf.Sin(ratioY * 90f / 180f * Mathf.PI));
 
-    //    if (mouseClickObject.CompareTag("Man"))
-    //    {
-    //        SelectMan(mouseClickObject);
-    //    }
-    //    else
-    //    if (mouseClickObject.CompareTag("Object"))
-    //    {
-    //        FillMan(mouseClickObject);
-    //    }
-    //    else
-    //    if (mouseClickObject.CompareTag("Ground"))
-    //    {
-    //        MoveMen(mouseClickPos);
-    //    }
-    //    else
-    //    {
-    //        foreach (GameObject man in selecetedMen)
-    //        {
-    //            man.GetComponent<CrowdControl>().OrderFailed();
-    //        }
-    //    }
-    //}
-
-    //public void DoubleClickOn(GameObject mouseClickObject)
-    //{
-    //    if (mouseClickObject == null)
-    //    {
-    //        return;
-    //    }
-
-    //    //if (selectedMan && mouseClickObject.CompareTag("Object"))
-    //    //{
-    //    //    FillMan(selectedMan, mouseClickObject);
-    //    //}
-    //}
-
-    //public void HoldStart(GameObject mouseClickObject)
-    //{
-    //    if (mouseClickObject == null)
-    //    {
-    //        return;
-    //    }
-
-    //    //if (selectedMan && mouseClickObject.GetComponent<ObjectPrimaryControl>() && !mouseClickObject.GetComponent<ObjectPrimaryControl>().IsReady())
-    //    //{
-    //    //    Services.hudController.CreateHoldIcon(mouseClickObject, mouseClickObject.GetComponent<ObjectPrimaryControl>().progressBarPosOffset);
-    //    //}
-    //}
-
-    //public void HoldRelease(GameObject mouseClickObject)
-    //{
-    //    if (mouseClickObject == null)
-    //    {
-    //        return;
-    //    }
-
-    //    Services.hudController.DestroyHoldIcon(mouseClickObject);
-    //}
-
-    //public void HoldEnd(GameObject mouseClickObject)
-    //{
-    //    if (mouseClickObject == null)
-    //    {
-    //        return;
-    //    }
-
-    //    //if (selectedMan && mouseClickObject.CompareTag("Object"))
-    //    //{
-    //    //    Services.hudController.DestroyHoldIcon(mouseClickObject);
-    //    //    FillMan(selectedMan, mouseClickObject);
-    //    //}
-    //}
+        Debug.Log(pos + " " + Mathf.Sin(ratioY * 90f) + " " + ratioY);
+    }
 
     public void ManAcrossBorder(GameObject man, GameObject obj)
     {
