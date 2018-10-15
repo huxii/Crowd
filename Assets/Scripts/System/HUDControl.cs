@@ -18,4 +18,19 @@ public class HUDControl : MonoBehaviour
             ++curId;
         }
     }
+
+    public void DisplayImage(string anchorImage)
+    {
+        string[] info = anchorImage.Split(',');
+        GameObject anchor = GameObject.Find(info[0]);
+        Sprite outsideImage = Resources.Load<Sprite>("Sprites/" + info[1]);
+        anchor.GetComponent<Image>().sprite = outsideImage;
+    }
+
+    private void Start()
+    {
+        Services.hudController.PlayNextUIEvent();
+        Services.hudController.PlayNextUIEvent();
+        Services.hudController.PlayNextUIEvent();
+    }
 }
