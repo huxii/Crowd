@@ -7,9 +7,44 @@ using DG.Tweening;
 
 public class HUDControl : MonoBehaviour
 {
+    public Texture gizmoTexture;
+    public GameObject canvas;
     public List<UnityEvent> levelUIEvents;
-    public List<GameObject> anchors;
     private int curId = 0;
+
+    [SerializeField]
+    private List<GameObject> anchors = new List<GameObject>();
+    private GameObject anchorsObj;    
+    [HideInInspector]
+    [SerializeField]
+    private int anchorCounter = 0;
+
+    void Start()
+    {
+    }
+
+    private void Update()
+    {
+        if (Time.time > 2f)
+        {
+            Services.hudController.PlayNextUIEvent();
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        foreach (GameObject anchor in anchors.ToArray())
+        {
+            if (anchor == null)
+            {
+                anchors.Remove(anchor);
+            }
+            else
+            {
+                Gizmos.DrawGUITexture(new Rect(anchor.GetComponent<RectTransform>().position.x, anchor.GetComponent<RectTransform>().position.y, 1, 1), gizmoTexture);
+            }
+        }
+    }
 
     public void PlayNextUIEvent()
     {
@@ -49,17 +84,19 @@ public class HUDControl : MonoBehaviour
         }
     }
 
-    void Start()
+    public void AddAnchor()
     {
-        Services.hudController.PlayNextUIEvent();
-        Services.hudController.PlayNextUIEvent();
-
-    }
-    private void Update()
-    {
-        if (Time.time > 2f)
+        if (anchorsObj == null)
         {
-            Services.hudController.PlayNextUIEvent();
+            anchorsObj = new GameObject();
+            anchorsObj.name = "Anchors";
+            anchorsObj.transform.SetParent(canvas.transform);
         }
+
+        GameObject anchor = new GameObject("Anchor" + anchorCounter, typeof(RectTransform));
+        anchor.transform.SetParent(anchorsObj.transform);
+        ++anchorCounter;
+
+        anchors.Add(anchor);
     }
 }
