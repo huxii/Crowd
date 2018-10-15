@@ -23,6 +23,9 @@ public class ClockBehavior : MonoBehaviour
         ++tick;
         Services.gameController.GetComponent<DotweenEvents>().Rotate("SecondHand, z, 6, 0.1");
 
+        int soundId = (int)Random.Range(0, 3);
+        Services.soundController.Play("tick" + soundId.ToString());
+
         if (tick == 60)
         {
             tick = 0;

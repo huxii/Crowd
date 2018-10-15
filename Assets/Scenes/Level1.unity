@@ -241,7 +241,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.015117056, y: 0.0000005143702, z: -0.0000000129174484, w: 0.9998858}
+  m_LocalRotation: {x: 0.015116855, y: 0.0000005143702, z: -0.000000012917393, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14416,7 +14416,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.0030009816, y: 0.00000049426035, z: -0.00000002302356, w: 0.9999955}
+  m_LocalRotation: {x: -0.0030009854, y: 0.00000049426035, z: -0.000000023023595,
+    w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -16962,13 +16963,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1428080937}
-  - component: {fileID: 1428080938}
-  - component: {fileID: 1428080941}
   - component: {fileID: 1428080936}
   - component: {fileID: 1428080939}
   - component: {fileID: 1428080942}
   - component: {fileID: 1428080943}
   - component: {fileID: 1428080940}
+  - component: {fileID: 1428080944}
+  - component: {fileID: 1428080941}
+  - component: {fileID: 1428080938}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -16987,6 +16989,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aadd0449a71dc284089dfd3e7ef2e011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onLevelStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080944}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: morning
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!4 &1428080937
 Transform:
   m_ObjectHideFlags: 0
@@ -17125,6 +17143,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ead6ce37bd4304f97580756e8473b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1428080944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1428080935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8410d5833c1d51a4c847696f955bc174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSourcePrefab: {fileID: 1736405464348846, guid: 19b08b1364af43e4e8c06fdecdefebcf,
+    type: 2}
+  clips: []
 --- !u!1 &1429025856
 GameObject:
   m_ObjectHideFlags: 0

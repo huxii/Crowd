@@ -27,26 +27,38 @@ public class SoundClip
 
 public class SoundControl : MonoBehaviour
 {
-    public List<SoundClip> clips;
-    public int pooledAudioAmount = 10;
+    public GameObject audioSourcePrefab;
+
+    [SerializeField]
+    private List<SoundClip> clips;
+    private int pooledAudioAmount = 10; 
+
     List<GameObject> audioSources;
-    public GameObject audioSource;
     Dictionary<string, SoundClip> soundList = new Dictionary<string, SoundClip>();
+
+    char[] splitter = { ' ', ',' };
 
     // Use this for initialization
     void Start()
     {
+        audioSources = new List<GameObject>();
+        for (int i = 0; i < pooledAudioAmount; i++)
+        {
+            GameObject audio = (GameObject)Instantiate(audioSourcePrefab);
+            audio.SetActive(false);
+            audioSources.Add(audio);
+        }
+
         string[] lines = System.IO.File.ReadAllLines(Application.dataPath + "//Resources//Sounds//AudioList.csv");
         for (int i = 1; i < lines.Length; i++)
         {
             SoundClip clip = new SoundClip();
             if (lines[i][0] == '1')
             {
-                string[] row = lines[i].Split(',');
+                string[] row = lines[i].Split(splitter);
                 clip.id = row[1];
-                Debug.Log(row[2]);
                 clip.audioClip = Resources.Load<AudioClip>("Sounds/" + row[2]);
-                clip.loop = int.Parse(row[3]);
+                int.TryParse(row[3], out clip.loop);
                 float.TryParse(row[4], out clip.startDelay);
                 float.TryParse(row[5], out clip.fadeInDuration);
                 float.TryParse(row[6], out clip.fadeOutDuration);
@@ -68,14 +80,6 @@ public class SoundControl : MonoBehaviour
             }
         }
 
-        audioSources = new List<GameObject>();
-        for (int i = 0; i < pooledAudioAmount; i++)
-        {
-            GameObject audio = (GameObject)Instantiate(audioSource);
-            audio.SetActive(false);
-            audioSources.Add(audio);
-        }
-
         foreach (SoundClip s in clips)
         {
             soundList.Add(s.id, s);
@@ -87,26 +91,36 @@ public class SoundControl : MonoBehaviour
     {
     }
 
+    // the way to judge if an audio source has been taken:
+    // source.clip != null
     public void Play(string id)
     {
         for (int i = 0; i < audioSources.Count; i++)
         {
             AudioSource source = audioSources[i].GetComponent<AudioSource>();
-            if (source.clip != null && source.clip.name == soundList[id].audioClip.name)
+            if (source.clip != null)
             {
-                if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.NOTREPLACE)
+                if (!source.isPlaying)
                 {
-                    return;
+                    source.clip = null;
                 }
                 else
-                if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.REPLACE)
+                if (source.clip.name == soundList[id].audioClip.name)
                 {
-                    audioSources[i].SetActive(false);
-                    break;
-                }
-                else
-                if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.MULTIPLE)
-                {
+                    if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.NOTREPLACE)
+                    {
+                        return;
+                    }
+                    else
+                    if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.REPLACE)
+                    {
+                        audioSources[i].SetActive(false);
+                        break;
+                    }
+                    else
+                    if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.MULTIPLE)
+                    {
+                    }
                 }
             }
         }
@@ -114,9 +128,9 @@ public class SoundControl : MonoBehaviour
         for (int i = 0; i < audioSources.Count; i++)
         {
             AudioSource source = audioSources[i].GetComponent<AudioSource>();
-            Debug.Log(audioSources[i]);
-            if (!source.isPlaying)
+            if (source.clip == null)
             {
+                source.playOnAwake = false;
                 source.loop = (soundList[id].loop == -1);
                 source.clip = soundList[id].audioClip;
                 audioSources[i].SetActive(true);

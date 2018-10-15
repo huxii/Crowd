@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using DG.Tweening;
 
 // TODO: main menu & MerryGoRound pause & camera readjust & postprocess
 
 public class MainControl : MonoBehaviour
 {
+    public UnityEvent onLevelStart;
+
     //private GameObject selectedMan = null;
     private GameObject[] men;
     private GameObject menParentObj = null;
@@ -29,6 +32,8 @@ public class MainControl : MonoBehaviour
         DetectNavMeshBounds();
 
         CheckPlatform();
+
+        onLevelStart.Invoke();
     }
 
     // Update is called once per frame
