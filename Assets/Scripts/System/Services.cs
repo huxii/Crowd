@@ -12,5 +12,6 @@ public class Services : MonoBehaviour
     public static InputControl inputController = gameController.gameObject.GetComponent<InputControl>();
     public static CameraControl cameraController = gameController.gameObject.GetComponent<CameraControl>();
     public static HUDControl hudController = gameController.gameObject.GetComponent<HUDControl>();
+    public static SoundControl soundController = gameController.gameObject.GetComponent<SoundControl>();
     public static Utils utils = new Utils();
 }
