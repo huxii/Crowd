@@ -241,7 +241,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.015116923, y: 0.0000005143702, z: -0.000000012917354, w: 0.9998858}
+  m_LocalRotation: {x: 0.015116964, y: 0.0000005143702, z: -0.000000012917392, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1315,7 +1315,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 59db05aac6659dd4fa0b6bd64bf63b67, type: 2}
-  - {fileID: 2100000, guid: dbeae8539a693e9409e90ac951588004, type: 2}
+  - {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3643,7 +3643,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
+  - {fileID: 2100000, guid: dbeae8539a693e9409e90ac951588004, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6537,7 +6537,7 @@ MonoBehaviour:
   wobbTex: {fileID: 0}
   wobbScale: 0
   wobbPower: 0
-  edgeSize: 1.8
+  edgeSize: 1.2
   edgePower: 1.4
   paperDataset:
   - paperTex: {fileID: 2800000, guid: e958c6041cfe445e987c73751e8d4082, type: 3}
@@ -6898,7 +6898,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: dbeae8539a693e9409e90ac951588004, type: 2}
+  - {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14416,8 +14416,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.0030008256, y: 0.00000049426035, z: -0.000000023023617,
-    w: 0.9999955}
+  m_LocalRotation: {x: -0.00300101, y: 0.00000049426035, z: -0.000000023023539, w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
