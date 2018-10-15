@@ -68,9 +68,9 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0.07
+    - _OutlineWidth: 0.05
     - _Parallax: 0.02
-    - _RimPower: 5.4
+    - _RimPower: 10
     - _ShadowLineWidth: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -82,8 +82,8 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0.3773585, g: 0.22020234, b: 0.09077963, a: 1}
-    - _RimColor: {r: 1, g: 0.92243993, b: 0.5882353, a: 1}
-    - _ShadowColor: {r: 0.745283, g: 0.5413848, b: 0.43943575, a: 1}
+    - _RimColor: {r: 0.9056604, g: 0.87063015, b: 0.7305091, a: 1}
+    - _ShadowColor: {r: 0.8301887, g: 0.6566872, b: 0.505162, a: 1}
     - _ShadowLineColor: {r: 1, g: 1, b: 1, a: 1}
     - _XNegativeColor: {r: 1, g: 1, b: 1, a: 1}
     - _XPositiveColor: {r: 1, g: 1, b: 1, a: 1}
