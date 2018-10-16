@@ -21,7 +21,7 @@ public class HUDControl : MonoBehaviour
 
     void Start()
     {
-        Services.hudController.PlayNextUIEvent();
+        //Services.hudController.PlayNextUIEvent();
         //Services.hudController.PlayNextUIEvent();
         //Services.hudController.PlayNextUIEvent();
     }
