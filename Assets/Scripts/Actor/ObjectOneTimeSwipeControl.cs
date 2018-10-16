@@ -8,6 +8,7 @@ public class ObjectOneTimeSwipeControl : ObjectAutoControl
 {
     [Header("Swipe Settings")]
     public Vector3 swipeOffset;
+    public UnityEvent onStartSwipe;
     public UnityEvent onReachEnd;
 
     // Use this for initialization
@@ -25,6 +26,11 @@ public class ObjectOneTimeSwipeControl : ObjectAutoControl
         if (IsReady() && !IsLocked())
         {
             transform.DOMove(transform.position + swipeOffset, 0.5f)
+                .OnStart(()=>
+                {
+                    onStartSwipe.Invoke();
+                }
+                )
                 .OnComplete(() =>
                 {
                     FreeAllMan();
