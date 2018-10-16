@@ -21,13 +21,11 @@ public class HUDControl : MonoBehaviour
 
     void Start()
     {
-        Services.hudController.PlayNextUIEvent();
-        //Services.hudController.PlayNextUIEvent();
-        //Services.hudController.PlayNextUIEvent();
+        PlayNextUIEvent();
     }
 
     private void Update()
-    {
+    { 
     }
 
     private void OnDrawGizmos()
@@ -79,7 +77,7 @@ public class HUDControl : MonoBehaviour
     {
         string[] info = targetImage.Split(',');
         GameObject image = GameObject.Find(info[0]);
-        image.transform.DOScale(Vector3.zero, float.Parse(info[1])).OnComplete(() => { image.SetActive(false); });       
+        image.transform.DOScale(Vector3.zero, float.Parse(info[1])).OnComplete(() => { Destroy(image); });       
     }
 
     public void AddAnchor()
