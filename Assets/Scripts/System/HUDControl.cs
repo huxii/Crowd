@@ -7,13 +7,13 @@ using DG.Tweening;
 
 public class HUDControl : MonoBehaviour
 {
-    public Texture gizmoTexture;
     public GameObject canvas;
     public List<UnityEvent> levelUIEvents;
     private int curId = 0;
 
     [SerializeField]
     private List<GameObject> anchors = new List<GameObject>();
+    [SerializeField]
     private GameObject anchorsObj;    
     [HideInInspector]
     [SerializeField]
@@ -40,7 +40,9 @@ public class HUDControl : MonoBehaviour
             }
             else
             {
-                Gizmos.DrawGUITexture(new Rect(anchor.GetComponent<RectTransform>().position.x, anchor.GetComponent<RectTransform>().position.y, 1, 1), gizmoTexture);
+                //Gizmos.DrawGUITexture(new Rect(anchor.transform.position.x, anchor.transform.position.y, 1, 1), gizmoTexture);
+                Gizmos.color = Color.cyan;
+                Gizmos.DrawWireSphere(anchor.transform.position, 0.2f);
             }
         }
     }
@@ -91,8 +93,9 @@ public class HUDControl : MonoBehaviour
 
         GameObject anchor = new GameObject("Anchor" + anchorCounter, typeof(RectTransform));
         anchor.transform.SetParent(anchorsObj.transform);
-        anchorsObj.transform.localPosition = Vector3.zero;
+        anchor.transform.localPosition = Vector3.zero;
         ++anchorCounter;
+
         anchors.Add(anchor);
     }
 }
