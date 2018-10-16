@@ -162,4 +162,14 @@ public class SoundControl : MonoBehaviour
 
         }
     }
+    public void SetVolume(string id, float volume = 0)
+    {
+        foreach (GameObject source in audioSources)
+        {
+            if (source.GetComponent<AudioSource>().clip != null && source.GetComponent<AudioSource>().clip.name == soundList[id].audioClip.name)
+            {
+                source.GetComponent<AudioSource>().DOFade(volume, soundList[id].fadeOutDuration);
+            }
+        }
+    }
 }
