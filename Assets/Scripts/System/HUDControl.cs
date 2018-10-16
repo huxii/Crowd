@@ -21,14 +21,13 @@ public class HUDControl : MonoBehaviour
 
     void Start()
     {
+        Services.hudController.PlayNextUIEvent();
+        //Services.hudController.PlayNextUIEvent();
+        //Services.hudController.PlayNextUIEvent();
     }
 
     private void Update()
     {
-        if (Time.time > 2f)
-        {
-            Services.hudController.PlayNextUIEvent();
-        }
     }
 
     private void OnDrawGizmos()
@@ -61,11 +60,14 @@ public class HUDControl : MonoBehaviour
         foreach (GameObject anch in anchors){
             if(anch.name == info[0])
             {
+                GameObject image = new GameObject(info[1], typeof(RectTransform));
+                image.transform.position = anch.transform.position;
+                image.transform.SetParent(canvas.transform);
+                image.AddComponent<Image>();
                 Sprite outsideImage = Resources.Load<Sprite>("Sprites/" + info[1]);
-                anch.GetComponent<Image>().sprite = outsideImage;
-                anch.transform.localScale = Vector3.zero;
-                anch.SetActive(true);
-                anch.transform.DOScale(Vector3.one, float.Parse(info[2]));
+                image.GetComponent<Image>().sprite = outsideImage;
+                image.transform.localScale = Vector3.zero;
+                image.transform.DOScale(Vector3.one, float.Parse(info[2]));
                 break;
             }
         }
@@ -74,29 +76,23 @@ public class HUDControl : MonoBehaviour
     public void CloseImage(string targetImage)
     {
         string[] info = targetImage.Split(',');
-        foreach (GameObject anch in anchors)
-        {
-            if (anch.name == info[0])
-            {
-                anch.transform.DOScale(Vector3.zero, float.Parse(info[1])).OnComplete(() => { anch.SetActive(false); });
-                break;
-            }
-        }
+        GameObject image = GameObject.Find(info[0]);
+        image.transform.DOScale(Vector3.zero, float.Parse(info[1])).OnComplete(() => { image.SetActive(false); });       
     }
 
     public void AddAnchor()
     {
         if (anchorsObj == null)
         {
-            anchorsObj = new GameObject();
-            anchorsObj.name = "Anchors";
+            anchorsObj = new GameObject("Anchors", typeof(RectTransform));
             anchorsObj.transform.SetParent(canvas.transform);
+            anchorsObj.transform.localPosition = Vector3.zero;
         }
 
         GameObject anchor = new GameObject("Anchor" + anchorCounter, typeof(RectTransform));
         anchor.transform.SetParent(anchorsObj.transform);
+        anchorsObj.transform.localPosition = Vector3.zero;
         ++anchorCounter;
-
         anchors.Add(anchor);
     }
 }
