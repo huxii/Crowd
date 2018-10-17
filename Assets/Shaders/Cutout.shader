@@ -141,6 +141,8 @@
 			}
 
 			ENDCG
+
+			Cull Off
 		}
 	}
 	FallBack "Diffuse"

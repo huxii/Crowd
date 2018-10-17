@@ -308,6 +308,20 @@ ModelImporter:
     100604: StarBuckle
     100606: StartHook
     100608: Platform2Handle
+    100610: flag
+    100612: flag0
+    100614: flag1
+    100616: flag2
+    100618: flag3
+    100620: flag4
+    100622: flag5
+    100624: flag6
+    100626: flag7
+    100628: flag8
+    100630: flag9
+    100632: Flags
+    100634: Gear101
+    100636: Gear51
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -613,6 +627,20 @@ ModelImporter:
     400604: StarBuckle
     400606: StartHook
     400608: Platform2Handle
+    400610: flag
+    400612: flag0
+    400614: flag1
+    400616: flag2
+    400618: flag3
+    400620: flag4
+    400622: flag5
+    400624: flag6
+    400626: flag7
+    400628: flag8
+    400630: flag9
+    400632: Flags
+    400634: Gear101
+    400636: Gear51
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -865,6 +893,19 @@ ModelImporter:
     2300494: StarBuckle
     2300496: StartHook
     2300498: Platform2Handle
+    2300500: flag
+    2300502: flag0
+    2300504: flag1
+    2300506: flag2
+    2300508: flag3
+    2300510: flag4
+    2300512: flag5
+    2300514: flag6
+    2300516: flag7
+    2300518: flag8
+    2300520: flag9
+    2300522: Gear101
+    2300524: Gear51
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1115,6 +1156,19 @@ ModelImporter:
     3300494: StarBuckle
     3300496: StartHook
     3300498: Platform2Handle
+    3300500: flag
+    3300502: flag0
+    3300504: flag1
+    3300506: flag2
+    3300508: flag3
+    3300510: flag4
+    3300512: flag5
+    3300514: flag6
+    3300516: flag7
+    3300518: flag8
+    3300520: flag9
+    3300522: Gear101
+    3300524: Gear51
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -1363,6 +1417,19 @@ ModelImporter:
     4300490: Gear5Tooth43
     4300492: Gear5Tooth44
     4300494: Platform2Handle
+    4300496: flag
+    4300498: flag0
+    4300500: flag1
+    4300502: flag2
+    4300504: flag3
+    4300506: flag4
+    4300508: flag5
+    4300510: flag6
+    4300512: flag7
+    4300514: flag8
+    4300516: flag9
+    4300518: Gear51
+    4300520: Gear101
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:

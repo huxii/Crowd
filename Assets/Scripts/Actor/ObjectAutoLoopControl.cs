@@ -7,6 +7,7 @@ public class ObjectAutoLoopControl : ObjectAutoControl
 {
     [Header("Loop Settings")]
     public float loopInterval = 1f;
+    public float startDelay = 0f;
     public UnityEvent loopEvent;
     public UnityEvent singleLoopEvent;
     public UnityEvent doubleLoopEvent;
@@ -47,6 +48,6 @@ public class ObjectAutoLoopControl : ObjectAutoControl
     {
         base.Activate();
 
-        timer = 1f;
+        timer = loopInterval - Mathf.Min(startDelay, loopInterval);
     }
 }
