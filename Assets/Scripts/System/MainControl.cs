@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-// TODO: main menu & end of level & flags
+// TODO: main menu & feedback & sounds
 
 public class MainControl : MonoBehaviour
 {
