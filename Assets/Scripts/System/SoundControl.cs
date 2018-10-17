@@ -47,13 +47,15 @@ public class SoundControl : MonoBehaviour
             audioSources.Add(audio);
         }
 
-        string[] lines = System.IO.File.ReadAllLines(Application.dataPath + "//Resources//Sounds//AudioList.csv");
+        TextAsset textAsset = Resources.Load<TextAsset>("Sounds/AudioList");
+        string texts = textAsset.text;
+        string[] lines = texts.Split('\n','\r');
         for (int i = 1; i < lines.Length; i++)
         {
             SoundClip clip = new SoundClip();
-            if (lines[i][0] == '1')
-            {
-                string[] row = lines[i].Split(splitter);
+            string[] row = lines[i].Split(splitter);
+            if (row[0] == "1")
+            {             
                 clip.id = row[1];
                 clip.audioClip = Resources.Load<AudioClip>("Sounds/" + row[2]);
                 int.TryParse(row[3], out clip.loop);
