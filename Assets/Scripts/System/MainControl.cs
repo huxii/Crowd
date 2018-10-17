@@ -4,11 +4,17 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-// TODO: main menu & MerryGoRound pause & camera readjust & postprocess
+// TODO: main menu & end of level & flags
 
 public class MainControl : MonoBehaviour
 {
     public UnityEvent onLevelStart;
+    public UnityEvent onLevelEnd;
+    public UnityEvent onLevelExit;
+    public float exitLevelDelayTime = 1f;
+
+    private bool isEnd = false;
+    private float timer;
 
     //private GameObject selectedMan = null;
     private GameObject[] men;
@@ -34,6 +40,7 @@ public class MainControl : MonoBehaviour
         CheckPlatform();
 
         onLevelStart.Invoke();
+        timer = exitLevelDelayTime;
     }
 
     // Update is called once per frame
@@ -41,6 +48,18 @@ public class MainControl : MonoBehaviour
     {
         Services.eventManager.ProcessQueuedEvents();
         Services.taskManager.Update();
+
+        if (isEnd)
+        {
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+                if (timer <= 0)
+                {
+                    ExitLevel();
+                }
+            }
+        }
     }
 
     void OnDestroy()
@@ -473,5 +492,18 @@ public class MainControl : MonoBehaviour
         {
             man.GetComponent<CrowdControl>().WalkAcross(obj);
         }
+    }
+
+    public void EndLevel()
+    {
+        onLevelEnd.Invoke();
+
+        isEnd = true;
+        Services.inputController.Lock(true);
+    }
+
+    public void ExitLevel()
+    {
+        onLevelExit.Invoke();
     }
 }

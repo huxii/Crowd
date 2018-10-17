@@ -21,7 +21,7 @@ public class HUDControl : MonoBehaviour
 
     void Start()
     {
-        PlayNextUIEvent();
+        //PlayNextUIEvent();
     }
 
     private void Update()

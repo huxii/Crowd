@@ -6,6 +6,8 @@ public abstract class InputControl : MonoBehaviour
 {
     public bool gyroEnabled = false;
 
+    protected bool locked = false;
+
     // single click
     protected GameObject mouseClickObject = null;
     protected Vector3 mouseClickPos;
@@ -41,6 +43,11 @@ public abstract class InputControl : MonoBehaviour
 
     protected void DetectMouse()
     {
+        if (locked)
+        {
+            return;
+        }
+
         if (Input.touchCount < 2)
         {
             if (Time.time - doubleClickTime > doubleClickTolerence)
@@ -282,7 +289,12 @@ public abstract class InputControl : MonoBehaviour
 
     protected void Zoom(float delta)
     {
-        Debug.Log("Pinch " + delta);
+        //Debug.Log("Pinch " + delta);
         Services.cameraController.Zoom(delta);
+    }
+
+    public void Lock(bool isLocked)
+    {
+        locked = isLocked;
     }
 }

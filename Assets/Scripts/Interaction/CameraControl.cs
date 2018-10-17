@@ -181,38 +181,12 @@ public class CameraControl : MonoBehaviour
 
     private void ZoomOut()
     {
-        if (zoomLevel >= 1)
-        {
-            ResetTranslate();
-            cameraSpeed = zoomCameraSpeed;
-
-            --zoomLevel;
-            targetCameraAttr = zoomLevelAttrs[zoomLevel];
-            targetAngle = targetCameraAttr.angleZero;
-
-            if (zoomLevel == 0)
-            {
-                onEnterMaxZoomOut.Invoke();
-            }
-        }
+        SetZoom(zoomLevel - 1);
     }
 
     private void ZoomIn()
     {
-        if (zoomLevel < maxZoomLevel - 1)
-        {
-            if (zoomLevel == 0)
-            {
-                onExitMaxZoomOut.Invoke();
-            }
-
-            ResetTranslate();
-            cameraSpeed = zoomCameraSpeed;
-
-            ++zoomLevel;
-            targetCameraAttr = zoomLevelAttrs[zoomLevel];
-            targetAngle = targetCameraAttr.angleZero;
-        }
+        SetZoom(zoomLevel + 1);
     }
 
     public void Zoom(float delta)
@@ -229,6 +203,29 @@ public class CameraControl : MonoBehaviour
         else
         {
             ZoomOut();
+        }
+    }
+
+    public void SetZoom(int level)
+    {
+        if (level >= 0 && level < maxZoomLevel)
+        {
+            if (level == 0)
+            {
+                onEnterMaxZoomOut.Invoke();
+            }
+            else
+            if (zoomLevel == 0)
+            {
+                onExitMaxZoomOut.Invoke();
+            }
+
+            ResetTranslate();
+            cameraSpeed = zoomCameraSpeed;
+
+            zoomLevel = level;
+            targetCameraAttr = zoomLevelAttrs[zoomLevel];
+            targetAngle = targetCameraAttr.angleZero;
         }
     }
 }
