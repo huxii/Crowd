@@ -4,6 +4,8 @@
 	{
 		[Header(Base)]
 		_MainTex("Texture", 2D) = "white" {}
+		_AlphaCutOff("Alpha Cut Off", Range(0, 1)) = 0.3
+
 		_XPositiveColor("X+ Color", Color) = (1, 1, 1, 1)
 		_XNegativeColor("X- Color", Color) = (1, 1, 1, 1)
 		_YPositiveColor("Y+ Color", Color) = (1, 1, 1, 1)
@@ -26,6 +28,8 @@
 		Tags { "RenderType"="Opaque" }
 		LOD 200
 
+		Cull Off
+
 		Pass
 		{
 			Name "Base"
@@ -44,6 +48,7 @@
 
 			uniform sampler2D _MainTex;
 			uniform float4 _MainTex_ST;
+			uniform float _AlphaCutOff;
 
 			uniform float4 _ShadowColor;
 			uniform float4 _BrightColor;
@@ -95,7 +100,7 @@
 			{ 
 				
 				float4 tex = tex2D(_MainTex, i.tex.xy);
-				clip(tex.a - 0.3);
+				clip(tex.a - _AlphaCutOff);
 
 				float atten = LIGHT_ATTENUATION(i);
 				float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld);
@@ -141,8 +146,58 @@
 			}
 
 			ENDCG
+		}
 
-			Cull Off
+		Pass
+		{
+			Name "Caster"
+			Tags
+			{
+				"LightMode" = "ShadowCaster"
+				"Queue" = "AlphaTest"
+				"IgnoreProjector" = "True"
+				"RenderType" = "TransparentCutout"
+			}
+			Offset 1, 1
+
+			Fog {Mode Off}
+			ZWrite On ZTest Less Cull Off
+
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+			#pragma fragmentoption ARB_precision_hint_fastest
+			#pragma multi_compile_shadowcaster
+			#include "UnityCG.cginc"
+
+			uniform sampler2D _MainTex;
+			uniform float4 _MainTex_ST;
+			uniform float _AlphaCutOff;
+
+			struct v2f
+			{
+				V2F_SHADOW_CASTER;
+				float4 posWorld : TEXCOORD0;
+				float2 tex : TEXCOORD1;
+			};
+
+			v2f vert(appdata_base v)
+			{
+				v2f o;
+				TRANSFER_SHADOW_CASTER(o)
+				o.tex = TRANSFORM_TEX(v.texcoord, _MainTex);
+				o.posWorld = mul(unity_ObjectToWorld, v.vertex);
+				return o;
+			}
+
+			float4 frag(v2f i) : COLOR
+			{
+				float4 tex = tex2D(_MainTex, i.tex.xy);
+				clip(tex.a - _AlphaCutOff);
+				SHADOW_CASTER_FRAGMENT(i)
+			}
+
+			ENDCG
 		}
 	}
 	FallBack "Diffuse"

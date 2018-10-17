@@ -4,6 +4,8 @@
 	{
 		[Header(Base)]
 		_MainTex("Texture", 2D) = "white" {}
+		_AlphaCutOff("Alpha Cut Off", Range(0, 1)) = 0.3
+
 		_MinY("Min Y", Range(0, 20)) = 0
 		_MaxY("Max Y", Range(0, 20)) = 20
 		_Offset("Offset", float) = 0
@@ -25,6 +27,8 @@
 		Tags { "RenderType"="Opaque" }
 		LOD 200
 
+		Cull Off
+
 		Pass
 		{
 			Name "Base"
@@ -43,9 +47,10 @@
 
 			uniform sampler2D _MainTex;
 			uniform float4 _MainTex_ST;
+			uniform float _AlphaCutOff;
+
 			uniform float _MinY;
 			uniform float _MaxY;
-			uniform float _Speed;
 			uniform float _Offset;
 
 			uniform float4 _ShadowColor;
@@ -93,7 +98,7 @@
 			float4 frag(vertexOutput i) : COLOR
 			{ 				
 				float4 tex = tex2D(_MainTex, i.tex.xy);
-				clip(tex.a - 0.3);
+				clip(tex.a - _AlphaCutOff);
 				clip(i.posWorld.y - _MinY);
 				clip(_MaxY - i.posWorld.y);
 
@@ -138,6 +143,62 @@
 				return lightFinal;
 			}
 
+			ENDCG
+		}
+
+		Pass
+		{
+			Name "Caster"
+			Tags
+			{
+				"LightMode" = "ShadowCaster"
+				"Queue" = "AlphaTest"
+				"IgnoreProjector" = "True"
+				"RenderType" = "TransparentCutout"
+			}
+			Offset 1, 1
+
+			Fog {Mode Off}
+			ZWrite On ZTest Less Cull Off
+
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+			#pragma fragmentoption ARB_precision_hint_fastest
+			#pragma multi_compile_shadowcaster
+			#include "UnityCG.cginc"
+
+			uniform sampler2D _MainTex;
+			uniform float4 _MainTex_ST;
+			uniform float _AlphaCutOff;
+			uniform float _MinY;
+			uniform float _MaxY;
+
+            struct v2f 
+			{
+				V2F_SHADOW_CASTER;
+				float4 posWorld : TEXCOORD0;
+                float2 tex : TEXCOORD1;					
+            };
+               
+            v2f vert( appdata_base v ) 
+			{
+                v2f o;
+                TRANSFER_SHADOW_CASTER(o)
+                o.tex = TRANSFORM_TEX(v.texcoord, _MainTex);
+				o.posWorld = mul(unity_ObjectToWorld, v.vertex);
+                return o;
+            }
+
+			float4 frag(v2f i) : COLOR
+			{
+				float4 tex = tex2D(_MainTex, i.tex.xy);
+				clip(tex.a - _AlphaCutOff);
+				clip(i.posWorld.y - _MinY);
+				clip(_MaxY - i.posWorld.y);
+				SHADOW_CASTER_FRAGMENT(i)
+			}
+			
 			ENDCG
 		}
 	}

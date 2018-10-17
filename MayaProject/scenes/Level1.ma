@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Level1.ma
-//Last modified: Wed, Oct 17, 2018 01:26:34 PM
+//Last modified: Wed, Oct 17, 2018 01:46:18 PM
 //Codeset: 1252
 requires maya "2018";
 requires "stereoCamera" "10.0";
@@ -15,8 +15,8 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "69C2E574-45FA-86C5-802E-A39F733991CA";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 1.0738914378093443 2.2410543044230407 -0.10678429264864349 ;
-	setAttr ".r" -type "double3" -62.738351664449304 -2064.199999999681 359.99999999631177 ;
+	setAttr ".t" -type "double3" -0.080911221287433513 1.1514182783972151 1.4195385243516421 ;
+	setAttr ".r" -type "double3" -29.738351660825966 -2526.9999999995775 360.00000000037215 ;
 	setAttr ".rpt" -type "double3" -2.2632922261941428e-16 1.6490924591784268e-16 4.2076300507971209e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "9F9F5D75-4A7D-841F-FA80-70A4D602A756";
@@ -25,7 +25,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.001;
 	setAttr ".fcp" 100;
 	setAttr ".fd" 0.05;
-	setAttr ".coi" 2.1496391989697146;
+	setAttr ".coi" 1.6555720290282585;
 	setAttr ".ow" 0.1;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
@@ -64170,7 +64170,7 @@ createNode lambert -n "CutoutMat";
 createNode shadingEngine -n "lambert2SG";
 	rename -uid "B0453C7C-4DC3-80D9-6F30-CFB8B5F5D309";
 	setAttr ".ihi" 0;
-	setAttr -s 90 ".dsm";
+	setAttr -s 89 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "C6448EF2-4129-2158-3DF2-E5B0BC950418";
@@ -65904,7 +65904,7 @@ createNode shadingEngine -n "lambert5SG";
 createNode materialInfo -n "materialInfo8";
 	rename -uid "E655FEA8-42F7-A47D-D37C-2BBFE1F07F3F";
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "693A10E8-4BFC-58B8-1C14-06921904AA55";
+	rename -uid "F2211F1D-4120-F85D-AD9A-FC83FC8075B1";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
 	setAttr ".tgi[0].vl" -type "double2" -765.95750781354036 -892.85710737818931 ;
 	setAttr ".tgi[0].vh" -type "double2" 185.00514994613192 73.809520876596935 ;
