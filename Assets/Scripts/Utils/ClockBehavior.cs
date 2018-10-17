@@ -32,4 +32,10 @@ public class ClockBehavior : MonoBehaviour
             Services.gameController.GetComponent<DotweenEvents>().Rotate("MinuteHand, z, 6, 0.1");
         }
     }
+
+    public void TimeToGetUp()
+    {
+        Services.gameController.GetComponent<DotweenEvents>().Rotate("MinuteHand, z, 30, 1");
+        Services.gameController.GetComponent<DotweenEvents>().Rotate("HourHand, z, 5, 1");
+    }
 }

@@ -33,15 +33,13 @@ public class SoundControl : MonoBehaviour
     private List<SoundClip> clips;
     private int pooledAudioAmount = 10; 
 
-    List<GameObject> audioSources;
+    List<GameObject> audioSources = new List<GameObject>();
     Dictionary<string, SoundClip> soundList = new Dictionary<string, SoundClip>();
 
     char[] splitter = { ' ', ',' };
 
-    // Use this for initialization
-    void Start()
+    private void Awake()
     {
-        audioSources = new List<GameObject>();
         for (int i = 0; i < pooledAudioAmount; i++)
         {
             GameObject audio = (GameObject)Instantiate(audioSourcePrefab);
@@ -84,6 +82,12 @@ public class SoundControl : MonoBehaviour
         {
             soundList.Add(s.id, s);
         }
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+
     }
 
     // Update is called once per frame
@@ -156,6 +160,16 @@ public class SoundControl : MonoBehaviour
                 break;
             }
 
+        }
+    }
+    public void SetVolume(string id, float volume = 0)
+    {
+        foreach (GameObject source in audioSources)
+        {
+            if (source.GetComponent<AudioSource>().clip != null && source.GetComponent<AudioSource>().clip.name == soundList[id].audioClip.name)
+            {
+                source.GetComponent<AudioSource>().DOFade(volume, soundList[id].fadeOutDuration);
+            }
         }
     }
 }

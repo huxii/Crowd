@@ -7,13 +7,13 @@ using DG.Tweening;
 
 public class HUDControl : MonoBehaviour
 {
-    public Texture gizmoTexture;
     public GameObject canvas;
     public List<UnityEvent> levelUIEvents;
     private int curId = 0;
 
     [SerializeField]
     private List<GameObject> anchors = new List<GameObject>();
+    [SerializeField]
     private GameObject anchorsObj;    
     [HideInInspector]
     [SerializeField]
@@ -21,14 +21,11 @@ public class HUDControl : MonoBehaviour
 
     void Start()
     {
+        //PlayNextUIEvent();
     }
 
     private void Update()
-    {
-        if (Time.time > 2f)
-        {
-            Services.hudController.PlayNextUIEvent();
-        }
+    { 
     }
 
     private void OnDrawGizmos()
@@ -41,7 +38,9 @@ public class HUDControl : MonoBehaviour
             }
             else
             {
-                Gizmos.DrawGUITexture(new Rect(anchor.GetComponent<RectTransform>().position.x, anchor.GetComponent<RectTransform>().position.y, 1, 1), gizmoTexture);
+                //Gizmos.DrawGUITexture(new Rect(anchor.transform.position.x, anchor.transform.position.y, 1, 1), gizmoTexture);
+                Gizmos.color = Color.cyan;
+                Gizmos.DrawWireSphere(anchor.transform.position, 0.2f);
             }
         }
     }
@@ -61,11 +60,14 @@ public class HUDControl : MonoBehaviour
         foreach (GameObject anch in anchors){
             if(anch.name == info[0])
             {
+                GameObject image = new GameObject(info[1], typeof(RectTransform));
+                image.transform.position = anch.transform.position;
+                image.transform.SetParent(canvas.transform);
+                image.AddComponent<Image>();
                 Sprite outsideImage = Resources.Load<Sprite>("Sprites/" + info[1]);
-                anch.GetComponent<Image>().sprite = outsideImage;
-                anch.transform.localScale = Vector3.zero;
-                anch.SetActive(true);
-                anch.transform.DOScale(Vector3.one, float.Parse(info[2]));
+                image.GetComponent<Image>().sprite = outsideImage;
+                image.transform.localScale = Vector3.zero;
+                image.transform.DOScale(Vector3.one, float.Parse(info[2]));
                 break;
             }
         }
@@ -74,27 +76,22 @@ public class HUDControl : MonoBehaviour
     public void CloseImage(string targetImage)
     {
         string[] info = targetImage.Split(',');
-        foreach (GameObject anch in anchors)
-        {
-            if (anch.name == info[0])
-            {
-                anch.transform.DOScale(Vector3.zero, float.Parse(info[1])).OnComplete(() => { anch.SetActive(false); });
-                break;
-            }
-        }
+        GameObject image = GameObject.Find(info[0]);
+        image.transform.DOScale(Vector3.zero, float.Parse(info[1])).OnComplete(() => { Destroy(image); });       
     }
 
     public void AddAnchor()
     {
         if (anchorsObj == null)
         {
-            anchorsObj = new GameObject();
-            anchorsObj.name = "Anchors";
+            anchorsObj = new GameObject("Anchors", typeof(RectTransform));
             anchorsObj.transform.SetParent(canvas.transform);
+            anchorsObj.transform.localPosition = Vector3.zero;
         }
 
         GameObject anchor = new GameObject("Anchor" + anchorCounter, typeof(RectTransform));
         anchor.transform.SetParent(anchorsObj.transform);
+        anchor.transform.localPosition = Vector3.zero;
         ++anchorCounter;
 
         anchors.Add(anchor);
