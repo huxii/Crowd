@@ -4,17 +4,16 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 
-[CustomEditor(typeof(PathPoint))]
+[CustomEditor(typeof(Tile))]
 [CanEditMultipleObjects]
-public class PathPointEditor : Editor
+public class TileEditor : Editor
 {
-    //private PathPoint pathPoint;
-    private PathFindingManager pathFinder;
+    private TileBasedPathFindingManager pathFinder;
 
     void Awake()
     {
         //pathPoint = (PathPoint)target;
-        pathFinder = GameObject.Find("PathFinder").GetComponent<PathFindingManager>();
+        pathFinder = GameObject.Find("PathFinder").GetComponent<TileBasedPathFindingManager>();
     }
 
     void OnDestroy()
@@ -29,18 +28,9 @@ public class PathPointEditor : Editor
         if (GUILayout.Button("Connect"))
         {
             GameObject[] points = Selection.gameObjects;
-            if (points.Length == 2 && points[0].GetComponent<PathPoint>() != null && points[1].GetComponent<PathPoint>() != null)
+            if (points.Length == 2 && points[0].GetComponent<Tile>() != null && points[1].GetComponent<Tile>() != null)
             {
                 pathFinder.ConnectPath(points[0], points[1]);
-            }
-        }
-
-        if (GUILayout.Button("Disconnect"))
-        {
-            GameObject[] points = Selection.gameObjects;
-            if (points.Length == 2 && points[0].GetComponent<PathPoint>() != null && points[1].GetComponent<PathPoint>() != null)
-            {
-                pathFinder.DisconnectPath(points[0], points[1]);
             }
         }
 
@@ -52,3 +42,4 @@ public class PathPointEditor : Editor
         }
     }
 }
+

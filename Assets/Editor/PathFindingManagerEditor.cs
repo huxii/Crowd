@@ -7,7 +7,7 @@ using UnityEditor.SceneManagement;
 [CustomEditor(typeof(PathFindingManager))]
 public class PathFindingManagerEditor : Editor
 {
-    public static PathFindingManager pathFinder;
+    private static PathFindingManager pathFinder;
 
     void Awake()
     {
@@ -18,12 +18,66 @@ public class PathFindingManagerEditor : Editor
     {
         DrawDefaultInspector();
 
+        if (GUILayout.Button("Refresh"))
+        {
+            pathFinder.GetComponent<PathFindingManager>().Refresh();
+        }
+
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(target);
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        }
+    }
+}
+
+[CustomEditor(typeof(PointBasedPathFindingManager))]
+public class PointBasedPathFindingManagerEditor : PathFindingManagerEditor
+{
+    private static PointBasedPathFindingManager pathFinder;
+
+    void Awake()
+    {
+        pathFinder = (PointBasedPathFindingManager)target;
+    }
+
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        if (GUILayout.Button("Add Tile"))
+        {
+            GameObject newTile = pathFinder.AddPathPoint();
+            Selection.activeGameObject = newTile;
+        }
+
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(target);
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        }
+    }
+}
+
+[CustomEditor(typeof(TileBasedPathFindingManager))]
+public class TileBasedPathFindingManagerEditor : PathFindingManagerEditor
+{
+    private static TileBasedPathFindingManager pathFinder;
+
+    void Awake()
+    {
+        pathFinder = (TileBasedPathFindingManager)target;
+    }
+
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
         //pathFinder.test = EditorGUILayout.Toggle("haha", pathFinder.test);
 
-        if (GUILayout.Button("Add Path Point"))
+        if (GUILayout.Button("Add Tile"))
         {
-            GameObject newPoint = pathFinder.AddPathPoint();
-            Selection.activeGameObject = newPoint;
+            GameObject newTile = pathFinder.AddTile();
+            Selection.activeGameObject = newTile;
         }
 
         if (GUI.changed)

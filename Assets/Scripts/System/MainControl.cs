@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using DG.Tweening;
 
 // TODO: main menu & feedback (red states) & sounds (build error) & control (tap->swipe) & 
-// not obvious (interactable & not) & camera movement gesture & falling from platform & hints & click on ladder
+// not obvious (interactable & not) & camera movement gesture & falling from platform & hints & click on ladder 
 
 public class MainControl : MonoBehaviour
 {
@@ -430,9 +430,18 @@ public class MainControl : MonoBehaviour
         }
         else
         {
+            int reachableMenNum = 0;
             foreach (GameObject man in men)
             {
-                MoveMan(man, targetPos, (men.Length - 1) * 0.15f + 0.05f);
+                if (Services.pathFindingManager.FindPath(man, targetPos))
+                {
+                    ++reachableMenNum;
+                }
+            }
+
+            foreach (GameObject man in men)
+            {
+                MoveMan(man, targetPos, (reachableMenNum - 1) * 0.15f + 0.05f);
             }
         }
     }

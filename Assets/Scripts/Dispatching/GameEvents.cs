@@ -10,7 +10,7 @@ public class GameEvents : MonoBehaviour
 
     // unity events only allow one or zero parameter.
     // so combine two game objects into one by names (eg. "gameobject0, gameobject1")
-    public void ConnectPathPoints(string pointsName)
+    public void ConnectPath(string pointsName)
     {
         string[] pointsNames = pointsName.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
         if (pointsNames.Length != 2)
@@ -24,10 +24,10 @@ public class GameEvents : MonoBehaviour
         {
             return;
         }
-        Services.pathFindingManager.ConnectPathPoints(p0, p1);
+        Services.pathFindingManager.ConnectPath(p0, p1);
     }
 
-    public void DisconnectPathPoints(string pointsName)
+    public void DisconnectPath(string pointsName)
     {
         string[] pointsNames = pointsName.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
         if (pointsNames.Length != 2)
@@ -41,7 +41,7 @@ public class GameEvents : MonoBehaviour
         {
             return;
         }
-        Services.pathFindingManager.DisconnectPathPoints(p0, p1);
+        Services.pathFindingManager.DisconnectPath(p0, p1);
     }
 
     public void SetFollowPathPoint(string pointsName)
