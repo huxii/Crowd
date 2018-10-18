@@ -448,7 +448,10 @@ public class MainControl : MonoBehaviour
 
     public void DropMan(GameObject man)
     {
-        Services.eventManager.Fire(new ManDrop(man));
+        //Services.eventManager.Fire(new ManDrop(man));
+
+        StopMan(man);
+        Services.pathFindingManager.StopActor(man);
 
         RaycastHit[] hits;
         hits = Physics.RaycastAll(man.transform.position, Vector3.down, 100f);
@@ -459,7 +462,7 @@ public class MainControl : MonoBehaviour
                 if (hit.transform.gameObject.CompareTag("Ground"))
                 {
                     Vector3 landPos = hit.point;
-                    man.transform.DOMove(landPos, 1f).SetEase(Ease.InCubic);
+                    man.GetComponent<Rigidbody>().DOMove(landPos, 1f).SetEase(Ease.InCubic);
                     break;
                 }
             }

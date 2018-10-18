@@ -17,6 +17,10 @@ public class PathFindingManager : MonoBehaviour
             tol = 0;
         }
 
+        public virtual void Insert(GameObject tile)
+        {
+        }
+
         public virtual void Insert(Vector3 pos)
         {
         }
@@ -61,6 +65,14 @@ public class PathFindingManager : MonoBehaviour
             }
 
             ActorMoveUpdate(actor);
+        }
+    }
+
+    public void StopActor(GameObject actor)
+    {
+        if (pathTable.ContainsKey(actor))
+        {
+            pathTable.Remove(actor);
         }
     }
 

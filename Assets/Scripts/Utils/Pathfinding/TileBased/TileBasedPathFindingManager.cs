@@ -119,6 +119,9 @@ public class TileBasedPathFindingManager : PathFindingManager
         newTile.name = "Tile" + counter;
         newTile.transform.SetParent(tilesObj.transform);
         newTile.transform.localPosition = new Vector3(0, 0, 0);
+        newTile.layer = 2;
+        newTile.AddComponent<BoxCollider>();
+        newTile.GetComponent<BoxCollider>().isTrigger = true;
         newTile.AddComponent<Tile>();
         tiles.Add(newTile);
         ++counter;
@@ -190,7 +193,7 @@ public class TileBasedPathFindingManager : PathFindingManager
         {
             return false;
         }
-        Debug.Log(startTile + " " + endTile);
+        //Debug.Log(startTile + " " + endTile);
 
         // re-number all the pathpoints
         Dictionary<GameObject, int> IDs = new Dictionary<GameObject, int>();
@@ -202,12 +205,12 @@ public class TileBasedPathFindingManager : PathFindingManager
         }
 
         // init path matrix
-        bool[,] path = new bool[tiles.Count, tiles.Count];
+        float[,] path = new float[tiles.Count, tiles.Count];
         for (int i = 0; i < N; ++i)
         {
             for (int j = 0; j < N; ++j)
             {
-                path[i, j] = false;
+                path[i, j] = float.MaxValue;
             }
         }
         foreach (GameObject edge in tileEdges)
@@ -217,16 +220,18 @@ public class TileBasedPathFindingManager : PathFindingManager
 
             int id0 = IDs[p0];
             int id1 = IDs[p1];
-            path[id0, id1] = path[id1, id0] = true;
+            path[id0, id1] = path[id1, id0] = Vector3.Distance(p0.transform.position, p1.transform.position);
         }
 
+        float[] d = new float[N];
         int[] preTile = new int[N];
         List<int> queue = new List<int>();
-        bool[] reached = new bool[N];
+        bool[] inQueue = new bool[N];
         for (int i = 0; i < N; ++i)
         {
-            reached[i] = false;
+            inQueue[i] = false;
             preTile[i] = -1;
+            d[i] = float.MaxValue;
         }
 
         int startID = IDs[startTile];
@@ -235,19 +240,22 @@ public class TileBasedPathFindingManager : PathFindingManager
         int head = 0;
         int tail = 0;
         queue.Add(startID);
-        reached[startID] = true;
+        inQueue[startID] = true;
         ++tail;
+        d[startID] = 0;
         while (head < tail)
         {
             int o = queue[head];
+            inQueue[o] = false;
             for (int i = 0; i < N; ++i)
             {
-                if (path[o, i])
+                if (d[i] > d[o] + path[o, i])
                 {
-                    if (!reached[i])
+                    d[i] = d[o] + path[o, i];
+                    if (!inQueue[i])
                     {
                         queue.Add(i);
-                        reached[i] = true;
+                        inQueue[i] = true;
                         ++tail;
                         preTile[i] = o;
                     }
@@ -256,7 +264,7 @@ public class TileBasedPathFindingManager : PathFindingManager
             ++head;
         }
 
-        if (!reached[endID])
+        if (d[endID] >= float.MaxValue)
         {
             return false;
         }

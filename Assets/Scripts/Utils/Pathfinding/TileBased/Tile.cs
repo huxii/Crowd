@@ -8,6 +8,9 @@ public class Tile : MonoBehaviour
     public GameObject followObject = null;
     public Vector3 followOffset;
 
+    [SerializeField]
+    private List<GameObject> menOnThis = new List<GameObject>();
+
     // Use this for initialization
     void Start()
     {
@@ -43,5 +46,46 @@ public class Tile : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, new Vector3(tileSize, tileSize, tileSize));
         Gizmos.DrawSphere(transform.position, 0.1f);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Man"))
+        {
+            GameObject man = other.gameObject;
+            if (followObject != null && followObject.GetComponent<ObjectHolderControl>() != null && !followObject.GetComponent<ObjectHolderControl>().IsActivated())
+            {
+                Services.gameController.DropMan(man);
+            }
+            else
+            {
+                if (!menOnThis.Contains(man))
+                {
+                    menOnThis.Add(man);
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Man"))
+        {
+            GameObject man = other.gameObject;
+            if (menOnThis.Contains(man))
+            {
+                menOnThis.Remove(man);
+            }
+        }
+    }
+
+    public void OnParentDeactive()
+    {       
+        foreach (GameObject man in menOnThis)
+        {
+            Services.gameController.DropMan(man);
+        }
+
+        menOnThis.Clear();
     }
 }

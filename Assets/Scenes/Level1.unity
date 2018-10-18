@@ -317,7 +317,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 23892178}
-  m_LocalRotation: {x: 0.015117189, y: 0.0000005143702, z: -0.000000012918518, w: 0.9998858}
+  m_LocalRotation: {x: 0.015116944, y: 0.0000005143702, z: -0.000000012918489, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2071,8 +2071,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 172810221}
+  - component: {fileID: 172810223}
   - component: {fileID: 172810222}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2106,6 +2107,19 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 429687169}
   followOffset: {x: 0, y: 0.35, z: 0}
+  menOnThis: []
+--- !u!65 &172810223
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 172810220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &175767802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2266,8 +2280,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 184559294}
+  - component: {fileID: 184559296}
   - component: {fileID: 184559295}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2301,6 +2316,19 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
+--- !u!65 &184559296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 184559293}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &185010755
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,8 +2902,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 245549706}
+  - component: {fileID: 245549708}
   - component: {fileID: 245549707}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2909,6 +2938,19 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
+--- !u!65 &245549708
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 245549705}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &250028069
 GameObject:
   m_ObjectHideFlags: 0
@@ -3627,8 +3669,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 297752224}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08, y: 10.996, z: 0.582}
-  m_LocalScale: {x: 1.8805344, y: 0.16645, z: 0.67099375}
+  m_LocalPosition: {x: -0.08, y: 10.963, z: 0.582}
+  m_LocalScale: {x: 1.8805344, y: 0.26633665, z: 0.67099375}
   m_Children: []
   m_Father: {fileID: 2104738628}
   m_RootOrder: 3
@@ -3909,8 +3951,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 318695998}
+  - component: {fileID: 318695999}
   - component: {fileID: 318695997}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3931,6 +3974,7 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
 --- !u!4 &318695998
 Transform:
   m_ObjectHideFlags: 0
@@ -3944,6 +3988,18 @@ Transform:
   m_Father: {fileID: 490782654}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &318695999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 318695996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &324747106
 GameObject:
   m_ObjectHideFlags: 0
@@ -5672,8 +5728,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 484912992}
+  - component: {fileID: 484912993}
   - component: {fileID: 484912991}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5694,6 +5751,7 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
 --- !u!4 &484912992
 Transform:
   m_ObjectHideFlags: 0
@@ -5707,6 +5765,18 @@ Transform:
   m_Father: {fileID: 490782654}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &484912993
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 484912990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &489443008
 GameObject:
   m_ObjectHideFlags: 0
@@ -5868,8 +5938,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 494686364}
+  - component: {fileID: 494686366}
   - component: {fileID: 494686365}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5903,6 +5974,19 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
+--- !u!65 &494686366
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 494686363}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &501167597
 GameObject:
   m_ObjectHideFlags: 0
@@ -5987,8 +6071,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 516269521}
+  - component: {fileID: 516269522}
   - component: {fileID: 516269520}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6009,6 +6094,7 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
 --- !u!4 &516269521
 Transform:
   m_ObjectHideFlags: 0
@@ -6022,6 +6108,18 @@ Transform:
   m_Father: {fileID: 490782654}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &516269522
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 516269519}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &520405350
 GameObject:
   m_ObjectHideFlags: 0
@@ -6482,7 +6580,7 @@ GameObject:
   - component: {fileID: 552388072}
   - component: {fileID: 552388071}
   - component: {fileID: 552388070}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TempActor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7139,8 +7237,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 603555818}
+  - component: {fileID: 603555820}
   - component: {fileID: 603555819}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7174,6 +7273,19 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
+--- !u!65 &603555820
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603555817}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &604847175
 GameObject:
   m_ObjectHideFlags: 0
@@ -7240,7 +7352,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tile18, Tile19
+          m_StringArgument: Tile18, Tile20
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1428080944}
@@ -7278,7 +7390,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tile18, Tile19
+          m_StringArgument: Tile18, Tile20
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1428080944}
@@ -7290,6 +7402,28 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: cog1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 696733207}
+        m_MethodName: OnParentDeactive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 710629127}
+        m_MethodName: OnParentDeactive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -8023,8 +8157,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 696733206}
+  - component: {fileID: 696733208}
   - component: {fileID: 696733207}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8038,7 +8173,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 696733205}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.357, y: 11.087, z: 0.623}
+  m_LocalPosition: {x: -0.6488687, y: 11.089149, z: 0.618937}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 490782654}
@@ -8056,8 +8191,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileSize: 1
-  followObject: {fileID: 0}
-  followOffset: {x: 0, y: 0, z: 0}
+  followObject: {fileID: 604847175}
+  followOffset: {x: -0.4, y: 0.13, z: -1.32}
+  menOnThis: []
+--- !u!65 &696733208
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 696733205}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &699362605
 GameObject:
   m_ObjectHideFlags: 0
@@ -8329,8 +8477,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 710629128}
+  - component: {fileID: 710629129}
   - component: {fileID: 710629127}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8349,8 +8498,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileSize: 1
-  followObject: {fileID: 0}
-  followOffset: {x: 0, y: 0, z: 0}
+  followObject: {fileID: 604847175}
+  followOffset: {x: 0.6, y: 0.13, z: -1.32}
+  menOnThis: []
 --- !u!4 &710629128
 Transform:
   m_ObjectHideFlags: 0
@@ -8358,12 +8508,24 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 710629126}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.643, y: 11.087, z: 0.623}
+  m_LocalPosition: {x: 0.35113132, y: 11.089149, z: 0.618937}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 490782654}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &710629129
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 710629126}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &723898508
 GameObject:
   m_ObjectHideFlags: 0
@@ -9258,8 +9420,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 804558996}
+  - component: {fileID: 804558998}
   - component: {fileID: 804558997}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9293,6 +9456,19 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 429687169}
   followOffset: {x: 0, y: 3.78, z: 0}
+  menOnThis: []
+--- !u!65 &804558998
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 804558995}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &807134667
 GameObject:
   m_ObjectHideFlags: 0
@@ -9417,7 +9593,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d8b081056831b634bbe4ea41cbe7e6fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9920,7 +10096,7 @@ GameObject:
   - component: {fileID: 845631953}
   - component: {fileID: 845631954}
   - component: {fileID: 845631952}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TempActor
   m_TagString: Man
   m_Icon: {fileID: 0}
@@ -9996,9 +10172,9 @@ CapsuleCollider:
   m_GameObject: {fileID: 845631950}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 1
-  m_Height: 3
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &845631954
@@ -10024,8 +10200,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 846104669}
+  - component: {fileID: 846104671}
   - component: {fileID: 846104670}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10059,6 +10236,19 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
+--- !u!65 &846104671
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 846104668}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &856049528
 GameObject:
   m_ObjectHideFlags: 0
@@ -10959,7 +11149,7 @@ GameObject:
   - component: {fileID: 940236434}
   - component: {fileID: 940236433}
   - component: {fileID: 940236432}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TempActor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12392,7 +12582,7 @@ GameObject:
   - component: {fileID: 1050350005}
   - component: {fileID: 1050350004}
   - component: {fileID: 1050350006}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TempActor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12663,7 +12853,7 @@ GameObject:
   - component: {fileID: 1068405526}
   - component: {fileID: 1068405525}
   - component: {fileID: 1068405524}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TempActor (3)
   m_TagString: Man
   m_Icon: {fileID: 0}
@@ -12677,7 +12867,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1068405522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 1.3, z: -0.69}
+  m_LocalPosition: {x: 0.39, y: 1.3, z: -0.09}
   m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 0.59999996}
   m_Children:
   - {fileID: 940236431}
@@ -12754,9 +12944,9 @@ CapsuleCollider:
   m_GameObject: {fileID: 1068405522}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 1
-  m_Height: 3
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1068433679
@@ -14301,7 +14491,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199475898}
-  m_LocalRotation: {x: -0.00300078, y: 0.00000049426035, z: -0.000000023024434, w: 0.9999955}
+  m_LocalRotation: {x: -0.0030009332, y: 0.00000049426035, z: -0.000000023024434,
+    w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -15421,7 +15612,7 @@ GameObject:
   - component: {fileID: 1316789263}
   - component: {fileID: 1316789262}
   - component: {fileID: 1316789261}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TempActor (2)
   m_TagString: Man
   m_Icon: {fileID: 0}
@@ -15512,9 +15703,9 @@ CapsuleCollider:
   m_GameObject: {fileID: 1316789259}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 1
-  m_Height: 3
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1318151187
@@ -16149,8 +16340,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1364056380}
+  - component: {fileID: 1364056382}
   - component: {fileID: 1364056381}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16184,6 +16376,19 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
+--- !u!65 &1364056382
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1364056379}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1377514722
 GameObject:
   m_ObjectHideFlags: 0
@@ -16268,8 +16473,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1384795588}
+  - component: {fileID: 1384795590}
   - component: {fileID: 1384795589}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16303,6 +16509,19 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
+--- !u!65 &1384795590
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1384795587}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1387556337
 GameObject:
   m_ObjectHideFlags: 0
@@ -17542,8 +17761,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1459250033}
+  - component: {fileID: 1459250035}
   - component: {fileID: 1459250034}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17577,6 +17797,19 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
+--- !u!65 &1459250035
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1459250032}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1469481706
 GameObject:
   m_ObjectHideFlags: 0
@@ -18604,8 +18837,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1551909231}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.908, y: 9.528, z: 1.11}
-  m_LocalScale: {x: 1.9795111, y: 0.16644678, z: 1.615142}
+  m_LocalPosition: {x: 1.908, y: 9.436, z: 1.11}
+  m_LocalScale: {x: 1.9795111, y: 0.36911237, z: 1.615142}
   m_Children: []
   m_Father: {fileID: 2104738628}
   m_RootOrder: 2
@@ -18630,8 +18863,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1552762365}
+  - component: {fileID: 1552762367}
   - component: {fileID: 1552762366}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18665,6 +18899,19 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
+--- !u!65 &1552762367
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1552762364}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1564708206
 GameObject:
   m_ObjectHideFlags: 0
@@ -19218,8 +19465,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1613517298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.693, y: 5.68, z: -0.287}
-  m_LocalScale: {x: 2.730356, y: 0.27166697, z: 2.2383108}
+  m_LocalPosition: {x: 2.693, y: 5.6, z: -0.287}
+  m_LocalScale: {x: 2.730356, y: 0.40138793, z: 2.2383108}
   m_Children: []
   m_Father: {fileID: 2104738628}
   m_RootOrder: 1
@@ -20686,8 +20933,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1735088679}
+  - component: {fileID: 1735088680}
   - component: {fileID: 1735088678}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20708,6 +20956,7 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
 --- !u!4 &1735088679
 Transform:
   m_ObjectHideFlags: 0
@@ -20721,6 +20970,18 @@ Transform:
   m_Father: {fileID: 490782654}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1735088680
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1735088677}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1737577877
 GameObject:
   m_ObjectHideFlags: 0
@@ -20960,7 +21221,7 @@ GameObject:
   - component: {fileID: 1764680712}
   - component: {fileID: 1764680711}
   - component: {fileID: 1764680710}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TempActor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21732,7 +21993,7 @@ GameObject:
   - component: {fileID: 1804727532}
   - component: {fileID: 1804727531}
   - component: {fileID: 1804727530}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TempActor (1)
   m_TagString: Man
   m_Icon: {fileID: 0}
@@ -21823,9 +22084,9 @@ CapsuleCollider:
   m_GameObject: {fileID: 1804727528}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 1
-  m_Height: 3
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1810025054
@@ -21836,8 +22097,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1810025055}
+  - component: {fileID: 1810025057}
   - component: {fileID: 1810025056}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21871,6 +22133,19 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
+--- !u!65 &1810025057
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1810025054}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1810444503
 GameObject:
   m_ObjectHideFlags: 0
@@ -22988,8 +23263,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1836880316}
+  - component: {fileID: 1836880317}
   - component: {fileID: 1836880315}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23010,6 +23286,7 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
 --- !u!4 &1836880316
 Transform:
   m_ObjectHideFlags: 0
@@ -23023,6 +23300,18 @@ Transform:
   m_Father: {fileID: 490782654}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1836880317
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1836880314}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1844949465
 GameObject:
   m_ObjectHideFlags: 0
@@ -24376,8 +24665,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2021660401}
+  - component: {fileID: 2021660403}
   - component: {fileID: 2021660402}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24411,6 +24701,19 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
+--- !u!65 &2021660403
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2021660400}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2023845110
 GameObject:
   m_ObjectHideFlags: 0
@@ -24452,8 +24755,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2028255355}
+  - component: {fileID: 2028255357}
   - component: {fileID: 2028255356}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24487,6 +24791,19 @@ MonoBehaviour:
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
+  menOnThis: []
+--- !u!65 &2028255357
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2028255354}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2030953719
 GameObject:
   m_ObjectHideFlags: 0
@@ -25718,4 +26035,4 @@ MonoBehaviour:
   - {fileID: 819017587}
   - {fileID: 1701840099}
   - {fileID: 833207730}
-  counter: 24
+  counter: 25
