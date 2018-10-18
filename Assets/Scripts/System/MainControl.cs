@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-// TODO: main menu & feedback & sounds
+// TODO: main menu & feedback (red states) & sounds (build error) & control (tap->swipe) & 
+// not obvious (interactable & not) & camera movement gesture & falling from platform & hints & click on ladder
 
 public class MainControl : MonoBehaviour
 {
