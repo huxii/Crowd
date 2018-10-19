@@ -322,6 +322,10 @@ ModelImporter:
     100632: Flags
     100634: Gear101
     100636: Gear51
+    100638: DoorPivot
+    100640: DoorPivot1
+    100642: Gear20
+    100644: Gear30
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -641,6 +645,10 @@ ModelImporter:
     400632: Flags
     400634: Gear101
     400636: Gear51
+    400638: DoorPivot
+    400640: DoorPivot1
+    400642: Gear20
+    400644: Gear30
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -906,6 +914,10 @@ ModelImporter:
     2300520: flag9
     2300522: Gear101
     2300524: Gear51
+    2300526: DoorPivot
+    2300528: DoorPivot1
+    2300530: Gear20
+    2300532: Gear30
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1169,6 +1181,10 @@ ModelImporter:
     3300520: flag9
     3300522: Gear101
     3300524: Gear51
+    3300526: DoorPivot
+    3300528: DoorPivot1
+    3300530: Gear20
+    3300532: Gear30
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -1430,6 +1446,10 @@ ModelImporter:
     4300516: flag9
     4300518: Gear51
     4300520: Gear101
+    4300522: DoorPivot1
+    4300524: DoorPivot
+    4300526: Gear20
+    4300528: Gear30
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -1503,7 +1523,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
