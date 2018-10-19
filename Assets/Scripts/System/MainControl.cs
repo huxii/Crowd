@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using DG.Tweening;
 
 // TODO: main menu & feedback (red states) & sounds (build error) & control (tap->swipe) & 
-// not obvious (interactable & not) & camera movement gesture & falling from platform & hints & click on ladder 
+// not obvious (interactable & not) & camera movement gesture & hints & gears
 
 public class MainControl : MonoBehaviour
 {
@@ -31,10 +31,10 @@ public class MainControl : MonoBehaviour
         men = GameObject.FindGameObjectsWithTag("Man");
         menParentObj = GameObject.Find("Actors");
 
-        RegisterEvents();
-
+        Services.Init();
         // do a favor for outline shader
         Services.utils.RecalculateNormals();
+        RegisterEvents();
 
         DetectNavMeshBounds();
 
@@ -47,8 +47,7 @@ public class MainControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Services.eventManager.ProcessQueuedEvents();
-        Services.taskManager.Update();
+        Services.Update();
 
         if (isEnd)
         {
@@ -66,6 +65,8 @@ public class MainControl : MonoBehaviour
     void OnDestroy()
     {
         UnregisterEvents();
+
+        Services.Destroy();
     }
 
     void RegisterEvents()

@@ -33,6 +33,7 @@ public class CameraControl : MonoBehaviour
 
     private CinemachineFreeLook freeLookCam;
     private CameraAttr targetCameraAttr;
+    [SerializeField]
     private Vector2 targetAngle;
     private Vector3 targetDeltaTranslate;
     private Vector3 origTranslate;
@@ -64,7 +65,7 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(freeLookCam.m_XAxis.Value + " " + targetAngle.x);
+        //Debug.Log(freeLookCam.m_XAxis.Value + "---" + targetAngle.x);
         float x = freeLookCam.m_XAxis.Value;
         float targetAngleX = Clamp360(targetAngle.x);
 
@@ -150,12 +151,14 @@ public class CameraControl : MonoBehaviour
     public void Orbit(float x, float y)
     {
         float newAngleX = targetAngle.x + x / Screen.width * targetCameraAttr.sensitivity.x;
-
+        //Debug.Log(targetAngle.x + "..." + newAngleX);
         if (Mathf.Abs(targetCameraAttr.angleRange.x) < 180)
         {
             newAngleX = Mathf.Max(Mathf.Min(newAngleX, targetCameraAttr.angleRange.y), targetCameraAttr.angleRange.x);
         }
         targetAngle.x = newAngleX;
+
+        //Debug.Log(targetAngle.x + "***" + newAngleX);
 
         float newAngleY = targetAngle.y - y / Screen.height * targetCameraAttr.sensitivity.y;
         newAngleY = Mathf.Max(Mathf.Min(newAngleY, 180), 0);

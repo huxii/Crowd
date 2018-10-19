@@ -2,16 +2,71 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Services : MonoBehaviour
+public static class Services
 {
-    public static Crowd.EventManager eventManager = new Crowd.EventManager();
-    public static Crowd.TaskManager taskManager = new Crowd.TaskManager();
-    public static Crowd.SceneManager sceneManager = new Crowd.SceneManager();
-    public static PathFindingManager pathFindingManager = GameObject.Find("PathFinder").GetComponent<PathFindingManager>();
-    public static MainControl gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainControl>();
-    public static InputControl inputController = gameController.gameObject.GetComponent<InputControl>();
-    public static CameraControl cameraController = gameController.gameObject.GetComponent<CameraControl>();
-    public static HUDControl hudController = gameController.gameObject.GetComponent<HUDControl>();
-    public static SoundControl soundController = gameController.gameObject.GetComponent<SoundControl>();
-    public static Utils utils = new Utils();
+    public static Crowd.EventManager eventManager = null;
+    public static Crowd.TaskManager taskManager = null;
+    public static Crowd.SceneManager sceneManager = null;
+    public static PathFindingManager pathFindingManager = null;
+    public static MainControl gameController = null;
+    public static InputControl inputController = null;
+    public static CameraControl cameraController = null;
+    public static HUDControl hudController = null;
+    public static SoundControl soundController = null;
+    public static Utils utils = null;
+
+    public static void Init()
+    {
+        eventManager = new Crowd.EventManager();
+        taskManager = new Crowd.TaskManager();
+        sceneManager = new Crowd.SceneManager();
+
+        if (GameObject.Find("PathFinder"))
+        {
+            pathFindingManager = GameObject.Find("PathFinder").GetComponent<PathFindingManager>();
+        }
+        else
+        {
+            pathFindingManager = null;
+        }
+
+        if (GameObject.FindGameObjectWithTag("GameController"))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainControl>();
+            inputController = gameController.gameObject.GetComponent<InputControl>();
+            cameraController = gameController.gameObject.GetComponent<CameraControl>();
+            hudController = gameController.gameObject.GetComponent<HUDControl>();
+            soundController = gameController.gameObject.GetComponent<SoundControl>();
+        }
+        else
+        {
+            gameController = null;
+            inputController = null;
+            cameraController = null;
+            hudController = null;
+            soundController = null;
+        }
+        
+        utils = new Utils();
+    }
+
+    public static void Update()
+    {
+        eventManager.ProcessQueuedEvents();
+        taskManager.Update();
+    }
+
+    public static void Destroy()
+    {
+        eventManager = null;
+        taskManager = null;
+        sceneManager = null;
+        pathFindingManager = null;
+        gameController = null;
+        inputController = null;
+        cameraController = null;
+        hudController = null;
+        soundController = null;
+        utils = null;
+    }
 }

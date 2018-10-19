@@ -5,21 +5,8 @@ using UnityEngine.SceneManagement;
 
 namespace Crowd
 {
-    public class SceneManager : MonoBehaviour
+    public class SceneManager
     {
-
-        // Use this for initialization
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         public void ReloadCurrentScene()
         {
             Scene scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
