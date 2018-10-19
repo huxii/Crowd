@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using DG.Tweening;
 
 // TODO: main menu & feedback (red states) & sounds (build error) & control (tap->swipe) & 
-// not obvious (interactable & not) & camera movement gesture & hints & gears
+// not obvious (interactable & not) & camera movement gesture & hints
 
 public class MainControl : MonoBehaviour
 {
