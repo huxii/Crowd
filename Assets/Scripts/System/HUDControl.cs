@@ -19,6 +19,9 @@ public class HUDControl : MonoBehaviour
     [SerializeField]
     private int anchorCounter = 0;
 
+    [Header("VFX")]
+    public GameObject goodClickPrefab;
+
     void Start()
     {
         //PlayNextUIEvent();
@@ -40,7 +43,7 @@ public class HUDControl : MonoBehaviour
             {
                 //Gizmos.DrawGUITexture(new Rect(anchor.transform.position.x, anchor.transform.position.y, 1, 1), gizmoTexture);
                 Gizmos.color = Color.cyan;
-                Gizmos.DrawWireSphere(anchor.transform.position, 0.2f);
+                Gizmos.DrawWireSphere(anchor.transform.position, 0.02f);
             }
         }
     }
@@ -95,5 +98,18 @@ public class HUDControl : MonoBehaviour
         ++anchorCounter;
 
         anchors.Add(anchor);
+    }
+
+    public void GoodClick(Vector3 posWorld)
+    {
+        Vector2 pos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(gameObject.GetComponent<Canvas>().transform as RectTransform,
+            Camera.main.WorldToScreenPoint(posWorld), gameObject.GetComponent<Canvas>().worldCamera, out pos);
+        
+        //GameObject particle = Instantiate(goodClickPrefab, pos, Quaternion.identity) as GameObject;
+        GameObject particle = Instantiate(goodClickPrefab, transform) as GameObject;
+        RectTransform rect = particle.transform as RectTransform;
+        rect.anchoredPosition = pos;
+        //Debug.Log(pos);
     }
 }
