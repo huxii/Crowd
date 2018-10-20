@@ -34,19 +34,33 @@ public static class Services
         {
             gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainControl>();
             inputController = gameController.gameObject.GetComponent<InputControl>();
-            cameraController = gameController.gameObject.GetComponent<CameraControl>();
-            hudController = gameController.gameObject.GetComponent<HUDControl>();
             soundController = gameController.gameObject.GetComponent<SoundControl>();
         }
         else
         {
             gameController = null;
-            inputController = null;
-            cameraController = null;
-            hudController = null;
+            inputController = null;              
             soundController = null;
         }
-        
+
+        if (GameObject.Find("CameraSystem"))
+        {
+            cameraController = GameObject.Find("CameraSystem").GetComponent<CameraControl>();
+        }
+        else
+        {
+            cameraController = null;
+        }
+
+        if (GameObject.Find("Canvas"))
+        {
+            hudController = GameObject.Find("Canvas").GetComponent<HUDControl>();
+        }
+        else
+        {
+            hudController = null;
+        }
+
         utils = new Utils();
     }
 

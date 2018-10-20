@@ -181,7 +181,7 @@ public abstract class InputControl : MonoBehaviour
             mouseClickObject = hit.collider.gameObject;
             mouseClickPos = hit.point;
 
-            GameObject particle = Instantiate(clickParticlePrefab, mouseClickPos, Quaternion.identity) as GameObject;
+            Services.hudController.GoodClick(mouseClickPos);
         }
         else
         {

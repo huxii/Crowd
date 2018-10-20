@@ -492,7 +492,7 @@ public class MainControl : MonoBehaviour
         float ratioY = Mathf.Clamp((pos.y - navMeshMinBound.y) / (navMeshMaxBound.y - navMeshMinBound.y), 0, 1);
         Services.cameraController.SetOrbit(-1, Mathf.Sin(ratioY * 90f / 180f * Mathf.PI));
 
-        Debug.Log(pos + " " + Mathf.Sin(ratioY * 90f) + " " + ratioY);
+        //Debug.Log(pos + " " + Mathf.Sin(ratioY * 90f) + " " + ratioY);
     }
 
     public void ManAcrossBorder(GameObject man, GameObject obj)
