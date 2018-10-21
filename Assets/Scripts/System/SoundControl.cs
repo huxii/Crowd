@@ -42,7 +42,7 @@ public class SoundControl : MonoBehaviour
     {
         for (int i = 0; i < pooledAudioAmount; i++)
         {
-            GameObject audio = (GameObject)Instantiate(audioSourcePrefab);
+            GameObject audio = (GameObject)Instantiate(audioSourcePrefab, transform);
             audio.SetActive(false);
             audioSources.Add(audio);
         }

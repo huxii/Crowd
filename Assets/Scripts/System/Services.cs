@@ -34,13 +34,11 @@ public static class Services
         {
             gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainControl>();
             inputController = gameController.gameObject.GetComponent<InputControl>();
-            soundController = gameController.gameObject.GetComponent<SoundControl>();
         }
         else
         {
             gameController = null;
             inputController = null;              
-            soundController = null;
         }
 
         if (GameObject.Find("CameraSystem"))
@@ -50,6 +48,15 @@ public static class Services
         else
         {
             cameraController = null;
+        }
+
+        if (GameObject.Find("SoundSystem"))
+        {
+            soundController = GameObject.Find("SoundSystem").GetComponent<SoundControl>();
+        }
+        else
+        {
+            soundController = null;
         }
 
         if (GameObject.Find("Canvas"))
