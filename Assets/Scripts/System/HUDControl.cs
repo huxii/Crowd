@@ -21,6 +21,7 @@ public class HUDControl : MonoBehaviour
 
     [Header("VFX")]
     public GameObject goodClickPrefab;
+    public GameObject badClickPrefab;
 
     void Start()
     {
@@ -46,6 +47,14 @@ public class HUDControl : MonoBehaviour
                 Gizmos.DrawWireSphere(anchor.transform.position, 0.02f);
             }
         }
+    }
+
+    private Vector2 GetCanvasPos(Vector3 posWorld)
+    {
+        Vector2 pos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(gameObject.GetComponent<Canvas>().transform as RectTransform,
+            Camera.main.WorldToScreenPoint(posWorld), gameObject.GetComponent<Canvas>().worldCamera, out pos);
+        return pos;
     }
 
     public void PlayNextUIEvent()
@@ -102,14 +111,17 @@ public class HUDControl : MonoBehaviour
 
     public void GoodClick(Vector3 posWorld)
     {
-        Vector2 pos;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(gameObject.GetComponent<Canvas>().transform as RectTransform,
-            Camera.main.WorldToScreenPoint(posWorld), gameObject.GetComponent<Canvas>().worldCamera, out pos);
-        
-        //GameObject particle = Instantiate(goodClickPrefab, pos, Quaternion.identity) as GameObject;
+        Vector2 pos = GetCanvasPos(posWorld);
         GameObject particle = Instantiate(goodClickPrefab, transform) as GameObject;
         RectTransform rect = particle.transform as RectTransform;
         rect.anchoredPosition = pos;
-        //Debug.Log(pos);
+    }
+
+    public void BadClick(Vector3 posWorld)
+    {
+        Vector2 pos = GetCanvasPos(posWorld);
+        GameObject particle = Instantiate(badClickPrefab, transform) as GameObject;
+        RectTransform rect = particle.transform as RectTransform;
+        rect.anchoredPosition = pos;
     }
 }

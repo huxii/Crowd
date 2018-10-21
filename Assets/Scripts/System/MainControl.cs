@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-// TODO: main menu & feedback (red states) & sounds (build error) & control (tap->swipe) & 
-// not obvious (interactable & not) & camera movement gesture & hints
+// TODO: main menu & feedback (red states) & control (tap->swipe) & 
+// camera movement gesture & hints & flag anim & ladder handle & character
 
 public class MainControl : MonoBehaviour
 {
@@ -495,18 +495,28 @@ public class MainControl : MonoBehaviour
         //Debug.Log(pos + " " + Mathf.Sin(ratioY * 90f) + " " + ratioY);
     }
 
-    public void ManAcrossBorder(GameObject man, GameObject obj)
+    public void GoodClick(Vector3 pos)
     {
-        if (obj != null && obj.GetComponent<ObjectControl>())
-        {
-            obj.GetComponent<ObjectControl>().ManAcrossBorder(man);
-        }
-
-        if (man != null && man.GetComponent<CrowdControl>())
-        {
-            man.GetComponent<CrowdControl>().WalkAcross(obj);
-        }
+        Services.hudController.GoodClick(pos);
     }
+
+    public void BadClick(Vector3 pos)
+    {
+        Services.hudController.BadClick(pos);
+    }
+
+    //public void ManAcrossBorder(GameObject man, GameObject obj)
+    //{
+    //    if (obj != null && obj.GetComponent<ObjectControl>())
+    //    {
+    //        obj.GetComponent<ObjectControl>().ManAcrossBorder(man);
+    //    }
+
+    //    if (man != null && man.GetComponent<CrowdControl>())
+    //    {
+    //        man.GetComponent<CrowdControl>().WalkAcross(obj);
+    //    }
+    //}
 
     public void EndLevel()
     {

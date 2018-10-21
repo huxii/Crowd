@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class InputControl : MonoBehaviour
 {
-    public GameObject clickParticlePrefab;
     public bool gyroEnabled = false;
 
     protected bool locked = false;
@@ -180,8 +179,6 @@ public abstract class InputControl : MonoBehaviour
         {
             mouseClickObject = hit.collider.gameObject;
             mouseClickPos = hit.point;
-
-            Services.hudController.GoodClick(mouseClickPos);
         }
         else
         {

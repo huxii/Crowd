@@ -99,11 +99,11 @@ public class PointBasedPathFindingManager : PathFindingManager
             else
             {
                 // walking out of path 0
-                GameObject middlePoint = path.pathEdges[0].AcrossPoint();
-                if (middlePoint.GetComponent<PathPoint>().followObject != null && middlePoint.GetComponent<PathPoint>().isBorder)
-                {
-                    Services.gameController.ManAcrossBorder(actor, middlePoint.GetComponent<PathPoint>().followObject);
-                }
+                //GameObject middlePoint = path.pathEdges[0].AcrossPoint();
+                //if (middlePoint.GetComponent<PathPoint>().followObject != null && middlePoint.GetComponent<PathPoint>().isBorder)
+                //{
+                //    Services.gameController.ManAcrossBorder(actor, middlePoint.GetComponent<PathPoint>().followObject);
+                //}
 
                 Services.gameController.MoveManTo(actor, path.pathEdges[1].EndPos(), path.tol);
             }

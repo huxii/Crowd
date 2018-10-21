@@ -25,15 +25,15 @@ public class NoSelectInputControl : InputControl
         {
             return;
         }
-        
-        if (mouseClickObject.CompareTag("Man"))
-        {
-            if (orderMode == OrderMode.SINGLEMAN)
-            {
-                Services.gameController.FreeMan(mouseClickObject);
-            }
-        }
-        else
+
+        //if (mouseClickObject.CompareTag("Man"))
+        //{
+        //    if (orderMode == OrderMode.SINGLEMAN)
+        //    {
+        //        Services.gameController.FreeMan(mouseClickObject);
+        //    }
+        //}
+        //else
         if (mouseClickObject.CompareTag("Object"))
         {
             if (orderMode == OrderMode.SINGLEMAN)
@@ -44,6 +44,8 @@ public class NoSelectInputControl : InputControl
             {
                 Services.gameController.InteractMan(mouseClickObject, mouseClickPos);
             }
+
+            Services.gameController.GoodClick(mouseClickPos);
         }
         else
         if (mouseClickObject.CompareTag("Ground"))
@@ -56,6 +58,12 @@ public class NoSelectInputControl : InputControl
             {
                 Services.gameController.MoveMen(mouseClickPos);
             }
+
+            Services.gameController.GoodClick(mouseClickPos);
+        }
+        else
+        {
+            Services.gameController.BadClick(mouseClickPos);
         }
     }
 }
