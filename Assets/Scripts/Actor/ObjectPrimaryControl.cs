@@ -213,6 +213,7 @@ public abstract class ObjectPrimaryControl : ObjectControl
     {
         base.Click();
 
+        Services.soundController.Play("objectClick");
         onClick.Invoke();
     }
 }

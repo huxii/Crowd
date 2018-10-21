@@ -532,13 +532,13 @@ public class MainControl : MonoBehaviour
     public void GoodClick(Vector3 pos)
     {
         Services.hudController.GoodClick(pos);
-        Services.soundController.Play("goodclick");
+        Services.soundController.Play("goodClick");
     }
 
     public void BadClick(Vector3 pos)
     {
         Services.hudController.BadClick(pos);
-        Services.soundController.Play("badclick");
+        Services.soundController.Play("badClick");
     }
 
     //public void ManAcrossBorder(GameObject man, GameObject obj)
