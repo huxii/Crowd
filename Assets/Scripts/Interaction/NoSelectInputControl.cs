@@ -56,7 +56,7 @@ public class NoSelectInputControl : InputControl
             //}
             //else
             {
-                Services.gameController.MoveMen(mouseClickPos);
+                Services.gameController.MoveMenToPosition(mouseClickPos);
             }
 
             Services.gameController.GoodClick(mouseClickPos);

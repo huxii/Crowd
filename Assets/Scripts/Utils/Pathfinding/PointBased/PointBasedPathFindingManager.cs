@@ -78,7 +78,7 @@ public class PointBasedPathFindingManager : PathFindingManager
 
         if (!path.hasStarted)
         {
-            Services.gameController.MoveManTo(actor, path.pathEdges[0].EndPos(), path.tol);
+            Services.gameController.SetManTargetPosition(actor, path.pathEdges[0].EndPos(), path.tol);
             path.hasStarted = true;
         }
 
@@ -105,7 +105,7 @@ public class PointBasedPathFindingManager : PathFindingManager
                 //    Services.gameController.ManAcrossBorder(actor, middlePoint.GetComponent<PathPoint>().followObject);
                 //}
 
-                Services.gameController.MoveManTo(actor, path.pathEdges[1].EndPos(), path.tol);
+                Services.gameController.SetManTargetPosition(actor, path.pathEdges[1].EndPos(), path.tol);
             }
 
             path.pathEdges.RemoveAt(0);

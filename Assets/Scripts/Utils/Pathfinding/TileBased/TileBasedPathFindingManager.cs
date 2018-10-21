@@ -69,7 +69,7 @@ public class TileBasedPathFindingManager : PathFindingManager
             }
             else
             {
-                Services.gameController.MoveManTo(actor, path.paths[1], path.tol);
+                Services.gameController.SetManTargetPosition(actor, path.paths[1], path.tol);
 
                 //// walking out of path 0
                 //GameObject middlePoint = path.pathEdges[0].AcrossPoint();
@@ -180,6 +180,16 @@ public class TileBasedPathFindingManager : PathFindingManager
         {
             return null;
         }
+    }
+
+    public Vector3 GetLastTilePos()
+    {
+        if (recentPath != null)
+        {
+            return ((TileBasedFoundPath)recentPath).paths[((TileBasedFoundPath)recentPath).paths.Count - 2];
+        }
+
+        return new Vector3(0, 0, 0);
     }
 
     public override bool FindPath(GameObject actor, Vector3 endPos, float clampTol = 0.5F)

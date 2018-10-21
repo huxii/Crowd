@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-// TODO: main menu & feedback (red states|sounds) & control (tap->swipe) & 
-// camera movement gesture & hints & flag anim & ladder handle & character
+// TODO: main menu & feedback (red states|sounds) & control (tap->swipe) & footprint (orientation)
+// camera movement gesture & hints & flag anim & ladder handle & character (behavior tree)
 
 public class MainControl : MonoBehaviour
 {
@@ -24,6 +24,9 @@ public class MainControl : MonoBehaviour
     // nav mesh
     private Vector2 navMeshMinBound = new Vector3(float.MaxValue, float.MaxValue);
     private Vector2 navMeshMaxBound = new Vector3(-float.MaxValue, -float.MaxValue);
+
+    // footprints
+    private GameObject footprintsObj = null;
 
     // Use this for initialization
     void Start()
@@ -174,6 +177,17 @@ public class MainControl : MonoBehaviour
         }
     }
 
+    private void GenerateFootprints(Vector3 pos)
+    {
+        if (footprintsObj != null)
+        {
+            footprintsObj.GetComponent<FootprintsBehavior>().FadeOut();
+        }
+
+        footprintsObj = Instantiate(Resources.Load("Prefabs/Footprints")) as GameObject;
+        footprintsObj.transform.position = pos;
+    }
+
     public void SelectMan(GameObject man)
     {
         if (man != null && man.GetComponent<CrowdControl>())
@@ -208,7 +222,7 @@ public class MainControl : MonoBehaviour
         // this obj is settled & walkable
         if (obj.GetComponent<ObjectPrimaryControl>().IsLocked() && obj.GetComponent<ObjectPrimaryControl>().isWalkable)
         {
-            MoveMen(pos, selectedMen);
+            MoveMenToPosition(pos, selectedMen);
             return;
         }
 
@@ -263,16 +277,7 @@ public class MainControl : MonoBehaviour
                         return;
                     }
 
-                    if (Services.pathFindingManager.FindPath(man, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId), 0.1f))
-                    {
-                        UnboundMan(man);
-                        OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
-                        Services.pathFindingManager.Move(man, 0.05f, new ManArrivesAtObj(man, obj, slotId));
-                    }
-                    else
-                    {
-                        man.GetComponent<CrowdControl>().OrderFailed();
-                    }
+                    MoveManToObject(man, obj, slotId, 0.1f);
                 }
             }
         }
@@ -288,7 +293,7 @@ public class MainControl : MonoBehaviour
         // this obj is walkable
         if (obj.GetComponent<ObjectPrimaryControl>().IsLocked() && obj.GetComponent<ObjectPrimaryControl>().isWalkable)
         {
-            MoveMen(pos);
+            MoveMenToPosition(pos);
             return;
         }
 
@@ -318,16 +323,7 @@ public class MainControl : MonoBehaviour
             return;
         }
 
-        if (Services.pathFindingManager.FindPath(nearestMan, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId), 0.1f))
-        {
-            UnboundMan(nearestMan);
-            OnManLeavesForObj(new ManLeavesForObj(nearestMan, obj, slotId));
-            Services.pathFindingManager.Move(nearestMan, 0.05f, new ManArrivesAtObj(nearestMan, obj, slotId));
-        }
-        else
-        {
-            nearestMan.GetComponent<CrowdControl>().OrderFailed();
-        }
+        MoveManToObject(nearestMan, obj, slotId, 0.1f);
     }
 
     public void OrderFailed(GameObject man)
@@ -355,16 +351,7 @@ public class MainControl : MonoBehaviour
         Vector3 targetPos = obj.GetComponent<ObjectPrimaryControl>().GetFreeManSlotPos();
         //UnboundMan(man);
         //MoveManTo(man, targetPos, 0.1f);
-        if (Services.pathFindingManager.FindPath(man, targetPos))
-        {
-            UnboundMan(man);
-            Services.pathFindingManager.Move(man, 0.05f);
-        }
-        else
-        {
-            man.GetComponent<CrowdControl>().OrderFailed();
-            Debug.Log("Should never happen though");
-        }
+        MoveManToPosition(man, targetPos, 0.05f);
     }
 
     public void UnboundMan(GameObject man)
@@ -377,14 +364,44 @@ public class MainControl : MonoBehaviour
         man.GetComponent<CrowdControl>().Stop();
     }
 
-    public void MoveManTo(GameObject man, Vector3 targetPos, float tol)
+    public void SetManTargetPosition(GameObject man, Vector3 targetPos, float tol)
     {
         man.GetComponent<CrowdControl>().MoveTo(targetPos, tol);
     }
 
-    public bool MoveMan(GameObject man, Vector3 targetPos, float tol)
+    public bool MoveManToObject(GameObject man, GameObject obj, int slotId, float tol)
     {
-        if (man == null || man.GetComponent<CrowdControl>().IsBusy() || man.GetComponent<CrowdControl>().IsLocked())
+        if (man == null || man.GetComponent<CrowdControl>().IsLocked())
+        {
+            return false;
+        }
+
+        Vector3 targetPos = obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId);
+        if (Services.pathFindingManager.FindPath(man, targetPos, tol))
+        {
+            UnboundMan(man);
+            OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
+          
+            if ((TileBasedPathFindingManager)Services.pathFindingManager)
+            {
+                Vector3 footprintsPos = ((TileBasedPathFindingManager)Services.pathFindingManager).GetLastTilePos();
+                GenerateFootprints(footprintsPos);
+            }
+
+            Services.pathFindingManager.Move(man, tol, new ManArrivesAtObj(man, obj, slotId));
+            return true;
+        }
+        else
+        {
+            man.GetComponent<CrowdControl>().OrderFailed();
+        }
+
+        return false;
+    }
+
+    public bool MoveManToPosition(GameObject man, Vector3 targetPos, float tol)
+    {
+        if (man == null || man.GetComponent<CrowdControl>().IsLocked())
         {
             return false;
         }
@@ -392,6 +409,13 @@ public class MainControl : MonoBehaviour
         if (Services.pathFindingManager.FindPath(man, targetPos))
         {
             UnboundMan(man);
+
+            if ((TileBasedPathFindingManager)Services.pathFindingManager)
+            {
+                Vector3 footprintsPos = ((TileBasedPathFindingManager)Services.pathFindingManager).GetLastTilePos();
+                GenerateFootprints(footprintsPos);
+            }
+
             Services.pathFindingManager.Move(man, tol);
             return true;
         }
@@ -403,13 +427,46 @@ public class MainControl : MonoBehaviour
         return false;
     }
 
-    public void MoveNearestMan(Vector3 targetPos)
+    public void MoveMenToPosition(Vector3 targetPos, List<GameObject> selectedMen = null)
+    {
+        if (selectedMen != null)
+        {
+            foreach (GameObject man in selectedMen)
+            {
+                if (!man.GetComponent<CrowdControl>().IsBusy())
+                {
+                    MoveManToPosition(man, targetPos, (selectedMen.Count - 1) * 0.15f + 0.05f);
+                }
+            }
+        }
+        else
+        {
+            int reachableMenNum = 0;
+            foreach (GameObject man in men)
+            {
+                if (!man.GetComponent<CrowdControl>().IsBusy() && Services.pathFindingManager.FindPath(man, targetPos))
+                {
+                    ++reachableMenNum;
+                }
+            }
+
+            foreach (GameObject man in men)
+            {
+                if (!man.GetComponent<CrowdControl>().IsBusy())
+                {
+                    MoveManToPosition(man, targetPos, (reachableMenNum - 1) * 0.15f + 0.05f);
+                }
+            }
+        }
+    }
+
+    public void MoveNearestManToPosition(Vector3 targetPos)
     {
         GameObject nearestMan = null;
         float maxDistance = float.MaxValue;
         foreach (GameObject man in men)
         {
-            if (Vector3.Distance(man.transform.position, targetPos) < maxDistance)
+            if (!man.GetComponent<CrowdControl>().IsBusy() && Vector3.Distance(man.transform.position, targetPos) < maxDistance)
             {
                 maxDistance = Vector3.Distance(man.transform.position, targetPos);
                 nearestMan = man;
@@ -421,42 +478,7 @@ public class MainControl : MonoBehaviour
             return;
         }
 
-        if (Services.pathFindingManager.FindPath(nearestMan, targetPos))
-        {
-            UnboundMan(nearestMan);
-            Services.pathFindingManager.Move(nearestMan, 0.15f);
-        }
-        else
-        {
-            nearestMan.GetComponent<CrowdControl>().OrderFailed();
-        }
-    }
-
-    public void MoveMen(Vector3 targetPos, List<GameObject> selectedMen = null)
-    {
-        if (selectedMen != null)
-        {
-            foreach (GameObject man in selectedMen)
-            {
-                MoveMan(man, targetPos, (selectedMen.Count - 1) * 0.15f + 0.05f);
-            }
-        }
-        else
-        {
-            int reachableMenNum = 0;
-            foreach (GameObject man in men)
-            {
-                if (Services.pathFindingManager.FindPath(man, targetPos))
-                {
-                    ++reachableMenNum;
-                }
-            }
-
-            foreach (GameObject man in men)
-            {
-                MoveMan(man, targetPos, (reachableMenNum - 1) * 0.15f + 0.05f);
-            }
-        }
+        MoveManToPosition(nearestMan, targetPos, 0.15f);
     }
 
     public void DropMan(GameObject man)
