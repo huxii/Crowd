@@ -159,6 +159,19 @@ public class TileBasedPathFindingManager : PathFindingManager
         tileEdges.Add(newTileEdge);
     }
 
+    public override void DisconnectPath(GameObject p0, GameObject p1)
+    {
+        foreach (GameObject edge in tileEdges.ToArray())
+        {
+            if ((edge.GetComponent<TileEdge>().t0 == p0 && edge.GetComponent<TileEdge>().t1 == p1)
+                || (edge.GetComponent<TileEdge>().t0 == p1 && edge.GetComponent<TileEdge>().t1 == p0))
+            {
+                tileEdges.Remove(edge);
+                Destroy(edge);
+            }
+        }
+    }
+
     private GameObject FindNearestTile(Vector3 pos)
     {
         float dist = float.MaxValue;
