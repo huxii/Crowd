@@ -137,7 +137,7 @@ public class DotweenEvents : MonoBehaviour
             deltaPos = new Vector3(0, 0, inc);
         }
 
-        obj.transform.DOMove(obj.transform.position + deltaPos, time);
+        obj.transform.DOLocalMove(obj.transform.localPosition + deltaPos, time);
     }
 
     public void Scale(string para)
@@ -201,8 +201,8 @@ public class DotweenEvents : MonoBehaviour
         Vector3 origRot = transform.eulerAngles;
         Vector3 rightRot = origRot + deltaRot;
 
-        seq.Append(obj.transform.DORotate(rightRot, 0.5f * time).SetEase(Ease.Linear));
-        seq.Append(obj.transform.DORotate(origRot, 0.5f * time).SetEase(Ease.Linear));
+        seq.Append(obj.transform.DOLocalRotate(rightRot, 0.5f * time).SetEase(Ease.Linear));
+        seq.Append(obj.transform.DOLocalRotate(origRot, 0.5f * time).SetEase(Ease.Linear));
         seq.SetLoops(loop, LoopType.Restart);
     }
 
@@ -236,10 +236,10 @@ public class DotweenEvents : MonoBehaviour
         Vector3 leftRot = origRot - deltaRot;
         Vector3 rightRot = origRot + deltaRot;
 
-        seq.Append(obj.transform.DORotate(leftRot, 0.25f * time).SetEase(Ease.Linear));
-        seq.Append(obj.transform.DORotate(origRot, 0.25f * time).SetEase(Ease.Linear));
-        seq.Append(obj.transform.DORotate(rightRot, 0.25f * time).SetEase(Ease.Linear));
-        seq.Append(obj.transform.DORotate(origRot, 0.25f * time).SetEase(Ease.Linear));
+        seq.Append(obj.transform.DOLocalRotate(leftRot, 0.25f * time).SetEase(Ease.Linear));
+        seq.Append(obj.transform.DOLocalRotate(origRot, 0.25f * time).SetEase(Ease.Linear));
+        seq.Append(obj.transform.DOLocalRotate(rightRot, 0.25f * time).SetEase(Ease.Linear));
+        seq.Append(obj.transform.DOLocalRotate(origRot, 0.25f * time).SetEase(Ease.Linear));
         seq.SetLoops(loop, LoopType.Restart);
     }
 

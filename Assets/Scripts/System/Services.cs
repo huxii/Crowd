@@ -14,6 +14,8 @@ public static class Services
     public static HUDControl hudController = null;
     public static SoundControl soundController = null;
     public static Utils utils = null;
+    public static GameEvents gameEvents = null;
+    public static DotweenEvents dotweenEvents = null;
 
     public static void Init()
     {
@@ -34,11 +36,15 @@ public static class Services
         {
             gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainControl>();
             inputController = gameController.gameObject.GetComponent<InputControl>();
+            gameEvents = gameController.gameObject.GetComponent<GameEvents>();
+            dotweenEvents = gameController.gameObject.GetComponent<DotweenEvents>();
         }
         else
         {
             gameController = null;
-            inputController = null;              
+            inputController = null;
+            gameEvents = null;
+            dotweenEvents = null;
         }
 
         if (GameObject.Find("CameraSystem"))
@@ -89,5 +95,7 @@ public static class Services
         hudController = null;
         soundController = null;
         utils = null;
+        gameEvents = null;
+        dotweenEvents = null;
     }
 }
