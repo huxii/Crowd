@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 // the object with certain amount of slots that can be filled with crowd
 // player will directly operate those objects
@@ -43,6 +44,9 @@ public abstract class ObjectPrimaryControl : ObjectControl
 
     // current slots occupied by the crowd
     protected int currentSlots = 0;
+
+    [Header("Interaction")]
+    public UnityEvent onClick;
 
     // Use this for initialization
     void Start ()
@@ -210,5 +214,12 @@ public abstract class ObjectPrimaryControl : ObjectControl
     public virtual void OnSlotsNotFull()
     {
         Deactivate();
+    }
+
+    public override void Click()
+    {
+        base.Click();
+
+        onClick.Invoke();
     }
 }

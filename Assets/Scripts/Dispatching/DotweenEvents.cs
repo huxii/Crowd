@@ -172,6 +172,29 @@ public class DotweenEvents : MonoBehaviour
         obj.transform.DOScale(newScale, time);
     }
 
+    public void Bounce(string para)
+    {
+        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
+        GameObject obj = GameObject.Find(paras[0]);
+        float inc = float.Parse(paras[1]);
+        float time = float.Parse(paras[2]);
+
+        if (obj == null)
+        {
+            return;
+        }
+
+        Vector3 origScale = obj.transform.localScale;
+        Vector3 newScale = obj.transform.localScale * inc;
+
+        obj.transform.DOScale(newScale, time * 0.5f).OnComplete(
+            ()=> 
+            {
+                obj.transform.DOScale(origScale, time * 0.5f);
+            }
+            );
+    }
+
     public void Zig(string para)
     {
         string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);

@@ -212,6 +212,9 @@ public class MainControl : MonoBehaviour
             return;
         }
 
+        // click on object feedback
+        obj.GetComponent<ObjectPrimaryControl>().Click();
+
         if (obj.GetComponent<ObjectPrimaryControl>().GetEmptySlotNum() == 0)
         {
             obj.GetComponent<ObjectPrimaryControl>().FreeAllMan();
@@ -498,7 +501,7 @@ public class MainControl : MonoBehaviour
     public void FocusCamera(Vector3 pos)
     {
         float ratioX = Mathf.Clamp((pos.x - navMeshMinBound.x) / (navMeshMaxBound.x - navMeshMinBound.x), 0, 1);
-        float ratioY = Mathf.Clamp((pos.y - navMeshMinBound.y) / (navMeshMaxBound.y - navMeshMinBound.y), 0, 1);
+        float ratioY = Mathf.Clamp((pos.y - navMeshMinBound.y) / (navMeshMaxBound.y - navMeshMinBound.y), 0.5f, 1);
         Services.cameraController.SetOrbit(-1, Mathf.Sin(ratioY * 90f / 180f * Mathf.PI));
 
         //Debug.Log(pos + " " + Mathf.Sin(ratioY * 90f) + " " + ratioY);

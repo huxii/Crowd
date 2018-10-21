@@ -20,17 +20,17 @@ public class ObjectHolderControl : ObjectControl
 
     public override void Deactivate()
     {
-        base.Deactivate();
+        //base.Deactivate();
 
-        if (clearMenOnDeactivated && menOnThis != null && menOnThis.Count > 0)
-        {
-            foreach (GameObject man in menOnThis)
-            {
-                Services.gameController.DropMan(man);
-            }
+        //if (clearMenOnDeactivated && menOnThis != null && menOnThis.Count > 0)
+        //{
+        //    foreach (GameObject man in menOnThis)
+        //    {
+        //        Services.gameController.DropMan(man);
+        //    }
 
-            Unlock();
-            menOnThis.Clear();
-        }
+        //    Unlock();
+        //    menOnThis.Clear();
+        //}
     }
 }
