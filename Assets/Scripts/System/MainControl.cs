@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-// TODO: main menu & feedback (red states) & control (tap->swipe) & 
+// TODO: main menu & feedback (red states|sounds) & control (tap->swipe) & 
 // camera movement gesture & hints & flag anim & ladder handle & character
 
 public class MainControl : MonoBehaviour
@@ -126,6 +126,12 @@ public class MainControl : MonoBehaviour
 
         man.transform.SetParent(obj.GetComponent<ObjectPrimaryControl>().GetSlotObject(slotId).transform);
         obj.GetComponent<ObjectPrimaryControl>().ReadySlot(slotId, man);
+
+        // tmp hack
+        if (obj.name == "Ladder")
+        {
+            man.GetComponent<CrowdControl>().ReadyToPush();
+        }
     }
 
     void OnManLeavesForObj(Crowd.Event e)
@@ -160,6 +166,12 @@ public class MainControl : MonoBehaviour
         man.transform.SetParent(menParentObj.transform);
         man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
         obj.GetComponent<ObjectPrimaryControl>().FreeSlot(slotId);
+
+        // tmp hack
+        if (obj.name == "Ladder")
+        {
+            man.GetComponent<CrowdControl>().Idle();
+        }
     }
 
     public void SelectMan(GameObject man)
@@ -194,13 +206,9 @@ public class MainControl : MonoBehaviour
         }
 
         // this obj is walkable
-        if (obj.GetComponent<ObjectPrimaryControl>().IsLocked())
+        if (obj.GetComponent<ObjectPrimaryControl>().IsLocked() && obj.GetComponent<ObjectPrimaryControl>().isWalkable)
         {
-            if (obj.GetComponent<ObjectPrimaryControl>().isWalkable)
-            {
-                MoveMen(pos, selectedMen);
-            }
-
+            MoveMen(pos, selectedMen);
             return;
         }
 
@@ -321,7 +329,7 @@ public class MainControl : MonoBehaviour
 
     public void OrderFailed(GameObject man)
     {
-        if (man != null && man.GetComponent<CrowdControl>())
+        if (man != null && man.GetComponent<CrowdControl>() && !man.GetComponent<CrowdControl>().IsBusy())
         {
             man.GetComponent<CrowdControl>().OrderFailed();
         }
@@ -331,6 +339,7 @@ public class MainControl : MonoBehaviour
     {
         if (man.GetComponent<CrowdControl>().IsLocked())
         {
+            man.GetComponent<CrowdControl>().OrderFailed();
             return;
         }
 
@@ -350,7 +359,7 @@ public class MainControl : MonoBehaviour
         }
         else
         {
-            //man.GetComponent<CrowdControl>().OrderFailed();
+            man.GetComponent<CrowdControl>().OrderFailed();
             Debug.Log("Should never happen though");
         }
     }

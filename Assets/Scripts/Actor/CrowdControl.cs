@@ -7,8 +7,11 @@ using DG.Tweening;
 
 public class CrowdControl : ActorControl
 {
+    public UnityEvent onIdle;
     public UnityEvent onSelected;
     public UnityEvent onDeselected;
+    public UnityEvent onOrderFailed;
+    public UnityEvent onReadyToPush;
 
     public float speed = 5f;
 
@@ -23,6 +26,9 @@ public class CrowdControl : ActorControl
     private GameObject onObj = null;
     private Sequence matSeq = null;
 
+    private float stateTimer = 0;
+    private float stateInterval = 2.0f;
+
     // Use this for initialization
     void Start()
     {
@@ -33,7 +39,14 @@ public class CrowdControl : ActorControl
     // Update is called once per frame
     void Update()
     {
-
+        if (stateTimer > 0)
+        {
+            stateTimer -= Time.deltaTime;
+            if (stateTimer <= 0)
+            {
+                Idle();
+            }
+        }
     }
 
     void FixedUpdate()
@@ -98,16 +111,6 @@ public class CrowdControl : ActorControl
         return workingSlot;
     }
 
-    public void Selected()
-    {
-        onSelected.Invoke();
-    }
-
-    public void Deselected()
-    {
-        onDeselected.Invoke();
-    }
-
     public void Stop()
     {
         isMoving = false;
@@ -120,22 +123,34 @@ public class CrowdControl : ActorControl
         targetPosTol = tol;
     }
 
-    public void WalkAcross(GameObject obj)
+    public void Selected()
     {
-        //if (onObj == obj)
-        //{
-        //    onObj = null;
-        //    SetKinematic(false);
-        //}
-        //else
-        //{
-        //    onObj = obj;
-        //    SetKinematic(true);
-        //}
+        onSelected.Invoke();
     }
+
+    public void Deselected()
+    {
+        onDeselected.Invoke();
+    }
+
+    //public void WalkAcross(GameObject obj)
+    //{
+    //    if (onObj == obj)
+    //    {
+    //        onObj = null;
+    //        SetKinematic(false);
+    //    }
+    //    else
+    //    {
+    //        onObj = obj;
+    //        SetKinematic(true);
+    //    }
+    //}
 
     public void OrderFailed()
     {
+        stateTimer = stateInterval;
+        onOrderFailed.Invoke();
         //Material mat = GetComponentInChildren<MeshRenderer>().material;
         //if (matSeq != null && matSeq.IsPlaying())
         //{
@@ -145,5 +160,16 @@ public class CrowdControl : ActorControl
         //matSeq = DOTween.Sequence();
         //matSeq.Append(mat.DOColor(new Color(1.0f, 0.0f, 0.0f), 0.1f));
         //matSeq.Append(mat.DOColor(origColor, 0.1f).SetDelay(0.3f));
+    }
+
+    public void ReadyToPush()
+    {
+        //stateTimer = stateInterval;
+        onReadyToPush.Invoke();
+    }
+
+    public void Idle()
+    {
+        onIdle.Invoke();
     }
 }
