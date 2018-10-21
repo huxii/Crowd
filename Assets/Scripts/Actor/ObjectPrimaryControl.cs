@@ -149,14 +149,7 @@ public abstract class ObjectPrimaryControl : ObjectControl
 
     public int GetEmptySlotNum()
     {
-        if (IsLocked())
-        {
-            return 0;
-        }
-        else
-        {
-            return slots.Count - currentSlots;
-        }
+        return slots.Count - currentSlots;
     }
 
     public Vector3 GetFreeManSlotPos()

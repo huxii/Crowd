@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ObjectHolderControl : ObjectControl
 {
-    public bool clearMenOnDeactivated = false;
 
     // Use this for initialization
     void Start()
@@ -20,7 +19,7 @@ public class ObjectHolderControl : ObjectControl
 
     public override void Deactivate()
     {
-        //base.Deactivate();
+        base.Deactivate();
 
         //if (clearMenOnDeactivated && menOnThis != null && menOnThis.Count > 0)
         //{

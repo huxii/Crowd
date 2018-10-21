@@ -205,7 +205,7 @@ public class MainControl : MonoBehaviour
             return;
         }
 
-        // this obj is walkable
+        // this obj is settled & walkable
         if (obj.GetComponent<ObjectPrimaryControl>().IsLocked() && obj.GetComponent<ObjectPrimaryControl>().isWalkable)
         {
             MoveMen(pos, selectedMen);
@@ -215,66 +215,67 @@ public class MainControl : MonoBehaviour
         // click on object feedback
         obj.GetComponent<ObjectPrimaryControl>().Click();
 
+        // this object is full, release all the men
         if (obj.GetComponent<ObjectPrimaryControl>().GetEmptySlotNum() == 0)
         {
             obj.GetComponent<ObjectPrimaryControl>().FreeAllMan();
         }
         else
         {
-            SortedDictionary<float, GameObject> sortByDistance = new SortedDictionary<float, GameObject>();
-            if (selectedMen != null)
+            // this object has empty slots but locked
+            if (obj.GetComponent<ObjectPrimaryControl>().IsLocked())
             {
-                float diffKey = 0;
-                foreach (GameObject selectedMan in selectedMen)
+                foreach (GameObject man in men)
                 {
-                    sortByDistance.Add(diffKey, selectedMan);
-                    diffKey += 1e-12f;
+                    if (!man.GetComponent<CrowdControl>().IsBusy())
+                    {
+                        man.GetComponent<CrowdControl>().OrderFailed();
+                    }
                 }
             }
-
-            foreach (GameObject man in men)
+            else
             {
-                if (!sortByDistance.ContainsValue(man) && man.GetComponent<CrowdControl>().IsBusy() == false && !man.GetComponent<CrowdControl>().IsLocked())
+                SortedDictionary<float, GameObject> sortByDistance = new SortedDictionary<float, GameObject>();
+                if (selectedMen != null)
                 {
-                    sortByDistance.Add(Vector3.Distance(man.transform.position, obj.transform.position), man);
-                }
-            }
-
-            foreach (KeyValuePair<float, GameObject> pair in sortByDistance)
-            {
-                GameObject man = pair.Value;
-                int slotId = obj.GetComponent<ObjectPrimaryControl>().FindEmptySlot();
-                if (slotId == -1)
-                {
-                    return;
+                    float diffKey = 0;
+                    foreach (GameObject selectedMan in selectedMen)
+                    {
+                        sortByDistance.Add(diffKey, selectedMan);
+                        diffKey += 1e-12f;
+                    }
                 }
 
-                if (Services.pathFindingManager.FindPath(man, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId), 0.1f))
+                foreach (GameObject man in men)
                 {
-                    UnboundMan(man);
-                    OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
-                    Services.pathFindingManager.Move(man, 0.05f, new ManArrivesAtObj(man, obj, slotId));
+                    if (!sortByDistance.ContainsValue(man) && man.GetComponent<CrowdControl>().IsBusy() == false && !man.GetComponent<CrowdControl>().IsLocked())
+                    {
+                        sortByDistance.Add(Vector3.Distance(man.transform.position, obj.transform.position), man);
+                    }
                 }
-                else
+
+                foreach (KeyValuePair<float, GameObject> pair in sortByDistance)
                 {
-                    man.GetComponent<CrowdControl>().OrderFailed();
+                    GameObject man = pair.Value;
+                    int slotId = obj.GetComponent<ObjectPrimaryControl>().FindEmptySlot();
+                    if (slotId == -1)
+                    {
+                        return;
+                    }
+
+                    if (Services.pathFindingManager.FindPath(man, obj.GetComponent<ObjectPrimaryControl>().GetSlotPos(slotId), 0.1f))
+                    {
+                        UnboundMan(man);
+                        OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
+                        Services.pathFindingManager.Move(man, 0.05f, new ManArrivesAtObj(man, obj, slotId));
+                    }
+                    else
+                    {
+                        man.GetComponent<CrowdControl>().OrderFailed();
+                    }
                 }
             }
         }
-
-        //// no slots anymore
-        //if (obj.GetComponent<ObjectPrimaryControl>().GetEmptySlotNum() == 0)
-        //{
-        //    if (selectedMen != null)
-        //    {
-        //        foreach (GameObject man in selectedMen)
-        //        {
-        //            man.GetComponent<CrowdControl>().OrderFailed();
-        //        }
-        //    }
-        //    return;
-        //}
-
     }
 
     public void InteractSingleMan(GameObject obj, Vector3 pos)
@@ -285,15 +286,14 @@ public class MainControl : MonoBehaviour
         }
 
         // this obj is walkable
-        if (obj.GetComponent<ObjectPrimaryControl>().IsLocked())
+        if (obj.GetComponent<ObjectPrimaryControl>().IsLocked() && obj.GetComponent<ObjectPrimaryControl>().isWalkable)
         {
-            if (obj.GetComponent<ObjectPrimaryControl>().isWalkable)
-            {
-                MoveMen(pos);
-            }
-
+            MoveMen(pos);
             return;
         }
+
+        // click on object feedback
+        obj.GetComponent<ObjectPrimaryControl>().Click();
 
         int slotId = obj.GetComponent<ObjectPrimaryControl>().FindEmptySlot();
         if (slotId == -1)
@@ -510,11 +510,13 @@ public class MainControl : MonoBehaviour
     public void GoodClick(Vector3 pos)
     {
         Services.hudController.GoodClick(pos);
+        Services.soundController.Play("goodclick");
     }
 
     public void BadClick(Vector3 pos)
     {
         Services.hudController.BadClick(pos);
+        Services.soundController.Play("badclick");
     }
 
     //public void ManAcrossBorder(GameObject man, GameObject obj)
