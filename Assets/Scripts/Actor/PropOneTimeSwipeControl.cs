@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-public class ObjectOneTimeSwipeControl : ObjectAutoControl
+public class PropOneTimeSwipeControl : PropAutoControl
 {
     [Header("Swipe Settings")]
     public Vector3 swipeOffset;

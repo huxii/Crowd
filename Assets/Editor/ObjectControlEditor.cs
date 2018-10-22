@@ -15,8 +15,8 @@ public class ObjectControlEditor : Editor
     }
 }
 
-[CustomEditor(typeof(ObjectPrimaryControl))]
-public class ObjectPrimaryControlEditor : ObjectControlEditor
+[CustomEditor(typeof(PropControl))]
+public class PropControlEditor : ObjectControlEditor
 {
     public override void OnInspectorGUI()
     {
@@ -24,7 +24,7 @@ public class ObjectPrimaryControlEditor : ObjectControlEditor
 
         if (GUILayout.Button("Add Slot"))
         {
-            GameObject newSlot = ((ObjectPrimaryControl)objectController).AddSlot();
+            GameObject newSlot = ((PropControl)objectController).AddSlot();
             Selection.activeGameObject = newSlot;
         }
 
@@ -36,8 +36,8 @@ public class ObjectPrimaryControlEditor : ObjectControlEditor
     }
 }
 
-[CustomEditor(typeof(ObjectClickControl))]
-public class ObjectClickControlEditor : ObjectPrimaryControlEditor
+[CustomEditor(typeof(PropClickControl))]
+public class PropClickControlEditor : PropControlEditor
 {
     public override void OnInspectorGUI()
     {
@@ -45,8 +45,8 @@ public class ObjectClickControlEditor : ObjectPrimaryControlEditor
     }
 }
 
-[CustomEditor(typeof(ObjectDragControl))]
-public class ObjectDragControlEditor : ObjectPrimaryControlEditor
+[CustomEditor(typeof(PropDragControl))]
+public class PropDragControlEditor : PropControlEditor
 {
     public override void OnInspectorGUI()
     {
@@ -54,8 +54,8 @@ public class ObjectDragControlEditor : ObjectPrimaryControlEditor
     }
 }
 
-[CustomEditor(typeof(ObjectAutoControl))]
-public class ObjectAutoControlEditor : ObjectPrimaryControlEditor
+[CustomEditor(typeof(PropAutoControl))]
+public class PropAutoControlEditor : PropControlEditor
 {
     public override void OnInspectorGUI()
     {
@@ -63,8 +63,8 @@ public class ObjectAutoControlEditor : ObjectPrimaryControlEditor
     }
 }
 
-[CustomEditor(typeof(ObjectAutoBasicControl))]
-public class ObjectAutoBasicControlEditor : ObjectAutoControlEditor
+[CustomEditor(typeof(PropAutoBasicControl))]
+public class PropAutoBasicControlEditor : PropAutoControlEditor
 {
     public override void OnInspectorGUI()
     {
@@ -72,8 +72,8 @@ public class ObjectAutoBasicControlEditor : ObjectAutoControlEditor
     }
 }
 
-[CustomEditor(typeof(ObjectAutoDeactivateControl))]
-public class ObjectAutoDeactivateControlEditor : ObjectAutoControlEditor
+[CustomEditor(typeof(PropAutoDeactivateControl))]
+public class PropAutoDeactivateControlEditor : PropAutoControlEditor
 {
     public override void OnInspectorGUI()
     {
@@ -81,8 +81,8 @@ public class ObjectAutoDeactivateControlEditor : ObjectAutoControlEditor
     }
 }
 
-[CustomEditor(typeof(ObjectAutoLoopControl))]
-public class ObjectAutoLoopControlEditor : ObjectAutoControlEditor
+[CustomEditor(typeof(PropAutoLoopControl))]
+public class PropAutoLoopControlEditor : PropAutoControlEditor
 {
     public override void OnInspectorGUI()
     {
@@ -90,8 +90,8 @@ public class ObjectAutoLoopControlEditor : ObjectAutoControlEditor
     }
 }
 
-[CustomEditor(typeof(ObjectOneTimeSwipeControl))]
-public class ObjectOneTimeSwipeControlEditor : ObjectAutoControlEditor
+[CustomEditor(typeof(PropOneTimeSwipeControl))]
+public class PropOneTimeSwipeControlEditor : PropAutoControlEditor
 {
     public override void OnInspectorGUI()
     {
@@ -99,8 +99,8 @@ public class ObjectOneTimeSwipeControlEditor : ObjectAutoControlEditor
     }
 }
 
-[CustomEditor(typeof(ObjectDragTransformControl))]
-public class ObjectDragTransformControlEditor : ObjectDragControlEditor
+[CustomEditor(typeof(PropDragTransformControl))]
+public class PropDragTransformControlEditor : PropDragControlEditor
 {
     public override void OnInspectorGUI()
     {
@@ -108,8 +108,8 @@ public class ObjectDragTransformControlEditor : ObjectDragControlEditor
     }
 }
 
-[CustomEditor(typeof(ObjectSecondaryControl))]
-public class ObjectSecondaryControlEditor : ObjectControlEditor
+[CustomEditor(typeof(MultiplePropControl))]
+public class MultiplePropControlEditor : ObjectControlEditor
 {
     public override void OnInspectorGUI()
     {

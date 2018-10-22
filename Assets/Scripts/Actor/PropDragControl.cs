@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class ObjectDragControl : ObjectPrimaryControl
+public abstract class PropDragControl : PropControl
 {
     // the range of dragging
     public Vector3 minDelta = new Vector3(0, 0, 0);

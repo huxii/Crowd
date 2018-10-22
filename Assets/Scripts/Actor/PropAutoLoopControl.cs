@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ObjectAutoLoopControl : ObjectAutoControl
+public class PropAutoLoopControl : PropAutoControl
 {
     [Header("Loop Settings")]
     public float loopInterval = 1f;

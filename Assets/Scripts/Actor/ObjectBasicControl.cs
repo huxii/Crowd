@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectAutoBasicControl : ObjectAutoControl
+public class ObjectBasicControl : ObjectControl
 {
 
     // Use this for initialization

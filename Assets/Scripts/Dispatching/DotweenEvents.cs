@@ -70,7 +70,7 @@ public class DotweenEvents : MonoBehaviour
         //}
         //else
         {
-            
+
             Vector3 targetRot = deltaRot + obj.transform.localEulerAngles;
             obj.transform.DOLocalRotate(targetRot, time).SetLoops(loop).SetEase(Ease.Linear);
         }
@@ -140,12 +140,12 @@ public class DotweenEvents : MonoBehaviour
         obj.transform.DOLocalMove(obj.transform.localPosition + deltaPos, time);
     }
 
-    public void Scale(string para)
+    public void ScaleTo(string para)
     {
         string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
         GameObject obj = GameObject.Find(paras[0]);
         string axis = paras[1];
-        float inc = float.Parse(paras[2]);
+        float scale = float.Parse(paras[2]);
         float time = float.Parse(paras[3]);
 
         if (obj == null)
@@ -156,17 +156,17 @@ public class DotweenEvents : MonoBehaviour
         Vector3 newScale = obj.transform.localScale;
         if (axis.ToLower() == "x")
         {
-            newScale  = new Vector3(inc, newScale.y, newScale.z);
+            newScale = new Vector3(scale, newScale.y, newScale.z);
         }
         else
         if (axis.ToLower() == "y")
         {
-            newScale = new Vector3(newScale.x, inc, newScale.z);
+            newScale = new Vector3(newScale.x, scale, newScale.z);
         }
         else
         if (axis.ToLower() == "z")
         {
-            newScale = new Vector3(newScale.x, newScale.y, inc);
+            newScale = new Vector3(newScale.x, newScale.y, scale);
         }
 
         obj.transform.DOScale(newScale, time);
@@ -190,7 +190,7 @@ public class DotweenEvents : MonoBehaviour
         //Vector3 newScale = obj.transform.localScale * inc;
 
         obj.transform.DOScale(newScale, time * 0.5f).OnComplete(
-            ()=> 
+            () =>
             {
                 obj.transform.DOScale(origScale, time * 0.5f);
             }
@@ -205,6 +205,11 @@ public class DotweenEvents : MonoBehaviour
         float inc = float.Parse(paras[2]);
         float time = float.Parse(paras[3]);
         int loop = int.Parse(paras[4]);
+        bool isLocalAxis = false;
+        if (paras.Length >= 6)
+        {
+            isLocalAxis = bool.Parse(paras[5]);
+        }
 
         Sequence seq = DOTween.Sequence();
         Vector3 deltaRot = new Vector3(0, 0, 0);
@@ -223,12 +228,21 @@ public class DotweenEvents : MonoBehaviour
             deltaRot = new Vector3(0, 0, inc);
         }
 
-        Vector3 origRot = transform.eulerAngles;
-        Vector3 rightRot = origRot + deltaRot;
+        if (!isLocalAxis)
+        {
+            Vector3 origRot = new Vector3(0, 0, 0);
+            Vector3 rightRot = origRot + deltaRot;
 
-        seq.Append(obj.transform.DOLocalRotate(rightRot, 0.5f * time).SetEase(Ease.Linear));
-        seq.Append(obj.transform.DOLocalRotate(origRot, 0.5f * time).SetEase(Ease.Linear));
-        seq.SetLoops(loop, LoopType.Restart);
+            seq.Append(obj.transform.DOLocalRotate(rightRot, 0.5f * time).SetEase(Ease.Linear));
+            seq.Append(obj.transform.DOLocalRotate(origRot, 0.5f * time).SetEase(Ease.Linear));
+            seq.SetLoops(loop, LoopType.Restart);
+        }
+        else
+        {
+            seq.Append(obj.transform.DOLocalRotate(deltaRot, 0.5f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InBack));
+            seq.Append(obj.transform.DOLocalRotate(-deltaRot, 0.5f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InBack));
+            seq.SetLoops(loop, LoopType.Restart);
+        }
     }
 
     public void Zigzag(string para)
@@ -239,6 +253,11 @@ public class DotweenEvents : MonoBehaviour
         float inc = float.Parse(paras[2]);
         float time = float.Parse(paras[3]);
         int loop = int.Parse(paras[4]);
+        bool isLocalAxis = false;
+        if (paras.Length >= 6)
+        {
+            isLocalAxis = bool.Parse(paras[5]);
+        }
 
         Sequence seq = DOTween.Sequence();
         Vector3 deltaRot = new Vector3(0, 0, 0);
@@ -257,15 +276,27 @@ public class DotweenEvents : MonoBehaviour
             deltaRot = new Vector3(0, 0, inc);
         }
 
-        Vector3 origRot = transform.eulerAngles;
-        Vector3 leftRot = origRot - deltaRot;
-        Vector3 rightRot = origRot + deltaRot;
+        // like bell
+        if (!isLocalAxis)
+        {
+            Vector3 origRot = new Vector3(0, 0, 0);
+            Vector3 leftRot = origRot - deltaRot;
+            Vector3 rightRot = origRot + deltaRot;
 
-        seq.Append(obj.transform.DOLocalRotate(leftRot, 0.25f * time).SetEase(Ease.Linear));
-        seq.Append(obj.transform.DOLocalRotate(origRot, 0.25f * time).SetEase(Ease.Linear));
-        seq.Append(obj.transform.DOLocalRotate(rightRot, 0.25f * time).SetEase(Ease.Linear));
-        seq.Append(obj.transform.DOLocalRotate(origRot, 0.25f * time).SetEase(Ease.Linear));
-        seq.SetLoops(loop, LoopType.Restart);
+            seq.Append(obj.transform.DOLocalRotate(leftRot, 0.25f * time).SetEase(Ease.Linear));
+            seq.Append(obj.transform.DOLocalRotate(origRot, 0.25f * time).SetEase(Ease.Linear));
+            seq.Append(obj.transform.DOLocalRotate(rightRot, 0.25f * time).SetEase(Ease.Linear));
+            seq.Append(obj.transform.DOLocalRotate(origRot, 0.25f * time).SetEase(Ease.Linear));
+            seq.SetLoops(loop, LoopType.Restart);
+        }
+        // like flags
+        else
+        {
+            seq.Append(obj.transform.DOLocalRotate(deltaRot, 0.25f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InBack));
+            seq.Append(obj.transform.DOLocalRotate(-2 * deltaRot, 0.5f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InBack));
+            seq.Append(obj.transform.DOLocalRotate(deltaRot, 0.25f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InBack));
+            seq.SetLoops(loop, LoopType.Restart);
+        }
     }
 
     public void KillSequence(GameObject obj)

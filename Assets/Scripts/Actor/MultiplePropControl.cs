@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // the objects that control or are controlled by primary objects
-public class ObjectSecondaryControl : ObjectControl
+public class MultiplePropControl : ObjectControl
 {
 
     // Use this for initialization

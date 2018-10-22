@@ -8,25 +8,12 @@ public abstract class ObjectControl : ActorControl
 {
     public UnityEvent onActivated;
     public UnityEvent onDeactivated;
+    public UnityEvent onClick;
 
     [Header("Walkable Attribute")]
     public bool isWalkable = false;
 
     protected bool isActivated = false;
-
-    //public enum ObjectControlScheme
-    //{
-    //    DRAG_TRANSFORMATION,
-    //    DRAG_ROTATION,
-    //    CLICK,
-    //    // HOLD,
-    //    // SMASH,
-    //    // SWIPE,
-    //    // OTHEROBJECT
-    //};
-
-    //public ObjectControlScheme controlScheme = ObjectControlScheme.DRAG_TRANSFORMATION;
-    //public bool deltaLimited = false;
 
     // Use this for initialization
     void Start ()
@@ -40,6 +27,7 @@ public abstract class ObjectControl : ActorControl
 
     public virtual void Click()
     {
+        onClick.Invoke();
     }
 
     public virtual void Drag(Vector3 deltaPos)

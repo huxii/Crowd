@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ObjectDragTransformControl : ObjectDragControl
+public class PropDragTransformControl : PropDragControl
 {
     [Header("Dragging Configuration")]
     public Vector3 minValidDelta = new Vector3(0, 0, 0);

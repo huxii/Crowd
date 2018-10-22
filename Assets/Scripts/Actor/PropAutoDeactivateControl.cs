@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // automatically deactivate after some time
-public class ObjectAutoDeactivateControl : ObjectAutoControl
+public class PropAutoDeactivateControl : PropAutoControl
 {
     [Header("Auto Deactivate Settings")]
     public float timeToAutoDeactivate = 1f;
