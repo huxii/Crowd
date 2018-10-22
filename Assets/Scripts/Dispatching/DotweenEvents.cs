@@ -184,8 +184,10 @@ public class DotweenEvents : MonoBehaviour
             return;
         }
 
-        Vector3 origScale = obj.transform.localScale;
-        Vector3 newScale = obj.transform.localScale * inc;
+        Vector3 origScale = new Vector3(1, 1, 1);
+        Vector3 newScale = new Vector3(inc, inc, inc);
+        //Vector3 origScale = obj.transform.localScale;
+        //Vector3 newScale = obj.transform.localScale * inc;
 
         obj.transform.DOScale(newScale, time * 0.5f).OnComplete(
             ()=> 
