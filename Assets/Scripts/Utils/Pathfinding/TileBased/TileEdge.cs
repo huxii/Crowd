@@ -21,12 +21,22 @@ public class TileEdge : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (t0 == null || t1 == null)
+        {
+            Destroy(gameObject);
+        }
+
         Gizmos.color = Color.white;
         Gizmos.DrawLine(t0.transform.position, t1.transform.position);
     }
 
     private void OnDrawGizmosSelected()
     {
+        if (t0 == null || t1 == null)
+        {
+            Destroy(gameObject);
+        }
+
         Gizmos.color = Color.red;
         Gizmos.DrawLine(t0.transform.position, t1.transform.position);
     }

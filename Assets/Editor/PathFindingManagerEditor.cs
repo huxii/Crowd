@@ -20,7 +20,7 @@ public class PathFindingManagerEditor : Editor
 
         if (GUILayout.Button("Refresh"))
         {
-            pathFinder.GetComponent<PathFindingManager>().Refresh();
+            pathFinder.Refresh();
         }
 
         if (GUI.changed)
