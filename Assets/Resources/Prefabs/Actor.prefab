@@ -20,8 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4846494207464942}
   - component: {fileID: 212796803742887008}
-  - component: {fileID: 136507026770512522}
-  - component: {fileID: 114905488010985994}
+  - component: {fileID: 114863646008437084}
   m_Layer: 2
   m_Name: ActorModel
   m_TagString: Untagged
@@ -37,8 +36,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4353552884431070}
-  - component: {fileID: 136165450798986648}
   - component: {fileID: 54739472205100708}
+  - component: {fileID: 136689480411225892}
   - component: {fileID: 114925974569722068}
   m_Layer: 2
   m_Name: Actor
@@ -53,9 +52,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1980355776856754}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.3, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.409, y: 1.3, z: -0.758}
+  m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 0.59999996}
   m_Children:
   - {fileID: 4846494207464942}
   m_Father: {fileID: 0}
@@ -89,7 +88,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114905488010985994
+--- !u!114 &114863646008437084
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,32 +173,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   speed: 5
---- !u!136 &136165450798986648
+--- !u!136 &136689480411225892
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1980355776856754}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
---- !u!136 &136507026770512522
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1609627637782622}
-  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: -0.37, z: 0}
+  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!212 &212796803742887008
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -446,7 +446,7 @@ public class MainControl : MonoBehaviour
             {
                 if (!man.GetComponent<CrowdControl>().IsBusy())
                 {
-                    MoveManToPosition(man, targetPos, (selectedMen.Count - 1) * 0.15f + 0.05f);
+                    MoveManToPosition(man, targetPos, (selectedMen.Count - 1) * 0.2f + 0.05f);
                 }
             }
         }
@@ -465,7 +465,7 @@ public class MainControl : MonoBehaviour
             {
                 if (!man.GetComponent<CrowdControl>().IsBusy())
                 {
-                    MoveManToPosition(man, targetPos, (reachableMenNum - 1) * 0.15f + 0.05f);
+                    MoveManToPosition(man, targetPos, (reachableMenNum - 1) * 0.2f + 0.05f);
                 }
             }
         }
