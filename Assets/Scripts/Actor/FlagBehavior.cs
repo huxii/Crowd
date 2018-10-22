@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlagBehavior : MonoBehaviour
+public class FlagBehavior : MouseResponseBehavior
 {
     public float swingAngle = 5f;
     public float swingDuration = 1f;
@@ -29,7 +29,7 @@ public class FlagBehavior : MonoBehaviour
         return swingTimer > 0;
     }
 
-    public void Swing()
+    public override void React()
     {
         if (!IsSwinging())
         {

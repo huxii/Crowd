@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using DG.Tweening;
 
 // TODO: main menu & feedback (red states|sounds) & control (tap->swipe) & footprint (orientation)
-// camera movement gesture & hints & flag anim & ladder handle & character (behavior tree)
+// camera movement gesture & hints & ladder handle & character (behavior tree)
 
 public class MainControl : MonoBehaviour
 {

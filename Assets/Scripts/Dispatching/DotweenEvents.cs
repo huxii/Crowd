@@ -292,9 +292,9 @@ public class DotweenEvents : MonoBehaviour
         // like flags
         else
         {
-            seq.Append(obj.transform.DOLocalRotate(deltaRot, 0.25f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InBack));
-            seq.Append(obj.transform.DOLocalRotate(-2 * deltaRot, 0.5f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InBack));
-            seq.Append(obj.transform.DOLocalRotate(deltaRot, 0.25f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InBack));
+            seq.Append(obj.transform.DOLocalRotate(deltaRot, 0.25f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InOutCubic));
+            seq.Append(obj.transform.DOLocalRotate(-2 * deltaRot, 0.5f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InOutCubic));
+            seq.Append(obj.transform.DOLocalRotate(deltaRot, 0.25f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InOutCubic));
             seq.SetLoops(loop, LoopType.Restart);
         }
     }
