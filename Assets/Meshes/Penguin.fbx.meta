@@ -341,6 +341,7 @@ ModelImporter:
     100670: Link1
     100672: Link2
     100674: Link3
+    100676: Interactables
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -679,6 +680,7 @@ ModelImporter:
     400670: Link1
     400672: Link2
     400674: Link3
+    400676: Interactables
     2100000: lambert1
     2100002: lambert2
     2300000: Axis

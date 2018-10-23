@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathFindingManager : MonoBehaviour
+public abstract class PathFindingManager : MonoBehaviour
 {
     protected class FoundPath
     {

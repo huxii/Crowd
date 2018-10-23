@@ -10,12 +10,6 @@ public class TileEditor : Editor
 {
     private TileBasedPathFindingManager pathFinder;
 
-    void Awake()
-    {
-        //pathPoint = (PathPoint)target;
-        pathFinder = GameObject.Find("PathFinder").GetComponent<TileBasedPathFindingManager>();
-    }
-
     void OnDestroy()
     {
         //pathFinder.RemovePathPoint(pathPoint.gameObject);
@@ -24,6 +18,8 @@ public class TileEditor : Editor
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
+
+        pathFinder = GameObject.Find("PathFinder").GetComponent<TileBasedPathFindingManager>();
 
         if (GUILayout.Button("Connect"))
         {
