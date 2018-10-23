@@ -56,7 +56,7 @@ public class CrowdControl : ActorControl
         {
             if (Vector3.Distance(targetPos, transform.position) > targetPosTol)
             {
-                //Debug.Log(gameObject.name + " " + transform.position + " " + targetPos + " " + (targetPos - transform.position).normalized * speed);
+                Debug.Log(gameObject.name + " " + transform.position + " " + targetPos + " " + (targetPos - transform.position).normalized * speed);
                 //rb.velocity = (targetPos - transform.position).normalized * speed; 
                 rb.MovePosition(transform.position + (targetPos - transform.position).normalized * speed * Time.deltaTime);
             }

@@ -33,6 +33,14 @@ public class PathFindingManager : MonoBehaviour
     protected Dictionary<GameObject, FoundPath> pathTable = new Dictionary<GameObject, FoundPath>();
     protected FoundPath recentPath = null;
 
+    [SerializeField]
+    protected GameObject navmeshObj = null;
+    [SerializeField]
+    protected List<GameObject> navmeshes = new List<GameObject>();
+    [SerializeField]
+    [HideInInspector]
+    private int navCounter = 0;
+
     // Use this for initialization
     void Start()
     {
@@ -66,6 +74,32 @@ public class PathFindingManager : MonoBehaviour
 
             ActorMoveUpdate(actor);
         }
+    }
+
+    public GameObject AddNavmesh()
+    {
+        if (navmeshObj == null)
+        {
+            navmeshObj = new GameObject();
+            navmeshObj.name = "Navmeshes";
+            navmeshObj.transform.SetParent(transform);
+            navmeshObj.transform.localPosition = new Vector3(0, 0, 0);
+            navCounter = 0;
+        }
+
+        GameObject newNavmesh = new GameObject();
+        newNavmesh.name = "Navmesh" + navCounter;
+        newNavmesh.transform.SetParent(navmeshObj.transform);
+        newNavmesh.transform.localPosition = new Vector3(0, 0, 0);
+        newNavmesh.tag = "Ground";
+        newNavmesh.layer = 10;
+        newNavmesh.AddComponent<BoxCollider>();
+        newNavmesh.GetComponent<BoxCollider>().isTrigger = true;
+        newNavmesh.AddComponent<Navmesh>();
+        navmeshes.Add(newNavmesh);
+        ++navCounter;
+
+        return newNavmesh;
     }
 
     public void StopActor(GameObject actor)
@@ -114,5 +148,12 @@ public class PathFindingManager : MonoBehaviour
 
     public virtual void Refresh()
     {
+        foreach (GameObject navmesh in navmeshes.ToArray())
+        {
+            if (navmesh == null)
+            {
+                navmeshes.Remove(navmesh);
+            }
+        }
     }
 }

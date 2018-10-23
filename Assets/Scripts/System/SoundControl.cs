@@ -27,8 +27,6 @@ public class SoundClip
 
 public class SoundControl : MonoBehaviour
 {
-    public GameObject audioSourcePrefab;
-
     [SerializeField]
     private List<SoundClip> clips;
     private int pooledAudioAmount = 10; 
@@ -42,7 +40,7 @@ public class SoundControl : MonoBehaviour
     {
         for (int i = 0; i < pooledAudioAmount; i++)
         {
-            GameObject audio = (GameObject)Instantiate(audioSourcePrefab, transform);
+            GameObject audio = (GameObject)Instantiate(Resources.Load("Prefabs/AudioSource"), transform);
             audio.SetActive(false);
             audioSources.Add(audio);
         }

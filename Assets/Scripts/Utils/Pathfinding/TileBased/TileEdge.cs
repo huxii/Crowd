@@ -23,7 +23,7 @@ public class TileEdge : MonoBehaviour
     {
         if (t0 == null || t1 == null)
         {
-            Destroy(gameObject);
+            DestroyImmediate(gameObject);
         }
 
         Gizmos.color = Color.white;
@@ -34,7 +34,7 @@ public class TileEdge : MonoBehaviour
     {
         if (t0 == null || t1 == null)
         {
-            Destroy(gameObject);
+            DestroyImmediate(gameObject);
         }
 
         Gizmos.color = Color.red;

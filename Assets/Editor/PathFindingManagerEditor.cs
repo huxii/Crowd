@@ -9,18 +9,21 @@ public class PathFindingManagerEditor : Editor
 {
     private static PathFindingManager pathFinder;
 
-    void Awake()
-    {
-        pathFinder = (PathFindingManager)target;
-    }
-
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
+        pathFinder = (PathFindingManager)target;
+
         if (GUILayout.Button("Refresh"))
         {
             pathFinder.Refresh();
+        }
+
+        if (GUILayout.Button("Add Navmesh"))
+        {
+            GameObject newNavmesh = pathFinder.AddNavmesh();
+            Selection.activeGameObject = newNavmesh;
         }
 
         if (GUI.changed)
@@ -36,14 +39,11 @@ public class PointBasedPathFindingManagerEditor : PathFindingManagerEditor
 {
     private static PointBasedPathFindingManager pathFinder;
 
-    void Awake()
-    {
-        pathFinder = (PointBasedPathFindingManager)target;
-    }
-
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
+
+        pathFinder = (PointBasedPathFindingManager)target;
 
         if (GUILayout.Button("Add Tile"))
         {
@@ -64,15 +64,11 @@ public class TileBasedPathFindingManagerEditor : PathFindingManagerEditor
 {
     private static TileBasedPathFindingManager pathFinder;
 
-    void Awake()
-    {
-        pathFinder = (TileBasedPathFindingManager)target;
-    }
-
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
         //pathFinder.test = EditorGUILayout.Toggle("haha", pathFinder.test);
+        pathFinder = (TileBasedPathFindingManager)target;
 
         if (GUILayout.Button("Add Tile"))
         {

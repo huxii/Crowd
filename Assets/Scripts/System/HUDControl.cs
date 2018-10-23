@@ -19,10 +19,6 @@ public class HUDControl : MonoBehaviour
     [SerializeField]
     private int anchorCounter = 0;
 
-    [Header("VFX")]
-    public GameObject goodClickPrefab;
-    public GameObject badClickPrefab;
-
     void Start()
     {
         //PlayNextUIEvent();
@@ -112,7 +108,7 @@ public class HUDControl : MonoBehaviour
     public void GoodClick(Vector3 posWorld)
     {
         Vector2 pos = GetCanvasPos(posWorld);
-        GameObject particle = Instantiate(goodClickPrefab, transform) as GameObject;
+        GameObject particle = Instantiate(Resources.Load("Prefabs/GoodClickAnim"), transform) as GameObject;
         RectTransform rect = particle.transform as RectTransform;
         rect.anchoredPosition = pos;
     }
@@ -120,7 +116,7 @@ public class HUDControl : MonoBehaviour
     public void BadClick(Vector3 posWorld)
     {
         Vector2 pos = GetCanvasPos(posWorld);
-        GameObject particle = Instantiate(badClickPrefab, transform) as GameObject;
+        GameObject particle = Instantiate(Resources.Load("Prefabs/BadClickAnim"), transform) as GameObject;
         RectTransform rect = particle.transform as RectTransform;
         rect.anchoredPosition = pos;
     }

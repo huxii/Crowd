@@ -211,6 +211,6 @@ public abstract class PropControl : ObjectControl
     {
         base.Click();
 
-        Services.soundController.Play("objectClick");
+        //Services.soundController.Play("objectClick");
     }
 }

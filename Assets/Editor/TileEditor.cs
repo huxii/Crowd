@@ -34,6 +34,15 @@ public class TileEditor : Editor
             }
         }
 
+        if (GUILayout.Button("Disconnect"))
+        {
+            GameObject[] points = Selection.gameObjects;
+            if (points.Length == 2 && points[0].GetComponent<Tile>() != null && points[1].GetComponent<Tile>() != null)
+            {
+                pathFinder.DisconnectPath(points[0], points[1]);
+            }
+        }
+
         // 1. update the dirty data
         if (GUI.changed)
         {

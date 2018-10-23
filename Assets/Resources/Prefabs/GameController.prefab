@@ -20,11 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4127109821785624}
   - component: {fileID: 114071134189052764}
-  - component: {fileID: 114295855286499398}
-  - component: {fileID: 114582950223842898}
   - component: {fileID: 114512313505852240}
   - component: {fileID: 114573728889708512}
-  - component: {fileID: 114946938750668760}
   - component: {fileID: 114085845466859174}
   - component: {fileID: 114022028110964328}
   m_Layer: 0
@@ -72,7 +69,7 @@ MonoBehaviour:
   onLevelStart:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114946938750668760}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -88,7 +85,7 @@ MonoBehaviour:
   onLevelEnd:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114295855286499398}
+      - m_Target: {fileID: 0}
         m_MethodName: SetZoom
         m_Mode: 3
         m_Arguments:
@@ -115,7 +112,7 @@ MonoBehaviour:
   onLevelExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114295855286499398}
+      - m_Target: {fileID: 0}
         m_MethodName: SetZoom
         m_Mode: 3
         m_Arguments:
@@ -140,73 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07559f2b0ce54c444bb890516b696e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114295855286499398
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1332756311562822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f5bac3034e714c96879a3c38a58be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnterMaxZoomOut:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114085845466859174}
-        m_MethodName: RotateTo
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: BackShell, y, 0, 1
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onExitMaxZoomOut:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114085845466859174}
-        m_MethodName: RotateTo
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: BackShell, y, -160, 1
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  pivots: {fileID: 0}
-  maxZoomLevel: 2
-  zoomLevelAttrs:
-  - topRigOrbit: {x: 5, y: 42}
-    middleRigOrbit: {x: 0, y: 45}
-    bottomRigOrbit: {x: -5, y: 42}
-    angleRange: {x: -360, y: 360}
-    angleZero: {x: 180, y: 90}
-    sensitivity: {x: 300, y: 300}
-    translateRange: {x: -1, y: -1, z: 1, w: 1}
-  - topRigOrbit: {x: 10, y: 20}
-    middleRigOrbit: {x: 0, y: 30}
-    bottomRigOrbit: {x: -3, y: 29}
-    angleRange: {x: -30, y: 30}
-    angleZero: {x: 0, y: 90}
-    sensitivity: {x: 300, y: 300}
-    translateRange: {x: -1, y: -1, z: 1, w: 1}
-  - topRigOrbit: {x: 8, y: 14}
-    middleRigOrbit: {x: 0, y: 18}
-    bottomRigOrbit: {x: -1, y: 17}
-    angleRange: {x: -20, y: 20}
-    angleZero: {x: 0, y: 90}
-    sensitivity: {x: 200, y: 200}
-    translateRange: {x: -1, y: -1, z: 1, w: 1}
 --- !u!114 &114512313505852240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,52 +159,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c96976c38ecc84a92f74cba945d912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  responseObject:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   gyroEnabled: 0
   orderMode: 1
---- !u!114 &114582950223842898
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1332756311562822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2e95ed51cb311b4290165f1d6b81e81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  levelUIEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114582950223842898}
-        m_MethodName: DisplayImage
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Anchor16, testImage, 1
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  anchors:
-  - {fileID: 0}
-  - {fileID: 0}
-  anchorsObj: {fileID: 0}
-  anchorCounter: 18
---- !u!114 &114946938750668760
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1332756311562822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8410d5833c1d51a4c847696f955bc174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSourcePrefab: {fileID: 1736405464348846, guid: 19b08b1364af43e4e8c06fdecdefebcf,
-    type: 2}
-  clips: []

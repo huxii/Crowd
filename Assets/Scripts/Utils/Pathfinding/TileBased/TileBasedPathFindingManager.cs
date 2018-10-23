@@ -25,15 +25,14 @@ public class TileBasedPathFindingManager : PathFindingManager
     [SerializeField]
     private GameObject tilesObj = null;
     [SerializeField]
-    private GameObject edgesObj = null;
-
-    [SerializeField]
     private List<GameObject> tiles = new List<GameObject>();
+    [SerializeField]
+    private GameObject edgesObj = null;
     [SerializeField]
     private List<GameObject> tileEdges = new List<GameObject>();
     [HideInInspector]
     [SerializeField]
-    private int counter = 0;
+    private int tileCounter = 0;
 
     // Use this for initialization
     void Start()
@@ -85,25 +84,6 @@ public class TileBasedPathFindingManager : PathFindingManager
         }
     }
 
-    private void UpdateArrays()
-    {
-        foreach (GameObject tile in tiles.ToArray())
-        {
-            if (tile == null)
-            {
-                tiles.Remove(tile);
-            }
-        }
-
-        foreach (GameObject edge in tileEdges.ToArray())
-        {
-            if (edge == null || edge.GetComponent<TileEdge>().t0 == null || edge.GetComponent<TileEdge>().t1 == null)
-            {
-                tileEdges.Remove(edge);
-            }
-        }
-    }
-
     public GameObject AddTile()
     {
         if (tilesObj == null)
@@ -112,11 +92,11 @@ public class TileBasedPathFindingManager : PathFindingManager
             tilesObj.name = "Tiles";
             tilesObj.transform.SetParent(transform);
             tilesObj.transform.localPosition = new Vector3(0, 0, 0);
-            counter = 0;
+            tileCounter = 0;
         }
 
         GameObject newTile = new GameObject();
-        newTile.name = "Tile" + counter;
+        newTile.name = "Tile" + tileCounter;
         newTile.transform.SetParent(tilesObj.transform);
         newTile.transform.localPosition = new Vector3(0, 0, 0);
         newTile.layer = 2;
@@ -124,7 +104,7 @@ public class TileBasedPathFindingManager : PathFindingManager
         newTile.GetComponent<BoxCollider>().isTrigger = true;
         newTile.AddComponent<Tile>();
         tiles.Add(newTile);
-        ++counter;
+        ++tileCounter;
 
         return newTile;
     }
@@ -167,7 +147,7 @@ public class TileBasedPathFindingManager : PathFindingManager
                 || (edge.GetComponent<TileEdge>().t0 == p1 && edge.GetComponent<TileEdge>().t1 == p0))
             {
                 tileEdges.Remove(edge);
-                Destroy(edge);
+                DestroyImmediate(edge);
             }
         }
     }
@@ -320,6 +300,20 @@ public class TileBasedPathFindingManager : PathFindingManager
     {
         base.Refresh();
 
-        UpdateArrays();
+        foreach (GameObject tile in tiles.ToArray())
+        {
+            if (tile == null)
+            {
+                tiles.Remove(tile);
+            }
+        }
+
+        foreach (GameObject edge in tileEdges.ToArray())
+        {
+            if (edge == null || edge.GetComponent<TileEdge>().t0 == null || edge.GetComponent<TileEdge>().t1 == null)
+            {
+                tileEdges.Remove(edge);
+            }
+        }
     }
 }
