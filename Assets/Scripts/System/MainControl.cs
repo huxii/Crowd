@@ -63,6 +63,12 @@ public class MainControl : MonoBehaviour
                 }
             }
         }
+
+        // tmp
+        if (Input.GetMouseButtonDown(0))
+        {
+            Services.hudController.PlayNextUIEvent();
+        }
     }
 
     void OnDestroy()
@@ -542,13 +548,13 @@ public class MainControl : MonoBehaviour
 
     public void GoodClick(Vector3 pos)
     {
-        Services.hudController.GoodClick(pos);
+        Services.hudController.ShowIcon("GoodClickAnim", pos, HUDControl.UISpace.CANVAS);
         Services.soundController.Play("goodClick");
     }
 
     public void BadClick(Vector3 pos)
     {
-        Services.hudController.BadClick(pos);
+        Services.hudController.ShowIcon("BadClickAnim", pos, HUDControl.UISpace.CANVAS);
         Services.soundController.Play("badClick");
     }
 

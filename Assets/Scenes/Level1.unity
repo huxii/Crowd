@@ -535,11 +535,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 61353044}
   m_Mesh: {fileID: 4300100, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
---- !u!1 &62668526 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1544328128276596, guid: 17453db20fbf5e5439cec4c83dc0a2c4,
-    type: 2}
-  m_PrefabInternal: {fileID: 793712277}
 --- !u!1 &68476920
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,11 +2289,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 190380097}
   m_Mesh: {fileID: 4300104, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
---- !u!1 &206264656 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1385187915440294, guid: 17453db20fbf5e5439cec4c83dc0a2c4,
-    type: 2}
-  m_PrefabInternal: {fileID: 793712277}
 --- !u!1 &206498015
 GameObject:
   m_ObjectHideFlags: 0
@@ -4678,19 +4668,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.01511705
+      value: 0.015117068
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000012943474
+      value: -0.000000012943502
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0030008093
+      value: -0.0030011646
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.00000002304379
+      value: -0.000000023043631
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
@@ -11869,17 +11859,17 @@ Prefab:
         type: 2}
       propertyPath: anchors.Array.data[0]
       value: 
-      objectReference: {fileID: 62668526}
+      objectReference: {fileID: 0}
     - target: {fileID: 114582950223842898, guid: 02262fe7c3d18114ab3b977f25fc0b84,
         type: 2}
       propertyPath: anchors.Array.data[1]
       value: 
-      objectReference: {fileID: 206264656}
+      objectReference: {fileID: 0}
     - target: {fileID: 114582950223842898, guid: 02262fe7c3d18114ab3b977f25fc0b84,
         type: 2}
       propertyPath: anchorsObj
       value: 
-      objectReference: {fileID: 1114140322}
+      objectReference: {fileID: 0}
     - target: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
         type: 2}
       propertyPath: clickParticlePrefab
@@ -12115,11 +12105,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1095591039}
   m_Script: {fileID: 11500000, guid: 69c96976c38ecc84a92f74cba945d912, type: 3}
---- !u!1 &1114140322 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1566266136714712, guid: 17453db20fbf5e5439cec4c83dc0a2c4,
-    type: 2}
-  m_PrefabInternal: {fileID: 793712277}
 --- !u!1 &1118814903
 GameObject:
   m_ObjectHideFlags: 0

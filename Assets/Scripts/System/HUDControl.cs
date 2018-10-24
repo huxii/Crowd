@@ -7,6 +7,13 @@ using DG.Tweening;
 
 public class HUDControl : MonoBehaviour
 {
+    public enum UISpace
+    {
+        WORLD,
+        CANVAS,
+        CAMERA
+    };
+
     public GameObject canvas;
     public List<UnityEvent> levelUIEvents;
     private int curId = 0;
@@ -19,9 +26,16 @@ public class HUDControl : MonoBehaviour
     [SerializeField]
     private int anchorCounter = 0;
 
+    private char[] splitters = { ' ', ',' };
+
+    [SerializeField]
+    private GameObject[] levelUIList = null;
+
     void Start()
     {
-        //PlayNextUIEvent();
+        levelUIList = new GameObject[levelUIEvents.Count];
+
+        PlayNextUIEvent();
     }
 
     private void Update()
@@ -57,35 +71,21 @@ public class HUDControl : MonoBehaviour
     {
         if (curId < levelUIEvents.Count)
         {
-            levelUIEvents[curId].Invoke();
+            CloseLastIcon();
+            levelUIEvents[curId].Invoke();          
             ++curId;
         }
     }
 
-    public void DisplayImage(string anchorImage)
+    public void PlayUIEvent(int id)
     {
-        string[] info = anchorImage.Split(',');
-        foreach (GameObject anch in anchors){
-            if(anch.name == info[0])
-            {
-                GameObject image = new GameObject(info[1], typeof(RectTransform));
-                image.transform.position = anch.transform.position;
-                image.transform.SetParent(canvas.transform);
-                image.AddComponent<Image>();
-                Sprite outsideImage = Resources.Load<Sprite>("Sprites/" + info[1]);
-                image.GetComponent<Image>().sprite = outsideImage;
-                image.transform.localScale = Vector3.zero;
-                image.transform.DOScale(Vector3.one, float.Parse(info[2]));
-                break;
-            }
+        CloseLastIcon();
+        curId = id;
+        if (curId < levelUIEvents.Count)
+        {
+            levelUIEvents[curId].Invoke();
+            ++curId;
         }
-    }
-
-    public void CloseImage(string targetImage)
-    {
-        string[] info = targetImage.Split(',');
-        GameObject image = GameObject.Find(info[0]);
-        image.transform.DOScale(Vector3.zero, float.Parse(info[1])).OnComplete(() => { Destroy(image); });       
     }
 
     public void AddAnchor()
@@ -105,19 +105,80 @@ public class HUDControl : MonoBehaviour
         anchors.Add(anchor);
     }
 
-    public void GoodClick(Vector3 posWorld)
+    public GameObject ShowIcon(string name, Vector3 pos, UISpace mode)
     {
-        Vector2 pos = GetCanvasPos(posWorld);
-        GameObject particle = Instantiate(Resources.Load("Prefabs/GoodClickAnim"), transform) as GameObject;
-        RectTransform rect = particle.transform as RectTransform;
-        rect.anchoredPosition = pos;
+        GameObject icon = null;
+        switch (mode)
+        {
+            case UISpace.WORLD:
+                icon = Instantiate(Resources.Load("Prefabs/" + name), pos, Quaternion.identity) as GameObject;
+                break;
+            case UISpace.CANVAS:
+                Vector2 canvasPos = GetCanvasPos(pos);
+                icon = Instantiate(Resources.Load("Prefabs/" + name), transform) as GameObject;
+                RectTransform rect = icon.transform as RectTransform;
+                rect.anchoredPosition = canvasPos;
+                break;
+            case UISpace.CAMERA:
+                icon = new GameObject(name, typeof(RectTransform));
+                icon.transform.position = pos;
+                icon.transform.SetParent(canvas.transform);
+                icon.AddComponent<Image>();
+                Sprite outsideImage = Resources.Load<Sprite>("Sprites/" + name);
+                icon.GetComponent<Image>().sprite = outsideImage;
+                //image.transform.localScale = Vector3.zero;
+                //image.transform.DOScale(Vector3.one, float.Parse(info[2]));
+                //break;
+                break;
+        }
+
+        return icon;
     }
 
-    public void BadClick(Vector3 posWorld)
+    public void ShowIconInCameraSpace(string para)
     {
-        Vector2 pos = GetCanvasPos(posWorld);
-        GameObject particle = Instantiate(Resources.Load("Prefabs/BadClickAnim"), transform) as GameObject;
-        RectTransform rect = particle.transform as RectTransform;
-        rect.anchoredPosition = pos;
+        string[] paras = para.Split(splitters, System.StringSplitOptions.RemoveEmptyEntries);
+        GameObject anchor = GameObject.Find(paras[1]);
+        
+        levelUIList[curId] = ShowIcon(paras[0], anchor.transform.position, UISpace.CAMERA);
     }
+
+    public void ShowIconInWorldpace(string para)
+    {
+        string[] paras = para.Split(splitters, System.StringSplitOptions.RemoveEmptyEntries);
+        float x, y, z;
+        float.TryParse(paras[1], out x);
+        float.TryParse(paras[2], out y);
+        float.TryParse(paras[3], out z);
+        Vector3 pos = new Vector3(x, y, z);
+
+        levelUIList[curId] = ShowIcon(paras[0], pos, UISpace.WORLD);
+    }
+
+    public void ShowIconInCanvaspace(string para)
+    {
+        string[] paras = para.Split(splitters, System.StringSplitOptions.RemoveEmptyEntries);
+        float x, y, z;
+        float.TryParse(paras[1], out x);
+        float.TryParse(paras[2], out y);
+        float.TryParse(paras[3], out z);
+        Vector3 pos = new Vector3(x, y, z);
+
+        levelUIList[curId] = ShowIcon(paras[0], pos, UISpace.CANVAS);
+    }
+
+    public void CloseLastIcon()
+    {
+        if (curId > 0 && levelUIList[curId - 1] != null)
+        {
+            levelUIList[curId - 1].GetComponent<IconBehavior>().Close();
+        }
+    }
+
+    //public void CloseImage(string targetImage)
+    //{
+    //    string[] info = targetImage.Split(',');
+    //    GameObject image = GameObject.Find(info[0]);
+    //    image.transform.DOScale(Vector3.zero, float.Parse(info[1])).OnComplete(() => { Destroy(image); });       
+    //}
 }

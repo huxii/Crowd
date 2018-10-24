@@ -28,6 +28,7 @@ public class CameraControl : MonoBehaviour
     public GameObject pivots;
 
     public int maxZoomLevel = 0;
+    public int defaultZoomLevel = 0;
     public List<CameraAttr> zoomLevelAttrs;
     private int zoomLevel = 0;
 
@@ -50,6 +51,7 @@ public class CameraControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        zoomLevel = defaultZoomLevel;
         origTranslate = pivots.transform.position;
 
         targetCameraAttr = zoomLevelAttrs[zoomLevel];
