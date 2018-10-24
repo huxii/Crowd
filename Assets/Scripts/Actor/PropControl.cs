@@ -106,11 +106,11 @@ public abstract class PropControl : ObjectControl
     {
         if (slots[id].state == SlotState.READY)
         {
-            if (currentSlots == slots.Count)
+            --currentSlots;
+            if (currentSlots == slots.Count - 1)
             {
                 OnSlotsNotFull();
             }
-            --currentSlots;
         }
         slots[id].man = null;
         slots[id].state = SlotState.EMPTY;

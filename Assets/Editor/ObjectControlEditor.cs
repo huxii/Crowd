@@ -54,6 +54,15 @@ public class PropDragControlEditor : PropControlEditor
     }
 }
 
+[CustomEditor(typeof(PropAutoHolderControl))]
+public class PropAutoHolderControlEditor : PropControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
 [CustomEditor(typeof(PropAutoControl))]
 public class PropAutoControlEditor : PropControlEditor
 {

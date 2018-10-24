@@ -53,7 +53,7 @@ public class Tile : MonoBehaviour
         if (other.CompareTag("Man"))
         {
             GameObject man = other.gameObject;
-            if (followObject != null && followObject.GetComponent<ObjectHolderControl>() != null && !followObject.GetComponent<ObjectHolderControl>().IsActivated())
+            if (followObject != null && followObject.GetComponent<PropAutoHolderControl>() != null && !followObject.GetComponent<PropAutoHolderControl>().IsActivated())
             {
                 Services.gameController.DropMan(man);
             }
