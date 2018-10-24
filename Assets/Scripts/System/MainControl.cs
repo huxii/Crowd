@@ -63,12 +63,6 @@ public class MainControl : MonoBehaviour
                 }
             }
         }
-
-        // tmp
-        if (Input.GetMouseButtonDown(0))
-        {
-            Services.hudController.PlayNextUIEvent();
-        }
     }
 
     void OnDestroy()
@@ -398,7 +392,8 @@ public class MainControl : MonoBehaviour
         {
             UnboundMan(man);
             OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
-          
+            man.GetComponent<CrowdControl>().LoadSucceeded();
+
             if ((TileBasedPathFindingManager)Services.pathFindingManager)
             {
                 Vector3 footprintsPos = ((TileBasedPathFindingManager)Services.pathFindingManager).GetLastTilePos();
@@ -426,6 +421,7 @@ public class MainControl : MonoBehaviour
         if (Services.pathFindingManager.FindPath(man, targetPos))
         {
             UnboundMan(man);
+            man.GetComponent<CrowdControl>().WalkSucceeded();
 
             if ((TileBasedPathFindingManager)Services.pathFindingManager)
             {
