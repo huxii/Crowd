@@ -362,7 +362,7 @@ public class MainControl : MonoBehaviour
         Vector3 targetPos = obj.GetComponent<PropControl>().GetFreeManSlotPos();
         //UnboundMan(man);
         //MoveManTo(man, targetPos, 0.1f);
-        MoveManToPosition(man, targetPos, 0.05f);
+        MoveManToPosition(man, targetPos, 0.2f);
     }
 
     public void UnboundMan(GameObject man)
