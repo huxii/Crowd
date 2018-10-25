@@ -204,6 +204,11 @@ public class MainControl : MonoBehaviour
     {
         if (obj.GetComponent<PropControl>())
         {
+            if (obj.GetComponent<PropControl>().IsCoolingDown())
+            {
+                return;
+            }
+
             // this is a prop
             // this prop is settled & walkable
             if (obj.GetComponent<PropControl>().IsLocked() && obj.GetComponent<PropControl>().isWalkable)
@@ -289,6 +294,11 @@ public class MainControl : MonoBehaviour
     {
         if (obj.GetComponent<PropControl>())
         {
+            if (obj.GetComponent<PropControl>().IsCoolingDown())
+            {
+                return;
+            }
+
             // this obj is walkable
             if (obj.GetComponent<PropControl>().IsLocked() && obj.GetComponent<PropControl>().isWalkable)
             {

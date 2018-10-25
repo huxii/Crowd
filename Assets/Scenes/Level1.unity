@@ -59,7 +59,7 @@ LightmapSettings:
     m_Resolution: 2
     m_BakeResolution: 10
     m_AtlasSize: 512
-    m_AO: 0
+    m_AO: 1
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
@@ -4643,6 +4643,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 1
+  interactionCD: 0
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0, y: 0.1, z: -0.6}
   slots:
@@ -4784,27 +4785,27 @@ Prefab:
       objectReference: {fileID: 1428080941}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015117395
+      value: 0.015116576
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.99988574
+      value: 0.9998858
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015117219
+      value: 0.015116536
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000012943733
+      value: -0.000000012943429
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0030010017
+      value: -0.003001126
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.00000002304383
+      value: -0.000000023043805
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
@@ -8220,6 +8221,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
+  interactionCD: 0
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   slots:
@@ -11788,6 +11790,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
+  interactionCD: 0
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   slots:
@@ -13646,6 +13649,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
+  interactionCD: 0
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   slots:
@@ -14471,6 +14475,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
+  interactionCD: 0
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   slots:
@@ -16658,6 +16663,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
+  interactionCD: 0
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0, y: 0, z: 0}
   slots:
@@ -22106,6 +22112,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
+  interactionCD: 0.5
   gizmoSize: 0.2
   freeManSlotOffset: {x: -1.5, y: 0, z: 0}
   slots:
@@ -22354,7 +22361,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 5
+  m_Radius: 6
   m_Height: 20
   m_Direction: 1
   m_Center: {x: 0, y: 6, z: 0}
