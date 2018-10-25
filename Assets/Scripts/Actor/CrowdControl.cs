@@ -56,7 +56,7 @@ public class CrowdControl : ActorControl
         {
             if (Vector3.Distance(targetPos, transform.position) > targetPosTol)
             {
-                Debug.Log(gameObject.name + " " + transform.position + " " + targetPos + " " + (targetPos - transform.position).normalized * speed);
+                //Debug.Log(gameObject.name + " " + transform.position + " " + targetPos + " " + (targetPos - transform.position).normalized * speed);
                 //rb.velocity = (targetPos - transform.position).normalized * speed; 
                 rb.MovePosition(transform.position + (targetPos - transform.position).normalized * speed * Time.deltaTime);
             }
@@ -145,13 +145,14 @@ public class CrowdControl : ActorControl
     //}
     public void LoadSucceeded()
     {
-        int id = Random.Range(0, 3) + 1;
+        int id = Random.Range(0, 4) + 1;
         Services.soundController.Play("canDo" + id);
     }
 
     public void WalkSucceeded()
     {
-        int id = Random.Range(0, 2) + 1;
+        int id = Random.Range(0, 3) + 1;
+        //Debug.Log("walkTo" + id);
         Services.soundController.Play("walkTo" + id);
     }
 
@@ -160,7 +161,7 @@ public class CrowdControl : ActorControl
         stateTimer = stateInterval;
         onOrderFailed.Invoke();
 
-        int id = Random.Range(0, 2) + 1;
+        int id = Random.Range(0, 3) + 1;
         Services.soundController.Play("noWay" + id);
     }
 
