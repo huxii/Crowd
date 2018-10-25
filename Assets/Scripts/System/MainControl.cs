@@ -254,16 +254,24 @@ public class MainControl : MonoBehaviour
                         }
                     }
 
-                    foreach (KeyValuePair<float, GameObject> pair in sortByDistance)
+                    if (sortByDistance.Count != 0)
                     {
-                        GameObject man = pair.Value;
-                        int slotId = obj.GetComponent<PropControl>().FindEmptySlot();
-                        if (slotId == -1)
+                        foreach (KeyValuePair<float, GameObject> pair in sortByDistance)
                         {
-                            return;
-                        }
+                            GameObject man = pair.Value;
+                            int slotId = obj.GetComponent<PropControl>().FindEmptySlot();
+                            if (slotId == -1)
+                            {
+                                return;
+                            }
 
-                        MoveManToObject(man, obj, slotId, 0.1f);
+                            MoveManToObject(man, obj, slotId, 0.1f);
+                        }
+                    }
+                    else
+                    {
+                        // no any avaliable men, release all the man to avoid dead lock
+                        obj.GetComponent<PropControl>().FreeAllMan();
                     }
                 }
             }
