@@ -1,4 +1,8 @@
-﻿Shader "Custom/Outline" 
+﻿// Upgrade NOTE: commented out 'float4 unity_LightmapST', a built-in variable
+// Upgrade NOTE: commented out 'sampler2D unity_Lightmap', a built-in variable
+// Upgrade NOTE: replaced tex2D unity_Lightmap with UNITY_SAMPLE_TEX2D
+
+Shader "Custom/Outline" 
 {
 	Properties 
 	{
@@ -64,11 +68,15 @@
 			uniform float4 _RimColor;
 			uniform float _RimPower;
 
+			// sampler2D unity_Lightmap;
+			// float4 unity_LightmapST;
+
 			struct vertexInput
 			{
 				float4 vertex : POSITION;
 				float3 normal : NORMAL;
 				float4 texcoord : TEXCOORD0;
+				float2 lightcoord : TEXCOORD1;
 				float4 color : COLOR;
 			};
 
@@ -76,8 +84,9 @@
 			{
 				float4 pos : SV_POSITION;
 				float4 tex : TEXCOORD0;
-				float4 posWorld : TEXCOORD1;
-				float3 normalDir : TEXCOORD2;
+				float2 lightmap : TEXCOORD1;
+				float4 posWorld : TEXCOORD2;
+				float3 normalDir : TEXCOORD3;
 				LIGHTING_COORDS(4, 5)
 			};
 
@@ -89,6 +98,7 @@
 				o.posWorld = mul(unity_ObjectToWorld, v.vertex);
 				o.normalDir = normalize(mul(v.normal, unity_WorldToObject).xyz);
 				o.tex = v.texcoord;
+				o.lightmap = v.lightcoord.xy * unity_LightmapST.xy + unity_LightmapST.zw;
 
 				TRANSFER_VERTEX_TO_FRAGMENT(o);
 
@@ -96,7 +106,23 @@
 			}
 
 			float4 frag(vertexOutput i) : COLOR
-			{ 				
+			{ 
+				//half4 main_color = tex2D(_MainTex, i.tex);
+
+				//// Decodes lightmaps:
+				//// - doubleLDR encoded on GLES
+				//// - RGBM encoded with range [0;8] on other platforms using surface shaders
+				//// inline fixed3 DecodeLightmap(fixed4 color) {
+				//// #if defined(SHADER_API_GLES) && defined(SHADER_API_MOBILE)
+				//  // return 2.0 * color.rgb;
+				//// #else
+				//  // return (8.0 * color.a) * color.rgb;
+				//// #endif
+				//// }
+
+				//main_color.rgb *= DecodeLightmap(UNITY_SAMPLE_TEX2D(unity_Lightmap, i.lightmap));
+				//return main_color;
+
 				float4 tex = tex2D(_MainTex, i.tex.xy);
 				float atten = LIGHT_ATTENUATION(i);
 				float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld);

@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-// TODO: main menu & feedback (red states|sounds) & control (tap->swipe) & footprint (orientation)
-// camera movement gesture & hints & ladder handle & character (behavior tree) & click on prop very quick
+// TODO: main menu & feedback (red states|sounds) & control (tap->swipe) & footprint (orientation) &
+// camera movement gesture & hints & character (behavior tree) & penguin eyes & ao & tutorial goal &
+// merrygoround + movingplatform
 
 public class MainControl : MonoBehaviour
 {
