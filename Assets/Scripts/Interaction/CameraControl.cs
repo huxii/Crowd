@@ -233,4 +233,9 @@ public class CameraControl : MonoBehaviour
             targetAngle = targetCameraAttr.angleZero;
         }
     }
+
+    public bool isZoomed()
+    {
+        return zoomLevel != defaultZoomLevel;
+    }
 }

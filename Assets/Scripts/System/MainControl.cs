@@ -9,15 +9,6 @@ using DG.Tweening;
 
 public class MainControl : MonoBehaviour
 {
-    public UnityEvent onLevelStart;
-    public UnityEvent onLevelEnd;
-    public UnityEvent onLevelExit;
-    public float exitLevelDelayTime = 1f;
-
-    private bool isEnd = false;
-    private float timer;
-
-    //private GameObject selectedMan = null;
     private GameObject[] men;
     private GameObject menParentObj = null;
 
@@ -42,9 +33,6 @@ public class MainControl : MonoBehaviour
         DetectNavMeshBounds();
 
         CheckPlatform();
-
-        onLevelStart.Invoke();
-        timer = exitLevelDelayTime;
     }
 
     // Update is called once per frame
@@ -52,17 +40,17 @@ public class MainControl : MonoBehaviour
     {
         Services.Update();
 
-        if (isEnd)
-        {
-            if (timer > 0)
-            {
-                timer -= Time.deltaTime;
-                if (timer <= 0)
-                {
-                    ExitLevel();
-                }
-            }
-        }
+        //if (isEnd)
+        //{
+        //    if (timer > 0)
+        //    {
+        //        timer -= Time.deltaTime;
+        //        if (timer <= 0)
+        //        {
+        //            ExitLevel();
+        //        }
+        //    }
+        //}
     }
 
     void OnDestroy()
@@ -542,17 +530,25 @@ public class MainControl : MonoBehaviour
         //Debug.Log(pos + " " + Mathf.Sin(ratioY * 90f) + " " + ratioY);
     }
 
-    public void GoodClick(Vector3 pos)
+    public void SpawnNewActor(Vector3 pos)
     {
-        Services.hudController.ShowIcon("GoodClickAnim", pos, HUDControl.UISpace.CANVAS);
-        Services.soundController.Play("goodClick");
+        GameObject newActor = Instantiate(Resources.Load("Prefabs/Actor"), menParentObj.transform) as GameObject;
+        newActor.transform.position = pos;
     }
 
-    public void BadClick(Vector3 pos)
-    {
-        Services.hudController.ShowIcon("BadClickAnim", pos, HUDControl.UISpace.CANVAS);
-        Services.soundController.Play("badClick");
-    }
+    //public void NextLevelEvent()
+    //{
+    //    ++curEventId;
+    //    GoToLevelEvent(curEventId);
+    //}
+
+    //public void GoToLevelEvent(int id)
+    //{
+    //    if (curEventId < levelEvents.Count)
+    //    {
+    //        levelEvents[id].Invoke();
+    //    }
+    //}
 
     //public void ManAcrossBorder(GameObject man, GameObject obj)
     //{
@@ -567,16 +563,16 @@ public class MainControl : MonoBehaviour
     //    }
     //}
 
-    public void EndLevel()
-    {
-        onLevelEnd.Invoke();
+    //public void EndLevel()
+    //{
+    //    onLevelEnd.Invoke();
 
-        isEnd = true;
-        Services.inputController.Lock(true);
-    }
+    //    isEnd = true;
+    //    Services.inputController.Lock(true);
+    //}
 
-    public void ExitLevel()
-    {
-        onLevelExit.Invoke();
-    }
+    //public void ExitLevel()
+    //{
+    //    onLevelExit.Invoke();
+    //}
 }

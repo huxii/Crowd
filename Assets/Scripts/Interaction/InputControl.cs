@@ -311,4 +311,16 @@ public abstract class InputControl : MonoBehaviour
             }
         }
     }
+
+    public void GoodClick(Vector3 pos)
+    {
+        Services.hudController.ShowIcon("GoodClickAnim", pos, HUDControl.UISpace.CANVAS);
+        Services.soundController.Play("goodClick");
+    }
+
+    public void BadClick(Vector3 pos)
+    {
+        Services.hudController.ShowIcon("BadClickAnim", pos, HUDControl.UISpace.CANVAS);
+        Services.soundController.Play("badClick");
+    }
 }

@@ -45,7 +45,7 @@ public class NoSelectInputControl : InputControl
                 Services.gameController.InteractMan(mouseClickObject, mouseClickPos);
             }
 
-            Services.gameController.GoodClick(mouseClickPos);
+            GoodClick(mouseClickPos);
         }
         else
         if (mouseClickObject.CompareTag("Ground"))
@@ -59,11 +59,11 @@ public class NoSelectInputControl : InputControl
                 Services.gameController.MoveMenToPosition(mouseClickPos);
             }
 
-            Services.gameController.GoodClick(mouseClickPos);
+            GoodClick(mouseClickPos);
         }
         else
         {
-            Services.gameController.BadClick(mouseClickPos);
+            BadClick(mouseClickPos);
         }
     }
 }

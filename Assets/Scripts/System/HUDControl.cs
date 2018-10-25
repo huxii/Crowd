@@ -15,8 +15,6 @@ public class HUDControl : MonoBehaviour
     };
 
     public GameObject canvas;
-    public List<UnityEvent> levelUIEvents;
-    private int curId = 0;
 
     [SerializeField]
     private List<GameObject> anchors = new List<GameObject>();
@@ -28,14 +26,8 @@ public class HUDControl : MonoBehaviour
 
     private char[] splitters = { ' ', ',' };
 
-    [SerializeField]
-    private GameObject[] levelUIList = null;
-
     void Start()
     {
-        levelUIList = new GameObject[levelUIEvents.Count];
-
-        PlayNextUIEvent();
     }
 
     private void Update()
@@ -65,27 +57,6 @@ public class HUDControl : MonoBehaviour
         RectTransformUtility.ScreenPointToLocalPointInRectangle(gameObject.GetComponent<Canvas>().transform as RectTransform,
             Camera.main.WorldToScreenPoint(posWorld), gameObject.GetComponent<Canvas>().worldCamera, out pos);
         return pos;
-    }
-
-    public void PlayNextUIEvent()
-    {
-        if (curId < levelUIEvents.Count)
-        {
-            CloseLastIcon();
-            levelUIEvents[curId].Invoke();          
-            ++curId;
-        }
-    }
-
-    public void PlayUIEvent(int id)
-    {
-        CloseLastIcon();
-        curId = id;
-        if (curId < levelUIEvents.Count)
-        {
-            levelUIEvents[curId].Invoke();
-            ++curId;
-        }
     }
 
     public void AddAnchor()
@@ -120,15 +91,8 @@ public class HUDControl : MonoBehaviour
                 rect.anchoredPosition = canvasPos;
                 break;
             case UISpace.CAMERA:
-                icon = new GameObject(name, typeof(RectTransform));
+                icon = Instantiate(Resources.Load("Prefabs/" + name), canvas.transform) as GameObject;
                 icon.transform.position = pos;
-                icon.transform.SetParent(canvas.transform);
-                icon.AddComponent<Image>();
-                Sprite outsideImage = Resources.Load<Sprite>("Sprites/" + name);
-                icon.GetComponent<Image>().sprite = outsideImage;
-                //image.transform.localScale = Vector3.zero;
-                //image.transform.DOScale(Vector3.one, float.Parse(info[2]));
-                //break;
                 break;
         }
 
@@ -139,8 +103,9 @@ public class HUDControl : MonoBehaviour
     {
         string[] paras = para.Split(splitters, System.StringSplitOptions.RemoveEmptyEntries);
         GameObject anchor = GameObject.Find(paras[1]);
-        
-        levelUIList[curId] = ShowIcon(paras[0], anchor.transform.position, UISpace.CAMERA);
+
+        GameObject icon = ShowIcon(paras[0], anchor.transform.position, UISpace.CAMERA);
+        icon.name = paras[2];
     }
 
     public void ShowIconInWorldpace(string para)
@@ -152,7 +117,8 @@ public class HUDControl : MonoBehaviour
         float.TryParse(paras[3], out z);
         Vector3 pos = new Vector3(x, y, z);
 
-        levelUIList[curId] = ShowIcon(paras[0], pos, UISpace.WORLD);
+        GameObject icon = ShowIcon(paras[0], pos, UISpace.WORLD);
+        icon.name = paras[4];
     }
 
     public void ShowIconInCanvaspace(string para)
@@ -164,21 +130,13 @@ public class HUDControl : MonoBehaviour
         float.TryParse(paras[3], out z);
         Vector3 pos = new Vector3(x, y, z);
 
-        levelUIList[curId] = ShowIcon(paras[0], pos, UISpace.CANVAS);
+        GameObject icon = ShowIcon(paras[0], pos, UISpace.CANVAS);
+        icon.name = paras[4];
     }
 
-    public void CloseLastIcon()
+    public void CloseIcon(string name)
     {
-        if (curId > 0 && levelUIList[curId - 1] != null)
-        {
-            levelUIList[curId - 1].GetComponent<IconBehavior>().Close();
-        }
+        GameObject icon = GameObject.Find(name);
+        Destroy(icon);
     }
-
-    //public void CloseImage(string targetImage)
-    //{
-    //    string[] info = targetImage.Split(',');
-    //    GameObject image = GameObject.Find(info[0]);
-    //    image.transform.DOScale(Vector3.zero, float.Parse(info[1])).OnComplete(() => { Destroy(image); });       
-    //}
 }
