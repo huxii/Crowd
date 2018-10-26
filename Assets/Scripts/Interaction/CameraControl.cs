@@ -43,6 +43,8 @@ public class CameraControl : MonoBehaviour
     private Vector2 zoomCameraSpeed = new Vector2(8, 8);
     private Vector2 clickCameraSpeed = new Vector2(1, 1);
 
+    private bool enabled = true;
+
     private void Awake()
     {
         freeLookCam = GameObject.Find("FreeLookCamera").GetComponent<CinemachineFreeLook>();
@@ -141,6 +143,11 @@ public class CameraControl : MonoBehaviour
         targetDeltaTranslate = new Vector3(0, 0, 0);
     }
 
+    public void ResetAngle()
+    {
+        targetAngle = targetCameraAttr.angleZero;
+    }
+
     public void Translate(float x, float y)
     {
         float nx = targetDeltaTranslate.x - x;
@@ -152,36 +159,42 @@ public class CameraControl : MonoBehaviour
 
     public void Orbit(float x, float y)
     {
-        float newAngleX = targetAngle.x + x / Screen.width * targetCameraAttr.sensitivity.x;
-        //Debug.Log(targetAngle.x + "..." + newAngleX);
-        if (Mathf.Abs(targetCameraAttr.angleRange.x) < 180)
+        if (enabled)
         {
-            newAngleX = Mathf.Max(Mathf.Min(newAngleX, targetCameraAttr.angleRange.y), targetCameraAttr.angleRange.x);
+            float newAngleX = targetAngle.x + x / Screen.width * targetCameraAttr.sensitivity.x;
+            //Debug.Log(targetAngle.x + "..." + newAngleX);
+            if (Mathf.Abs(targetCameraAttr.angleRange.x) < 180)
+            {
+                newAngleX = Mathf.Max(Mathf.Min(newAngleX, targetCameraAttr.angleRange.y), targetCameraAttr.angleRange.x);
+            }
+            targetAngle.x = newAngleX;
+
+            //Debug.Log(targetAngle.x + "***" + newAngleX);
+
+            float newAngleY = targetAngle.y - y / Screen.height * targetCameraAttr.sensitivity.y;
+            newAngleY = Mathf.Max(Mathf.Min(newAngleY, 180), 0);
+            targetAngle.y = newAngleY;
+
+            cameraSpeed = zoomCameraSpeed;
         }
-        targetAngle.x = newAngleX;
-
-        //Debug.Log(targetAngle.x + "***" + newAngleX);
-
-        float newAngleY = targetAngle.y - y / Screen.height * targetCameraAttr.sensitivity.y;
-        newAngleY = Mathf.Max(Mathf.Min(newAngleY, 180), 0);
-        targetAngle.y = newAngleY;
-
-        cameraSpeed = zoomCameraSpeed;
     }
 
     public void SetOrbit(float x, float y)
     {
-        if (x >= 0 && x <= 1)
+        if (enabled)
         {
-            targetAngle.x = targetCameraAttr.angleRange.x + x * (targetCameraAttr.angleRange.y - targetCameraAttr.angleRange.x);
-        }
+            if (x >= 0 && x <= 1)
+            {
+                targetAngle.x = targetCameraAttr.angleRange.x + x * (targetCameraAttr.angleRange.y - targetCameraAttr.angleRange.x);
+            }
 
-        if (y >= 0 && y <= 1)
-        {
-            targetAngle.y = y * 180f;
-        }
+            if (y >= 0 && y <= 1)
+            {
+                targetAngle.y = y * 180f;
+            }
 
-        cameraSpeed = clickCameraSpeed;
+            cameraSpeed = clickCameraSpeed;
+        }
     }
 
     private void ZoomOut()
@@ -237,5 +250,10 @@ public class CameraControl : MonoBehaviour
     public bool isZoomed()
     {
         return zoomLevel != defaultZoomLevel;
+    }
+
+    public void SetEnable(bool en)
+    {
+        enabled = en;
     }
 }

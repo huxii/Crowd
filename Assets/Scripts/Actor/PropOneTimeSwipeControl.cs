@@ -21,6 +21,21 @@ public class PropOneTimeSwipeControl : PropAutoControl
     {
     }
 
+    public override void Activate()
+    {
+        base.Activate();
+
+        //Services.cameraController.ResetAngle();
+        Services.cameraController.SetEnable(false);
+    }
+
+    public override void Deactivate()
+    {
+        base.Deactivate();
+
+        Services.cameraController.SetEnable(true);
+    }
+
     public override void Swipe()
     {
         if (IsReady() && !IsLocked())
