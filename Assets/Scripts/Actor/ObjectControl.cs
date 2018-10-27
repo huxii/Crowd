@@ -54,25 +54,4 @@ public abstract class ObjectControl : ActorControl
         isActivated = false;
         onDeactivated.Invoke();
     }
-
-    //public void ManAcrossBorder(GameObject man)
-    //{
-    //    if (menOnThis == null)
-    //    {
-    //        menOnThis = new List<GameObject>();
-    //    }
-
-    //    if (menOnThis.Contains(man))
-    //    {
-    //        // this man has across the border once, he is now walking out
-    //        //Unlock();
-    //        menOnThis.Remove(man);
-    //    }
-    //    else
-    //    {
-    //        // in
-    //        //Lock();
-    //        menOnThis.Add(man);
-    //    }
-    //}
 }

@@ -4,9 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-// TODO: main menu & feedback (red states|sounds) & control (tap->swipe) & footprint (orientation) &
-// camera movement gesture & hints & character (behavior tree) & penguin eyes & ao & tutorial goal &
-// merrygoround + movingplatform
+// TODO: main menu & footprint (orientation) & hints & character (behavior tree) & penguin eyes & ao & tutorial goal
 
 public class MainControl : MonoBehaviour
 {
@@ -40,18 +38,6 @@ public class MainControl : MonoBehaviour
     void Update()
     {
         Services.Update();
-
-        //if (isEnd)
-        //{
-        //    if (timer > 0)
-        //    {
-        //        timer -= Time.deltaTime;
-        //        if (timer <= 0)
-        //        {
-        //            ExitLevel();
-        //        }
-        //    }
-        //}
     }
 
     void OnDestroy()
@@ -554,44 +540,4 @@ public class MainControl : MonoBehaviour
         GameObject newActor = Instantiate(Resources.Load("Prefabs/Actor"), menParentObj.transform) as GameObject;
         newActor.transform.position = pos;
     }
-
-    //public void NextLevelEvent()
-    //{
-    //    ++curEventId;
-    //    GoToLevelEvent(curEventId);
-    //}
-
-    //public void GoToLevelEvent(int id)
-    //{
-    //    if (curEventId < levelEvents.Count)
-    //    {
-    //        levelEvents[id].Invoke();
-    //    }
-    //}
-
-    //public void ManAcrossBorder(GameObject man, GameObject obj)
-    //{
-    //    if (obj != null && obj.GetComponent<ObjectControl>())
-    //    {
-    //        obj.GetComponent<ObjectControl>().ManAcrossBorder(man);
-    //    }
-
-    //    if (man != null && man.GetComponent<CrowdControl>())
-    //    {
-    //        man.GetComponent<CrowdControl>().WalkAcross(obj);
-    //    }
-    //}
-
-    //public void EndLevel()
-    //{
-    //    onLevelEnd.Invoke();
-
-    //    isEnd = true;
-    //    Services.inputController.Lock(true);
-    //}
-
-    //public void ExitLevel()
-    //{
-    //    onLevelExit.Invoke();
-    //}
 }

@@ -342,6 +342,8 @@ ModelImporter:
     100672: Link2
     100674: Link3
     100676: Interactables
+    100678: WaterSurface
+    100680: Railing
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -681,6 +683,8 @@ ModelImporter:
     400672: Link2
     400674: Link3
     400676: Interactables
+    400678: WaterSurface
+    400680: Railing
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -962,6 +966,8 @@ ModelImporter:
     2300552: Link1
     2300554: Link2
     2300556: Link3
+    2300558: WaterSurface
+    2300560: Railing
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1241,6 +1247,8 @@ ModelImporter:
     3300552: Link1
     3300554: Link2
     3300556: Link3
+    3300558: WaterSurface
+    3300560: Railing
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -1518,6 +1526,8 @@ ModelImporter:
     4300548: CartDoor3
     4300550: Coach3
     4300552: Link3
+    4300554: WaterSurface
+    4300556: Railing
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
