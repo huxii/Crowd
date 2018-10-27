@@ -10,8 +10,9 @@ public abstract class ObjectControl : ActorControl
     public UnityEvent onDeactivated;
     public UnityEvent onClick;
 
-    [Header("Walkable Attribute")]
+    [Header("After Deactivated")]
     public bool isWalkable = false;
+    public bool dropMen = false;
 
     protected bool isActivated = false;
 

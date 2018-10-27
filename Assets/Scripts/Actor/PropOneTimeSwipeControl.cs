@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-public class PropOneTimeSwipeControl : PropAutoControl
+public class PropOneTimeSwipeControl : PropOneTimeControl
 {
     [Header("Swipe Settings")]
     public Vector3 swipeOffset;
@@ -50,8 +50,9 @@ public class PropOneTimeSwipeControl : PropAutoControl
                 {
                     FreeAllMan();
                     Lock();
-                    Deactivate();
                     onReachEnd.Invoke();
+
+                    Deactivate();
                 }
                 );
         }
