@@ -70,9 +70,11 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _MaxX: 20
     - _MaxY: 20
     - _Metallic: 0
-    - _MinY: 11
+    - _MinX: -20
+    - _MinY: 4.5
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset: 0

@@ -99,8 +99,26 @@ public class PropAutoLoopControlEditor : PropAutoControlEditor
     }
 }
 
+[CustomEditor(typeof(PropOneTimeControl))]
+public class PropOneTimeControlEditor : PropAutoControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
+[CustomEditor(typeof(PropOneTimeBasicControl))]
+public class PropOneTimeBasicControlEditor : PropOneTimeControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
 [CustomEditor(typeof(PropOneTimeSwipeControl))]
-public class PropOneTimeSwipeControlEditor : PropAutoControlEditor
+public class PropOneTimeSwipeControlEditor : PropOneTimeControlEditor
 {
     public override void OnInspectorGUI()
     {

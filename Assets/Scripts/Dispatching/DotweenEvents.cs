@@ -140,6 +140,38 @@ public class DotweenEvents : MonoBehaviour
         obj.transform.DOLocalMove(obj.transform.localPosition + deltaPos, time);
     }
 
+    public void MoveTo(string para)
+    {
+        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
+        GameObject obj = GameObject.Find(paras[0]);
+        string axis = paras[1];
+        float inc = float.Parse(paras[2]);
+        float time = float.Parse(paras[3]);
+
+        if (obj == null)
+        {
+            return;
+        }
+
+        Vector3 targetPos = obj.transform.localPosition;
+        if (axis.ToLower() == "x")
+        {
+            targetPos = new Vector3(inc, targetPos.y, targetPos.z);
+        }
+        else
+        if (axis.ToLower() == "y")
+        {
+            targetPos = new Vector3(targetPos.x, inc, targetPos.z);
+        }
+        else
+        if (axis.ToLower() == "z")
+        {
+            targetPos = new Vector3(targetPos.x, targetPos.y, inc);
+        }
+
+        obj.transform.DOLocalMove(targetPos, time);
+    }
+
     public void ScaleTo(string para)
     {
         string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);

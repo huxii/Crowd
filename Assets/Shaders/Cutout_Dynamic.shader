@@ -6,6 +6,8 @@
 		_MainTex("Texture", 2D) = "white" {}
 		_AlphaCutOff("Alpha Cut Off", Range(0, 1)) = 0.3
 
+		_MinX("Min X", Range(-20, 20)) = -20
+		_MaxX("Max X", Range(-20, 20)) = 20
 		_MinY("Min Y", Range(0, 20)) = 0
 		_MaxY("Max Y", Range(0, 20)) = 20
 		_Offset("Offset", float) = 0
@@ -49,6 +51,8 @@
 			uniform float4 _MainTex_ST;
 			uniform float _AlphaCutOff;
 
+			uniform float _MinX;
+			uniform float _MaxX;
 			uniform float _MinY;
 			uniform float _MaxY;
 			uniform float _Offset;
@@ -99,6 +103,8 @@
 			{ 				
 				float4 tex = tex2D(_MainTex, i.tex.xy);
 				clip(tex.a - _AlphaCutOff);
+				clip(i.posWorld.x - _MinX);
+				clip(_MaxX - i.posWorld.x);
 				clip(i.posWorld.y - _MinY);
 				clip(_MaxY - i.posWorld.y);
 
