@@ -9,16 +9,70 @@ public class TileBasedPathFindingManager : PathFindingManager
     {
         public List<Vector3> paths;
 
+        private List<Vector3> axises;
+
         public TileBasedFoundPath()
         {
             paths = new List<Vector3>();
             endEvent = null;
             tol = 0;
+
+            axises = new List<Vector3>();
+            axises.Add(Vector3.right);
+            axises.Add(Vector3.left);
+            axises.Add(Vector3.up);
+            axises.Add(Vector3.down);
+            axises.Add(Vector3.forward);
+            axises.Add(Vector3.back);
         }
 
         public override void Insert(Vector3 pos)
         {
             paths.Insert(0, pos);
+        }
+
+        public override Vector3 LastUnitPos()
+        {
+            if (paths.Count <= 1)
+            {
+                Debug.Log("Should never happen.");
+                return new Vector3(0, 0, 0);
+            }
+
+            return paths[paths.Count - 2];
+        }
+
+        public override Vector3 LastUnitOrientation(Vector3 actorPos)
+        {
+            if (paths.Count <= 1)
+            {
+                Debug.Log("Again, should never happen.");
+                return new Vector3(0, 0, 0);
+            }
+
+            Vector3 dir;
+            if (paths.Count == 2)
+            {
+                dir = paths[paths.Count - 2] - actorPos;
+            }
+            else
+            {
+                dir = paths[paths.Count - 2] - paths[paths.Count - 3];
+            }
+
+            float maxDot = -1;
+            Vector3 closestAxis = new Vector3(0, 0, 0);
+            foreach (Vector3 axis in axises)
+            {
+                float dot = Vector3.Dot(dir.normalized, axis);
+                if (dot > maxDot)
+                {
+                    maxDot = dot;
+                    closestAxis = axis;
+                }
+            }
+
+            return closestAxis;
         }
     }
 
@@ -69,15 +123,6 @@ public class TileBasedPathFindingManager : PathFindingManager
             else
             {
                 Services.gameController.SetManTargetPosition(actor, path.paths[1], path.tol);
-
-                //// walking out of path 0
-                //GameObject middlePoint = path.pathEdges[0].AcrossPoint();
-                //if (middlePoint.GetComponent<PathPoint>().followObject != null && middlePoint.GetComponent<PathPoint>().isBorder)
-                //{
-                //    Services.gameController.ManAcrossBorder(actor, middlePoint.GetComponent<PathPoint>().followObject);
-                //}
-
-                //Services.gameController.MoveManTo(actor, path.pathEdges[1].EndPos(), path.tol);
             }
 
             path.paths.RemoveAt(0);
@@ -173,16 +218,6 @@ public class TileBasedPathFindingManager : PathFindingManager
         {
             return null;
         }
-    }
-
-    public Vector3 GetLastTilePos()
-    {
-        if (recentPath != null)
-        {
-            return ((TileBasedFoundPath)recentPath).paths[((TileBasedFoundPath)recentPath).paths.Count - 2];
-        }
-
-        return new Vector3(0, 0, 0);
     }
 
     public override bool FindPath(GameObject actor, Vector3 endPos, float clampTol = 0.5F)

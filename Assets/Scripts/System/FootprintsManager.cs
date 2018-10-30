@@ -6,6 +6,7 @@ public class FootprintsManager : MonoBehaviour
 {
     private bool hasNextOne = false;
     private Vector3 nextPos = new Vector3(0, 0, 0);
+    private Vector3 nextOri = new Vector3(0, 0, 0);
     private GameObject lastFootprint = null;
 
     // Use this for initialization
@@ -34,13 +35,11 @@ public class FootprintsManager : MonoBehaviour
         nextPos = new Vector3(0, 0, 0);
     }
 
-    public void Take()
+    public void Take(Vector3 pos, Vector3 ori)
     {
         hasNextOne = true;
-        if ((TileBasedPathFindingManager)Services.pathFindingManager)
-        {
-            nextPos = ((TileBasedPathFindingManager)Services.pathFindingManager).GetLastTilePos();
-        }
+        nextPos = pos;
+        nextOri = ori;
     }
 
     public void Generate()
@@ -54,5 +53,28 @@ public class FootprintsManager : MonoBehaviour
 
         lastFootprint = Instantiate(Resources.Load("Prefabs/Footprints")) as GameObject;
         lastFootprint.transform.position = nextPos;
+
+        if (nextOri == Vector3.right)
+        {
+            lastFootprint.transform.localEulerAngles = new Vector3(0, 90, 0);
+        }
+        else
+        if (nextOri == Vector3.left)
+        {
+            lastFootprint.transform.localEulerAngles = new Vector3(0, -90, 0);
+        }
+        else
+        if (nextOri == Vector3.forward)
+        {
+            lastFootprint.transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
+        else
+        if (nextOri == Vector3.back)
+        {
+            lastFootprint.transform.localEulerAngles = new Vector3(0, -180, 0);
+        }
+        else
+        {
+        }
     }
 }

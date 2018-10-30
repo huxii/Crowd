@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-// TODO: main menu & footprint (orientation) & hints & character (behavior tree) & penguin eyes & ao
+// TODO: main menu & hints & character (behavior tree) & penguin eyes & ao
 
 public class MainControl : MonoBehaviour
 {
@@ -346,7 +346,12 @@ public class MainControl : MonoBehaviour
         Vector3 targetPos = obj.GetComponent<PropControl>().GetFreeManSlotPos();
         //UnboundMan(man);
         //MoveManTo(man, targetPos, 0.1f);
+        Services.footprintsManager.Clear();
+        Services.footprintsManager.ClearLastFootprints();
+
         MoveManToPosition(man, targetPos, 0.2f);
+
+        Services.footprintsManager.Generate();
     }
 
     public void UnboundMan(GameObject man)
@@ -378,7 +383,6 @@ public class MainControl : MonoBehaviour
             OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
             man.GetComponent<CrowdControl>().LoadSucceeded();
 
-            Services.footprintsManager.Take();
             Services.pathFindingManager.Move(man, tol, new ManArrivesAtObj(man, obj, slotId));
             return true;
         }
@@ -402,7 +406,6 @@ public class MainControl : MonoBehaviour
             UnboundMan(man);
             man.GetComponent<CrowdControl>().WalkSucceeded();
 
-            Services.footprintsManager.Take();
             Services.pathFindingManager.Move(man, tol);
             return true;
         }

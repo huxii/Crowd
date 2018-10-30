@@ -28,6 +28,16 @@ public abstract class PathFindingManager : MonoBehaviour
         public virtual void Insert(DirectedPathEdge edge)
         {
         }
+
+        public virtual Vector3 LastUnitPos()
+        {
+            return new Vector3(0, 0, 0);
+        }
+
+        public virtual Vector3 LastUnitOrientation(Vector3 actorPos)
+        {
+            return new Vector3(0, 0, 0);
+        }
     };
 
     protected Dictionary<GameObject, FoundPath> pathTable = new Dictionary<GameObject, FoundPath>();
@@ -133,6 +143,11 @@ public abstract class PathFindingManager : MonoBehaviour
         {
             return;
         }
+
+        Vector3 lastUnitPos = recentPath.LastUnitPos();
+        Vector3 lastUnitOrientation = recentPath.LastUnitOrientation(actor.transform.position);
+
+        Services.footprintsManager.Take(lastUnitPos, lastUnitOrientation);
 
         recentPath.endEvent = endEvent;
         recentPath.tol = posTol;
