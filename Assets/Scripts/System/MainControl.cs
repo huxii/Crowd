@@ -15,9 +15,6 @@ public class MainControl : MonoBehaviour
     private Vector2 navMeshMinBound = new Vector3(float.MaxValue, float.MaxValue);
     private Vector2 navMeshMaxBound = new Vector3(-float.MaxValue, -float.MaxValue);
 
-    // footprints
-    private GameObject footprintsObj = null;
-
     // Use this for initialization
     void Start()
     {
@@ -152,17 +149,6 @@ public class MainControl : MonoBehaviour
         }
     }
 
-    private void GenerateFootprints(Vector3 pos)
-    {
-        if (footprintsObj != null)
-        {
-            footprintsObj.GetComponent<FootprintsBehavior>().FadeOut();
-        }
-
-        footprintsObj = Instantiate(Resources.Load("Prefabs/Footprints")) as GameObject;
-        footprintsObj.transform.position = pos;
-    }
-
     public void SelectMan(GameObject man)
     {
         if (man != null && man.GetComponent<CrowdControl>())
@@ -187,7 +173,7 @@ public class MainControl : MonoBehaviour
         }
     }
 
-    public void InteractMan(GameObject obj, Vector3 pos, List<GameObject> selectedMen = null)
+    public void InteractMen(GameObject obj, Vector3 pos, List<GameObject> selectedMen = null)
     {
         if (obj.GetComponent<PropControl>())
         {
@@ -248,6 +234,9 @@ public class MainControl : MonoBehaviour
 
                     if (sortByDistance.Count != 0)
                     {
+                        Services.footprintsManager.ClearLastFootprints();
+                        Services.footprintsManager.Clear();
+
                         foreach (KeyValuePair<float, GameObject> pair in sortByDistance)
                         {
                             GameObject man = pair.Value;
@@ -259,6 +248,8 @@ public class MainControl : MonoBehaviour
 
                             MoveManToObject(man, obj, slotId, 0.1f);
                         }
+
+                        Services.footprintsManager.Generate();
                     }
                     else
                     {
@@ -277,7 +268,7 @@ public class MainControl : MonoBehaviour
         }
     }
 
-    public void InteractSingleMan(GameObject obj, Vector3 pos)
+    public void InteractMan(GameObject obj, Vector3 pos)
     {
         if (obj.GetComponent<PropControl>())
         {
@@ -387,12 +378,7 @@ public class MainControl : MonoBehaviour
             OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
             man.GetComponent<CrowdControl>().LoadSucceeded();
 
-            if ((TileBasedPathFindingManager)Services.pathFindingManager)
-            {
-                Vector3 footprintsPos = ((TileBasedPathFindingManager)Services.pathFindingManager).GetLastTilePos();
-                GenerateFootprints(footprintsPos);
-            }
-
+            Services.footprintsManager.Take();
             Services.pathFindingManager.Move(man, tol, new ManArrivesAtObj(man, obj, slotId));
             return true;
         }
@@ -416,12 +402,7 @@ public class MainControl : MonoBehaviour
             UnboundMan(man);
             man.GetComponent<CrowdControl>().WalkSucceeded();
 
-            if ((TileBasedPathFindingManager)Services.pathFindingManager)
-            {
-                Vector3 footprintsPos = ((TileBasedPathFindingManager)Services.pathFindingManager).GetLastTilePos();
-                GenerateFootprints(footprintsPos);
-            }
-
+            Services.footprintsManager.Take();
             Services.pathFindingManager.Move(man, tol);
             return true;
         }
@@ -435,6 +416,8 @@ public class MainControl : MonoBehaviour
 
     public void MoveMenToPosition(Vector3 targetPos, List<GameObject> selectedMen = null)
     {
+        Services.footprintsManager.Clear();
+
         if (selectedMen != null)
         {
             foreach (GameObject man in selectedMen)
@@ -464,6 +447,8 @@ public class MainControl : MonoBehaviour
                 }
             }
         }
+
+        Services.footprintsManager.Generate();
     }
 
     public void MoveNearestManToPosition(Vector3 targetPos)
