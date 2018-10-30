@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-// TODO: main menu & hints & character (behavior tree) & penguin eyes & ao
+// TODO: main menu & hints & character (behavior tree) & penguin eyes & ao & look at camera
 
 public class MainControl : MonoBehaviour
 {

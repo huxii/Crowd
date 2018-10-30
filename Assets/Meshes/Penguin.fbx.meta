@@ -355,6 +355,11 @@ ModelImporter:
     100698: MastTop
     100700: Observatory
     100702: ShipFlag
+    100704: Platform2 1
+    100706: PlatformDeco1
+    100708: CaseSurface0
+    100710: CaseSurface1
+    100712: Stick
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -707,6 +712,11 @@ ModelImporter:
     400698: MastTop
     400700: Observatory
     400702: ShipFlag
+    400704: Platform2 1
+    400706: PlatformDeco1
+    400708: CaseSurface0
+    400710: CaseSurface1
+    400712: Stick
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -1000,6 +1010,11 @@ ModelImporter:
     2300576: MastTop
     2300578: Observatory
     2300580: ShipFlag
+    2300582: Platform2 1
+    2300584: PlatformDeco1
+    2300586: CaseSurface0
+    2300588: CaseSurface1
+    2300590: Stick
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1291,6 +1306,11 @@ ModelImporter:
     3300576: MastTop
     3300578: Observatory
     3300580: ShipFlag
+    3300582: Platform2 1
+    3300584: PlatformDeco1
+    3300586: CaseSurface0
+    3300588: CaseSurface1
+    3300590: Stick
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -1580,6 +1600,10 @@ ModelImporter:
     4300572: Case0
     4300574: Ballon0
     4300576: Ballon1
+    4300578: PlatformDeco1
+    4300580: CaseSurface0
+    4300582: CaseSurface1
+    4300584: Stick
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
