@@ -18,7 +18,6 @@ public class CrowdControl : ActorControl
         CONFUSED,
     };
 
-    public UnityEvent onIdle;
     public UnityEvent onSelected;
     public UnityEvent onDeselected;
 
@@ -27,7 +26,7 @@ public class CrowdControl : ActorControl
     private Tree<CrowdControl> btree;
     [SerializeField]
     private CrowdState state = CrowdState.IDLE;
-    private float stateTimer = 0;
+    private float stateCoolingDown = 0;
     private float stateInterval = 2.0f;
 
     private GameObject workingObject = null;
@@ -53,15 +52,6 @@ public class CrowdControl : ActorControl
     // Update is called once per frame
     void Update()
     {
-        if (stateTimer > 0)
-        {
-            stateTimer -= Time.deltaTime;
-            if (stateTimer <= 0)
-            {
-                SwitchState(CrowdState.IDLE);
-            }
-        }
-
         btree.Update(this);
     }
 
@@ -200,7 +190,7 @@ public class CrowdControl : ActorControl
 
     public void OrderFailed()
     {
-        stateTimer = stateInterval;
+        stateCoolingDown = stateInterval;
         SwitchState(CrowdState.CONFUSED);
 
         int id = Random.Range(0, 3) + 1;
@@ -262,7 +252,8 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            //Debug.Log("moving");
+            Sprite sprite = Resources.Load<Sprite>("Sprites/Character/idle");
+            man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
             return true;
         }
     }
@@ -271,7 +262,8 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            //Debug.Log("climbing");
+            Sprite sprite = Resources.Load<Sprite>("Sprites/Character/idle");
+            man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
             return true;
         }
     }
@@ -290,8 +282,18 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            Sprite sprite = Resources.Load<Sprite>("Sprites/Character/confuse");
-            man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+            if (man.stateCoolingDown > 0)
+            {
+                man.stateCoolingDown -= Time.deltaTime;
+
+                Sprite sprite = Resources.Load<Sprite>("Sprites/Character/confuse");
+                man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+            }
+            else
+            {
+                man.SwitchState(CrowdState.IDLE);
+            }
+
             return true;
         }
     }

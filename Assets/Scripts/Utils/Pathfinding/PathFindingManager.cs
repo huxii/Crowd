@@ -137,7 +137,7 @@ public abstract class PathFindingManager : MonoBehaviour
         return false;
     }
 
-    public virtual void Move(GameObject actor, float posTol, Crowd.Event endEvent = null)
+    public virtual void Move(GameObject actor, float posTol, Crowd.Event endEvent)
     {
         if (recentPath == null)
         {

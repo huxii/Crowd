@@ -337,11 +337,12 @@ public class TileBasedPathFindingManager : PathFindingManager
         return true;
     }
 
-    public override void Move(GameObject actor, float posTol, Crowd.Event endEvent = null)
+    public override void Move(GameObject actor, float posTol, Crowd.Event endEvent)
     {
         base.Move(actor, posTol, endEvent);
 
-        if (endEvent == null)
+        var manArrivedEvent = endEvent as ManArrives;
+        if (manArrivedEvent.obj == null)
         {
             ((TileBasedFoundPath)recentPath).paths.RemoveAt(((TileBasedFoundPath)recentPath).paths.Count - 1);
         }

@@ -15,9 +15,9 @@ public class ManObj : Crowd.Event
     }
 }
 
-public class ManArrivesAtObj : ManObj
+public class ManArrives : ManObj
 {
-    public ManArrivesAtObj(GameObject m, GameObject o, int s)
+    public ManArrives(GameObject m, GameObject o, int s)
         : base(m, o, s)
     {
     }
@@ -41,14 +41,5 @@ public class ManLeavesFromObj : ManObj
     public ManLeavesFromObj(GameObject m, GameObject o, int s)
         : base(m, o, s)
     {
-    }
-}
-
-public class ManDrop : Crowd.Event
-{
-    public readonly GameObject man;
-    public ManDrop(GameObject m)
-    {
-        man = m;
     }
 }

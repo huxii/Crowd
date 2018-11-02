@@ -23,19 +23,17 @@ public class MultiSelectInputControl : InputControl
     
     private void RegisterEvents()
     {
-        Services.eventManager.Register<ManArrivesAtObj>(OnManArrivesAtObj);
-        Services.eventManager.Register<ManDrop>(OnManDrop);
+        Services.eventManager.Register<ManArrives>(OnManArrives);
     }
 
     private void UnregisterEvents()
     {
-        Services.eventManager.Unregister<ManArrivesAtObj>(OnManArrivesAtObj);
-        Services.eventManager.Unregister<ManDrop>(OnManDrop);
+        Services.eventManager.Unregister<ManArrives>(OnManArrives);
     }
 
-    void OnManArrivesAtObj(Crowd.Event e)
+    void OnManArrives(Crowd.Event e)
     {
-        var manArrivedEvent = e as ManArrivesAtObj;
+        var manArrivedEvent = e as ManArrives;
         GameObject man = manArrivedEvent.man;
 
         if (selectedMen.Contains(man))
@@ -45,17 +43,17 @@ public class MultiSelectInputControl : InputControl
         }
     }
 
-    void OnManDrop(Crowd.Event e)
-    {
-        var manDropEvent = e as ManDrop;
-        GameObject man = manDropEvent.man;
+    //void OnManDrop(Crowd.Event e)
+    //{
+    //    var manDropEvent = e as ManDrop;
+    //    GameObject man = manDropEvent.man;
 
-        if (selectedMen.Contains(man))
-        {
-            Services.gameController.DeselectMan(man);
-            selectedMen.Remove(man);
-        }
-    }
+    //    if (selectedMen.Contains(man))
+    //    {
+    //        Services.gameController.DeselectMan(man);
+    //        selectedMen.Remove(man);
+    //    }
+    //}
 
     protected override void MouseSingleClick()
     {

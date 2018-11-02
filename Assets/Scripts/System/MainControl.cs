@@ -46,14 +46,14 @@ public class MainControl : MonoBehaviour
 
     void RegisterEvents()
     {
-        Services.eventManager.Register<ManArrivesAtObj>(OnManArrivesAtObj);
+        Services.eventManager.Register<ManArrives>(OnManArrives);
         Services.eventManager.Register<ManLeavesForObj>(OnManLeavesForObj);
         Services.eventManager.Register<ManLeavesFromObj>(OnManLeavesFromObj);
     }
 
     void UnregisterEvents()
     {
-        Services.eventManager.Unregister<ManArrivesAtObj>(OnManArrivesAtObj);
+        Services.eventManager.Unregister<ManArrives>(OnManArrives);
         Services.eventManager.Unregister<ManLeavesForObj>(OnManLeavesForObj);
         Services.eventManager.Unregister<ManLeavesFromObj>(OnManLeavesFromObj);
     }
@@ -92,17 +92,23 @@ public class MainControl : MonoBehaviour
         }
     }
 
-    void OnManArrivesAtObj(Crowd.Event e)
+    void OnManArrives(Crowd.Event e)
     {
-        var manArrivedEvent = e as ManArrivesAtObj;
+        var manArrivedEvent = e as ManArrives;
         GameObject man = manArrivedEvent.man;
         GameObject obj = manArrivedEvent.obj;
         int slotId = manArrivedEvent.slotId;
 
-        man.transform.SetParent(obj.GetComponent<PropControl>().GetSlotObject(slotId).transform);
-        obj.GetComponent<PropControl>().ReadySlot(slotId, man);
-
-        man.GetComponent<CrowdControl>().SwitchState(obj.GetComponent<PropControl>().changeState);
+        if (obj != null)
+        {
+            man.transform.SetParent(obj.GetComponent<PropControl>().GetSlotObject(slotId).transform);
+            obj.GetComponent<PropControl>().ReadySlot(slotId, man);
+            man.GetComponent<CrowdControl>().SwitchState(obj.GetComponent<PropControl>().changeState);
+        }
+        else
+        {
+            man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.IDLE);
+        }
     }
 
     void OnManLeavesForObj(Crowd.Event e)
@@ -386,7 +392,7 @@ public class MainControl : MonoBehaviour
             OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
             man.GetComponent<CrowdControl>().LoadSucceeded();
 
-            Services.pathFindingManager.Move(man, tol, new ManArrivesAtObj(man, obj, slotId));
+            Services.pathFindingManager.Move(man, tol, new ManArrives(man, obj, slotId));
             return true;
         }
         else
@@ -409,7 +415,7 @@ public class MainControl : MonoBehaviour
             UnboundMan(man);
             man.GetComponent<CrowdControl>().WalkSucceeded();
 
-            Services.pathFindingManager.Move(man, tol);
+            Services.pathFindingManager.Move(man, tol, new ManArrives(man, null, -1));
             return true;
         }
         else
