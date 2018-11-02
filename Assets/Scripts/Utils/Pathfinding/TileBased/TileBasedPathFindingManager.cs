@@ -8,12 +8,14 @@ public class TileBasedPathFindingManager : PathFindingManager
     protected class TileBasedFoundPath : FoundPath
     {
         public List<Vector3> paths;
+        public List<TileEdge.MovementType> pathTypes;
 
         private List<Vector3> axises;
 
         public TileBasedFoundPath()
         {
             paths = new List<Vector3>();
+            pathTypes = new List<TileEdge.MovementType>();
             endEvent = null;
             tol = 0;
 
@@ -26,9 +28,10 @@ public class TileBasedPathFindingManager : PathFindingManager
             axises.Add(Vector3.back);
         }
 
-        public override void Insert(Vector3 pos)
+        public override void Insert(Vector3 pos, TileEdge.MovementType type = TileEdge.MovementType.WALK)
         {
             paths.Insert(0, pos);
+            pathTypes.Insert(0, type);
         }
 
         public override Vector3 LastUnitPos()
@@ -122,10 +125,11 @@ public class TileBasedPathFindingManager : PathFindingManager
             }
             else
             {
-                Services.gameController.SetManTargetPosition(actor, path.paths[1], path.tol);
+                Services.gameController.SetManTargetPosition(actor, path.paths[1], path.tol, path.pathTypes[1]);
             }
 
             path.paths.RemoveAt(0);
+            path.pathTypes.RemoveAt(0);
         }
     }
 
@@ -244,6 +248,7 @@ public class TileBasedPathFindingManager : PathFindingManager
 
         // init path matrix
         float[,] path = new float[tiles.Count, tiles.Count];
+        TileEdge.MovementType[,] pathTypes = new TileEdge.MovementType[tiles.Count, tiles.Count];
         for (int i = 0; i < N; ++i)
         {
             for (int j = 0; j < N; ++j)
@@ -259,6 +264,9 @@ public class TileBasedPathFindingManager : PathFindingManager
             int id0 = IDs[p0];
             int id1 = IDs[p1];
             path[id0, id1] = path[id1, id0] = Vector3.Distance(p0.transform.position, p1.transform.position);
+            pathTypes[id0, id1] = pathTypes[id1, id0] = edge.GetComponent<TileEdge>().type;
+
+            //Debug.Log(p0 + " " + p1 + " " + id0 + " " + id1 + " " + edge.GetComponent<TileEdge>().type);
         }
 
         float[] d = new float[N];
@@ -313,7 +321,15 @@ public class TileBasedPathFindingManager : PathFindingManager
         recentPath.Insert(endPos);
         while (curTile != -1)
         {
-            recentPath.Insert(tiles[curTile].transform.position);
+            if (preTile[curTile] == -1)
+            {
+                recentPath.Insert(tiles[curTile].transform.position);
+            }
+            else
+            {
+                //Debug.Log(curTile + " " + preTile[curTile] + " " + pathTypes[curTile, preTile[curTile]]);
+                recentPath.Insert(tiles[curTile].transform.position, pathTypes[curTile, preTile[curTile]]);
+            }
             curTile = preTile[curTile];
         }
         recentPath.Insert(startPos);

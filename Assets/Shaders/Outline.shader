@@ -209,7 +209,7 @@ Shader "Custom/Outline"
 				float4 clipPosition = UnityObjectToClipPos(position);
 				float3 clipNormal = mul((float3x3) UNITY_MATRIX_VP, mul((float3x3) UNITY_MATRIX_M, normalDirection));
 
-				clipPosition.xy += normalize(clipNormal.xy) * _OutlineWidth * clipPosition.w / _ScreenParams.xy * 50 * (1 - ramp);
+				clipPosition.xy += normalize(clipNormal.xy) * _OutlineWidth * clipPosition.w / _ScreenParams.xy * 40 /** (1 - ramp)*/;
 
 				return clipPosition;
 			}

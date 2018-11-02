@@ -30,6 +30,7 @@ public abstract class PropControl : ObjectControl
     }
 
     [Header("Interaction")]
+    public CrowdControl.CrowdState changeState = CrowdControl.CrowdState.IDLE;
     public float interactionCD = 0;
     private float interactionTimer = 0;
 

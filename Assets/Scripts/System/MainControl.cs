@@ -102,11 +102,7 @@ public class MainControl : MonoBehaviour
         man.transform.SetParent(obj.GetComponent<PropControl>().GetSlotObject(slotId).transform);
         obj.GetComponent<PropControl>().ReadySlot(slotId, man);
 
-        // tmp hack
-        if (obj.name == "Ladder")
-        {
-            man.GetComponent<CrowdControl>().ReadyToPush();
-        }
+        man.GetComponent<CrowdControl>().SwitchState(obj.GetComponent<PropControl>().changeState);
     }
 
     void OnManLeavesForObj(Crowd.Event e)
@@ -142,11 +138,7 @@ public class MainControl : MonoBehaviour
         man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
         obj.GetComponent<PropControl>().FreeSlot(slotId);
 
-        // tmp hack
-        if (obj.name == "Ladder")
-        {
-            man.GetComponent<CrowdControl>().Idle();
-        }
+        man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.IDLE);
     }
 
     public void SelectMan(GameObject man)
@@ -364,9 +356,20 @@ public class MainControl : MonoBehaviour
         man.GetComponent<CrowdControl>().Stop();
     }
 
-    public void SetManTargetPosition(GameObject man, Vector3 targetPos, float tol)
+    public void SetManTargetPosition(GameObject man, Vector3 targetPos, float tol, TileEdge.MovementType type = TileEdge.MovementType.WALK)
     {
-        man.GetComponent<CrowdControl>().MoveTo(targetPos, tol);
+        switch (type)
+        {
+            case TileEdge.MovementType.WALK:
+                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.WALK);
+                break;
+            case TileEdge.MovementType.CLIMB:
+                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.CLIMB);
+                break;
+            default:
+                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.WALK);
+                break;
+        }
     }
 
     public bool MoveManToObject(GameObject man, GameObject obj, int slotId, float tol)

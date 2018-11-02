@@ -460,6 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   t0: {fileID: 172810220}
   t1: {fileID: 804558995}
 --- !u!1 &39226702
@@ -1016,7 +1017,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 105173159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7, y: 0, z: 0.118}
+  m_LocalPosition: {x: 0.783, y: -0.007829285, z: 0.037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 976519949}
@@ -2838,6 +2839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 846104668}
   t1: {fileID: 1364056379}
 --- !u!1 &215522577
@@ -3108,6 +3110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 2021660400}
   t1: {fileID: 1384795587}
 --- !u!1 &256881284
@@ -4755,6 +4758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 846104668}
   t1: {fileID: 318695996}
 --- !u!4 &427243777
@@ -4844,6 +4848,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 1
   dropMen: 0
+  changeState: 4
   interactionCD: 0
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0, y: 0.1, z: -0.6}
@@ -4994,19 +4999,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015116576
+      value: 0.015116504
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000012952915
+      value: -0.000000012952931
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.00300082
+      value: -0.0030010114
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000023051282
+      value: -0.000000023051228
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
@@ -5839,6 +5844,49 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &495152118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 495152120}
+  - component: {fileID: 495152119}
+  m_Layer: 0
+  m_Name: TileEdgeTile11Tile14
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &495152119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 495152118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  t0: {fileID: 1364056379}
+  t1: {fileID: 172810220}
+--- !u!4 &495152120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 495152118}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1934595772}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &501167597
 GameObject:
   m_ObjectHideFlags: 0
@@ -6787,6 +6835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 603555817}
   t1: {fileID: 1810025054}
 --- !u!1 &592855128
@@ -7530,6 +7579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 2021660400}
   t1: {fileID: 1459250032}
 --- !u!1 &638296426
@@ -8616,6 +8666,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   dropMen: 0
+  changeState: 0
   interactionCD: 0
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
@@ -9094,6 +9145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 1384795587}
   t1: {fileID: 1552762364}
 --- !u!1 &804558995
@@ -9345,6 +9397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 516269519}
   t1: {fileID: 1552762364}
 --- !u!1 &820623599
@@ -9433,48 +9486,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d,
     type: 2}
   m_PrefabInternal: {fileID: 1079786856}
---- !u!1 &833207730
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 833207732}
-  - component: {fileID: 833207731}
-  m_Layer: 0
-  m_Name: TileEdgeTile11Tile14
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &833207731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 833207730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  t0: {fileID: 1364056379}
-  t1: {fileID: 172810220}
---- !u!4 &833207732
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 833207730}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1934595772}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &844182330
 GameObject:
   m_ObjectHideFlags: 0
@@ -10323,7 +10334,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.3
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11711,6 +11722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 494686363}
   t1: {fileID: 1364056379}
 --- !u!1 &1048099935
@@ -12005,6 +12017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 1459250032}
   t1: {fileID: 184559293}
 --- !u!1 &1058867050
@@ -12428,6 +12441,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   dropMen: 0
+  changeState: 0
   interactionCD: 0
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
@@ -12525,7 +12539,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.3
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -14054,7 +14068,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.3
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -14475,6 +14489,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   dropMen: 0
+  changeState: 0
   interactionCD: 0
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
@@ -15211,6 +15226,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   dropMen: 0
+  changeState: 0
   interactionCD: 0
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
@@ -16636,6 +16652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 1384795587}
   t1: {fileID: 2028255354}
 --- !u!4 &1335601076
@@ -17464,6 +17481,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   dropMen: 0
+  changeState: 0
   interactionCD: 0
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0, y: 0, z: 0}
@@ -18353,7 +18371,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.3
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -19488,6 +19506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 1836880314}
   t1: {fileID: 1552762364}
 --- !u!4 &1532419849
@@ -20406,6 +20425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 318695996}
   t1: {fileID: 172810220}
 --- !u!1 &1645062193
@@ -20578,6 +20598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 696733205}
   t1: {fileID: 710629126}
 --- !u!4 &1656608434
@@ -21167,6 +21188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 1552762364}
   t1: {fileID: 1735088677}
 --- !u!4 &1701840101
@@ -23256,6 +23278,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
   dropMen: 0
+  changeState: 0
   interactionCD: 0.5
   gizmoSize: 0.2
   freeManSlotOffset: {x: -1.5, y: 0, z: 0}
@@ -24747,7 +24770,7 @@ Transform:
   - {fileID: 1532419849}
   - {fileID: 819017588}
   - {fileID: 1701840101}
-  - {fileID: 833207732}
+  - {fileID: 495152120}
   m_Father: {fileID: 2133289614}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27195,6 +27218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   t0: {fileID: 846104668}
   t1: {fileID: 172810220}
 --- !u!1 &2128641776
@@ -27300,6 +27324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   t0: {fileID: 1810025054}
   t1: {fileID: 484912990}
 --- !u!4 &2132532436
@@ -27483,5 +27508,5 @@ MonoBehaviour:
   - {fileID: 1532419847}
   - {fileID: 819017587}
   - {fileID: 1701840099}
-  - {fileID: 833207730}
+  - {fileID: 495152118}
   tileCounter: 0

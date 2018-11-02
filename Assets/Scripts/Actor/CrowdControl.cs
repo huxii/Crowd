@@ -4,16 +4,31 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
+using BehaviorTree;
 
 public class CrowdControl : ActorControl
 {
+    public enum CrowdState
+    {
+        IDLE,
+        WALK,
+        CLIMB,
+        DROP,
+        PUSH,
+        CONFUSED,
+    };
+
     public UnityEvent onIdle;
     public UnityEvent onSelected;
     public UnityEvent onDeselected;
-    public UnityEvent onOrderFailed;
-    public UnityEvent onReadyToPush;
 
     public float speed = 5f;
+
+    private Tree<CrowdControl> btree;
+    [SerializeField]
+    private CrowdState state = CrowdState.IDLE;
+    private float stateTimer = 0;
+    private float stateInterval = 2.0f;
 
     private GameObject workingObject = null;
     private int workingSlot = -1;
@@ -26,14 +41,13 @@ public class CrowdControl : ActorControl
     private GameObject onObj = null;
     private Sequence matSeq = null;
 
-    private float stateTimer = 0;
-    private float stateInterval = 2.0f;
-
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         targetPos = transform.position;
+
+        InitBehaviorTree();
     }
 
     // Update is called once per frame
@@ -44,9 +58,11 @@ public class CrowdControl : ActorControl
             stateTimer -= Time.deltaTime;
             if (stateTimer <= 0)
             {
-                Idle();
+                SwitchState(CrowdState.IDLE);
             }
         }
+
+        btree.Update(this);
     }
 
     void FixedUpdate()
@@ -71,6 +87,44 @@ public class CrowdControl : ActorControl
     {
         //Handles.color = Color.yellow;
         //Handles.DrawWireDisc(transform.position, Vector3.up, targetPosTol);
+    }
+
+    private void InitBehaviorTree()
+    {
+        btree = new Tree<CrowdControl>(
+            new Selector<CrowdControl>(
+
+                // Special case: it's on the puddle
+
+                // Decide if it's dropping
+
+                // Decide if it's climbing by the target y position
+                new Sequence<CrowdControl>(
+                    new IsClimbing(),
+                    new Climbing()
+                    ),
+
+                // Decide if it's climbing by the target position
+                new Sequence<CrowdControl>(
+                    new IsMoving(),
+                    new Moving()
+                    ),
+
+                new Sequence<CrowdControl>(
+                    new IsPushing(),
+                    new Pushing()
+                    ),
+
+                new Sequence<CrowdControl>(
+                    new IsConfused(),
+                    new Confused()
+                    ),
+
+                new Sequence<CrowdControl>(
+                    new Idling()
+                    )
+                )
+            );
     }
 
     private void SetKinematic(bool isKinematic)
@@ -113,11 +167,12 @@ public class CrowdControl : ActorControl
         isMoving = false;
     }
 
-    public void MoveTo(Vector3 pos, float tol)
+    public void MoveTo(Vector3 pos, float tol, CrowdState s)
     {
         isMoving = true;
         targetPos = pos;
         targetPosTol = tol;
+        state = s;
     }
 
     public void Selected()
@@ -130,19 +185,6 @@ public class CrowdControl : ActorControl
         onDeselected.Invoke();
     }
 
-    //public void WalkAcross(GameObject obj)
-    //{
-    //    if (onObj == obj)
-    //    {
-    //        onObj = null;
-    //        SetKinematic(false);
-    //    }
-    //    else
-    //    {
-    //        onObj = obj;
-    //        SetKinematic(true);
-    //    }
-    //}
     public void LoadSucceeded()
     {
         int id = Random.Range(0, 4) + 1;
@@ -159,20 +201,108 @@ public class CrowdControl : ActorControl
     public void OrderFailed()
     {
         stateTimer = stateInterval;
-        onOrderFailed.Invoke();
+        SwitchState(CrowdState.CONFUSED);
 
         int id = Random.Range(0, 3) + 1;
         Services.soundController.Play("noWay" + id);
     }
 
-    public void ReadyToPush()
+    public void SwitchState(CrowdState s)
     {
-        //stateTimer = stateInterval;
-        onReadyToPush.Invoke();
+        state = s;
     }
 
-    public void Idle()
+    ////////////////////
+    // Conditions
+    ////////////////////
+    private class IsMoving : Node<CrowdControl>
     {
-        onIdle.Invoke();
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.WALK;
+        }
+    }
+
+    private class IsClimbing : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.CLIMB;
+        }
+    }
+
+    private class IsPushing : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.PUSH;
+        }
+    }
+
+    private class IsConfused : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.CONFUSED;
+        }
+    }
+
+    private class IsIdling : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.IDLE;
+        }
+    }
+
+    ///////////////////
+    /// Actions
+    ///////////////////
+    private class Moving : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            //Debug.Log("moving");
+            return true;
+        }
+    }
+
+    private class Climbing : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            //Debug.Log("climbing");
+            return true;
+        }
+    }
+
+    private class Pushing : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            Sprite sprite = Resources.Load<Sprite>("Sprites/Character/push");
+            man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+            return true;
+        }
+    }
+
+    private class Confused : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            Sprite sprite = Resources.Load<Sprite>("Sprites/Character/confuse");
+            man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+            return true;
+        }
+    }
+
+    private class Idling : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            Sprite sprite = Resources.Load<Sprite>("Sprites/Character/idle");
+            man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+            return true;
+        }
     }
 }

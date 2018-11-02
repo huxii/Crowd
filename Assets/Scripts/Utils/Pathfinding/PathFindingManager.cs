@@ -21,7 +21,7 @@ public abstract class PathFindingManager : MonoBehaviour
         {
         }
 
-        public virtual void Insert(Vector3 pos)
+        public virtual void Insert(Vector3 pos, TileEdge.MovementType type = TileEdge.MovementType.WALK)
         {
         }
 
