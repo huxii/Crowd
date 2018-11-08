@@ -213,6 +213,7 @@ ModelImporter:
     100414: PaperCraneWithRope
     100416: ClockWithRope
     100418: HiddenStairsWithRope
+    100420: KeyAndHole
     400000: BackShell
     400002: Bulb
     400004: Bulb 1
@@ -423,6 +424,7 @@ ModelImporter:
     400414: PaperCraneWithRope
     400416: ClockWithRope
     400418: HiddenStairsWithRope
+    400420: KeyAndHole
     2100000: InnerMat
     2100002: CutoutMat
     2100004: OutterMat
