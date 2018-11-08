@@ -242,8 +242,11 @@ public class TileBasedPathFindingManager : PathFindingManager
         int N = 0;
         foreach (GameObject tile in tiles)
         {
-            IDs[tile] = N;
-            ++N;
+            if (!IDs.ContainsKey(tile))
+            {
+                IDs.Add(tile, N);
+                ++N;
+            }
         }
 
         // init path matrix

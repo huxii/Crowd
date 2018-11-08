@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using DG.Tweening;
 
 // TODO: main menu & hints & character (behavior tree) & penguin eyes & ao & look at camera
+// & dotween ease, bounce
 
 public class MainControl : MonoBehaviour
 {

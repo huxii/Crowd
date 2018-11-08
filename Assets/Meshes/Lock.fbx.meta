@@ -207,6 +207,12 @@ ModelImporter:
     100402: Wheet7
     100404: Wheet8
     100406: Wheet9
+    100408: PaperCraneRope2
+    100410: PaperCraneRopeModel2
+    100412: SpringModel
+    100414: PaperCraneWithRope
+    100416: ClockWithRope
+    100418: HiddenStairsWithRope
     400000: BackShell
     400002: Bulb
     400004: Bulb 1
@@ -411,6 +417,12 @@ ModelImporter:
     400402: Wheet7
     400404: Wheet8
     400406: Wheet9
+    400408: PaperCraneRope2
+    400410: PaperCraneRopeModel2
+    400412: SpringModel
+    400414: PaperCraneWithRope
+    400416: ClockWithRope
+    400418: HiddenStairsWithRope
     2100000: InnerMat
     2100002: CutoutMat
     2100004: OutterMat
@@ -570,6 +582,8 @@ ModelImporter:
     2300306: Wheet7
     2300308: Wheet8
     2300310: Wheet9
+    2300312: PaperCraneRopeModel2
+    2300314: SpringModel
     3300000: BackShell
     3300002: Bulb
     3300004: Bulb 1
@@ -726,6 +740,8 @@ ModelImporter:
     3300306: Wheet7
     3300308: Wheet8
     3300310: Wheet9
+    3300312: PaperCraneRopeModel2
+    3300314: SpringModel
     4300000: Ladder
     4300002: Wheet13
     4300004: Fence
@@ -882,6 +898,8 @@ ModelImporter:
     4300306: ShellNail3
     4300308: ShellNail4
     4300310: ShellNail5
+    4300312: SpringModel
+    4300314: PaperCraneRopeModel2
     9500000: //RootNode
     13700000: Wheet13
   externalObjects: {}
@@ -915,7 +933,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 0
     importVisibility: 0
@@ -934,7 +952,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
