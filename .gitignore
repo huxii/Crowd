@@ -52,3 +52,4 @@ Assets/Scenes/etc.meta
 #Maya temp files
 *.maya[Ss]watches*
 *.swatch
+/MayaProject/Scenes/incrementalSave
