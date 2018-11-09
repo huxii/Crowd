@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ArrowBehavior : MonoBehaviour
 {
+    public float amplitude = 1f;
+
     private bool isOut = true;
 
     // Use this for initialization
@@ -23,12 +25,12 @@ public class ArrowBehavior : MonoBehaviour
         if (isOut)
         {
             isOut = false;
-            Services.dotweenEvents.Move(gameObject.name + " x 1.5 0.5");
+            Services.dotweenEvents.Move(gameObject.name + " x " + amplitude.ToString() + " 0.5");
         }
         else
         {
             isOut = true;
-            Services.dotweenEvents.Move(gameObject.name + " x -1.5 0.5");
+            Services.dotweenEvents.Move(gameObject.name + " x -" + amplitude.ToString() + " 0.5");
         }
     }
 }

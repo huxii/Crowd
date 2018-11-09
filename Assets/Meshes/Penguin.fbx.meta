@@ -360,6 +360,12 @@ ModelImporter:
     100708: CaseSurface0
     100710: CaseSurface1
     100712: Stick
+    100714: Body 1
+    100716: LeftEye
+    100718: LeftEyeBall
+    100720: Mouth
+    100722: RightEye
+    100724: RightEyeBall
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -717,6 +723,12 @@ ModelImporter:
     400708: CaseSurface0
     400710: CaseSurface1
     400712: Stick
+    400714: Body 1
+    400716: LeftEye
+    400718: LeftEyeBall
+    400720: Mouth
+    400722: RightEye
+    400724: RightEyeBall
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -1015,6 +1027,12 @@ ModelImporter:
     2300586: CaseSurface0
     2300588: CaseSurface1
     2300590: Stick
+    2300592: Body 1
+    2300594: LeftEye
+    2300596: LeftEyeBall
+    2300598: Mouth
+    2300600: RightEye
+    2300602: RightEyeBall
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1311,6 +1329,12 @@ ModelImporter:
     3300586: CaseSurface0
     3300588: CaseSurface1
     3300590: Stick
+    3300592: Body 1
+    3300594: LeftEye
+    3300596: LeftEyeBall
+    3300598: Mouth
+    3300600: RightEye
+    3300602: RightEyeBall
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -1604,6 +1628,11 @@ ModelImporter:
     4300580: CaseSurface0
     4300582: CaseSurface1
     4300584: Stick
+    4300586: Mouth
+    4300588: LeftEye
+    4300590: RightEye
+    4300592: RightEyeBall
+    4300594: LeftEyeBall
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -1636,7 +1665,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 0
     importVisibility: 0
@@ -1655,7 +1684,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
