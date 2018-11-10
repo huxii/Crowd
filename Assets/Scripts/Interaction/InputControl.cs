@@ -198,7 +198,7 @@ public abstract class InputControl : MonoBehaviour
             Services.gameController.SwipeOn(mouseClickObject);
         }
         else
-        if (Time.time - singleClickTime < 1f)
+        //if (Time.time - singleClickTime < 1f)
         {
             MouseSingleClick();
         }
