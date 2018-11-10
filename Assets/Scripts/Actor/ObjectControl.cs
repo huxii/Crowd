@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using DG.Tweening;
 
 public abstract class ObjectControl : ActorControl
 {
+    [Header("Interaction")]
     public float interactionCD = 0;
+    public UnityEvent onInteractionFeedback;
     protected float interactionTimer = 0;
 
     public UnityEvent onActivated;

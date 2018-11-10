@@ -34,7 +34,6 @@ public abstract class PropControl : ObjectControl
     public float gizmoSize = 0.2f;
     public Vector3 freeManSlotOffset = new Vector3(0, 0, 0);
     public CrowdControl.CrowdState changeState = CrowdControl.CrowdState.IDLE;
-    public UnityEvent onInteractionFeedback;
 
     protected GameObject slotsObj = null;
     [SerializeField]

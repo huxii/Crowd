@@ -172,152 +172,142 @@ public class MainControl : MonoBehaviour
         }
     }
 
-    public void InteractMen(GameObject obj, Vector3 pos, List<GameObject> selectedMen = null)
+    public void InteractObject(GameObject obj)
     {
-        if (obj.GetComponent<ObjectControl>().IsCoolingDown())
+        if (!obj.GetComponent<ObjectControl>() || obj.GetComponent<ObjectControl>().IsCoolingDown())
         {
             return;
         }
 
-        if (obj.GetComponent<PropControl>())
+        obj.GetComponent<ObjectControl>().Click();
+    }
+
+    public void InteractMen(GameObject obj, Vector3 pos, List<GameObject> selectedMen = null)
+    {
+        if (!obj.GetComponent<PropControl>() || obj.GetComponent<PropControl>().IsCoolingDown())
         {
-            // this is a prop
-            // this prop is settled & walkable
-            if (obj.GetComponent<PropControl>().IsLocked() && obj.GetComponent<PropControl>().isWalkable)
-            {
-                MoveMenToPosition(pos, selectedMen);
-                return;
-            }
+            return;
+        }
 
-            // click on prop feedback
-            obj.GetComponent<PropControl>().Click();
+        // this is a prop
+        // this prop is settled & walkable
+        if (obj.GetComponent<PropControl>().IsLocked() && obj.GetComponent<PropControl>().isWalkable)
+        {
+            MoveMenToPosition(pos, selectedMen);
+            return;
+        }
 
-            // this prop is full, release all the men
-            if (obj.GetComponent<PropControl>().GetEmptySlotNum() == 0)
+        // click on prop feedback
+        obj.GetComponent<PropControl>().Click();
+
+        // this prop is full, release all the men
+        if (obj.GetComponent<PropControl>().GetEmptySlotNum() == 0)
+        {
+            obj.GetComponent<PropControl>().FreeAllMan();
+        }
+        else
+        {
+            // this prop has empty slots but locked
+            if (obj.GetComponent<PropControl>().IsLocked())
             {
-                obj.GetComponent<PropControl>().FreeAllMan();
+                foreach (GameObject man in men)
+                {
+                    if (!man.GetComponent<CrowdControl>().IsBusy())
+                    {
+                        man.GetComponent<CrowdControl>().OrderFailed();
+                    }
+                }
             }
             else
             {
-                // this prop has empty slots but locked
-                if (obj.GetComponent<PropControl>().IsLocked())
+                SortedDictionary<float, GameObject> sortByDistance = new SortedDictionary<float, GameObject>();
+                if (selectedMen != null)
                 {
-                    foreach (GameObject man in men)
+                    float diffKey = 0;
+                    foreach (GameObject selectedMan in selectedMen)
                     {
-                        if (!man.GetComponent<CrowdControl>().IsBusy())
-                        {
-                            man.GetComponent<CrowdControl>().OrderFailed();
-                        }
+                        sortByDistance.Add(diffKey, selectedMan);
+                        diffKey += 1e-12f;
                     }
+                }
+
+                foreach (GameObject man in men)
+                {
+                    if (!sortByDistance.ContainsValue(man) && man.GetComponent<CrowdControl>().IsBusy() == false && !man.GetComponent<CrowdControl>().IsLocked())
+                    {
+                        sortByDistance.Add(Vector3.Distance(man.transform.position, obj.transform.position), man);
+                    }
+                }
+
+                if (sortByDistance.Count != 0)
+                {
+                    Services.footprintsManager.ClearLastFootprints();
+                    Services.footprintsManager.Clear();
+
+                    foreach (KeyValuePair<float, GameObject> pair in sortByDistance)
+                    {
+                        GameObject man = pair.Value;
+                        int slotId = obj.GetComponent<PropControl>().FindEmptySlot();
+                        if (slotId == -1)
+                        {
+                            return;
+                        }
+
+                        MoveManToObject(man, obj, slotId, 0.1f);
+                    }
+
+                    Services.footprintsManager.Generate();
                 }
                 else
                 {
-                    SortedDictionary<float, GameObject> sortByDistance = new SortedDictionary<float, GameObject>();
-                    if (selectedMen != null)
-                    {
-                        float diffKey = 0;
-                        foreach (GameObject selectedMan in selectedMen)
-                        {
-                            sortByDistance.Add(diffKey, selectedMan);
-                            diffKey += 1e-12f;
-                        }
-                    }
-
-                    foreach (GameObject man in men)
-                    {
-                        if (!sortByDistance.ContainsValue(man) && man.GetComponent<CrowdControl>().IsBusy() == false && !man.GetComponent<CrowdControl>().IsLocked())
-                        {
-                            sortByDistance.Add(Vector3.Distance(man.transform.position, obj.transform.position), man);
-                        }
-                    }
-
-                    if (sortByDistance.Count != 0)
-                    {
-                        Services.footprintsManager.ClearLastFootprints();
-                        Services.footprintsManager.Clear();
-
-                        foreach (KeyValuePair<float, GameObject> pair in sortByDistance)
-                        {
-                            GameObject man = pair.Value;
-                            int slotId = obj.GetComponent<PropControl>().FindEmptySlot();
-                            if (slotId == -1)
-                            {
-                                return;
-                            }
-
-                            MoveManToObject(man, obj, slotId, 0.1f);
-                        }
-
-                        Services.footprintsManager.Generate();
-                    }
-                    else
-                    {
-                        // no any avaliable men, release all the man to avoid dead lock
-                        obj.GetComponent<PropControl>().FreeAllMan();
-                    }
+                    // no any avaliable men, release all the man to avoid dead lock
+                    obj.GetComponent<PropControl>().FreeAllMan();
                 }
             }
-        }
-        else
-        if (obj.GetComponent<ObjectControl>())
-        {
-            // this is an object (but not a prop)
-            // click on object feedback
-            obj.GetComponent<ObjectControl>().Click();
         }
     }
 
     public void InteractMan(GameObject obj, Vector3 pos)
     {
-        if (obj.GetComponent<PropControl>())
+        if (!obj.GetComponent<PropControl>() || obj.GetComponent<PropControl>().IsCoolingDown())
         {
-            if (obj.GetComponent<PropControl>().IsCoolingDown())
-            {
-                return;
-            }
-
-            // this obj is walkable
-            if (obj.GetComponent<PropControl>().IsLocked() && obj.GetComponent<PropControl>().isWalkable)
-            {
-                MoveMenToPosition(pos);
-                return;
-            }
-
-            // click on object feedback
-            obj.GetComponent<PropControl>().Click();
-
-            int slotId = obj.GetComponent<PropControl>().FindEmptySlot();
-            if (slotId == -1)
-            {
-                return;
-            }
-
-            GameObject nearestMan = null;
-            float maxDistance = float.MaxValue;
-            foreach (GameObject man in men)
-            {
-                if (!man.GetComponent<CrowdControl>().IsBusy() && !man.GetComponent<CrowdControl>().IsLocked() &&
-                    Vector3.Distance(man.transform.position, obj.transform.position) < maxDistance)
-                {
-                    maxDistance = Vector3.Distance(man.transform.position, obj.transform.position);
-                    nearestMan = man;
-                }
-            }
-
-            if (nearestMan == null)
-            {
-                return;
-            }
-
-            MoveManToObject(nearestMan, obj, slotId, 0.1f);
+            return;
         }
-        else
-        if (obj.GetComponent<ObjectControl>())
+
+        // this obj is walkable
+        if (obj.GetComponent<PropControl>().IsLocked() && obj.GetComponent<PropControl>().isWalkable)
         {
-            // this is an object (but not a prop)
-            // click on object feedback
-            obj.GetComponent<ObjectControl>().Click();
+            MoveMenToPosition(pos);
+            return;
         }
+
+        // click on object feedback
+        obj.GetComponent<PropControl>().Click();
+
+        int slotId = obj.GetComponent<PropControl>().FindEmptySlot();
+        if (slotId == -1)
+        {
+            return;
+        }
+
+        GameObject nearestMan = null;
+        float maxDistance = float.MaxValue;
+        foreach (GameObject man in men)
+        {
+            if (!man.GetComponent<CrowdControl>().IsBusy() && !man.GetComponent<CrowdControl>().IsLocked() &&
+                Vector3.Distance(man.transform.position, obj.transform.position) < maxDistance)
+            {
+                maxDistance = Vector3.Distance(man.transform.position, obj.transform.position);
+                nearestMan = man;
+            }
+        }
+
+        if (nearestMan == null)
+        {
+            return;
+        }
+
+        MoveManToObject(nearestMan, obj, slotId, 0.1f);
     }
 
     public void OrderFailed(GameObject man)
