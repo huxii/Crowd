@@ -286,6 +286,8 @@ public abstract class InputControl : MonoBehaviour
             //Debug.Log(mouseDelta);
             Services.cameraController.Orbit(mouseDelta.x, mouseDelta.y);
             mouseDragScreenPos = Input.mousePosition;
+
+            Services.eventManager.Fire(new RotateEvent(mouseDelta));
         }
     }
 

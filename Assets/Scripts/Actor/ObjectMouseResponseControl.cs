@@ -3,22 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// objects will response the mouse action in a certain range,
+// which is not related to the collider
 public class ObjectMouseResponseControl : ObjectControl
 {
-    [Header("Mouse Response")]
-    public float range = 0f;
+    [Header("Mouse Response")]    
+    public float maxClickRange = 0f;
     public UnityEvent onClick;
+    public float maxRotateScale = 1f;
+    public UnityEvent onRightRotate;
+    public UnityEvent onLeftRotate;
+
+    private bool responseEnabled = true;
 
     // Use this for initialization
     void Start()
     {
         Services.eventManager.Register<ClickEvent>(OnRespondClick);
+        Services.eventManager.Register<RotateEvent>(OnRespondRotate);
     }
 
     // excute before OnDestroy
     private void OnApplicationQuit()
     {
         Services.eventManager.Unregister<ClickEvent>(OnRespondClick);
+        Services.eventManager.Unregister<RotateEvent>(OnRespondRotate);
     }
 
     // Update is called once per frame
@@ -29,7 +38,7 @@ public class ObjectMouseResponseControl : ObjectControl
 
     private void OnRespondClick(Crowd.Event e)
     {
-        if (IsCoolingDown())
+        if (IsCoolingDown() || !responseEnabled)
         {
             return;
         }
@@ -37,10 +46,35 @@ public class ObjectMouseResponseControl : ObjectControl
         var clicke = e as ClickEvent;
         GameObject obj = clicke.mouseClickObj;
         Vector3 pos = clicke.mouseClickPos;
-        if (Vector3.Distance(transform.position, pos) < range)
+        if (Vector3.Distance(transform.position, pos) < maxClickRange)
         {
             onClick.Invoke();
             CoolDown();
         }
+    }
+
+    private void OnRespondRotate(Crowd.Event e)
+    {
+        if (IsCoolingDown() || !responseEnabled)
+        {
+            return;
+        }
+
+        var clicke = e as RotateEvent;
+        Vector3 delta = clicke.mouseDelta;
+        CoolDown();
+        if (delta.x > 0)
+        {
+            onRightRotate.Invoke();
+        }
+        else
+        {
+            onLeftRotate.Invoke();
+        }
+    }
+
+    public void SetResponseEnabled(bool en)
+    {
+        responseEnabled = en;
     }
 }

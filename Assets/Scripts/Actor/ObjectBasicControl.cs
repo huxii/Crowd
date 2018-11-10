@@ -26,4 +26,10 @@ public class ObjectBasicControl : ObjectControl
         CoolDown();
         onClick.Invoke();
     }
+
+    public override void Drag(Vector3 deltaPos)
+    {
+        base.Drag(deltaPos);
+
+    }
 }

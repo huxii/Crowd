@@ -62,3 +62,13 @@ public class ClickEvent : InputEvent
         mouseClickPos = pos;
     }
 }
+
+public class RotateEvent : InputEvent
+{
+    public readonly Vector3 mouseDelta;
+    public RotateEvent(Vector3 delta)
+        : base()
+    {
+        mouseDelta = delta;
+    }
+}
