@@ -384,6 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 0
+  interactionCD: 0.5
   onActivated:
     m_PersistentCalls:
       m_Calls:
@@ -460,7 +461,12 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  onClick:
+  isWalkable: 0
+  dropMen: 0
+  gizmoSize: 0.2
+  freeManSlotOffset: {x: -1.5, y: 0, z: 0}
+  changeState: 0
+  onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1428080941}
@@ -476,12 +482,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  isWalkable: 0
-  dropMen: 0
-  changeState: 0
-  interactionCD: 0.5
-  gizmoSize: 0.2
-  freeManSlotOffset: {x: -1.5, y: 0, z: 0}
   slots:
   - state: 0
     obj: {fileID: 1377102735}
@@ -1153,6 +1153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 0
+  interactionCD: 0
   onActivated:
     m_PersistentCalls:
       m_Calls:
@@ -1196,7 +1197,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  onClick:
+  isWalkable: 0
+  dropMen: 0
+  gizmoSize: 0.2
+  freeManSlotOffset: {x: 0, y: 0, z: 0}
+  changeState: 0
+  onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1428080941}
@@ -1212,12 +1218,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  isWalkable: 0
-  dropMen: 0
-  changeState: 0
-  interactionCD: 0
-  gizmoSize: 0.2
-  freeManSlotOffset: {x: 0, y: 0, z: 0}
   slots:
   - state: 0
     obj: {fileID: 181499837}
@@ -1445,17 +1445,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 0
+  interactionCD: 0
   onActivated:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onDeactivated:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onClick:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -1623,19 +1619,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015116754
+      value: 0.015116553
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000129536115
+      value: -0.000000012953665
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0030010208
+      value: -0.003001166
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000023051651
+      value: -0.000000023051701
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
@@ -1758,7 +1754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2
   swingAngle: -20
-  swingDuration: 1
+  swingDuration: 1.5
 --- !u!1 &471225451
 GameObject:
   m_ObjectHideFlags: 0
@@ -2536,6 +2532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 0
+  interactionCD: 0
   onActivated:
     m_PersistentCalls:
       m_Calls: []
@@ -2546,7 +2543,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  onClick:
+  isWalkable: 1
+  dropMen: 0
+  gizmoSize: 0.2
+  freeManSlotOffset: {x: 0, y: 0.1, z: -0.6}
+  changeState: 4
+  onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1428080941}
@@ -2562,12 +2564,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  isWalkable: 1
-  dropMen: 0
-  changeState: 4
-  interactionCD: 0
-  gizmoSize: 0.2
-  freeManSlotOffset: {x: 0, y: 0.1, z: -0.6}
   slots:
   - state: 0
     obj: {fileID: 806445551}
@@ -2677,6 +2673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 0
+  interactionCD: 0
   onActivated:
     m_PersistentCalls:
       m_Calls:
@@ -2731,7 +2728,12 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  onClick:
+  isWalkable: 0
+  dropMen: 0
+  gizmoSize: 0.2
+  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
+  changeState: 0
+  onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1428080941}
@@ -2747,12 +2749,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  isWalkable: 0
-  dropMen: 0
-  changeState: 0
-  interactionCD: 0
-  gizmoSize: 0.2
-  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   slots:
   - state: 0
     obj: {fileID: 375909485}
@@ -3131,7 +3127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2
   swingAngle: -20
-  swingDuration: 1
+  swingDuration: 1.5
 --- !u!1 &844276447 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1049376376885018, guid: a819850fd01d2b14795d9665e6875261,
@@ -3272,6 +3268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 0
+  interactionCD: 0
   onActivated:
     m_PersistentCalls:
       m_Calls:
@@ -3326,7 +3323,12 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  onClick:
+  isWalkable: 0
+  dropMen: 0
+  gizmoSize: 0.2
+  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
+  changeState: 0
+  onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1428080941}
@@ -3342,12 +3344,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  isWalkable: 0
-  dropMen: 0
-  changeState: 0
-  interactionCD: 0
-  gizmoSize: 0.2
-  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   slots:
   - state: 0
     obj: {fileID: 1660261887}
@@ -3545,6 +3541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 0
+  interactionCD: 0
   onActivated:
     m_PersistentCalls:
       m_Calls:
@@ -3599,7 +3596,12 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  onClick:
+  isWalkable: 0
+  dropMen: 0
+  gizmoSize: 0.2
+  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
+  changeState: 0
+  onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1428080941}
@@ -3615,12 +3617,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  isWalkable: 0
-  dropMen: 0
-  changeState: 0
-  interactionCD: 0
-  gizmoSize: 0.2
-  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   slots:
   - state: 0
     obj: {fileID: 987195239}
@@ -4822,6 +4818,34 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300608, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e23262440138bc4f85e1db67031d288, type: 2}
+    - target: {fileID: 2300604, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e23262440138bc4f85e1db67031d288, type: 2}
+    - target: {fileID: 2300606, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e23262440138bc4f85e1db67031d288, type: 2}
+    - target: {fileID: 100720, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 100734, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 100732, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300610, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
   m_IsPrefabAsset: 0
@@ -4830,6 +4854,122 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400162, guid: b2e9286c22cb687469da9f0cc667f429,
     type: 3}
   m_PrefabInternal: {fileID: 1013358165}
+--- !u!1 &1013358167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100734, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInternal: {fileID: 1013358165}
+--- !u!1 &1013358168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100732, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInternal: {fileID: 1013358165}
+--- !u!135 &1013358170
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1013358167}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0.58, y: 0.98, z: 0}
+--- !u!114 &1013358171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1013358167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  interactionCD: 0
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Shock
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RightEar, z, -5, 0.5, 20, false
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!135 &1013358172
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1013358168}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: -0.58, y: 0.98, z: 0}
+--- !u!114 &1013358174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1013358168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  interactionCD: 0
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Shock
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LeftEar, z, 5, 0.5, 20, false
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1037181873
 GameObject:
   m_ObjectHideFlags: 0
@@ -4963,7 +5103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2
   swingAngle: -20
-  swingDuration: 1
+  swingDuration: 1.5
 --- !u!1001 &1079786856
 Prefab:
   m_ObjectHideFlags: 0
@@ -5481,7 +5621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2
   swingAngle: -40
-  swingDuration: 1
+  swingDuration: 1.5
 --- !u!114 &1111890259 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
@@ -5642,7 +5782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2
   swingAngle: -20
-  swingDuration: 1
+  swingDuration: 1.5
 --- !u!1 &1259869500 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100398, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -5945,7 +6085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2
   swingAngle: -20
-  swingDuration: 1
+  swingDuration: 1.5
 --- !u!1 &1401978272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1049376376885018, guid: a819850fd01d2b14795d9665e6875261,
@@ -6252,6 +6392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 0
+  interactionCD: 0
   onActivated:
     m_PersistentCalls:
       m_Calls:
@@ -6306,7 +6447,12 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  onClick:
+  isWalkable: 0
+  dropMen: 0
+  gizmoSize: 0.2
+  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
+  changeState: 0
+  onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1428080941}
@@ -6322,12 +6468,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  isWalkable: 0
-  dropMen: 0
-  changeState: 0
-  interactionCD: 0
-  gizmoSize: 0.2
-  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   slots:
   - state: 0
     obj: {fileID: 1495107545}
@@ -6622,7 +6762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2
   swingAngle: -10
-  swingDuration: 1
+  swingDuration: 1.5
 --- !u!1 &1636566899 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1696937736376902, guid: 17453db20fbf5e5439cec4c83dc0a2c4,
@@ -6818,7 +6958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2
   swingAngle: -5
-  swingDuration: 1
+  swingDuration: 1.5
 --- !u!1 &1701840099
 GameObject:
   m_ObjectHideFlags: 0
@@ -6879,6 +7019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 0
+  interactionCD: 0
   onActivated:
     m_PersistentCalls:
       m_Calls:
@@ -6977,13 +7118,13 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  isWalkable: 1
+  dropMen: 1
   onClick:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  isWalkable: 1
-  dropMen: 1
 --- !u!1 &1735088677
 GameObject:
   m_ObjectHideFlags: 0
@@ -7257,7 +7398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 3
   swingAngle: -40
-  swingDuration: 1
+  swingDuration: 1.5
 --- !u!1 &1836880314
 GameObject:
   m_ObjectHideFlags: 0
@@ -7979,6 +8120,64 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2101737549}
   m_CullTransparentMesh: 0
+--- !u!1 &2117781465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100720, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInternal: {fileID: 1013358165}
+--- !u!114 &2117781466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2117781465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  interactionCD: 0.55
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Ping
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Mouth, z, -1, 0.5
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!65 &2117781467
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2117781465}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1, z: 2.5}
+  m_Center: {x: 0, y: 0, z: 1}
 --- !u!1 &2124950695
 GameObject:
   m_ObjectHideFlags: 0
@@ -8177,4 +8376,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2
   swingAngle: -10
-  swingDuration: 1
+  swingDuration: 1.5

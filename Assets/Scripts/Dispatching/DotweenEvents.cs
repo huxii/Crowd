@@ -172,6 +172,45 @@ public class DotweenEvents : MonoBehaviour
         obj.transform.DOLocalMove(targetPos, time);
     }
 
+    public void Ping(string para)
+    {
+        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
+        GameObject obj = GameObject.Find(paras[0]);
+        string axis = paras[1];
+        float inc = float.Parse(paras[2]);
+        float time = float.Parse(paras[3]);
+
+        if (obj == null)
+        {
+            return;
+        }
+
+        Vector3 origPos = obj.transform.localPosition;
+        Vector3 targetPos = obj.transform.localPosition;
+        if (axis.ToLower() == "x")
+        {
+            targetPos.x += inc;
+        }
+        else
+        if (axis.ToLower() == "y")
+        {
+            targetPos.y += inc;
+        }
+        else
+        if (axis.ToLower() == "z")
+        {
+            targetPos.z += inc;
+        }
+
+        obj.transform.DOLocalMove(targetPos, time * 0.5f).OnComplete(
+            () =>
+            {
+                obj.transform.DOLocalMove(origPos, time * 0.5f);
+            }
+            );
+
+    }
+
     public void ScaleTo(string para)
     {
         string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
@@ -316,8 +355,7 @@ public class DotweenEvents : MonoBehaviour
             Vector3 rightRot = origRot + deltaRot;
 
             seq.Append(obj.transform.DOLocalRotate(leftRot, 0.25f * time).SetEase(Ease.Linear));
-            seq.Append(obj.transform.DOLocalRotate(origRot, 0.25f * time).SetEase(Ease.Linear));
-            seq.Append(obj.transform.DOLocalRotate(rightRot, 0.25f * time).SetEase(Ease.Linear));
+            seq.Append(obj.transform.DOLocalRotate(rightRot, 0.5f * time).SetEase(Ease.Linear));
             seq.Append(obj.transform.DOLocalRotate(origRot, 0.25f * time).SetEase(Ease.Linear));
             seq.SetLoops(loop, LoopType.Restart);
         }
@@ -328,6 +366,73 @@ public class DotweenEvents : MonoBehaviour
             seq.Append(obj.transform.DOLocalRotate(-2 * deltaRot, 0.5f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InOutCubic));
             seq.Append(obj.transform.DOLocalRotate(deltaRot, 0.25f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InOutCubic));
             seq.SetLoops(loop, LoopType.Restart);
+        }
+    }
+
+    public void Shock(string para)
+    {
+        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
+        GameObject obj = GameObject.Find(paras[0]);
+        string axis = paras[1];
+        float inc = float.Parse(paras[2]);
+        float time = float.Parse(paras[3]);
+        int loop = int.Parse(paras[4]);
+        bool isLocalAxis = false;
+        if (paras.Length >= 6)
+        {
+            isLocalAxis = bool.Parse(paras[5]);
+        }
+
+        Sequence seq = DOTween.Sequence();
+        Vector3 deltaRot = new Vector3(0, 0, 0);
+        if (axis.ToLower() == "x")
+        {
+            deltaRot = new Vector3(inc, 0, 0);
+        }
+        else
+        if (axis.ToLower() == "y")
+        {
+            deltaRot = new Vector3(0, inc, 0);
+        }
+        else
+        if (axis.ToLower() == "z")
+        {
+            deltaRot = new Vector3(0, 0, inc);
+        }
+
+        // (x-1)^2 + (y-1)^2 = 1
+        float deltaX = 1.0f / loop;
+        float curX = 0;
+        int sign = 1;
+        Vector3[] shockRots = new Vector3[loop];
+        for (int i = 0; i < loop; ++i)
+        {
+            shockRots[i] = sign * deltaRot * (1 - Mathf.Sqrt(2 * curX - curX * curX));
+            curX += deltaX;
+            sign *= -1;
+        }
+
+        // like bell
+        if (!isLocalAxis)
+        {
+            Vector3 origRot = new Vector3(0, 0, 0);
+
+            seq.Append(obj.transform.DOLocalRotate(origRot + shockRots[0], time / loop / 2).SetEase(Ease.Linear));
+            for (int i = 1; i < loop; ++i)
+            {
+                seq.Append(obj.transform.DOLocalRotate(origRot + shockRots[i], time / loop).SetEase(Ease.Linear));
+            }
+            seq.Append(obj.transform.DOLocalRotate(origRot, time / loop / 2).SetEase(Ease.Linear));
+        }
+        // like flags
+        else
+        {
+            seq.Append(obj.transform.DOLocalRotate(shockRots[0], time / loop / 2, RotateMode.LocalAxisAdd).SetEase(Ease.Linear));
+            for (int i = 1; i < loop; ++i)
+            {
+                seq.Append(obj.transform.DOLocalRotate(shockRots[i] - shockRots[i - 1], time / loop, RotateMode.LocalAxisAdd).SetEase(Ease.Linear));
+            }
+            seq.Append(obj.transform.DOLocalRotate(-shockRots[loop - 1], time / loop / 2, RotateMode.LocalAxisAdd).SetEase(Ease.Linear));
         }
     }
 

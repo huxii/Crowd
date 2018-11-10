@@ -6,9 +6,11 @@ using DG.Tweening;
 
 public abstract class ObjectControl : ActorControl
 {
+    public float interactionCD = 0;
+    protected float interactionTimer = 0;
+
     public UnityEvent onActivated;
     public UnityEvent onDeactivated;
-    public UnityEvent onClick;
 
     [Header("After Deactivated")]
     public bool isWalkable = false;
@@ -26,9 +28,13 @@ public abstract class ObjectControl : ActorControl
     {		
 	}
 
+    public bool IsCoolingDown()
+    {
+        return Time.time - interactionTimer <= interactionCD;
+    }
+
     public virtual void Click()
     {
-        onClick.Invoke();
     }
 
     public virtual void Drag(Vector3 deltaPos)
@@ -47,12 +53,16 @@ public abstract class ObjectControl : ActorControl
     public virtual void Activate()
     {
         isActivated = true;
+
+        interactionTimer = Time.time;
         onActivated.Invoke();
     }
 
     public virtual void Deactivate()
     {
         isActivated = false;
+
+        interactionTimer = Time.time;
         onDeactivated.Invoke();
     }
 }

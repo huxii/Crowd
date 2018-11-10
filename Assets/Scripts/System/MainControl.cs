@@ -174,13 +174,13 @@ public class MainControl : MonoBehaviour
 
     public void InteractMen(GameObject obj, Vector3 pos, List<GameObject> selectedMen = null)
     {
+        if (obj.GetComponent<ObjectControl>().IsCoolingDown())
+        {
+            return;
+        }
+
         if (obj.GetComponent<PropControl>())
         {
-            if (obj.GetComponent<PropControl>().IsCoolingDown())
-            {
-                return;
-            }
-
             // this is a prop
             // this prop is settled & walkable
             if (obj.GetComponent<PropControl>().IsLocked() && obj.GetComponent<PropControl>().isWalkable)

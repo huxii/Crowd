@@ -33,7 +33,7 @@ public class FlagBehavior : MouseResponseBehavior
     {
         if (!IsSwinging())
         {
-            Services.dotweenEvents.Zigzag(gameObject.name + " x " + swingAngle.ToString() + " " + swingDuration.ToString() + " 1 true");
+            Services.dotweenEvents.Shock(gameObject.name + " x " + swingAngle.ToString() + " " + swingDuration.ToString() + " 4 true");
             swingTimer = swingDuration;
         }
     }

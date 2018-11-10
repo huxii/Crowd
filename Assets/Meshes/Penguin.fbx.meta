@@ -366,6 +366,12 @@ ModelImporter:
     100720: Mouth
     100722: RightEye
     100724: RightEyeBall
+    100726: LeftEyeBallModel
+    100728: MouthModel
+    100730: RightEyeBallModel
+    100732: LeftEar
+    100734: RightEar
+    100736: BellModel
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -729,6 +735,12 @@ ModelImporter:
     400720: Mouth
     400722: RightEye
     400724: RightEyeBall
+    400726: LeftEyeBallModel
+    400728: MouthModel
+    400730: RightEyeBallModel
+    400732: LeftEar
+    400734: RightEar
+    400736: BellModel
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -1033,6 +1045,10 @@ ModelImporter:
     2300598: Mouth
     2300600: RightEye
     2300602: RightEyeBall
+    2300604: LeftEyeBallModel
+    2300606: MouthModel
+    2300608: RightEyeBallModel
+    2300610: BellModel
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1335,6 +1351,10 @@ ModelImporter:
     3300598: Mouth
     3300600: RightEye
     3300602: RightEyeBall
+    3300604: LeftEyeBallModel
+    3300606: MouthModel
+    3300608: RightEyeBallModel
+    3300610: BellModel
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -1633,6 +1653,10 @@ ModelImporter:
     4300590: RightEye
     4300592: RightEyeBall
     4300594: LeftEyeBall
+    4300596: MouthModel
+    4300598: RightEyeBallModel
+    4300600: LeftEyeBallModel
+    4300602: BellModel
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:

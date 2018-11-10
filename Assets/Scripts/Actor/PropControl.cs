@@ -29,15 +29,12 @@ public abstract class PropControl : ObjectControl
         READY,
     }
 
-    [Header("Interaction")]
-    public CrowdControl.CrowdState changeState = CrowdControl.CrowdState.IDLE;
-    public float interactionCD = 0;
-    private float interactionTimer = 0;
-
     [Header("Slots")]
     //public Vector3 progressBarPosOffset = new Vector3(0, 0, 0);
     public float gizmoSize = 0.2f;
     public Vector3 freeManSlotOffset = new Vector3(0, 0, 0);
+    public CrowdControl.CrowdState changeState = CrowdControl.CrowdState.IDLE;
+    public UnityEvent onInteractionFeedback;
 
     protected GameObject slotsObj = null;
     [SerializeField]
@@ -171,11 +168,6 @@ public abstract class PropControl : ObjectControl
         }
     }
 
-    public bool IsCoolingDown()
-    {
-        return Time.time - interactionTimer <= interactionCD;
-    }
-
     //public int GetSlotId(GameObject man)
     //{
     //    for (int i = 0; i < slots.Count; ++i)
@@ -221,18 +213,7 @@ public abstract class PropControl : ObjectControl
     {
         base.Click();
 
+        onInteractionFeedback.Invoke();
         //Services.soundController.Play("objectClick");
-    }
-
-    public override void Activate()
-    {
-        base.Activate();
-        interactionTimer = Time.time;
-    }
-
-    public override void Deactivate()
-    {
-        base.Deactivate();
-        interactionTimer = Time.time;
     }
 }
