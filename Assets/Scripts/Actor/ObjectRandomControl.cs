@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class ObjectRandomControl : ObjectControl
 {
-    [Header("Object Events")]
     public List<UnityEvent> onClicks;
 
     // Use this for initialization

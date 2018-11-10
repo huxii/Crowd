@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class ObjectBasicControl : ObjectControl
 {
-    [Header("Object Events")]
     public UnityEvent onClick;
 
     // Use this for initialization
@@ -24,7 +23,7 @@ public class ObjectBasicControl : ObjectControl
     {
         base.Click();
 
-        interactionTimer = Time.time;
+        CoolDown();
         onClick.Invoke();
     }
 }

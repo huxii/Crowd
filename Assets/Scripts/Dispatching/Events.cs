@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManObj : Crowd.Event
+public class ManObjEvent : Crowd.Event
 {
     public readonly GameObject man;
     public readonly GameObject obj;
     public readonly int slotId;
-    public ManObj(GameObject m, GameObject o, int s)
+    public ManObjEvent(GameObject m, GameObject o, int s)
     {
         man = m;
         obj = o;
@@ -15,7 +15,7 @@ public class ManObj : Crowd.Event
     }
 }
 
-public class ManArrives : ManObj
+public class ManArrives : ManObjEvent
 {
     public ManArrives(GameObject m, GameObject o, int s)
         : base(m, o, s)
@@ -23,7 +23,7 @@ public class ManArrives : ManObj
     }
 }
 
-public class ManLeavesForObj : ManObj
+public class ManLeavesForObj : ManObjEvent
 {
     public ManLeavesForObj(GameObject m, GameObject o, int s)
         : base(m, o, s)
@@ -31,7 +31,7 @@ public class ManLeavesForObj : ManObj
     }
 }
 
-public class ManLeavesFromObj : ManObj
+public class ManLeavesFromObj : ManObjEvent
 {
     public ManLeavesFromObj(GameObject m)
     : base(m, null, -1)
@@ -41,5 +41,24 @@ public class ManLeavesFromObj : ManObj
     public ManLeavesFromObj(GameObject m, GameObject o, int s)
         : base(m, o, s)
     {
+    }
+}
+
+public class InputEvent : Crowd.Event
+{
+    public InputEvent()
+    {
+    }
+}
+
+public class ClickEvent : InputEvent
+{
+    public readonly GameObject mouseClickObj;
+    public readonly Vector3 mouseClickPos;
+    public ClickEvent(GameObject obj, Vector3 pos)
+        : base()
+    {
+        mouseClickObj = obj;
+        mouseClickPos = pos;
     }
 }

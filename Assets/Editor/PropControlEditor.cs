@@ -4,27 +4,23 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 
-[CustomEditor(typeof(ObjectControl))]
-public class ObjectControlEditor : Editor
+[CustomEditor(typeof(PropControl))]
+public class PropControlEditor : Editor
 {
-    public static ObjectControl objectController;
+    public static PropControl propController;
 
     void Awake()
     {
-        objectController = (ObjectControl)target;
+        propController = (PropControl)target;
     }
-}
 
-[CustomEditor(typeof(PropControl))]
-public class PropControlEditor : ObjectControlEditor
-{
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
         if (GUILayout.Button("Add Slot"))
         {
-            GameObject newSlot = ((PropControl)objectController).AddSlot();
+            GameObject newSlot = propController.AddSlot();
             Selection.activeGameObject = newSlot;
         }
 
@@ -136,7 +132,7 @@ public class PropDragTransformControlEditor : PropDragControlEditor
 }
 
 [CustomEditor(typeof(MultiplePropControl))]
-public class MultiplePropControlEditor : ObjectControlEditor
+public class MultiplePropControlEditor : Editor
 {
     public override void OnInspectorGUI()
     {
