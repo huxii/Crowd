@@ -179,36 +179,150 @@ public class DotweenEvents : MonoBehaviour
         string axis = paras[1];
         float inc = float.Parse(paras[2]);
         float time = float.Parse(paras[3]);
+        int loop = 1;
+        bool isLocalAxis = false;
+        if (paras.Length >= 5)
+        {
+            loop = int.Parse(paras[4]);
+            if (paras.Length >= 6)
+            {
+                isLocalAxis = bool.Parse(paras[5]);
+            }
+        }
 
         if (obj == null)
         {
             return;
         }
 
-        Vector3 origPos = obj.transform.localPosition;
-        Vector3 targetPos = obj.transform.localPosition;
-        if (axis.ToLower() == "x")
+        Sequence seq = DOTween.Sequence();
+        if (!isLocalAxis)
         {
-            targetPos.x += inc;
-        }
-        else
-        if (axis.ToLower() == "y")
-        {
-            targetPos.y += inc;
-        }
-        else
-        if (axis.ToLower() == "z")
-        {
-            targetPos.z += inc;
-        }
-
-        obj.transform.DOLocalMove(targetPos, time * 0.5f).OnComplete(
-            () =>
+            Vector3 origPos = obj.transform.localPosition;
+            Vector3 targetPos = obj.transform.localPosition;
+            if (axis.ToLower() == "x")
             {
-                obj.transform.DOLocalMove(origPos, time * 0.5f);
+                targetPos.x += inc;
             }
-            );
+            else
+            if (axis.ToLower() == "y")
+            {
+                targetPos.y += inc;
+            }
+            else
+            if (axis.ToLower() == "z")
+            {
+                targetPos.z += inc;
+            }
 
+            seq.Append(obj.transform.DOLocalMove(targetPos, time * 0.5f));
+            seq.Append(obj.transform.DOLocalMove(origPos, time * 0.5f));
+            seq.SetLoops(loop, LoopType.Restart);
+        }
+        else
+        {
+            Vector3 origPos = obj.transform.position;
+            Vector3 targetPos = obj.transform.position;
+            Vector3 dir = new Vector3(0, 0, 0);
+            if (axis.ToLower() == "x")
+            {
+                dir = obj.transform.right * inc;
+            }
+            else
+            if (axis.ToLower() == "y")
+            {
+                dir = obj.transform.up * inc;
+            }
+            else
+            if (axis.ToLower() == "z")
+            {
+                dir = obj.transform.forward * inc;
+            }
+            targetPos = obj.transform.position + dir;
+
+            seq.Append(obj.transform.DOMove(targetPos, time * 0.5f));
+            seq.Append(obj.transform.DOMove(origPos, time * 0.5f));
+            seq.SetLoops(loop, LoopType.Restart);
+        }
+    }
+
+    public void PingPong(string para)
+    {
+        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
+        GameObject obj = GameObject.Find(paras[0]);
+        string axis = paras[1];
+        float inc = float.Parse(paras[2]);
+        float time = float.Parse(paras[3]);
+        int loop = 1;
+        bool isLocalAxis = false;
+        if (paras.Length >= 5)
+        {
+            loop = int.Parse(paras[4]);
+            if (paras.Length >= 6)
+            {
+                isLocalAxis = bool.Parse(paras[5]);
+            }
+        }
+
+        if (obj == null)
+        {
+            return;
+        }
+
+        Sequence seq = DOTween.Sequence();
+        if (!isLocalAxis)
+        {
+            Vector3 origPos = obj.transform.localPosition;
+            Vector3 leftPos = obj.transform.localPosition;
+            Vector3 rightPos = obj.transform.localPosition;
+            if (axis.ToLower() == "x")
+            {
+                rightPos.x += inc;
+                leftPos.x += inc;
+            }
+            else
+            if (axis.ToLower() == "y")
+            {
+                rightPos.y += inc;
+                leftPos.y += inc;
+            }
+            else
+            if (axis.ToLower() == "z")
+            {
+                rightPos.z += inc;
+                leftPos.z += inc;
+            }
+
+            seq.Append(obj.transform.DOLocalMove(rightPos, time * 0.25f).SetEase(Ease.Linear));
+            seq.Append(obj.transform.DOLocalMove(leftPos, 0.5f * time).SetEase(Ease.Linear));
+            seq.Append(obj.transform.DOLocalMove(origPos, 0.25f * time).SetEase(Ease.Linear));
+        }
+        else
+        {
+            Vector3 origPos = obj.transform.position;
+            Vector3 dir = new Vector3(0, 0, 0);
+            if (axis.ToLower() == "x")
+            {
+                dir = obj.transform.right * inc;
+            }
+            else
+            if (axis.ToLower() == "y")
+            {
+                dir = obj.transform.up * inc;
+            }
+            else
+            if (axis.ToLower() == "z")
+            {
+                dir = obj.transform.forward * inc;
+            }
+
+            Vector3 rightPos = obj.transform.position + dir;
+            Vector3 leftPos = obj.transform.position - dir;
+
+            seq.Append(obj.transform.DOMove(rightPos, time * 0.25f).SetEase(Ease.Linear));
+            seq.Append(obj.transform.DOMove(leftPos, 0.5f * time).SetEase(Ease.Linear));
+            seq.Append(obj.transform.DOMove(origPos, 0.25f * time).SetEase(Ease.Linear));
+        }
     }
 
     public void ScaleTo(string para)

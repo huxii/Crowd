@@ -27,7 +27,6 @@ public class ObjectRandomControl : ObjectControl
         interactionTimer = Time.time;
 
         int randomPick = Random.Range(0, onClicks.Count);
-        Debug.Log(randomPick);
         onClicks[randomPick].Invoke();
     }
 }
