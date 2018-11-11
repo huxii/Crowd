@@ -22,7 +22,7 @@ public class MultiplePropControl : ObjectControl
         foreach (Transform child in gameObject.GetComponentsInChildren<Transform>())
         {
             //Debug.Log(child.gameObject);
-            if (child.gameObject.CompareTag("Object") || child.gameObject.CompareTag("Man"))
+            if (child.gameObject.CompareTag("Prop") || child.gameObject.CompareTag("Man"))
             {
                 child.gameObject.GetComponent<ActorControl>().Lock();
             }
@@ -33,7 +33,7 @@ public class MultiplePropControl : ObjectControl
     {
         foreach (Transform child in gameObject.GetComponentsInChildren<Transform>())
         {
-            if (child.gameObject.CompareTag("Object") || child.gameObject.CompareTag("Man"))
+            if (child.gameObject.CompareTag("Prop") || child.gameObject.CompareTag("Man"))
             {
                 child.gameObject.GetComponent<ActorControl>().Unlock();
             }
@@ -44,9 +44,9 @@ public class MultiplePropControl : ObjectControl
     {
         foreach (Transform child in gameObject.GetComponentsInChildren<Transform>())
         {
-            if (child.gameObject.CompareTag("Object"))
+            if (child.gameObject.CompareTag("Prop"))
             {
-                child.gameObject.GetComponent<ObjectControl>().Activate();
+                child.gameObject.GetComponent<PropControl>().Activate();
             }
         }
     }
@@ -55,9 +55,9 @@ public class MultiplePropControl : ObjectControl
     {
         foreach (Transform child in gameObject.GetComponentsInChildren<Transform>())
         {
-            if (child.gameObject.CompareTag("Object"))
+            if (child.gameObject.CompareTag("Prop"))
             {
-                child.gameObject.GetComponent<ObjectControl>().Deactivate();
+                child.gameObject.GetComponent<PropControl>().Deactivate();
             }
         }
     }

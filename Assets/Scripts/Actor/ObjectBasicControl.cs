@@ -5,8 +5,6 @@ using UnityEngine.Events;
 
 public class ObjectBasicControl : ObjectControl
 {
-    public UnityEvent onClick;
-
     // Use this for initialization
     void Start()
     {
@@ -16,20 +14,5 @@ public class ObjectBasicControl : ObjectControl
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    public override void Click()
-    {
-        base.Click();
-
-        CoolDown();
-        onClick.Invoke();
-    }
-
-    public override void Drag(Vector3 deltaPos)
-    {
-        base.Drag(deltaPos);
-
     }
 }

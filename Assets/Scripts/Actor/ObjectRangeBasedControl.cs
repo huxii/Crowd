@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 // objects will response the mouse action in a certain range,
 // which is not related to the collider
-public class ObjectMouseResponseControl : ObjectControl
+public class ObjectRangeBasedControl : ObjectControl
 {
     [Header("Mouse Response")]    
     public float maxClickRange = 0f;
@@ -13,8 +13,6 @@ public class ObjectMouseResponseControl : ObjectControl
     public float maxRotateScale = 1f;
     public UnityEvent onRightRotate;
     public UnityEvent onLeftRotate;
-
-    private bool responseEnabled = true;
 
     // Use this for initialization
     void Start()
@@ -38,7 +36,7 @@ public class ObjectMouseResponseControl : ObjectControl
 
     private void OnRespondClick(Crowd.Event e)
     {
-        if (IsCoolingDown() || !responseEnabled)
+        if (IsCoolingDown() || IsActivated())
         {
             return;
         }
@@ -55,7 +53,7 @@ public class ObjectMouseResponseControl : ObjectControl
 
     private void OnRespondRotate(Crowd.Event e)
     {
-        if (IsCoolingDown() || !responseEnabled)
+        if (IsCoolingDown() || IsActivated())
         {
             return;
         }
@@ -71,10 +69,5 @@ public class ObjectMouseResponseControl : ObjectControl
         {
             onLeftRotate.Invoke();
         }
-    }
-
-    public void SetResponseEnabled(bool en)
-    {
-        responseEnabled = en;
     }
 }

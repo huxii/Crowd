@@ -72,3 +72,11 @@ public class RotateEvent : InputEvent
         mouseDelta = delta;
     }
 }
+
+public class ReleaseEvent : InputEvent
+{
+    public ReleaseEvent()
+    : base()
+    {
+    }
+}
