@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ObjectColliderBasedControl : ObjectControl
+public class ObjectDragControl : ObjectBasicControl
 {
-    public UnityEvent onClick;
     public UnityEvent onDrag;
 
     public float rotationSpeed = 10f;
@@ -70,17 +69,6 @@ public class ObjectColliderBasedControl : ObjectControl
         }
     }
 
-    public override void Click()
-    {
-        base.Click();
-
-        if (!IsActivated())
-        {
-            CoolDown();
-            onClick.Invoke();
-        }
-    }
-
     public override void Drag(Vector3 deltaPos)
     {
         base.Drag(deltaPos);
@@ -98,7 +86,6 @@ public class ObjectColliderBasedControl : ObjectControl
     {
         base.Activate();
 
-        CoolDown();
         isRotDirty = true;
     }
 }

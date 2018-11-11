@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ObjectRandomControl : ObjectControl
+public class ObjectRandomControl : ObjectBasicControl
 {
-    public UnityEvent onClick;
     public List<UnityEvent> randomClickEvents;
 
     // Use this for initialization
@@ -22,7 +21,7 @@ public class ObjectRandomControl : ObjectControl
 
     public override void Click()
     {
-        base.Click();
+        //base.Click();
 
         if (!IsCoolingDown() && !IsActivated())
         {

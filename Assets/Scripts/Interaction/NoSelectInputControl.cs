@@ -62,6 +62,8 @@ public class NoSelectInputControl : InputControl
                 Services.gameController.MoveMenToPosition(mouseClickPos);
             }
 
+            Services.soundController.Play("clickOnWood1");
+
             //GoodClick(mouseClickPos);
         }
         else
