@@ -5,18 +5,15 @@ using UnityEngine.Events;
 
 public abstract class InteractableControl : ActorControl
 {
-    [Header("Interaction")]
-    public float interactionCD = 0;
-    public UnityEvent onInteractionFeedback;
-    protected float interactionTimer = 0;
-
     public UnityEvent onActivated;
     public UnityEvent onDeactivated;
 
-    [Header("After Deactivated")]
-    public bool isWalkable = false;
-    public bool dropMen = false;
+    [Header("Interaction")]
+    public float interactionCD = 0;
+    public bool isWalkableAfterDeactivated = false;
+    public bool dropMenAfterDeactivated = false;
 
+    protected float interactionTimer = 0;
     protected bool isActivated = false;
 
     // Use this for initialization

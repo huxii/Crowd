@@ -195,7 +195,7 @@ public class MainControl : MonoBehaviour
 
         // this is a prop
         // this prop is settled & walkable
-        if (obj.GetComponent<PropControl>().IsLocked() && obj.GetComponent<PropControl>().isWalkable)
+        if (obj.GetComponent<PropControl>().IsLocked() && obj.GetComponent<PropControl>().isWalkableAfterDeactivated)
         {
             MoveMenToPosition(pos, selectedMen);
             return;
@@ -279,7 +279,7 @@ public class MainControl : MonoBehaviour
         }
 
         // this obj is walkable
-        if (obj.GetComponent<PropControl>().IsLocked() && obj.GetComponent<PropControl>().isWalkable)
+        if (obj.GetComponent<PropControl>().IsLocked() && obj.GetComponent<PropControl>().isWalkableAfterDeactivated)
         {
             MoveMenToPosition(pos);
             return;

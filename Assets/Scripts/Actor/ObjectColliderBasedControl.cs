@@ -5,10 +5,9 @@ using UnityEngine.Events;
 
 public class ObjectColliderBasedControl : ObjectControl
 {
-    [Header("Click Events")]
     public UnityEvent onClick;
+    public UnityEvent onDrag;
 
-    [Header("Rotation Events")]
     public float rotationSpeed = 10f;
     public Vector2 rotationRange = new Vector2(0, 0);
 

@@ -29,6 +29,8 @@ public abstract class PropControl : InteractableControl
         READY,
     }
 
+    public UnityEvent onInteractionFeedback;
+
     [Header("Slots")]
     //public Vector3 progressBarPosOffset = new Vector3(0, 0, 0);
     public float gizmoSize = 0.2f;

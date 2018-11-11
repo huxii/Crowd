@@ -54,7 +54,7 @@ public class Tile : MonoBehaviour
         {
             GameObject man = other.gameObject;
             if (followObject != null && followObject.GetComponent<ObjectControl>() != null && !followObject.GetComponent<ObjectControl>().IsActivated()
-                && followObject.GetComponent<ObjectControl>().dropMen)
+                && followObject.GetComponent<ObjectControl>().dropMenAfterDeactivated)
             {
                 Services.gameController.DropMan(man);
             }

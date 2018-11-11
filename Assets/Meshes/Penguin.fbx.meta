@@ -377,6 +377,8 @@ ModelImporter:
     100742: Rod1
     100744: Tongue
     100746: TopMouth
+    100748: LeftChain
+    100750: RightChain
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -751,6 +753,8 @@ ModelImporter:
     400742: Rod1
     400744: Tongue
     400746: TopMouth
+    400748: LeftChain
+    400750: RightChain
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
