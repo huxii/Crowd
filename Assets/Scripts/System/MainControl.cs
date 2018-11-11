@@ -16,13 +16,17 @@ public class MainControl : MonoBehaviour
     private Vector2 navMeshMinBound = new Vector3(float.MaxValue, float.MaxValue);
     private Vector2 navMeshMaxBound = new Vector3(-float.MaxValue, -float.MaxValue);
 
+    private void Awake()
+    {
+        Services.Init();
+    }
+
     // Use this for initialization
     void Start()
     {
         men = GameObject.FindGameObjectsWithTag("Man");
         menParentObj = GameObject.Find("Actors");
-
-        Services.Init();
+       
         // do a favor for outline shader
         Services.utils.RecalculateNormals();
         RegisterEvents();
@@ -500,17 +504,17 @@ public class MainControl : MonoBehaviour
 
     public void DragOn(GameObject obj, Vector3 delta)
     {
-        if (obj != null && obj.GetComponent<ObjectControl>())
+        if (obj != null && obj.GetComponent<InteractableControl>())
         {
-            obj.GetComponent<ObjectControl>().Drag(delta);
+            obj.GetComponent<InteractableControl>().Drag(delta);
         }
     }
 
     public void SwipeOn(GameObject obj)
     {
-        if (obj != null && obj.GetComponent<ObjectControl>())
+        if (obj != null && obj.GetComponent<InteractableControl>())
         {
-            obj.GetComponent<ObjectControl>().Swipe();
+            obj.GetComponent<InteractableControl>().Swipe();
         }
     }
 

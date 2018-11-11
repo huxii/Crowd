@@ -353,6 +353,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1027653208}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 829947518}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   happenOnAwake: 0
@@ -362,6 +384,71 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 20557031858674252, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
     type: 2}
   m_PrefabInternal: {fileID: 433202142}
+--- !u!1 &171506485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100422, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInternal: {fileID: 1013358165}
+--- !u!114 &171506489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 171506485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  interactionCD: 0.55
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Zig
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Moon, z, 45, 0.5, 1
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  rotationSpeed: 10
+  rotationRange: {x: 0, y: 10}
+--- !u!65 &171506490
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 171506485}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8362103, y: 2.9092193, z: 1}
+  m_Center: {x: -0.028279006, y: -0.00000011920929, z: -0.26}
 --- !u!1 &172576992 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100134, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -384,7 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 0
-  interactionCD: 0.5
+  interactionCD: 0.6
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
@@ -475,6 +562,72 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1859128998}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 568146484}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 171506489}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 797331455}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 248861744}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1587384711}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
@@ -528,28 +681,6 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Gear41, z, -45, 0.5
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Rotate
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Gear42, z, 45, 0.5
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Rotate
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
           m_StringArgument: Gear43, z, 90, 0.5
           m_BoolArgument: 0
         m_CallState: 2
@@ -561,40 +692,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Gear44, z, -135, 0.5
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Rotate
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
           m_StringArgument: Gear45, z, 240, 0.5
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Zig
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Moon, z, 45, 0.5, 1
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Rotate
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Gear46, z, -90, 0.5
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1259869502}
@@ -632,6 +730,61 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 26701859}
         m_MethodName: Charge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1859128998}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 171506489}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 797331455}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 248861744}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1587384711}
+        m_MethodName: Activate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -701,15 +854,15 @@ MonoBehaviour:
           m_StringArgument: GearChi1, z, -90, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Rotate
-        m_Mode: 5
+      - m_Target: {fileID: 568146484}
+        m_MethodName: Activate
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GearChi, z, 45, 0.5
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -950,6 +1103,71 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100226, guid: b2e9286c22cb687469da9f0cc667f429,
     type: 3}
   m_PrefabInternal: {fileID: 1013358165}
+--- !u!1 &248861740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100406, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInternal: {fileID: 1013358165}
+--- !u!114 &248861744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 248861740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  interactionCD: 0.55
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Rotate
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Gear41, z, -45, 0.5
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  rotationSpeed: 10
+  rotationRange: {x: 0, y: 20}
+--- !u!135 &248861745
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 248861740}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.4330926
+  m_Center: {x: 0.0000005364418, y: 0.0000008940697, z: -0.00000028684735}
 --- !u!1 &255751950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,7 +1428,62 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   onDeactivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1013358174}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1013358171}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2117781466}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1027653208}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 829947518}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isWalkable: 0
@@ -1236,7 +1509,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bell, z, 20, 0.125, 16
+          m_StringArgument: Bell, z, 20, 0.125, 8
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1428080941}
@@ -1247,29 +1520,62 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Rod0, z, 5, 0.25, 8
+          m_StringArgument: Rod0, z, 5, 0.25, 4
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Zigzag
-        m_Mode: 5
+      - m_Target: {fileID: 1013358174}
+        m_MethodName: Activate
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LeftEar, z, 0.5, 0.25, 8
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Zigzag
-        m_Mode: 5
+      - m_Target: {fileID: 1013358171}
+        m_MethodName: Activate
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: RightEar, z, -0.5, 0.25, 8
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2117781466}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1027653208}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 829947518}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -1321,6 +1627,17 @@ MonoBehaviour:
           m_StringArgument: Gear10, z, -180, 0.125, 8
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: RotateTo
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Star, y, 15, 1
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   doubleLoopEvent:
@@ -1368,6 +1685,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Gear10, z, 180, 0.125, 8
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: RotateTo
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Star, y, -15, 1
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -1646,19 +1974,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.0151171945
+      value: 0.015117237
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.00000001295404
+      value: -0.000000012954684
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0030009989
+      value: -0.0030011302
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000023051818
+      value: -0.000000023052236
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
@@ -1776,12 +2104,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 440432085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70165de26d197a84291aca855a603f86, type: 3}
+  m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
-  swingAngle: -20
-  swingDuration: 1.5
+  locked: 0
+  interactionCD: 1.5
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  maxClickRange: 3
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Shock
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: flag6, x, -20, 1.5, 4, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxRotateScale: 1
+  onRightRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onLeftRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &471225451
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,6 +2564,71 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &568146479 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100378, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInternal: {fileID: 1013358165}
+--- !u!135 &568146483
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 568146479}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1876411
+  m_Center: {x: 0.0000005364418, y: 0.0000006556511, z: -0.00000053830445}
+--- !u!114 &568146484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 568146479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  interactionCD: 0.55
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Rotate
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GearChi, z, 45, 0.5
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  rotationSpeed: 10
+  rotationRange: {x: -10, y: 10}
 --- !u!1 &588640911
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,6 +3364,71 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17453db20fbf5e5439cec4c83dc0a2c4, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &797331451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100416, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInternal: {fileID: 1013358165}
+--- !u!114 &797331455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 797331451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  interactionCD: 0.55
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Rotate
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Gear46, z, -90, 0.5
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  rotationSpeed: 10
+  rotationRange: {x: -10, y: 0}
+--- !u!135 &797331456
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 797331451}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.9594798
+  m_Center: {x: -0.00038027763, y: -0.000001013279, z: 0.0000014416873}
 --- !u!1 &797522209
 GameObject:
   m_ObjectHideFlags: 0
@@ -3136,6 +3638,91 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d,
     type: 2}
   m_PrefabInternal: {fileID: 1079786856}
+--- !u!1 &829947516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100724, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInternal: {fileID: 1013358165}
+--- !u!114 &829947518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 829947516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  interactionCD: 0.75
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Ping
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RightEyeBall, y, 0.5, 0.125, 8, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  maxClickRange: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxRotateScale: 1
+  onRightRotate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Spring
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RightEyeBall, x, 0.7, 0.7, 5, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onLeftRotate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Spring
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RightEyeBall, x, -0.7, 0.7, 5, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &840214035 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100614, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -3149,12 +3736,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 840214035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70165de26d197a84291aca855a603f86, type: 3}
+  m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
-  swingAngle: -20
-  swingDuration: 1.5
+  locked: 0
+  interactionCD: 1.5
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  maxClickRange: 3
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Shock
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: flag1, x, -20, 1.5, 4, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxRotateScale: 1
+  onRightRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onLeftRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &844276447 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1049376376885018, guid: a819850fd01d2b14795d9665e6875261,
@@ -3776,7 +4407,7 @@ Prefab:
     - target: {fileID: 2300218, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d0eeb28cccb0e3a4e9d07dbd240fb985, type: 2}
+      objectReference: {fileID: 2100000, guid: 0d6acd8e26ece034d945daa99e4b3d49, type: 2}
     - target: {fileID: 2300592, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4376,23 +5007,23 @@ Prefab:
     - target: {fileID: 2300134, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ba219c3e699739248a088d48362e4471, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300172, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ba219c3e699739248a088d48362e4471, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300108, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ba219c3e699739248a088d48362e4471, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300170, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ba219c3e699739248a088d48362e4471, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300118, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ba219c3e699739248a088d48362e4471, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300010, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4400,39 +5031,39 @@ Prefab:
     - target: {fileID: 2300106, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ba219c3e699739248a088d48362e4471, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300068, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ba219c3e699739248a088d48362e4471, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300136, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ba219c3e699739248a088d48362e4471, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300112, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ba219c3e699739248a088d48362e4471, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300132, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ba219c3e699739248a088d48362e4471, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300110, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ba219c3e699739248a088d48362e4471, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300062, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ba219c3e699739248a088d48362e4471, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300114, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ba219c3e699739248a088d48362e4471, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300116, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ba219c3e699739248a088d48362e4471, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300178, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4848,11 +5479,11 @@ Prefab:
     - target: {fileID: 2300608, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5e23262440138bc4f85e1db67031d288, type: 2}
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2300604, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5e23262440138bc4f85e1db67031d288, type: 2}
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2300606, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4889,6 +5520,82 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dbeae8539a693e9409e90ac951588004, type: 2}
+    - target: {fileID: 400136, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 100722, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100716, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100718, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 100724, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 400408, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400408, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400408, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400408, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100408, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 100378, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 100422, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 100416, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 100406, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 100412, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
   m_IsPrefabAsset: 0
@@ -4927,11 +5634,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1013358167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 0
-  interactionCD: 0
+  interactionCD: 0.5
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls: []
@@ -4939,7 +5646,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   onActivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Zigzag
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RightEar, z, -0.5, 0.25, 4
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onDeactivated:
@@ -4960,11 +5678,13 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: RightEar, z, -5, 0.5, 20, false
+          m_StringArgument: RightEar, z, -1.5, 0.5, 8, true
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  rotationSpeed: 1
+  rotationRange: {x: 0, y: 0}
 --- !u!135 &1013358172
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4985,11 +5705,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1013358168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 0
-  interactionCD: 0
+  interactionCD: 0.5
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls: []
@@ -4997,7 +5717,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   onActivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Zigzag
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LeftEar, z, 0.5, 0.25, 4
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onDeactivated:
@@ -5018,7 +5749,94 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LeftEar, z, 5, 0.5, 20, false
+          m_StringArgument: LeftEar, z, 1.5, 0.5, 8, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  rotationSpeed: 1
+  rotationRange: {x: 0, y: 0}
+--- !u!1 &1027653204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100718, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInternal: {fileID: 1013358165}
+--- !u!114 &1027653208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1027653204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  interactionCD: 0.75
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Ping
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LeftEyeBall, y, 0.5, 0.125, 8, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  maxClickRange: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxRotateScale: 1
+  onRightRotate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Spring
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LeftEyeBall, x, 0.7, 0.7, 5, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onLeftRotate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Spring
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LeftEyeBall, x, -0.7, 0.7, 5, true
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -5151,12 +5969,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 1061931705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70165de26d197a84291aca855a603f86, type: 3}
+  m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
-  swingAngle: -20
-  swingDuration: 1.5
+  locked: 0
+  interactionCD: 1.5
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  maxClickRange: 3
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Shock
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: flag5, x, -20, 1.5, 4, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxRotateScale: 1
+  onRightRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onLeftRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1079786856
 Prefab:
   m_ObjectHideFlags: 0
@@ -5669,12 +6531,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 1108688887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70165de26d197a84291aca855a603f86, type: 3}
+  m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
-  swingAngle: -40
-  swingDuration: 1.5
+  locked: 0
+  interactionCD: 1.5
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  maxClickRange: 3
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Shock
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: flag, x, -40, 1.5, 4, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxRotateScale: 1
+  onRightRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onLeftRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1111890259 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
@@ -5830,12 +6736,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 1243388558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70165de26d197a84291aca855a603f86, type: 3}
+  m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
-  swingAngle: -20
-  swingDuration: 1.5
+  locked: 0
+  interactionCD: 1.5
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  maxClickRange: 3
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Shock
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: flag3, x, -20, 1.5, 4, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxRotateScale: 1
+  onRightRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onLeftRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1259869500 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100398, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -6133,12 +7083,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 1399562437}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70165de26d197a84291aca855a603f86, type: 3}
+  m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
-  swingAngle: -20
-  swingDuration: 1.5
+  locked: 0
+  interactionCD: 1.5
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  maxClickRange: 3
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Shock
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: flag2, x, -20, 1.5, 4, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxRotateScale: 1
+  onRightRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onLeftRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1401978272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1049376376885018, guid: a819850fd01d2b14795d9665e6875261,
@@ -6797,6 +7791,71 @@ Transform:
   m_Father: {fileID: 1330544083}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1587384707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100412, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInternal: {fileID: 1013358165}
+--- !u!114 &1587384711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1587384707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  interactionCD: 0.55
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Rotate
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Gear44, z, -135, 0.5
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  rotationSpeed: 10
+  rotationRange: {x: 0, y: 10}
+--- !u!135 &1587384712
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1587384707}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.70102394
+  m_Center: {x: 0.000000029802322, y: 0.00000020861626, z: -0.000000078231096}
 --- !u!1 &1588520328 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100626, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -6810,12 +7869,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 1588520328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70165de26d197a84291aca855a603f86, type: 3}
+  m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
-  swingAngle: -10
-  swingDuration: 1.5
+  locked: 0
+  interactionCD: 1.5
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  maxClickRange: 3
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Shock
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: flag7, x, -10, 1.5, 4, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxRotateScale: 1
+  onRightRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onLeftRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1636566899 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1696937736376902, guid: 17453db20fbf5e5439cec4c83dc0a2c4,
@@ -7006,12 +8109,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 1664590277}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70165de26d197a84291aca855a603f86, type: 3}
+  m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
-  swingAngle: -5
-  swingDuration: 1.5
+  locked: 0
+  interactionCD: 1.5
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  maxClickRange: 3
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Shock
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: flag4, x, -5, 1.5, 4, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxRotateScale: 1
+  onRightRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onLeftRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1701840099
 GameObject:
   m_ObjectHideFlags: 0
@@ -7178,11 +8325,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   isWalkable: 1
   dropMen: 1
-  onClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1735088677
 GameObject:
   m_ObjectHideFlags: 0
@@ -7451,12 +8593,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 1819475997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70165de26d197a84291aca855a603f86, type: 3}
+  m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
-  swingAngle: -40
-  swingDuration: 1.5
+  locked: 0
+  interactionCD: 1.5
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  maxClickRange: 3
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Shock
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: flag0, x, -40, 1.5, 4, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxRotateScale: 1
+  onRightRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onLeftRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1836880314
 GameObject:
   m_ObjectHideFlags: 0
@@ -7664,6 +8850,71 @@ Prefab:
     - {fileID: 114160637959817490, guid: a819850fd01d2b14795d9665e6875261, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: a819850fd01d2b14795d9665e6875261, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1859128995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100408, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInternal: {fileID: 1013358165}
+--- !u!135 &1859128997
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1859128995}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.4951713
+  m_Center: {x: -0.000001013279, y: -0.0000022649765, z: 0.00000020861626}
+--- !u!114 &1859128998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1859128995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  interactionCD: 0.55
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Rotate
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Gear42, z, 45, 0.5
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  rotationSpeed: 10
+  rotationRange: {x: 0, y: 20}
 --- !u!1 &1879508162
 GameObject:
   m_ObjectHideFlags: 0
@@ -8203,7 +9454,29 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   onActivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Zig
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TopMouth, x, -30, 0.25, 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Zig
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BottomMouth, x, 20, 0.25, 2
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onDeactivated:
@@ -8239,7 +9512,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TopMouth, x, -30, 0.25, 2
+          m_StringArgument: TopMouth, x, -40, 0.25, 2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1428080941}
@@ -8250,7 +9523,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: BottomMouth, x, 20, 0.25, 2
+          m_StringArgument: BottomMouth, x, 30, 0.25, 2
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -8460,9 +9733,53 @@ MonoBehaviour:
   m_GameObject: {fileID: 2145872297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70165de26d197a84291aca855a603f86, type: 3}
+  m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
-  swingAngle: -10
-  swingDuration: 1.5
+  locked: 0
+  interactionCD: 1.5
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  isWalkable: 0
+  dropMen: 0
+  maxClickRange: 3
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Shock
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: flag10, x, -10, 1.5, 4, true
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  maxRotateScale: 1
+  onRightRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onLeftRotate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

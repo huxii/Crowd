@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class InputControl : MonoBehaviour
 {
-    public List<GameObject> responseObject;
     public bool gyroEnabled = false;
 
     protected bool locked = false;
@@ -180,13 +179,13 @@ public abstract class InputControl : MonoBehaviour
         {
             mouseClickObject = hit.collider.gameObject;
             mouseClickPos = hit.point;
-
-            MouseResponseDetect();
         }
         else
         {
             mouseClickObject = null;
         }
+
+        Services.eventManager.Fire(new ClickEvent(mouseClickObject, mouseClickPos));
 
         //Services.gameController.HoldStart(mouseClickObject);
     }
@@ -204,6 +203,8 @@ public abstract class InputControl : MonoBehaviour
         }
 
         isHoldUp = true;
+
+        Services.eventManager.Fire(new ReleaseEvent());
         //Services.hudController.DestroyHoldIcon(mouseClickObject);
     }
 
@@ -249,7 +250,7 @@ public abstract class InputControl : MonoBehaviour
                 Vector3 newMouseClickPos = hit.point;
                 Vector3 mouseDelta = newMouseClickPos - mouseClickPos;
 
-                if (mouseClickObject.CompareTag("Object"))
+                if (mouseClickObject.CompareTag("Object") || mouseClickObject.CompareTag("Prop"))
                 {
                     Services.gameController.DragOn(mouseClickObject, mouseDelta);
                 }
@@ -287,6 +288,8 @@ public abstract class InputControl : MonoBehaviour
             //Debug.Log(mouseDelta);
             Services.cameraController.Orbit(mouseDelta.x, mouseDelta.y);
             mouseDragScreenPos = Input.mousePosition;
+
+            Services.eventManager.Fire(new RotateEvent(mouseDelta));
         }
     }
 
@@ -299,17 +302,6 @@ public abstract class InputControl : MonoBehaviour
     public void Lock(bool isLocked)
     {
         locked = isLocked;
-    }
-
-    public void MouseResponseDetect(bool force = false)
-    {
-        foreach (GameObject obj in responseObject)
-        {
-            if (force || Vector3.Distance(obj.transform.position, mouseClickPos) <= obj.GetComponent<MouseResponseBehavior>().range)
-            {
-                obj.GetComponent<MouseResponseBehavior>().React();
-            }
-        }
     }
 
     public void GoodClick(Vector3 pos)

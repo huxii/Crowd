@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class ObjectRandomControl : ObjectControl
 {
-    [Header("Object Events")]
     public List<UnityEvent> onClicks;
 
     // Use this for initialization
@@ -24,10 +23,12 @@ public class ObjectRandomControl : ObjectControl
     {
         base.Click();
 
-        interactionTimer = Time.time;
+        if (!IsCoolingDown() && !IsActivated())
+        {
+            CoolDown();
 
-        int randomPick = Random.Range(0, onClicks.Count);
-        Debug.Log(randomPick);
-        onClicks[randomPick].Invoke();
+            int randomPick = Random.Range(0, onClicks.Count);
+            onClicks[randomPick].Invoke();
+        }
     }
 }

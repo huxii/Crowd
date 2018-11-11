@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 // the object with certain amount of slots that can be filled with crowd
 // player will directly operate those objects
-public abstract class PropControl : ObjectControl
+public abstract class PropControl : InteractableControl
 {
     [System.Serializable]
     protected class SlotAttr

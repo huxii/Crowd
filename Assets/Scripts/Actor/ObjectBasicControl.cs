@@ -5,9 +5,6 @@ using UnityEngine.Events;
 
 public class ObjectBasicControl : ObjectControl
 {
-    [Header("Object Events")]
-    public UnityEvent onClick;
-
     // Use this for initialization
     void Start()
     {
@@ -17,14 +14,5 @@ public class ObjectBasicControl : ObjectControl
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    public override void Click()
-    {
-        base.Click();
-
-        interactionTimer = Time.time;
-        onClick.Invoke();
     }
 }

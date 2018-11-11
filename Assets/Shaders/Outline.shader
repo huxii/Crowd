@@ -31,8 +31,15 @@ Shader "Custom/Outline"
 
 	SubShader 
 	{
-		Tags { "RenderType"="Opaque" }
+		Tags 
+		{ 
+			"Queue" = "AlphaTest" 
+			"RenderType" = "Transparent"
+			"IgnoreProjector" = "True"
+		}
 		LOD 200
+
+		Blend SrcAlpha OneMinusSrcAlpha
 
 		Pass
 		{
@@ -161,8 +168,7 @@ Shader "Custom/Outline"
 					pow(rim, _RimPower);
 
 				float4 yColor = lerp(_YNegativeColor * tex, _YPositiveColor * tex, i.tex.y);
-
-				float4 lightFinal = diffuseColor * yColor + UNITY_LIGHTMODEL_AMBIENT + rimLight;
+				float4 lightFinal = diffuseColor * yColor + float4(UNITY_LIGHTMODEL_AMBIENT.rgb, 0) + rimLight;
 
 				return lightFinal;
 			}
