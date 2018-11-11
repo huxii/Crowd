@@ -15,8 +15,8 @@ System,,,,,,,,,,,
 1,badClick,bubble_fail,1,0,0,0,0,MULTIPLE,sfx,,
 1,objectClick,running_gear,1,0,0,0,0,MULTIPLE,sfx,,
 1,manLoaded,closing-lever-on-capsule-coffee-machine,1,0,0,0,0,MULTIPLE,sfx,,
-1,clickOnPlastic1,click_clockback,1,0,0,0,0,MULTIPLE,sfx,,backCase
-1,clickOnPlastic2,click_plastic4,1,0,0,0,0,MULTIPLE,sfx,,frountCase
+1,clickOnPlastic1,click_clockBack,1,0,0,0,0,MULTIPLE,sfx,,backCase
+1,clickOnPlastic2,click_clockFace,1,0,0,0,0,MULTIPLE,sfx,,frountCase
 1,clickOnPlastic3,click_handrail1,1,0,0,0,0,MULTIPLE,sfx,,TransparentPlastic
 1,clickOnMetal1,click_bell2,1,0,0,0,0,MULTIPLE,sfx,,Bell
 1,clickOnMetal2,click_flag2,1,0,0,0,0,MULTIPLE,sfx,,handrail
