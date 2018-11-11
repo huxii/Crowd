@@ -203,6 +203,8 @@ public abstract class InputControl : MonoBehaviour
         }
 
         isHoldUp = true;
+
+        Services.eventManager.Fire(new ReleaseEvent());
         //Services.hudController.DestroyHoldIcon(mouseClickObject);
     }
 

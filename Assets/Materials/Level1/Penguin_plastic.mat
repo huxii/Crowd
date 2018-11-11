@@ -6,13 +6,13 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Inner_orange
+  m_Name: Penguin_plastic
   m_Shader: {fileID: 4800000, guid: 436d8cb566bcd104bb8e66c0b30f796a, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _BLENDMODE_ALPHACUTOUT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -39,7 +39,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: af21d4a807024184c863a83b173692a5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1f978c996c5413142b4a6c31304a61d3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -55,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _BlendMode: 0
+    - _BlendMode: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -68,7 +68,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0.05
+    - _OutlineWidth: 0.075
     - _Parallax: 0.02
     - _RimPower: 10
     - _ShadowLineWidth: 0
@@ -81,10 +81,10 @@ Material:
     - _BrightColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0.3773585, g: 0.22020234, b: 0.09077963, a: 1}
-    - _RimColor: {r: 0.9056604, g: 0.87063015, b: 0.7305091, a: 1}
-    - _ShadowColor: {r: 0.8301887, g: 0.6566872, b: 0.505162, a: 1}
-    - _ShadowLineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0.46226418, g: 0.31508103, b: 0.16789782, a: 1}
+    - _RimColor: {r: 0.8584906, g: 0.8103135, b: 0.63576895, a: 1}
+    - _ShadowColor: {r: 0.9433962, g: 0.90334636, b: 0.84994656, a: 1}
+    - _ShadowLineColor: {r: 0.3490566, g: 0.1994692, b: 0.13007298, a: 1}
     - _XNegativeColor: {r: 1, g: 1, b: 1, a: 1}
     - _XPositiveColor: {r: 1, g: 1, b: 1, a: 1}
     - _YNegativeColor: {r: 1, g: 1, b: 1, a: 1}
