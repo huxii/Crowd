@@ -60,6 +60,11 @@ public class ObjectRangeBasedControl : ObjectControl
 
         var clicke = e as RotateEvent;
         Vector3 delta = clicke.mouseDelta;
+        if (Mathf.Abs(delta.x) < 10f)
+        {
+            return;
+        }
+
         CoolDown();
         if (delta.x > 0)
         {
