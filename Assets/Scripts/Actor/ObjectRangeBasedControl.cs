@@ -19,6 +19,7 @@ public class ObjectRangeBasedControl : ObjectControl
     {
         Services.eventManager.Register<ClickEvent>(OnRespondClick);
         Services.eventManager.Register<RotateEvent>(OnRespondRotate);
+        Services.eventManager.Register<ZoomEvent>(OnRespondZoom);
     }
 
     // excute before OnDestroy
@@ -26,6 +27,7 @@ public class ObjectRangeBasedControl : ObjectControl
     {
         Services.eventManager.Unregister<ClickEvent>(OnRespondClick);
         Services.eventManager.Unregister<RotateEvent>(OnRespondRotate);
+        Services.eventManager.Unregister<ZoomEvent>(OnRespondZoom);
     }
 
     // Update is called once per frame
@@ -60,6 +62,11 @@ public class ObjectRangeBasedControl : ObjectControl
 
         var clicke = e as RotateEvent;
         Vector3 delta = clicke.mouseDelta;
+        if (Mathf.Abs(delta.x) < 10f)
+        {
+            return;
+        }
+
         CoolDown();
         if (delta.x > 0)
         {
@@ -69,5 +76,16 @@ public class ObjectRangeBasedControl : ObjectControl
         {
             onLeftRotate.Invoke();
         }
+    }
+
+    private void OnRespondZoom(Crowd.Event e)
+    {
+        if (IsCoolingDown() || IsActivated())
+        {
+            return;
+        }
+
+        CoolDown();
+        onRightRotate.Invoke();
     }
 }

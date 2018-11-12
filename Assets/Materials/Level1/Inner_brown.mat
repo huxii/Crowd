@@ -80,7 +80,7 @@ Material:
     m_Colors:
     - _BrightColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 1.7476051, g: 0.84648496, b: 0.37095398, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0.9948064, g: 1, b: 0.85490197, a: 1}
     - _ShadowColor: {r: 0.8396226, g: 0.78594524, b: 0.7722944, a: 1}
