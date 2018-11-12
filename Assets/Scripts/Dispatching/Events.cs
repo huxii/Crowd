@@ -65,11 +65,11 @@ public class ClickEvent : InputEvent
 
 public class RotateEvent : InputEvent
 {
-    public readonly Vector3 mouseDelta;
-    public RotateEvent(Vector3 delta)
+    public readonly float delta;
+    public RotateEvent(float d)
         : base()
     {
-        mouseDelta = delta;
+        delta = d;
     }
 }
 
