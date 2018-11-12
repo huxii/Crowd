@@ -80,3 +80,11 @@ public class ReleaseEvent : InputEvent
     {
     }
 }
+
+public class ZoomEvent : InputEvent
+{
+    public ZoomEvent()
+    : base()
+    {
+    }
+}
