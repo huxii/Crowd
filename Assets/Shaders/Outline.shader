@@ -24,6 +24,9 @@ Shader "Custom/Outline"
 		_RimColor("Rim Color", Color) = (1, 1, 1, 1)
 		_RimPower("Rim Power", Range(0.1, 10.0)) = 3.0
 
+		_EmissionMap("Emission", 2D) = "white" {}
+		[HDR]_EmissionColor("Emission Color", Color) = (0, 0, 0, 1)
+
 		[Header(Outline)]
 		_OutlineColor("Outline Color", Color) = (0, 0, 0, 1)
 		_OutlineWidth("Outline Width", Range(0, 1.0)) = 0.05
@@ -75,8 +78,8 @@ Shader "Custom/Outline"
 			uniform float4 _RimColor;
 			uniform float _RimPower;
 
-			// sampler2D unity_Lightmap;
-			// float4 unity_LightmapST;
+			uniform sampler2D _EmissionMap;
+			uniform float4 _EmissionColor;
 
 			struct vertexInput
 			{
@@ -162,13 +165,17 @@ Shader "Custom/Outline"
 					diffuseColor = _ShadowLineColor * _LightColor0;
 				}
 
+				float4 yColor = lerp(_YNegativeColor * tex, _YPositiveColor * tex, i.tex.y);
+				float4 lightFinal = diffuseColor * yColor;
+
 				float rim = 1.0f - saturate(dot(viewDirection, normalDirection));
 				float4 rimLight = atten * _LightColor0 * _RimColor *
 					saturate(dot(normalDirection, lightDirection)) *
 					pow(rim, _RimPower);
 
-				float4 yColor = lerp(_YNegativeColor * tex, _YPositiveColor * tex, i.tex.y);
-				float4 lightFinal = diffuseColor * yColor + float4(UNITY_LIGHTMODEL_AMBIENT.rgb, 0) + rimLight;
+				half4 emission = tex2D(_EmissionMap, i.tex.xy) * _EmissionColor;
+
+				lightFinal.rgb += UNITY_LIGHTMODEL_AMBIENT.rgb + rimLight.rgb + emission.rgb;
 
 				return lightFinal;
 			}
