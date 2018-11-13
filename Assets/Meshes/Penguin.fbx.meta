@@ -379,6 +379,25 @@ ModelImporter:
     100746: TopMouth
     100748: LeftChain
     100750: RightChain
+    100752: MerryDec
+    100754: MerryDec1
+    100756: MerryDec2
+    100758: MerryDec3
+    100760: MerryDec4
+    100762: MerryDec5
+    100764: MerryGoRoundDecs
+    100766: MerryPendant
+    100768: MerryPendant1
+    100770: MerryPendant2
+    100772: MerryPendant3
+    100774: MerryPendant4
+    100776: MerryPendant5
+    100778: MerryRope
+    100780: MerryRope1
+    100782: MerryRope2
+    100784: MerryRope3
+    100786: MerryRope4
+    100788: MerryRope5
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -755,6 +774,25 @@ ModelImporter:
     400746: TopMouth
     400748: LeftChain
     400750: RightChain
+    400752: MerryDec
+    400754: MerryDec1
+    400756: MerryDec2
+    400758: MerryDec3
+    400760: MerryDec4
+    400762: MerryDec5
+    400764: MerryGoRoundDecs
+    400766: MerryPendant
+    400768: MerryPendant1
+    400770: MerryPendant2
+    400772: MerryPendant3
+    400774: MerryPendant4
+    400776: MerryPendant5
+    400778: MerryRope
+    400780: MerryRope1
+    400782: MerryRope2
+    400784: MerryRope3
+    400786: MerryRope4
+    400788: MerryRope5
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -1067,6 +1105,18 @@ ModelImporter:
     2300614: Rod1
     2300616: Tongue
     2300618: TopMouth
+    2300620: MerryPendant
+    2300622: MerryPendant1
+    2300624: MerryPendant2
+    2300626: MerryPendant3
+    2300628: MerryPendant4
+    2300630: MerryPendant5
+    2300632: MerryRope
+    2300634: MerryRope1
+    2300636: MerryRope2
+    2300638: MerryRope3
+    2300640: MerryRope4
+    2300642: MerryRope5
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1377,6 +1427,18 @@ ModelImporter:
     3300614: Rod1
     3300616: Tongue
     3300618: TopMouth
+    3300620: MerryPendant
+    3300622: MerryPendant1
+    3300624: MerryPendant2
+    3300626: MerryPendant3
+    3300628: MerryPendant4
+    3300630: MerryPendant5
+    3300632: MerryRope
+    3300634: MerryRope1
+    3300636: MerryRope2
+    3300638: MerryRope3
+    3300640: MerryRope4
+    3300642: MerryRope5
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -1683,6 +1745,18 @@ ModelImporter:
     4300606: TopMouth
     4300608: BottomMouthModel
     4300610: Tongue
+    4300612: MerryRope
+    4300614: MerryPendant
+    4300616: MerryRope1
+    4300618: MerryPendant1
+    4300620: MerryRope2
+    4300622: MerryPendant2
+    4300624: MerryRope3
+    4300626: MerryPendant3
+    4300628: MerryRope4
+    4300630: MerryPendant4
+    4300632: MerryRope5
+    4300634: MerryPendant5
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:

@@ -157,7 +157,7 @@ public class CameraControl : MonoBehaviour
         targetDeltaTranslate = new Vector3(nx, ny, 0);
     }
 
-    public void Orbit(float x, float y)
+    public float Orbit(float x, float y)
     {
         if (enabled)
         {
@@ -167,16 +167,20 @@ public class CameraControl : MonoBehaviour
             {
                 newAngleX = Mathf.Max(Mathf.Min(newAngleX, targetCameraAttr.angleRange.y), targetCameraAttr.angleRange.x);
             }
-            targetAngle.x = newAngleX;
-
-            //Debug.Log(targetAngle.x + "***" + newAngleX);
 
             float newAngleY = targetAngle.y - y / Screen.height * targetCameraAttr.sensitivity.y;
             newAngleY = Mathf.Max(Mathf.Min(newAngleY, 180), 0);
-            targetAngle.y = newAngleY;
+
+            Vector2 newAngle = new Vector2(newAngleX, newAngleY);
+            float dis = Vector2.Distance(newAngle, targetAngle);
+            targetAngle = newAngle;
 
             cameraSpeed = zoomCameraSpeed;
+
+            return dis;
         }
+
+        return 0;
     }
 
     public void SetOrbit(float x, float y)
