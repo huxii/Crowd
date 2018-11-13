@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class ObjectDragControl : ObjectBasicControl
 {
     public UnityEvent onDrag;
+    public UnityEvent onMinDrag;
+    public UnityEvent onMaxDrag;
 
     public float rotationSpeed = 10f;
     public Vector2 rotationRange = new Vector2(0, 0);
@@ -76,9 +78,28 @@ public class ObjectDragControl : ObjectBasicControl
         if (!IsActivated())
         {
             isMouseDown = true;
-            deltaRot = new Vector3(deltaRot.x, deltaRot.y,
-                Mathf.Max(Mathf.Min(deltaRot.z + deltaPos.x * 10, rotationRange.y), rotationRange.x)
-                );
+
+            float newRotZ = deltaRot.z + deltaPos.x * 100;
+            if (newRotZ >= rotationRange.y)
+            {
+                newRotZ = rotationRange.y;
+                if (deltaRot.z < rotationRange.y - 0.1f)
+                {
+                    onMaxDrag.Invoke();
+                }
+
+            }
+            else
+            if (newRotZ <= rotationRange.x)
+            {
+                newRotZ = rotationRange.x;
+                if (deltaRot.z > rotationRange.x + 0.1f)
+                {
+                    onMinDrag.Invoke();
+                }
+            }
+
+            deltaRot = new Vector3(deltaRot.x, deltaRot.y, newRotZ);
         }
     }
 
