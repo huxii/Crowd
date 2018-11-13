@@ -400,11 +400,11 @@ public class DotweenEvents : MonoBehaviour
             sign *= -1;
         }
 
+        Vector3 origRot = obj.transform.localEulerAngles;
+
         // like bell
         if (!isLocalAxis)
-        {
-            Vector3 origRot = new Vector3(0, 0, 0);
-
+        {           
             seq.Append(obj.transform.DOLocalRotate(origRot + shockRots[0], time / loop / 2).SetEase(Ease.Linear));
             for (int i = 1; i < loop; ++i)
             {
@@ -415,12 +415,13 @@ public class DotweenEvents : MonoBehaviour
         // like flags
         else
         {
+            Debug.Log(origRot);
             seq.Append(obj.transform.DOLocalRotate(shockRots[0], time / loop / 2, RotateMode.LocalAxisAdd).SetEase(Ease.Linear));
             for (int i = 1; i < loop; ++i)
             {
                 seq.Append(obj.transform.DOLocalRotate(shockRots[i] - shockRots[i - 1], time / loop, RotateMode.LocalAxisAdd).SetEase(Ease.Linear));
             }
-            seq.Append(obj.transform.DOLocalRotate(-shockRots[loop - 1], time / loop / 2, RotateMode.LocalAxisAdd).SetEase(Ease.Linear));
+            seq.Append(obj.transform.DOLocalRotate(origRot, time / loop / 2).SetEase(Ease.Linear));
         }
     }
 
