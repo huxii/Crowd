@@ -230,11 +230,6 @@ public class CameraControl : MonoBehaviour
 
     public void SetZoom(int level)
     {
-        if (level == zoomLevel)
-        {
-            return;
-        }
-
         if (level >= 0 && level < maxZoomLevel)
         {
             if (level == 0)
@@ -250,11 +245,14 @@ public class CameraControl : MonoBehaviour
             ResetTranslate();
             cameraSpeed = zoomCameraSpeed;
 
+            if (level != zoomLevel)
+            {
+                Services.eventManager.Fire(new ZoomEvent());
+            }
+
             zoomLevel = level;
             targetCameraAttr = zoomLevelAttrs[zoomLevel];
-            targetAngle = targetCameraAttr.angleZero;
-
-            Services.eventManager.Fire(new ZoomEvent());
+            targetAngle = targetCameraAttr.angleZero;           
         }
     }
 

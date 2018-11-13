@@ -6,42 +6,96 @@ using DG.Tweening;
 
 public class DotweenEvents : MonoBehaviour
 {
+    private string[] paras;
+    private int curParaIdx = 0;
     private Dictionary<GameObject, Sequence> sequenceDict = new Dictionary<GameObject, Sequence>();
 
     char[] spliters = { ',', ' ' };
 
+    void ParseNewPara(string para)
+    {
+        paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
+        curParaIdx = 0;
+    }
+
+    GameObject ParseGameObject()
+    {
+        return GameObject.Find(paras[curParaIdx++]);
+    }
+
+    Vector3 ParseIncrement(float x = 0, float y = 0, float z = 0)
+    {
+        Vector3 inc = new Vector3(x, y, z);
+        if (paras[curParaIdx] == "x")
+        {
+            ++curParaIdx;
+            inc = new Vector3(float.Parse(paras[curParaIdx++]), y, z);
+        }
+        else
+        if (paras[curParaIdx] == "y")
+        {
+            ++curParaIdx;
+            inc = new Vector3(x, float.Parse(paras[curParaIdx++]), z);
+        }
+        else
+        if (paras[curParaIdx] == "z")
+        {
+            ++curParaIdx;
+            inc = new Vector3(x, y, float.Parse(paras[curParaIdx++]));
+        }
+        else
+        {
+            float nx, ny, nz;
+            nx = float.Parse(paras[curParaIdx++]);
+            ny = float.Parse(paras[curParaIdx++]);
+            nz = float.Parse(paras[curParaIdx++]);
+            inc = new Vector3(nx, ny, nz);
+        }
+
+        return inc;
+    }
+
+    float ParseTime()
+    {
+        return float.Parse(paras[curParaIdx++]);
+    }
+
+    int ParseLoop()
+    {
+        if (curParaIdx < paras.Length)
+        {
+            return int.Parse(paras[curParaIdx++]);
+        }
+        else
+        {
+            return 1;
+        }
+    }
+
+    bool ParseIsLocalAxis()
+    {
+        if (curParaIdx < paras.Length)
+        {
+            return bool.Parse(paras[curParaIdx++]);
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void Rotate(string para)
     {
-        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
-        string axis = paras[1];
-        float inc = float.Parse(paras[2]);
-        float time = float.Parse(paras[3]);
-        int loop = 1;
-        if (paras.Length >= 5)
-        {
-            loop = int.Parse(paras[4]);
-        }
+        ParseNewPara(para);
+
+        GameObject obj = ParseGameObject();
+        Vector3 deltaRot = ParseIncrement();
+        float time = ParseTime();
+        int loop = ParseLoop();
 
         if (obj == null || DOTween.IsTweening(obj))
         {
             return;
-        }
-
-        Vector3 deltaRot = new Vector3(0, 0, 0);
-        if (axis.ToLower() == "x")
-        {
-            deltaRot = new Vector3(inc, 0, 0);
-        }
-        else
-        if (axis.ToLower() == "y")
-        {
-            deltaRot = new Vector3(0, inc, 0);
-        }
-        else
-        if (axis.ToLower() == "z")
-        {
-            deltaRot = new Vector3(0, 0, inc);
         }
 
         //if (isInfinite)
@@ -78,31 +132,15 @@ public class DotweenEvents : MonoBehaviour
 
     public void RotateTo(string para)
     {
-        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
-        string axis = paras[1];
-        float angle = float.Parse(paras[2]);
-        float time = float.Parse(paras[3]);
+        ParseNewPara(para);
+
+        GameObject obj = ParseGameObject();
+        Vector3 targetRot = ParseIncrement(obj.transform.localEulerAngles.x, obj.transform.localEulerAngles.y, obj.transform.localEulerAngles.z);
+        float time = ParseTime();
 
         if (obj == null)
         {
             return;
-        }
-
-        Vector3 targetRot = new Vector3(0, 0, 0);
-        if (axis.ToLower() == "x")
-        {
-            targetRot = new Vector3(angle, 0, 0);
-        }
-        else
-        if (axis.ToLower() == "y")
-        {
-            targetRot = new Vector3(0, angle, 0);
-        }
-        else
-        if (axis.ToLower() == "z")
-        {
-            targetRot = new Vector3(0, 0, angle);
         }
 
         obj.transform.DOLocalRotate(targetRot, time);
@@ -110,85 +148,61 @@ public class DotweenEvents : MonoBehaviour
 
     public void Move(string para)
     {
-        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
-        string axis = paras[1];
-        float inc = float.Parse(paras[2]);
-        float time = float.Parse(paras[3]);
+        ParseNewPara(para);
+
+        GameObject obj = ParseGameObject();
+        Vector3 deltaPos = ParseIncrement();
+        float time = ParseTime();
 
         if (obj == null)
         {
             return;
-        }
-
-        Vector3 deltaPos = new Vector3(0, 0, 0);
-        if (axis.ToLower() == "x")
-        {
-            deltaPos = new Vector3(inc, 0, 0);
-        }
-        else
-        if (axis.ToLower() == "y")
-        {
-            deltaPos = new Vector3(0, inc, 0);
-        }
-        else
-        if (axis.ToLower() == "z")
-        {
-            deltaPos = new Vector3(0, 0, inc);
         }
 
         obj.transform.DOLocalMove(obj.transform.localPosition + deltaPos, time);
     }
 
-    public void MoveTo(string para)
-    {
-        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
-        string axis = paras[1];
-        float inc = float.Parse(paras[2]);
-        float time = float.Parse(paras[3]);
+    //public void MoveTo(string para)
+    //{
+    //    ParseNewPara(para);
 
-        if (obj == null)
-        {
-            return;
-        }
+    //    GameObject obj = ParseGameObject();
+    //    Vector3 targetPos = ParseIncrement();
+    //    float time = ParseTime();
 
-        Vector3 targetPos = obj.transform.localPosition;
-        if (axis.ToLower() == "x")
-        {
-            targetPos = new Vector3(inc, targetPos.y, targetPos.z);
-        }
-        else
-        if (axis.ToLower() == "y")
-        {
-            targetPos = new Vector3(targetPos.x, inc, targetPos.z);
-        }
-        else
-        if (axis.ToLower() == "z")
-        {
-            targetPos = new Vector3(targetPos.x, targetPos.y, inc);
-        }
+    //    if (obj == null)
+    //    {
+    //        return;
+    //    }
 
-        obj.transform.DOLocalMove(targetPos, time);
-    }
+    //    Vector3 targetPos = obj.transform.localPosition;
+    //    if (axis.ToLower() == "x")
+    //    {
+    //        targetPos = new Vector3(inc, targetPos.y, targetPos.z);
+    //    }
+    //    else
+    //    if (axis.ToLower() == "y")
+    //    {
+    //        targetPos = new Vector3(targetPos.x, inc, targetPos.z);
+    //    }
+    //    else
+    //    if (axis.ToLower() == "z")
+    //    {
+    //        targetPos = new Vector3(targetPos.x, targetPos.y, inc);
+    //    }
+
+    //    obj.transform.DOLocalMove(targetPos, time);
+    //}
 
     public void Ping(string para)
     {
-        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
-        string axis = paras[1];
-        float inc = float.Parse(paras[2]);
-        float time = float.Parse(paras[3]);
-        int loop = 1;
-        bool isLocalAxis = false;
-        if (paras.Length >= 5)
-        {
-            loop = int.Parse(paras[4]);
-            if (paras.Length >= 6)
-            {
-                isLocalAxis = bool.Parse(paras[5]);
-            }
-        }
+        ParseNewPara(para);
+
+        GameObject obj = ParseGameObject();
+        Vector3 deltaRot = ParseIncrement();
+        float time = ParseTime();
+        int loop = ParseLoop();
+        bool isLocalAxis = ParseIsLocalAxis();
 
         if (obj == null)
         {
@@ -199,21 +213,7 @@ public class DotweenEvents : MonoBehaviour
         if (!isLocalAxis)
         {
             Vector3 origPos = obj.transform.localPosition;
-            Vector3 targetPos = obj.transform.localPosition;
-            if (axis.ToLower() == "x")
-            {
-                targetPos.x += inc;
-            }
-            else
-            if (axis.ToLower() == "y")
-            {
-                targetPos.y += inc;
-            }
-            else
-            if (axis.ToLower() == "z")
-            {
-                targetPos.z += inc;
-            }
+            Vector3 targetPos = obj.transform.localPosition + deltaRot;
 
             seq.Append(obj.transform.DOLocalMove(targetPos, time * 0.5f));
             seq.Append(obj.transform.DOLocalMove(origPos, time * 0.5f));
@@ -221,24 +221,11 @@ public class DotweenEvents : MonoBehaviour
         }
         else
         {
+            Vector3 dir = obj.transform.right * deltaRot.x
+                + obj.transform.up * deltaRot.y
+                + obj.transform.forward * deltaRot.z;
             Vector3 origPos = obj.transform.position;
-            Vector3 targetPos = obj.transform.position;
-            Vector3 dir = new Vector3(0, 0, 0);
-            if (axis.ToLower() == "x")
-            {
-                dir = obj.transform.right * inc;
-            }
-            else
-            if (axis.ToLower() == "y")
-            {
-                dir = obj.transform.up * inc;
-            }
-            else
-            if (axis.ToLower() == "z")
-            {
-                dir = obj.transform.forward * inc;
-            }
-            targetPos = obj.transform.position + dir;
+            Vector3 targetPos = obj.transform.position + dir;
 
             seq.Append(obj.transform.DOMove(targetPos, time * 0.5f));
             seq.Append(obj.transform.DOMove(origPos, time * 0.5f));
@@ -248,21 +235,13 @@ public class DotweenEvents : MonoBehaviour
 
     public void PingPong(string para)
     {
-        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
-        string axis = paras[1];
-        float inc = float.Parse(paras[2]);
-        float time = float.Parse(paras[3]);
-        int loop = 1;
-        bool isLocalAxis = false;
-        if (paras.Length >= 5)
-        {
-            loop = int.Parse(paras[4]);
-            if (paras.Length >= 6)
-            {
-                isLocalAxis = bool.Parse(paras[5]);
-            }
-        }
+        ParseNewPara(para);
+
+        GameObject obj = ParseGameObject();
+        Vector3 deltaPos = ParseIncrement();
+        float time = ParseTime();
+        int loop = ParseLoop();
+        bool isLocalAxis = ParseIsLocalAxis();
 
         if (obj == null)
         {
@@ -273,48 +252,20 @@ public class DotweenEvents : MonoBehaviour
         if (!isLocalAxis)
         {
             Vector3 origPos = obj.transform.localPosition;
-            Vector3 leftPos = obj.transform.localPosition;
-            Vector3 rightPos = obj.transform.localPosition;
-            if (axis.ToLower() == "x")
-            {
-                rightPos.x += inc;
-                leftPos.x += inc;
-            }
-            else
-            if (axis.ToLower() == "y")
-            {
-                rightPos.y += inc;
-                leftPos.y += inc;
-            }
-            else
-            if (axis.ToLower() == "z")
-            {
-                rightPos.z += inc;
-                leftPos.z += inc;
-            }
+            Vector3 leftPos = obj.transform.localPosition - deltaPos;
+            Vector3 rightPos = obj.transform.localPosition + deltaPos;
 
             seq.Append(obj.transform.DOLocalMove(rightPos, time * 0.25f).SetEase(Ease.Linear));
             seq.Append(obj.transform.DOLocalMove(leftPos, 0.5f * time).SetEase(Ease.Linear));
             seq.Append(obj.transform.DOLocalMove(origPos, 0.25f * time).SetEase(Ease.Linear));
+            seq.SetLoops(loop, LoopType.Restart);
         }
         else
         {
             Vector3 origPos = obj.transform.position;
-            Vector3 dir = new Vector3(0, 0, 0);
-            if (axis.ToLower() == "x")
-            {
-                dir = obj.transform.right * inc;
-            }
-            else
-            if (axis.ToLower() == "y")
-            {
-                dir = obj.transform.up * inc;
-            }
-            else
-            if (axis.ToLower() == "z")
-            {
-                dir = obj.transform.forward * inc;
-            }
+            Vector3 dir = obj.transform.right * deltaPos.x
+                + obj.transform.up * deltaPos.y
+                + obj.transform.forward * deltaPos.z;
 
             Vector3 rightPos = obj.transform.position + dir;
             Vector3 leftPos = obj.transform.position - dir;
@@ -322,36 +273,21 @@ public class DotweenEvents : MonoBehaviour
             seq.Append(obj.transform.DOMove(rightPos, time * 0.25f).SetEase(Ease.Linear));
             seq.Append(obj.transform.DOMove(leftPos, 0.5f * time).SetEase(Ease.Linear));
             seq.Append(obj.transform.DOMove(origPos, 0.25f * time).SetEase(Ease.Linear));
+            seq.SetLoops(loop, LoopType.Restart);
         }
     }
 
     public void ScaleTo(string para)
     {
-        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
-        string axis = paras[1];
-        float scale = float.Parse(paras[2]);
-        float time = float.Parse(paras[3]);
+        ParseNewPara(para);
+
+        GameObject obj = ParseGameObject();
+        Vector3 newScale = ParseIncrement(obj.transform.localScale.x, obj.transform.localScale.y, obj.transform.localScale.z);
+        float time = ParseTime();
 
         if (obj == null)
         {
             return;
-        }
-
-        Vector3 newScale = obj.transform.localScale;
-        if (axis.ToLower() == "x")
-        {
-            newScale = new Vector3(scale, newScale.y, newScale.z);
-        }
-        else
-        if (axis.ToLower() == "y")
-        {
-            newScale = new Vector3(newScale.x, scale, newScale.z);
-        }
-        else
-        if (axis.ToLower() == "z")
-        {
-            newScale = new Vector3(newScale.x, newScale.y, scale);
         }
 
         obj.transform.DOScale(newScale, time);
@@ -359,10 +295,12 @@ public class DotweenEvents : MonoBehaviour
 
     public void Bounce(string para)
     {
-        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
-        float inc = float.Parse(paras[1]);
-        float time = float.Parse(paras[2]);
+        ParseNewPara(para);
+
+        GameObject obj = ParseGameObject();
+        Vector3 newScale = ParseIncrement();
+        float time = ParseTime();
+        int loop = ParseLoop();
 
         if (obj == null)
         {
@@ -370,48 +308,23 @@ public class DotweenEvents : MonoBehaviour
         }
 
         Vector3 origScale = new Vector3(1, 1, 1);
-        Vector3 newScale = new Vector3(inc, inc, inc);
-        //Vector3 origScale = obj.transform.localScale;
-        //Vector3 newScale = obj.transform.localScale * inc;
-
-        obj.transform.DOScale(newScale, time * 0.5f).OnComplete(
-            () =>
-            {
-                obj.transform.DOScale(origScale, time * 0.5f);
-            }
-            );
+        Sequence seq = DOTween.Sequence();
+        seq.Append(obj.transform.DOScale(newScale, time * 0.5f));
+        seq.Append(obj.transform.DOScale(origScale, time * 0.5f));
+        seq.SetLoops(loop, LoopType.Restart);
     }
 
     public void Zig(string para)
     {
-        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
-        string axis = paras[1];
-        float inc = float.Parse(paras[2]);
-        float time = float.Parse(paras[3]);
-        int loop = int.Parse(paras[4]);
-        bool isLocalAxis = false;
-        if (paras.Length >= 6)
-        {
-            isLocalAxis = bool.Parse(paras[5]);
-        }
+        ParseNewPara(para);
+
+        GameObject obj = ParseGameObject();
+        Vector3 deltaRot = ParseIncrement();
+        float time = ParseTime();
+        int loop = ParseLoop();
+        bool isLocalAxis = ParseIsLocalAxis();
 
         Sequence seq = DOTween.Sequence();
-        Vector3 deltaRot = new Vector3(0, 0, 0);
-        if (axis.ToLower() == "x")
-        {
-            deltaRot = new Vector3(inc, 0, 0);
-        }
-        else
-        if (axis.ToLower() == "y")
-        {
-            deltaRot = new Vector3(0, inc, 0);
-        }
-        else
-        if (axis.ToLower() == "z")
-        {
-            deltaRot = new Vector3(0, 0, inc);
-        }
 
         if (!isLocalAxis)
         {
@@ -432,35 +345,15 @@ public class DotweenEvents : MonoBehaviour
 
     public void Zigzag(string para)
     {
-        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
-        string axis = paras[1];
-        float inc = float.Parse(paras[2]);
-        float time = float.Parse(paras[3]);
-        int loop = int.Parse(paras[4]);
-        bool isLocalAxis = false;
-        if (paras.Length >= 6)
-        {
-            isLocalAxis = bool.Parse(paras[5]);
-        }
+        ParseNewPara(para);
+
+        GameObject obj = ParseGameObject();
+        Vector3 deltaRot = ParseIncrement();
+        float time = ParseTime();
+        int loop = ParseLoop();
+        bool isLocalAxis = ParseIsLocalAxis();
 
         Sequence seq = DOTween.Sequence();
-        Vector3 deltaRot = new Vector3(0, 0, 0);
-        if (axis.ToLower() == "x")
-        {
-            deltaRot = new Vector3(inc, 0, 0);
-        }
-        else
-        if (axis.ToLower() == "y")
-        {
-            deltaRot = new Vector3(0, inc, 0);
-        }
-        else
-        if (axis.ToLower() == "z")
-        {
-            deltaRot = new Vector3(0, 0, inc);
-        }
-
         // like bell
         if (!isLocalAxis)
         {
@@ -485,34 +378,15 @@ public class DotweenEvents : MonoBehaviour
 
     public void Shock(string para)
     {
-        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
-        string axis = paras[1];
-        float inc = float.Parse(paras[2]);
-        float time = float.Parse(paras[3]);
-        int loop = int.Parse(paras[4]);
-        bool isLocalAxis = false;
-        if (paras.Length >= 6)
-        {
-            isLocalAxis = bool.Parse(paras[5]);
-        }
+        ParseNewPara(para);
+
+        GameObject obj = ParseGameObject();
+        Vector3 deltaRot = ParseIncrement();
+        float time = ParseTime();
+        int loop = ParseLoop();
+        bool isLocalAxis = ParseIsLocalAxis();
 
         Sequence seq = DOTween.Sequence();
-        Vector3 deltaRot = new Vector3(0, 0, 0);
-        if (axis.ToLower() == "x")
-        {
-            deltaRot = new Vector3(inc, 0, 0);
-        }
-        else
-        if (axis.ToLower() == "y")
-        {
-            deltaRot = new Vector3(0, inc, 0);
-        }
-        else
-        if (axis.ToLower() == "z")
-        {
-            deltaRot = new Vector3(0, 0, inc);
-        }
 
         // (x-1)^2 + (y-1)^2 = 1
         float deltaX = 1.0f / loop;
@@ -552,17 +426,13 @@ public class DotweenEvents : MonoBehaviour
 
     public void Spring(string para)
     {
-        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
-        string axis = paras[1];
-        float inc = float.Parse(paras[2]);
-        float time = float.Parse(paras[3]);
-        int loop = int.Parse(paras[4]);
-        bool isLocalAxis = false;
-        if (paras.Length >= 6)
-        {
-            isLocalAxis = bool.Parse(paras[5]);
-        }
+        ParseNewPara(para);
+
+        GameObject obj = ParseGameObject();
+        Vector3 deltaPos = ParseIncrement();
+        float time = ParseTime();
+        int loop = ParseLoop();
+        bool isLocalAxis = ParseIsLocalAxis();
 
         Vector3 origPos = obj.transform.position;
         Vector3 dir = new Vector3(0, 0, 0);
@@ -582,38 +452,14 @@ public class DotweenEvents : MonoBehaviour
         // like bell
         if (!isLocalAxis)
         {
-            if (axis.ToLower() == "x")
-            {
-                dir = new Vector3(inc, 0, 0);
-            }
-            else
-            if (axis.ToLower() == "y")
-            {
-                dir = new Vector3(0, inc, 0);
-            }
-            else
-            if (axis.ToLower() == "z")
-            {
-                dir = new Vector3(0, 0, inc);
-            }
+            dir = deltaPos;
         }
         // like flags
         else
         {
-            if (axis.ToLower() == "x")
-            {
-                dir = obj.transform.right * inc;
-            }
-            else
-            if (axis.ToLower() == "y")
-            {
-                dir = obj.transform.up * inc;
-            }
-            else
-            if (axis.ToLower() == "z")
-            {
-                dir = obj.transform.forward * inc;
-            }
+            dir = obj.transform.right * deltaPos.x
+                + obj.transform.up * deltaPos.y
+                + obj.transform.forward * deltaPos.z;
         }
 
         seq.Append(obj.transform.DOMove(origPos + dir * shockFactors[0], time / loop / 2).SetEase(Ease.Linear));
