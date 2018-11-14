@@ -98,6 +98,10 @@ public class ObjectDragControl : ObjectBasicControl
                     onMinDrag.Invoke();
                 }
             }
+            else
+            {
+                onDrag.Invoke();
+            }
 
             deltaRot = new Vector3(deltaRot.x, deltaRot.y, newRotZ);
         }
