@@ -1,11 +1,13 @@
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/Assets/AssetStoreTools*
-/UnityPackageManager
+/UnityProject/[Ll]ibrary/
+/UnityProject/[Tt]emp/
+/UnityProject/[Oo]bj/
+/UnityProject/[Bb]uild/
+/UnityProject/[Bb]uilds/
+/UnityProject/Assets/AssetStoreTools*
+/UnityProject/UnityPackageManager
 /AudioRaws
+/PhotoshopFiles
+/SubstanceProject
 
 # Visual Studio 2015 cache directory
 /.vs/
@@ -47,7 +49,7 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-Assets/Scenes/etc.meta
+UnityProject/Assets/Scenes/etc.meta
 
 #Maya temp files
 *.maya[Ss]watches*
