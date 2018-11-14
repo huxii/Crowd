@@ -100,7 +100,10 @@ public class ObjectDragControl : ObjectBasicControl
             }
             else
             {
-                onDrag.Invoke();
+                if (Mathf.Abs(newRotZ - deltaRot.z) >= 0.1f)
+                {
+                    onDrag.Invoke();
+                }
             }
 
             deltaRot = new Vector3(deltaRot.x, deltaRot.y, newRotZ);
