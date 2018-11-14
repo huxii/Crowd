@@ -65,8 +65,8 @@ public class ClickEvent : InputEvent
 
 public class RotateEvent : InputEvent
 {
-    public readonly float delta;
-    public RotateEvent(float d)
+    public readonly Vector2 delta;
+    public RotateEvent(Vector2 d)
         : base()
     {
         delta = d;

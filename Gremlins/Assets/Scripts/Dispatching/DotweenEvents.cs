@@ -415,7 +415,7 @@ public class DotweenEvents : MonoBehaviour
         // like flags
         else
         {
-            Debug.Log(origRot);
+            //Debug.Log(origRot);
             seq.Append(obj.transform.DOLocalRotate(shockRots[0], time / loop / 2, RotateMode.LocalAxisAdd).SetEase(Ease.Linear));
             for (int i = 1; i < loop; ++i)
             {

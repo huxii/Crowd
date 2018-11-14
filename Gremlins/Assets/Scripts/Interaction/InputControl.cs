@@ -286,10 +286,10 @@ public abstract class InputControl : MonoBehaviour
         if (mouseDelta.magnitude > 0.1f)
         {
             //Debug.Log(mouseDelta);
-            float dis = Services.cameraController.Orbit(mouseDelta.x, mouseDelta.y);
+            Vector2 delta = Services.cameraController.Orbit(mouseDelta.x, mouseDelta.y);
             mouseDragScreenPos = Input.mousePosition;
 
-            Services.eventManager.Fire(new RotateEvent(dis));
+            Services.eventManager.Fire(new RotateEvent(delta));
         }
     }
 

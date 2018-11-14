@@ -157,7 +157,7 @@ public class CameraControl : MonoBehaviour
         targetDeltaTranslate = new Vector3(nx, ny, 0);
     }
 
-    public float Orbit(float x, float y)
+    public Vector2 Orbit(float x, float y)
     {
         if (enabled)
         {
@@ -172,15 +172,15 @@ public class CameraControl : MonoBehaviour
             newAngleY = Mathf.Max(Mathf.Min(newAngleY, 180), 0);
 
             Vector2 newAngle = new Vector2(newAngleX, newAngleY);
-            float dis = Vector2.Distance(newAngle, targetAngle);
+            Vector2 delta = newAngle - targetAngle;
             targetAngle = newAngle;
 
             cameraSpeed = zoomCameraSpeed;
 
-            return dis;
+            return delta;
         }
 
-        return 0;
+        return new Vector2(0, 0);
     }
 
     public void SetOrbit(float x, float y)

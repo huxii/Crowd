@@ -61,14 +61,14 @@ public class ObjectRangeBasedControl : ObjectControl
         }
 
         var clicke = e as RotateEvent;
-        float delta = clicke.delta;
-        if (Mathf.Abs(delta) < 10f)
+        float deltaX = clicke.delta.x;
+        if (Mathf.Abs(deltaX) < 10f)
         {
             return;
         }
 
         CoolDown();
-        if (delta > 0)
+        if (deltaX > 0)
         {
             onRightRotate.Invoke();
         }
