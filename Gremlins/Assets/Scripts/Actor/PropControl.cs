@@ -30,8 +30,6 @@ public abstract class PropControl : InteractableControl
     }
 
     public UnityEvent onInteractionFeedback;
-
-    [Header("Slots")]
     //public Vector3 progressBarPosOffset = new Vector3(0, 0, 0);
     public float gizmoSize = 0.2f;
     public Vector3 freeManSlotOffset = new Vector3(0, 0, 0);

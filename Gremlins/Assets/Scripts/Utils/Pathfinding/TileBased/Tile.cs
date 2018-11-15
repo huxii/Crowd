@@ -81,12 +81,15 @@ public class Tile : MonoBehaviour
     }
 
     public void OnParentDeactive()
-    {       
-        foreach (GameObject man in menOnThis)
+    {
+        if (followObject !=null && followObject.GetComponent<ObjectControl>().dropMenAfterDeactivated)
         {
-            Services.gameController.DropMan(man);
-        }
+            foreach (GameObject man in menOnThis)
+            {
+                Services.gameController.DropMan(man);
+            }
 
-        menOnThis.Clear();
+            menOnThis.Clear();
+        }
     }
 }

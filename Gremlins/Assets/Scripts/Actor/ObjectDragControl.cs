@@ -116,4 +116,9 @@ public class ObjectDragControl : ObjectBasicControl
 
         isRotDirty = true;
     }
+
+    public override bool IsDragOverride()
+    {
+        return false;
+    }
 }

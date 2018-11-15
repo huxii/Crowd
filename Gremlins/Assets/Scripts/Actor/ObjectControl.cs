@@ -14,4 +14,9 @@ public abstract class ObjectControl : InteractableControl
 	void Update ()
     {		
 	}
+
+    public virtual bool IsDragOverride()
+    {
+        return true;
+    }
 }

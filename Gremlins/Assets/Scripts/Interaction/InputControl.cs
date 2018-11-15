@@ -252,7 +252,10 @@ public abstract class InputControl : MonoBehaviour
 
                 if (mouseClickObject.CompareTag("Object") || mouseClickObject.CompareTag("Prop"))
                 {
-                    Services.gameController.DragOn(mouseClickObject, mouseDelta);
+                    if (!Services.gameController.DragOn(mouseClickObject, mouseDelta))
+                    {
+                        RotateViewport();
+                    }
                 }
                 else
                 {

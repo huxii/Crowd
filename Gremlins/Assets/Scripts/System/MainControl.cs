@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-// TODO: main menu & hints & character (behavior tree) & penguin eyes & ao & look at camera
-// & dotween ease, bounce
+// TODO: main menu & hints & character (behavior tree) & ladder & ao & look at camera
+// & dotween ease, bounce & think about physics and make it real & drop men after deactivated
 
 public class MainControl : MonoBehaviour
 {
@@ -502,12 +502,29 @@ public class MainControl : MonoBehaviour
         }
     }
 
-    public void DragOn(GameObject obj, Vector3 delta)
+    public bool DragOn(GameObject obj, Vector3 delta)
     {
-        if (obj != null && obj.GetComponent<InteractableControl>())
+        if (obj == null)
         {
-            obj.GetComponent<InteractableControl>().Drag(delta);
+            return false;
         }
+
+        if (obj.GetComponent<PropControl>())
+        {
+            obj.GetComponent<PropControl>().Drag(delta);
+            return true;
+        }
+        else
+        if (obj.GetComponent<ObjectControl>())
+        {
+            if (!obj.GetComponent<ObjectControl>().IsDragOverride())
+            {
+                obj.GetComponent<InteractableControl>().Drag(delta);
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void SwipeOn(GameObject obj)
