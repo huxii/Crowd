@@ -64,7 +64,16 @@ public class DotweenEvents : MonoBehaviour
     {
         if (curParaIdx < paras.Length)
         {
-            return int.Parse(paras[curParaIdx++]);
+            int loop = 1;
+            if (int.TryParse(paras[curParaIdx], out loop))
+            {
+                ++curParaIdx;
+                return loop;
+            }
+            else
+            {
+                return 1;
+            }
         }
         else
         {
@@ -76,11 +85,65 @@ public class DotweenEvents : MonoBehaviour
     {
         if (curParaIdx < paras.Length)
         {
-            return bool.Parse(paras[curParaIdx++]);
+            bool isLocal = false;
+            if (bool.TryParse(paras[curParaIdx], out isLocal))
+            {
+                ++curParaIdx;
+                return isLocal;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
             return false;
+        }
+    }
+
+    Ease ParseEaseType(Ease easeType = Ease.Unset)
+    {
+        if (curParaIdx < paras.Length)
+        {
+            Ease retEaseType = Ease.Unset;
+            switch (paras[curParaIdx])
+            {
+                case "InOutSine":
+                    retEaseType = Ease.InOutSine;
+                    break;
+                case "InOutCubic":
+                    retEaseType = Ease.InOutCubic;
+                    break;
+                case "InOutQuad":
+                    retEaseType = Ease.InOutQuad;
+                    break;
+                case "InQuad":
+                    retEaseType = Ease.InQuad;
+                    break;
+                case "OutQuad":
+                    retEaseType = Ease.OutQuad;
+                    break;
+                case "Linear":
+                    retEaseType = Ease.Linear;
+                    break;
+                default:
+                    break;
+            }
+
+            if (retEaseType != Ease.Unset)
+            {
+                ++curParaIdx;
+                return retEaseType;
+            }
+            else
+            {
+                return easeType;
+            }
+        }
+        else
+        {
+            return easeType;
         }
     }
 
@@ -92,42 +155,16 @@ public class DotweenEvents : MonoBehaviour
         Vector3 deltaRot = ParseIncrement();
         float time = ParseTime();
         int loop = ParseLoop();
+        Ease easeType = ParseEaseType(Ease.InOutFlash);
 
         if (obj == null || DOTween.IsTweening(obj))
         {
             return;
         }
 
-        //if (isInfinite)
-        //{
-        //    int incNumber = (int)(Mathf.Abs(360f / inc));
-        //    Sequence seq = DOTween.Sequence();
-        //    Vector3 targetRot = obj.transform.eulerAngles + deltaRot;
-        //    for (int i = 0; i < incNumber; ++i)
-        //    {
-        //        seq.Append(obj.transform.DORotate(targetRot, time)
-        //            //.OnStart(()=> obj.GetComponent<ObjectControl>().UnreadyToDeactivate())
-        //            .OnComplete(() => { if (obj.GetComponent<ObjectControl>()) obj.GetComponent<ObjectControl>().Pause(); })
-        //            .SetEase(Ease.Linear).SetDelay(0.3f));
-        //        targetRot += deltaRot;
-        //    }
-        //    seq.SetLoops(-1, LoopType.Restart);
-
-        //    if (sequenceDict.ContainsKey(obj))
-        //    {
-        //        sequenceDict[obj] = seq;
-        //    }
-        //    else
-        //    {
-        //        sequenceDict.Add(obj, seq);
-        //    }
-        //}
-        //else
-        {
-
-            Vector3 targetRot = deltaRot + obj.transform.localEulerAngles;
-            obj.transform.DOLocalRotate(targetRot, time).SetLoops(loop).SetEase(Ease.Linear);
-        }
+        Debug.Log(easeType);
+        Vector3 targetRot = deltaRot + obj.transform.localEulerAngles;
+        obj.transform.DOLocalRotate(targetRot, time).SetLoops(loop).SetEase(easeType);
     }
 
     public void RotateTo(string para)
@@ -137,13 +174,14 @@ public class DotweenEvents : MonoBehaviour
         GameObject obj = ParseGameObject();
         Vector3 targetRot = ParseIncrement(obj.transform.localEulerAngles.x, obj.transform.localEulerAngles.y, obj.transform.localEulerAngles.z);
         float time = ParseTime();
+        Ease easeType = ParseEaseType(Ease.InOutFlash);
 
         if (obj == null)
         {
             return;
         }
 
-        obj.transform.DOLocalRotate(targetRot, time);
+        obj.transform.DOLocalRotate(targetRot, time).SetEase(easeType);
     }
 
     public void Move(string para)
@@ -153,13 +191,14 @@ public class DotweenEvents : MonoBehaviour
         GameObject obj = ParseGameObject();
         Vector3 deltaPos = ParseIncrement();
         float time = ParseTime();
+        Ease easeType = ParseEaseType(Ease.InOutFlash);
 
         if (obj == null)
         {
             return;
         }
 
-        obj.transform.DOLocalMove(obj.transform.localPosition + deltaPos, time);
+        obj.transform.DOLocalMove(obj.transform.localPosition + deltaPos, time).SetEase(easeType);
     }
 
     //public void MoveTo(string para)

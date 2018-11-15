@@ -214,6 +214,40 @@ ModelImporter:
     100416: ClockWithRope
     100418: HiddenStairsWithRope
     100420: KeyAndHole
+    100422: Carrot
+    100424: Carrot1
+    100426: Carrot2
+    100428: Carrot3
+    100430: CarrotModel
+    100432: CarrotModel1
+    100434: CarrotModel2
+    100436: CarrotModel3
+    100438: Carrots
+    100440: Chimneys
+    100442: CurtainTassel1
+    100444: CurtainTassel2
+    100446: HouseChimney1
+    100448: HouseChimney2
+    100450: HouseChimney3
+    100452: HouseHolder1
+    100454: HouseHolder2
+    100456: HouseSecondFloor
+    100458: HouseWallLeft1
+    100460: HouseWallLeft2
+    100462: HouseWallRight1
+    100464: HouseWallRight2
+    100466: LayerFrame
+    100468: LayerFrame1
+    100470: LayerFrame2
+    100472: Leaf0
+    100474: Leaf1
+    100476: Leaf10
+    100478: Leaf11
+    100480: Leaf20
+    100482: Leaf21
+    100484: Leaf30
+    100486: Leaf31
+    100488: Soil
     400000: BackShell
     400002: Bulb
     400004: Bulb 1
@@ -425,6 +459,40 @@ ModelImporter:
     400416: ClockWithRope
     400418: HiddenStairsWithRope
     400420: KeyAndHole
+    400422: Carrot
+    400424: Carrot1
+    400426: Carrot2
+    400428: Carrot3
+    400430: CarrotModel
+    400432: CarrotModel1
+    400434: CarrotModel2
+    400436: CarrotModel3
+    400438: Carrots
+    400440: Chimneys
+    400442: CurtainTassel1
+    400444: CurtainTassel2
+    400446: HouseChimney1
+    400448: HouseChimney2
+    400450: HouseChimney3
+    400452: HouseHolder1
+    400454: HouseHolder2
+    400456: HouseSecondFloor
+    400458: HouseWallLeft1
+    400460: HouseWallLeft2
+    400462: HouseWallRight1
+    400464: HouseWallRight2
+    400466: LayerFrame
+    400468: LayerFrame1
+    400470: LayerFrame2
+    400472: Leaf0
+    400474: Leaf1
+    400476: Leaf10
+    400478: Leaf11
+    400480: Leaf20
+    400482: Leaf21
+    400484: Leaf30
+    400486: Leaf31
+    400488: Soil
     2100000: InnerMat
     2100002: CutoutMat
     2100004: OutterMat
@@ -586,6 +654,34 @@ ModelImporter:
     2300310: Wheet9
     2300312: PaperCraneRopeModel2
     2300314: SpringModel
+    2300316: CarrotModel
+    2300318: CarrotModel1
+    2300320: CarrotModel2
+    2300322: CarrotModel3
+    2300324: CurtainTassel1
+    2300326: CurtainTassel2
+    2300328: HouseChimney1
+    2300330: HouseChimney2
+    2300332: HouseChimney3
+    2300334: HouseHolder1
+    2300336: HouseHolder2
+    2300338: HouseSecondFloor
+    2300340: HouseWallLeft1
+    2300342: HouseWallLeft2
+    2300344: HouseWallRight1
+    2300346: HouseWallRight2
+    2300348: LayerFrame
+    2300350: LayerFrame1
+    2300352: LayerFrame2
+    2300354: Leaf0
+    2300356: Leaf1
+    2300358: Leaf10
+    2300360: Leaf11
+    2300362: Leaf20
+    2300364: Leaf21
+    2300366: Leaf30
+    2300368: Leaf31
+    2300370: Soil
     3300000: BackShell
     3300002: Bulb
     3300004: Bulb 1
@@ -744,6 +840,34 @@ ModelImporter:
     3300310: Wheet9
     3300312: PaperCraneRopeModel2
     3300314: SpringModel
+    3300316: CarrotModel
+    3300318: CarrotModel1
+    3300320: CarrotModel2
+    3300322: CarrotModel3
+    3300324: CurtainTassel1
+    3300326: CurtainTassel2
+    3300328: HouseChimney1
+    3300330: HouseChimney2
+    3300332: HouseChimney3
+    3300334: HouseHolder1
+    3300336: HouseHolder2
+    3300338: HouseSecondFloor
+    3300340: HouseWallLeft1
+    3300342: HouseWallLeft2
+    3300344: HouseWallRight1
+    3300346: HouseWallRight2
+    3300348: LayerFrame
+    3300350: LayerFrame1
+    3300352: LayerFrame2
+    3300354: Leaf0
+    3300356: Leaf1
+    3300358: Leaf10
+    3300360: Leaf11
+    3300362: Leaf20
+    3300364: Leaf21
+    3300366: Leaf30
+    3300368: Leaf31
+    3300370: Soil
     4300000: Ladder
     4300002: Wheet13
     4300004: Fence
@@ -902,6 +1026,34 @@ ModelImporter:
     4300310: ShellNail5
     4300312: SpringModel
     4300314: PaperCraneRopeModel2
+    4300316: Leaf0
+    4300318: Leaf1
+    4300320: CarrotModel
+    4300322: Leaf10
+    4300324: Leaf11
+    4300326: CarrotModel1
+    4300328: Leaf20
+    4300330: Leaf21
+    4300332: CarrotModel2
+    4300334: Leaf30
+    4300336: Leaf31
+    4300338: CarrotModel3
+    4300340: Soil
+    4300342: LayerFrame1
+    4300344: LayerFrame2
+    4300346: LayerFrame
+    4300348: CurtainTassel1
+    4300350: CurtainTassel2
+    4300352: HouseHolder2
+    4300354: HouseHolder1
+    4300356: HouseWallLeft1
+    4300358: HouseWallLeft2
+    4300360: HouseWallRight1
+    4300362: HouseWallRight2
+    4300364: HouseChimney1
+    4300366: HouseChimney2
+    4300368: HouseChimney3
+    4300370: HouseSecondFloor
     9500000: //RootNode
     13700000: Wheet13
   externalObjects: {}
