@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using DG.Tweening;
 
 // TODO: main menu & hints & character (behavior tree) & ladder & ao & look at camera
-// & dotween ease, bounce & think about physics and make it real & metalness & zoom in/out
+// & think about physics and make it real & metalness & zoom in/out
 
 public class MainControl : MonoBehaviour
 {
@@ -112,7 +112,7 @@ public class MainControl : MonoBehaviour
         }
         else
         {
-            man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.IDLE);
+            man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.IDLE);          
         }
     }
 

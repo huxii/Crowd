@@ -46,18 +46,21 @@ public abstract class PropControl : InteractableControl
     // current slots occupied by the crowd
     protected int currentSlots = 0;
 
+    public GameObject weightObj = null;
+    public float deltaWeight = 0f;
+    protected float origWeight;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-		
-	}
+
+    }
 
     private void OnDrawGizmos()
     {
@@ -112,6 +115,8 @@ public abstract class PropControl : InteractableControl
             {
                 OnSlotsNotFull();
             }
+
+            OnFreeASlot();
         }
         slots[id].man = null;
         slots[id].state = SlotState.EMPTY;
@@ -124,6 +129,11 @@ public abstract class PropControl : InteractableControl
 
     public void ReadySlot(int id, GameObject man)
     {
+        if (currentSlots == 0 && weightObj != null)
+        {
+            origWeight = weightObj.transform.localPosition.y;
+        }
+
         if (slots[id].state != SlotState.READY)
         {
             ++currentSlots;
@@ -133,6 +143,8 @@ public abstract class PropControl : InteractableControl
             }
             slots[id].state = SlotState.READY;
             slots[id].man = man;
+
+            OnFillASlot();
         }
     }
 
@@ -197,6 +209,25 @@ public abstract class PropControl : InteractableControl
         }
 
         return -1;
+    }
+
+    protected void SetWeight()
+    {
+        if (weightObj != null)
+        {
+            float curWeight = deltaWeight * currentSlots;
+            Services.dotweenEvents.MoveTo(weightObj.name + " y " + (origWeight - curWeight).ToString() + " 0.1");
+        }
+    }
+    
+    public virtual void OnFillASlot()
+    {
+        SetWeight();
+    }
+
+    public virtual void OnFreeASlot()
+    {
+        SetWeight();
     }
 
     public virtual void OnSlotsFull()

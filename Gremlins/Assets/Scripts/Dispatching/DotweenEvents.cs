@@ -162,7 +162,6 @@ public class DotweenEvents : MonoBehaviour
             return;
         }
 
-        Debug.Log(easeType);
         Vector3 targetRot = deltaRot + obj.transform.localEulerAngles;
         obj.transform.DOLocalRotate(targetRot, time).SetLoops(loop).SetEase(easeType);
     }
@@ -201,37 +200,21 @@ public class DotweenEvents : MonoBehaviour
         obj.transform.DOLocalMove(obj.transform.localPosition + deltaPos, time).SetEase(easeType);
     }
 
-    //public void MoveTo(string para)
-    //{
-    //    ParseNewPara(para);
+    public void MoveTo(string para)
+    {
+        ParseNewPara(para);
 
-    //    GameObject obj = ParseGameObject();
-    //    Vector3 targetPos = ParseIncrement();
-    //    float time = ParseTime();
+        GameObject obj = ParseGameObject();
+        Vector3 targetPos = ParseIncrement(obj.transform.localPosition.x, obj.transform.localPosition.y, obj.transform.localPosition.z);
+        float time = ParseTime();
 
-    //    if (obj == null)
-    //    {
-    //        return;
-    //    }
+        if (obj == null)
+        {
+            return;
+        }
 
-    //    Vector3 targetPos = obj.transform.localPosition;
-    //    if (axis.ToLower() == "x")
-    //    {
-    //        targetPos = new Vector3(inc, targetPos.y, targetPos.z);
-    //    }
-    //    else
-    //    if (axis.ToLower() == "y")
-    //    {
-    //        targetPos = new Vector3(targetPos.x, inc, targetPos.z);
-    //    }
-    //    else
-    //    if (axis.ToLower() == "z")
-    //    {
-    //        targetPos = new Vector3(targetPos.x, targetPos.y, inc);
-    //    }
-
-    //    obj.transform.DOLocalMove(targetPos, time);
-    //}
+        obj.transform.DOLocalMove(targetPos, time);
+    }
 
     public void Ping(string para)
     {
@@ -444,10 +427,10 @@ public class DotweenEvents : MonoBehaviour
         // like bell
         if (!isLocalAxis)
         {           
-            seq.Append(obj.transform.DOLocalRotate(origRot + shockRots[0], time / loop / 2).SetEase(Ease.Linear));
+            seq.Append(obj.transform.DOLocalRotate(origRot + shockRots[0], time / loop / 2));
             for (int i = 1; i < loop; ++i)
             {
-                seq.Append(obj.transform.DOLocalRotate(origRot + shockRots[i], time / loop).SetEase(Ease.Linear));
+                seq.Append(obj.transform.DOLocalRotate(origRot + shockRots[i], time / loop));
             }
             seq.Append(obj.transform.DOLocalRotate(origRot, time / loop / 2).SetEase(Ease.Linear));
         }
@@ -455,10 +438,10 @@ public class DotweenEvents : MonoBehaviour
         else
         {
             //Debug.Log(origRot);
-            seq.Append(obj.transform.DOLocalRotate(shockRots[0], time / loop / 2, RotateMode.LocalAxisAdd).SetEase(Ease.Linear));
+            seq.Append(obj.transform.DOLocalRotate(shockRots[0], time / loop / 2, RotateMode.LocalAxisAdd));
             for (int i = 1; i < loop; ++i)
             {
-                seq.Append(obj.transform.DOLocalRotate(shockRots[i] - shockRots[i - 1], time / loop, RotateMode.LocalAxisAdd).SetEase(Ease.Linear));
+                seq.Append(obj.transform.DOLocalRotate(shockRots[i] - shockRots[i - 1], time / loop, RotateMode.LocalAxisAdd));
             }
             seq.Append(obj.transform.DOLocalRotate(origRot, time / loop / 2).SetEase(Ease.Linear));
         }
