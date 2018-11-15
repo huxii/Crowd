@@ -122,9 +122,10 @@ public abstract class PropControl : InteractableControl
         slots[id].state = SlotState.EMPTY;
     }
 
-    public void PlanSlot(int id)
+    public void PlanSlot(GameObject man, int id)
     {
         slots[id].state = SlotState.PLANNED;
+        slots[id].man = man;
     }
 
     public void ReadySlot(int id, GameObject man)
@@ -219,7 +220,7 @@ public abstract class PropControl : InteractableControl
             Services.dotweenEvents.MoveTo(weightObj.name + " y " + (origWeight - curWeight).ToString() + " 0.1");
         }
     }
-    
+
     public virtual void OnFillASlot()
     {
         SetWeight();
@@ -245,5 +246,19 @@ public abstract class PropControl : InteractableControl
 
         onInteractionFeedback.Invoke();
         //Services.soundController.Play("objectClick");
+    }
+
+    public override void Lock()
+    {
+        base.Lock();
+
+        for (int i = 0; i < slots.Count; ++i)
+        {
+            SlotAttr slot = slots[i];
+            if (slot.state == SlotState.PLANNED)
+            {
+                Services.gameController.ImmediateUnboundMan(slot.man, gameObject, i);
+            }
+        }
     }
 }

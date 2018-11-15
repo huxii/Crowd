@@ -124,7 +124,7 @@ public class MainControl : MonoBehaviour
         int slotId = manLeftForEvent.slotId;
 
         man.GetComponent<CrowdControl>().SetWorkingObject(obj, slotId);
-        obj.GetComponent<PropControl>().PlanSlot(slotId);
+        obj.GetComponent<PropControl>().PlanSlot(man, slotId);
     }
 
     void OnManLeavesFromObj(Crowd.Event e)
@@ -145,6 +145,7 @@ public class MainControl : MonoBehaviour
             return;
         }
 
+        Debug.Log(man + " " + obj);
         man.transform.SetParent(menParentObj.transform);
         man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
         obj.GetComponent<PropControl>().FreeSlot(slotId);
@@ -350,6 +351,14 @@ public class MainControl : MonoBehaviour
     public void UnboundMan(GameObject man)
     {
         OnManLeavesFromObj(new ManLeavesFromObj(man));
+    }
+
+    public void ImmediateUnboundMan(GameObject man, GameObject obj, int slotId)
+    {
+        OnManLeavesFromObj(new ManLeavesFromObj(man, obj, slotId));
+
+        Services.pathFindingManager.StopActor(man);
+        StopMan(man);
     }
 
     public void StopMan(GameObject man)

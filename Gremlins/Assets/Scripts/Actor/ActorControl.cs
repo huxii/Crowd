@@ -20,7 +20,7 @@ public abstract class ActorControl : MonoBehaviour
 		
 	}
 
-    public void Lock()
+    public virtual void Lock()
     {
         locked = true;
     }
