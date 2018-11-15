@@ -405,6 +405,14 @@ ModelImporter:
     100798: MerryGoRoundBottom
     100800: MerryGoRoundTop
     100802: Pillar1
+    100804: Base3
+    100806: SeatBase
+    100808: Seats
+    100810: Wheel1 1
+    100812: Wheel2 1
+    100814: WheeModel0
+    100816: WheeModel1
+    100818: WheeModel2
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -807,6 +815,14 @@ ModelImporter:
     400798: MerryGoRoundBottom
     400800: MerryGoRoundTop
     400802: Pillar1
+    400804: Base3
+    400806: SeatBase
+    400808: Seats
+    400810: Wheel1 1
+    400812: Wheel2 1
+    400814: WheeModel0
+    400816: WheeModel1
+    400818: WheeModel2
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -1135,6 +1151,11 @@ ModelImporter:
     2300646: Base1
     2300648: Base2
     2300650: Pillar1
+    2300652: Base3
+    2300654: SeatBase
+    2300656: WheeModel0
+    2300658: WheeModel1
+    2300660: WheeModel2
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1461,6 +1482,11 @@ ModelImporter:
     3300646: Base1
     3300648: Base2
     3300650: Pillar1
+    3300652: Base3
+    3300654: SeatBase
+    3300656: WheeModel0
+    3300658: WheeModel1
+    3300660: WheeModel2
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -1783,6 +1809,11 @@ ModelImporter:
     4300638: Pillar1
     4300640: Base1
     4300642: Base2
+    4300644: Base3
+    4300646: SeatBase
+    4300648: WheeModel0
+    4300650: WheeModel1
+    4300652: WheeModel2
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
