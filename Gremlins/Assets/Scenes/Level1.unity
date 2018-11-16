@@ -685,28 +685,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Move
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MerryGoRound, y, -0.1, 0.4
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Move
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: SeatBase, y, -0.1, 0.4
-          m_BoolArgument: 1
-        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onDeactivated:
@@ -877,28 +855,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Move
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MerryGoRound, y, 0.1, 0.4
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Move
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: SeatBase, y, 0.1, 0.4
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   interactionCD: 0.6
@@ -945,6 +901,8 @@ MonoBehaviour:
     obj: {fileID: 2058248760}
     man: {fileID: 0}
   namingCounter: 6
+  weightObj: {fileID: 769516887}
+  deltaWeight: 0.033
   loopInterval: 1
   startDelay: 0.5
   loopEvent:
@@ -1935,6 +1893,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1635232639}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   interactionCD: 0
@@ -1964,6 +1933,8 @@ MonoBehaviour:
     obj: {fileID: 181499837}
     man: {fileID: 0}
   namingCounter: 2
+  weightObj: {fileID: 0}
+  deltaWeight: 0
   loopInterval: 1
   startDelay: 0
   loopEvent:
@@ -2036,6 +2007,17 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 829947518}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1635232639}
         m_MethodName: Activate
         m_Mode: 1
         m_Arguments:
@@ -2557,19 +2539,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015117096
+      value: 0.015117015
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000012955866
+      value: -0.000000012955878
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.003000944
+      value: -0.0030008773
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000023053298
+      value: -0.000000023053373
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
@@ -3890,6 +3872,8 @@ MonoBehaviour:
     obj: {fileID: 806445551}
     man: {fileID: 0}
   namingCounter: 2
+  weightObj: {fileID: 0}
+  deltaWeight: 0
   swipeOffset: {x: -1.5, y: 0, z: 0}
   onStartSwipe:
     m_PersistentCalls:
@@ -3972,6 +3956,11 @@ Transform:
   m_Father: {fileID: 1769579661}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &769516887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100820, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInternal: {fileID: 1013358165}
 --- !u!1 &774637822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1749983352244662, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
@@ -4091,6 +4080,8 @@ MonoBehaviour:
     obj: {fileID: 375909485}
     man: {fileID: 0}
   namingCounter: 3
+  weightObj: {fileID: 0}
+  deltaWeight: 0
 --- !u!114 &776287341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5233,6 +5224,8 @@ MonoBehaviour:
     obj: {fileID: 1660261887}
     man: {fileID: 0}
   namingCounter: 5
+  weightObj: {fileID: 0}
+  deltaWeight: 0
 --- !u!114 &876407559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5678,6 +5671,8 @@ MonoBehaviour:
     obj: {fileID: 987195239}
     man: {fileID: 0}
   namingCounter: 3
+  weightObj: {fileID: 0}
+  deltaWeight: 0
 --- !u!114 &1007254893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9758,6 +9753,8 @@ MonoBehaviour:
     obj: {fileID: 1495107545}
     man: {fileID: 0}
   namingCounter: 5
+  weightObj: {fileID: 0}
+  deltaWeight: 0
 --- !u!114 &1479368704
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -413,6 +413,7 @@ ModelImporter:
     100814: WheeModel0
     100816: WheeModel1
     100818: WheeModel2
+    100820: MerryGoRoundMain
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -823,6 +824,7 @@ ModelImporter:
     400814: WheeModel0
     400816: WheeModel1
     400818: WheeModel2
+    400820: MerryGoRoundMain
     2100000: lambert1
     2100002: lambert2
     2300000: Axis

@@ -5,7 +5,8 @@ using UnityEngine.Events;
 using DG.Tweening;
 
 // TODO: main menu & hints & character (behavior tree) & ladder & ao & look at camera
-// & dotween ease, bounce & think about physics and make it real & metalness & zoom in/out
+// & think about physics and make it real & metalness & zoom in/out & puddle & cannot zoom out to outter
+// & drag to move & good click halo
 
 public class MainControl : MonoBehaviour
 {
@@ -112,7 +113,7 @@ public class MainControl : MonoBehaviour
         }
         else
         {
-            man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.IDLE);
+            man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.IDLE);          
         }
     }
 
@@ -124,7 +125,7 @@ public class MainControl : MonoBehaviour
         int slotId = manLeftForEvent.slotId;
 
         man.GetComponent<CrowdControl>().SetWorkingObject(obj, slotId);
-        obj.GetComponent<PropControl>().PlanSlot(slotId);
+        obj.GetComponent<PropControl>().PlanSlot(man, slotId);
     }
 
     void OnManLeavesFromObj(Crowd.Event e)
@@ -145,6 +146,7 @@ public class MainControl : MonoBehaviour
             return;
         }
 
+        Debug.Log(man + " " + obj);
         man.transform.SetParent(menParentObj.transform);
         man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
         obj.GetComponent<PropControl>().FreeSlot(slotId);
@@ -350,6 +352,14 @@ public class MainControl : MonoBehaviour
     public void UnboundMan(GameObject man)
     {
         OnManLeavesFromObj(new ManLeavesFromObj(man));
+    }
+
+    public void ImmediateUnboundMan(GameObject man, GameObject obj, int slotId)
+    {
+        OnManLeavesFromObj(new ManLeavesFromObj(man, obj, slotId));
+
+        Services.pathFindingManager.StopActor(man);
+        StopMan(man);
     }
 
     public void StopMan(GameObject man)
