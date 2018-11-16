@@ -14,6 +14,7 @@ public class NoSelectInputControl : InputControl
 
     private void Update()
     {
+        CoolDown();
         DetectMouse();
     }
 
@@ -30,7 +31,11 @@ public class NoSelectInputControl : InputControl
         //{
         //    if (orderMode == OrderMode.SINGLEMAN)
         //    {
-        //        Services.gameController.FreeMan(mouseClickObject);
+        //        //Services.gameController.FreeMan(mouseClickObject);
+        //    }
+        //    else
+        //    {
+
         //    }
         //}
         //else
@@ -63,8 +68,7 @@ public class NoSelectInputControl : InputControl
             }
 
             Services.soundController.Play("clickOnWood1");
-
-            //GoodClick(mouseClickPos);
+            Services.hudController.ShowIcon("GoodClickAnim", mouseClickPos, HUDControl.UISpace.CANVAS);
         }
         else
         {

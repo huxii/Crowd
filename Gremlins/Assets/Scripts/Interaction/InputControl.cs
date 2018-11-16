@@ -25,6 +25,8 @@ public abstract class InputControl : MonoBehaviour
     // drag
     protected Vector3 mouseDragScreenPos;
     protected Vector3 mouseClickScreenPos;
+    protected float dragTimer = 0;
+    private float dragCoolDown = 0.5f;
 
     // pinch
     protected bool pinchEnded = false;
@@ -39,6 +41,14 @@ public abstract class InputControl : MonoBehaviour
     void Update()
     {
 
+    }
+
+    protected void CoolDown()
+    {
+        if (dragTimer > 0)
+        {
+            dragTimer -= Time.deltaTime;
+        }
     }
 
     protected void DetectMouse()
@@ -250,6 +260,15 @@ public abstract class InputControl : MonoBehaviour
                 Vector3 newMouseClickPos = hit.point;
                 Vector3 mouseDelta = newMouseClickPos - mouseClickPos;
 
+                if (mouseClickObject.CompareTag("Man"))
+                {
+                    if (dragTimer <= 0)
+                    {
+                        Services.gameController.MoveMenToPosition(newMouseClickPos);
+                        dragTimer = dragCoolDown;
+                    }
+                }
+                else
                 if (mouseClickObject.CompareTag("Object") || mouseClickObject.CompareTag("Prop"))
                 {
                     if (!Services.gameController.DragOn(mouseClickObject, mouseDelta))
