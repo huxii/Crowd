@@ -40,6 +40,9 @@ public class CrowdControl : ActorControl
     private GameObject onObj = null;
     private Sequence matSeq = null;
 
+    private float voiceCoolDown = 3f;
+    private float[] voiceTimer = new float[3];
+
     // Use this for initialization
     void Start()
     {
@@ -53,6 +56,7 @@ public class CrowdControl : ActorControl
     void Update()
     {
         btree.Update(this);
+        CoolDown();
     }
 
     void FixedUpdate()
@@ -117,6 +121,17 @@ public class CrowdControl : ActorControl
             );
     }
 
+    private void CoolDown()
+    {
+        for (int i = 0; i < 3; ++i)
+        {
+            if (voiceTimer[i] > 0)
+            {
+                voiceTimer[i] -= Time.deltaTime;
+            }
+        }
+    }
+
     private void SetKinematic(bool isKinematic)
     {
         rb.isKinematic = isKinematic;
@@ -177,15 +192,23 @@ public class CrowdControl : ActorControl
 
     public void LoadSucceeded()
     {
-        int id = Random.Range(0, 4) + 1;
-        Services.soundController.Play("canDo" + id);
+        if (voiceTimer[0] <= 0)
+        {
+            int id = Random.Range(0, 4) + 1;
+            Services.soundController.Play("canDo" + id);
+            voiceTimer[0] = voiceCoolDown;
+        }
     }
 
     public void WalkSucceeded()
     {
-        int id = Random.Range(0, 3) + 1;
-        //Debug.Log("walkTo" + id);
-        Services.soundController.Play("walkTo" + id);
+        if (voiceTimer[1] <= 0)
+        {
+            int id = Random.Range(0, 3) + 1;
+            //Debug.Log("walkTo" + id);
+            Services.soundController.Play("walkTo" + id);
+            voiceTimer[1] = voiceCoolDown;
+        }
     }
 
     public void OrderFailed()
@@ -193,8 +216,12 @@ public class CrowdControl : ActorControl
         stateCoolingDown = stateInterval;
         SwitchState(CrowdState.CONFUSED);
 
-        int id = Random.Range(0, 3) + 1;
-        Services.soundController.Play("noWay" + id);
+        if (voiceTimer[2] <= 0)
+        {
+            int id = Random.Range(0, 3) + 1;
+            Services.soundController.Play("noWay" + id);
+            voiceTimer[2] = voiceCoolDown;
+        }
     }
 
     public void SwitchState(CrowdState s)
