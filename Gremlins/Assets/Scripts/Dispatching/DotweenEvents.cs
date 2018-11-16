@@ -109,6 +109,9 @@ public class DotweenEvents : MonoBehaviour
             Ease retEaseType = Ease.Unset;
             switch (paras[curParaIdx])
             {
+                case "OutBounce":
+                    retEaseType = Ease.OutBounce;
+                    break;
                 case "InOutSine":
                     retEaseType = Ease.InOutSine;
                     break;
@@ -173,7 +176,7 @@ public class DotweenEvents : MonoBehaviour
         GameObject obj = ParseGameObject();
         Vector3 targetRot = ParseIncrement(obj.transform.localEulerAngles.x, obj.transform.localEulerAngles.y, obj.transform.localEulerAngles.z);
         float time = ParseTime();
-        Ease easeType = ParseEaseType(Ease.InOutFlash);
+        Ease easeType = ParseEaseType(Ease.InOutQuad);
 
         if (obj == null)
         {
@@ -207,13 +210,14 @@ public class DotweenEvents : MonoBehaviour
         GameObject obj = ParseGameObject();
         Vector3 targetPos = ParseIncrement(obj.transform.localPosition.x, obj.transform.localPosition.y, obj.transform.localPosition.z);
         float time = ParseTime();
+        Ease easeType = ParseEaseType();
 
         if (obj == null)
         {
             return;
         }
 
-        obj.transform.DOLocalMove(targetPos, time);
+        obj.transform.DOLocalMove(targetPos, time).SetEase(easeType);
     }
 
     public void Ping(string para)

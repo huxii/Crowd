@@ -217,7 +217,7 @@ public abstract class PropControl : InteractableControl
         if (weightObj != null)
         {
             float curWeight = deltaWeight * currentSlots;
-            Services.dotweenEvents.MoveTo(weightObj.name + " y " + (origWeight - curWeight).ToString() + " 0.1");
+            Services.dotweenEvents.MoveTo(weightObj.name + " y " + (origWeight - curWeight).ToString() + " 1 OutBounce");
         }
     }
 
