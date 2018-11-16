@@ -63,8 +63,7 @@ public class NoSelectInputControl : InputControl
             }
 
             Services.soundController.Play("clickOnWood1");
-
-            //GoodClick(mouseClickPos);
+            Services.hudController.ShowIcon("GoodClickAnim", mouseClickPos, HUDControl.UISpace.CANVAS);
         }
         else
         {
