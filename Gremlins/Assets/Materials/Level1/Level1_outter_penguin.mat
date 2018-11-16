@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Penguin
+  m_Name: Level1_outter_penguin
   m_Shader: {fileID: 4800000, guid: 436d8cb566bcd104bb8e66c0b30f796a, type: 3}
   m_ShaderKeywords: _BLENDMODE_ALPHACUTOUT
   m_LightmapFlags: 4

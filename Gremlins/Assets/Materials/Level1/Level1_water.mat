@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Water
+  m_Name: Level1_water
   m_Shader: {fileID: 4800000, guid: 9d4b9b8122c84474eaa9106edb8226d5, type: 3}
   m_ShaderKeywords: _OUTLINESTYLE_DOTTED _TONESTYLE_DOTTED
   m_LightmapFlags: 4
