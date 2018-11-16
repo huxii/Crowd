@@ -5023,27 +5023,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.0151165845
+      value: 0.015116885
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000012961678
+      value: -0.000000012961836
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015116576
+      value: 0.015117395
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.9998858
+      value: 0.99988574
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0030010967
+      value: -0.0030010012
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000023057922
+      value: -0.000000023057972
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
@@ -7104,7 +7104,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100264, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_TagString
-      value: Object
+      value: Prop
       objectReference: {fileID: 0}
     - target: {fileID: 2300234, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7148,11 +7148,11 @@ Prefab:
       objectReference: {fileID: 2100000, guid: ac1f268f583ba3246a3c99a793508895, type: 2}
     - target: {fileID: 100042, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_TagString
-      value: Object
+      value: Prop
       objectReference: {fileID: 0}
     - target: {fileID: 100364, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_TagString
-      value: Object
+      value: Prop
       objectReference: {fileID: 0}
     - target: {fileID: 400224, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_LocalRotation.x
