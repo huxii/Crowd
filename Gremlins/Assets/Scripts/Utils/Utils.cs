@@ -95,4 +95,56 @@ public class Utils
             }
         }
     }
+
+    public float Clamp360(float angle)
+    {
+        int loop = (int)Mathf.Abs(angle / 360f);
+
+        if (angle < 0)
+        {
+            angle += 360f * (loop + 1);
+        }
+        else
+        {
+            angle -= 360f * loop;
+        }
+
+        return angle;
+    }
+
+    public float LerpRotation(float curValue, float targetValue, float speed)
+    {
+        float realTargetValue = Clamp360(targetValue);
+        float retValue = curValue;
+
+        if (Mathf.Abs(realTargetValue - curValue) < 0.001f)
+        {
+            retValue = realTargetValue;
+        }
+        else
+        if (Mathf.Abs(realTargetValue - curValue) > 180)
+        {
+            if (realTargetValue > curValue)
+            {
+                retValue = curValue - (curValue - realTargetValue + 360f) * Time.deltaTime * speed;
+                if (retValue < 0.01f)
+                {
+                    retValue = 360f;
+                }
+            }
+            else
+            {
+                retValue = curValue + (360 - curValue + realTargetValue) * Time.deltaTime * speed;
+                if (retValue > 359.99f)
+                {
+                    retValue = 0f;
+                }
+            }
+        }
+        else
+        {
+            retValue = Mathf.Lerp(curValue, realTargetValue, Time.deltaTime * speed);
+        }
+        return retValue;
+    }
 }
