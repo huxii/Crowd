@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Level0.ma
-//Last modified: Fri, Nov 16, 2018 12:26:44 PM
+//Last modified: Fri, Nov 16, 2018 12:35:06 PM
 //Codeset: 1252
 requires maya "2018";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "2.0.1";
@@ -16,8 +16,8 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "69C2E574-45FA-86C5-802E-A39F733991CA";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 7.4326902431606419 6.6070723820615038 9.3417330006100503 ;
-	setAttr ".r" -type "double3" 1599.8609835100203 22441.40130180421 -180.00077876284516 ;
+	setAttr ".t" -type "double3" 0.87080021204628222 6.342203717850083 -12.110926203670729 ;
+	setAttr ".r" -type "double3" 1613.6617009225713 22327.401301800946 -179.99959083285663 ;
 	setAttr ".rp" -type "double3" 0 1.1368683772161603e-15 0 ;
 	setAttr ".rpt" -type "double3" 2.6596660780694541e-16 -3.5467361712750867e-17 8.3681310778060129e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
@@ -28,7 +28,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.001;
 	setAttr ".fcp" 100;
 	setAttr ".fd" 0.05;
-	setAttr ".coi" 9.2144522226181955;
+	setAttr ".coi" 15.543599749937153;
 	setAttr ".ow" 0.1;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
@@ -36610,6 +36610,7 @@ createNode mesh -n "LockShellShape" -p "LockShell";
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode transform -n "BackShell" -p "Outter";
 	rename -uid "6805E8DA-4D9F-A99D-2A58-DA921A7ED9D5";
+	setAttr ".v" no;
 	setAttr ".rp" -type "double3" 6.8009979637097048e-19 4.6336229023411271 0.0055534362792968748 ;
 	setAttr ".sp" -type "double3" 6.8009979637097048e-19 4.6336229023411271 0.0055534362792968748 ;
 createNode mesh -n "BackShellShape" -p "BackShell";

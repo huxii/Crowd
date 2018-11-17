@@ -26,7 +26,7 @@ public abstract class InputControl : MonoBehaviour
     protected Vector3 mouseDragScreenPos;
     protected Vector3 mouseClickScreenPos;
     protected float dragTimer = 0;
-    private float dragCoolDown = 0.5f;
+    private float dragCoolDown = 0.3f;
 
     // pinch
     protected bool pinchEnded = false;

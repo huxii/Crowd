@@ -414,6 +414,18 @@ ModelImporter:
     100816: WheeModel1
     100818: WheeModel2
     100820: MerryGoRoundMain
+    100822: Sails
+    100824: Sails0
+    100826: Sails1
+    100828: SailsFrame0
+    100830: SailsFrame1
+    100832: SailsFrame2
+    100834: SailsRope0
+    100836: SailsRope1
+    100838: SailsRope2
+    100840: SailsRope3
+    100842: SailsRope4
+    100844: SailsRope5
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -825,6 +837,18 @@ ModelImporter:
     400816: WheeModel1
     400818: WheeModel2
     400820: MerryGoRoundMain
+    400822: Sails
+    400824: Sails0
+    400826: Sails1
+    400828: SailsFrame0
+    400830: SailsFrame1
+    400832: SailsFrame2
+    400834: SailsRope0
+    400836: SailsRope1
+    400838: SailsRope2
+    400840: SailsRope3
+    400842: SailsRope4
+    400844: SailsRope5
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -1158,6 +1182,17 @@ ModelImporter:
     2300656: WheeModel0
     2300658: WheeModel1
     2300660: WheeModel2
+    2300662: Sails0
+    2300664: Sails1
+    2300666: SailsFrame0
+    2300668: SailsFrame1
+    2300670: SailsFrame2
+    2300672: SailsRope0
+    2300674: SailsRope1
+    2300676: SailsRope2
+    2300678: SailsRope3
+    2300680: SailsRope4
+    2300682: SailsRope5
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1489,6 +1524,17 @@ ModelImporter:
     3300656: WheeModel0
     3300658: WheeModel1
     3300660: WheeModel2
+    3300662: Sails0
+    3300664: Sails1
+    3300666: SailsFrame0
+    3300668: SailsFrame1
+    3300670: SailsFrame2
+    3300672: SailsRope0
+    3300674: SailsRope1
+    3300676: SailsRope2
+    3300678: SailsRope3
+    3300680: SailsRope4
+    3300682: SailsRope5
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -1816,6 +1862,17 @@ ModelImporter:
     4300648: WheeModel0
     4300650: WheeModel1
     4300652: WheeModel2
+    4300654: SailsFrame0
+    4300656: Sails0
+    4300658: Sails1
+    4300660: SailsRope0
+    4300662: SailsRope1
+    4300664: SailsRope2
+    4300666: SailsRope3
+    4300668: SailsRope4
+    4300670: SailsRope5
+    4300672: SailsFrame1
+    4300674: SailsFrame2
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
