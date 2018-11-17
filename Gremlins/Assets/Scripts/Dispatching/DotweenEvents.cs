@@ -378,6 +378,7 @@ public class DotweenEvents : MonoBehaviour
         float time = ParseTime();
         int loop = ParseLoop();
         bool isLocalAxis = ParseIsLocalAxis();
+        Ease easeType = ParseEaseType(Ease.Linear);
 
         Sequence seq = DOTween.Sequence();
         // like bell
@@ -387,17 +388,17 @@ public class DotweenEvents : MonoBehaviour
             Vector3 leftRot = origRot - deltaRot;
             Vector3 rightRot = origRot + deltaRot;
 
-            seq.Append(obj.transform.DOLocalRotate(leftRot, 0.25f * time).SetEase(Ease.Linear));
-            seq.Append(obj.transform.DOLocalRotate(rightRot, 0.5f * time).SetEase(Ease.Linear));
-            seq.Append(obj.transform.DOLocalRotate(origRot, 0.25f * time).SetEase(Ease.Linear));
+            seq.Append(obj.transform.DOLocalRotate(leftRot, 0.25f * time).SetEase(easeType));
+            seq.Append(obj.transform.DOLocalRotate(rightRot, 0.5f * time).SetEase(easeType));
+            seq.Append(obj.transform.DOLocalRotate(origRot, 0.25f * time).SetEase(easeType));
             seq.SetLoops(loop, LoopType.Restart);
         }
         // like flags
         else
         {
-            seq.Append(obj.transform.DOLocalRotate(deltaRot, 0.25f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InOutCubic));
-            seq.Append(obj.transform.DOLocalRotate(-2 * deltaRot, 0.5f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InOutCubic));
-            seq.Append(obj.transform.DOLocalRotate(deltaRot, 0.25f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InOutCubic));
+            seq.Append(obj.transform.DOLocalRotate(deltaRot, 0.25f * time, RotateMode.LocalAxisAdd).SetEase(easeType));
+            seq.Append(obj.transform.DOLocalRotate(-2 * deltaRot, 0.5f * time, RotateMode.LocalAxisAdd).SetEase(easeType));
+            seq.Append(obj.transform.DOLocalRotate(deltaRot, 0.25f * time, RotateMode.LocalAxisAdd).SetEase(easeType));
             seq.SetLoops(loop, LoopType.Restart);
         }
     }

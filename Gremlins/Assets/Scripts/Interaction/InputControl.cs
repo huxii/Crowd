@@ -65,7 +65,6 @@ public abstract class InputControl : MonoBehaviour
                 // clicked one time but timed out, treated as a single click
                 if (oneClick)
                 {
-                    //MouseSingleClick();
                     oneClick = false;
                 }
             }
@@ -118,58 +117,50 @@ public abstract class InputControl : MonoBehaviour
             //    TranslateViewport();
             //}
 
-            if (Input.GetAxis("Mouse ScrollWheel") != 0)
-            {
-                Zoom(Input.GetAxis("Mouse ScrollWheel"));
-            }
-        }
-        else
-        if (Input.touchCount == 2)
-        {
-            Touch touch0 = Input.GetTouch(0);
-            Touch touch1 = Input.GetTouch(1);
-            //Debug.Log(deltaPinchMag + " " + pinchEnded + " " + touch0.phase);
-            //if (Vector2.Angle(touch0.deltaPosition, touch1.deltaPosition) < 90f)
+            //if (Input.GetAxis("Mouse ScrollWheel") != 0)
             //{
-                //TranslateViewport(touch0.deltaPosition.x, touch0.deltaPosition.y);
+            //    Zoom(Input.GetAxis("Mouse ScrollWheel"));
             //}
-            //else
-            {
-                switch (touch0.phase)
-                {
-                    case TouchPhase.Began:
-                        pinchEnded = false;
-                        deltaPinchMag = 0;
-                        break;
-                    case TouchPhase.Moved:
-                        if (!pinchEnded)
-                        {
-                            Vector2 touchPrePos0 = touch0.position - touch0.deltaPosition;
-                            Vector2 touchPrePos1 = touch1.position - touch1.deltaPosition;
-
-                            float preMag = (touchPrePos0 - touchPrePos1).magnitude;
-                            float deltaMag = (touch0.position - touch1.position).magnitude;
-                            float magDiff = deltaMag - preMag;
-                            deltaPinchMag += magDiff;
-
-                            if (Mathf.Abs(deltaPinchMag) > 1f)
-                            {
-                                Zoom(deltaPinchMag);
-                                pinchEnded = true;
-                            }
-                        }
-                        break;
-                    case TouchPhase.Ended:
-                        pinchEnded = false;
-                        deltaPinchMag = 0;
-                        break;
-                    default:
-                        pinchEnded = false;
-                        deltaPinchMag = 0;
-                        break;
-                }
-            }
         }
+        //else
+        //if (Input.touchCount == 2)
+        //{
+        //    Touch touch0 = Input.GetTouch(0);
+        //    Touch touch1 = Input.GetTouch(1);
+        //    switch (touch0.phase)
+        //    {
+        //        case TouchPhase.Began:
+        //            pinchEnded = false;
+        //            deltaPinchMag = 0;
+        //            break;
+        //        case TouchPhase.Moved:
+        //            if (!pinchEnded)
+        //            {
+        //                Vector2 touchPrePos0 = touch0.position - touch0.deltaPosition;
+        //                Vector2 touchPrePos1 = touch1.position - touch1.deltaPosition;
+
+        //                float preMag = (touchPrePos0 - touchPrePos1).magnitude;
+        //                float deltaMag = (touch0.position - touch1.position).magnitude;
+        //                float magDiff = deltaMag - preMag;
+        //                deltaPinchMag += magDiff;
+
+        //                if (Mathf.Abs(deltaPinchMag) > 1f)
+        //                {
+        //                    Zoom(deltaPinchMag);
+        //                    pinchEnded = true;
+        //                }
+        //            }
+        //            break;
+        //        case TouchPhase.Ended:
+        //            pinchEnded = false;
+        //            deltaPinchMag = 0;
+        //            break;
+        //        default:
+        //            pinchEnded = false;
+        //            deltaPinchMag = 0;
+        //            break;
+        //    }
+        //}
 
         if (gyroEnabled)
         {
@@ -260,15 +251,15 @@ public abstract class InputControl : MonoBehaviour
                 Vector3 newMouseClickPos = hit.point;
                 Vector3 mouseDelta = newMouseClickPos - mouseClickPos;
 
-                if (mouseClickObject.CompareTag("Man"))
-                {
-                    if (dragTimer <= 0)
-                    {
-                        Services.gameController.MoveMenToPosition(newMouseClickPos);
-                        dragTimer = dragCoolDown;
-                    }
-                }
-                else
+                //if (mouseClickObject.CompareTag("Man"))
+                //{
+                //    if (dragTimer <= 0)
+                //    {
+                //        Services.gameController.MoveMenToPosition(newMouseClickPos);
+                //        dragTimer = dragCoolDown;
+                //    }
+                //}
+                //else
                 if (mouseClickObject.CompareTag("Object") || mouseClickObject.CompareTag("Prop"))
                 {
                     if (!Services.gameController.DragOn(mouseClickObject, mouseDelta))
