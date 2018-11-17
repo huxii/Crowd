@@ -251,15 +251,15 @@ public abstract class InputControl : MonoBehaviour
                 Vector3 newMouseClickPos = hit.point;
                 Vector3 mouseDelta = newMouseClickPos - mouseClickPos;
 
-                if (mouseClickObject.CompareTag("Man"))
-                {
-                    if (dragTimer <= 0)
-                    {
-                        Services.gameController.MoveMenToPosition(newMouseClickPos);
-                        dragTimer = dragCoolDown;
-                    }
-                }
-                else
+                //if (mouseClickObject.CompareTag("Man"))
+                //{
+                //    if (dragTimer <= 0)
+                //    {
+                //        Services.gameController.MoveMenToPosition(newMouseClickPos);
+                //        dragTimer = dragCoolDown;
+                //    }
+                //}
+                //else
                 if (mouseClickObject.CompareTag("Object") || mouseClickObject.CompareTag("Prop"))
                 {
                     if (!Services.gameController.DragOn(mouseClickObject, mouseDelta))
