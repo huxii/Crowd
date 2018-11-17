@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Gremlins/Assets/Resources/Logos.meta
+guid: 39962f7ae3d631b4dbffa09c0d89fe29
+=======
 guid: 05a087d8f7d75ed428f368ec8d246733
+>>>>>>> 2407778e13279dce6092e7949432e617a1666217:Gremlins/Assets/Resources/Logos.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
