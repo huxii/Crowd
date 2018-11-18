@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FerrisWheelLightsBehavior : ObjectControl
+public class LightsBehavior : ObjectControl
 {
     [System.Serializable]
     public struct LightAttr

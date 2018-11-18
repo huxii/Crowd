@@ -470,6 +470,10 @@ ModelImporter:
     100928: IcecreamKanbanLight5
     100930: IcecreamKanbanLight6
     100932: IcecreamKanbanLight8
+    100934: CartWithLink
+    100936: CartWithLink1
+    100938: CartWithLink2
+    100940: CartWithLink3
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -937,6 +941,10 @@ ModelImporter:
     400928: IcecreamKanbanLight5
     400930: IcecreamKanbanLight6
     400932: IcecreamKanbanLight8
+    400934: CartWithLink
+    400936: CartWithLink1
+    400938: CartWithLink2
+    400940: CartWithLink3
     2100000: lambert1
     2100002: lambert2
     2300000: Axis

@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-// TODO: main menu & hints & ladder & look at camera & think about physics and make it real 
-// & metalness & zoom in/out & cannot zoom out to outter & cart start up
+// TODO: main menu & hints & ladder & look at camera & think about physics and make it real & metalness & level1 new ao
 
 public class MainControl : MonoBehaviour
 {
