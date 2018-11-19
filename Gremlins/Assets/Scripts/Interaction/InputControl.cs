@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class InputControl : MonoBehaviour
 {
     public bool gyroEnabled = false;
+    public bool zoomEnabled = false;
 
     protected bool locked = false;
 
@@ -117,10 +118,13 @@ public abstract class InputControl : MonoBehaviour
             //    TranslateViewport();
             //}
 
-            //if (Input.GetAxis("Mouse ScrollWheel") != 0)
-            //{
-            //    Zoom(Input.GetAxis("Mouse ScrollWheel"));
-            //}
+            if (zoomEnabled)
+            {
+                if (Input.GetAxis("Mouse ScrollWheel") != 0)
+                {
+                    Zoom(Input.GetAxis("Mouse ScrollWheel"));
+                }
+            }
         }
         //else
         //if (Input.touchCount == 2)
