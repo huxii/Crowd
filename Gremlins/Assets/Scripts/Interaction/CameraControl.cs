@@ -70,47 +70,8 @@ public class CameraControl : MonoBehaviour
     void Update()
     {
         //Debug.Log(freeLookCam.m_XAxis.Value + "---" + targetAngle.x);
-        float x = freeLookCam.m_XAxis.Value;
-        float targetAngleX = Clamp360(targetAngle.x);
-
-        if (Mathf.Abs(targetAngleX - x) < 0.001f)
-        {
-            freeLookCam.m_XAxis.Value = targetAngleX;
-        }
-        else
-        if (Mathf.Abs(targetAngleX - x) > 180)
-        {
-            if (targetAngleX > x)
-            {
-                freeLookCam.m_XAxis.Value -= (x - targetAngleX + 360f) * Time.deltaTime * cameraSpeed.x;
-                if (freeLookCam.m_XAxis.Value < 0.01f)
-                {
-                    freeLookCam.m_XAxis.Value = 360f;
-                }
-            }
-            else
-            {
-                freeLookCam.m_XAxis.Value += (360 - x + targetAngleX) * Time.deltaTime * cameraSpeed.x;
-                if (freeLookCam.m_XAxis.Value > 359.99f)
-                {
-                    freeLookCam.m_XAxis.Value = 0f;
-                }
-            }
-        }
-        else
-        {
-            freeLookCam.m_XAxis.Value = Mathf.Lerp(freeLookCam.m_XAxis.Value, targetAngleX, Time.deltaTime * cameraSpeed.x);
-        }
-
-        float y = freeLookCam.m_YAxis.Value * 180;
-        if (Mathf.Abs(targetAngle.y - y) < 0.001f)
-        {
-            freeLookCam.m_YAxis.Value = targetAngle.y / 180;
-        }
-        else
-        {
-            freeLookCam.m_YAxis.Value = Mathf.Lerp(y, targetAngle.y, Time.deltaTime * cameraSpeed.y) / 180;
-        }
+        freeLookCam.m_XAxis.Value = Services.utils.LerpRotation(freeLookCam.m_XAxis.Value, targetAngle.x, cameraSpeed.x);
+        freeLookCam.m_YAxis.Value = Services.utils.LerpRotation(freeLookCam.m_YAxis.Value * 180, targetAngle.y, cameraSpeed.y) / 180;
 
         Vector2 topOrbit = Vector2.Lerp(new Vector2(freeLookCam.m_Orbits[0].m_Height, freeLookCam.m_Orbits[0].m_Radius), targetCameraAttr.topRigOrbit, Time.deltaTime * 8f);
         Vector2 middleOrbit = Vector2.Lerp(new Vector2(freeLookCam.m_Orbits[1].m_Height, freeLookCam.m_Orbits[1].m_Radius), targetCameraAttr.middleRigOrbit, Time.deltaTime * 8f);

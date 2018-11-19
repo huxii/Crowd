@@ -5,12 +5,22 @@ using UnityEngine.Events;
 
 public class ObjectDragControl : ObjectBasicControl
 {
+    public enum Axis
+    {
+        X,
+        Y,
+        Z
+    };
+
     public UnityEvent onDrag;
     public UnityEvent onMinDrag;
     public UnityEvent onMaxDrag;
 
+    public Axis rotationAxis = Axis.X;
     public float rotationSpeed = 10f;
     public Vector2 rotationRange = new Vector2(0, 0);
+    public bool isAxisRevert = false;
+    public bool isSnappingBack = false;
 
     Vector3 origRot = new Vector3(0, 0, 0);
     Vector3 deltaRot = new Vector3(0, 0, 0);
@@ -36,28 +46,19 @@ public class ObjectDragControl : ObjectBasicControl
             if (isRotDirty)
             {
                 origRot = transform.localEulerAngles;
-                deltaRot = new Vector3(0, 0, 0);
+                if (isSnappingBack)
+                {
+                    deltaRot = new Vector3(0, 0, 0);
+                }
                 isRotDirty = false;
             }
 
-            if (!IsActivated())
+            if (!IsActivated() && !IsLocked())
             {
                 Vector3 curRot = transform.localEulerAngles;
-                // hack
-                if (curRot.z >= 180)
-                {
-                    curRot.z -= 360;
-                }
                 Vector3 targetRot = origRot + deltaRot;
-                if (targetRot.z >= 180)
-                {
-                    targetRot.z -= 360;
-                }
-                if (Vector3.Distance(curRot, targetRot) > 0.02f)
-                {
-                    curRot += rotationSpeed * Time.deltaTime * (targetRot - curRot);
-                    transform.localEulerAngles = curRot;
-                }
+                targetRot[(int)rotationAxis] = Services.utils.LerpRotation(curRot[(int)rotationAxis], targetRot[(int)rotationAxis], rotationSpeed);
+                transform.localEulerAngles = targetRot;
             }
         }
     }
@@ -67,46 +68,64 @@ public class ObjectDragControl : ObjectBasicControl
         if (isMouseDown)
         {
             isMouseDown = false;
-            deltaRot = new Vector3(0, 0, 0);
+            if (isSnappingBack)
+            {
+                deltaRot = new Vector3(0, 0, 0);
+            }
         }
+    }
+
+    public void SetAngle(float angle)
+    {
+        deltaRot[(int)rotationAxis] = Mathf.Max(Mathf.Min(angle, rotationRange.y), rotationRange.x);
     }
 
     public override void Drag(Vector3 deltaPos)
     {
         base.Drag(deltaPos);
 
-        if (!IsActivated())
+        if (!IsLocked() && !IsActivated())
         {
             isMouseDown = true;
 
-            float newRotZ = deltaRot.z + deltaPos.x * 100;
-            if (newRotZ >= rotationRange.y)
+            float curValue = deltaRot[(int)rotationAxis];
+            float newValue = curValue;
+            if (isAxisRevert)
             {
-                newRotZ = rotationRange.y;
-                if (deltaRot.z < rotationRange.y - 0.1f)
+                newValue -= deltaPos.x * 100;
+            }
+            else
+            {
+                newValue += deltaPos.x * 100;
+            }
+
+            if (newValue >= rotationRange.y)
+            {
+                newValue = rotationRange.y;
+                if (curValue < rotationRange.y - 0.1f)
                 {
                     onMaxDrag.Invoke();
                 }
 
             }
             else
-            if (newRotZ <= rotationRange.x)
+            if (newValue <= rotationRange.x)
             {
-                newRotZ = rotationRange.x;
-                if (deltaRot.z > rotationRange.x + 0.1f)
+                newValue = rotationRange.x;
+                if (curValue > rotationRange.x + 0.1f)
                 {
                     onMinDrag.Invoke();
                 }
             }
             else
             {
-                if (Mathf.Abs(newRotZ - deltaRot.z) >= 0.1f)
+                if (Mathf.Abs(newValue - curValue) >= 0.1f)
                 {
                     onDrag.Invoke();
                 }
             }
 
-            deltaRot = new Vector3(deltaRot.x, deltaRot.y, newRotZ);
+            deltaRot[(int)rotationAxis] = newValue;
         }
     }
 

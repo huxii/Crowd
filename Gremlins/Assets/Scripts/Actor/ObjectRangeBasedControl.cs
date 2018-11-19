@@ -38,7 +38,7 @@ public class ObjectRangeBasedControl : ObjectControl
 
     private void OnRespondClick(Crowd.Event e)
     {
-        if (IsCoolingDown() || IsActivated())
+        if (IsLocked() || IsCoolingDown() || IsActivated())
         {
             return;
         }
@@ -55,7 +55,7 @@ public class ObjectRangeBasedControl : ObjectControl
 
     private void OnRespondRotate(Crowd.Event e)
     {
-        if (IsCoolingDown() || IsActivated())
+        if (IsLocked() || IsCoolingDown() || IsActivated())
         {
             return;
         }
@@ -80,7 +80,7 @@ public class ObjectRangeBasedControl : ObjectControl
 
     private void OnRespondZoom(Crowd.Event e)
     {
-        if (IsCoolingDown() || IsActivated())
+        if (IsLocked() || IsCoolingDown() || IsActivated())
         {
             return;
         }
