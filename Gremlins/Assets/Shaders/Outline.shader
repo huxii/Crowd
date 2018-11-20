@@ -14,15 +14,16 @@ Shader "Custom/Outline"
 		_YNegativeColor("Y- Color", Color) = (1, 1, 1, 1)
 
 		[Header(Lighting)]
+		_LightRamp("Light Ramp", 2D) = "white" {}
 		_AOMap("AO Map", 2D) = "white" {}
 		_AOMinColor("AO Min Color", Color) = (1, 1, 1, 1)
 		_AOMaxColor("AO Max Color", Color) = (1, 1, 1, 1)
-		_ShadowColor("Shadow Color", Color) = (1, 1, 1, 1)
-		_BrightColor("Bright Color", Color) = (1, 1, 1, 1)
-		_ShadowLineColor("Shadow Line Color", Color) = (1, 1, 1, 1)
-		_ShadowLineWidth("Shadow Line Width", Range(0, 1)) = 0.01
-		_DiffuseLineWidth("Diffuse Line Width", Range(0, 1)) = 0.01
-		_DiffuseTransitionRange("Diffuse Transition Range", Range(0, 1)) = 0.1
+		//_ShadowColor("Shadow Color", Color) = (1, 1, 1, 1)
+		//_BrightColor("Bright Color", Color) = (1, 1, 1, 1)
+		//_ShadowLineColor("Shadow Line Color", Color) = (1, 1, 1, 1)
+		//_ShadowLineWidth("Shadow Line Width", Range(0, 1)) = 0.01
+		//_DiffuseLineWidth("Diffuse Line Width", Range(0, 1)) = 0.01
+		//_DiffuseTransitionRange("Diffuse Transition Range", Range(0, 1)) = 0.1
 
 		_RimColor("Rim Color", Color) = (1, 1, 1, 1)
 		_RimPower("Rim Power", Range(0.1, 10.0)) = 3.0
@@ -65,17 +66,21 @@ Shader "Custom/Outline"
 
 			uniform sampler2D _MainTex;
 			uniform float4 _MainTex_ST;
+
+			uniform sampler2D _LightRamp;
+			uniform float4 _LightRamp_ST;
+
 			uniform sampler2D _AOMap;
 			uniform float4 _AOMap_ST;
 			uniform float4 _AOMinColor;
 			uniform float4 _AOMaxColor;
 
-			uniform float4 _ShadowColor;
-			uniform float4 _BrightColor;
-			uniform float4 _ShadowLineColor;
-			uniform float _ShadowLineWidth;
-			uniform float _DiffuseLineWidth;
-			uniform float _DiffuseTransitionRange;
+			//uniform float4 _ShadowColor;
+			//uniform float4 _BrightColor;
+			//uniform float4 _ShadowLineColor;
+			//uniform float _ShadowLineWidth;
+			//uniform float _DiffuseLineWidth;
+			//uniform float _DiffuseTransitionRange;
 
 			uniform float4 _XPositiveColor;
 			uniform float4 _XNegativeColor;
@@ -145,37 +150,39 @@ Shader "Custom/Outline"
 				float4 aoColor = lerp(_AOMinColor, _AOMaxColor, ao);
 				float atten = LIGHT_ATTENUATION(i);
 				float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld);
-				float3 normalDirection = i.normalDir;
+				float3 normalDirection = normalize(i.normalDir);
 				float3 lightDirection = normalize(_WorldSpaceLightPos0.xyz);
-				float diffuseReflection = atten * min(1.0, max(0.0, dot(normalDirection, lightDirection)));
-				float4 diffuseColor;
-				if (diffuseReflection <= 0.5 - _DiffuseTransitionRange / 2)
-				{
-					diffuseColor = _ShadowColor * _LightColor0;
-				}
-				else
-				if (diffuseReflection >= 0.5 + _DiffuseTransitionRange / 2)
-				{
-					diffuseColor = _BrightColor * _LightColor0;
-				}
-				else
-				{
-					//return float4(0, 0, 0, 1);
-					diffuseColor = lerp(_ShadowColor, _BrightColor, (diffuseReflection - 0.5 + _DiffuseTransitionRange / 2) / _DiffuseTransitionRange) * _LightColor0;
-				}
+				float diffuseReflection = dot(normalDirection, lightDirection);
+				float lighting = min(0.95, max(0.05, ao * atten * diffuseReflection));
+				float4 baseColor = tex * float4(tex2D(_LightRamp, float2(lighting, 0)).rgb, 1.0);
 
-				if (_ShadowLineWidth != 0 && atten < 0.99 && atten > 0.01 && diffuseReflection > 0.4 && diffuseReflection < 0.9)
-				{
-					diffuseColor = lerp(_ShadowLineColor * _LightColor0, diffuseColor, atten - 0.8);
-				}
+				//if (diffuseReflection <= 0.5 - _DiffuseTransitionRange / 2)
+				//{
+				//	diffuseColor = _ShadowColor * _LightColor0;
+				//}
+				//else
+				//if (diffuseReflection >= 0.5 + _DiffuseTransitionRange / 2)
+				//{
+				//	diffuseColor = _BrightColor * _LightColor0;
+				//}
+				//else
+				//{
+				//	//return float4(0, 0, 0, 1);
+				//	diffuseColor = lerp(_ShadowColor, _BrightColor, (diffuseReflection - 0.5 + _DiffuseTransitionRange / 2) / _DiffuseTransitionRange) * _LightColor0;
+				//}
 
-				if (diffuseReflection > 0.5 - _DiffuseLineWidth / 128 && diffuseReflection < 0.5 + _DiffuseLineWidth / 128)
-				{
-					diffuseColor = _ShadowLineColor * _LightColor0;
-				}
+				//if (_ShadowLineWidth != 0 && atten < 0.99 && atten > 0.01 && diffuseReflection > 0.4 && diffuseReflection < 0.9)
+				//{
+				//	diffuseColor = lerp(_ShadowLineColor * _LightColor0, diffuseColor, atten - 0.8);
+				//}
 
-				float4 yColor = lerp(_YNegativeColor * tex, _YPositiveColor * tex, i.tex.y);
-				float4 lightFinal = diffuseColor * yColor * aoColor;
+				//if (diffuseReflection > 0.5 - _DiffuseLineWidth / 128 && diffuseReflection < 0.5 + _DiffuseLineWidth / 128)
+				//{
+				//	diffuseColor = _ShadowLineColor * _LightColor0;
+				//}
+
+				float4 yColor = lerp(_YNegativeColor, _YPositiveColor, i.tex.y);
+				float4 lightFinal = baseColor * yColor;
 
 				float rim = 1.0f - saturate(dot(viewDirection, normalDirection));
 				float4 rimLight = atten * _LightColor0 * _RimColor *
