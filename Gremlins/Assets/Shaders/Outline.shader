@@ -55,6 +55,10 @@
 			half4 ao = tex2D(_AOMap, IN.uv_MainTex);
 			half4 aoColor = lerp(_AOMinColor, _AOMaxColor, ao);
 			o.Ao = aoColor.rgb;
+
+			o.Emission = tex2D(_EmissionMap, IN.uv_MainTex).rgb * _EmissionColor.rgb;
+
+			o.Metallic = 1;
 		}
 		ENDCG
 		

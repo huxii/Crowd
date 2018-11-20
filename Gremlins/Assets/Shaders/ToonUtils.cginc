@@ -19,6 +19,7 @@ struct SurfaceCustomOutput
 {
 	fixed3 Albedo;  // diffuse color
 	fixed3 Normal;  // tangent space normal, if written
+	half Metallic;
 	//half Specular;  // specular power in 0..1 range
 	//fixed Gloss;    // specular intensity
 	fixed Alpha;    // alpha for transparencies
@@ -62,7 +63,7 @@ inline half4 LightingToon(SurfaceCustomOutput s, half3 lightDir, half3 viewDir, 
 
 	// final
 	half4 c;
-	c.rgb = s.Albedo * s.Ao * lightRamp + UNITY_LIGHTMODEL_AMBIENT.rgb + rimLight.rgb;
+	c.rgb = s.Albedo * s.Ao * lightRamp + s.Emission + UNITY_LIGHTMODEL_AMBIENT.rgb + rimLight.rgb;
 	c.a = s.Alpha;
 
 	return c;
