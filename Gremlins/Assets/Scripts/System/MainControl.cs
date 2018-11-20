@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using DG.Tweening;
 
 // TODO: main menu & hints & ladder & look at camera & think about physics and make it real & metalness & level1 new ao
+// & shaking char
 
 public class MainControl : MonoBehaviour
 {
