@@ -1,4 +1,4 @@
-﻿Shader "Custom/Cutout_Dynamic" 
+﻿Shader "Custom/Cutout_dynamic" 
 {
 	Properties 
 	{

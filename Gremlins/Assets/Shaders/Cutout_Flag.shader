@@ -1,4 +1,4 @@
-﻿Shader "Custom/Cutout_Flag" 
+﻿Shader "Custom/Cutout_flag" 
 {
 	Properties 
 	{

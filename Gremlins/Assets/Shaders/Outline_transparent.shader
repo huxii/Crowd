@@ -1,4 +1,4 @@
-﻿Shader "Custom/Outline" 
+﻿Shader "Custom/Outline_transparent" 
 {
 	Properties 
 	{
@@ -11,15 +11,9 @@
 
 		[Header(Lighting)]
 		_LightRamp("Light Ramp", 2D) = "white" {}
-		_AOMap("AO Map", 2D) = "white" {}
-		_AOMinColor("AO Min Color", Color) = (1, 1, 1, 1)
-		_AOMaxColor("AO Max Color", Color) = (1, 1, 1, 1)
 
 		_RimColor("Rim Color", Color) = (1, 1, 1, 1)
 		_RimPower("Rim Power", Range(0.1, 10.0)) = 3.0
-
-		_EmissionMap("Emission", 2D) = "white" {}
-		[HDR]_EmissionColor("Emission Color", Color) = (0, 0, 0, 1)
 
 		[Header(Outline)]
 		_OutlineColor("Outline Color", Color) = (0, 0, 0, 1)
@@ -31,15 +25,10 @@
 		CGPROGRAM
 		#include "ToonUtils.cginc"
 
-		#pragma surface surf Toon addshadow
+		#pragma surface surf Toon addshadow alpha:blend
 		#pragma target 3.0
 
 		uniform sampler2D _MainTex;
-
-		uniform sampler2D _AOMap;
-		uniform float4 _AOMap_ST;
-		uniform float4 _AOMinColor;
-		uniform float4 _AOMaxColor;
 
 		struct Input
 		{
@@ -51,10 +40,6 @@
 			half4 c = tex2D(_MainTex, IN.uv_MainTex);
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
-
-			half4 ao = tex2D(_AOMap, IN.uv_MainTex);
-			half4 aoColor = lerp(_AOMinColor, _AOMaxColor, ao);
-			o.Ao = aoColor.rgb;
 		}
 		ENDCG
 		
@@ -64,8 +49,8 @@
 			Tags
 			{
 				"LightMode" = "ForwardBase"
-				"Queue" = "Opaque"
-				"RenderType" = "Opaque"
+				"Queue" = "Transparent"
+				"RenderType" = "Transparent"
 				"IgnoreProjector" = "True"
 			}
 			LOD 200
