@@ -66,19 +66,49 @@ public class ObjectDragControl : ObjectBasicControl
 
             if (!IsActivated() && !IsLocked())
             {
+                float newDelta;
+                float curDelta;
                 if (dragAxis <= Axis.RZ)
                 {
                     Vector3 curRot = transform.localEulerAngles;
                     Vector3 targetRot = origValue + deltaValue;
+                    curDelta = (curRot - origValue)[(int)dragAxis];
                     targetRot[(int)dragAxis] = Services.utils.LerpRotation(curRot[(int)dragAxis], targetRot[(int)dragAxis], speed);
                     transform.localEulerAngles = targetRot;
+                    newDelta = (targetRot - origValue)[(int)dragAxis];
                 }
                 else
                 {
                     Vector3 curPos = transform.localPosition;
                     Vector3 targetPos = origValue + deltaValue;
+                    curDelta = (curPos - origValue)[(int)dragAxis - 3];
                     targetPos = Vector3.Lerp(curPos, targetPos, speed * Time.deltaTime);
                     transform.localPosition = targetPos;
+                    newDelta = (targetPos - origValue)[(int)dragAxis - 3];
+                }
+
+                //Debug.Log(curDelta + " " + newDelta);
+                if (newDelta >= range.y - 0.1f)
+                {
+                    if (curDelta < range.y - 0.1f)
+                    {
+                        onMaxDrag.Invoke();
+                    }
+                }
+                else
+                if (newDelta <= range.x + 0.1f)
+                {
+                    if (curDelta > range.x + 0.1f)
+                    {
+                        onMinDrag.Invoke();
+                    }
+                }
+                else
+                {
+                    if (Mathf.Abs(curDelta - newDelta) >= 0.1f)
+                    {
+                        onDrag.Invoke();
+                    }
                 }
             }
         }
@@ -104,6 +134,9 @@ public class ObjectDragControl : ObjectBasicControl
         }
 
         deltaValue[(int)dragAxis] = Mathf.Max(Mathf.Min(angle, range.y), range.x);
+        //transform.localEulerAngles = origValue + deltaValue;
+        origValue = origValue + deltaValue;
+        deltaValue = new Vector3(0, 0, 0);
     }
 
     public override void Drag(Vector3 deltaPos)
@@ -134,31 +167,7 @@ public class ObjectDragControl : ObjectBasicControl
                 newValue += deltaPos.x * 100;
             }
 
-            if (newValue >= range.y)
-            {
-                newValue = range.y;
-                if (curValue < range.y - 0.1f)
-                {
-                    onMaxDrag.Invoke();
-                }
-
-            }
-            else
-            if (newValue <= range.x)
-            {
-                newValue = range.x;
-                if (curValue > range.x + 0.1f)
-                {
-                    onMinDrag.Invoke();
-                }
-            }
-            else
-            {
-                if (Mathf.Abs(newValue - curValue) >= 0.1f)
-                {
-                    onDrag.Invoke();
-                }
-            }
+            newValue = Mathf.Min(range.y, Mathf.Max(range.x, newValue));
 
             if (dragAxis <= Axis.RZ)
             {

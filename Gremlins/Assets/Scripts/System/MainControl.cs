@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using DG.Tweening;
 
 // TODO: main menu & hints & ladder & look at camera & think about physics and make it real & metalness & level1 new ao
-// & shaking char & water texture & ballon
+// & shaking char & water texture & ballon & level0 nails & level0 mechanic & level1 mechanic
 
 public class MainControl : MonoBehaviour
 {
