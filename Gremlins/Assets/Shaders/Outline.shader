@@ -11,6 +11,9 @@
 
 		[Header(Lighting)]
 		_LightRamp("Light Ramp", 2D) = "white" {}
+
+		_SpecMap("Specular Map", 2D) = "black" {}
+
 		_AOMap("AO Map", 2D) = "white" {}
 		_AOMinColor("AO Min Color", Color) = (1, 1, 1, 1)
 		_AOMaxColor("AO Max Color", Color) = (1, 1, 1, 1)
@@ -35,6 +38,7 @@
 		#pragma target 3.0
 
 		uniform sampler2D _MainTex;
+		uniform sampler2D _SpecMap;
 
 		uniform sampler2D _AOMap;
 		uniform float4 _AOMap_ST;
@@ -58,7 +62,9 @@
 
 			o.Emission = tex2D(_EmissionMap, IN.uv_MainTex).rgb * _EmissionColor.rgb;
 
-			o.Metallic = 1;
+			float3 specGloss = tex2D(_SpecMap, IN.uv_MainTex).rgb;
+			o.Specular = specGloss.r;
+			o.Gloss = specGloss.g;
 		}
 		ENDCG
 		

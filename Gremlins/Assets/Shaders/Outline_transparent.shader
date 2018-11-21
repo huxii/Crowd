@@ -12,6 +12,8 @@
 		[Header(Lighting)]
 		_LightRamp("Light Ramp", 2D) = "white" {}
 
+		_SpecMap("Specular Map", 2D) = "black" {}
+
 		_RimColor("Rim Color", Color) = (1, 1, 1, 1)
 		_RimPower("Rim Power", Range(0.1, 10.0)) = 3.0
 
@@ -29,6 +31,7 @@
 		#pragma target 3.0
 
 		uniform sampler2D _MainTex;
+		uniform sampler2D _SpecMap;
 
 		struct Input
 		{
@@ -40,6 +43,10 @@
 			half4 c = tex2D(_MainTex, IN.uv_MainTex);
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
+
+			float3 specGloss = tex2D(_SpecMap, IN.uv_MainTex).rgb;
+			o.Specular = specGloss.r;
+			o.Gloss = specGloss.g;
 		}
 		ENDCG
 		
