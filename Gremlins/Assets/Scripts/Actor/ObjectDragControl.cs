@@ -7,24 +7,27 @@ public class ObjectDragControl : ObjectBasicControl
 {
     public enum Axis
     {
-        X,
-        Y,
-        Z
+        RX,
+        RY,
+        RZ,
+        TX,
+        TY,
+        TZ
     };
 
     public UnityEvent onDrag;
     public UnityEvent onMinDrag;
     public UnityEvent onMaxDrag;
 
-    public Axis rotationAxis = Axis.X;
-    public float rotationSpeed = 10f;
-    public Vector2 rotationRange = new Vector2(0, 0);
+    public Axis dragAxis = Axis.RX;
+    public float speed = 10f;
+    public Vector2 range = new Vector2(0, 0);
     public bool isAxisRevert = false;
     public bool isSnappingBack = false;
 
-    Vector3 origRot = new Vector3(0, 0, 0);
-    Vector3 deltaRot = new Vector3(0, 0, 0);
-    bool isRotDirty = true;
+    Vector3 origValue = new Vector3(0, 0, 0);
+    Vector3 deltaValue = new Vector3(0, 0, 0);
+    bool isDirty = true;
     bool isMouseDown = false;
 
     // Use this for initialization
@@ -43,22 +46,40 @@ public class ObjectDragControl : ObjectBasicControl
     {
         if (!IsCoolingDown())
         {
-            if (isRotDirty)
+            if (isDirty)
             {
-                origRot = transform.localEulerAngles;
+                if (dragAxis <= Axis.RZ)
+                {
+                    origValue = transform.localEulerAngles;
+                }
+                else
+                {
+                    origValue = transform.localPosition;
+                }
+
                 if (isSnappingBack)
                 {
-                    deltaRot = new Vector3(0, 0, 0);
+                    deltaValue = new Vector3(0, 0, 0);
                 }
-                isRotDirty = false;
+                isDirty = false;
             }
 
             if (!IsActivated() && !IsLocked())
             {
-                Vector3 curRot = transform.localEulerAngles;
-                Vector3 targetRot = origRot + deltaRot;
-                targetRot[(int)rotationAxis] = Services.utils.LerpRotation(curRot[(int)rotationAxis], targetRot[(int)rotationAxis], rotationSpeed);
-                transform.localEulerAngles = targetRot;
+                if (dragAxis <= Axis.RZ)
+                {
+                    Vector3 curRot = transform.localEulerAngles;
+                    Vector3 targetRot = origValue + deltaValue;
+                    targetRot[(int)dragAxis] = Services.utils.LerpRotation(curRot[(int)dragAxis], targetRot[(int)dragAxis], speed);
+                    transform.localEulerAngles = targetRot;
+                }
+                else
+                {
+                    Vector3 curPos = transform.localPosition;
+                    Vector3 targetPos = origValue + deltaValue;
+                    targetPos = Vector3.Lerp(curPos, targetPos, speed * Time.deltaTime);
+                    transform.localPosition = targetPos;
+                }
             }
         }
     }
@@ -70,14 +91,19 @@ public class ObjectDragControl : ObjectBasicControl
             isMouseDown = false;
             if (isSnappingBack)
             {
-                deltaRot = new Vector3(0, 0, 0);
+                deltaValue = new Vector3(0, 0, 0);
             }
         }
     }
 
     public void SetAngle(float angle)
     {
-        deltaRot[(int)rotationAxis] = Mathf.Max(Mathf.Min(angle, rotationRange.y), rotationRange.x);
+        if (dragAxis > Axis.RZ)
+        {
+            return;
+        }
+
+        deltaValue[(int)dragAxis] = Mathf.Max(Mathf.Min(angle, range.y), range.x);
     }
 
     public override void Drag(Vector3 deltaPos)
@@ -88,7 +114,16 @@ public class ObjectDragControl : ObjectBasicControl
         {
             isMouseDown = true;
 
-            float curValue = deltaRot[(int)rotationAxis];
+            float curValue = 0;
+            if (dragAxis <= Axis.RZ)
+            {
+                curValue = deltaValue[(int)dragAxis];
+            }
+            else
+            {
+                curValue = deltaValue[(int)dragAxis - 3];
+            }
+
             float newValue = curValue;
             if (isAxisRevert)
             {
@@ -99,20 +134,20 @@ public class ObjectDragControl : ObjectBasicControl
                 newValue += deltaPos.x * 100;
             }
 
-            if (newValue >= rotationRange.y)
+            if (newValue >= range.y)
             {
-                newValue = rotationRange.y;
-                if (curValue < rotationRange.y - 0.1f)
+                newValue = range.y;
+                if (curValue < range.y - 0.1f)
                 {
                     onMaxDrag.Invoke();
                 }
 
             }
             else
-            if (newValue <= rotationRange.x)
+            if (newValue <= range.x)
             {
-                newValue = rotationRange.x;
-                if (curValue > rotationRange.x + 0.1f)
+                newValue = range.x;
+                if (curValue > range.x + 0.1f)
                 {
                     onMinDrag.Invoke();
                 }
@@ -125,7 +160,14 @@ public class ObjectDragControl : ObjectBasicControl
                 }
             }
 
-            deltaRot[(int)rotationAxis] = newValue;
+            if (dragAxis <= Axis.RZ)
+            {
+                deltaValue[(int)dragAxis] = newValue;
+            }
+            else
+            {
+                deltaValue[(int)dragAxis - 3] = newValue;
+            }
         }
     }
 
@@ -133,7 +175,7 @@ public class ObjectDragControl : ObjectBasicControl
     {
         base.Activate();
 
-        isRotDirty = true;
+        isDirty = true;
     }
 
     public override bool IsDragOverride()
