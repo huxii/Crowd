@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Level1_cutout_cutout
-  m_Shader: {fileID: 4800000, guid: d1605b3e0854642479d858a1083c6927, type: 3}
+  m_Name: Level1_outter
+  m_Shader: {fileID: 4800000, guid: 436d8cb566bcd104bb8e66c0b30f796a, type: 3}
   m_ShaderKeywords: _BLENDMODE_ALPHACUTOUT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -18,6 +18,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AOMap:
+        m_Texture: {fileID: 2800000, guid: e0e8264dc73b6b841a0a80fb8d74101b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -37,13 +41,13 @@ Material:
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: -10.66, y: 0}
     - _LightRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: c4e3f17d18e93db4c9eb950d385c341e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ceca9175ede384c4aadd1e601c0ec7f5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1f978c996c5413142b4a6c31304a61d3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -58,8 +62,11 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SpecMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaCutOff: 0.3
     - _BlendMode: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -73,9 +80,9 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0.1
+    - _OutlineWidth: 0.13
     - _Parallax: 0.02
-    - _RimPower: 10
+    - _RimPower: 8
     - _ShadowLineWidth: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -83,10 +90,12 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
+    - _AOMaxColor: {r: 1, g: 1, b: 1, a: 1}
+    - _AOMinColor: {r: 0.745283, g: 0.5753933, b: 0.33397114, a: 1}
     - _BrightColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0.3301887, g: 0.26111722, b: 0.19780171, a: 1}
+    - _OutlineColor: {r: 0.46226418, g: 0.31508103, b: 0.16789782, a: 1}
     - _RimColor: {r: 0.8584906, g: 0.8103135, b: 0.63576895, a: 1}
     - _ShadowColor: {r: 0.9433962, g: 0.90334636, b: 0.84994656, a: 1}
     - _ShadowLineColor: {r: 0.3490566, g: 0.1994692, b: 0.13007298, a: 1}
