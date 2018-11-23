@@ -17,23 +17,30 @@
 		_RimPower("Rim Power", Range(0.1, 10.0)) = 3.0
 	}
 
-	SubShader 
-	{
-		Cull Off
+	SubShader
+	{			
+		Tags 
+		{ 
+			"Queue" = "AlphaTest" 
+			"RenderType" = "TransparentCutout" 
+		}
+		LOD 200
+		Cull Off 
+		Lighting Off
 
 		CGPROGRAM
 		#include "ToonUtils.cginc"
-
 		#pragma surface surf ToonCutout vertex:vert addshadow
 		#pragma target 3.0
 
 		uniform sampler2D _MainTex;
 		uniform float _AlphaCutOff;
+
 		uniform float _Speed;
 		uniform float _Frequency;
 		uniform float _Amplitude;
 
-		struct Input
+		struct Input 
 		{
 			float2 uv_MainTex;
 		};
@@ -44,31 +51,16 @@
 			v.vertex.y += cos((v.vertex.x + _Time.y * _Speed) * _Frequency) * _Amplitude * (v.vertex.x - 5);
 		}
 
-		void surf(Input IN, inout SurfaceCustomOutput o)
+		void surf(Input IN, inout SurfaceCustomOutput o) 
 		{
-			half4 c = tex2D(_MainTex, IN.uv_MainTex);
+			fixed4 c = tex2D(_MainTex, IN.uv_MainTex);
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
-
 			clip(c.a - _AlphaCutOff);
 		}
-		ENDCG
 
-		Pass
-		{
-			Name "Base"
-			Tags
-			{
-				"LightMode" = "ForwardBase"
-				"Queue" = "Opaque"
-				"RenderType" = "Opaque"
-				"IgnoreProjector" = "True"
-			}
-			LOD 200
-			ZWrite On
-			Blend SrcAlpha OneMinusSrcAlpha
-			ColorMask RGB
-		}
+		ENDCG
 	}
+
 	FallBack "Diffuse"
 }

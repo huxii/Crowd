@@ -23,7 +23,14 @@ Shader "Custom/Cutout_dynamic"
 
 	SubShader 
 	{
+		Tags
+		{
+			"Queue" = "AlphaTest"
+			"RenderType" = "TransparentCutout"
+		}
+		LOD 200
 		Cull Off
+		Lighting Off
 
 		CGPROGRAM
 		#include "ToonUtils.cginc"
@@ -63,22 +70,6 @@ Shader "Custom/Cutout_dynamic"
 			clip(_MaxY - IN.posWorld.y);
 		}
 		ENDCG
-
-		Pass
-		{
-			Name "Base"
-			Tags
-			{
-				"LightMode" = "ForwardBase"
-				"Queue" = "Opaque"
-				"RenderType" = "Opaque"
-				"IgnoreProjector" = "True"
-			}
-			LOD 200
-			ZWrite On
-			Blend SrcAlpha OneMinusSrcAlpha
-			ColorMask RGB
-		}
 	}
 	FallBack "Diffuse"
 }
