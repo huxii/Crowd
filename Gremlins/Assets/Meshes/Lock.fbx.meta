@@ -258,6 +258,10 @@ ModelImporter:
     100504: BackshellNail3
     100506: FrontShell
     100508: BackShellNails
+    100510: HiddenStairFrame
+    100512: HiddenStairRope0
+    100514: HiddenStairRope2
+    100516: HiddenStairRope3
     400000: BackShell
     400002: Bulb
     400004: Bulb 1
@@ -513,6 +517,10 @@ ModelImporter:
     400504: BackshellNail3
     400506: FrontShell
     400508: BackShellNails
+    400510: HiddenStairFrame
+    400512: HiddenStairRope0
+    400514: HiddenStairRope2
+    400516: HiddenStairRope3
     2100000: InnerMat
     2100002: CutoutMat
     2100004: OutterMat
@@ -710,6 +718,10 @@ ModelImporter:
     2300382: BackshellNail1
     2300384: BackshellNail2
     2300386: BackshellNail3
+    2300388: HiddenStairFrame
+    2300390: HiddenStairRope0
+    2300392: HiddenStairRope2
+    2300394: HiddenStairRope3
     3300000: BackShell
     3300002: Bulb
     3300004: Bulb 1
@@ -904,6 +916,10 @@ ModelImporter:
     3300382: BackshellNail1
     3300384: BackshellNail2
     3300386: BackshellNail3
+    3300388: HiddenStairFrame
+    3300390: HiddenStairRope0
+    3300392: HiddenStairRope2
+    3300394: HiddenStairRope3
     4300000: Ladder
     4300002: Wheet13
     4300004: Fence
@@ -1098,6 +1114,10 @@ ModelImporter:
     4300382: BackshellNail2
     4300384: BackshellNail3
     4300386: BackShellModel
+    4300388: HiddenStairFrame
+    4300390: HiddenStairRope0
+    4300392: HiddenStairRope2
+    4300394: HiddenStairRope3
     9500000: //RootNode
     13700000: Wheet13
   externalObjects: {}
