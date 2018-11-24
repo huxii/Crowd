@@ -28,6 +28,8 @@ public class ObjectDragControl : ObjectBasicControl
     Vector3 origValue = new Vector3(0, 0, 0);
     Vector3 deltaValue = new Vector3(0, 0, 0);
     bool isDirty = true;
+    bool isMinReached = false;
+    bool isMaxReached = false;
     bool isMouseDown = false;
 
     // Use this for initialization
@@ -62,6 +64,8 @@ public class ObjectDragControl : ObjectBasicControl
                     deltaValue = new Vector3(0, 0, 0);
                 }
                 isDirty = false;
+                isMinReached = false;
+                isMaxReached = false;
             }
 
             if (!IsActivated() && !IsLocked())
@@ -87,27 +91,31 @@ public class ObjectDragControl : ObjectBasicControl
                     newDelta = (targetPos - origValue)[(int)dragAxis - 3];
                 }
 
-                //Debug.Log(curDelta + " " + newDelta);
+                
                 if (newDelta >= range.y - 0.1f)
                 {
-                    if (curDelta < range.y - 0.1f)
+                    if (!isMaxReached)
                     {
                         onMaxDrag.Invoke();
+                        isMaxReached = true;
                     }
                 }
                 else
                 if (newDelta <= range.x + 0.1f)
                 {
-                    if (curDelta > range.x + 0.1f)
+                    if (!isMinReached)
                     {
                         onMinDrag.Invoke();
+                        isMinReached = true;
                     }
                 }
                 else
                 {
-                    if (Mathf.Abs(curDelta - newDelta) >= 0.1f)
+                    if (Mathf.Abs(curDelta - newDelta) >= 0.05f)
                     {
                         onDrag.Invoke();
+                        isMaxReached = false;
+                        isMinReached = false;
                     }
                 }
             }
@@ -183,6 +191,13 @@ public class ObjectDragControl : ObjectBasicControl
     public override void Activate()
     {
         base.Activate();
+
+        isDirty = true;
+    }
+
+    public override void Deactivate()
+    {
+        base.Deactivate();
 
         isDirty = true;
     }

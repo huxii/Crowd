@@ -50,6 +50,14 @@ public abstract class PropControl : InteractableControl
     public float deltaWeight = 0f;
     protected float origWeight;
 
+    public enum PropState
+    {
+        STAY,
+        ACTIVATED,
+        DEACTIVATED,
+        WALKABLE,
+    };
+
     // Use this for initialization
     void Start()
     {
@@ -240,13 +248,21 @@ public abstract class PropControl : InteractableControl
         Deactivate();
     }
 
-    public override void Click()
+    // return next state
+    public virtual PropState Interact()
     {
-        base.Click();
-
         onInteractionFeedback.Invoke();
-        //Services.soundController.Play("objectClick");
+
+        return PropState.STAY;
     }
+
+    //public override void Click()
+    //{
+    //    base.Click();
+
+        
+    //    //Services.soundController.Play("objectClick");
+    //}
 
     public override void Lock()
     {
