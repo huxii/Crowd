@@ -6,6 +6,9 @@ using UnityEngine;
 // the objects that control or are controlled by primary objects
 public class MultiplePropControl : ObjectControl
 {
+    [Header("Multi Props")]
+    public float lockDuration = -1;
+    private float lockTimer;
 
     // Use this for initialization
     void Start()
@@ -15,6 +18,14 @@ public class MultiplePropControl : ObjectControl
     // Update is called once per frame
     void Update()
     {
+        if (lockTimer > 0)
+        {
+            lockTimer -= Time.deltaTime;
+            if (lockTimer <= 0)
+            {
+                UnlockChildren();
+            }
+        }
     }
 
     public void LockChildren()
@@ -68,6 +79,8 @@ public class MultiplePropControl : ObjectControl
 
         LockChildren();
         ActivateChildren();
+
+        lockTimer = lockDuration;
     }
 
     public override void Deactivate()

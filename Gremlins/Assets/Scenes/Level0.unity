@@ -1678,6 +1678,75 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 546163555}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &570079112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100500, guid: b9d5a19f32166c243824801449f95035,
+    type: 3}
+  m_PrefabInternal: {fileID: 2024776036}
+--- !u!65 &570079114
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 570079112}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3, y: 1.3, z: 1.4445953}
+  m_Center: {x: -0.00000022351742, y: 0.0000003874302, z: 0.5310055}
+--- !u!114 &570079115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 570079112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  interactionCD: 0
+  isWalkableAfterDeactivated: 0
+  dropMenAfterDeactivated: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2024776042}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 570079112}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &581946757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,6 +2432,12 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &745204277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
+    type: 2}
+  m_PrefabInternal: {fileID: 1472036957}
+  m_Script: {fileID: 11500000, guid: 012f5bac3034e714c96879a3c38a58be, type: 3}
 --- !u!1 &770239122
 GameObject:
   m_ObjectHideFlags: 0
@@ -3911,6 +3986,75 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1054782792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100504, guid: b9d5a19f32166c243824801449f95035,
+    type: 3}
+  m_PrefabInternal: {fileID: 2024776036}
+--- !u!65 &1054782794
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1054782792}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3, y: 1.3, z: 1.4445953}
+  m_Center: {x: 0.000000044703484, y: -0.00000014901161, z: 0.5310055}
+--- !u!114 &1054782795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1054782792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  interactionCD: 0
+  isWalkableAfterDeactivated: 0
+  dropMenAfterDeactivated: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2024776042}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1054782792}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1088944627
 GameObject:
   m_ObjectHideFlags: 0
@@ -4987,7 +5131,7 @@ Prefab:
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4461461211775692, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalPosition.x
@@ -5023,11 +5167,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015117235
+      value: 0.0151170995
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000012962078
+      value: -0.000000012962243
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5039,111 +5183,111 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0030010268
+      value: -0.0030008326
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000023058007
+      value: -0.000000023058284
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[0].topRigOrbit.x
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[0].topRigOrbit.y
-      value: 23
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[0].middleRigOrbit.y
-      value: 25
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[0].bottomRigOrbit.x
-      value: -3
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[0].bottomRigOrbit.y
-      value: 23
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[0].angleRange.x
-      value: -30
+      value: -360
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[0].angleRange.y
-      value: 30
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[0].angleZero.x
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[1].topRigOrbit.x
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[1].topRigOrbit.y
-      value: 10
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[1].middleRigOrbit.y
-      value: 14
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[1].bottomRigOrbit.x
-      value: -1
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[1].bottomRigOrbit.y
-      value: 13
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[1].angleRange.x
-      value: -10
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[1].angleRange.y
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[1].sensitivity.x
-      value: 200
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[1].sensitivity.y
-      value: 200
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[2].topRigOrbit.x
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[2].topRigOrbit.y
-      value: 14
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[2].middleRigOrbit.y
-      value: 18
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
@@ -5153,17 +5297,17 @@ Prefab:
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[2].bottomRigOrbit.y
-      value: 17
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[2].angleRange.x
-      value: -20
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: zoomLevelAttrs.Array.data[2].angleRange.y
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
@@ -5234,16 +5378,37 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -30
+      value: -27.18
       objectReference: {fileID: 0}
     - target: {fileID: 4823068933328260, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -30
+      value: -27.18
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
       propertyPath: defaultZoomLevel
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
+        type: 2}
+      propertyPath: zoomLevelAttrs.Array.data[0].angleZero.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269931472773644, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269931472773644, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823068933328260, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 8.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
@@ -6399,6 +6564,75 @@ MonoBehaviour:
   origValue: 6
   targetValue: 7.5
   anchorObj: {fileID: 877223694}
+--- !u!1 &1876070949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100502, guid: b9d5a19f32166c243824801449f95035,
+    type: 3}
+  m_PrefabInternal: {fileID: 2024776036}
+--- !u!65 &1876070951
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1876070949}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3, y: 1.3, z: 1.4445953}
+  m_Center: {x: -0.00000022351742, y: -0.00000014901161, z: 0.5310055}
+--- !u!114 &1876070952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1876070949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  interactionCD: 0
+  isWalkableAfterDeactivated: 0
+  dropMenAfterDeactivated: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2024776042}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1876070949}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1886718300
 GameObject:
   m_ObjectHideFlags: 0
@@ -7539,7 +7773,7 @@ Prefab:
     - target: {fileID: 2300082, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 328ea50559a1ec24f822cab687c7bf0b, type: 2}
+      objectReference: {fileID: 2100000, guid: 9e573c5142c2c06429d62e0beab486ea, type: 2}
     - target: {fileID: 2300100, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -7882,24 +8116,44 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100498, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100500, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100502, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100504, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300376, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3290a72551bb9b34283cbdc079360bc4, type: 2}
+    - target: {fileID: 100504, guid: b9d5a19f32166c243824801449f95035, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 100502, guid: b9d5a19f32166c243824801449f95035, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 100500, guid: b9d5a19f32166c243824801449f95035, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 100498, guid: b9d5a19f32166c243824801449f95035, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 100496, guid: b9d5a19f32166c243824801449f95035, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9d5a19f32166c243824801449f95035, type: 3}
   m_IsPrefabAsset: 0
@@ -7924,6 +8178,117 @@ MonoBehaviour:
   origValue: 10
   targetValue: 4
   anchorObj: {fileID: 964926956}
+--- !u!1 &2024776039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100498, guid: b9d5a19f32166c243824801449f95035,
+    type: 3}
+  m_PrefabInternal: {fileID: 2024776036}
+--- !u!1 &2024776040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100508, guid: b9d5a19f32166c243824801449f95035,
+    type: 3}
+  m_PrefabInternal: {fileID: 2024776036}
+--- !u!114 &2024776041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2024776039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  interactionCD: 0
+  isWalkableAfterDeactivated: 0
+  dropMenAfterDeactivated: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2024776042}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2024776039}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &2024776042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2024776040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87f938d9a95fba489a3aba8def86254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  onActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2117657023}
+        m_MethodName: Unlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  interactionCD: 0
+  isWalkableAfterDeactivated: 0
+  dropMenAfterDeactivated: 0
+  objectNumber: 4
+--- !u!65 &2024776045
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2024776039}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3, y: 1.3, z: 1.4445953}
+  m_Center: {x: 0.000000044703484, y: 0.0000003874302, z: 0.5310055}
 --- !u!1 &2036854680
 GameObject:
   m_ObjectHideFlags: 0
@@ -8207,6 +8572,117 @@ Transform:
   m_Father: {fileID: 426760024}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2117657022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100496, guid: b9d5a19f32166c243824801449f95035,
+    type: 3}
+  m_PrefabInternal: {fileID: 2024776036}
+--- !u!114 &2117657023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2117657022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 1
+  onActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1585729582}
+        m_MethodName: Move
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BackShellModel, x, 8, 1
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  interactionCD: 0
+  isWalkableAfterDeactivated: 0
+  dropMenAfterDeactivated: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDrag:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onMinDrag:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2117657023}
+        m_MethodName: Lock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 745204277}
+        m_MethodName: SetZoom
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1585729582}
+        m_MethodName: Move
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BackShellModel, x, -5, 1
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onMaxDrag:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  dragAxis: 3
+  speed: 5
+  range: {x: -3, y: 0}
+  isAxisRevert: 0
+  isSnappingBack: 0
+--- !u!65 &2117657024
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2117657022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.759855, y: 11.062604, z: 0.42269933}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2129004332
 Prefab:
   m_ObjectHideFlags: 0

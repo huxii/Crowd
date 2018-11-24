@@ -257,6 +257,7 @@ ModelImporter:
     100502: BackshellNail2
     100504: BackshellNail3
     100506: FrontShell
+    100508: BackShellNails
     400000: BackShell
     400002: Bulb
     400004: Bulb 1
@@ -511,6 +512,7 @@ ModelImporter:
     400502: BackshellNail2
     400504: BackshellNail3
     400506: FrontShell
+    400508: BackShellNails
     2100000: InnerMat
     2100002: CutoutMat
     2100004: OutterMat
