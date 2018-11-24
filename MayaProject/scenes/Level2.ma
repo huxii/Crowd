@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Level2.ma
-//Last modified: Fri, Nov 23, 2018 08:06:08 PM
+//Last modified: Fri, Nov 23, 2018 09:52:08 PM
 //Codeset: 1252
 requires maya "2018";
 requires "stereoCamera" "10.0";
@@ -15,8 +15,8 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "69C2E574-45FA-86C5-802E-A39F733991CA";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -1.3167839557145313 8.9435661213152802 -5.6202622986081323 ;
-	setAttr ".r" -type "double3" -11.138351694594403 194.19999999997697 0 ;
+	setAttr ".t" -type "double3" 0.55091090432864931 12.367535381309663 -11.320016239872885 ;
+	setAttr ".r" -type "double3" -26.738351694595572 174.99999999997422 0 ;
 	setAttr ".rp" -type "double3" 0 0 5.6843418860808016e-16 ;
 	setAttr ".rpt" -type "double3" -7.4185581585595871e-16 3.9373845254736296e-16 -7.7052824458270283e-17 ;
 createNode camera -s -n "perspShape" -p "persp";
@@ -27,7 +27,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.001;
 	setAttr ".fcp" 100;
 	setAttr ".fd" 0.05;
-	setAttr ".coi" 5.1400691371501237;
+	setAttr ".coi" 12.802161946080561;
 	setAttr ".ow" 0.1;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
@@ -38,7 +38,7 @@ createNode camera -s -n "perspShape" -p "persp";
 createNode transform -s -n "top";
 	rename -uid "66779ACE-4511-03FC-0A7C-02826983FC81";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -2.311306440080938 24.608721755651413 -0.19457340527220673 ;
+	setAttr ".t" -type "double3" -1.400105755540813 24.608721755651413 0.19594117381641846 ;
 	setAttr ".r" -type "double3" -89.999999999999986 0 0 ;
 createNode camera -s -n "topShape" -p "top";
 	rename -uid "8C72CD0B-4D23-1ED8-539F-5999417A8127";
@@ -48,7 +48,7 @@ createNode camera -s -n "topShape" -p "top";
 	setAttr ".fcp" 100;
 	setAttr ".fd" 0.05;
 	setAttr ".coi" 19.810599920594164;
-	setAttr ".ow" 3.6259378384145142;
+	setAttr ".ow" 5.5242248044103643;
 	setAttr ".imn" -type "string" "top";
 	setAttr ".den" -type "string" "top_depth";
 	setAttr ".man" -type "string" "top_mask";
@@ -70,7 +70,7 @@ createNode camera -s -n "frontShape" -p "front";
 	setAttr ".fcp" 100;
 	setAttr ".fd" 0.05;
 	setAttr ".coi" 10.824923620429802;
-	setAttr ".ow" 2.7026238659770927;
+	setAttr ".ow" 1.5657999494187667;
 	setAttr ".imn" -type "string" "front";
 	setAttr ".den" -type "string" "front_depth";
 	setAttr ".man" -type "string" "front_mask";
@@ -81,7 +81,7 @@ createNode camera -s -n "frontShape" -p "front";
 createNode transform -s -n "side";
 	rename -uid "2744D650-4E7C-1DC6-BA99-4BB4646D91F7";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 13.060603186018454 7.2746071433474535 0.36545914267842589 ;
+	setAttr ".t" -type "double3" 13.060603186018454 7.2183160008563325 0.18050253163617 ;
 	setAttr ".r" -type "double3" 0 89.999999999999986 0 ;
 createNode camera -s -n "sideShape" -p "side";
 	rename -uid "20AB63EE-4379-F9DD-4B1B-BFA8F79D4CDB";
@@ -859,16 +859,16 @@ createNode mesh -n "HandModelShape" -p "HandModel";
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode transform -n "Inflator" -p "Interactables";
 	rename -uid "68FA52BA-4430-2142-9659-6396236E5F91";
-	setAttr ".rp" -type "double3" 0.067609925270080529 7.318154907226563 0.91384628295898462 ;
-	setAttr ".sp" -type "double3" 0.067609925270080529 7.318154907226563 0.91384628295898462 ;
+	setAttr ".rp" -type "double3" -0.42494462969391189 7.318154907226563 0.42023684226072006 ;
+	setAttr ".sp" -type "double3" -0.42494462969391189 7.318154907226563 0.42023684226072006 ;
 createNode transform -n "InflatorMouth" -p "Inflator";
 	rename -uid "DCAF6C38-4EFB-F0FC-D008-E0ABB37B222F";
-	setAttr ".rp" -type "double3" 0.22445472104305722 7.0957102380426251 0.39361837752109635 ;
-	setAttr ".sp" -type "double3" 0.22445472104305722 7.0957102380426251 0.39361837752109635 ;
+	setAttr ".rp" -type "double3" -0.58178942546688861 7.0957102380426251 0.44685530700034376 ;
+	setAttr ".sp" -type "double3" -0.58178942546688861 7.0957102380426251 0.44685530700034376 ;
 createNode transform -n "InflatorMouthModel" -p "InflatorMouth";
 	rename -uid "B96A4A3A-4BA1-F2EF-5C15-E0967A816415";
-	setAttr ".rp" -type "double3" 0.23554589701315101 7.1939459548599656 0.39939471952845412 ;
-	setAttr ".sp" -type "double3" 0.23554589701315101 7.1939459548599656 0.39939471952845412 ;
+	setAttr ".rp" -type "double3" -0.59288060143698229 7.1939459548599656 0.44107896499298604 ;
+	setAttr ".sp" -type "double3" -0.59288060143698229 7.1939459548599656 0.44107896499298604 ;
 createNode mesh -n "InflatorMouthModelShape" -p "InflatorMouthModel";
 	rename -uid "3A4F50BA-4224-83EC-8E6D-43B527DF28E7";
 	setAttr -k off ".v";
@@ -882,10 +882,10 @@ createNode mesh -n "InflatorMouthModelShape" -p "InflatorMouthModel";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".pt[0:7]" -type "float3"  1.303156 0.01331827 0.66557968 
-		-0.69684416 0.01331827 0.66557968 1.303156 -0.26173615 0.66557968 -0.69684416 -0.26173615 
-		0.66557968 1.303156 -0.26173615 1.9609025 -0.69684416 -0.26173615 1.9609025 1.303156 
-		0.01331827 1.9609025 -0.69684416 0.01331827 1.9609025;
+	setAttr -s 8 ".pt[0:7]" -type "float3"  -0.5252707 0.01331827 1.0025865 
+		-0.52527064 0.01331827 1.0025865 -0.5252707 -0.26173615 1.0025865 -0.52527064 -0.26173615 
+		1.0025865 -0.5252707 -0.26173615 1.7072638 -0.52527064 -0.26173615 1.7072638 -0.5252707 
+		0.01331827 1.7072638 -0.52527064 0.01331827 1.7072638;
 	setAttr -s 8 ".vt[0:7]"  -0.56760997 7.082391739 -0.41384628 0.43239006 7.082391739 -0.41384628
 		 -0.56760997 7.55391788 -0.41384628 0.43239006 7.55391788 -0.41384628 -0.56760997 7.55391788 -1.41384625
 		 0.43239006 7.55391788 -1.41384625 -0.56760997 7.082391739 -1.41384625 0.43239006 7.082391739 -1.41384625;
@@ -911,12 +911,12 @@ createNode mesh -n "InflatorMouthModelShape" -p "InflatorMouthModel";
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode transform -n "InflatorTail" -p "Inflator";
 	rename -uid "7E0764FD-410A-F290-9392-4E9331016115";
-	setAttr ".rp" -type "double3" -0.46321588103679545 7.0823919677734377 0.38201848140528177 ;
-	setAttr ".sp" -type "double3" -0.46321588103679545 7.0823919677734377 0.38201848140528177 ;
+	setAttr ".rp" -type "double3" 0.10588117661296416 7.0823919677734377 0.45845520311615845 ;
+	setAttr ".sp" -type "double3" 0.10588117661296416 7.0823919677734377 0.45845520311615845 ;
 createNode transform -n "InflatorTailModel" -p "InflatorTail";
 	rename -uid "F4B4769B-4E28-0226-3A3E-48ABA915DCED";
-	setAttr ".rp" -type "double3" -0.44184856869416517 7.3181548717571765 0.41317779776938407 ;
-	setAttr ".sp" -type "double3" -0.44184856869416517 7.3181548717571765 0.41317779776938407 ;
+	setAttr ".rp" -type "double3" 0.084513864270333847 7.3181548717571765 0.42729588675205615 ;
+	setAttr ".sp" -type "double3" 0.084513864270333847 7.3181548717571765 0.42729588675205615 ;
 createNode mesh -n "InflatorTailModelShape" -p "InflatorTailModel";
 	rename -uid "9AB80746-4F83-5498-5285-6C888E7CD3AE";
 	setAttr -k off ".v";
@@ -930,9 +930,9 @@ createNode mesh -n "InflatorTailModelShape" -p "InflatorTailModel";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".pt[0:7]" -type "float3"  0.62576145 0 0.3270241 -1.3742386 
-		0 0.3270241 0.62576145 0 0.3270241 -1.3742386 0 0.3270241 0.62576145 0 2.327024 -1.3742386 
-		0 2.327024 0.62576145 0 2.327024 -1.3742386 0 2.327024;
+	setAttr -s 8 ".pt[0:7]" -type "float3"  0.15212379 0 1.3411422 0.15212372 
+		0 1.3411422 0.15212379 0 1.3411422 0.15212372 0 1.3411422 0.15212379 0 1.3411423 
+		0.15212372 0 1.3411423 0.15212379 0 1.3411423 0.15212372 0 1.3411423;
 	setAttr -s 8 ".vt[0:7]"  -0.56760997 7.082391739 -0.41384628 0.43239006 7.082391739 -0.41384628
 		 -0.56760997 7.55391788 -0.41384628 0.43239006 7.55391788 -0.41384628 -0.56760997 7.55391788 -1.41384625
 		 0.43239006 7.55391788 -1.41384625 -0.56760997 7.082391739 -1.41384625 0.43239006 7.082391739 -1.41384625;

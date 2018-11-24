@@ -131,6 +131,24 @@ public class PropDragTransformControlEditor : PropDragControlEditor
     }
 }
 
+[CustomEditor(typeof(PropPassiveControl))]
+public class PropPassiveControlEditor : PropControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
+[CustomEditor(typeof(PropPassiveBasicControl))]
+public class PropPassiveBasicControlEditor : PropPassiveControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
 [CustomEditor(typeof(MultiplePropControl))]
 public class MultiplePropControlEditor : Editor
 {

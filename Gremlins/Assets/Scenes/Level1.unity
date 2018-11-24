@@ -1922,7 +1922,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   dragAxis: 2
   speed: 10
-  range: {x: -1, y: 20}
+  range: {x: -3, y: 20}
   isAxisRevert: 0
   isSnappingBack: 1
 --- !u!135 &248861745
@@ -2664,6 +2664,7 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
+  lockDuration: -1
 --- !u!114 &373349952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2892,7 +2893,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015116897
+      value: 0.015117216
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -2900,7 +2901,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.003000845
+      value: -0.0030011048
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
