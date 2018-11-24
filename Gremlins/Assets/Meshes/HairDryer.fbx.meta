@@ -36,6 +36,11 @@ ModelImporter:
     100060: Stairs0
     100062: Stairs1
     100064: Tube0
+    100066: Elevator_whole
+    100068: InflatorMouth
+    100070: InflatorMouthModel
+    100072: InflatorTail
+    100074: InflatorTailModel
     400000: Can
     400002: CanTube
     400004: CanTube0
@@ -69,6 +74,11 @@ ModelImporter:
     400060: Stairs0
     400062: Stairs1
     400064: Tube0
+    400066: Elevator_whole
+    400068: InflatorMouth
+    400070: InflatorMouthModel
+    400072: InflatorTail
+    400074: InflatorTailModel
     2100000: lambert1
     2300000: Can
     2300002: CanTube
@@ -93,6 +103,8 @@ ModelImporter:
     2300040: Stairs0
     2300042: Stairs1
     2300044: Tube0
+    2300046: InflatorMouthModel
+    2300048: InflatorTailModel
     3300000: Can
     3300002: CanTube
     3300004: CanTube0
@@ -116,6 +128,8 @@ ModelImporter:
     3300040: Stairs0
     3300042: Stairs1
     3300044: Tube0
+    3300046: InflatorMouthModel
+    3300048: InflatorTailModel
     4300000: ControlPanelModel
     4300002: HamsterWheelModel
     4300004: ElevatorModel
@@ -139,6 +153,8 @@ ModelImporter:
     4300040: CanTube
     4300042: Can
     4300044: CanTube0
+    4300046: InflatorMouthModel
+    4300048: InflatorTailModel
   externalObjects: {}
   materials:
     importMaterials: 0
