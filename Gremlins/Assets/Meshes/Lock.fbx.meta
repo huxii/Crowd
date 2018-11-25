@@ -263,6 +263,25 @@ ModelImporter:
     100514: HiddenStairRope2
     100516: HiddenStairRope3
     100518: Outer
+    100520: ClockKnot1
+    100522: CloudItself
+    100524: CloudItself1
+    100526: CloudItself2
+    100528: CloudKnot
+    100530: CloudKnot1
+    100532: CloudKnot2
+    100534: HiddenStairKnot
+    100536: StarItself
+    100538: StarItself1
+    100540: StarItself2
+    100542: StarKnot
+    100544: StarKnot1
+    100546: StarKnot2
+    100548: WindowItself
+    100550: WindowItself1
+    100552: WindowKnot
+    100554: WindowKnot1
+    100556: WindowModel
     400000: BackShell
     400002: Bulb
     400004: Bulb 1
@@ -523,6 +542,25 @@ ModelImporter:
     400514: HiddenStairRope2
     400516: HiddenStairRope3
     400518: Outer
+    400520: ClockKnot1
+    400522: CloudItself
+    400524: CloudItself1
+    400526: CloudItself2
+    400528: CloudKnot
+    400530: CloudKnot1
+    400532: CloudKnot2
+    400534: HiddenStairKnot
+    400536: StarItself
+    400538: StarItself1
+    400540: StarItself2
+    400542: StarKnot
+    400544: StarKnot1
+    400546: StarKnot2
+    400548: WindowItself
+    400550: WindowItself1
+    400552: WindowKnot
+    400554: WindowKnot1
+    400556: WindowModel
     2100000: InnerMat
     2100002: CutoutMat
     2100004: OutterMat
@@ -724,6 +762,24 @@ ModelImporter:
     2300390: HiddenStairRope0
     2300392: HiddenStairRope2
     2300394: HiddenStairRope3
+    2300396: ClockKnot1
+    2300398: CloudItself
+    2300400: CloudItself1
+    2300402: CloudItself2
+    2300404: CloudKnot
+    2300406: CloudKnot1
+    2300408: CloudKnot2
+    2300410: HiddenStairKnot
+    2300412: StarItself
+    2300414: StarItself1
+    2300416: StarItself2
+    2300418: StarKnot
+    2300420: StarKnot1
+    2300422: StarKnot2
+    2300424: WindowItself
+    2300426: WindowItself1
+    2300428: WindowKnot
+    2300430: WindowKnot1
     3300000: BackShell
     3300002: Bulb
     3300004: Bulb 1
@@ -922,6 +978,24 @@ ModelImporter:
     3300390: HiddenStairRope0
     3300392: HiddenStairRope2
     3300394: HiddenStairRope3
+    3300396: ClockKnot1
+    3300398: CloudItself
+    3300400: CloudItself1
+    3300402: CloudItself2
+    3300404: CloudKnot
+    3300406: CloudKnot1
+    3300408: CloudKnot2
+    3300410: HiddenStairKnot
+    3300412: StarItself
+    3300414: StarItself1
+    3300416: StarItself2
+    3300418: StarKnot
+    3300420: StarKnot1
+    3300422: StarKnot2
+    3300424: WindowItself
+    3300426: WindowItself1
+    3300428: WindowKnot
+    3300430: WindowKnot1
     4300000: Ladder
     4300002: Wheet13
     4300004: Fence
@@ -1120,6 +1194,24 @@ ModelImporter:
     4300390: HiddenStairRope0
     4300392: HiddenStairRope2
     4300394: HiddenStairRope3
+    4300396: StarItself1
+    4300398: StarKnot1
+    4300400: WindowItself1
+    4300402: WindowKnot1
+    4300404: WindowItself
+    4300406: WindowKnot
+    4300408: StarItself
+    4300410: StarKnot
+    4300412: StarItself2
+    4300414: StarKnot2
+    4300416: CloudItself
+    4300418: CloudKnot
+    4300420: CloudItself1
+    4300422: CloudKnot1
+    4300424: CloudItself2
+    4300426: CloudKnot2
+    4300428: ClockKnot1
+    4300430: HiddenStairKnot
     9500000: //RootNode
     13700000: Wheet13
   externalObjects: {}
