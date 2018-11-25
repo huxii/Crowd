@@ -262,6 +262,7 @@ ModelImporter:
     100512: HiddenStairRope0
     100514: HiddenStairRope2
     100516: HiddenStairRope3
+    100518: Outer
     400000: BackShell
     400002: Bulb
     400004: Bulb 1
@@ -521,6 +522,7 @@ ModelImporter:
     400512: HiddenStairRope0
     400514: HiddenStairRope2
     400516: HiddenStairRope3
+    400518: Outer
     2100000: InnerMat
     2100002: CutoutMat
     2100004: OutterMat

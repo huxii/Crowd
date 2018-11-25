@@ -474,6 +474,7 @@ ModelImporter:
     100936: CartWithLink1
     100938: CartWithLink2
     100940: CartWithLink3
+    100942: Outer
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -945,6 +946,7 @@ ModelImporter:
     400936: CartWithLink1
     400938: CartWithLink2
     400940: CartWithLink3
+    400942: Outer
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
