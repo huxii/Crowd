@@ -45,6 +45,6 @@ public class PropAutoDeactivateControl : PropAutoControl
     {
         base.Deactivate();
 
-        FreeAllMan();
+        FreeAllMen();
     }
 }

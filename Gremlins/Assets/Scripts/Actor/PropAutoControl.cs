@@ -22,34 +22,4 @@ public abstract class PropAutoControl : PropControl
 
         Activate();
     }
-
-    public override PropState Interact()
-    {
-        if (IsLocked())
-        {
-            if (isWalkableAfterDeactivated)
-            {
-                return PropState.WALKABLE;
-            }
-            else
-            {
-                return PropState.STAY;
-            }
-        }
-        else
-        {
-            onInteractionFeedback.Invoke();
-
-            if (IsActivated())
-            {
-                return PropState.DEACTIVATED;
-            }
-            else
-            {
-                return PropState.ACTIVATED;
-            }
-        }
-
-        return PropState.STAY;
-    }
 }
