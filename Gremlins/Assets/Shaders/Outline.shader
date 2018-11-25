@@ -62,9 +62,9 @@
 
 			o.Emission = tex2D(_EmissionMap, IN.uv_MainTex).rgb * _EmissionColor.rgb;
 
-			float3 specGloss = tex2D(_SpecMap, IN.uv_MainTex).rgb;
+			half4 specGloss = tex2D(_SpecMap, IN.uv_MainTex);
 			o.Specular = specGloss.r;
-			o.Gloss = specGloss.g;
+			o.Gloss = specGloss.a;
 		}
 		ENDCG
 		
