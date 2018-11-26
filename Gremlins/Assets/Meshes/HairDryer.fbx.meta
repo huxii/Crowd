@@ -42,6 +42,56 @@ ModelImporter:
     100072: InflatorTail
     100074: InflatorTailModel
     100076: BlockBar
+    100078: CanBase
+    100080: CanTop
+    100082: ControlBar
+    100084: ControlBarModel
+    100086: ControlBarTop
+    100088: ControlCenter
+    100090: ControlPanelItself
+    100092: ControlRoomTop
+    100094: FartCanTube
+    100096: FartCanTubeBase
+    100098: Hand0
+    100100: Hand0Finger0
+    100102: Hand0Finger0 1
+    100104: Hand0Finger0 2
+    100106: Hand0Finger1
+    100108: Hand0Finger1 1
+    100110: Hand0Finger1 2
+    100112: Hand1
+    100114: Hand2
+    100116: HandBase
+    100118: OutTube
+    100120: Stairs
+    100122: StairsPlatform
+    100124: Tube
+    100126: BumpWall
+    100128: FanBase
+    100130: FanTube
+    100132: FanTubeBase
+    100134: HamsterWheelBase
+    100136: MetalFrame
+    100138: MetalWeb
+    100140: Web
+    100142: WheelDoor
+    100144: WheelFan
+    100146: WheelFan1
+    100148: WheelFan2
+    100150: WheelFan3
+    100152: WheelFan4
+    100154: WheelFan5
+    100156: WheelFan6
+    100158: WheelFan7
+    100160: WheelPivot
+    100162: InflatorInner0
+    100164: InflatorInner1
+    100166: InflatorInner2
+    100168: InflatorInners
+    100170: InflatorShell0
+    100172: InflatorShell1
+    100174: InflatorShell2
+    100176: InflatorTailBase
     400000: Can
     400002: CanTube
     400004: CanTube0
@@ -81,6 +131,56 @@ ModelImporter:
     400072: InflatorTail
     400074: InflatorTailModel
     400076: BlockBar
+    400078: CanBase
+    400080: CanTop
+    400082: ControlBar
+    400084: ControlBarModel
+    400086: ControlBarTop
+    400088: ControlCenter
+    400090: ControlPanelItself
+    400092: ControlRoomTop
+    400094: FartCanTube
+    400096: FartCanTubeBase
+    400098: Hand0
+    400100: Hand0Finger0
+    400102: Hand0Finger0 1
+    400104: Hand0Finger0 2
+    400106: Hand0Finger1
+    400108: Hand0Finger1 1
+    400110: Hand0Finger1 2
+    400112: Hand1
+    400114: Hand2
+    400116: HandBase
+    400118: OutTube
+    400120: Stairs
+    400122: StairsPlatform
+    400124: Tube
+    400126: BumpWall
+    400128: FanBase
+    400130: FanTube
+    400132: FanTubeBase
+    400134: HamsterWheelBase
+    400136: MetalFrame
+    400138: MetalWeb
+    400140: Web
+    400142: WheelDoor
+    400144: WheelFan
+    400146: WheelFan1
+    400148: WheelFan2
+    400150: WheelFan3
+    400152: WheelFan4
+    400154: WheelFan5
+    400156: WheelFan6
+    400158: WheelFan7
+    400160: WheelPivot
+    400162: InflatorInner0
+    400164: InflatorInner1
+    400166: InflatorInner2
+    400168: InflatorInners
+    400170: InflatorShell0
+    400172: InflatorShell1
+    400174: InflatorShell2
+    400176: InflatorTailBase
     2100000: lambert1
     2300000: Can
     2300002: CanTube
@@ -108,6 +208,47 @@ ModelImporter:
     2300046: InflatorMouthModel
     2300048: InflatorTailModel
     2300050: BlockBar
+    2300052: CanBase
+    2300054: CanTop
+    2300056: ControlBarModel
+    2300058: ControlBarTop
+    2300060: ControlPanelItself
+    2300062: ControlRoomTop
+    2300064: FartCanTubeBase
+    2300066: Hand0Finger0
+    2300068: Hand0Finger0 1
+    2300070: Hand0Finger0 2
+    2300072: Hand0Finger1
+    2300074: Hand0Finger1 1
+    2300076: Hand0Finger1 2
+    2300078: HandBase
+    2300080: OutTube
+    2300082: StairsPlatform
+    2300084: Tube
+    2300086: BumpWall
+    2300088: FanBase
+    2300090: FanTube
+    2300092: FanTubeBase
+    2300094: HamsterWheelBase
+    2300096: MetalFrame
+    2300098: Web
+    2300100: WheelDoor
+    2300102: WheelFan
+    2300104: WheelFan1
+    2300106: WheelFan2
+    2300108: WheelFan3
+    2300110: WheelFan4
+    2300112: WheelFan5
+    2300114: WheelFan6
+    2300116: WheelFan7
+    2300118: WheelPivot
+    2300120: InflatorInner0
+    2300122: InflatorInner1
+    2300124: InflatorInner2
+    2300126: InflatorShell0
+    2300128: InflatorShell1
+    2300130: InflatorShell2
+    2300132: InflatorTailBase
     3300000: Can
     3300002: CanTube
     3300004: CanTube0
@@ -134,6 +275,47 @@ ModelImporter:
     3300046: InflatorMouthModel
     3300048: InflatorTailModel
     3300050: BlockBar
+    3300052: CanBase
+    3300054: CanTop
+    3300056: ControlBarModel
+    3300058: ControlBarTop
+    3300060: ControlPanelItself
+    3300062: ControlRoomTop
+    3300064: FartCanTubeBase
+    3300066: Hand0Finger0
+    3300068: Hand0Finger0 1
+    3300070: Hand0Finger0 2
+    3300072: Hand0Finger1
+    3300074: Hand0Finger1 1
+    3300076: Hand0Finger1 2
+    3300078: HandBase
+    3300080: OutTube
+    3300082: StairsPlatform
+    3300084: Tube
+    3300086: BumpWall
+    3300088: FanBase
+    3300090: FanTube
+    3300092: FanTubeBase
+    3300094: HamsterWheelBase
+    3300096: MetalFrame
+    3300098: Web
+    3300100: WheelDoor
+    3300102: WheelFan
+    3300104: WheelFan1
+    3300106: WheelFan2
+    3300108: WheelFan3
+    3300110: WheelFan4
+    3300112: WheelFan5
+    3300114: WheelFan6
+    3300116: WheelFan7
+    3300118: WheelPivot
+    3300120: InflatorInner0
+    3300122: InflatorInner1
+    3300124: InflatorInner2
+    3300126: InflatorShell0
+    3300128: InflatorShell1
+    3300130: InflatorShell2
+    3300132: InflatorTailBase
     4300000: ControlPanelModel
     4300002: HamsterWheelModel
     4300004: ElevatorModel
@@ -160,6 +342,47 @@ ModelImporter:
     4300046: InflatorMouthModel
     4300048: InflatorTailModel
     4300050: BlockBar
+    4300052: ControlPanelItself
+    4300054: ControlBarModel
+    4300056: ControlBarTop
+    4300058: HandBase
+    4300060: Hand0Finger0
+    4300062: Hand0Finger1
+    4300064: Hand0Finger0
+    4300066: Hand0Finger1
+    4300068: Hand0Finger0
+    4300070: Hand0Finger1
+    4300072: Tube
+    4300074: FartCanTubeBase
+    4300076: CanBase
+    4300078: CanTop
+    4300080: ControlRoomTop
+    4300082: StairsPlatform
+    4300084: OutTube
+    4300086: WheelDoor
+    4300088: HamsterWheelBase
+    4300090: WheelFan
+    4300092: WheelFan1
+    4300094: WheelFan2
+    4300096: WheelFan3
+    4300098: WheelFan4
+    4300100: WheelFan5
+    4300102: WheelFan6
+    4300104: WheelFan7
+    4300106: WheelPivot
+    4300108: FanTubeBase
+    4300110: FanTube
+    4300112: FanBase
+    4300114: BumpWall
+    4300116: MetalFrame
+    4300118: Web
+    4300120: InflatorTailBase
+    4300122: InflatorShell0
+    4300124: InflatorShell1
+    4300126: InflatorShell2
+    4300128: InflatorInner0
+    4300130: InflatorInner1
+    4300132: InflatorInner2
   externalObjects: {}
   materials:
     importMaterials: 0
