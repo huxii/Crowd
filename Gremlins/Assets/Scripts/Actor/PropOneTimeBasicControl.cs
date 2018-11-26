@@ -22,7 +22,7 @@ public class PropOneTimeBasicControl : PropOneTimeControl
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                FreeAllMan();
+                FreeAllMen();
                 Deactivate();
             }
         }
@@ -39,7 +39,7 @@ public class PropOneTimeBasicControl : PropOneTimeControl
         }
         else
         {
-            FreeAllMan();
+            FreeAllMen();
             Lock();
             Deactivate();
         }

@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // activate by other props when slots are filled
-public class PropPassiveBasicControl : PropControl
+public class PropPassiveBasicControl : PropPassiveControl
 {
+    public int remainingTimes;
+    private int timesCounter;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -15,4 +18,22 @@ public class PropPassiveBasicControl : PropControl
 	void Update ()
     {
 	}
+
+    public override void OnSlotsFull()
+    {
+        base.OnSlotsFull();
+
+        timesCounter = remainingTimes;
+    }
+
+    public override void Activate()
+    {
+        base.Activate();
+
+        --timesCounter;
+        if (timesCounter == 0)
+        {
+            Deactivate();
+        }
+    }
 }

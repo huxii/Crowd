@@ -48,7 +48,7 @@ public class PropOneTimeSwipeControl : PropOneTimeControl
                 )
                 .OnComplete(() =>
                 {
-                    FreeAllMan();
+                    FreeAllMen();
                     Lock();
                     onReachEnd.Invoke();
 

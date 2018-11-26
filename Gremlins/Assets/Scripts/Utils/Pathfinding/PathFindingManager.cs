@@ -81,8 +81,10 @@ public abstract class PathFindingManager : MonoBehaviour
             {
                 pathTable.Remove(actor);
             }
-
-            ActorMoveUpdate(actor);
+            else
+            {
+                ActorMoveUpdate(actor);
+            }
         }
     }
 

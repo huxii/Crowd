@@ -126,10 +126,9 @@ public class TileBasedPathFindingManager : PathFindingManager
             else
             {
                 Services.gameController.SetManTargetPosition(actor, path.paths[1], path.tol, path.pathTypes[1]);
+                path.paths.RemoveAt(0);
+                path.pathTypes.RemoveAt(0);
             }
-
-            path.paths.RemoveAt(0);
-            path.pathTypes.RemoveAt(0);
         }
     }
 
@@ -343,12 +342,14 @@ public class TileBasedPathFindingManager : PathFindingManager
     public override void Move(GameObject actor, float posTol, Crowd.Event endEvent)
     {
         base.Move(actor, posTol, endEvent);
-
+        //Debug.Log(actor.gameObject.name + " " + ((TileBasedFoundPath)recentPath).paths.Count);
         var manArrivedEvent = endEvent as ManArrives;
         if (manArrivedEvent.obj == null)
         {
             ((TileBasedFoundPath)recentPath).paths.RemoveAt(((TileBasedFoundPath)recentPath).paths.Count - 1);
         }
+
+        //Debug.Log(actor.gameObject.name + " " + ((TileBasedFoundPath)recentPath).paths.Count);
     }
 
     public override void Refresh()

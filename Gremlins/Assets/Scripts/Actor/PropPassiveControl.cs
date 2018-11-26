@@ -2,19 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// activate by other props when slots are filled
+// activate and deactivate by other props when slots are filled
 public abstract class PropPassiveControl : PropControl
 {
-    public enum PassiveScheme
-    {
-        ACTIVATE,
-        DEACTIVATE,
-        BOTH
-    };
-
-    [Header("Passive Control")]
-    public PassiveScheme passiveScheme = PassiveScheme.BOTH;
-
     // Use this for initialization
     void Start()
     {
@@ -26,39 +16,22 @@ public abstract class PropPassiveControl : PropControl
     {
     }
 
-    public override PropState Interact()
+    public override void OnSlotsFull()
     {
-        if (IsLocked())
-        {
-            if (isWalkableAfterDeactivated)
-            {
-                return PropState.WALKABLE;
-            }
-            else
-            {
-                return PropState.STAY;
-            }
-        }
-        else
-        {
-            if (IsActivated())
-            {
-                if (passiveScheme != PassiveScheme.DEACTIVATE && passiveScheme != PassiveScheme.BOTH)
-                {
-                    onInteractionFeedback.Invoke();
-                    return PropState.DEACTIVATED;
-                }
-            }
-            else
-            {
-                if (passiveScheme != PassiveScheme.ACTIVATE && passiveScheme != PassiveScheme.BOTH)
-                {
-                    onInteractionFeedback.Invoke();
-                    return PropState.ACTIVATED;
-                }
-            }
-        }
+        base.OnSlotsFull();
 
-        return PropState.STAY;
+        LockAllMen();
+    }
+
+    public override void OnSlotsNotFull()
+    {
+    }
+
+    public override void Deactivate()
+    {
+        base.Deactivate();
+
+        UnlockAllMen();
+        FreeAllMen();
     }
 }

@@ -225,7 +225,7 @@ public class DotweenEvents : MonoBehaviour
         ParseNewPara(para);
 
         GameObject obj = ParseGameObject();
-        Vector3 deltaRot = ParseIncrement();
+        Vector3 deltaPos = ParseIncrement();
         float time = ParseTime();
         int loop = ParseLoop();
         bool isLocalAxis = ParseIsLocalAxis();
@@ -239,7 +239,7 @@ public class DotweenEvents : MonoBehaviour
         if (!isLocalAxis)
         {
             Vector3 origPos = obj.transform.localPosition;
-            Vector3 targetPos = obj.transform.localPosition + deltaRot;
+            Vector3 targetPos = obj.transform.localPosition + deltaPos;
 
             seq.Append(obj.transform.DOLocalMove(targetPos, time * 0.5f));
             seq.Append(obj.transform.DOLocalMove(origPos, time * 0.5f));
@@ -247,9 +247,9 @@ public class DotweenEvents : MonoBehaviour
         }
         else
         {
-            Vector3 dir = obj.transform.right * deltaRot.x
-                + obj.transform.up * deltaRot.y
-                + obj.transform.forward * deltaRot.z;
+            Vector3 dir = obj.transform.right * deltaPos.x
+                + obj.transform.up * deltaPos.y
+                + obj.transform.forward * deltaPos.z;
             Vector3 origPos = obj.transform.position;
             Vector3 targetPos = obj.transform.position + dir;
 
@@ -301,6 +301,27 @@ public class DotweenEvents : MonoBehaviour
             seq.Append(obj.transform.DOMove(origPos, 0.25f * time).SetEase(Ease.Linear));
             seq.SetLoops(loop, LoopType.Restart);
         }
+    }
+
+    public void Scale(string para)
+    {
+        ParseNewPara(para);
+
+        GameObject obj = ParseGameObject();
+        Vector3 newScale = ParseIncrement(1, 1, 1);
+        newScale = new Vector3(
+            obj.transform.localScale.x * newScale.x,
+            obj.transform.localScale.y * newScale.y,
+            obj.transform.localScale.z * newScale.z
+            );
+        float time = ParseTime();
+
+        if (obj == null)
+        {
+            return;
+        }
+
+        obj.transform.DOScale(newScale, time);
     }
 
     public void ScaleTo(string para)

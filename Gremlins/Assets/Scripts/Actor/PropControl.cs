@@ -52,10 +52,10 @@ public abstract class PropControl : InteractableControl
 
     public enum PropState
     {
-        STAY,
-        ACTIVATED,
-        DEACTIVATED,
-        WALKABLE,
+        DISABLE,
+        NOTFULL,
+        FULL,
+        PATH,
     };
 
     // Use this for initialization
@@ -167,6 +167,11 @@ public abstract class PropControl : InteractableControl
         return slots[id].obj;
     }
 
+    public GameObject GetSlotMan(int id)
+    {
+        return slots[id].man;
+    }
+
     public int GetEmptySlotNum()
     {
         return slots.Count - currentSlots;
@@ -177,13 +182,35 @@ public abstract class PropControl : InteractableControl
         return transform.position + freeManSlotOffset;
     }
 
-    public void FreeAllMan()
+    public void FreeAllMen()
     {
         foreach (SlotAttr slot in slots)
         {
             if (slot.man != null)
             {
                 Services.gameController.FreeMan(slot.man);
+            }
+        }
+    }
+
+    public void LockAllMen()
+    {
+        foreach (SlotAttr slot in slots)
+        {
+            if (slot.man != null)
+            {
+                Services.gameController.LockMan(slot.man);
+            }
+        }
+    }
+
+    public void UnlockAllMen()
+    {
+        foreach (SlotAttr slot in slots)
+        {
+            if (slot.man != null)
+            {
+                Services.gameController.UnlockMan(slot.man);
             }
         }
     }
@@ -251,16 +278,39 @@ public abstract class PropControl : InteractableControl
     // return next state
     public virtual PropState Interact()
     {
-        onInteractionFeedback.Invoke();
+        if (IsLocked())
+        {
+            if (isWalkableAfterDeactivated)
+            {
+                return PropState.PATH;
+            }
+            else
+            {
+                return PropState.DISABLE;
+            }
+        }
+        else
+        {
+            onInteractionFeedback.Invoke();
 
-        return PropState.STAY;
+            if (IsReady())
+            {
+                return PropState.FULL;
+            }
+            else
+            {
+                return PropState.NOTFULL;
+            }
+        }
+
+        return PropState.DISABLE;
     }
 
     //public override void Click()
     //{
     //    base.Click();
 
-        
+
     //    //Services.soundController.Play("objectClick");
     //}
 

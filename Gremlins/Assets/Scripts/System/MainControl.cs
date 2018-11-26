@@ -194,8 +194,8 @@ public class MainControl : MonoBehaviour
             return;
         }
 
-        PropControl.PropState nextState = obj.GetComponent<PropControl>().Interact();
-        if (nextState == PropControl.PropState.ACTIVATED)
+        PropControl.PropState propState = obj.GetComponent<PropControl>().Interact();
+        if (propState == PropControl.PropState.NOTFULL)
         {
             SortedDictionary<float, GameObject> sortByDistance = new SortedDictionary<float, GameObject>();
             if (selectedMen != null)
@@ -238,21 +238,21 @@ public class MainControl : MonoBehaviour
             else
             {
                 // no any avaliable men, release all the man to avoid dead lock
-                obj.GetComponent<PropControl>().FreeAllMan();
+                obj.GetComponent<PropControl>().FreeAllMen();
             }
         }
         else
-        if (nextState == PropControl.PropState.DEACTIVATED)
+        if (propState == PropControl.PropState.FULL)
         {
-            obj.GetComponent<PropControl>().FreeAllMan();
+            obj.GetComponent<PropControl>().FreeAllMen();
         }
         else
-        if (nextState == PropControl.PropState.WALKABLE)
+        if (propState == PropControl.PropState.PATH)
         {
             MoveMenToPosition(pos, selectedMen);
         }
         else
-        if (nextState == PropControl.PropState.STAY)
+        if (propState == PropControl.PropState.DISABLE)
         {
             foreach (GameObject man in men)
             {
@@ -391,6 +391,16 @@ public class MainControl : MonoBehaviour
         {
             man.GetComponent<CrowdControl>().OrderFailed();
         }
+    }
+
+    public void LockMan(GameObject man)
+    {
+        man.GetComponent<CrowdControl>().Lock();
+    }
+
+    public void UnlockMan(GameObject man)
+    {
+        man.GetComponent<CrowdControl>().Unlock();
     }
 
     public void FreeMan(GameObject man)
