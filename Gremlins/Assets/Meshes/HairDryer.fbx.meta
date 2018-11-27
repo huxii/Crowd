@@ -92,6 +92,33 @@ ModelImporter:
     100172: InflatorShell1
     100174: InflatorShell2
     100176: InflatorTailBase
+    100178: CanBase_leaf
+    100180: CanBase_leaf1
+    100182: CanBase_leaf2
+    100184: CanBase_leaf3
+    100186: CanBase_ring
+    100188: CanHand
+    100190: CanSurface
+    100192: FanLeaf0
+    100194: FanLeaf1
+    100196: FanLeaf2
+    100198: FanLeaf3
+    100200: FanLeaves
+    100202: FanPivot
+    100204: Floor6
+    100206: LightBase
+    100208: LightBase 1
+    100210: LightBase 2
+    100212: LightBulb
+    100214: LightBulb 1
+    100216: LightBulb 2
+    100218: TopLight
+    100220: TopLight1
+    100222: TopLight2
+    100224: TopTube
+    100226: TopTube 1
+    100228: TopTube1
+    100230: TopTube2
     400000: Can
     400002: CanTube
     400004: CanTube0
@@ -181,6 +208,33 @@ ModelImporter:
     400172: InflatorShell1
     400174: InflatorShell2
     400176: InflatorTailBase
+    400178: CanBase_leaf
+    400180: CanBase_leaf1
+    400182: CanBase_leaf2
+    400184: CanBase_leaf3
+    400186: CanBase_ring
+    400188: CanHand
+    400190: CanSurface
+    400192: FanLeaf0
+    400194: FanLeaf1
+    400196: FanLeaf2
+    400198: FanLeaf3
+    400200: FanLeaves
+    400202: FanPivot
+    400204: Floor6
+    400206: LightBase
+    400208: LightBase 1
+    400210: LightBase 2
+    400212: LightBulb
+    400214: LightBulb 1
+    400216: LightBulb 2
+    400218: TopLight
+    400220: TopLight1
+    400222: TopLight2
+    400224: TopTube
+    400226: TopTube 1
+    400228: TopTube1
+    400230: TopTube2
     2100000: lambert1
     2300000: Can
     2300002: CanTube
@@ -249,6 +303,28 @@ ModelImporter:
     2300128: InflatorShell1
     2300130: InflatorShell2
     2300132: InflatorTailBase
+    2300134: CanBase_leaf
+    2300136: CanBase_leaf1
+    2300138: CanBase_leaf2
+    2300140: CanBase_leaf3
+    2300142: CanBase_ring
+    2300144: CanHand
+    2300146: CanSurface
+    2300148: FanLeaf0
+    2300150: FanLeaf1
+    2300152: FanLeaf2
+    2300154: FanLeaf3
+    2300156: FanPivot
+    2300158: Floor6
+    2300160: LightBase
+    2300162: LightBase 1
+    2300164: LightBase 2
+    2300166: LightBulb
+    2300168: LightBulb 1
+    2300170: LightBulb 2
+    2300172: TopTube 1
+    2300174: TopTube1
+    2300176: TopTube2
     3300000: Can
     3300002: CanTube
     3300004: CanTube0
@@ -316,6 +392,28 @@ ModelImporter:
     3300128: InflatorShell1
     3300130: InflatorShell2
     3300132: InflatorTailBase
+    3300134: CanBase_leaf
+    3300136: CanBase_leaf1
+    3300138: CanBase_leaf2
+    3300140: CanBase_leaf3
+    3300142: CanBase_ring
+    3300144: CanHand
+    3300146: CanSurface
+    3300148: FanLeaf0
+    3300150: FanLeaf1
+    3300152: FanLeaf2
+    3300154: FanLeaf3
+    3300156: FanPivot
+    3300158: Floor6
+    3300160: LightBase
+    3300162: LightBase 1
+    3300164: LightBase 2
+    3300166: LightBulb
+    3300168: LightBulb 1
+    3300170: LightBulb 2
+    3300172: TopTube 1
+    3300174: TopTube1
+    3300176: TopTube2
     4300000: ControlPanelModel
     4300002: HamsterWheelModel
     4300004: ElevatorModel
@@ -383,6 +481,28 @@ ModelImporter:
     4300128: InflatorInner0
     4300130: InflatorInner1
     4300132: InflatorInner2
+    4300134: CanSurface
+    4300136: CanHand
+    4300138: CanBase_leaf
+    4300140: CanBase_leaf1
+    4300142: CanBase_leaf3
+    4300144: CanBase_leaf2
+    4300146: CanBase_ring
+    4300148: FanLeaf0
+    4300150: FanLeaf1
+    4300152: FanLeaf2
+    4300154: FanLeaf3
+    4300156: FanPivot
+    4300158: TopTube
+    4300160: TopTube1
+    4300162: TopTube2
+    4300164: LightBase
+    4300166: LightBulb
+    4300168: LightBase
+    4300170: LightBulb
+    4300172: LightBase
+    4300174: LightBulb
+    4300176: Floor6
   externalObjects: {}
   materials:
     importMaterials: 0

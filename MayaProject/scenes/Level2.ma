@@ -1,9 +1,9 @@
 //Maya ASCII 2018 scene
 //Name: Level2.ma
-//Last modified: Tue, Nov 27, 2018 12:31:08 AM
+//Last modified: Tue, Nov 27, 2018 11:04:50 AM
 //Codeset: 1252
 requires maya "2018";
-requires "stereoCamera" "10.0";
+requires "mtoa" "3.1.1";
 requires "stereoCamera" "10.0";
 currentUnit -l meter -a degree -t film;
 fileInfo "application" "maya";
@@ -15,8 +15,8 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "69C2E574-45FA-86C5-802E-A39F733991CA";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -1.0940231031855923 8.4713615257363504 -22.440226862428251 ;
-	setAttr ".r" -type "double3" 716.66164830698995 -1980.1999999984712 0 ;
+	setAttr ".t" -type "double3" -2.7497929329342816 10.876754080562021 -27.637158493031176 ;
+	setAttr ".r" -type "double3" 708.26164830698724 -1978.1999999984653 0 ;
 	setAttr ".rp" -type "double3" 0 0 5.6843418860808016e-16 ;
 	setAttr ".rpt" -type "double3" -7.4185581585595871e-16 3.9373845254736296e-16 -7.7052824458270283e-17 ;
 createNode camera -s -n "perspShape" -p "persp";
@@ -26,7 +26,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.001;
 	setAttr ".fcp" 100;
 	setAttr ".fd" 0.05;
-	setAttr ".coi" 23.635899344717654;
+	setAttr ".coi" 29.289934562284408;
 	setAttr ".ow" 0.1;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
@@ -9731,31 +9731,31 @@ createNode camera -n "backShape2" -p "back1";
 	setAttr ".hc" -type "string" "viewSet -b %camera";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
-createNode transform -n "Meshes_high";
+createNode transform -n "Meshes";
 	rename -uid "D21B3363-46AD-8618-D3AD-BD895D9B9009";
 	setAttr ".rp" -type "double3" 0 -0.12777770996093751 0 ;
 	setAttr ".sp" -type "double3" 0 -0.12777770996093751 0 ;
-createNode transform -n "Inner" -p "Meshes_high";
+createNode transform -n "Inner" -p "Meshes";
 	rename -uid "64F9FA1D-43C9-BEFC-9FC0-E3B79A436851";
 	setAttr ".rp" -type "double3" 0 3 0 ;
 	setAttr ".sp" -type "double3" 0 3 0 ;
-createNode transform -n "Interactables" -p "|Meshes_high|Inner";
+createNode transform -n "Interactables" -p "|Meshes|Inner";
 	rename -uid "A58522D8-49E1-7D61-E582-969DBCC82AF5";
 	setAttr ".rp" -type "double3" 0 3 0 ;
 	setAttr ".sp" -type "double3" 0 3 0 ;
-createNode transform -n "ControlPanel" -p "|Meshes_high|Inner|Interactables";
+createNode transform -n "ControlPanel" -p "|Meshes|Inner|Interactables";
 	rename -uid "BC521CDF-4E0C-D49D-3E47-65A2B68392AC";
 	setAttr ".rp" -type "double3" 1.3604721069335945 1.7294671630859377 -1.2877921170373789 ;
 	setAttr ".sp" -type "double3" 1.3604721069335945 1.7294671630859377 -1.2877921170373789 ;
-createNode transform -n "ControlPanelModel" -p "|Meshes_high|Inner|Interactables|ControlPanel";
+createNode transform -n "ControlPanelModel" -p "|Meshes|Inner|Interactables|ControlPanel";
 	rename -uid "639F38B9-46DF-787A-47AF-B685AECCF902";
 	setAttr ".rp" -type "double3" 0 0 -0.027976214327418064 ;
 	setAttr ".sp" -type "double3" 0 0 -0.027976214327418064 ;
-createNode transform -n "ControlPanelItself" -p "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel";
+createNode transform -n "ControlPanelItself" -p "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel";
 	rename -uid "CE38AA05-4226-7C36-F0DF-9AAD15870063";
 	setAttr ".rp" -type "double3" 1.0668674903599973 2.0766760252713703 -1.7947714209265868 ;
 	setAttr ".sp" -type "double3" 1.0668674903599973 2.0766760252713703 -1.7947714209265868 ;
-createNode mesh -n "ControlPanelItselfShape" -p "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel|ControlPanelItself";
+createNode mesh -n "ControlPanelItselfShape" -p "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel|ControlPanelItself";
 	rename -uid "507007D9-45DB-A63A-9B85-6B880154B6ED";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -9795,15 +9795,15 @@ createNode mesh -n "ControlPanelItselfShape" -p "|Meshes_high|Inner|Interactable
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "ControlBar" -p "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel";
+createNode transform -n "ControlBar" -p "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel";
 	rename -uid "C06BC7DB-4370-1240-132D-D09DFBAD1BF0";
 	setAttr ".rp" -type "double3" 1.0637239837646484 2.1405127784043492 -1.7920774716516368 ;
 	setAttr ".sp" -type "double3" 1.0637239837646484 2.1405127784043492 -1.7920774716516368 ;
-createNode transform -n "ControlBarModel" -p "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar";
+createNode transform -n "ControlBarModel" -p "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar";
 	rename -uid "0A761D74-4B1E-32F3-1EF1-1DB908FC562C";
 	setAttr ".rp" -type "double3" 1.0637239606218367 2.2731228531715919 -1.7920774382463771 ;
 	setAttr ".sp" -type "double3" 1.0637239606218367 2.2731228531715919 -1.7920774382463771 ;
-createNode mesh -n "ControlBarModelShape" -p "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarModel";
+createNode mesh -n "ControlBarModelShape" -p "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarModel";
 	rename -uid "BE10AC02-48AA-CC7D-91C7-B489B788791A";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -9815,7 +9815,7 @@ createNode mesh -n "ControlBarModelShape" -p "|Meshes_high|Inner|Interactables|C
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape12" -p "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarModel";
+createNode mesh -n "polySurfaceShape12" -p "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarModel";
 	rename -uid "C0D8C8B5-4DF0-7B6B-C29E-D7915E32A142";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -9868,11 +9868,11 @@ createNode mesh -n "polySurfaceShape12" -p "|Meshes_high|Inner|Interactables|Con
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "ControlBarTop" -p "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar";
+createNode transform -n "ControlBarTop" -p "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar";
 	rename -uid "8F273BC1-44CF-3D13-DF44-F2BEC2C98BAB";
 	setAttr ".rp" -type "double3" 1.0637239837646484 2.4866462442619688 -1.7920774716516368 ;
 	setAttr ".sp" -type "double3" 1.0637239837646484 2.4866462442619688 -1.7920774716516368 ;
-createNode mesh -n "ControlBarTopShape" -p "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarTop";
+createNode mesh -n "ControlBarTopShape" -p "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarTop";
 	rename -uid "B03EE39C-4F39-07E0-D5A8-CF9F7384BC22";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -9884,7 +9884,7 @@ createNode mesh -n "ControlBarTopShape" -p "|Meshes_high|Inner|Interactables|Con
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape11" -p "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarTop";
+createNode mesh -n "polySurfaceShape11" -p "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarTop";
 	rename -uid "78A06FE7-4459-E5D5-E559-7F8A497D994A";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -10093,15 +10093,15 @@ createNode mesh -n "polySurfaceShape11" -p "|Meshes_high|Inner|Interactables|Con
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "HamsterWheel" -p "|Meshes_high|Inner|Interactables";
+createNode transform -n "HamsterWheel" -p "|Meshes|Inner|Interactables";
 	rename -uid "D6A4DFE4-4A11-CB13-3734-81A7F1391150";
 	setAttr ".rp" -type "double3" -2.3162400688331894 4.5161564636230471 3.4990948486328124 ;
 	setAttr ".sp" -type "double3" -2.3162400688331894 4.5161564636230471 3.4990948486328124 ;
-createNode transform -n "WheelDoor" -p "|Meshes_high|Inner|Interactables|HamsterWheel";
+createNode transform -n "WheelDoor" -p "|Meshes|Inner|Interactables|HamsterWheel";
 	rename -uid "A35B99D1-48E1-52F6-E698-BC89A1913B50";
 	setAttr ".rp" -type "double3" -2.9813003404511318 3.900173851185988 2.1085877051626079 ;
 	setAttr ".sp" -type "double3" -2.9813003404511318 3.900173851185988 2.1085877051626079 ;
-createNode mesh -n "WheelDoorShape" -p "|Meshes_high|Inner|Interactables|HamsterWheel|WheelDoor";
+createNode mesh -n "WheelDoorShape" -p "|Meshes|Inner|Interactables|HamsterWheel|WheelDoor";
 	rename -uid "EAF42195-4EAA-E135-16F5-6E8D46FDD0D6";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -10140,11 +10140,11 @@ createNode mesh -n "WheelDoorShape" -p "|Meshes_high|Inner|Interactables|Hamster
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "GlassRoom" -p "|Meshes_high|Inner|Interactables|HamsterWheel";
+createNode transform -n "GlassRoom" -p "|Meshes|Inner|Interactables|HamsterWheel";
 	rename -uid "FE5346B0-4EAD-D647-8380-D3B600759261";
 	setAttr ".rp" -type "double3" -2.4826618249575803 4.5596492855303312 2.9678454232489435 ;
 	setAttr ".sp" -type "double3" -2.4826618249575803 4.5596492855303312 2.9678454232489435 ;
-createNode mesh -n "GlassRoomShape" -p "|Meshes_high|Inner|Interactables|HamsterWheel|GlassRoom";
+createNode mesh -n "GlassRoomShape" -p "|Meshes|Inner|Interactables|HamsterWheel|GlassRoom";
 	rename -uid "B8E53A9E-4034-3487-D57A-97978D7E0874";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -10402,15 +10402,15 @@ createNode mesh -n "GlassRoomShape" -p "|Meshes_high|Inner|Interactables|Hamster
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "HamsterWheelModel" -p "|Meshes_high|Inner|Interactables|HamsterWheel";
+createNode transform -n "HamsterWheelModel" -p "|Meshes|Inner|Interactables|HamsterWheel";
 	rename -uid "941DA1EB-4E95-1979-ACD6-F9BAF6381647";
 	setAttr ".rp" -type "double3" -2.1429643119972512 4.2691662597656252 3.2004451831877367 ;
 	setAttr ".sp" -type "double3" -2.1429643119972512 4.2691662597656252 3.2004451831877367 ;
-createNode transform -n "HamsterWheelBase" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel";
+createNode transform -n "HamsterWheelBase" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel";
 	rename -uid "B97F5B31-4C7F-75B8-3135-B185834EDDA2";
 	setAttr ".rp" -type "double3" -2.1429643132172083 4.269166365387143 2.9543750747252906 ;
 	setAttr ".sp" -type "double3" -2.1429643132172083 4.269166365387143 2.9543750747252906 ;
-createNode mesh -n "HamsterWheelBaseShape" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|HamsterWheelBase";
+createNode mesh -n "HamsterWheelBaseShape" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|HamsterWheelBase";
 	rename -uid "114863FD-4F75-08FD-C75C-37B2FB83322C";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -10674,11 +10674,11 @@ createNode mesh -n "HamsterWheelBaseShape" -p "|Meshes_high|Inner|Interactables|
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "WheelFan" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel";
+createNode transform -n "WheelFan" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel";
 	rename -uid "CEE9247C-423E-DD64-F446-CD8DAD7AF534";
 	setAttr ".rp" -type "double3" -2.1429643119972512 4.2691662597656252 2.8862871130835588 ;
 	setAttr ".sp" -type "double3" -2.1429643119972512 4.2691662597656252 2.8862871130835588 ;
-createNode mesh -n "WheelFanShape" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan";
+createNode mesh -n "WheelFanShape" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan";
 	rename -uid "0C39AF5B-4B02-4F96-096A-27ADEFFA5BC1";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -10717,11 +10717,11 @@ createNode mesh -n "WheelFanShape" -p "|Meshes_high|Inner|Interactables|HamsterW
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "WheelFan1" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel";
+createNode transform -n "WheelFan1" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel";
 	rename -uid "0989A127-464C-5F52-2F40-929412874A8A";
 	setAttr ".rp" -type "double3" -2.1429643119972512 4.2691662597656244 2.8862871130835588 ;
 	setAttr ".sp" -type "double3" -2.1429643119972512 4.2691662597656244 2.8862871130835588 ;
-createNode mesh -n "WheelFan1Shape" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan1";
+createNode mesh -n "WheelFan1Shape" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan1";
 	rename -uid "95B5C048-4965-0D81-D1FB-CDA6DE0565A2";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -10761,11 +10761,11 @@ createNode mesh -n "WheelFan1Shape" -p "|Meshes_high|Inner|Interactables|Hamster
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "WheelFan2" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel";
+createNode transform -n "WheelFan2" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel";
 	rename -uid "D5349C07-409C-1B35-416B-088DCA6B77EC";
 	setAttr ".rp" -type "double3" -2.1429643119972499 4.2691662597656261 2.8862871130835588 ;
 	setAttr ".sp" -type "double3" -2.1429643119972499 4.2691662597656261 2.8862871130835588 ;
-createNode mesh -n "WheelFan2Shape" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan2";
+createNode mesh -n "WheelFan2Shape" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan2";
 	rename -uid "D9BFD300-4089-6120-F882-57AEF909C695";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -10805,11 +10805,11 @@ createNode mesh -n "WheelFan2Shape" -p "|Meshes_high|Inner|Interactables|Hamster
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "WheelFan3" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel";
+createNode transform -n "WheelFan3" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel";
 	rename -uid "2139E429-41B2-5700-49CF-23AFE976E1C1";
 	setAttr ".rp" -type "double3" -2.142964311997249 4.2691662597656226 2.8862871130835588 ;
 	setAttr ".sp" -type "double3" -2.142964311997249 4.2691662597656226 2.8862871130835588 ;
-createNode mesh -n "WheelFan3Shape" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan3";
+createNode mesh -n "WheelFan3Shape" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan3";
 	rename -uid "667B3913-418C-0038-D8ED-F49929CCED82";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -10849,11 +10849,11 @@ createNode mesh -n "WheelFan3Shape" -p "|Meshes_high|Inner|Interactables|Hamster
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "WheelFan4" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel";
+createNode transform -n "WheelFan4" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel";
 	rename -uid "E36BB543-4598-55EA-C3A2-85A65B3CAB21";
 	setAttr ".rp" -type "double3" -2.1429643119972477 4.2691662597656244 2.8862871130835588 ;
 	setAttr ".sp" -type "double3" -2.1429643119972477 4.2691662597656244 2.8862871130835588 ;
-createNode mesh -n "WheelFan4Shape" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan4";
+createNode mesh -n "WheelFan4Shape" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan4";
 	rename -uid "0B92B31D-4556-39D7-BD54-19887CA5A147";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -10893,11 +10893,11 @@ createNode mesh -n "WheelFan4Shape" -p "|Meshes_high|Inner|Interactables|Hamster
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "WheelFan5" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel";
+createNode transform -n "WheelFan5" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel";
 	rename -uid "4F2315B1-4F28-E85C-382B-81AA41E20FD4";
 	setAttr ".rp" -type "double3" -2.1429643119972446 4.2691662597656173 2.8862871130835588 ;
 	setAttr ".sp" -type "double3" -2.1429643119972446 4.2691662597656173 2.8862871130835588 ;
-createNode mesh -n "WheelFan5Shape" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan5";
+createNode mesh -n "WheelFan5Shape" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan5";
 	rename -uid "6CDE2DB1-4230-4516-6BF3-B9AD6C067E72";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -10937,11 +10937,11 @@ createNode mesh -n "WheelFan5Shape" -p "|Meshes_high|Inner|Interactables|Hamster
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "WheelFan6" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel";
+createNode transform -n "WheelFan6" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel";
 	rename -uid "E24AD051-4850-1B86-DDA0-6094D82CCBA3";
 	setAttr ".rp" -type "double3" -2.1429643119972468 4.2691662597656173 2.8862871130835588 ;
 	setAttr ".sp" -type "double3" -2.1429643119972468 4.2691662597656173 2.8862871130835588 ;
-createNode mesh -n "WheelFan6Shape" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan6";
+createNode mesh -n "WheelFan6Shape" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan6";
 	rename -uid "69F1FA11-41A4-81E7-AD5E-D8B212231EF4";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -10981,11 +10981,11 @@ createNode mesh -n "WheelFan6Shape" -p "|Meshes_high|Inner|Interactables|Hamster
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "WheelFan7" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel";
+createNode transform -n "WheelFan7" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel";
 	rename -uid "FFD8AB68-440C-2785-9280-2CAA905E8171";
 	setAttr ".rp" -type "double3" -2.1429643119972459 4.2691662597656181 2.8862871130835588 ;
 	setAttr ".sp" -type "double3" -2.1429643119972459 4.2691662597656181 2.8862871130835588 ;
-createNode mesh -n "WheelFan7Shape" -p "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan7";
+createNode mesh -n "WheelFan7Shape" -p "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan7";
 	rename -uid "0E2DDE50-4123-EC81-85F3-789E33DA75EE";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -11025,11 +11025,11 @@ createNode mesh -n "WheelFan7Shape" -p "|Meshes_high|Inner|Interactables|Hamster
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "WheelPivot" -p "|Meshes_high|Inner|Interactables|HamsterWheel";
+createNode transform -n "WheelPivot" -p "|Meshes|Inner|Interactables|HamsterWheel";
 	rename -uid "10D5D8D9-43E7-7E09-F6C2-9CAB66CF9544";
 	setAttr ".rp" -type "double3" -2.1429643119972512 4.2691662597656252 3.1280012078895338 ;
 	setAttr ".sp" -type "double3" -2.1429643119972512 4.2691662597656252 3.1280012078895338 ;
-createNode mesh -n "WheelPivotShape" -p "|Meshes_high|Inner|Interactables|HamsterWheel|WheelPivot";
+createNode mesh -n "WheelPivotShape" -p "|Meshes|Inner|Interactables|HamsterWheel|WheelPivot";
 	rename -uid "FB5EA300-45BF-99EB-9751-A5ACFD95B846";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -11124,11 +11124,11 @@ createNode mesh -n "WheelPivotShape" -p "|Meshes_high|Inner|Interactables|Hamste
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "FanTubeBase" -p "|Meshes_high|Inner|Interactables|HamsterWheel";
+createNode transform -n "FanTubeBase" -p "|Meshes|Inner|Interactables|HamsterWheel";
 	rename -uid "6FBA3F39-42A8-0C69-B4EC-1794D8843650";
 	setAttr ".rp" -type "double3" -3.5847818068081376 5.4673670366596774 2.776467537754153 ;
 	setAttr ".sp" -type "double3" -3.5847818068081376 5.4673670366596774 2.776467537754153 ;
-createNode mesh -n "FanTubeBaseShape" -p "|Meshes_high|Inner|Interactables|HamsterWheel|FanTubeBase";
+createNode mesh -n "FanTubeBaseShape" -p "|Meshes|Inner|Interactables|HamsterWheel|FanTubeBase";
 	rename -uid "FEFF21C1-4B76-A65D-F57C-FFA9956C035E";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -11212,15 +11212,15 @@ createNode mesh -n "FanTubeBaseShape" -p "|Meshes_high|Inner|Interactables|Hamst
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Hand" -p "|Meshes_high|Inner|Interactables";
+createNode transform -n "Hand" -p "|Meshes|Inner|Interactables";
 	rename -uid "F7FA4A4D-41FB-9523-5272-69981A53792A";
 	setAttr ".rp" -type "double3" 1.2878974914550785 3.271004638671875 -1.267308947481715 ;
 	setAttr ".sp" -type "double3" 1.2878974914550785 3.271004638671875 -1.267308947481715 ;
-createNode transform -n "HandBase" -p "|Meshes_high|Inner|Interactables|Hand";
+createNode transform -n "HandBase" -p "|Meshes|Inner|Interactables|Hand";
 	rename -uid "A493F142-4507-2E6B-C760-0086F3EDD506";
 	setAttr ".rp" -type "double3" 1.2878974914550783 3.4719472604516426 -1.7679774350305433 ;
 	setAttr ".sp" -type "double3" 1.2878974914550783 3.4719472604516426 -1.7679774350305433 ;
-createNode mesh -n "HandBaseShape" -p "|Meshes_high|Inner|Interactables|Hand|HandBase";
+createNode mesh -n "HandBaseShape" -p "|Meshes|Inner|Interactables|Hand|HandBase";
 	rename -uid "04CB106C-417F-AB3A-1AB6-0CA6A30F751E";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -11407,15 +11407,15 @@ createNode mesh -n "HandBaseShape" -p "|Meshes_high|Inner|Interactables|Hand|Han
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Hand0" -p "|Meshes_high|Inner|Interactables|Hand";
+createNode transform -n "Hand0" -p "|Meshes|Inner|Interactables|Hand";
 	rename -uid "22621E2E-41B6-DF8A-1381-CC8488539D55";
 	setAttr ".rp" -type "double3" 1.2878974914550783 3.6949938964843749 -1.7679774350305433 ;
 	setAttr ".sp" -type "double3" 1.2878974914550783 3.6949938964843749 -1.7679774350305433 ;
-createNode transform -n "Hand0Finger0" -p "|Meshes_high|Inner|Interactables|Hand|Hand0";
+createNode transform -n "Hand0Finger0" -p "|Meshes|Inner|Interactables|Hand|Hand0";
 	rename -uid "61EBB6D5-4283-F7A4-7022-BB93ADD2E9B3";
 	setAttr ".rp" -type "double3" 1.2878974914550783 3.668643345922447 -2.0274418674327181 ;
 	setAttr ".sp" -type "double3" 1.2878974914550783 3.668643345922447 -2.0274418674327181 ;
-createNode mesh -n "Hand0FingerShape0" -p "|Meshes_high|Inner|Interactables|Hand|Hand0|Hand0Finger0";
+createNode mesh -n "Hand0FingerShape0" -p "|Meshes|Inner|Interactables|Hand|Hand0|Hand0Finger0";
 	rename -uid "D4251167-4A9E-9702-B5C8-5F95E7FF8691";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -11455,11 +11455,11 @@ createNode mesh -n "Hand0FingerShape0" -p "|Meshes_high|Inner|Interactables|Hand
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Hand0Finger1" -p "|Meshes_high|Inner|Interactables|Hand|Hand0";
+createNode transform -n "Hand0Finger1" -p "|Meshes|Inner|Interactables|Hand|Hand0";
 	rename -uid "4DF4CF7E-4C89-900C-D429-B2A014E5D95D";
 	setAttr ".rp" -type "double3" 1.2878974914550783 3.9295949523176139 -2.0519177461554445 ;
 	setAttr ".sp" -type "double3" 1.2878974914550783 3.9295949523176139 -2.0519177461554445 ;
-createNode mesh -n "Hand0FingerShape1" -p "|Meshes_high|Inner|Interactables|Hand|Hand0|Hand0Finger1";
+createNode mesh -n "Hand0FingerShape1" -p "|Meshes|Inner|Interactables|Hand|Hand0|Hand0Finger1";
 	rename -uid "16C95AEC-417D-9CB6-257E-C89B1A3DD577";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -11499,15 +11499,15 @@ createNode mesh -n "Hand0FingerShape1" -p "|Meshes_high|Inner|Interactables|Hand
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Hand1" -p "|Meshes_high|Inner|Interactables|Hand";
+createNode transform -n "Hand1" -p "|Meshes|Inner|Interactables|Hand";
 	rename -uid "B3FC94A7-43FA-797F-BCFB-0692083D4B5B";
 	setAttr ".rp" -type "double3" 1.2878974914550783 3.6949938964843749 -1.7679774350305431 ;
 	setAttr ".sp" -type "double3" 1.2878974914550783 3.6949938964843749 -1.7679774350305431 ;
-createNode transform -n "Hand0Finger0" -p "|Meshes_high|Inner|Interactables|Hand|Hand1";
+createNode transform -n "Hand0Finger0" -p "|Meshes|Inner|Interactables|Hand|Hand1";
 	rename -uid "4B988C19-4707-AF18-2FC1-BF971F0A80DC";
 	setAttr ".rp" -type "double3" 1.0631947016162844 3.668643345922447 -1.6382452188294558 ;
 	setAttr ".sp" -type "double3" 1.0631947016162844 3.668643345922447 -1.6382452188294558 ;
-createNode mesh -n "Hand0FingerShape0" -p "|Meshes_high|Inner|Interactables|Hand|Hand1|Hand0Finger0";
+createNode mesh -n "Hand0FingerShape0" -p "|Meshes|Inner|Interactables|Hand|Hand1|Hand0Finger0";
 	rename -uid "B6D874F0-47D0-C5EA-ED0E-0F83ED1B6F2C";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -11547,11 +11547,11 @@ createNode mesh -n "Hand0FingerShape0" -p "|Meshes_high|Inner|Interactables|Hand
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Hand0Finger1" -p "|Meshes_high|Inner|Interactables|Hand|Hand1";
+createNode transform -n "Hand0Finger1" -p "|Meshes|Inner|Interactables|Hand|Hand1";
 	rename -uid "BA7F44AF-42EB-B68C-34B3-448550F701DF";
 	setAttr ".rp" -type "double3" 1.0419979688624565 3.9295949523176139 -1.6260072794680929 ;
 	setAttr ".sp" -type "double3" 1.0419979688624565 3.9295949523176139 -1.6260072794680929 ;
-createNode mesh -n "Hand0FingerShape1" -p "|Meshes_high|Inner|Interactables|Hand|Hand1|Hand0Finger1";
+createNode mesh -n "Hand0FingerShape1" -p "|Meshes|Inner|Interactables|Hand|Hand1|Hand0Finger1";
 	rename -uid "BDFD6AF6-4629-8E1B-D36F-FF9F5E3FFF4F";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -11591,15 +11591,15 @@ createNode mesh -n "Hand0FingerShape1" -p "|Meshes_high|Inner|Interactables|Hand
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Hand2" -p "|Meshes_high|Inner|Interactables|Hand";
+createNode transform -n "Hand2" -p "|Meshes|Inner|Interactables|Hand";
 	rename -uid "D1242FDA-4BC7-4515-5514-E4847A8DE52D";
 	setAttr ".rp" -type "double3" 1.2878974914550778 3.6949938964843749 -1.7679774350305422 ;
 	setAttr ".sp" -type "double3" 1.2878974914550778 3.6949938964843749 -1.7679774350305422 ;
-createNode transform -n "Hand0Finger0" -p "|Meshes_high|Inner|Interactables|Hand|Hand2";
+createNode transform -n "Hand0Finger0" -p "|Meshes|Inner|Interactables|Hand|Hand2";
 	rename -uid "6AF8BDBE-47FE-9577-7551-61B2C1CD80A4";
 	setAttr ".rp" -type "double3" 1.5126002812938715 3.668643345922447 -1.6382452188294543 ;
 	setAttr ".sp" -type "double3" 1.5126002812938715 3.668643345922447 -1.6382452188294543 ;
-createNode mesh -n "Hand0FingerShape0" -p "|Meshes_high|Inner|Interactables|Hand|Hand2|Hand0Finger0";
+createNode mesh -n "Hand0FingerShape0" -p "|Meshes|Inner|Interactables|Hand|Hand2|Hand0Finger0";
 	rename -uid "61467A4F-471E-772F-BEB0-BAAD797E2E63";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -11639,11 +11639,11 @@ createNode mesh -n "Hand0FingerShape0" -p "|Meshes_high|Inner|Interactables|Hand
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Hand0Finger1" -p "|Meshes_high|Inner|Interactables|Hand|Hand2";
+createNode transform -n "Hand0Finger1" -p "|Meshes|Inner|Interactables|Hand|Hand2";
 	rename -uid "BCEABC3D-4E6F-F854-2029-A18875A8C0C2";
 	setAttr ".rp" -type "double3" 1.5337970140476993 3.9295949523176139 -1.6260072794680911 ;
 	setAttr ".sp" -type "double3" 1.5337970140476993 3.9295949523176139 -1.6260072794680911 ;
-createNode mesh -n "Hand0FingerShape1" -p "|Meshes_high|Inner|Interactables|Hand|Hand2|Hand0Finger1";
+createNode mesh -n "Hand0FingerShape1" -p "|Meshes|Inner|Interactables|Hand|Hand2|Hand0Finger1";
 	rename -uid "1F03FF0D-4ECD-5886-7E95-ECB50D6A7709";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -11683,19 +11683,19 @@ createNode mesh -n "Hand0FingerShape1" -p "|Meshes_high|Inner|Interactables|Hand
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Inflator" -p "|Meshes_high|Inner|Interactables";
+createNode transform -n "Inflator" -p "|Meshes|Inner|Interactables";
 	rename -uid "E4A105D1-49CC-2E7D-B427-9BA540D77994";
 	setAttr ".rp" -type "double3" -0.91950820496387142 7.318154907226563 -1.7656284516448222 ;
 	setAttr ".sp" -type "double3" -0.91950820496387142 7.318154907226563 -1.7656284516448222 ;
-createNode transform -n "InflatorMouth" -p "|Meshes_high|Inner|Interactables|Inflator";
+createNode transform -n "InflatorMouth" -p "|Meshes|Inner|Interactables|Inflator";
 	rename -uid "9B901528-4277-E901-168F-F29B374F1B08";
 	setAttr ".rp" -type "double3" -1.076353000736848 7.0957102380426251 -1.7390099869051989 ;
 	setAttr ".sp" -type "double3" -1.076353000736848 7.0957102380426251 -1.7390099869051989 ;
-createNode transform -n "InflatorMouthModel" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorMouth";
+createNode transform -n "InflatorMouthModel" -p "|Meshes|Inner|Interactables|Inflator|InflatorMouth";
 	rename -uid "41B73250-4C71-DD86-D062-9689A3DE10DF";
 	setAttr ".rp" -type "double3" -1.5373409695231075 7.4483940604729462 -1.7604844665527344 ;
 	setAttr ".sp" -type "double3" -1.5373409695231075 7.4483940604729462 -1.7604844665527344 ;
-createNode mesh -n "InflatorMouthModelShape" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorMouth|InflatorMouthModel";
+createNode mesh -n "InflatorMouthModelShape" -p "|Meshes|Inner|Interactables|Inflator|InflatorMouth|InflatorMouthModel";
 	rename -uid "B4F652C2-49F9-E313-7704-09BDB34B992E";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -11784,15 +11784,15 @@ createNode mesh -n "InflatorMouthModelShape" -p "|Meshes_high|Inner|Interactable
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "InflatorTail" -p "|Meshes_high|Inner|Interactables|Inflator";
+createNode transform -n "InflatorTail" -p "|Meshes|Inner|Interactables|Inflator";
 	rename -uid "328BDA5E-4E12-008C-B8BC-02A4DF6E078E";
 	setAttr ".rp" -type "double3" -0.38868239865699539 7.0823919677734377 -1.7274100907893839 ;
 	setAttr ".sp" -type "double3" -0.38868239865699539 7.0823919677734377 -1.7274100907893839 ;
-createNode transform -n "InflatorTailBase" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail";
+createNode transform -n "InflatorTailBase" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail";
 	rename -uid "AB471271-4882-7754-97B0-BD98E893AE90";
 	setAttr ".rp" -type "double3" -0.61090903335495272 7.202895983141266 -1.7585694071534863 ;
 	setAttr ".sp" -type "double3" -0.61090903335495272 7.202895983141266 -1.7585694071534863 ;
-createNode mesh -n "InflatorTailBaseShape" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorTailBase";
+createNode mesh -n "InflatorTailBaseShape" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorTailBase";
 	rename -uid "2A3B83AD-434C-43D7-0680-2890DEAF6287";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -11873,13 +11873,13 @@ createNode mesh -n "InflatorTailBaseShape" -p "|Meshes_high|Inner|Interactables|
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "InflatorShell0" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail";
+createNode transform -n "InflatorShell0" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail";
 	rename -uid "4215DD6F-45F7-3F49-E7B0-A88D3371DB0E";
 	setAttr ".r" -type "double3" 0 0 29.999999999999996 ;
 	setAttr ".rp" -type "double3" 2.6991167125881508 7.2862066225812763 -1.7585694071534863 ;
 	setAttr ".rpt" -type "double3" -4.0047163829983079 0.37339176609059965 0 ;
 	setAttr ".sp" -type "double3" 2.6991167125881508 7.2862066225812763 -1.7585694071534863 ;
-createNode mesh -n "InflatorShell0Shape" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorShell0";
+createNode mesh -n "InflatorShell0Shape" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorShell0";
 	rename -uid "5DD543EA-4067-0F9C-BA69-30B371AD9AE1";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -11919,7 +11919,7 @@ createNode mesh -n "InflatorShell0Shape" -p "|Meshes_high|Inner|Interactables|In
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape6" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorShell0";
+createNode mesh -n "polySurfaceShape6" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorShell0";
 	rename -uid "8FAE5556-4593-B29B-8C82-FDA8DC1B1AA3";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -11961,13 +11961,13 @@ createNode mesh -n "polySurfaceShape6" -p "|Meshes_high|Inner|Interactables|Infl
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "InflatorShell1" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail";
+createNode transform -n "InflatorShell1" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail";
 	rename -uid "4774CD84-4DD4-CA23-EFF1-10A34E864977";
 	setAttr ".r" -type "double3" 0 0 20 ;
 	setAttr ".rp" -type "double3" 1.372178578407399 7.5242175301198131 -1.7585694071534863 ;
 	setAttr ".rpt" -type "double3" -2.6561864519425558 0.015546874177059919 0 ;
 	setAttr ".sp" -type "double3" 1.3721785784074001 7.5242175301198158 -1.7585694071534863 ;
-createNode mesh -n "InflatorShell1Shape" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorShell1";
+createNode mesh -n "InflatorShell1Shape" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorShell1";
 	rename -uid "BBF3FF98-46DD-BE0E-BA7A-C7AEF1713C40";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -12006,7 +12006,7 @@ createNode mesh -n "InflatorShell1Shape" -p "|Meshes_high|Inner|Interactables|In
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape6" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorShell1";
+createNode mesh -n "polySurfaceShape6" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorShell1";
 	rename -uid "EDE020B2-482D-F788-56EE-76A101FDD203";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -12048,7 +12048,7 @@ createNode mesh -n "polySurfaceShape6" -p "|Meshes_high|Inner|Interactables|Infl
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape7" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorShell1";
+createNode mesh -n "polySurfaceShape7" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorShell1";
 	rename -uid "32256D9C-44EB-C87A-AF44-089B15DFF082";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -12090,13 +12090,13 @@ createNode mesh -n "polySurfaceShape7" -p "|Meshes_high|Inner|Interactables|Infl
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "InflatorShell2" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail";
+createNode transform -n "InflatorShell2" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail";
 	rename -uid "5EF7E7CE-4B1F-164F-AEA9-0491ECF86055";
 	setAttr ".r" -type "double3" 0 0 10 ;
 	setAttr ".rp" -type "double3" 0.032996222947778903 7.5814391075538436 -1.7585694071534863 ;
 	setAttr ".rpt" -type "double3" -1.3170043718882101 -0.10944936146008956 0 ;
 	setAttr ".sp" -type "double3" 0.032996222947780748 7.5814391075538516 -1.7585694071534863 ;
-createNode mesh -n "InflatorShell2Shape" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorShell2";
+createNode mesh -n "InflatorShell2Shape" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorShell2";
 	rename -uid "E7154E68-4F16-DA9A-A5CA-04ADE43AA747";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -12135,7 +12135,7 @@ createNode mesh -n "InflatorShell2Shape" -p "|Meshes_high|Inner|Interactables|In
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape6" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorShell2";
+createNode mesh -n "polySurfaceShape6" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorShell2";
 	rename -uid "6691B3CB-4144-1339-D7E8-509210741F0F";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -12177,7 +12177,7 @@ createNode mesh -n "polySurfaceShape6" -p "|Meshes_high|Inner|Interactables|Infl
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape7" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorShell2";
+createNode mesh -n "polySurfaceShape7" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorShell2";
 	rename -uid "8381F3E1-4C64-38BB-398F-B5B75C90F302";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -12219,13 +12219,13 @@ createNode mesh -n "polySurfaceShape7" -p "|Meshes_high|Inner|Interactables|Infl
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "InflatorInners" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail";
+createNode transform -n "InflatorInners" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail";
 	rename -uid "D68BEEB0-47D8-671B-738C-8AAEEB0DC510";
-createNode transform -n "InflatorInner0" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorInners";
+createNode transform -n "InflatorInner0" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorInners";
 	rename -uid "6509E940-43BD-D02B-1668-02B953D59339";
 	setAttr ".rp" -type "double3" -0.64497806311643058 7.3860649387651005 -1.7607041012165627 ;
 	setAttr ".sp" -type "double3" -0.64497806311643058 7.3860649387651041 -1.7607041012165627 ;
-createNode mesh -n "InflatorInnerShape0" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorInners|InflatorInner0";
+createNode mesh -n "InflatorInnerShape0" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorInners|InflatorInner0";
 	rename -uid "E29703E9-480D-41EF-11B3-FCAC876A0B88";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -12265,13 +12265,13 @@ createNode mesh -n "InflatorInnerShape0" -p "|Meshes_high|Inner|Interactables|In
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "InflatorInner1" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorInners";
+createNode transform -n "InflatorInner1" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorInners";
 	rename -uid "F6641484-48AD-1587-9679-DF8CFFCDBD1E";
 	setAttr ".r" -type "double3" 0 0 10 ;
 	setAttr ".rp" -type "double3" 0.68559377948750555 7.5708187160550473 -1.7607041012165627 ;
 	setAttr ".rpt" -type "double3" -1.3250745835209161 0.0040343625936827363 0 ;
 	setAttr ".sp" -type "double3" 0.68559377948750555 7.5708187160550482 -1.7607041012165627 ;
-createNode mesh -n "InflatorInnerShape1" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorInners|InflatorInner1";
+createNode mesh -n "InflatorInnerShape1" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorInners|InflatorInner1";
 	rename -uid "27064EC2-4F46-90ED-5C99-3AA336109B59";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -12311,13 +12311,13 @@ createNode mesh -n "InflatorInnerShape1" -p "|Meshes_high|Inner|Interactables|In
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "InflatorInner2" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorInners";
+createNode transform -n "InflatorInner2" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorInners";
 	rename -uid "CD8CC522-43DA-2A66-4733-0EB562D93751";
 	setAttr ".r" -type "double3" 0 0 20 ;
 	setAttr ".rp" -type "double3" 2.0340989835489593 7.5285469402652474 -1.7607041012165627 ;
 	setAttr ".rpt" -type "double3" -2.69758588230343 0.24167589063434577 0 ;
 	setAttr ".sp" -type "double3" 2.0340989835489593 7.5285469402652474 -1.7607041012165627 ;
-createNode mesh -n "InflatorInnerShape2" -p "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorInners|InflatorInner2";
+createNode mesh -n "InflatorInnerShape2" -p "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorInners|InflatorInner2";
 	rename -uid "B07F3318-4A07-54C0-D4AA-3EB553A0C58E";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -12357,19 +12357,19 @@ createNode mesh -n "InflatorInnerShape2" -p "|Meshes_high|Inner|Interactables|In
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Elevator_whole" -p "|Meshes_high|Inner|Interactables";
+createNode transform -n "Elevator_whole" -p "|Meshes|Inner|Interactables";
 	rename -uid "C102E6B8-4C1D-C11B-BA7A-F3989DCA9B0D";
 	setAttr ".rp" -type "double3" 1.2088344051669773 3.1906811523437502 2.9773033683604315 ;
 	setAttr ".sp" -type "double3" 1.2088344051669773 3.1906811523437502 2.9773033683604315 ;
-createNode transform -n "Elevator" -p "|Meshes_high|Inner|Interactables|Elevator_whole";
+createNode transform -n "Elevator" -p "|Meshes|Inner|Interactables|Elevator_whole";
 	rename -uid "8E26B545-4EBE-0C37-AA10-04B8DDCFDD78";
 	setAttr ".rp" -type "double3" 1.2291763305664059 3 3.4662997436523439 ;
 	setAttr ".sp" -type "double3" 1.2291763305664059 3 3.4662997436523439 ;
-createNode transform -n "ElevatorModel" -p "|Meshes_high|Inner|Interactables|Elevator_whole|Elevator";
+createNode transform -n "ElevatorModel" -p "|Meshes|Inner|Interactables|Elevator_whole|Elevator";
 	rename -uid "93FF469B-45A7-75BC-53A2-78BFC7A17FE6";
 	setAttr ".rp" -type "double3" 1.2291763542786052 3.1496509190988342 2.6220299768902176 ;
 	setAttr ".sp" -type "double3" 1.2291763542786052 3.1496509190988342 2.6220299768902176 ;
-createNode mesh -n "ElevatorModelShape" -p "|Meshes_high|Inner|Interactables|Elevator_whole|Elevator|ElevatorModel";
+createNode mesh -n "ElevatorModelShape" -p "|Meshes|Inner|Interactables|Elevator_whole|Elevator|ElevatorModel";
 	rename -uid "90D674AF-4AC4-73D2-8122-7694F78EB3D8";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -12408,15 +12408,15 @@ createNode mesh -n "ElevatorModelShape" -p "|Meshes_high|Inner|Interactables|Ele
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Settings" -p "|Meshes_high|Inner";
+createNode transform -n "Settings" -p "|Meshes|Inner";
 	rename -uid "68D1F25B-42CF-03C0-596E-B9BD033F7B00";
 	setAttr ".rp" -type "double3" 0 3 0 ;
 	setAttr ".sp" -type "double3" 0 3 0 ;
-createNode transform -n "Desk" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "Desk" -p "|Meshes|Inner|Settings";
 	rename -uid "4EB7CEDB-4628-4D01-80E3-5A951364A353";
 	setAttr ".rp" -type "double3" 2.7329158905528566 7.4919463428240034 2.962695246157466 ;
 	setAttr ".sp" -type "double3" 2.7329158905528566 7.4919463428240034 2.962695246157466 ;
-createNode mesh -n "DeskShape" -p "|Meshes_high|Inner|Settings|Desk";
+createNode mesh -n "DeskShape" -p "|Meshes|Inner|Settings|Desk";
 	rename -uid "8152F57E-4F7F-8EE4-76AB-C28F03065A37";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -12455,11 +12455,11 @@ createNode mesh -n "DeskShape" -p "|Meshes_high|Inner|Settings|Desk";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Shelf" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "Shelf" -p "|Meshes|Inner|Settings";
 	rename -uid "1FF80975-4937-6BBF-EF65-1891ED8662CF";
 	setAttr ".rp" -type "double3" 2.6133086702225894 8.6361999985286158 3.258712991824642 ;
 	setAttr ".sp" -type "double3" 2.6133086702225894 8.6361999985286158 3.258712991824642 ;
-createNode mesh -n "ShelfShape" -p "|Meshes_high|Inner|Settings|Shelf";
+createNode mesh -n "ShelfShape" -p "|Meshes|Inner|Settings|Shelf";
 	rename -uid "B4570B13-43E8-5AEB-66DA-AD81B75A3E43";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -12521,11 +12521,11 @@ createNode mesh -n "ShelfShape" -p "|Meshes_high|Inner|Settings|Shelf";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "GlassTube" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "GlassTube" -p "|Meshes|Inner|Settings";
 	rename -uid "30CBAA84-4752-6DE6-F84F-0B9B9FAEDBD8";
 	setAttr ".rp" -type "double3" -0.011841565835820314 5.9785296038626425 2.6242441054111936 ;
 	setAttr ".sp" -type "double3" -0.011841565835820314 5.9785296038626425 2.6242441054111936 ;
-createNode mesh -n "GlassTubeShape" -p "|Meshes_high|Inner|Settings|GlassTube";
+createNode mesh -n "GlassTubeShape" -p "|Meshes|Inner|Settings|GlassTube";
 	rename -uid "9AEF6AE6-4FDF-DC30-5387-2F9B54E7EF28";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -12552,16 +12552,16 @@ createNode mesh -n "GlassTubeShape" -p "|Meshes_high|Inner|Settings|GlassTube";
 		 0.33999461 0.1111111 0.66000533 0.1111111 0.58999473 0.1111111 0.29021543 0.21886699
 		 0.87943155 0.19535194 0.60471666 0.067615539 0.417992 0.20742096 0.417992 0.20742096
 		 0.60471666 0.067615539 0.417992 0.20742096 0.417992 0.20742096 0.417992 0.20742096
-		 -nan(ind) -nan(ind) 0.29021543 0.21886699 0.87943155 0.19535194 0.875 0.1111111 0.375
-		 0.6388889 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0
+		 0 0 0.29021543 0.21886699 0.87943155 0.19535194 0.875 0.1111111 0.375 0.6388889 0
+		 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0
+		 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1
+		 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0
 		 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1
 		 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1
 		 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0
-		 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1
-		 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0
-		 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5
-		 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5
-		 1 0 0 1 0 0.5 1 0 0;
+		 1 0 0 1 0 1 1 0 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0
+		 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1
+		 0 0.5 1 0 0;
 	setAttr ".uvst[0].uvsp[250:499]" 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0
 		 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0
 		 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1 0 0 1 0 0.5 1
@@ -13753,11 +13753,11 @@ createNode mesh -n "GlassTubeShape" -p "|Meshes_high|Inner|Settings|GlassTube";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Floor3" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "Floor3" -p "|Meshes|Inner|Settings";
 	rename -uid "3217EBA3-4396-CBBD-8E79-90BABED3496F";
 	setAttr ".rp" -type "double3" 2.1308272337671919 0.8781664910464051 -1.774644701937933 ;
 	setAttr ".sp" -type "double3" 2.1308272337671919 0.8781664910464051 -1.774644701937933 ;
-createNode mesh -n "FloorShape3" -p "|Meshes_high|Inner|Settings|Floor3";
+createNode mesh -n "FloorShape3" -p "|Meshes|Inner|Settings|Floor3";
 	rename -uid "9C295FC2-47C4-CFC0-A467-C1B7943F7E01";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -13797,11 +13797,11 @@ createNode mesh -n "FloorShape3" -p "|Meshes_high|Inner|Settings|Floor3";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Ceiling" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "Ceiling" -p "|Meshes|Inner|Settings";
 	rename -uid "E55DD5B5-49B0-3175-F02A-E88213839FED";
 	setAttr ".rp" -type "double3" 0 11 0.49026560679540254 ;
 	setAttr ".sp" -type "double3" 0 11 0.49026560679540254 ;
-createNode mesh -n "CeilingShape" -p "|Meshes_high|Inner|Settings|Ceiling";
+createNode mesh -n "CeilingShape" -p "|Meshes|Inner|Settings|Ceiling";
 	rename -uid "30B9D2E7-4BE2-81C1-A1EB-01876FB47679";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -13841,15 +13841,15 @@ createNode mesh -n "CeilingShape" -p "|Meshes_high|Inner|Settings|Ceiling";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "FartCan" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "FartCan" -p "|Meshes|Inner|Settings";
 	rename -uid "FDAAE361-4C88-2667-8A7E-BB861147B460";
 	setAttr ".rp" -type "double3" 0 3 0 ;
 	setAttr ".sp" -type "double3" 0 3 0 ;
-createNode transform -n "CanTube" -p "|Meshes_high|Inner|Settings|FartCan";
+createNode transform -n "CanTube" -p "|Meshes|Inner|Settings|FartCan";
 	rename -uid "7B54C9A0-4D68-8D1B-7B45-B0B8A2717725";
 	setAttr ".rp" -type "double3" -1.2965901053079321 2.6506002965560631 -0.0086890960512492118 ;
 	setAttr ".sp" -type "double3" -1.2965901053079321 2.6506002965560631 -0.0086890960512492118 ;
-createNode mesh -n "CanTubeShape" -p "|Meshes_high|Inner|Settings|FartCan|CanTube";
+createNode mesh -n "CanTubeShape" -p "|Meshes|Inner|Settings|FartCan|CanTube";
 	rename -uid "6E975D37-44F7-9468-256B-7495A4CF876D";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -13861,7 +13861,7 @@ createNode mesh -n "CanTubeShape" -p "|Meshes_high|Inner|Settings|FartCan|CanTub
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape14" -p "|Meshes_high|Inner|Settings|FartCan|CanTube";
+createNode mesh -n "polySurfaceShape14" -p "|Meshes|Inner|Settings|FartCan|CanTube";
 	rename -uid "40E515E9-4A89-0534-1E67-5787DED37479";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -14239,13 +14239,13 @@ createNode mesh -n "polySurfaceShape14" -p "|Meshes_high|Inner|Settings|FartCan|
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "FartCanTube" -p "|Meshes_high|Inner|Settings|FartCan";
+createNode transform -n "FartCanTube" -p "|Meshes|Inner|Settings|FartCan";
 	rename -uid "FC0936CD-4024-1F03-2DFC-1CAA84BEFB89";
-createNode transform -n "Tube" -p "|Meshes_high|Inner|Settings|FartCan|FartCanTube";
+createNode transform -n "Tube" -p "|Meshes|Inner|Settings|FartCan|FartCanTube";
 	rename -uid "05F8E414-4342-0281-9399-B0927388AB76";
 	setAttr ".rp" -type "double3" -0.12996305465698244 3.5187757389434329 -1.1360981750488282 ;
 	setAttr ".sp" -type "double3" -0.12996305465698244 3.5187757389434329 -1.1360981750488282 ;
-createNode mesh -n "TubeShape" -p "|Meshes_high|Inner|Settings|FartCan|FartCanTube|Tube";
+createNode mesh -n "TubeShape" -p "|Meshes|Inner|Settings|FartCan|FartCanTube|Tube";
 	rename -uid "0C53B7AE-48FE-C821-5B3F-819EDB377479";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -14274,7 +14274,7 @@ createNode mesh -n "TubeShape" -p "|Meshes_high|Inner|Settings|FartCan|FartCanTu
 	setAttr ".pt[156]" -type "float3" 0.016291935 -0.044115439 -0.0013288063 ;
 	setAttr ".pt[159]" -type "float3" 0.01058054 -0.044115439 -0.01245973 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape16" -p "|Meshes_high|Inner|Settings|FartCan|FartCanTube|Tube";
+createNode mesh -n "polySurfaceShape16" -p "|Meshes|Inner|Settings|FartCan|FartCanTube|Tube";
 	rename -uid "5DE3E7D4-4DDA-9F61-0F47-93B06AE4F582";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -14516,11 +14516,11 @@ createNode mesh -n "polySurfaceShape16" -p "|Meshes_high|Inner|Settings|FartCan|
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "FartCanTubeBase" -p "|Meshes_high|Inner|Settings|FartCan|FartCanTube";
+createNode transform -n "FartCanTubeBase" -p "|Meshes|Inner|Settings|FartCan|FartCanTube";
 	rename -uid "D92CB861-4BC6-E9A2-11B3-0FB3B814D826";
 	setAttr ".rp" -type "double3" -0.12996302469756463 2.5700486548565125 -1.1360982120433167 ;
 	setAttr ".sp" -type "double3" -0.12996302469756463 2.5700486548565125 -1.1360982120433167 ;
-createNode mesh -n "FartCanTubeBaseShape" -p "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase";
+createNode mesh -n "FartCanTubeBaseShape" -p "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase";
 	rename -uid "40C17DBA-4134-878F-60C8-9683EE3465A3";
 	setAttr -k off ".v";
 	setAttr -av ".iog[0].og[0].gid";
@@ -14534,7 +14534,7 @@ createNode mesh -n "FartCanTubeBaseShape" -p "|Meshes_high|Inner|Settings|FartCa
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape9" -p "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase";
+createNode mesh -n "polySurfaceShape9" -p "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase";
 	rename -uid "7EBDC6C6-4AE9-5DAE-E886-C6B5D53B5775";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -14911,13 +14911,13 @@ createNode mesh -n "polySurfaceShape9" -p "|Meshes_high|Inner|Settings|FartCan|F
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Can" -p "|Meshes_high|Inner|Settings|FartCan";
+createNode transform -n "Can" -p "|Meshes|Inner|Settings|FartCan";
 	rename -uid "6772FC13-4E1D-3439-1A43-31BA163893FA";
-createNode transform -n "CanTop" -p "|Meshes_high|Inner|Settings|FartCan|Can";
+createNode transform -n "CanTop" -p "|Meshes|Inner|Settings|FartCan|Can";
 	rename -uid "3BE5F578-4E75-033B-1AA7-099D01E15338";
 	setAttr ".rp" -type "double3" -1.3230752541499249 2.1986508712319113 -0.0015522751461741892 ;
 	setAttr ".sp" -type "double3" -1.3230752541499249 2.1986508712319113 -0.0015522751461741892 ;
-createNode mesh -n "CanTopShape" -p "|Meshes_high|Inner|Settings|FartCan|Can|CanTop";
+createNode mesh -n "CanTopShape" -p "|Meshes|Inner|Settings|FartCan|Can|CanTop";
 	rename -uid "C6DEF27D-4A13-A69B-6660-9A8F06E7DDDB";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -14929,7 +14929,7 @@ createNode mesh -n "CanTopShape" -p "|Meshes_high|Inner|Settings|FartCan|Can|Can
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape19" -p "|Meshes_high|Inner|Settings|FartCan|Can|CanTop";
+createNode mesh -n "polySurfaceShape19" -p "|Meshes|Inner|Settings|FartCan|Can|CanTop";
 	rename -uid "03133A66-4B37-966D-BCB3-EA8A987B72A7";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -15119,11 +15119,11 @@ createNode mesh -n "polySurfaceShape19" -p "|Meshes_high|Inner|Settings|FartCan|
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "CanBase" -p "|Meshes_high|Inner|Settings|FartCan|Can";
+createNode transform -n "CanBase" -p "|Meshes|Inner|Settings|FartCan|Can";
 	rename -uid "8AE82EDD-4647-2BF8-23DC-D4907BFA0176";
 	setAttr ".rp" -type "double3" -1.4938767242431641 1.2454031372070313 0.31326560974121093 ;
 	setAttr ".sp" -type "double3" -1.4938767242431641 1.2454031372070313 0.31326560974121093 ;
-createNode mesh -n "CanBaseShape" -p "|Meshes_high|Inner|Settings|FartCan|Can|CanBase";
+createNode mesh -n "CanBaseShape" -p "|Meshes|Inner|Settings|FartCan|Can|CanBase";
 	rename -uid "A4D2AB64-4469-EB5F-F977-FAB48FBAF88B";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -15135,7 +15135,7 @@ createNode mesh -n "CanBaseShape" -p "|Meshes_high|Inner|Settings|FartCan|Can|Ca
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape8" -p "|Meshes_high|Inner|Settings|FartCan|Can|CanBase";
+createNode mesh -n "polySurfaceShape8" -p "|Meshes|Inner|Settings|FartCan|Can|CanBase";
 	rename -uid "53E71254-44CB-19CD-BB23-9F9EEDBA5CDA";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -15805,7 +15805,7 @@ createNode mesh -n "polySurfaceShape8" -p "|Meshes_high|Inner|Settings|FartCan|C
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "CanSurface" -p "|Meshes_high|Inner|Settings|FartCan|Can";
+createNode transform -n "CanSurface" -p "|Meshes|Inner|Settings|FartCan|Can";
 	rename -uid "DB2F4164-43DE-8F2F-259C-FA9605265318";
 	setAttr ".t" -type "double3" -1.5112745409211308 1.4387116350231417 -1.7164660107310805 ;
 	setAttr ".r" -type "double3" -90 0 0 ;
@@ -15821,7 +15821,7 @@ createNode mesh -n "CanSurfaceShape" -p "CanSurface";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "CanHand" -p "|Meshes_high|Inner|Settings|FartCan|Can";
+createNode transform -n "CanHand" -p "|Meshes|Inner|Settings|FartCan|Can";
 	rename -uid "77E7000E-4BAF-7521-B735-26B0925A2922";
 	setAttr ".t" -type "double3" -1.5075871532589329 0.86392118199526524 -1.5695540346532493 ;
 	setAttr ".r" -type "double3" 90 180 -2.5444437451708134e-14 ;
@@ -15841,7 +15841,7 @@ createNode mesh -n "CanHandShape" -p "CanHand";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "CanBase_leaf" -p "|Meshes_high|Inner|Settings|FartCan|Can";
+createNode transform -n "CanBase_leaf" -p "|Meshes|Inner|Settings|FartCan|Can";
 	rename -uid "BB260FF6-4530-83CA-AE8E-909BD94456B1";
 	setAttr ".rp" -type "double3" -2.224902388920154 0.77654019277254027 -1.5633462856110989 ;
 	setAttr ".sp" -type "double3" -2.224902388920154 0.77654019277254027 -1.5633462856110989 ;
@@ -15896,7 +15896,7 @@ createNode mesh -n "CanBase_leafShape" -p "CanBase_leaf";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "CanBase_leaf1" -p "|Meshes_high|Inner|Settings|FartCan|Can";
+createNode transform -n "CanBase_leaf1" -p "|Meshes|Inner|Settings|FartCan|Can";
 	rename -uid "757382BF-4301-DBA3-C1A7-24B75E976684";
 	setAttr ".rp" -type "double3" -2.224902388920154 0.67654019277254018 -1.5633462856110989 ;
 	setAttr ".sp" -type "double3" -2.224902388920154 0.67654019277254018 -1.5633462856110989 ;
@@ -15952,7 +15952,7 @@ createNode mesh -n "CanBase_leafShape1" -p "CanBase_leaf1";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "CanBase_leaf3" -p "|Meshes_high|Inner|Settings|FartCan|Can";
+createNode transform -n "CanBase_leaf3" -p "|Meshes|Inner|Settings|FartCan|Can";
 	rename -uid "7C495469-4318-BB4D-EA50-668B39B23827";
 	setAttr ".rp" -type "double3" -2.224902388920154 0.57654019277254021 -1.5633462856110989 ;
 	setAttr ".sp" -type "double3" -2.224902388920154 0.57654019277254021 -1.5633462856110989 ;
@@ -16007,7 +16007,7 @@ createNode mesh -n "CanBase_leafShape3" -p "CanBase_leaf3";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "CanBase_leaf2" -p "|Meshes_high|Inner|Settings|FartCan|Can";
+createNode transform -n "CanBase_leaf2" -p "|Meshes|Inner|Settings|FartCan|Can";
 	rename -uid "ACEA5412-47A8-F22F-9814-D397F060862C";
 	setAttr ".rp" -type "double3" -2.224902388920154 0.47654019277254023 -1.5633462856110989 ;
 	setAttr ".sp" -type "double3" -2.224902388920154 0.47654019277254023 -1.5633462856110989 ;
@@ -16062,7 +16062,7 @@ createNode mesh -n "CanBase_leafShape2" -p "CanBase_leaf2";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "CanBase_ring" -p "|Meshes_high|Inner|Settings|FartCan|Can";
+createNode transform -n "CanBase_ring" -p "|Meshes|Inner|Settings|FartCan|Can";
 	rename -uid "3AAA1B31-4190-F39C-C047-1DB8FC7DA072";
 	setAttr ".rp" -type "double3" -0.99733772277832033 0.63111923217773436 -1.7981689453125 ;
 	setAttr ".sp" -type "double3" -0.99733772277832033 0.63111923217773436 -1.7981689453125 ;
@@ -16295,15 +16295,15 @@ createNode mesh -n "CanBase_ringShape" -p "CanBase_ring";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "ControlCenter" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "ControlCenter" -p "|Meshes|Inner|Settings";
 	rename -uid "ED9B6089-44E4-A017-4BCB-88A13AC2A34A";
 	setAttr ".rp" -type "double3" 0 0 -0.027976214327418196 ;
 	setAttr ".sp" -type "double3" 0 0 -0.027976214327418196 ;
-createNode transform -n "ControlRoom" -p "|Meshes_high|Inner|Settings|ControlCenter";
+createNode transform -n "ControlRoom" -p "|Meshes|Inner|Settings|ControlCenter";
 	rename -uid "E2E9A24D-4A7C-7CE5-206F-358892033142";
 	setAttr ".rp" -type "double3" 1.2812494663097465 2.4774464670897518 -1.7744590518524397 ;
 	setAttr ".sp" -type "double3" 1.2812494663097465 2.4774464670897518 -1.7744590518524397 ;
-createNode mesh -n "ControlRoomShape" -p "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom";
+createNode mesh -n "ControlRoomShape" -p "|Meshes|Inner|Settings|ControlCenter|ControlRoom";
 	rename -uid "AE9B0410-4F56-F2E3-02DC-949D8244FE3F";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -16315,7 +16315,7 @@ createNode mesh -n "ControlRoomShape" -p "|Meshes_high|Inner|Settings|ControlCen
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape10" -p "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom";
+createNode mesh -n "polySurfaceShape10" -p "|Meshes|Inner|Settings|ControlCenter|ControlRoom";
 	rename -uid "57B34A59-4B2C-41E0-88A6-2B972AF78383";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -16454,11 +16454,11 @@ createNode mesh -n "polySurfaceShape10" -p "|Meshes_high|Inner|Settings|ControlC
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "ControlRoomTop" -p "|Meshes_high|Inner|Settings|ControlCenter";
+createNode transform -n "ControlRoomTop" -p "|Meshes|Inner|Settings|ControlCenter";
 	rename -uid "89F0F709-4514-16FA-071F-479F21D810B6";
 	setAttr ".rp" -type "double3" 1.2878974914550783 3.3803687077393425 -1.7679774350305431 ;
 	setAttr ".sp" -type "double3" 1.2878974914550783 3.3803687077393425 -1.7679774350305431 ;
-createNode mesh -n "ControlRoomTopShape" -p "|Meshes_high|Inner|Settings|ControlCenter|ControlRoomTop";
+createNode mesh -n "ControlRoomTopShape" -p "|Meshes|Inner|Settings|ControlCenter|ControlRoomTop";
 	rename -uid "B1085B0F-407B-9078-3D26-DFAB8009482B";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -16470,7 +16470,7 @@ createNode mesh -n "ControlRoomTopShape" -p "|Meshes_high|Inner|Settings|Control
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape13" -p "|Meshes_high|Inner|Settings|ControlCenter|ControlRoomTop";
+createNode mesh -n "polySurfaceShape13" -p "|Meshes|Inner|Settings|ControlCenter|ControlRoomTop";
 	rename -uid "E983231C-434C-741C-EC8A-BD8D7D965BDB";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -16600,15 +16600,15 @@ createNode mesh -n "polySurfaceShape13" -p "|Meshes_high|Inner|Settings|ControlC
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Stairs" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "Stairs" -p "|Meshes|Inner|Settings";
 	rename -uid "93C677BD-4062-CF16-68E0-43A3D6B52A1B";
 	setAttr ".rp" -type "double3" 0 0 1.0508021163434698 ;
 	setAttr ".sp" -type "double3" 0 0 1.0508021163434698 ;
-createNode transform -n "Stairs1" -p "|Meshes_high|Inner|Settings|Stairs";
+createNode transform -n "Stairs1" -p "|Meshes|Inner|Settings|Stairs";
 	rename -uid "8E56EC8F-4568-80CE-47ED-778742BE4F94";
 	setAttr ".rp" -type "double3" 2.1698008574446361 1.9265104238797386 -1.8158116432219271 ;
 	setAttr ".sp" -type "double3" 2.1698008574446361 1.9265104238797386 -1.8158116432219271 ;
-createNode mesh -n "Stairs1Shape" -p "|Meshes_high|Inner|Settings|Stairs|Stairs1";
+createNode mesh -n "Stairs1Shape" -p "|Meshes|Inner|Settings|Stairs|Stairs1";
 	rename -uid "8DE2038E-4169-B9D4-7E8F-C59C60B7A5F7";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:81]";
@@ -16889,11 +16889,11 @@ createNode mesh -n "Stairs1Shape" -p "|Meshes_high|Inner|Settings|Stairs|Stairs1
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Stairs0" -p "|Meshes_high|Inner|Settings|Stairs";
+createNode transform -n "Stairs0" -p "|Meshes|Inner|Settings|Stairs";
 	rename -uid "BDEFEB28-4A31-95E4-3990-9EBFE64235B4";
 	setAttr ".rp" -type "double3" 2.9730946861600125 2.6429639759328207 -0.42121451190057896 ;
 	setAttr ".sp" -type "double3" 2.9730946861600125 2.6429639759328207 -0.42121451190057896 ;
-createNode mesh -n "Stairs0Shape" -p "|Meshes_high|Inner|Settings|Stairs|Stairs0";
+createNode mesh -n "Stairs0Shape" -p "|Meshes|Inner|Settings|Stairs|Stairs0";
 	rename -uid "6734D22A-4FED-0E8A-5AC4-DC889BE3A8FA";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:141]";
@@ -17364,11 +17364,11 @@ createNode mesh -n "Stairs0Shape" -p "|Meshes_high|Inner|Settings|Stairs|Stairs0
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "StairsPlatform" -p "|Meshes_high|Inner|Settings|Stairs";
+createNode transform -n "StairsPlatform" -p "|Meshes|Inner|Settings|Stairs";
 	rename -uid "A89F32B3-4C67-B222-941A-A1B8D4C60F31";
 	setAttr ".rp" -type "double3" 2.9681680387157638 1.7491054143667863 -1.8285592825947385 ;
 	setAttr ".sp" -type "double3" 2.9681680387157638 1.7491054143667863 -1.8285592825947385 ;
-createNode mesh -n "StairsPlatformShape" -p "|Meshes_high|Inner|Settings|Stairs|StairsPlatform";
+createNode mesh -n "StairsPlatformShape" -p "|Meshes|Inner|Settings|Stairs|StairsPlatform";
 	rename -uid "8467503E-4471-96B4-7333-B2B9747CCD9E";
 	setAttr -k off ".v";
 	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:101]";
@@ -17682,11 +17682,11 @@ createNode mesh -n "StairsPlatformShape" -p "|Meshes_high|Inner|Settings|Stairs|
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Floor0" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "Floor0" -p "|Meshes|Inner|Settings";
 	rename -uid "476FAD2E-495E-B0D6-B450-189A283A5E94";
 	setAttr ".rp" -type "double3" 0 0.20103798257335712 0.51606905978463435 ;
 	setAttr ".sp" -type "double3" 0 0.20103798257335712 0.51606905978463435 ;
-createNode mesh -n "Floor0Shape" -p "|Meshes_high|Inner|Settings|Floor0";
+createNode mesh -n "Floor0Shape" -p "|Meshes|Inner|Settings|Floor0";
 	rename -uid "9F3EDC73-4E0F-6DD3-D12E-B8BE16C95350";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -17726,11 +17726,11 @@ createNode mesh -n "Floor0Shape" -p "|Meshes_high|Inner|Settings|Floor0";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "OutTube" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "OutTube" -p "|Meshes|Inner|Settings";
 	rename -uid "5F0E0254-4BD6-F851-232E-1F9A794A0016";
 	setAttr ".rp" -type "double3" 3.5703859884233613 5.5 0 ;
 	setAttr ".sp" -type "double3" 3.5703859884233613 5.5 0 ;
-createNode mesh -n "OutTubeShape" -p "|Meshes_high|Inner|Settings|OutTube";
+createNode mesh -n "OutTubeShape" -p "|Meshes|Inner|Settings|OutTube";
 	rename -uid "49D6332F-4CAB-FAC9-54D3-4A9650A57C82";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -17830,11 +17830,11 @@ createNode mesh -n "OutTubeShape" -p "|Meshes_high|Inner|Settings|OutTube";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Floor4" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "Floor4" -p "|Meshes|Inner|Settings";
 	rename -uid "5688FBEE-4ACC-B015-C1AF-79A05DAC080A";
 	setAttr ".rp" -type "double3" 0 5.5 3.526762154830493 ;
 	setAttr ".sp" -type "double3" 0 5.5 3.526762154830493 ;
-createNode mesh -n "FloorShape4" -p "|Meshes_high|Inner|Settings|Floor4";
+createNode mesh -n "FloorShape4" -p "|Meshes|Inner|Settings|Floor4";
 	rename -uid "5D8B683A-4CAB-4E69-9923-2795764A651E";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -17892,13 +17892,13 @@ createNode mesh -n "FloorShape4" -p "|Meshes_high|Inner|Settings|Floor4";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Fan" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "Fan" -p "|Meshes|Inner|Settings";
 	rename -uid "00A76DCC-40AE-71EB-3B3C-0A80D7E5EC2B";
-createNode transform -n "FanTube" -p "|Meshes_high|Inner|Settings|Fan";
+createNode transform -n "FanTube" -p "|Meshes|Inner|Settings|Fan";
 	rename -uid "A9A62AF2-4E96-4846-A07D-9DBBB62734A9";
 	setAttr ".rp" -type "double3" -3.5882858756366627 7.5915769563675557 2.9728500635042954 ;
 	setAttr ".sp" -type "double3" -3.5882858756366627 7.5915769563675557 2.9728500635042954 ;
-createNode mesh -n "FanTubeShape" -p "|Meshes_high|Inner|Settings|Fan|FanTube";
+createNode mesh -n "FanTubeShape" -p "|Meshes|Inner|Settings|Fan|FanTube";
 	rename -uid "BDAF8312-40D5-99DD-A4CA-A29466D6B060";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -17910,7 +17910,7 @@ createNode mesh -n "FanTubeShape" -p "|Meshes_high|Inner|Settings|Fan|FanTube";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape15" -p "|Meshes_high|Inner|Settings|Fan|FanTube";
+createNode mesh -n "polySurfaceShape15" -p "|Meshes|Inner|Settings|Fan|FanTube";
 	rename -uid "4E463A66-4BE8-E60A-4171-B7BBD8618C30";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -18206,11 +18206,11 @@ createNode mesh -n "polySurfaceShape15" -p "|Meshes_high|Inner|Settings|Fan|FanT
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "FanBase" -p "|Meshes_high|Inner|Settings|Fan";
+createNode transform -n "FanBase" -p "|Meshes|Inner|Settings|Fan";
 	rename -uid "01DCB8A2-4A82-B2BD-624A-E58A8DB1393F";
 	setAttr ".rp" -type "double3" -3.5801080322265624 10.201755981445313 -1.7679778289794923 ;
 	setAttr ".sp" -type "double3" -3.5801080322265624 10.201755981445313 -1.7679778289794923 ;
-createNode mesh -n "FanBaseShape" -p "|Meshes_high|Inner|Settings|Fan|FanBase";
+createNode mesh -n "FanBaseShape" -p "|Meshes|Inner|Settings|Fan|FanBase";
 	rename -uid "987B48E6-4483-4B48-2516-DA9CAAF55ECC";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -18222,7 +18222,7 @@ createNode mesh -n "FanBaseShape" -p "|Meshes_high|Inner|Settings|Fan|FanBase";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape20" -p "|Meshes_high|Inner|Settings|Fan|FanBase";
+createNode mesh -n "polySurfaceShape20" -p "|Meshes|Inner|Settings|Fan|FanBase";
 	rename -uid "F89E9607-445C-BAEF-A28D-5E9B30B4EE73";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -18453,17 +18453,17 @@ createNode mesh -n "polySurfaceShape20" -p "|Meshes_high|Inner|Settings|Fan|FanB
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "FanLeaves" -p "|Meshes_high|Inner|Settings|Fan";
+createNode transform -n "FanLeaves" -p "|Meshes|Inner|Settings|Fan";
 	rename -uid "C1BB0AAA-4CD7-0C3B-3E1A-75BAE653E290";
 	setAttr ".rp" -type "double3" -3.2162887573242189 10.204996337890625 -1.7610615539550782 ;
 	setAttr ".sp" -type "double3" -3.2162887573242189 10.204996337890625 -1.7610615539550782 ;
-createNode transform -n "FanLeaf0" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves";
+createNode transform -n "FanLeaf0" -p "|Meshes|Inner|Settings|Fan|FanLeaves";
 	rename -uid "2731C8E5-4974-30B4-D055-28A0D48474F4";
 	setAttr ".r" -type "double3" 0 0 16.488203114002644 ;
 	setAttr ".rp" -type "double3" -0.17415506118951102 10.694189057527176 -1.7610615539550778 ;
 	setAttr ".rpt" -type "double3" -3.0280409551578424 -0.48919271963655159 0 ;
 	setAttr ".sp" -type "double3" -0.1741550611895076 10.694189057527176 -1.7610615539550778 ;
-createNode mesh -n "FanLeafShape0" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf0";
+createNode mesh -n "FanLeafShape0" -p "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf0";
 	rename -uid "D5D6E415-4B5B-D521-1ADF-3EABD650F997";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -18475,7 +18475,7 @@ createNode mesh -n "FanLeafShape0" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape21" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf0";
+createNode mesh -n "polySurfaceShape21" -p "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf0";
 	rename -uid "BE88F6E6-4932-800B-358F-81AD3EC05136";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -18540,13 +18540,13 @@ createNode mesh -n "polySurfaceShape21" -p "|Meshes_high|Inner|Settings|Fan|FanL
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "FanLeaf1" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves";
+createNode transform -n "FanLeaf1" -p "|Meshes|Inner|Settings|Fan|FanLeaves";
 	rename -uid "5C397EB7-4916-4A32-3FBB-6FB17EC7CB43";
 	setAttr ".r" -type "double3" 90 -16.488203114002644 1.6584769102341087e-15 ;
 	setAttr ".rp" -type "double3" -3.5703367582314232 -0.77980289609037245 -10.204996337890627 ;
 	setAttr ".rpt" -type "double3" 0.36814074188408974 10.984799233980999 8.4439347839355481 ;
 	setAttr ".sp" -type "double3" -3.5703367582314662 -0.77980289609037234 -10.204996337890627 ;
-createNode mesh -n "FanLeafShape1" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf1";
+createNode mesh -n "FanLeafShape1" -p "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf1";
 	rename -uid "04FD6F2E-4F79-3FE1-82A4-529750A1EFEA";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -18558,7 +18558,7 @@ createNode mesh -n "FanLeafShape1" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape22" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf1";
+createNode mesh -n "polySurfaceShape22" -p "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf1";
 	rename -uid "45E00DE0-45CE-268C-8FB0-96A223A83C7E";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -18623,13 +18623,13 @@ createNode mesh -n "polySurfaceShape22" -p "|Meshes_high|Inner|Settings|Fan|FanL
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "FanLeaf2" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves";
+createNode transform -n "FanLeaf2" -p "|Meshes|Inner|Settings|Fan|FanLeaves";
 	rename -uid "E059BDFF-4E7D-BB50-60CA-4994BAFD3B16";
 	setAttr ".r" -type "double3" 180 0 -16.488203114002658 ;
 	setAttr ".rp" -type "double3" -5.9668767903300326 -8.8765078129010053 1.7610615539550774 ;
 	setAttr ".rpt" -type "double3" 2.7646807739826915 19.081504150791631 -3.5221231079101551 ;
 	setAttr ".sp" -type "double3" -5.9668767903300113 -8.8765078129010053 1.7610615539550765 ;
-createNode mesh -n "FanLeafShape2" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf2";
+createNode mesh -n "FanLeafShape2" -p "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf2";
 	rename -uid "E724F7B7-4329-68CB-1181-899AB2C98140";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -18641,7 +18641,7 @@ createNode mesh -n "FanLeafShape2" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape23" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf2";
+createNode mesh -n "polySurfaceShape23" -p "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf2";
 	rename -uid "552142DA-402F-3786-ACE9-338F0A0E5CE7";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -18706,13 +18706,13 @@ createNode mesh -n "polySurfaceShape23" -p "|Meshes_high|Inner|Settings|Fan|FanL
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "FanLeaf3" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves";
+createNode transform -n "FanLeaf3" -p "|Meshes|Inner|Settings|Fan|FanLeaves";
 	rename -uid "BB3A5AC5-4BC5-3546-5B33-36BE72776ABA";
 	setAttr ".r" -type "double3" -90.000000000000057 16.488203114002644 -1.6584769102341091e-15 ;
 	setAttr ".rp" -type "double3" -2.5706950932881036 2.5974841407165381 10.204996337890627 ;
 	setAttr ".rpt" -type "double3" -0.63150092305924144 7.6075121971740876 -11.966057891845713 ;
 	setAttr ".sp" -type "double3" -2.5706950932881241 2.5974841407165377 10.204996337890623 ;
-createNode mesh -n "FanLeafShape3" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf3";
+createNode mesh -n "FanLeafShape3" -p "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf3";
 	rename -uid "1F9723EC-4D8D-0795-A53F-E48C63C28874";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -18724,7 +18724,7 @@ createNode mesh -n "FanLeafShape3" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape24" -p "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf3";
+createNode mesh -n "polySurfaceShape24" -p "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf3";
 	rename -uid "90759154-4083-C728-E736-6B8339C60D1A";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -18789,13 +18789,13 @@ createNode mesh -n "polySurfaceShape24" -p "|Meshes_high|Inner|Settings|Fan|FanL
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "FanPivot" -p "|Meshes_high|Inner|Settings|Fan";
+createNode transform -n "FanPivot" -p "|Meshes|Inner|Settings|Fan";
 	rename -uid "2EF68E68-4802-CE7C-A27B-B49A624CF9A2";
 	setAttr ".r" -type "double3" 0 0 -90 ;
 	setAttr ".rp" -type "double3" -10.204998168945314 -3.1325216674804688 -1.7610618591308593 ;
 	setAttr ".rpt" -type "double3" 7.072476501464843 13.337519836425784 0 ;
 	setAttr ".sp" -type "double3" -10.204998168945314 -3.1325216674804732 -1.7610618591308593 ;
-createNode mesh -n "FanPivotShape" -p "|Meshes_high|Inner|Settings|Fan|FanPivot";
+createNode mesh -n "FanPivotShape" -p "|Meshes|Inner|Settings|Fan|FanPivot";
 	rename -uid "CAE79F82-4A25-8CDE-418A-B5838B11BB9E";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -18967,11 +18967,11 @@ createNode mesh -n "FanPivotShape" -p "|Meshes_high|Inner|Settings|Fan|FanPivot"
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "BumpWall" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "BumpWall" -p "|Meshes|Inner|Settings";
 	rename -uid "D658E278-4B2E-BDD5-97B4-0F9A37E57919";
 	setAttr ".rp" -type "double3" 0.099864551720720979 6.9371732471907812 2.9919880367989413 ;
 	setAttr ".sp" -type "double3" 0.099864551720720979 6.9371732471907812 2.9919880367989413 ;
-createNode mesh -n "BumpWallShape" -p "|Meshes_high|Inner|Settings|BumpWall";
+createNode mesh -n "BumpWallShape" -p "|Meshes|Inner|Settings|BumpWall";
 	rename -uid "D4E8AD87-4859-7267-C18B-A5B964F18AE7";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -19059,13 +19059,13 @@ createNode mesh -n "BumpWallShape" -p "|Meshes_high|Inner|Settings|BumpWall";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "MetalWeb" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "MetalWeb" -p "|Meshes|Inner|Settings";
 	rename -uid "FB5C23C4-4248-6B30-186C-828590FA8BA3";
-createNode transform -n "MetalFrame" -p "|Meshes_high|Inner|Settings|MetalWeb";
+createNode transform -n "MetalFrame" -p "|Meshes|Inner|Settings|MetalWeb";
 	rename -uid "859FA2FE-47D0-F048-236E-C38919E56043";
 	setAttr ".rp" -type "double3" 1.7881129429720051 10.257431045299439 0.52111182615841944 ;
 	setAttr ".sp" -type "double3" 1.7881129429720051 10.257431045299439 0.52111182615841944 ;
-createNode mesh -n "MetalFrameShape" -p "|Meshes_high|Inner|Settings|MetalWeb|MetalFrame";
+createNode mesh -n "MetalFrameShape" -p "|Meshes|Inner|Settings|MetalWeb|MetalFrame";
 	rename -uid "B910A02C-4126-247E-2437-1D866C986D8D";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -19137,11 +19137,11 @@ createNode mesh -n "MetalFrameShape" -p "|Meshes_high|Inner|Settings|MetalWeb|Me
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Web" -p "|Meshes_high|Inner|Settings|MetalWeb";
+createNode transform -n "Web" -p "|Meshes|Inner|Settings|MetalWeb";
 	rename -uid "21FD463E-4EE6-B23E-13AD-A2B9469E842E";
 	setAttr ".rp" -type "double3" 1.7957522983999445 10.258672414089657 0.50240391164614751 ;
 	setAttr ".sp" -type "double3" 1.7957522983999445 10.258672414089657 0.50240391164614751 ;
-createNode mesh -n "WebShape" -p "|Meshes_high|Inner|Settings|MetalWeb|Web";
+createNode mesh -n "WebShape" -p "|Meshes|Inner|Settings|MetalWeb|Web";
 	rename -uid "309B688A-468B-190B-F37A-85A56E7DF6AB";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -19166,13 +19166,13 @@ createNode mesh -n "WebShape" -p "|Meshes_high|Inner|Settings|MetalWeb|Web";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "TopTube" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "TopTube" -p "|Meshes|Inner|Settings";
 	rename -uid "5AB5B3A3-4DEB-5B7E-25B0-08B69A1E93A0";
-createNode transform -n "TopTube" -p "|Meshes_high|Inner|Settings|TopTube";
+createNode transform -n "TopTube" -p "|Meshes|Inner|Settings|TopTube";
 	rename -uid "DF642184-41BB-7DC0-756C-529C51881F89";
 	setAttr ".rp" -type "double3" 0.32507299157906649 10.660331623270231 0.050021505292395442 ;
 	setAttr ".sp" -type "double3" 0.32507299157906649 10.660331623270237 0.050021505292395442 ;
-createNode mesh -n "TopTubeShape" -p "|Meshes_high|Inner|Settings|TopTube|TopTube";
+createNode mesh -n "TopTubeShape" -p "|Meshes|Inner|Settings|TopTube|TopTube";
 	rename -uid "96F0696A-48BE-99BC-38FC-56A09CC15F2F";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -19735,11 +19735,11 @@ createNode mesh -n "TopTubeShape" -p "|Meshes_high|Inner|Settings|TopTube|TopTub
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "TopTube1" -p "|Meshes_high|Inner|Settings|TopTube";
+createNode transform -n "TopTube1" -p "|Meshes|Inner|Settings|TopTube";
 	rename -uid "E5E0E4C1-414A-66F4-8030-F9B47E8BD97E";
 	setAttr ".rp" -type "double3" 1.8091253541317229 10.64173119773705 0.17166321959421482 ;
 	setAttr ".sp" -type "double3" 1.8091253541317232 10.641731197737045 0.17166321959421482 ;
-createNode mesh -n "TopTube1Shape" -p "|Meshes_high|Inner|Settings|TopTube|TopTube1";
+createNode mesh -n "TopTube1Shape" -p "|Meshes|Inner|Settings|TopTube|TopTube1";
 	rename -uid "7BC19BE1-4690-9ABF-483F-CDA7DD05F79C";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -19926,11 +19926,11 @@ createNode mesh -n "TopTube1Shape" -p "|Meshes_high|Inner|Settings|TopTube|TopTu
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "TopTube2" -p "|Meshes_high|Inner|Settings|TopTube";
+createNode transform -n "TopTube2" -p "|Meshes|Inner|Settings|TopTube";
 	rename -uid "BB914EA0-4AE0-9846-2D6B-96A6ECD7453B";
 	setAttr ".rp" -type "double3" 1.8091253541317229 10.64173119773705 -0.060775859596997883 ;
 	setAttr ".sp" -type "double3" 1.8091253541317232 10.641731197737045 -0.060775859596997876 ;
-createNode mesh -n "TopTubeShape2" -p "|Meshes_high|Inner|Settings|TopTube|TopTube2";
+createNode mesh -n "TopTubeShape2" -p "|Meshes|Inner|Settings|TopTube|TopTube2";
 	rename -uid "126B1919-41F0-F3A6-F3C9-C993A3B817C8";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -20117,15 +20117,15 @@ createNode mesh -n "TopTubeShape2" -p "|Meshes_high|Inner|Settings|TopTube|TopTu
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "TopLight" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "TopLight" -p "|Meshes|Inner|Settings";
 	rename -uid "69E299E4-4AEE-AC83-ED22-3FB053707B8E";
 	setAttr ".rp" -type "double3" 0.80711608895601272 10.801384541465243 -1.7076214599609376 ;
 	setAttr ".sp" -type "double3" 0.80711608895601272 10.801384541465243 -1.7076214599609376 ;
-createNode transform -n "LightBase" -p "|Meshes_high|Inner|Settings|TopLight";
+createNode transform -n "LightBase" -p "|Meshes|Inner|Settings|TopLight";
 	rename -uid "DF494453-431E-75D7-C364-35AA80AF3553";
 	setAttr ".rp" -type "double3" 0.77917053860615682 10.86516449948175 -1.6430797112975908 ;
 	setAttr ".sp" -type "double3" 0.77917053860615682 10.86516449948175 -1.6430797112975908 ;
-createNode mesh -n "LightBaseShape" -p "|Meshes_high|Inner|Settings|TopLight|LightBase";
+createNode mesh -n "LightBaseShape" -p "|Meshes|Inner|Settings|TopLight|LightBase";
 	rename -uid "D4F2613F-4992-82D7-7EFB-A5B48E1B3937";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -20190,11 +20190,11 @@ createNode mesh -n "LightBaseShape" -p "|Meshes_high|Inner|Settings|TopLight|Lig
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "LightBulb" -p "|Meshes_high|Inner|Settings|TopLight";
+createNode transform -n "LightBulb" -p "|Meshes|Inner|Settings|TopLight";
 	rename -uid "51917B11-4671-C9C2-842B-10B6A74C1CC7";
 	setAttr ".rp" -type "double3" 0.80711613741889154 10.801384182477518 -1.6376452853529679 ;
 	setAttr ".sp" -type "double3" 0.80711613741889154 10.801384182477518 -1.6376452853529679 ;
-createNode mesh -n "LightBulbShape" -p "|Meshes_high|Inner|Settings|TopLight|LightBulb";
+createNode mesh -n "LightBulbShape" -p "|Meshes|Inner|Settings|TopLight|LightBulb";
 	rename -uid "86A81E66-444E-D88B-6772-E5ACE05B6301";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -20318,15 +20318,15 @@ createNode mesh -n "LightBulbShape" -p "|Meshes_high|Inner|Settings|TopLight|Lig
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "TopLight1" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "TopLight1" -p "|Meshes|Inner|Settings";
 	rename -uid "F3D321E6-4469-84AE-3754-7091BA0D4FFA";
 	setAttr ".rp" -type "double3" -0.54288391104398726 10.801384541465243 -1.7076214599609376 ;
 	setAttr ".sp" -type "double3" -0.54288391104398726 10.801384541465243 -1.7076214599609376 ;
-createNode transform -n "LightBase" -p "|Meshes_high|Inner|Settings|TopLight1";
+createNode transform -n "LightBase" -p "|Meshes|Inner|Settings|TopLight1";
 	rename -uid "396376F0-4ED8-A669-294E-379E29D3E2EE";
 	setAttr ".rp" -type "double3" -0.57082946139384316 10.86516449948175 -1.6430797112975908 ;
 	setAttr ".sp" -type "double3" -0.57082946139384316 10.86516449948175 -1.6430797112975908 ;
-createNode mesh -n "LightBaseShape" -p "|Meshes_high|Inner|Settings|TopLight1|LightBase";
+createNode mesh -n "LightBaseShape" -p "|Meshes|Inner|Settings|TopLight1|LightBase";
 	rename -uid "7147AD73-4E59-96C7-7000-FFA68DBA969C";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -20390,11 +20390,11 @@ createNode mesh -n "LightBaseShape" -p "|Meshes_high|Inner|Settings|TopLight1|Li
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "LightBulb" -p "|Meshes_high|Inner|Settings|TopLight1";
+createNode transform -n "LightBulb" -p "|Meshes|Inner|Settings|TopLight1";
 	rename -uid "7C31957B-431D-94F7-2A0C-4C95A76B8CBA";
 	setAttr ".rp" -type "double3" -0.54288386258110832 10.801384182477518 -1.6376452853529679 ;
 	setAttr ".sp" -type "double3" -0.54288386258110832 10.801384182477518 -1.6376452853529679 ;
-createNode mesh -n "LightBulbShape" -p "|Meshes_high|Inner|Settings|TopLight1|LightBulb";
+createNode mesh -n "LightBulbShape" -p "|Meshes|Inner|Settings|TopLight1|LightBulb";
 	rename -uid "E5E9A95B-49C6-B78F-4AD0-0987F643E0FD";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -20518,15 +20518,15 @@ createNode mesh -n "LightBulbShape" -p "|Meshes_high|Inner|Settings|TopLight1|Li
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "TopLight2" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "TopLight2" -p "|Meshes|Inner|Settings";
 	rename -uid "2BBFEF23-48E3-7539-FE1D-83B1DC83C6D6";
 	setAttr ".rp" -type "double3" -1.8928839110439877 10.801384541465243 -1.7076214599609376 ;
 	setAttr ".sp" -type "double3" -1.8928839110439877 10.801384541465243 -1.7076214599609376 ;
-createNode transform -n "LightBase" -p "|Meshes_high|Inner|Settings|TopLight2";
+createNode transform -n "LightBase" -p "|Meshes|Inner|Settings|TopLight2";
 	rename -uid "F63539B9-42FA-A92E-AC26-4CB19409A5D1";
 	setAttr ".rp" -type "double3" -1.9208294613938435 10.86516449948175 -1.6430797112975908 ;
 	setAttr ".sp" -type "double3" -1.9208294613938435 10.86516449948175 -1.6430797112975908 ;
-createNode mesh -n "LightBaseShape" -p "|Meshes_high|Inner|Settings|TopLight2|LightBase";
+createNode mesh -n "LightBaseShape" -p "|Meshes|Inner|Settings|TopLight2|LightBase";
 	rename -uid "2B3E0ABD-4930-5780-8BA5-3096B8C5603E";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -20590,11 +20590,11 @@ createNode mesh -n "LightBaseShape" -p "|Meshes_high|Inner|Settings|TopLight2|Li
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "LightBulb" -p "|Meshes_high|Inner|Settings|TopLight2";
+createNode transform -n "LightBulb" -p "|Meshes|Inner|Settings|TopLight2";
 	rename -uid "A6B8A1B7-4817-8D5A-75EB-A9BEBC86B794";
 	setAttr ".rp" -type "double3" -1.8928838625811084 10.801384182477518 -1.6376452853529679 ;
 	setAttr ".sp" -type "double3" -1.8928838625811084 10.801384182477518 -1.6376452853529679 ;
-createNode mesh -n "LightBulbShape" -p "|Meshes_high|Inner|Settings|TopLight2|LightBulb";
+createNode mesh -n "LightBulbShape" -p "|Meshes|Inner|Settings|TopLight2|LightBulb";
 	rename -uid "BC87F4E3-4AA9-2F0F-6738-08896BBEF9BC";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -20718,11 +20718,11 @@ createNode mesh -n "LightBulbShape" -p "|Meshes_high|Inner|Settings|TopLight2|Li
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Floor1" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "Floor1" -p "|Meshes|Inner|Settings";
 	rename -uid "EFCFFD3B-4813-D158-D2BF-84A6B6FA3773";
 	setAttr ".rp" -type "double3" -0.087499694824218752 2.7911270904541015 0.62787185668945311 ;
 	setAttr ".sp" -type "double3" -0.087499694824218752 2.7911270904541015 0.62787185668945311 ;
-createNode mesh -n "Floor1Shape" -p "|Meshes_high|Inner|Settings|Floor1";
+createNode mesh -n "Floor1Shape" -p "|Meshes|Inner|Settings|Floor1";
 	rename -uid "73806E73-4155-6C98-3A5A-FDBA2DE70551";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -20734,7 +20734,7 @@ createNode mesh -n "Floor1Shape" -p "|Meshes_high|Inner|Settings|Floor1";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode mesh -n "polySurfaceShape17" -p "|Meshes_high|Inner|Settings|Floor1";
+createNode mesh -n "polySurfaceShape17" -p "|Meshes|Inner|Settings|Floor1";
 	rename -uid "0D741716-4994-CF17-DA78-B4A3BBFEAD47";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
@@ -20990,11 +20990,11 @@ createNode mesh -n "polySurfaceShape17" -p "|Meshes_high|Inner|Settings|Floor1";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Floor6" -p "|Meshes_high|Inner|Settings";
+createNode transform -n "Floor6" -p "|Meshes|Inner|Settings";
 	rename -uid "329BCA85-41D5-5F51-4985-2395E3155748";
 	setAttr ".rp" -type "double3" -0.27534576416015627 7.0155978393554692 0.49933166503906251 ;
 	setAttr ".sp" -type "double3" -0.27534576416015627 7.0155978393554692 0.49933166503906251 ;
-createNode mesh -n "Floor6Shape" -p "|Meshes_high|Inner|Settings|Floor6";
+createNode mesh -n "Floor6Shape" -p "|Meshes|Inner|Settings|Floor6";
 	rename -uid "E5A3BF47-4497-0D45-A5B5-68B433950709";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -21431,22 +21431,22 @@ createNode mesh -n "Floor6Shape" -p "|Meshes_high|Inner|Settings|Floor6";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "80857C9C-4BF5-7AE5-1CD5-C79120B0D984";
+	rename -uid "57B0C200-4987-BD31-811C-9EBD621716AF";
 	setAttr -s 20 ".lnk";
 	setAttr -s 20 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "8C012F6D-4645-6404-5304-6892525F5739";
+	rename -uid "EADF4CB8-44AB-D0C4-CD41-D6B3345A6CB0";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "C2260565-4759-A775-F4AB-7BA6A5EF53F3";
+	rename -uid "4E882669-4D44-176C-61B9-C5923DA43A2C";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "D094B117-4E28-A18B-B772-AC8572AF218B";
+	rename -uid "65DCF8F6-4D63-E37D-7F89-E4AC7FCF156E";
 	setAttr ".cdl" 4;
 	setAttr -s 6 ".dli[1:5]"  3 2 1 4 5;
 	setAttr -s 6 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "8DD8A0B4-4726-ED14-3BBA-6E8D52D63092";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "4F03908F-44B4-F01E-0311-0FA373378DC9";
+	rename -uid "C4D00635-41CE-CE5A-3E6A-7DA3F52F1AB9";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "FDEAE71E-4A54-BBFF-AF2E-F8AC07D3DF56";
 	setAttr ".g" yes;
@@ -21456,17 +21456,17 @@ createNode script -n "uiConfigurationScriptNode";
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n"
 		+ "            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n"
 		+ "            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n"
-		+ "            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 556\n            -height 333\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 556\n            -height 328\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"back1\" \n            -useInteractiveMode 0\n            -displayLights \"none\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
-		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 1\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
-		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 556\n            -height 333\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
+		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 556\n            -height 328\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
 		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"right1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n"
 		+ "            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n"
-		+ "            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 556\n            -height 333\n"
+		+ "            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 556\n            -height 328\n"
 		+ "            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n"
 		+ "            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n"
 		+ "            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n"
-		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1119\n            -height 710\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n"
+		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1119\n            -height 700\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n"
 		+ "            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n"
 		+ "            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n"
 		+ "\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n"
@@ -21492,8 +21492,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n"
 		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -connectNodeOnCreation 0\n                -connectOnDrop 0\n                -highlightConnections 0\n                -copyConnectionsOnPaste 0\n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -crosshairOnEdgeDragging 0\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n"
 		+ "                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -activeTab -1\n                -editorMode \"default\" \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap true\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1119\\n    -height 710\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1119\\n    -height 710\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1119\\n    -height 700\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1119\\n    -height 700\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -23722,8 +23722,6 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".btrs" 512;
 select -ne :defaultHideFaceDataSet;
 	setAttr -s 2 ".dnsm";
-select -ne :modelPanel2ViewSelectedSet;
-	setAttr ".ihi" 0;
 connectAttr "UVRef.di" "UVPlane.do";
 connectAttr "OutterRef.di" "OutterFront.do";
 connectAttr ":defaultColorMgtGlobals.cme" "OutterFrontShape.cme";
@@ -23765,61 +23763,60 @@ connectAttr "groupId157.id" "|Meshes_low|Inner|Settings|Floor1|Floor1Shape.ciog.
 		;
 connectAttr "groupId152.id" "|Meshes_low|Inner|Settings|Floor6|Floor6Shape.ciog.cog[0].cgid"
 		;
-connectAttr "HighPoly.di" "Meshes_high.do";
-connectAttr "polySoftEdge9.out" "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarModel|ControlBarModelShape.i"
+connectAttr "HighPoly.di" "Meshes.do";
+connectAttr "polySoftEdge9.out" "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarModel|ControlBarModelShape.i"
 		;
-connectAttr "polySoftEdge8.out" "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarTop|ControlBarTopShape.i"
+connectAttr "polySoftEdge8.out" "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarTop|ControlBarTopShape.i"
 		;
-connectAttr "polyDelEdge48.out" "|Meshes_high|Inner|Settings|FartCan|CanTube|CanTubeShape.i"
+connectAttr "polyDelEdge48.out" "|Meshes|Inner|Settings|FartCan|CanTube|CanTubeShape.i"
 		;
-connectAttr "deleteComponent8.og" "|Meshes_high|Inner|Settings|FartCan|FartCanTube|Tube|TubeShape.i"
+connectAttr "deleteComponent8.og" "|Meshes|Inner|Settings|FartCan|FartCanTube|Tube|TubeShape.i"
 		;
-connectAttr "polyDelEdge4.out" "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.i"
+connectAttr "polyDelEdge4.out" "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.i"
 		;
-connectAttr "polySoftEdge18.out" "|Meshes_high|Inner|Settings|FartCan|Can|CanTop|CanTopShape.i"
+connectAttr "polySoftEdge18.out" "|Meshes|Inner|Settings|FartCan|Can|CanTop|CanTopShape.i"
 		;
-connectAttr "polySoftEdge15.out" "|Meshes_high|Inner|Settings|FartCan|Can|CanBase|CanBaseShape.i"
+connectAttr "polySoftEdge15.out" "|Meshes|Inner|Settings|FartCan|Can|CanBase|CanBaseShape.i"
 		;
 connectAttr "polyPlane1.out" "CanSurfaceShape.i";
 connectAttr "polyPlane2.out" "CanHandShape.i";
 connectAttr "groupId168.id" "CanBase_ringShape.ciog.cog[0].cgid";
-connectAttr "polyConnectComponents12.out" "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.i"
+connectAttr "polyConnectComponents12.out" "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.i"
 		;
-connectAttr "polyTweakUV9.uvtk[0]" "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.uvst[0].uvtw"
+connectAttr "polyTweakUV9.uvtk[0]" "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.uvst[0].uvtw"
 		;
-connectAttr "polySoftEdge13.out" "|Meshes_high|Inner|Settings|ControlCenter|ControlRoomTop|ControlRoomTopShape.i"
+connectAttr "polySoftEdge13.out" "|Meshes|Inner|Settings|ControlCenter|ControlRoomTop|ControlRoomTopShape.i"
 		;
-connectAttr "groupId158.id" "|Meshes_high|Inner|Settings|Stairs|Stairs1|Stairs1Shape.iog.og[0].gid"
+connectAttr "groupId158.id" "|Meshes|Inner|Settings|Stairs|Stairs1|Stairs1Shape.iog.og[0].gid"
 		;
-connectAttr ":initialShadingGroup.mwc" "|Meshes_high|Inner|Settings|Stairs|Stairs1|Stairs1Shape.iog.og[0].gco"
+connectAttr ":initialShadingGroup.mwc" "|Meshes|Inner|Settings|Stairs|Stairs1|Stairs1Shape.iog.og[0].gco"
 		;
-connectAttr "groupId159.id" "|Meshes_high|Inner|Settings|Stairs|Stairs0|Stairs0Shape.iog.og[0].gid"
+connectAttr "groupId159.id" "|Meshes|Inner|Settings|Stairs|Stairs0|Stairs0Shape.iog.og[0].gid"
 		;
-connectAttr ":initialShadingGroup.mwc" "|Meshes_high|Inner|Settings|Stairs|Stairs0|Stairs0Shape.iog.og[0].gco"
+connectAttr ":initialShadingGroup.mwc" "|Meshes|Inner|Settings|Stairs|Stairs0|Stairs0Shape.iog.og[0].gco"
 		;
-connectAttr "groupId160.id" "|Meshes_high|Inner|Settings|Stairs|StairsPlatform|StairsPlatformShape.iog.og[0].gid"
+connectAttr "groupId160.id" "|Meshes|Inner|Settings|Stairs|StairsPlatform|StairsPlatformShape.iog.og[0].gid"
 		;
-connectAttr ":initialShadingGroup.mwc" "|Meshes_high|Inner|Settings|Stairs|StairsPlatform|StairsPlatformShape.iog.og[0].gco"
+connectAttr ":initialShadingGroup.mwc" "|Meshes|Inner|Settings|Stairs|StairsPlatform|StairsPlatformShape.iog.og[0].gco"
 		;
-connectAttr "polyDelEdge50.out" "|Meshes_high|Inner|Settings|Fan|FanTube|FanTubeShape.i"
+connectAttr "polyDelEdge50.out" "|Meshes|Inner|Settings|Fan|FanTube|FanTubeShape.i"
 		;
-connectAttr "polyBevel21.out" "|Meshes_high|Inner|Settings|Fan|FanBase|FanBaseShape.i"
+connectAttr "polyBevel21.out" "|Meshes|Inner|Settings|Fan|FanBase|FanBaseShape.i"
 		;
-connectAttr "polyTweakUV17.uvtk[0]" "|Meshes_high|Inner|Settings|Fan|FanBase|FanBaseShape.uvst[0].uvtw"
+connectAttr "polyTweakUV17.uvtk[0]" "|Meshes|Inner|Settings|Fan|FanBase|FanBaseShape.uvst[0].uvtw"
 		;
-connectAttr "polySmoothFace9.out" "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf0|FanLeafShape0.i"
+connectAttr "polySmoothFace9.out" "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf0|FanLeafShape0.i"
 		;
-connectAttr "polySmoothFace10.out" "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf1|FanLeafShape1.i"
+connectAttr "polySmoothFace10.out" "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf1|FanLeafShape1.i"
 		;
-connectAttr "polySmoothFace11.out" "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf2|FanLeafShape2.i"
+connectAttr "polySmoothFace11.out" "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf2|FanLeafShape2.i"
 		;
-connectAttr "polySmoothFace12.out" "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf3|FanLeafShape3.i"
+connectAttr "polySmoothFace12.out" "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf3|FanLeafShape3.i"
 		;
-connectAttr "polySplit46.out" "|Meshes_high|Inner|Settings|Floor1|Floor1Shape.i"
+connectAttr "polySplit46.out" "|Meshes|Inner|Settings|Floor1|Floor1Shape.i";
+connectAttr "polyTweakUV13.uvtk[0]" "|Meshes|Inner|Settings|Floor1|Floor1Shape.uvst[0].uvtw"
 		;
-connectAttr "polyTweakUV13.uvtk[0]" "|Meshes_high|Inner|Settings|Floor1|Floor1Shape.uvst[0].uvtw"
-		;
-connectAttr "groupId163.id" "|Meshes_high|Inner|Settings|Floor6|Floor6Shape.ciog.cog[1].cgid"
+connectAttr "groupId163.id" "|Meshes|Inner|Settings|Floor6|Floor6Shape.ciog.cog[1].cgid"
 		;
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
@@ -23962,17 +23959,17 @@ connectAttr "|Meshes_low|Inner|Interactables|HamsterWheel|FanTubeBase|FanTubeBas
 		 -na;
 connectAttr "|Meshes_low|Inner|Settings|MetalWeb|Web|WebShape.iog" "PlatformDecoSG1.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|HamsterWheel|WheelDoor|WheelDoorShape.iog" "PlatformDecoSG1.dsm"
+connectAttr "|Meshes|Inner|Interactables|HamsterWheel|WheelDoor|WheelDoorShape.iog" "PlatformDecoSG1.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|HamsterWheel|GlassRoom|GlassRoomShape.iog" "PlatformDecoSG1.dsm"
+connectAttr "|Meshes|Inner|Interactables|HamsterWheel|GlassRoom|GlassRoomShape.iog" "PlatformDecoSG1.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|HamsterWheel|FanTubeBase|FanTubeBaseShape.iog" "PlatformDecoSG1.dsm"
+connectAttr "|Meshes|Inner|Interactables|HamsterWheel|FanTubeBase|FanTubeBaseShape.iog" "PlatformDecoSG1.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|MetalWeb|Web|WebShape.iog" "PlatformDecoSG1.dsm"
+connectAttr "|Meshes|Inner|Settings|MetalWeb|Web|WebShape.iog" "PlatformDecoSG1.dsm"
 		 -na;
 connectAttr "CanSurfaceShape.iog" "PlatformDecoSG1.dsm" -na;
 connectAttr "CanHandShape.iog" "PlatformDecoSG1.dsm" -na;
-connectAttr "|Meshes_high|Inner|Settings|GlassTube|GlassTubeShape.iog" "PlatformDecoSG1.dsm"
+connectAttr "|Meshes|Inner|Settings|GlassTube|GlassTubeShape.iog" "PlatformDecoSG1.dsm"
 		 -na;
 connectAttr "PlatformDecoSG1.msg" "materialInfo16.sg";
 connectAttr "CutoutMat.msg" "materialInfo16.m";
@@ -23992,19 +23989,19 @@ connectAttr "polySurfaceShape8.o" "polyDelEdge1.ip";
 connectAttr "polyDelEdge1.out" "polyConnectComponents1.ip";
 connectAttr "polyConnectComponents1.out" "polyConnectComponents2.ip";
 connectAttr "polySurfaceShape9.o" "polySplitRing1.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polySplitRing1.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polySplitRing1.mp"
 		;
 connectAttr "polyTweak8.out" "polySplit1.ip";
 connectAttr "polySplitRing1.out" "polyTweak8.ip";
 connectAttr "polySplit1.out" "polySplit2.ip";
 connectAttr "polySplit2.out" "polySplitRing2.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polySplitRing2.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polySplitRing2.mp"
 		;
 connectAttr "polySplitRing2.out" "polySoftEdge2.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polySoftEdge2.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polySoftEdge2.mp"
 		;
 connectAttr "polyTweak9.out" "polyExtrudeFace2.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polyExtrudeFace2.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polyExtrudeFace2.mp"
 		;
 connectAttr "polySoftEdge2.out" "polyTweak9.ip";
 connectAttr "polyExtrudeFace2.out" "polyDelEdge2.ip";
@@ -24016,7 +24013,7 @@ connectAttr "polyDelEdge3.out" "polySplit6.ip";
 connectAttr "polySplit6.out" "polyConnectComponents3.ip";
 connectAttr "polyConnectComponents3.out" "polyConnectComponents4.ip";
 connectAttr "polyConnectComponents4.out" "polySplitRing3.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polySplitRing3.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polySplitRing3.mp"
 		;
 connectAttr "polySplitRing3.out" "polyTweak10.ip";
 connectAttr "polyTweak10.out" "polySplit7.ip";
@@ -24028,38 +24025,38 @@ connectAttr "polySplit11.out" "polySplit12.ip";
 connectAttr "polySplit12.out" "polySplit13.ip";
 connectAttr "polySplit13.out" "polySplit14.ip";
 connectAttr "polySplit14.out" "polyMergeVert7.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polyMergeVert7.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polyMergeVert7.mp"
 		;
 connectAttr "polyTweak11.out" "polyExtrudeFace3.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polyExtrudeFace3.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polyExtrudeFace3.mp"
 		;
 connectAttr "polyMergeVert7.out" "polyTweak11.ip";
 connectAttr "polyExtrudeFace3.out" "polyExtrudeFace4.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polyExtrudeFace4.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polyExtrudeFace4.mp"
 		;
 connectAttr "polyTweak12.out" "polyBevel1.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polyBevel1.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polyBevel1.mp"
 		;
 connectAttr "polyExtrudeFace4.out" "polyTweak12.ip";
 connectAttr "polyBevel1.out" "polySplitRing4.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polySplitRing4.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polySplitRing4.mp"
 		;
 connectAttr "polySplitRing4.out" "polySoftEdge3.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polySoftEdge3.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polySoftEdge3.mp"
 		;
 connectAttr "polyTweak13.out" "polySoftEdge4.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polySoftEdge4.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.wm" "polySoftEdge4.mp"
 		;
 connectAttr "polySoftEdge3.out" "polyTweak13.ip";
 connectAttr "polySoftEdge4.out" "polyDelEdge4.ip";
 connectAttr "polySurfaceShape10.o" "polyBevel2.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel2.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel2.mp"
 		;
 connectAttr "polyBevel2.out" "polyBevel3.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel3.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel3.mp"
 		;
 connectAttr "polyBevel3.out" "polyMergeVert8.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert8.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert8.mp"
 		;
 connectAttr "polyMergeVert8.out" "polyDelEdge5.ip";
 connectAttr "polyDelEdge5.out" "polySplit15.ip";
@@ -24071,36 +24068,36 @@ connectAttr "deleteComponent3.og" "deleteComponent4.ig";
 connectAttr "deleteComponent4.og" "polyCloseBorder1.ip";
 connectAttr "polyCloseBorder1.out" "polyCloseBorder2.ip";
 connectAttr "polyCloseBorder2.out" "polyBevel4.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel4.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel4.mp"
 		;
 connectAttr "polyBevel4.out" "polyMergeVert9.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert9.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert9.mp"
 		;
 connectAttr "polyMergeVert9.out" "polySplit17.ip";
 connectAttr "polySplit17.out" "polyConnectComponents5.ip";
 connectAttr "polyConnectComponents5.out" "polySplit18.ip";
 connectAttr "polySplit18.out" "polyDelEdge7.ip";
 connectAttr "polyDelEdge7.out" "polyBevel5.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel5.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel5.mp"
 		;
 connectAttr "polyBevel5.out" "polyTweakUV3.ip";
 connectAttr "polyTweak15.out" "polyMergeVert10.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert10.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert10.mp"
 		;
 connectAttr "polyTweakUV3.out" "polyTweak15.ip";
 connectAttr "polyMergeVert10.out" "polyTweakUV4.ip";
 connectAttr "polyTweak16.out" "polyMergeVert11.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert11.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert11.mp"
 		;
 connectAttr "polyTweakUV4.out" "polyTweak16.ip";
 connectAttr "polyMergeVert11.out" "polyTweakUV5.ip";
 connectAttr "polyTweak17.out" "polyMergeVert12.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert12.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert12.mp"
 		;
 connectAttr "polyTweakUV5.out" "polyTweak17.ip";
 connectAttr "polyMergeVert12.out" "polyTweakUV6.ip";
 connectAttr "polyTweak18.out" "polyMergeVert13.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert13.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert13.mp"
 		;
 connectAttr "polyTweakUV6.out" "polyTweak18.ip";
 connectAttr "polyMergeVert13.out" "polyDelEdge8.ip";
@@ -24108,7 +24105,7 @@ connectAttr "polyDelEdge8.out" "polyConnectComponents6.ip";
 connectAttr "polyConnectComponents6.out" "polySplit19.ip";
 connectAttr "polySplit19.out" "polyTweakUV7.ip";
 connectAttr "polyTweak19.out" "polyMergeVert14.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert14.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert14.mp"
 		;
 connectAttr "polyTweakUV7.out" "polyTweak19.ip";
 connectAttr "polyMergeVert14.out" "deleteComponent5.ig";
@@ -24122,59 +24119,59 @@ connectAttr "polyDelEdge9.out" "polyDelEdge10.ip";
 connectAttr "polyDelEdge10.out" "polySplit20.ip";
 connectAttr "polySplit20.out" "polySplit21.ip";
 connectAttr "polySplit21.out" "polySoftEdge5.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polySoftEdge5.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polySoftEdge5.mp"
 		;
 connectAttr "polyTweak20.out" "polySplit22.ip";
 connectAttr "polySoftEdge5.out" "polyTweak20.ip";
 connectAttr "polySplit22.out" "polySplit23.ip";
 connectAttr "polyTweak21.out" "polySoftEdge6.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polySoftEdge6.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polySoftEdge6.mp"
 		;
 connectAttr "polySplit23.out" "polyTweak21.ip";
 connectAttr "polyTweak22.out" "polySoftEdge7.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polySoftEdge7.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polySoftEdge7.mp"
 		;
 connectAttr "polySoftEdge6.out" "polyTweak22.ip";
 connectAttr "polySoftEdge7.out" "polyTriangulate1.ip";
 connectAttr "polyTriangulate1.out" "polyQuad1.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyQuad1.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyQuad1.mp"
 		;
 connectAttr "polySurfaceShape11.o" "polySoftEdge8.ip";
-connectAttr "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarTop|ControlBarTopShape.wm" "polySoftEdge8.mp"
+connectAttr "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarTop|ControlBarTopShape.wm" "polySoftEdge8.mp"
 		;
 connectAttr "polySurfaceShape12.o" "polySoftEdge9.ip";
-connectAttr "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarModel|ControlBarModelShape.wm" "polySoftEdge9.mp"
+connectAttr "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarModel|ControlBarModelShape.wm" "polySoftEdge9.mp"
 		;
 connectAttr "polyQuad1.out" "polyBevel6.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel6.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel6.mp"
 		;
 connectAttr "polyBevel6.out" "polySoftEdge10.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polySoftEdge10.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polySoftEdge10.mp"
 		;
 connectAttr "polySoftEdge10.out" "polyBevel7.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel7.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel7.mp"
 		;
 connectAttr "polyBevel7.out" "polyDelEdge11.ip";
 connectAttr "polyDelEdge11.out" "polyDelEdge12.ip";
 connectAttr "polyDelEdge12.out" "polyDelEdge13.ip";
 connectAttr "polyDelEdge13.out" "polyDelEdge14.ip";
 connectAttr "polyDelEdge14.out" "polyBevel8.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel8.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel8.mp"
 		;
 connectAttr "polyBevel8.out" "polyBevel9.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel9.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel9.mp"
 		;
 connectAttr "polyBevel9.out" "polyBevel10.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel10.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyBevel10.mp"
 		;
 connectAttr "polyBevel10.out" "polyTweakUV8.ip";
 connectAttr "polyTweak23.out" "polyMergeVert15.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert15.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert15.mp"
 		;
 connectAttr "polyTweakUV8.out" "polyTweak23.ip";
 connectAttr "polyMergeVert15.out" "polyTweakUV9.ip";
 connectAttr "polyTweak24.out" "polyMergeVert16.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert16.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyMergeVert16.mp"
 		;
 connectAttr "polyTweakUV9.out" "polyTweak24.ip";
 connectAttr "polyTweak25.out" "polySplit24.ip";
@@ -24197,7 +24194,7 @@ connectAttr "polySplit36.out" "polySplit37.ip";
 connectAttr "polySplit37.out" "polySplit38.ip";
 connectAttr "polySplit38.out" "polyTriangulate2.ip";
 connectAttr "polyTriangulate2.out" "polyQuad2.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyQuad2.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.wm" "polyQuad2.mp"
 		;
 connectAttr "polyQuad2.out" "polyDelEdge16.ip";
 connectAttr "polyDelEdge16.out" "polySplit39.ip";
@@ -24219,26 +24216,26 @@ connectAttr "polyDelEdge22.out" "polyConnectComponents11.ip";
 connectAttr "polyConnectComponents11.out" "polyDelEdge23.ip";
 connectAttr "polyDelEdge23.out" "polyConnectComponents12.ip";
 connectAttr "polySurfaceShape13.o" "polyBevel11.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoomTop|ControlRoomTopShape.wm" "polyBevel11.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoomTop|ControlRoomTopShape.wm" "polyBevel11.mp"
 		;
 connectAttr "polyBevel11.out" "polySoftEdge11.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoomTop|ControlRoomTopShape.wm" "polySoftEdge11.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoomTop|ControlRoomTopShape.wm" "polySoftEdge11.mp"
 		;
 connectAttr "polySoftEdge11.out" "polySoftEdge12.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoomTop|ControlRoomTopShape.wm" "polySoftEdge12.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoomTop|ControlRoomTopShape.wm" "polySoftEdge12.mp"
 		;
 connectAttr "polySoftEdge12.out" "polySoftEdge13.ip";
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoomTop|ControlRoomTopShape.wm" "polySoftEdge13.mp"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoomTop|ControlRoomTopShape.wm" "polySoftEdge13.mp"
 		;
 connectAttr "polyTweak26.out" "polyBevel12.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|Can|CanBase|CanBaseShape.wm" "polyBevel12.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|Can|CanBase|CanBaseShape.wm" "polyBevel12.mp"
 		;
 connectAttr "polyConnectComponents2.out" "polyTweak26.ip";
 connectAttr "polyBevel12.out" "polySoftEdge14.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|Can|CanBase|CanBaseShape.wm" "polySoftEdge14.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|Can|CanBase|CanBaseShape.wm" "polySoftEdge14.mp"
 		;
 connectAttr "polySoftEdge14.out" "polySoftEdge15.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|Can|CanBase|CanBaseShape.wm" "polySoftEdge15.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|Can|CanBase|CanBaseShape.wm" "polySoftEdge15.mp"
 		;
 connectAttr "polySurfaceShape14.o" "polySmoothFace1.ip";
 connectAttr "polySmoothFace1.out" "polyDelEdge24.ip";
@@ -24272,10 +24269,10 @@ connectAttr "polyTweak28.out" "polySmoothFace3.ip";
 connectAttr "polyDelEdge47.out" "polyTweak28.ip";
 connectAttr "polySmoothFace3.out" "polyDelEdge48.ip";
 connectAttr "polySurfaceShape15.o" "polyBevel13.ip";
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanTube|FanTubeShape.wm" "polyBevel13.mp"
+connectAttr "|Meshes|Inner|Settings|Fan|FanTube|FanTubeShape.wm" "polyBevel13.mp"
 		;
 connectAttr "polyBevel13.out" "polyBevel14.ip";
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanTube|FanTubeShape.wm" "polyBevel14.mp"
+connectAttr "|Meshes|Inner|Settings|Fan|FanTube|FanTubeShape.wm" "polyBevel14.mp"
 		;
 connectAttr "polyTweak29.out" "polySmoothFace4.ip";
 connectAttr "polyBevel14.out" "polyTweak29.ip";
@@ -24285,65 +24282,60 @@ connectAttr "polyDelEdge49.out" "polyDelEdge50.ip";
 connectAttr "polySurfaceShape16.o" "polySmoothFace6.ip";
 connectAttr "polySmoothFace6.out" "deleteComponent8.ig";
 connectAttr "polySurfaceShape17.o" "polyBevel15.ip";
-connectAttr "|Meshes_high|Inner|Settings|Floor1|Floor1Shape.wm" "polyBevel15.mp"
-		;
+connectAttr "|Meshes|Inner|Settings|Floor1|Floor1Shape.wm" "polyBevel15.mp";
 connectAttr "polyBevel15.out" "polyTweakUV10.ip";
 connectAttr "polyTweak30.out" "polyMergeVert17.ip";
-connectAttr "|Meshes_high|Inner|Settings|Floor1|Floor1Shape.wm" "polyMergeVert17.mp"
-		;
+connectAttr "|Meshes|Inner|Settings|Floor1|Floor1Shape.wm" "polyMergeVert17.mp";
 connectAttr "polyTweakUV10.out" "polyTweak30.ip";
 connectAttr "polyMergeVert17.out" "polyTweakUV11.ip";
 connectAttr "polyTweak31.out" "polyMergeVert18.ip";
-connectAttr "|Meshes_high|Inner|Settings|Floor1|Floor1Shape.wm" "polyMergeVert18.mp"
-		;
+connectAttr "|Meshes|Inner|Settings|Floor1|Floor1Shape.wm" "polyMergeVert18.mp";
 connectAttr "polyTweakUV11.out" "polyTweak31.ip";
 connectAttr "polyMergeVert18.out" "polyTweakUV12.ip";
 connectAttr "polyTweak32.out" "polyMergeVert19.ip";
-connectAttr "|Meshes_high|Inner|Settings|Floor1|Floor1Shape.wm" "polyMergeVert19.mp"
-		;
+connectAttr "|Meshes|Inner|Settings|Floor1|Floor1Shape.wm" "polyMergeVert19.mp";
 connectAttr "polyTweakUV12.out" "polyTweak32.ip";
 connectAttr "polyMergeVert19.out" "polyTweakUV13.ip";
 connectAttr "polyTweak33.out" "polyMergeVert20.ip";
-connectAttr "|Meshes_high|Inner|Settings|Floor1|Floor1Shape.wm" "polyMergeVert20.mp"
-		;
+connectAttr "|Meshes|Inner|Settings|Floor1|Floor1Shape.wm" "polyMergeVert20.mp";
 connectAttr "polyTweakUV13.out" "polyTweak33.ip";
 connectAttr "polyMergeVert20.out" "polySplit46.ip";
 connectAttr "polySurfaceShape19.o" "polyBevel17.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|Can|CanTop|CanTopShape.wm" "polyBevel17.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|Can|CanTop|CanTopShape.wm" "polyBevel17.mp"
 		;
 connectAttr "polyBevel17.out" "polySoftEdge17.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|Can|CanTop|CanTopShape.wm" "polySoftEdge17.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|Can|CanTop|CanTopShape.wm" "polySoftEdge17.mp"
 		;
 connectAttr "polySoftEdge17.out" "polySoftEdge18.ip";
-connectAttr "|Meshes_high|Inner|Settings|FartCan|Can|CanTop|CanTopShape.wm" "polySoftEdge18.mp"
+connectAttr "|Meshes|Inner|Settings|FartCan|Can|CanTop|CanTopShape.wm" "polySoftEdge18.mp"
 		;
 connectAttr "polySurfaceShape20.o" "polyBevel18.ip";
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyBevel18.mp"
+connectAttr "|Meshes|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyBevel18.mp"
 		;
 connectAttr "polyBevel18.out" "polyMergeVert23.ip";
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyMergeVert23.mp"
+connectAttr "|Meshes|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyMergeVert23.mp"
 		;
 connectAttr "polyMergeVert23.out" "polyBevel19.ip";
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyBevel19.mp"
+connectAttr "|Meshes|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyBevel19.mp"
 		;
 connectAttr "polyBevel19.out" "polyTweakUV14.ip";
 connectAttr "polyTweak41.out" "polyMergeVert24.ip";
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyMergeVert24.mp"
+connectAttr "|Meshes|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyMergeVert24.mp"
 		;
 connectAttr "polyTweakUV14.out" "polyTweak41.ip";
 connectAttr "polyMergeVert24.out" "polyTweakUV15.ip";
 connectAttr "polyTweak42.out" "polyMergeVert25.ip";
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyMergeVert25.mp"
+connectAttr "|Meshes|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyMergeVert25.mp"
 		;
 connectAttr "polyTweakUV15.out" "polyTweak42.ip";
 connectAttr "polyMergeVert25.out" "polyTweakUV16.ip";
 connectAttr "polyTweak43.out" "polyMergeVert26.ip";
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyMergeVert26.mp"
+connectAttr "|Meshes|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyMergeVert26.mp"
 		;
 connectAttr "polyTweakUV16.out" "polyTweak43.ip";
 connectAttr "polyMergeVert26.out" "polyTweakUV17.ip";
 connectAttr "polyTweak44.out" "polyMergeVert27.ip";
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyMergeVert27.mp"
+connectAttr "|Meshes|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyMergeVert27.mp"
 		;
 connectAttr "polyTweakUV17.out" "polyTweak44.ip";
 connectAttr "polyMergeVert27.out" "polyDelEdge53.ip";
@@ -24392,10 +24384,10 @@ connectAttr "polyConnectComponents20.out" "polyConnectComponents21.ip";
 connectAttr "polyConnectComponents21.out" "polyConnectComponents22.ip";
 connectAttr "polyConnectComponents22.out" "polyConnectComponents23.ip";
 connectAttr "polyConnectComponents23.out" "polyBevel20.ip";
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyBevel20.mp"
+connectAttr "|Meshes|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyBevel20.mp"
 		;
 connectAttr "polyBevel20.out" "polyBevel21.ip";
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyBevel21.mp"
+connectAttr "|Meshes|Inner|Settings|Fan|FanBase|FanBaseShape.wm" "polyBevel21.mp"
 		;
 connectAttr "polySurfaceShape21.o" "polySmoothFace9.ip";
 connectAttr "polySurfaceShape22.o" "polySmoothFace10.ip";
@@ -24573,139 +24565,139 @@ connectAttr "|Meshes_low|Inner|Settings|Floor1|Floor1Shape.iog" ":initialShading
 		 -na;
 connectAttr "|Meshes_low|Inner|Settings|Floor1|Floor1Shape.ciog.cog[0]" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel|ControlPanelItself|ControlPanelItselfShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel|ControlPanelItself|ControlPanelItselfShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarModel|ControlBarModelShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarModel|ControlBarModelShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarTop|ControlBarTopShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|ControlPanel|ControlPanelModel|ControlBar|ControlBarTop|ControlBarTopShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|HamsterWheelBase|HamsterWheelBaseShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|HamsterWheelBase|HamsterWheelBaseShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan|WheelFanShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan|WheelFanShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan1|WheelFan1Shape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan1|WheelFan1Shape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan2|WheelFan2Shape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan2|WheelFan2Shape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan3|WheelFan3Shape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan3|WheelFan3Shape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan4|WheelFan4Shape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan4|WheelFan4Shape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan5|WheelFan5Shape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan5|WheelFan5Shape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan6|WheelFan6Shape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan6|WheelFan6Shape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan7|WheelFan7Shape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|HamsterWheel|HamsterWheelModel|WheelFan7|WheelFan7Shape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|HamsterWheel|WheelPivot|WheelPivotShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|HamsterWheel|WheelPivot|WheelPivotShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Hand|HandBase|HandBaseShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Hand|HandBase|HandBaseShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Hand|Hand0|Hand0Finger0|Hand0FingerShape0.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Hand|Hand0|Hand0Finger0|Hand0FingerShape0.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Hand|Hand0|Hand0Finger1|Hand0FingerShape1.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Hand|Hand0|Hand0Finger1|Hand0FingerShape1.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Hand|Hand1|Hand0Finger0|Hand0FingerShape0.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Hand|Hand1|Hand0Finger0|Hand0FingerShape0.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Hand|Hand1|Hand0Finger1|Hand0FingerShape1.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Hand|Hand1|Hand0Finger1|Hand0FingerShape1.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Hand|Hand2|Hand0Finger0|Hand0FingerShape0.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Hand|Hand2|Hand0Finger0|Hand0FingerShape0.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Hand|Hand2|Hand0Finger1|Hand0FingerShape1.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Hand|Hand2|Hand0Finger1|Hand0FingerShape1.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Inflator|InflatorMouth|InflatorMouthModel|InflatorMouthModelShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Inflator|InflatorMouth|InflatorMouthModel|InflatorMouthModelShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorTailBase|InflatorTailBaseShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorTailBase|InflatorTailBaseShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorShell0|InflatorShell0Shape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorShell0|InflatorShell0Shape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorShell1|InflatorShell1Shape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorShell1|InflatorShell1Shape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorShell2|InflatorShell2Shape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorShell2|InflatorShell2Shape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorInners|InflatorInner0|InflatorInnerShape0.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorInners|InflatorInner0|InflatorInnerShape0.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorInners|InflatorInner1|InflatorInnerShape1.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorInners|InflatorInner1|InflatorInnerShape1.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Inflator|InflatorTail|InflatorInners|InflatorInner2|InflatorInnerShape2.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Inflator|InflatorTail|InflatorInners|InflatorInner2|InflatorInnerShape2.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Interactables|Elevator_whole|Elevator|ElevatorModel|ElevatorModelShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Interactables|Elevator_whole|Elevator|ElevatorModel|ElevatorModelShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Desk|DeskShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Desk|DeskShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Shelf|ShelfShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Shelf|ShelfShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Floor3|FloorShape3.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Floor3|FloorShape3.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Ceiling|CeilingShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Ceiling|CeilingShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|FartCan|CanTube|CanTubeShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|FartCan|CanTube|CanTubeShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|FartCan|FartCanTube|Tube|TubeShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|FartCan|FartCanTube|Tube|TubeShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|FartCan|FartCanTube|FartCanTubeBase|FartCanTubeBaseShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|FartCan|Can|CanTop|CanTopShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|FartCan|Can|CanTop|CanTopShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoom|ControlRoomShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|ControlCenter|ControlRoomTop|ControlRoomTopShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|ControlCenter|ControlRoomTop|ControlRoomTopShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Stairs|Stairs1|Stairs1Shape.iog.og[0]" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Stairs|Stairs1|Stairs1Shape.iog.og[0]" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Stairs|Stairs0|Stairs0Shape.iog.og[0]" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Stairs|Stairs0|Stairs0Shape.iog.og[0]" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Stairs|StairsPlatform|StairsPlatformShape.iog.og[0]" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Stairs|StairsPlatform|StairsPlatformShape.iog.og[0]" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Floor0|Floor0Shape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Floor0|Floor0Shape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|OutTube|OutTubeShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|OutTube|OutTubeShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Floor4|FloorShape4.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Floor4|FloorShape4.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanTube|FanTubeShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Fan|FanTube|FanTubeShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanBase|FanBaseShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Fan|FanBase|FanBaseShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf0|FanLeafShape0.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf0|FanLeafShape0.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf1|FanLeafShape1.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf1|FanLeafShape1.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf2|FanLeafShape2.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf2|FanLeafShape2.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanLeaves|FanLeaf3|FanLeafShape3.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Fan|FanLeaves|FanLeaf3|FanLeafShape3.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Fan|FanPivot|FanPivotShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Fan|FanPivot|FanPivotShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|BumpWall|BumpWallShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|BumpWall|BumpWallShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|MetalWeb|MetalFrame|MetalFrameShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|MetalWeb|MetalFrame|MetalFrameShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|TopTube|TopTube|TopTubeShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|TopTube|TopTube|TopTubeShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|TopTube|TopTube1|TopTube1Shape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|TopTube|TopTube1|TopTube1Shape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|TopTube|TopTube2|TopTubeShape2.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|TopTube|TopTube2|TopTubeShape2.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|TopLight|LightBase|LightBaseShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|TopLight|LightBase|LightBaseShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|TopLight|LightBulb|LightBulbShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|TopLight|LightBulb|LightBulbShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|TopLight1|LightBase|LightBaseShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|TopLight1|LightBase|LightBaseShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|TopLight1|LightBulb|LightBulbShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|TopLight1|LightBulb|LightBulbShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|TopLight2|LightBase|LightBaseShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|TopLight2|LightBase|LightBaseShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|TopLight2|LightBulb|LightBulbShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|TopLight2|LightBulb|LightBulbShape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Floor1|Floor1Shape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Floor1|Floor1Shape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Floor6|Floor6Shape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Floor6|Floor6Shape.iog" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|Floor6|Floor6Shape.ciog.cog[1]" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|Floor6|Floor6Shape.ciog.cog[1]" ":initialShadingGroup.dsm"
 		 -na;
-connectAttr "|Meshes_high|Inner|Settings|FartCan|Can|CanBase|CanBaseShape.iog" ":initialShadingGroup.dsm"
+connectAttr "|Meshes|Inner|Settings|FartCan|Can|CanBase|CanBaseShape.iog" ":initialShadingGroup.dsm"
 		 -na;
 connectAttr "CanBase_leafShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "CanBase_leafShape1.iog" ":initialShadingGroup.dsm" -na;
