@@ -12,6 +12,7 @@ namespace WaterColorFilterSystem {
 		public const string PROP_WOBB_TEX = "_WobbTex";
 		public const string PROP_WOBB_TEX_SCALE = "_WobbScale";
 		public const string PROP_WOBB_POWER = "_WobbPower";
+        public const string PROP_WOBB_SPEED = "_WobbSpeed";
 		public const string PROP_EDGE_SIZE = "_EdgeSize";
 		public const string PROP_EDGE_POWER = "_EdgePower";
 		public const string PROP_PAPER_TEX = "_PaperTex";
@@ -23,6 +24,7 @@ namespace WaterColorFilterSystem {
 		public Texture wobbTex;
 		public float wobbScale = 1f;
 		public float wobbPower = 0.01f;
+        public float wobbSpeed = 1f;
 		public float edgeSize = 1f;
 		public float edgePower = 3f;
 		public PaperData[] paperDataset;
@@ -39,7 +41,8 @@ namespace WaterColorFilterSystem {
 			_filterMat.SetTexture(PROP_WOBB_TEX, wobbTex);
 			_filterMat.SetFloat(PROP_WOBB_TEX_SCALE, wobbScale);
 			_filterMat.SetFloat(PROP_WOBB_POWER, wobbPower);
-			_filterMat.SetFloat(PROP_EDGE_SIZE, edgeSize);
+            _filterMat.SetFloat(PROP_WOBB_SPEED, wobbSpeed);
+            _filterMat.SetFloat(PROP_EDGE_SIZE, edgeSize);
 			_filterMat.SetFloat(PROP_EDGE_POWER, edgePower);
 			
 			var rt0 = RenderTexture.GetTemporary(src.width, src.height, 0, RenderTextureFormat.ARGB32);

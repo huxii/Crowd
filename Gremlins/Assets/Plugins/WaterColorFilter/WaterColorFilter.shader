@@ -6,6 +6,7 @@ Shader "Hidden/WaterColorFilter" {
 		_WobbTex ("Wobbing", 2D) = "grey" {}
 		_WobbScale ("Wob Tex Scale", Float) = 1
 		_WobbPower ("Wobbing Power", Float) = 1
+		_WobbSpeed("Wobbing Speed", Float) = 1
 		_EdgeSize ("Edge Size", Float) = 1
 		_EdgePower ("Edge Power", Float) = 1
 		_PaperTex ("Paper", 2D) = "grey" {}
@@ -57,14 +58,18 @@ Shader "Hidden/WaterColorFilter" {
 			sampler2D _WobbTex;
 			float _WobbScale;
 			float _WobbPower;
+			float _WobbSpeed;
+
+			static const fixed wobbOffset = 0.01;
 
 			v2f_wobb vert_wobb(appdata v) {
 				float aspect = _ScreenParams.x / _ScreenParams.y;
 
 				v2f_wobb o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
+
 				o.uv_Main = v.uv;
-				o.uv_Wobb = v.uv * float2(aspect, 1) * _WobbScale;
+				o.uv_Wobb = (v.uv + step(sin(_Time * _WobbSpeed), 0) * wobbOffset) * float2(aspect, 1) * _WobbScale;
 				return o;
 			}
 			
