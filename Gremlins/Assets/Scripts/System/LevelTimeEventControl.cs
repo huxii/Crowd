@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LevelTimeEventControl : LevelEventControl
 {
-    public bool happenOnAwake = false;
     public float delayTime = 0f;
 
     protected float timer = -1;
@@ -18,26 +17,30 @@ public class LevelTimeEventControl : LevelEventControl
     //    }
     //}
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    if (timer >= 0)
-    //    {
-    //        timer -= Time.deltaTime;
-    //        if (timer < 0)
-    //        {
-    //            TriggerEvent();
-    //        }
-    //    }
-    //}
+    // Update is called once per frame
+    void Update()
+    {
+        if (timer >= 0)
+        {
+            timer -= Time.deltaTime;
+            if (timer < 0)
+            {
+                beginEvent.Invoke();
+            }
+        }
+    }
 
-    //protected override void OnTriggerEnter(Collider other)
-    //{
-    //    base.OnTriggerEnter(other);
+    protected override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
 
-    //    if (other.gameObject.CompareTag("Man") && timer == -1)
-    //    {
-    //        timer = delayTime;
-    //    }
-    //}
+        Done();
+    }
+
+    public override void Do()
+    {
+        base.Do();
+
+        timer = delayTime;
+    }
 }

@@ -27,24 +27,23 @@ public abstract class LevelEventControl : MonoBehaviour
         Gizmos.DrawCube(transform.position, new Vector3(0.3f, 0.3f, 0.3f));
     }
 
-    protected void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
-        if (autoNext)
-        {
-            Services.levelEventsManager.NextEvent();
-        }
-
-        Done();       
     }
 
-    public void Do()
-    {
-        beginEvent.Invoke();
+    public virtual void Do()
+    {        
     }
 
     public void Done()
     {
         endEvent.Invoke();
+
+        if (autoNext)
+        {
+            Services.levelEventsManager.NextEvent();
+        }
+
         Destroy(gameObject);
     }
 }
