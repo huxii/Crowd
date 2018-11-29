@@ -44,6 +44,7 @@ Shader "Custom/Cutout_dynamic"
 		uniform float _MinY;
 		uniform float _MaxX;
 		uniform float _MaxY;
+		uniform float _Offset;
 
 		struct Input
 		{
@@ -59,7 +60,9 @@ Shader "Custom/Cutout_dynamic"
 
 		void surf(Input IN, inout SurfaceCustomOutput o)
 		{
-			half4 c = tex2D(_MainTex, IN.uv_MainTex);
+			half2 uv = IN.uv_MainTex;
+			uv.y += _Offset;
+			half4 c = tex2D(_MainTex, uv);
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
 

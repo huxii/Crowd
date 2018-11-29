@@ -10,6 +10,7 @@ public class RopeLoopBehavior : RopeBehavior
     public float minY = 0;
     public float maxY = 0;
 
+    [SerializeField]
     private float timer = 0;
 
     // Use this for initialization

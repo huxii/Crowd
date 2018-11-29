@@ -23,7 +23,11 @@ public class PropOneTimeBasicControl : PropOneTimeControl
             if (timer <= 0)
             {
                 FreeAllMen();
-                Deactivate();
+
+                if (!IsLocked())
+                {
+                    Lock();
+                }
             }
         }
     }
@@ -38,10 +42,22 @@ public class PropOneTimeBasicControl : PropOneTimeControl
             timer = deactivateDelay;
         }
         else
+        if (deactivateDelay == 0)
         {
             FreeAllMen();
             Lock();
             Deactivate();
         }
+        else
+        {
+            // manually deactivate
+        }
+    }
+
+    public override void Deactivate()
+    {
+        base.Deactivate();
+
+        timer = Mathf.Abs(deactivateDelay);
     }
 }
