@@ -10,6 +10,7 @@ using UnityEngine.Events;
 public abstract class InteractableControl : ActorControl
 {
     // events invoked when it's activated & deactivated
+    public bool canActivateMultipleTimes = false;
     public UnityEvent onActivated;
     public UnityEvent onDeactivated;
     
@@ -64,7 +65,7 @@ public abstract class InteractableControl : ActorControl
     // it can not be activated when it is locked but can be deactivated
     public virtual void Activate()
     {
-        if (!IsActivated() && !IsLocked())
+        if ((!IsActivated() || canActivateMultipleTimes) && !IsLocked())
         {
             isActivated = true;
 

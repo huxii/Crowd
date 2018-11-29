@@ -12,7 +12,8 @@ public class LevelEventsManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        NextEvent();
+        DoNextEvent();
+        //MoveToNext();
     }
 
     // Update is called once per frame
@@ -21,12 +22,17 @@ public class LevelEventsManager : MonoBehaviour
 
     }
 
-    public void NextEvent()
+    public void MoveToNext()
+    {
+        ++curEventId;
+        //Debug.Log(curEventId);
+    }
+
+    public void DoNextEvent()
     {
         if (curEventId < levelEvents.Count)
         {
             levelEvents[curEventId].Do();
-            ++curEventId;
         }
     }
 }

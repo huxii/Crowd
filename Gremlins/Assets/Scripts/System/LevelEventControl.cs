@@ -10,6 +10,8 @@ public abstract class LevelEventControl : MonoBehaviour
 
     public bool autoNext = true;
 
+    private bool isFinished = false;
+
     // Use this for initialization
     void Start()
     {
@@ -37,13 +39,19 @@ public abstract class LevelEventControl : MonoBehaviour
 
     public void Done()
     {
-        endEvent.Invoke();
-
-        if (autoNext)
+        if (!isFinished)
         {
-            Services.levelEventsManager.NextEvent();
-        }
+            endEvent.Invoke();
 
-        Destroy(gameObject);
+            Services.levelEventsManager.MoveToNext();
+            if (autoNext)
+            {
+                Services.levelEventsManager.DoNextEvent();
+            }
+
+            Destroy(gameObject);
+
+            isFinished = true;
+        }
     }
 }
