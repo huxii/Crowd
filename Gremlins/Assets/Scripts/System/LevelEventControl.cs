@@ -5,13 +5,14 @@ using UnityEngine.Events;
 
 public abstract class LevelEventControl : MonoBehaviour
 {
-    public UnityEvent levelEvent;
+    public UnityEvent beginEvent;
+    public UnityEvent endEvent;
 
+    public bool autoNext = true;
 
     // Use this for initialization
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -20,14 +21,30 @@ public abstract class LevelEventControl : MonoBehaviour
 
     }
 
-    protected void TriggerEvent()
+    private void OnDrawGizmos()
     {
-        levelEvent.Invoke();
-
-        Destroy(gameObject);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawCube(transform.position, new Vector3(0.3f, 0.3f, 0.3f));
     }
 
-    protected virtual void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
+        if (autoNext)
+        {
+            Services.levelEventsManager.NextEvent();
+        }
+
+        Done();       
+    }
+
+    public void Do()
+    {
+        beginEvent.Invoke();
+    }
+
+    public void Done()
+    {
+        endEvent.Invoke();
+        Destroy(gameObject);
     }
 }

@@ -10,34 +10,34 @@ public class LevelTimeEventControl : LevelEventControl
     protected float timer = -1;
 
     // Use this for initialization
-    void Start()
-    {
-        if (happenOnAwake)
-        {
-            TriggerEvent();
-        }
-    }
+    //void Start()
+    //{
+    //    if (happenOnAwake)
+    //    {
+    //        TriggerEvent();
+    //    }
+    //}
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (timer >= 0)
-        {
-            timer -= Time.deltaTime;
-            if (timer < 0)
-            {
-                TriggerEvent();
-            }
-        }
-    }
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    if (timer >= 0)
+    //    {
+    //        timer -= Time.deltaTime;
+    //        if (timer < 0)
+    //        {
+    //            TriggerEvent();
+    //        }
+    //    }
+    //}
 
-    protected override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
+    //protected override void OnTriggerEnter(Collider other)
+    //{
+    //    base.OnTriggerEnter(other);
 
-        if (other.gameObject.CompareTag("Man") && timer == -1)
-        {
-            timer = delayTime;
-        }
-    }
+    //    if (other.gameObject.CompareTag("Man") && timer == -1)
+    //    {
+    //        timer = delayTime;
+    //    }
+    //}
 }
