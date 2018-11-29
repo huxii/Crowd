@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/*
+ *      Constantly invoke loopEvent according to the loopInterval
+ */
+
 public class PropAutoLoopControl : PropAutoControl
 {
     [Header("Loop Settings")]

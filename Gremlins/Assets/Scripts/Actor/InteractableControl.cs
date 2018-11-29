@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/*
+ *      Control all the actors that can interact with
+ */
+ 
 public abstract class InteractableControl : ActorControl
 {
+    // events invoked when it's activated & deactivated
     public UnityEvent onActivated;
     public UnityEvent onDeactivated;
-
+    
     [Header("Interaction")]
+    // interactionCD will prevent player to constantly click on the interactable
     public float interactionCD = 0;
+    // specifically for props like ladders
     public bool isWalkableAfterDeactivated = false;
+    // specifically for objects like moving platforms
     public bool dropMenAfterDeactivated = false;
 
     protected float interactionTimer = 0;
@@ -53,19 +61,26 @@ public abstract class InteractableControl : ActorControl
         return isActivated;
     }
 
+    // it can not be activated when it is locked but can be deactivated
     public virtual void Activate()
     {
-        isActivated = true;
+        if (!IsActivated() && !IsLocked())
+        {
+            isActivated = true;
 
-        CoolDown();
-        onActivated.Invoke();
+            CoolDown();
+            onActivated.Invoke();
+        }
     }
 
     public virtual void Deactivate()
     {
-        isActivated = false;
+        if (IsActivated())
+        {
+            isActivated = false;
 
-        CoolDown();
-        onDeactivated.Invoke();
+            CoolDown();
+            onDeactivated.Invoke();
+        }
     }
 }

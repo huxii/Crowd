@@ -6,6 +6,10 @@ using UnityEngine.Events;
 using DG.Tweening;
 using BehaviorTree;
 
+/*
+ *      Control the men
+ */
+
 public class CrowdControl : ActorControl
 {
     public enum CrowdState
@@ -18,28 +22,33 @@ public class CrowdControl : ActorControl
         CONFUSED,
     };
 
+    // the events when the man is selected/deselected. (removed already)
     public UnityEvent onSelected;
     public UnityEvent onDeselected;
 
+    // the moving speed
     public float speed = 5f;
 
+    // behavior tree to control the animations and states
+    // this part is not easy to understand by a couple of lines of comments, let me know if you are interested in it.
     private Tree<CrowdControl> btree;
     [SerializeField]
     private CrowdState state = CrowdState.IDLE;
     private float stateCoolingDown = 0;
     private float stateInterval = 2.0f;
 
+    // the object and slot that the man is working on
+    // when workingObject == null || workingSlot == -1, the man is not working on anything
     private GameObject workingObject = null;
     private int workingSlot = -1;
 
+    // the man is constantly moving towards targetPos by its RigidBody
     private bool isMoving = false;
     private Vector3 targetPos;
     private float targetPosTol = 0f;
     private Rigidbody rb;
 
-    private GameObject onObj = null;
-    private Sequence matSeq = null;
-
+    // the voice of a man
     private float voiceCoolDown = 3f;
     private float[] voiceTimer = new float[3];
 
@@ -87,18 +96,11 @@ public class CrowdControl : ActorControl
     {
         btree = new Tree<CrowdControl>(
             new Selector<CrowdControl>(
-
-                // Special case: it's on the puddle
-
-                // Decide if it's dropping
-
-                // Decide if it's climbing by the target y position
                 new Sequence<CrowdControl>(
                     new IsClimbing(),
                     new Climbing()
                     ),
 
-                // Decide if it's climbing by the target position
                 new Sequence<CrowdControl>(
                     new IsMoving(),
                     new Moving()
@@ -121,6 +123,7 @@ public class CrowdControl : ActorControl
             );
     }
 
+    // voice cool down
     private void CoolDown()
     {
         for (int i = 0; i < 3; ++i)
@@ -132,6 +135,8 @@ public class CrowdControl : ActorControl
         }
     }
 
+    // the man will be set to kinematic when it gets on an working slot 
+    // so that it won't be affected by physics
     private void SetKinematic(bool isKinematic)
     {
         rb.isKinematic = isKinematic;
@@ -172,6 +177,8 @@ public class CrowdControl : ActorControl
         isMoving = false;
     }
 
+    // set the targetPos so that the man will be moving towards it
+    // mainly invoked by PathFinder
     public void MoveTo(Vector3 pos, float tol, CrowdState s)
     {
         isMoving = true;
@@ -190,6 +197,7 @@ public class CrowdControl : ActorControl
         onDeselected.Invoke();
     }
 
+    // successfully get on a working slot
     public void LoadSucceeded()
     {
         if (voiceTimer[0] <= 0)
@@ -200,6 +208,7 @@ public class CrowdControl : ActorControl
         }
     }
 
+    // successfully walk to a place
     public void WalkSucceeded()
     {
         if (voiceTimer[1] <= 0)
@@ -211,6 +220,7 @@ public class CrowdControl : ActorControl
         }
     }
 
+    // failed
     public void OrderFailed()
     {
         stateCoolingDown = stateInterval;

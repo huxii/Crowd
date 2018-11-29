@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-// the object with certain amount of slots that can be filled with crowd
-// player will directly operate those objects
+/*
+ *  The objects with slots and directly related to the puzzles
+ */
+
 public abstract class PropControl : InteractableControl
 {
     [System.Serializable]
@@ -29,10 +31,18 @@ public abstract class PropControl : InteractableControl
         READY,
     }
 
+    // the reaction when player interacts with it
+    // eg. model bounces a little bit
     public UnityEvent onInteractionFeedback;
     //public Vector3 progressBarPosOffset = new Vector3(0, 0, 0);
+
     public float gizmoSize = 0.2f;
+
+    // the point the men should head towards when they are released from the slots
     public Vector3 freeManSlotOffset = new Vector3(0, 0, 0);
+
+    // men states will be changed when get on the working slots
+    // eg. when a man gets on the merry go round, state: walk -> ride
     public CrowdControl.CrowdState changeState = CrowdControl.CrowdState.IDLE;
 
     protected GameObject slotsObj = null;
@@ -43,9 +53,11 @@ public abstract class PropControl : InteractableControl
     private float namingCounter = 0;
     private Vector3 localSpawnPos = new Vector3(0, 0, 0);
 
-    // current slots occupied by the crowd
+    // current number of slots occupied by the crowd
     protected int currentSlots = 0;
 
+    // to simulate the effect of gravity
+    // eg. merry go round sinks a bit when a man is on it
     public GameObject weightObj = null;
     public float deltaWeight = 0f;
     protected float origWeight;
@@ -114,6 +126,7 @@ public abstract class PropControl : InteractableControl
         return newSlot;
     }
 
+    // free the men from the slots
     public void FreeSlot(int id)
     {
         if (slots[id].state == SlotState.READY)
@@ -130,12 +143,14 @@ public abstract class PropControl : InteractableControl
         slots[id].state = SlotState.EMPTY;
     }
 
+    // a man is planning to get on the slot but not arrived yet
     public void PlanSlot(GameObject man, int id)
     {
         slots[id].state = SlotState.PLANNED;
         slots[id].man = man;
     }
 
+    // a man arrives at the slot
     public void ReadySlot(int id, GameObject man)
     {
         if (currentSlots == 0 && weightObj != null)
@@ -275,7 +290,8 @@ public abstract class PropControl : InteractableControl
         Deactivate();
     }
 
-    // return next state
+    // return the current state of this prop
+    // so that MainControl can decide what it should do next when another interaction is required
     public virtual PropState Interact()
     {
         if (IsLocked())
@@ -314,6 +330,8 @@ public abstract class PropControl : InteractableControl
     //    //Services.soundController.Play("objectClick");
     //}
 
+    // if this prop is locked, the men on it will be locked as well
+    // and the men who are heading to it will be dismissed
     public override void Lock()
     {
         base.Lock();

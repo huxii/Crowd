@@ -3,7 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// the objects that control or are controlled by primary objects
+/*
+ * the parent object to control multiple props
+ * eg. ferris wheel
+*/
+
 public class MultiplePropControl : ObjectControl
 {
     [Header("Multi Props")]
@@ -73,12 +77,13 @@ public class MultiplePropControl : ObjectControl
         }
     }
 
+    // when it is activated, all the children props/objects/men will be locked
     public override void Activate()
     {
         base.Activate();
 
-        LockChildren();
         ActivateChildren();
+        LockChildren();     
 
         lockTimer = lockDuration;
     }
