@@ -9,6 +9,7 @@ public static class Services
     public static Crowd.SceneManager sceneManager = null;
     public static PathFindingManager pathFindingManager = null;
     public static FootprintsManager footprintsManager = null;
+    public static LevelEventsManager levelEventsManager = null;
     public static MainControl gameController = null;
     public static InputControl inputController = null;
     public static CameraControl cameraController = null;
@@ -32,6 +33,15 @@ public static class Services
         else
         {
             pathFindingManager = null;
+        }
+
+        if (GameObject.Find("LevelEventsManager"))
+        {
+            levelEventsManager = GameObject.Find("LevelEventsManager").GetComponent<LevelEventsManager>();
+        }
+        else
+        {
+            levelEventsManager = null;
         }
 
         if (GameObject.FindGameObjectWithTag("GameController"))
@@ -92,6 +102,7 @@ public static class Services
         sceneManager = null;
         pathFindingManager = null;
         footprintsManager = null;
+        levelEventsManager = null;
         gameController = null;
         inputController = null;
         cameraController = null;

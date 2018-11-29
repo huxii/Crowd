@@ -15,19 +15,19 @@ public class LevelPinchEventControl : LevelEventControl
     // Update is called once per frame
     void Update()
     {
-        if (isActivated && Services.cameraController.isZoomed())
-        {
-            TriggerEvent();
-        }
+        //if (isActivated && Services.cameraController.isZoomed())
+        //{
+        //    TriggerEvent();
+        //}
     }
 
-    protected override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
+    //protected override void OnTriggerEnter(Collider other)
+    //{
+    //    base.OnTriggerEnter(other);
 
-        if (other.gameObject.CompareTag("Man"))
-        {
-            isActivated = true;
-        }
-    }
+    //    if (other.gameObject.CompareTag("Man"))
+    //    {
+    //        isActivated = true;
+    //    }
+    //}
 }

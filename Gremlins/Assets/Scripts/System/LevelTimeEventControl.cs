@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class LevelTimeEventControl : LevelEventControl
 {
-    public bool happenOnAwake = false;
     public float delayTime = 0f;
 
     protected float timer = -1;
 
     // Use this for initialization
-    void Start()
-    {
-        if (happenOnAwake)
-        {
-            TriggerEvent();
-        }
-    }
+    //void Start()
+    //{
+    //    if (happenOnAwake)
+    //    {
+    //        TriggerEvent();
+    //    }
+    //}
 
     // Update is called once per frame
     void Update()
@@ -26,7 +25,7 @@ public class LevelTimeEventControl : LevelEventControl
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-                TriggerEvent();
+                beginEvent.Invoke();
             }
         }
     }
@@ -35,9 +34,13 @@ public class LevelTimeEventControl : LevelEventControl
     {
         base.OnTriggerEnter(other);
 
-        if (other.gameObject.CompareTag("Man") && timer == -1)
-        {
-            timer = delayTime;
-        }
+        Done();
+    }
+
+    public override void Do()
+    {
+        base.Do();
+
+        timer = delayTime;
     }
 }
