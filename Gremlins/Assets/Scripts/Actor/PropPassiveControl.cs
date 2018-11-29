@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// activate and deactivate by other props when slots are filled
+/*
+* activate and deactivate by other props when slots are filled
+*/
+
 public abstract class PropPassiveControl : PropControl
 {
     // Use this for initialization

@@ -2,9 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *                                      ActorControl
+ *                        /                                 \
+ *          CrowdControl                                InteractableControl
+ *                                                     /                            \
+ *                                       ObjectControl                              PropControl
+ *                                         /        \                            /                       \
+ *                          MultiplePropControl          ...                PropAutoControl                 PropPassiveControl
+ *                                                                  /                   |              \
+ *                                                             PropAutoLoopControl   PropOneTimeControl  ...
+ *                                                          
+*/
+
+/*
+ *  Base class for all the actors.
+ *  
+ *  Crowd: the men
+ *  Prop: the objects with slots and are related to the puzzles
+ *  Object: no slots, not related to (at least not directly) the puzzles
+*/
+
 public abstract class ActorControl : MonoBehaviour
 {
-    // 1. can't move    2. slots won't work
+    // 1. men can't move    2. props/objects can't activate
     [SerializeField]
     protected bool locked = false;
 
