@@ -55,17 +55,23 @@ public abstract class InteractableControl : ActorControl
 
     public virtual void Activate()
     {
-        isActivated = true;
+        if (!IsActivated() && !IsLocked())
+        {
+            isActivated = true;
 
-        CoolDown();
-        onActivated.Invoke();
+            CoolDown();
+            onActivated.Invoke();
+        }
     }
 
     public virtual void Deactivate()
     {
-        isActivated = false;
+        if (IsActivated())
+        {
+            isActivated = false;
 
-        CoolDown();
-        onDeactivated.Invoke();
+            CoolDown();
+            onDeactivated.Invoke();
+        }
     }
 }

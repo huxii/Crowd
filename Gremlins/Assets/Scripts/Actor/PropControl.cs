@@ -272,10 +272,7 @@ public abstract class PropControl : InteractableControl
 
     public virtual void OnSlotsNotFull()
     {
-        if (IsActivated())
-        {
-            Deactivate();
-        }
+        Deactivate();
     }
 
     // return next state
