@@ -312,10 +312,10 @@ MonoBehaviour:
   grain:
     m_Enabled: 0
     m_Settings:
-      colored: 0
-      intensity: 0.184
-      size: 1.3
-      luminanceContribution: 0.695
+      colored: 1
+      intensity: 0.2
+      size: 1.21
+      luminanceContribution: 0.735
   vignette:
     m_Enabled: 0
     m_Settings:

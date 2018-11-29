@@ -78,7 +78,7 @@ Material:
     - _MaxY: 20
     - _Metallic: 0
     - _MinX: -20
-    - _MinY: 0
+    - _MinY: 9.3
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset: 0
