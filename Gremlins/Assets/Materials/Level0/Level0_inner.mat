@@ -88,6 +88,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _Outline: 0.005
     - _OutlineWidth: 0.1
     - _Parallax: 0.02
     - _RimPower: 10
@@ -107,6 +108,8 @@ Material:
     - _RimColor: {r: 0.9029459, g: 0.9716981, b: 0.9534267, a: 1}
     - _ShadowColor: {r: 0.8113208, g: 0.70176363, b: 0.6314525, a: 1}
     - _ShadowLineColor: {r: 0, g: 0.8301887, b: 0.26528662, a: 1}
+    - _SilhouettedColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _XNegativeColor: {r: 1, g: 1, b: 1, a: 1}
     - _XPositiveColor: {r: 1, g: 1, b: 1, a: 1}
     - _YNegativeColor: {r: 1, g: 1, b: 1, a: 1}
