@@ -283,6 +283,12 @@ ModelImporter:
     100554: WindowKnot1
     100556: WindowModel
     100558: LockHandle
+    100560: CeilingModel
+    100562: FirstFloor
+    100564: LightBeam0
+    100566: LightBeam1
+    100568: LightBeam2
+    100570: Walls
     400000: BackShell
     400002: Bulb
     400004: Bulb 1
@@ -563,6 +569,12 @@ ModelImporter:
     400554: WindowKnot1
     400556: WindowModel
     400558: LockHandle
+    400560: CeilingModel
+    400562: FirstFloor
+    400564: LightBeam0
+    400566: LightBeam1
+    400568: LightBeam2
+    400570: Walls
     2100000: InnerMat
     2100002: CutoutMat
     2100004: OutterMat
@@ -783,6 +795,9 @@ ModelImporter:
     2300428: WindowKnot
     2300430: WindowKnot1
     2300432: LockHandle
+    2300434: LightBeam0
+    2300436: LightBeam1
+    2300438: LightBeam2
     3300000: BackShell
     3300002: Bulb
     3300004: Bulb 1
@@ -1000,6 +1015,9 @@ ModelImporter:
     3300428: WindowKnot
     3300430: WindowKnot1
     3300432: LockHandle
+    3300434: LightBeam0
+    3300436: LightBeam1
+    3300438: LightBeam2
     4300000: Ladder
     4300002: Wheet13
     4300004: Fence
@@ -1217,6 +1235,9 @@ ModelImporter:
     4300428: ClockKnot1
     4300430: HiddenStairKnot
     4300432: LockHandle
+    4300434: LightBeam0
+    4300436: LightBeam1
+    4300438: LightBeam2
     9500000: //RootNode
     13700000: Wheet13
   externalObjects: {}
