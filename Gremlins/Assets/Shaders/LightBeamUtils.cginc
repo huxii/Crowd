@@ -10,7 +10,11 @@ fixed _Width;
 fixed _Tweak;
 fixed _SoftEdge;
 fixed _Overlay;
-float _Glow;
+float _Intensity;
+float _HaloIntensity;
+float4 _SourcePos;
+float _DistanceFallOff;
+float _MaxDistance;
 
 struct v2f
 {
@@ -18,6 +22,7 @@ struct v2f
 	float4 uv : TEXCOORD0;
 	float4 falloffUVs : TEXCOORD1;
 	float4 screenPos : TEXCOORD2;
+	float4 worldPos : TEXCOORD3;
 	float4 color : COLOR;
 };
 
@@ -25,6 +30,7 @@ v2f vert(appdata_full v)
 {
 	v2f o;
 	o.pos = UnityObjectToClipPos(v.vertex);
+	o.worldPos = mul(unity_ObjectToWorld, v.vertex);
 	o.color = v.color;
 
 	// Generate the falloff texture UVs
@@ -51,24 +57,27 @@ fixed4 frag_soft(v2f In) : COLOR
 	half gray = (base.r + base.g + base.b) / 3;
 
 	fixed4 c = _Color;
+	c.a *= In.color.a;
 
-	fixed falloff1 = tex2D(_MainTex, In.falloffUVs.xy).r;
-	fixed falloff2 = tex2D(_MainTex, In.falloffUVs.zw).g;
-	c.a *= falloff1 * falloff2;
-
-	// Soft Edges
-	float4 depth = tex2Dproj(_CameraDepthTexture, In.screenPos);
-	fixed destDepth = LinearEyeDepth(depth);
-	fixed diff = saturate((destDepth - In.screenPos.z) * _SoftEdge);
-	c.a *= diff;
+	float4 effect = lerp(1 - (2 * (1 - base)) * (1 - c), (2 * base) *c, step(base, 0.5f));
+	c = lerp(base, effect, _Overlay * c.a);
 
 	// Fade when near the camera
 	c.a *= saturate(In.screenPos.z * 0.2);
 
-	float4 effect = lerp(1 - (2 * (1 - base)) * (1 - c), (2 * base) *c, step(base, 0.5f));
+	fixed falloff1 = tex2D(_MainTex, In.falloffUVs.xy).r;
+	fixed falloff2 = tex2D(_MainTex, In.falloffUVs.zw).g;
+	c.a *= min(1.0, max(0, falloff1 * falloff2 * _Intensity));
 
-	c = lerp(base, effect, _Overlay);
-	c.a *= In.color.a;
+	// Soft Edges
+	float4 depth = tex2Dproj(_CameraDepthTexture, In.screenPos);
+	fixed destDepth = LinearEyeDepth(depth);
+	fixed diff = min(1.0f, max(0, saturate((destDepth - In.screenPos.z) * _SoftEdge)));
+	c.a *= diff;
+
+	float distRatio = min(1.0f, max(0, length(In.worldPos.xyz - _SourcePos.xyz) / _MaxDistance));
+	float distPower = min(1.0f, max(0, 1 - pow(distRatio, _DistanceFallOff)));
+	c.a *= distPower;
 
 	return c;
 }
@@ -78,25 +87,24 @@ fixed4 frag_soft_halo(v2f In) : COLOR
 	half4 base = tex2Dproj(_GrabTexture, In.screenPos);
 	half gray = (base.r + base.g + base.b) / 3;
 
-	fixed4 c = _Color * _Glow;
+	fixed4 c = _Color * _HaloIntensity;
+	c.a *= In.color.a;
 
-	fixed falloff1 = tex2D(_MainTex, In.falloffUVs.xy).r;
-	fixed falloff2 = tex2D(_MainTex, In.falloffUVs.zw).g;
-	c.a *= falloff1 * falloff2;
-
-	// Soft Edges
-	float4 depth = tex2Dproj(_CameraDepthTexture, In.screenPos);
-	fixed destDepth = LinearEyeDepth(depth);
-	fixed diff = saturate((destDepth - In.screenPos.z) * _SoftEdge);
-	c.a *= diff;
+	float4 effect = lerp(1 - (2 * (1 - base)) * (1 - c), (2 * base) *c, step(base, 0.5f));
+	c = lerp(base, effect, _Overlay * c.a);
 
 	// Fade when near the camera
 	c.a *= saturate(In.screenPos.z * 0.2);
 
-	float4 effect = lerp(1 - (2 * (1 - base)) * (1 - c), (2 * base) *c, step(base, 0.5f));
+	fixed falloff1 = tex2D(_MainTex, In.falloffUVs.xy).r;
+	fixed falloff2 = tex2D(_MainTex, In.falloffUVs.zw).g;
+	c.a *= min(1.0, max(0, falloff1 * falloff2 * _Intensity));
 
-	c = lerp(base, effect, _Overlay);
-	c.a *= In.color.a;
+	// Soft Edges
+	float4 depth = tex2Dproj(_CameraDepthTexture, In.screenPos);
+	fixed destDepth = LinearEyeDepth(depth);
+	fixed diff = min(1.0f, max(0, saturate((destDepth - In.screenPos.z) * _SoftEdge)));
+	c.a *= diff;
 
 	return c;
 }

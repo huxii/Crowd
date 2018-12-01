@@ -4,13 +4,17 @@ Shader "Custom/Lightbeam_soft"
 {
 	Properties 
 	{
-		_Color ("Color", Color) = (1,1,1,1)
-		_MainTex ("Base (RGB)", 2D) = "white" {}
+		_Color("Color", Color) = (1, 1, 1, 1)
+		_MainTex("Base (RGB)", 2D) = "white" {}
 		_Width("Width", Float) = 8.71
 		_Tweak("Tweak", Float) = 0.65
-		_Glow("Glow", Float) = 1
+		_Intensity("Intensity", Float) = 1
+		_HaloIntensity("Halo Intensity", Float) = 1
 		_Overlay("Overlay", Range(0, 1)) = 0.5
-		_SoftEdge ("Soft Edge", Float) = 0.8
+		_SoftEdge("Soft Edge", Float) = 0.8
+		_DistanceFallOff("Distance Fall Off", Float) = 0.5
+		[HideInInspector]_MaxDistance("Max Distance", Float) = 1
+		[HideInInspector]_SourcePos("Source Position", Vector) = (0, 0, 0, 0)
 	}
 
 	SubShader 

@@ -73,27 +73,32 @@ Material:
     - _DepthFactor: 4
     - _DetailContrast: 1
     - _DetailNormalMapScale: 1
+    - _DistanceFallOff: 80
     - _DstBlend: 0
     - _DustContrast: 0.6119403
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Glow: 2.5
+    - _HaloIntensity: 2
+    - _Intensity: 2
+    - _MaxDistance: 9.05
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Overlay: 0.907
+    - _Overlay: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
-    - _SoftEdge: 10
+    - _SoftEdge: 8
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Tweak: 20
+    - _Tweak: 10
     - _UVSec: 0
-    - _Width: 8.71
+    - _Width: 10
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0.7058824}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailAnim: {r: 0, g: 0, b: 0, a: 0}
     - _DustAnim: {r: 0.3, g: 0.81, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SourcePos: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

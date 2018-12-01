@@ -4,10 +4,34 @@ using UnityEngine;
 
 public class LightBeamBehavior : MonoBehaviour
 {
+    private Mesh mesh;
+    private Material mat;
 
     // Use this for initialization
     void Start()
     {
+        if (!GetComponent<MeshFilter>())
+        {
+            Destroy(gameObject);
+        }
+
+        mesh = GetComponent<MeshFilter>().sharedMesh;
+        mat = GetComponent<MeshRenderer>().material;
+        Vector3[] verts = mesh.vertices;
+
+        float maxDist = -10000;
+        for (int i = 0; i < verts.Length; ++i)
+        {
+            Vector3 pos = transform.TransformPoint(verts[i]);
+            float dist = Vector3.Distance(pos, transform.position);
+            if (dist > maxDist)
+            {
+                maxDist = dist;
+            }
+        }
+
+        mat.SetFloat("_MaxDistance", maxDist);
+        mat.SetVector("_SourcePos", new Vector3(transform.position.x, transform.position.y, transform.position.z));
 
     }
 
@@ -23,13 +47,11 @@ public class LightBeamBehavior : MonoBehaviour
 
     private void CalculateLightbeamEdge()
     {
-        if (!GetComponent<MeshFilter>())
+        if (!mesh)
         {
             return;
         }
 
-        Mesh mesh = GetComponent<MeshFilter>().sharedMesh;
-        Material mat = GetComponent<MeshRenderer>().material;
         Vector3[] verts = mesh.vertices;
         Color[] colors = new Color[verts.Length];
 
