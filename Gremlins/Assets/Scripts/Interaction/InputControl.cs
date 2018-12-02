@@ -33,6 +33,8 @@ public abstract class InputControl : MonoBehaviour
     protected bool pinchEnded = false;
     protected float deltaPinchMag = 0;
 
+    protected bool autoFocusCameraEnabled = false;
+
     // Use this for initialization
     void Start()
     {
@@ -229,7 +231,10 @@ public abstract class InputControl : MonoBehaviour
     protected virtual void MouseSingleClick()
     {
         Debug.Log("Single click " + mouseClickObject);
-        Services.gameController.FocusCamera(mouseClickPos);
+        if (autoFocusCameraEnabled)
+        {
+            Services.gameController.FocusCamera(mouseClickPos);
+        }
     }
 
     protected virtual void MouseDoubleClick()
@@ -319,5 +324,10 @@ public abstract class InputControl : MonoBehaviour
     public void Lock(bool isLocked)
     {
         locked = isLocked;
+    }
+
+    public void SetAutoFocusCamera(bool en)
+    {
+        autoFocusCameraEnabled = en;
     }
 }
