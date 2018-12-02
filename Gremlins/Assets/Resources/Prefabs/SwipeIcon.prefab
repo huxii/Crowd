@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4028168090781418}
   - component: {fileID: 212826359976812982}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: swipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4040422109698004}
   - component: {fileID: 114034176063068760}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SwipeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

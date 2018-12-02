@@ -22,6 +22,7 @@ public class LevelBasicEventControl : LevelEventControl
         base.OnTriggerEnter(other);
 
         Done();
+        Debug.Log(other.gameObject.name);
     }
 
     public override void Do()

@@ -17,11 +17,11 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - HiddenInScene
   - NavMesh
-  - Emission
-  - 
+  - HiddenInScene
+  - Inner
+  - Outer
+  - NoPP
   - 
   - 
   - 

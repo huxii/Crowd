@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4174712063019234}
   - component: {fileID: 212303986351323138}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: walk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4796321888593614}
   - component: {fileID: 114002974584156302}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: WalkIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

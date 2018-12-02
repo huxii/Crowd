@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4179481055046352}
   - component: {fileID: 212881946587584794}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: gather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4054310842617990}
   - component: {fileID: 114028221248280558}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LoadIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4351883820078076}
   - component: {fileID: 212293020821019332}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: dismiss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4005724976782842}
   - component: {fileID: 114213449638281364}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UnloadIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

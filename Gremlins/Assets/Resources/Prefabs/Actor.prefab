@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4206219979399808}
   - component: {fileID: 119488880612915866}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BlobShadowProjector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 136689480411225892}
   - component: {fileID: 114925974569722068}
   - component: {fileID: 114810860392653684}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Actor
   m_TagString: Man
   m_Icon: {fileID: 0}
