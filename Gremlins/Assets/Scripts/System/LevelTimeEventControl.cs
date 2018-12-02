@@ -25,16 +25,9 @@ public class LevelTimeEventControl : LevelEventControl
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-                beginEvent.Invoke();
+                TriggerEvent();
             }
         }
-    }
-
-    protected override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-
-        Done();
     }
 
     public override void Do()

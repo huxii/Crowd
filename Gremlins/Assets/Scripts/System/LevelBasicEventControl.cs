@@ -17,18 +17,10 @@ public class LevelBasicEventControl : LevelEventControl
 
     }
 
-    protected override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-
-        Done();
-        Debug.Log(other.gameObject.name);
-    }
-
     public override void Do()
     {
         base.Do();
 
-        beginEvent.Invoke();
+        TriggerEvent();
     }
 }

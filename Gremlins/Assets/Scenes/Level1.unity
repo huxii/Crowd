@@ -465,6 +465,55 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  levelEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1525262612}
+        m_MethodName: SetZoom
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1259869502}
+        m_MethodName: TimeToGetUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1027653208}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 829947518}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   autoNext: 1
 --- !u!1 &138240153
 GameObject:
@@ -2906,7 +2955,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015117032
+      value: 0.015116981
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -2914,7 +2963,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.003001056
+      value: -0.0030008608
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -5757,6 +5806,22 @@ MonoBehaviour:
   endEvent:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  levelEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1993309045}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: morning
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   autoNext: 0
@@ -10433,6 +10498,33 @@ MonoBehaviour:
   endEvent:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  levelEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1525262612}
+        m_MethodName: SetZoom
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 879427523}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   autoNext: 1

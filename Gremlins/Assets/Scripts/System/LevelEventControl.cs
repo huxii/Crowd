@@ -5,8 +5,7 @@ using UnityEngine.Events;
 
 public abstract class LevelEventControl : MonoBehaviour
 {
-    public UnityEvent beginEvent;
-    public UnityEvent endEvent;
+    public UnityEvent levelEvent;
 
     public bool autoNext = true;
 
@@ -29,29 +28,30 @@ public abstract class LevelEventControl : MonoBehaviour
         Gizmos.DrawCube(transform.position, new Vector3(0.3f, 0.3f, 0.3f));
     }
 
-    protected virtual void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
+        Do();
     }
 
-    public virtual void Do()
-    {        
-    }
-
-    public void Done()
+    protected void TriggerEvent()
     {
         if (!isFinished)
         {
-            endEvent.Invoke();
+            levelEvent.Invoke();
 
             Services.levelEventsManager.MoveToNext();
             if (autoNext)
             {
-                Services.levelEventsManager.DoNextEvent();
+                Services.levelEventsManager.DoCurrentEvent();
             }
 
             Destroy(gameObject);
 
             isFinished = true;
         }
+    }
+
+    public virtual void Do()
+    {
     }
 }
