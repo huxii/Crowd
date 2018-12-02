@@ -89,7 +89,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Outline: 0.005
-    - _OutlineWidth: 0.06
+    - _OutlineWidth: 0
     - _Parallax: 0.02
     - _RimPower: 10
     - _ShadowLineWidth: 0
