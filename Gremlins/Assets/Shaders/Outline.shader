@@ -4,6 +4,8 @@
 	{
 		[Header(Base)]
 		_MainTex("Texture", 2D) = "white" {}
+		_Pattern("Pattern", 2D) = "white" {}
+		_PatternPower("Pattern Power", Float) = 1.0
 		_XPositiveColor("X+ Color", Color) = (1, 1, 1, 1)
 		_XNegativeColor("X- Color", Color) = (1, 1, 1, 1)
 		_YPositiveColor("Y+ Color", Color) = (1, 1, 1, 1)
@@ -38,6 +40,9 @@
 		#pragma target 3.0
 
 		uniform sampler2D _MainTex;
+		uniform sampler2D _Pattern;
+		uniform float4 _Pattern_ST;
+		uniform float _PatternPower;
 		uniform sampler2D _SpecMap;
 
 		uniform sampler2D _AOMap;
@@ -53,7 +58,8 @@
 		void surf(Input IN, inout SurfaceCustomOutput o)
 		{
 			half4 c = tex2D(_MainTex, IN.uv_MainTex);
-			o.Albedo = c.rgb;
+			half4 p = pow(tex2D(_Pattern, TRANSFORM_TEX(IN.uv_MainTex, _Pattern)), _PatternPower);
+			o.Albedo = c.rgb * p.rgb;
 			o.Alpha = c.a;
 
 			half4 ao = tex2D(_AOMap, IN.uv_MainTex);
