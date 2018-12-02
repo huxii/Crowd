@@ -20,14 +20,17 @@ public class ObjectRandomControl : ObjectBasicControl
     // Update is called once per frame
     void Update()
     {
-        if (!IsCoolingDown() && !IsActivated() && !IsLocked())
+        if (isAutoPlaying)
         {
-            if (autoPlayingTimer > 0)
+            if (!IsCoolingDown() && !IsActivated() && !IsLocked())
             {
-                autoPlayingTimer -= Time.deltaTime;
-                if (autoPlayingTimer <= 0)
+                if (autoPlayingTimer > 0)
                 {
-                    DoRandomEvent();
+                    autoPlayingTimer -= Time.deltaTime;
+                    if (autoPlayingTimer <= 0)
+                    {
+                        DoRandomEvent();
+                    }
                 }
             }
         }
