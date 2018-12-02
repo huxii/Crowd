@@ -80,7 +80,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Glow: 2.5
-    - _HaloIntensity: 1.5
+    - _HaloIntensity: 2
     - _Intensity: 1
     - _MaxDistance: 9.05
     - _Mode: 0

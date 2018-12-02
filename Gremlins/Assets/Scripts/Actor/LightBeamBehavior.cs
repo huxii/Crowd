@@ -7,6 +7,9 @@ public class LightBeamBehavior : MonoBehaviour
     private Mesh mesh;
     private Material mat;
 
+    private float tweak = -5;
+    private float fadeSpeed = 3f;
+
     // Use this for initialization
     void Start()
     {
@@ -30,6 +33,7 @@ public class LightBeamBehavior : MonoBehaviour
             }
         }
 
+        mat.SetFloat("_Tweak", tweak);
         mat.SetFloat("_MaxDistance", maxDist);
         mat.SetVector("_SourcePos", new Vector3(transform.position.x, transform.position.y, transform.position.z));
 
@@ -42,6 +46,13 @@ public class LightBeamBehavior : MonoBehaviour
         {
             CalculateLightbeamEdge();
             transform.hasChanged = false;
+        }
+
+        if (mat.GetFloat("_Tweak") != tweak)
+        {
+            float t = mat.GetFloat("_Tweak");
+            t = Mathf.Lerp(t, tweak, Time.deltaTime * fadeSpeed);
+            mat.SetFloat("_Tweak", t);
         }
     }
 
@@ -84,5 +95,15 @@ public class LightBeamBehavior : MonoBehaviour
         }
 
         mesh.colors = colors;
+    }
+
+    public void FadeIn()
+    {
+        tweak = 10;
+    }
+
+    public void FadeOut()
+    {
+        tweak = -5;
     }
 }
