@@ -1,0 +1,139 @@
+
+Character_animation_sketch.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm_left
+  rotate: true
+  xy: 560, 218
+  size: 36, 194
+  orig: 36, 194
+  offset: 0, 0
+  index: -1
+arm_right
+  rotate: true
+  xy: 756, 223
+  size: 31, 167
+  orig: 31, 167
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 2, 7
+  size: 247, 386
+  orig: 247, 386
+  offset: 0, 0
+  index: -1
+ear_left
+  rotate: false
+  xy: 560, 79
+  size: 126, 55
+  orig: 126, 55
+  offset: 0, 0
+  index: -1
+ear_right
+  rotate: false
+  xy: 390, 42
+  size: 162, 45
+  orig: 162, 45
+  offset: 0, 0
+  index: -1
+eyeBack_left
+  rotate: false
+  xy: 688, 78
+  size: 63, 56
+  orig: 63, 56
+  offset: 0, 0
+  index: -1
+eyeBack_right
+  rotate: false
+  xy: 753, 94
+  size: 56, 48
+  orig: 56, 48
+  offset: 0, 0
+  index: -1
+eyeBall_left
+  rotate: true
+  xy: 456, 9
+  size: 31, 47
+  orig: 31, 47
+  offset: 0, 0
+  index: -1
+eyeBall_right
+  rotate: false
+  xy: 811, 97
+  size: 30, 45
+  orig: 30, 45
+  offset: 0, 0
+  index: -1
+eyeClose_left
+  rotate: false
+  xy: 950, 153
+  size: 56, 21
+  orig: 56, 21
+  offset: 0, 0
+  index: -1
+eyeClose_right
+  rotate: true
+  xy: 660, 25
+  size: 52, 20
+  orig: 52, 20
+  offset: 0, 0
+  index: -1
+eyeSkin_left
+  rotate: true
+  xy: 875, 140
+  size: 81, 73
+  orig: 81, 73
+  offset: 0, 0
+  index: -1
+eyeSkin_right
+  rotate: false
+  xy: 950, 176
+  size: 72, 78
+  orig: 72, 78
+  offset: 0, 0
+  index: -1
+face
+  rotate: false
+  xy: 390, 89
+  size: 168, 165
+  orig: 168, 165
+  offset: 0, 0
+  index: -1
+leg_left
+  rotate: true
+  xy: 560, 136
+  size: 40, 179
+  orig: 40, 179
+  offset: 0, 0
+  index: -1
+leg_right
+  rotate: true
+  xy: 560, 178
+  size: 38, 189
+  orig: 38, 189
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: false
+  xy: 756, 144
+  size: 117, 77
+  orig: 117, 77
+  offset: 0, 0
+  index: -1
+nose
+  rotate: false
+  xy: 390, 2
+  size: 64, 38
+  orig: 64, 38
+  offset: 0, 0
+  index: -1
+tooth
+  rotate: false
+  xy: 554, 22
+  size: 104, 55
+  orig: 104, 55
+  offset: 0, 0
+  index: -1
