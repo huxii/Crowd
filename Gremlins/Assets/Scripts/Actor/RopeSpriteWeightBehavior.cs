@@ -29,6 +29,10 @@ public class RopeSpriteWeightBehavior : ObjectRangeBasedControl
     // Update is called once per frame
     void Update()
     {
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    RightSwing();
+        //}
         if (IsActivated())
         {
             if (rb.isKinematic)
