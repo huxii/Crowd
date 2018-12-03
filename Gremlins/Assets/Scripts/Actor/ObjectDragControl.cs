@@ -204,6 +204,6 @@ public class ObjectDragControl : ObjectBasicControl
 
     public override bool IsDragOverride()
     {
-        return false;
+        return IsLocked();
     }
 }
