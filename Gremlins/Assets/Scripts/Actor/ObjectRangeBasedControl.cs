@@ -17,17 +17,13 @@ public class ObjectRangeBasedControl : ObjectControl
     // Use this for initialization
     void Start()
     {
-        Services.eventManager.Register<ClickEvent>(OnRespondClick);
-        Services.eventManager.Register<RotateEvent>(OnRespondRotate);
-        Services.eventManager.Register<ZoomEvent>(OnRespondZoom);
+        RegisterEvents();
     }
 
     // excute before OnDestroy
     private void OnApplicationQuit()
     {
-        Services.eventManager.Unregister<ClickEvent>(OnRespondClick);
-        Services.eventManager.Unregister<RotateEvent>(OnRespondRotate);
-        Services.eventManager.Unregister<ZoomEvent>(OnRespondZoom);
+        UnregisterEvents();
     }
 
     // Update is called once per frame
@@ -36,7 +32,21 @@ public class ObjectRangeBasedControl : ObjectControl
 
     }
 
-    private void OnRespondClick(Crowd.Event e)
+    protected void RegisterEvents()
+    {
+        Services.eventManager.Register<ClickEvent>(OnRespondClick);
+        Services.eventManager.Register<RotateEvent>(OnRespondRotate);
+        Services.eventManager.Register<ZoomEvent>(OnRespondZoom);
+    }
+
+    protected void UnregisterEvents()
+    {
+        Services.eventManager.Unregister<ClickEvent>(OnRespondClick);
+        Services.eventManager.Unregister<RotateEvent>(OnRespondRotate);
+        Services.eventManager.Unregister<ZoomEvent>(OnRespondZoom);
+    }
+
+    protected void OnRespondClick(Crowd.Event e)
     {
         if (IsLocked() || IsCoolingDown() || IsActivated())
         {
@@ -53,7 +63,7 @@ public class ObjectRangeBasedControl : ObjectControl
         }
     }
 
-    private void OnRespondRotate(Crowd.Event e)
+    protected void OnRespondRotate(Crowd.Event e)
     {
         if (IsLocked() || IsCoolingDown() || IsActivated())
         {
@@ -67,7 +77,6 @@ public class ObjectRangeBasedControl : ObjectControl
             return;
         }
 
-        CoolDown();
         if (deltaX > 0)
         {
             onRightRotate.Invoke();
@@ -76,16 +85,18 @@ public class ObjectRangeBasedControl : ObjectControl
         {
             onLeftRotate.Invoke();
         }
+
+        CoolDown();
     }
 
-    private void OnRespondZoom(Crowd.Event e)
+    protected void OnRespondZoom(Crowd.Event e)
     {
         if (IsLocked() || IsCoolingDown() || IsActivated())
         {
             return;
         }
 
-        CoolDown();
         onRightRotate.Invoke();
+        CoolDown();
     }
 }
