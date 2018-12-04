@@ -9,11 +9,14 @@ public class RopeSpriteBehavior : ObjectControl
     public GameObject ropeObj;
     public float autoDeactiveCD = -1f;
 
+    private GameObject firstSegment;
+
 	// Use this for initialization
 	void Start ()
     {
-		
-	}
+        firstSegment = ropeObj.transform.GetChild(0).gameObject;
+        firstSegment.GetComponent<Rigidbody2D>().isKinematic = true;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -28,6 +31,11 @@ public class RopeSpriteBehavior : ObjectControl
         }
 	}
 
+    public void MoveRope(string para)
+    {
+        Services.dotweenEvents.MoveRb(firstSegment, para);
+    }
+
     public override void Activate()
     {
         if ((IsActivated() && !canActivateMultipleTimes) || IsLocked())
@@ -35,12 +43,12 @@ public class RopeSpriteBehavior : ObjectControl
             return;
         }
 
-        Rigidbody2D[] rbs = GetComponentsInChildren<Rigidbody2D>();
-        foreach (Rigidbody2D rb in rbs)
-        {
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            rb.isKinematic = true;
-        }
+        //Rigidbody2D[] rbs = GetComponentsInChildren<Rigidbody2D>();
+        //foreach (Rigidbody2D rb in rbs)
+        //{
+        //    //rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        //    rb.isKinematic = true;
+        //}
 
         base.Activate();
         weightObj.GetComponent<RopeSpriteWeightBehavior>().Activate();
@@ -53,12 +61,12 @@ public class RopeSpriteBehavior : ObjectControl
             return;
         }
 
-        Rigidbody2D[] rbs = GetComponentsInChildren<Rigidbody2D>();
-        foreach (Rigidbody2D rb in rbs)
-        {
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            rb.isKinematic = false;
-        }
+        //Rigidbody2D[] rbs = GetComponentsInChildren<Rigidbody2D>();
+        //foreach (Rigidbody2D rb in rbs)
+        //{
+        //    //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        //    rb.isKinematic = false;
+        //}
 
         base.Deactivate();
         weightObj.GetComponent<RopeSpriteWeightBehavior>().Deactivate();

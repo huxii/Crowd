@@ -1326,7 +1326,7 @@ GameObject:
   - component: {fileID: 105123372}
   - component: {fileID: 105123371}
   m_Layer: 10
-  m_Name: Rope_physics8
+  m_Name: Rope_thick_physics1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2754,15 +2754,15 @@ MonoBehaviour:
   onActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1585729582}
-        m_MethodName: Move
+      - m_Target: {fileID: 189215057}
+        m_MethodName: MoveRope
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Rope_thin4, y, 4, 1
+          m_StringArgument: y, 4, 3
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -2777,7 +2777,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   weightObj: {fileID: 1852845933}
   ropeObj: {fileID: 615784693}
-  autoDeactiveCD: 1.05
+  autoDeactiveCD: 3.05
 --- !u!1 &195519988
 GameObject:
   m_ObjectHideFlags: 0
@@ -15041,15 +15041,15 @@ MonoBehaviour:
   onActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1585729582}
-        m_MethodName: Move
+      - m_Target: {fileID: 953173684}
+        m_MethodName: MoveRope
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Rope_thin, y, 3.5, 1
+          m_StringArgument: y, 3.5, 3
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -15064,7 +15064,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   weightObj: {fileID: 873508855}
   ropeObj: {fileID: 372840165}
-  autoDeactiveCD: 1.05
+  autoDeactiveCD: 3.05
 --- !u!1 &964926956 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100042, guid: b9d5a19f32166c243824801449f95035,
@@ -15718,7 +15718,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.2
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -16107,15 +16107,15 @@ MonoBehaviour:
   onActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1585729582}
-        m_MethodName: Move
+      - m_Target: {fileID: 1045998018}
+        m_MethodName: MoveRope
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Rope_thin6, y, -3.3, 1
+          m_StringArgument: y, -3.3, 3
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -16130,7 +16130,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   weightObj: {fileID: 939567586}
   ropeObj: {fileID: 848973589}
-  autoDeactiveCD: 1.05
+  autoDeactiveCD: 3.05
 --- !u!1 &1049847795
 GameObject:
   m_ObjectHideFlags: 0
@@ -16447,15 +16447,15 @@ MonoBehaviour:
   onActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1585729582}
-        m_MethodName: Move
+      - m_Target: {fileID: 1058460905}
+        m_MethodName: MoveRope
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Rope_thin2, y, 3, 1
+          m_StringArgument: y, 3, 3
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -16470,7 +16470,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   weightObj: {fileID: 342657948}
   ropeObj: {fileID: 649110113}
-  autoDeactiveCD: 1.05
+  autoDeactiveCD: 3.05
 --- !u!1 &1065227005
 GameObject:
   m_ObjectHideFlags: 0
@@ -17306,7 +17306,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.2
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -18485,15 +18485,15 @@ MonoBehaviour:
   onActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1585729582}
-        m_MethodName: Move
+      - m_Target: {fileID: 1212529157}
+        m_MethodName: MoveRope
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Rope_thin5, y, -3, 1
+          m_StringArgument: y, -3, 3
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -18508,7 +18508,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   weightObj: {fileID: 1984135294}
   ropeObj: {fileID: 487923585}
-  autoDeactiveCD: 1.05
+  autoDeactiveCD: 3.05
 --- !u!1 &1216162488
 GameObject:
   m_ObjectHideFlags: 0
@@ -20622,7 +20622,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.2
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -21688,7 +21688,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.2
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -22987,7 +22987,7 @@ GameObject:
   - component: {fileID: 1383458263}
   - component: {fileID: 1383458262}
   m_Layer: 10
-  m_Name: Rope_thin_weight8
+  m_Name: Rope_thick_weight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24465,27 +24465,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015117267
+      value: 0.015116736
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000012978669
+      value: -0.000000012978466
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015117395
+      value: 0.015116576
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.99988574
+      value: 0.9998858
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.003001153
+      value: -0.0030011334
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000023070774
+      value: -0.000000023070838
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
@@ -26727,15 +26727,15 @@ MonoBehaviour:
   onActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1585729582}
-        m_MethodName: Move
+      - m_Target: {fileID: 1675310918}
+        m_MethodName: MoveRope
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Rope_thin1, y, 3, 1
+          m_StringArgument: y, 3, 3
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -26750,7 +26750,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   weightObj: {fileID: 1049847795}
   ropeObj: {fileID: 1756577468}
-  autoDeactiveCD: 1.05
+  autoDeactiveCD: 3.05
 --- !u!1 &1681613972
 GameObject:
   m_ObjectHideFlags: 0
@@ -27230,15 +27230,15 @@ MonoBehaviour:
   onActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1585729582}
-        m_MethodName: Move
+      - m_Target: {fileID: 1729331699}
+        m_MethodName: MoveRope
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Rope_thick, y, 1.5, 1
+          m_StringArgument: y, 1.5, 3
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -27253,7 +27253,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   weightObj: {fileID: 2058252995}
   ropeObj: {fileID: 718164628}
-  autoDeactiveCD: 1.05
+  autoDeactiveCD: 3.05
 --- !u!1 &1741856788
 GameObject:
   m_ObjectHideFlags: 0
@@ -27303,15 +27303,15 @@ MonoBehaviour:
   onActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1585729582}
-        m_MethodName: Move
+      - m_Target: {fileID: 1741856790}
+        m_MethodName: MoveRope
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Rope_thin7, y, -3, 1
+          m_StringArgument: y, -3, 3
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -27326,7 +27326,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   weightObj: {fileID: 1683337520}
   ropeObj: {fileID: 1603423932}
-  autoDeactiveCD: 1.05
+  autoDeactiveCD: 3.05
 --- !u!1 &1745773125
 GameObject:
   m_ObjectHideFlags: 0
@@ -31931,15 +31931,15 @@ MonoBehaviour:
   onActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1585729582}
-        m_MethodName: Move
+      - m_Target: {fileID: 2020451559}
+        m_MethodName: MoveRope
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Rope_thin3, y, 4, 1
+          m_StringArgument: y, 4, 3
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -31954,7 +31954,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   weightObj: {fileID: 521984384}
   ropeObj: {fileID: 778466347}
-  autoDeactiveCD: 1.05
+  autoDeactiveCD: 3.05
 --- !u!1001 &2024776036
 Prefab:
   m_ObjectHideFlags: 0
@@ -34254,7 +34254,7 @@ GameObject:
   - component: {fileID: 2035577719}
   - component: {fileID: 2035577718}
   m_Layer: 10
-  m_Name: Rope_thin8
+  m_Name: Rope_thick1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34276,15 +34276,15 @@ MonoBehaviour:
   onActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1585729582}
-        m_MethodName: Move
+      - m_Target: {fileID: 2035577718}
+        m_MethodName: MoveRope
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Rope_thin8, y, -4, 1
+          m_StringArgument: y, -4, 5
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -34299,7 +34299,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   weightObj: {fileID: 1383458259}
   ropeObj: {fileID: 105123370}
-  autoDeactiveCD: 1.05
+  autoDeactiveCD: 3.05
 --- !u!4 &2035577719
 Transform:
   m_ObjectHideFlags: 0

@@ -186,6 +186,20 @@ public class DotweenEvents : MonoBehaviour
         obj.transform.DOLocalRotate(targetRot, time).SetEase(easeType);
     }
 
+    public void MoveRb(GameObject obj, string para)
+    {
+        ParseNewPara(para);
+
+        Vector3 deltaPos = ParseIncrement();
+        float time = ParseTime();
+        Ease easeType = ParseEaseType(Ease.Linear);
+
+        if (obj.GetComponent<Rigidbody2D>())
+        {
+            obj.GetComponent<Rigidbody2D>().DOMove(obj.transform.position + deltaPos, time).SetEase(easeType);
+        }
+    }
+
     public void Move(string para)
     {
         ParseNewPara(para);

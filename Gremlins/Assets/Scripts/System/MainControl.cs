@@ -9,6 +9,9 @@ using DG.Tweening;
 
 public class MainControl : MonoBehaviour
 {
+    //public int velocityIter = 8;
+    //public int positionIter = 3;
+
     private GameObject[] men;
     private GameObject menParentObj = null;
 
@@ -26,7 +29,10 @@ public class MainControl : MonoBehaviour
     {
         men = GameObject.FindGameObjectsWithTag("Man");
         menParentObj = GameObject.Find("Actors");
-       
+
+        //Physics2D.velocityIterations = velocityIter;
+        //Physics2D.positionIterations = positionIter;
+
         // do a favor for outline shader
         Services.utils.RecalculateNormals();
         RegisterEvents();
