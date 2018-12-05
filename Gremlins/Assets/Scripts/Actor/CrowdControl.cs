@@ -35,7 +35,7 @@ public class CrowdControl : ActorControl
     [SerializeField]
     private CrowdState state = CrowdState.IDLE;
     private float stateCoolingDown = 0;
-    private float stateInterval = 2.0f;
+    private float stateMagicNumber = -373737;
 
     // spine animation
     private SpineAnimationControl spineAnimController = null;
@@ -58,6 +58,8 @@ public class CrowdControl : ActorControl
     // Use this for initialization
     void Start()
     {
+        SwitchState(CrowdState.IDLE);
+
         rb = GetComponent<Rigidbody>();
         targetPos = transform.position;
 
@@ -189,7 +191,7 @@ public class CrowdControl : ActorControl
         isMoving = true;
         targetPos = pos;
         targetPosTol = tol;
-        state = s;
+        SwitchState(s);
     }
 
     public void Selected()
@@ -228,7 +230,6 @@ public class CrowdControl : ActorControl
     // failed
     public void OrderFailed()
     {
-        stateCoolingDown = stateInterval;
         SwitchState(CrowdState.CONFUSED);
 
         if (voiceTimer[2] <= 0)
@@ -242,7 +243,9 @@ public class CrowdControl : ActorControl
     public void SwitchState(CrowdState s)
     {
         state = s;
+        stateCoolingDown = stateMagicNumber;
     }
+
 
     ////////////////////
     // Conditions
@@ -303,11 +306,50 @@ public class CrowdControl : ActorControl
     ///////////////////
     /// Actions
     ///////////////////
+
+    private abstract class TimedAction : Node<CrowdControl>
+    {
+        protected float interval;
+
+        public override bool Update(CrowdControl man)
+        {
+            if (man.stateCoolingDown == man.stateMagicNumber)
+            {
+                OnStart(man);
+            }
+            else
+            {
+                if (man.stateCoolingDown > 0)
+                {
+                    man.stateCoolingDown -= Time.deltaTime;
+
+                    //Sprite sprite = Resources.Load<Sprite>("Sprites/Character/confuse");
+                    //man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+                }
+                else
+                {
+                    OnInterval(man);
+                }
+            }
+
+            return true;
+        }
+
+        public virtual void OnStart(CrowdControl man)
+        {
+        }
+
+        public virtual void OnInterval(CrowdControl man)
+        {
+            man.stateCoolingDown = interval;
+        }
+    }
+
     private class Moving : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("walk_normal");
+            man.spineAnimController.SetAnimation("walk_normal", true);
             return true;
         }
     }
@@ -332,32 +374,41 @@ public class CrowdControl : ActorControl
         }
     }
 
-    private class Confused : Node<CrowdControl>
+    private class Confused : TimedAction
     {
-        public override bool Update(CrowdControl man)
+        public override void OnStart(CrowdControl man)
         {
-            if (man.stateCoolingDown > 0)
-            {
-                man.stateCoolingDown -= Time.deltaTime;
+            base.OnStart(man);
 
-                //Sprite sprite = Resources.Load<Sprite>("Sprites/Character/confuse");
-                //man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
-            }
-            else
-            {
-                man.SwitchState(CrowdState.IDLE);
-            }
+            interval = 2f;
+            man.stateCoolingDown = interval;
+        }
 
-            return true;
+        public override void OnInterval(CrowdControl man)
+        {
+            base.OnInterval(man);
+
+            man.SwitchState(CrowdState.IDLE);
         }
     }
 
-    private class Idling : Node<CrowdControl>
+    private class Idling : TimedAction
     {
-        public override bool Update(CrowdControl man)
+        public override void OnStart(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("idle_wiggle", true);
-            return true;
+            base.OnStart(man);
+
+            interval = Random.Range(3f, 8f);
+            man.stateCoolingDown = interval;
+
+            man.spineAnimController.SetRandomAnimation("idle_wiggle", true);
+        }
+
+        public override void OnInterval(CrowdControl man)
+        {
+            base.OnInterval(man);
+
+            man.spineAnimController.SetRandomAnimation("idle", true);
         }
     }
 }
