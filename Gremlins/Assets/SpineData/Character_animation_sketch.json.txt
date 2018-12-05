@@ -1,7 +1,7 @@
 {
-"skeleton": { "hash": "ihX5qJcQK58iYCcJhO32iuHdq98", "spine": "3.6.53", "width": 268.24, "height": 516.88, "images": "../dudeimages/" },
+"skeleton": { "hash": "hdvy2254/bPirQwUatjBgmcgRyQ", "spine": "3.6.53", "width": 268.24, "height": 516.88, "images": "../dudeimages/" },
 "bones": [
-	{ "name": "root" },
+	{ "name": "root", "x": -124.98, "y": 518.36 },
 	{ "name": "body2", "parent": "root", "length": 90.4, "rotation": 90, "x": 144.3, "y": -489.89 },
 	{ "name": "body", "parent": "body2", "length": 56.15, "rotation": 8.23, "x": 99.63, "y": 0.1 },
 	{ "name": "body3", "parent": "body", "length": 56.15, "rotation": 2.17, "x": 56.15 },
@@ -499,6 +499,11 @@
 			"eyeSkin_right": {
 				"color": [
 					{ "time": 0, "color": "ffffffff" }
+				]
+			},
+			"mouth": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" }
 				]
 			},
 			"tooth": {
