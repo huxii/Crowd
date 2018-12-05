@@ -1,9 +1,9 @@
-Load,animation name,"tracks [0,4] 0 = lowest priority",made(do not read),Notes
-1,armNormal,2,finished,
-1,armStealth,2,need polish,
-1,armSwing,2,need polish,
-1,eyeBlink,3,finished,
-1,idle_lie,0,finished,
-1,idle_wiggle,0,finished,
-1,mouthOpenOnce,4,finished,
-1,walk_normal,1,finished,
+Load,animation name,"tracks [0,4] 0 = lowest priority",loop,made(do not read),Notes
+1,armNormal,2,TRUE,finished,
+1,armStealth,2,TRUE,need polish,
+1,armSwing,2,TRUE,need polish,
+1,eyeBlink,3,TRUE,finished,
+1,idle_lie,0,FALSE,finished,
+1,idle_wiggle,0,TRUE,finished,
+1,mouthOpenOnce,4,FALSE,finished,
+1,walk_normal,1,TRUE,finished,
