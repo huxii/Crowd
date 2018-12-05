@@ -36,6 +36,11 @@ public class RopeSpriteBehavior : ObjectControl
         Services.dotweenEvents.MoveRb(firstSegment, para);
     }
 
+    public void MoveRopeTo(string para)
+    {
+        Services.dotweenEvents.MoveRbTo(firstSegment, para);
+    }
+
     public override void Activate()
     {
         if ((IsActivated() && !canActivateMultipleTimes) || IsLocked())

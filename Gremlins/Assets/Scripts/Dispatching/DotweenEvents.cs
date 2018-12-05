@@ -60,6 +60,11 @@ public class DotweenEvents : MonoBehaviour
         return float.Parse(paras[curParaIdx++]);
     }
 
+    float ParseSpeed()
+    {
+        return float.Parse(paras[curParaIdx++]);
+    }
+
     int ParseLoop()
     {
         if (curParaIdx < paras.Length)
@@ -197,6 +202,20 @@ public class DotweenEvents : MonoBehaviour
         if (obj.GetComponent<Rigidbody2D>())
         {
             obj.GetComponent<Rigidbody2D>().DOMove(obj.transform.position + deltaPos, time).SetEase(easeType);
+        }
+    }
+
+    public void MoveRbTo(GameObject obj, string para)
+    {
+        ParseNewPara(para);
+
+        Vector3 targetPos = ParseIncrement(obj.transform.position.x, obj.transform.position.y, obj.transform.position.z);
+        float speed = ParseSpeed();
+        Ease easeType = ParseEaseType(Ease.Linear);
+
+        if (obj.GetComponent<Rigidbody2D>())
+        {
+            obj.GetComponent<Rigidbody2D>().DOMove(targetPos, Vector3.Distance(targetPos, obj.transform.position) / speed).SetEase(easeType);
         }
     }
 
