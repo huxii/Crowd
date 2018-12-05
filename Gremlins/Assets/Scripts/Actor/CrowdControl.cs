@@ -37,6 +37,9 @@ public class CrowdControl : ActorControl
     private float stateCoolingDown = 0;
     private float stateInterval = 2.0f;
 
+    // spine animation
+    private SpineAnimationControl spineAnimController = null;
+
     // the object and slot that the man is working on
     // when workingObject == null || workingSlot == -1, the man is not working on anything
     private GameObject workingObject = null;
@@ -57,6 +60,8 @@ public class CrowdControl : ActorControl
     {
         rb = GetComponent<Rigidbody>();
         targetPos = transform.position;
+
+        spineAnimController = GetComponent<SpineAnimationControl>();
 
         InitBehaviorTree();
     }
@@ -246,7 +251,20 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            return man.state == CrowdState.WALK;
+            if (man.state == CrowdState.WALK)
+            {
+                if (man.isMoving)
+                {
+                    return true;
+                }
+                else
+                {
+                    man.SwitchState(CrowdState.IDLE);
+                    return false;
+                }
+            }
+
+            return false;
         }
     }
 
@@ -289,8 +307,7 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            Sprite sprite = Resources.Load<Sprite>("Sprites/Character/idle");
-            man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+            man.spineAnimController.SetAnimation("walk_normal");
             return true;
         }
     }
@@ -299,8 +316,8 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            Sprite sprite = Resources.Load<Sprite>("Sprites/Character/idle");
-            man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+            //Sprite sprite = Resources.Load<Sprite>("Sprites/Character/idle");
+            //man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
             return true;
         }
     }
@@ -309,8 +326,8 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            Sprite sprite = Resources.Load<Sprite>("Sprites/Character/push");
-            man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+            //Sprite sprite = Resources.Load<Sprite>("Sprites/Character/push");
+            //man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
             return true;
         }
     }
@@ -323,8 +340,8 @@ public class CrowdControl : ActorControl
             {
                 man.stateCoolingDown -= Time.deltaTime;
 
-                Sprite sprite = Resources.Load<Sprite>("Sprites/Character/confuse");
-                man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+                //Sprite sprite = Resources.Load<Sprite>("Sprites/Character/confuse");
+                //man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
             }
             else
             {
@@ -339,8 +356,7 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            Sprite sprite = Resources.Load<Sprite>("Sprites/Character/idle");
-            man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+            man.spineAnimController.SetAnimation("idle_wiggle", true);
             return true;
         }
     }

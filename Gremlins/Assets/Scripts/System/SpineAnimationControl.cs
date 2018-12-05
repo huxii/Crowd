@@ -14,7 +14,7 @@ public class SpineAnimationControl : MonoBehaviour
     void Start()
     {
         anim = GetComponentInChildren<SkeletonAnimation>();
-
+      
         TextAsset textAsset = Resources.Load<TextAsset>("SpineData/SpineAnimationList");
         string texts = textAsset.text;
         string[] lines = texts.Split('\n', '\r');
@@ -35,5 +35,31 @@ public class SpineAnimationControl : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void SetAnimation(string name, bool clearOther = false)
+    {
+        if (!animList.ContainsKey(name))
+        {
+            return;
+        }
+
+        var state = anim.state;
+        int track = animList[name];
+        if (clearOther)
+        {
+            for (int i = 0; i < 5; ++i)
+            {
+                if (i != track)
+                {
+                    state.ClearTrack(i);
+                }
+            }
+        }
+
+        if (state.GetCurrent(track) == null || state.GetCurrent(track).Animation == null || state.GetCurrent(track).Animation.Name != name)
+        {
+            state.SetAnimation(animList[name], name, true);
+        }
     }
 }
