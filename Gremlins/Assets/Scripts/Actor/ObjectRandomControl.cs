@@ -38,7 +38,7 @@ public class ObjectRandomControl : ObjectBasicControl
 
     private void SetAutoPlayingCD()
     {
-        autoPlayingCD = Random.Range(3, 7);
+        autoPlayingCD = Random.Range(1, 3);
         autoPlayingTimer = autoPlayingCD;
     }
 
