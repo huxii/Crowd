@@ -6,8 +6,15 @@ using Spine.Unity;
 
 public class SpineAnimClip
 {
+    public enum LoopType
+    {
+        LOOP,
+        NOTLOOP_REPLACE,
+        NOTLOOP_KEEP
+    }
+
     public int track;
-    public bool isLooping;
+    public LoopType loopType;
 }
 
 public class SpineAnimationControl : MonoBehaviour
@@ -48,7 +55,20 @@ public class SpineAnimationControl : MonoBehaviour
                 SpineAnimClip clip = new SpineAnimClip();
                 string name = row[1];
                 int.TryParse(row[2], out clip.track);
-                bool.TryParse(row[3], out clip.isLooping);
+
+                switch (row[3])
+                {
+                    case "LOOP":
+                        clip.loopType = SpineAnimClip.LoopType.LOOP;
+                        break;
+                    case "NOTLOOP_REPLACE":
+                        clip.loopType = SpineAnimClip.LoopType.NOTLOOP_REPLACE;
+                        break;
+                    case "NOTLOOP_KEEP":
+                        clip.loopType = SpineAnimClip.LoopType.NOTLOOP_KEEP;
+                        break;
+                }
+
                 animList.Add(name, clip);
             }
         }
@@ -64,11 +84,17 @@ public class SpineAnimationControl : MonoBehaviour
 
     private void OnComplete(Spine.TrackEntry entry)
     {
-        if (!entry.Loop)
+        string name = entry.Animation.Name;
+        if (!animList.ContainsKey(name))
         {
+            return;
+        }
+
+        SpineAnimClip clip = animList[name];
+        if (clip.loopType == SpineAnimClip.LoopType.NOTLOOP_REPLACE)
+        {            
             // if this animation is not looping
             // pick another animation in the same group
-            string name = entry.Animation.Name;
             string[] names = name.Split('_');
             SetRandomAnimation(names[0], ClearPolicy.CLEARNOTFACIAL, name);
         }
@@ -140,7 +166,8 @@ public class SpineAnimationControl : MonoBehaviour
 
         if (state.GetCurrent(track) == null || state.GetCurrent(track).Animation == null || state.GetCurrent(track).Animation.Name != name)
         {
-            state.SetAnimation(track, name, animList[name].isLooping);
+            //Debug.Log(name);
+            state.SetAnimation(track, name, animList[name].loopType == SpineAnimClip.LoopType.LOOP);
         }
     }
 
