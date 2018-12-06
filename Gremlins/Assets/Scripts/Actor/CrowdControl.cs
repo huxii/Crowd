@@ -371,7 +371,8 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("walk_normal", true);
+            man.spineAnimController.SetAnimation("walk_normal", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            man.spineAnimController.SetRandomAnimation("arm");
             return true;
         }
     }
@@ -380,7 +381,7 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("walk_normal", true);
+            man.spineAnimController.SetAnimation("walk_normal", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
             return true;
         }
     }
@@ -389,7 +390,7 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("idle_wiggle", true);
+            man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
             return true;
         }
     }
@@ -398,7 +399,7 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("idle_wiggle", true);
+            man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
             return true;
         }
     }
@@ -430,14 +431,14 @@ public class CrowdControl : ActorControl
             interval = Random.Range(3f, 8f);
             man.stateCoolingDown = interval;
 
-            man.spineAnimController.SetRandomAnimation("idle_wiggle", true);
+            man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);          
         }
 
         public override void OnInterval(CrowdControl man)
         {
             base.OnInterval(man);
 
-            man.spineAnimController.SetRandomAnimation("idle", true);
+            man.spineAnimController.SetRandomAnimation("idle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
         }
     }
 }
