@@ -100,17 +100,6 @@ public class GameEvents : MonoBehaviour
         Services.sceneManager.LoadScene(scene);
     }
 
-    public void SpawnNewActor(string para)
-    {
-        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        float x, y, z;
-        float.TryParse(paras[0], out x);
-        float.TryParse(paras[1], out y);
-        float.TryParse(paras[2], out z);
-
-        Services.gameController.SpawnNewActor(new Vector3(x, y, z));
-    }
-
     public void MoveActorTo(string para)
     {
         string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);

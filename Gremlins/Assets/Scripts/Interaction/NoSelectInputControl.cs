@@ -74,5 +74,7 @@ public class NoSelectInputControl : InputControl
         {
             //BadClick(mouseClickPos);
         }
+
+        Services.gameController.TurnMen(mouseClickPos);
     }
 }

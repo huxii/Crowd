@@ -268,84 +268,6 @@ public class MainControl : MonoBehaviour
                 }
             }
         }
-
-
-        //// this is a prop
-        //// this prop is settled & walkable
-        //if (obj.GetComponent<PropControl>().IsLocked() && obj.GetComponent<PropControl>().isWalkableAfterDeactivated)
-        //{
-        //    MoveMenToPosition(pos, selectedMen);
-        //    return;
-        //}
-
-        //// click on prop feedback
-        //obj.GetComponent<PropControl>().Click();
-
-        //// this prop is full, release all the men
-        //if (obj.GetComponent<PropControl>().GetEmptySlotNum() == 0)
-        //{
-        //    obj.GetComponent<PropControl>().FreeAllMan();
-        //}
-        //else
-        //{
-        //    // this prop has empty slots but locked
-        //    if (obj.GetComponent<PropControl>().IsLocked())
-        //    {
-        //        foreach (GameObject man in men)
-        //        {
-        //            if (!man.GetComponent<CrowdControl>().IsBusy())
-        //            {
-        //                man.GetComponent<CrowdControl>().OrderFailed();
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        SortedDictionary<float, GameObject> sortByDistance = new SortedDictionary<float, GameObject>();
-        //        if (selectedMen != null)
-        //        {
-        //            float diffKey = 0;
-        //            foreach (GameObject selectedMan in selectedMen)
-        //            {
-        //                sortByDistance.Add(diffKey, selectedMan);
-        //                diffKey += 1e-12f;
-        //            }
-        //        }
-
-        //        foreach (GameObject man in men)
-        //        {
-        //            if (!sortByDistance.ContainsValue(man) && man.GetComponent<CrowdControl>().IsBusy() == false && !man.GetComponent<CrowdControl>().IsLocked())
-        //            {
-        //                sortByDistance.Add(Vector3.Distance(man.transform.position, obj.transform.position), man);
-        //            }
-        //        }
-
-        //        if (sortByDistance.Count != 0)
-        //        {
-        //            Services.footprintsManager.ClearLastFootprints();
-        //            Services.footprintsManager.Clear();
-
-        //            foreach (KeyValuePair<float, GameObject> pair in sortByDistance)
-        //            {
-        //                GameObject man = pair.Value;
-        //                int slotId = obj.GetComponent<PropControl>().FindEmptySlot();
-        //                if (slotId == -1)
-        //                {
-        //                    return;
-        //                }
-
-        //                MoveManToObject(man, obj, slotId, 0.1f);
-        //            }
-
-        //            Services.footprintsManager.Generate();
-        //        }
-        //        else
-        //        {
-        //            // no any avaliable men, release all the man to avoid dead lock
-        //            obj.GetComponent<PropControl>().FreeAllMan();
-        //        }
-        //    }
-        //}
     }
 
     public void InteractMan(GameObject obj, Vector3 pos)
@@ -639,9 +561,19 @@ public class MainControl : MonoBehaviour
         //Debug.Log(pos + " " + Mathf.Sin(ratioY * 90f) + " " + ratioY);
     }
 
-    public void SpawnNewActor(Vector3 pos)
+    public void TurnMen(Vector3 pos)
     {
-        GameObject newActor = Instantiate(Resources.Load("Prefabs/Actor"), menParentObj.transform) as GameObject;
-        newActor.transform.position = pos;
+        foreach (GameObject man in men)
+        {
+            Vector3 dir = (pos - man.transform.position).normalized;
+            if (Vector3.Dot(dir, Vector3.right) > Vector3.Dot(dir, -Vector3.right))
+            {
+                man.GetComponent<CrowdControl>().Flip(-1);
+            }
+            else
+            {
+                man.GetComponent<CrowdControl>().Flip(1);
+            }
+        }
     }
 }
