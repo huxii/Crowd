@@ -19,6 +19,7 @@ public class CrowdControl : ActorControl
         CLIMB,
         DROP,
         PUSH,
+        RIDE,
         CONFUSED,
     };
 
@@ -116,6 +117,11 @@ public class CrowdControl : ActorControl
                 new Sequence<CrowdControl>(
                     new IsPushing(),
                     new Pushing()
+                    ),
+
+                new Sequence<CrowdControl>(
+                    new IsRiding(),
+                    new Riding()
                     ),
 
                 new Sequence<CrowdControl>(
@@ -295,6 +301,14 @@ public class CrowdControl : ActorControl
         }
     }
 
+    private class IsRiding : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.RIDE;
+        }
+    }
+
     private class IsConfused : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
@@ -366,8 +380,7 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            //Sprite sprite = Resources.Load<Sprite>("Sprites/Character/idle");
-            //man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+            man.spineAnimController.SetAnimation("walk_normal", true);
             return true;
         }
     }
@@ -376,8 +389,16 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            //Sprite sprite = Resources.Load<Sprite>("Sprites/Character/push");
-            //man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+            man.spineAnimController.SetAnimation("idle_wiggle", true);
+            return true;
+        }
+    }
+
+    private class Riding : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            man.spineAnimController.SetAnimation("idle_wiggle", true);
             return true;
         }
     }
