@@ -1735,6 +1735,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManSlotOffset: {x: -1.5, y: 0, z: 0}
   changeState: 5
+  changeScaleX: 1
   slots:
   - state: 0
     obj: {fileID: 1377102735}
@@ -2738,6 +2739,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2035a465bed0645ac44fd9900cf0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followObject: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &290602765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3145,6 +3148,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0, y: 0, z: 0}
   changeState: 5
+  changeScaleX: 1
   slots:
   - state: 0
     obj: {fileID: 105491439}
@@ -4074,15 +4078,15 @@ Prefab:
       objectReference: {fileID: 1428080941}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015117395
+      value: 0.015116576
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.99988574
+      value: 0.9998858
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015116885
+      value: 0.015116579
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -4090,7 +4094,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0030010382
+      value: -0.0030009856
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -5297,6 +5301,61 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &568119789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 568119792}
+  - component: {fileID: 568119791}
+  - component: {fileID: 568119790}
+  m_Layer: 10
+  m_Name: Navmesh5
+  m_TagString: Ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &568119790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 568119789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2035a465bed0645ac44fd9900cf0d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followObject: {fileID: 740844328}
+  followOffset: {x: 0, y: 1.94, z: 0}
+--- !u!65 &568119791
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 568119789}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &568119792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 568119789}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.4015062, y: 7.778829, z: -0.018477589}
+  m_LocalScale: {x: 1, y: 3.88, z: 0.40640405}
+  m_Children: []
+  m_Father: {fileID: 1971646618}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &568146479 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100378, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -5816,7 +5875,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LadderModel, 1.05, 1.05, 1.05, 0.5
+          m_StringArgument: LadderHandleModel, 1.1, 1.1, 1.1, 0.5
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -5824,6 +5883,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0, y: 0.1, z: -0.6}
   changeState: 4
+  changeScaleX: 1
   slots:
   - state: 0
     obj: {fileID: 806445551}
@@ -5874,8 +5934,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.75, z: 0.72}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Size: {x: 1.03, y: 3.84, z: 0.72}
+  m_Center: {x: 0.09, y: 2.19, z: 0}
 --- !u!1 &741140168
 GameObject:
   m_ObjectHideFlags: 0
@@ -6084,6 +6144,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   changeState: 5
+  changeScaleX: 1
   slots:
   - state: 0
     obj: {fileID: 375909485}
@@ -7424,6 +7485,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   changeState: 5
+  changeScaleX: 1
   slots:
   - state: 0
     obj: {fileID: 1660261887}
@@ -7936,6 +7998,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   changeState: 5
+  changeScaleX: 1
   slots:
   - state: 0
     obj: {fileID: 987195239}
@@ -8629,7 +8692,7 @@ Prefab:
     - target: {fileID: 2300004, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
+      objectReference: {fileID: 2100000, guid: f993b29f4cc364a4eaf7bbf9086de313, type: 2}
     - target: {fileID: 2300154, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -9741,6 +9804,14 @@ Prefab:
     - target: {fileID: 100748, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Name
       value: LeftChain
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300770, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44484ce9e8d1f90479abca9c377b9a1c, type: 2}
+    - target: {fileID: 100944, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
@@ -11807,6 +11878,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2035a465bed0645ac44fd9900cf0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followObject: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &1267805232
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12517,7 +12590,7 @@ Transform:
   m_Children:
   - {fileID: 806445552}
   m_Father: {fileID: 740844329}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1428080938 stripped
 MonoBehaviour:
@@ -13033,6 +13106,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
   changeState: 5
+  changeScaleX: 1
   slots:
   - state: 0
     obj: {fileID: 1495107545}
@@ -13592,6 +13666,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2035a465bed0645ac44fd9900cf0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followObject: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &1565897406
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14265,6 +14341,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2035a465bed0645ac44fd9900cf0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followObject: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &1645062195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16510,6 +16588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2035a465bed0645ac44fd9900cf0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followObject: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &1887590292
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17117,6 +17197,7 @@ Transform:
   - {fileID: 1565897404}
   - {fileID: 1267805230}
   - {fileID: 1645062196}
+  - {fileID: 568119792}
   m_Father: {fileID: 2133289614}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18611,7 +18692,8 @@ MonoBehaviour:
   - {fileID: 1565897403}
   - {fileID: 1267805229}
   - {fileID: 1645062193}
-  navCounter: 5
+  - {fileID: 568119789}
+  navCounter: 6
   tilesObj: {fileID: 490782653}
   tiles:
   - {fileID: 184559293}

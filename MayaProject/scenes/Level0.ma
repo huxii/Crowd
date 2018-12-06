@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Level0.ma
-//Last modified: Thu, Dec 06, 2018 12:43:39 PM
+//Last modified: Thu, Dec 06, 2018 03:55:51 PM
 //Codeset: 1252
 requires maya "2018";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "3.1.1";
@@ -16,7 +16,7 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "69C2E574-45FA-86C5-802E-A39F733991CA";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 2.052794259089874 5.0989605106390679 -0.45468849553337576 ;
+	setAttr ".t" -type "double3" 9.030660574829863 9.218072391699776 -40.846928754471563 ;
 	setAttr ".r" -type "double3" 2334.261718235281 23769.801301013609 -179.99958819242912 ;
 	setAttr ".rp" -type "double3" 0 1.1368683772161603e-15 0 ;
 	setAttr ".rpt" -type "double3" 2.6596660780694541e-16 -3.5467361712750867e-17 8.3681310778060129e-16 ;
@@ -27,7 +27,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.001;
 	setAttr ".fcp" 100;
 	setAttr ".fd" 0.05;
-	setAttr ".coi" 3.3247076063509127;
+	setAttr ".coi" 44.521682909700864;
 	setAttr ".ow" 0.1;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
@@ -53467,7 +53467,7 @@ createNode transformGeometry -n "transformGeometry1";
 	rename -uid "E6C3E320-4406-C162-E01E-51820D9026E8";
 	setAttr ".txf" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -3.9988493919372559 0 0 1;
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "B5B168CE-4E6B-EDA4-C3D9-0D93D3D78EAD";
+	rename -uid "43BB814E-402A-E8B0-3EE6-948EC0EC7919";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
 	setAttr ".tgi[0].vl" -type "double2" -173296503.94199169 -35465.474781204844 ;
 	setAttr ".tgi[0].vh" -type "double2" -173228032.28836042 34136.903405426099 ;

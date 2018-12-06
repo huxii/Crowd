@@ -475,6 +475,8 @@ ModelImporter:
     100938: CartWithLink2
     100940: CartWithLink3
     100942: Outer
+    100944: LadderHandle
+    100946: LadderHandleModel
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -947,6 +949,8 @@ ModelImporter:
     400938: CartWithLink2
     400940: CartWithLink3
     400942: Outer
+    400944: LadderHandle
+    400946: LadderHandleModel
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -1334,6 +1338,7 @@ ModelImporter:
     2300764: IcecreamKanbanLight5
     2300766: IcecreamKanbanLight6
     2300768: IcecreamKanbanLight8
+    2300770: LadderHandleModel
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1719,6 +1724,7 @@ ModelImporter:
     3300764: IcecreamKanbanLight5
     3300766: IcecreamKanbanLight6
     3300768: IcecreamKanbanLight8
+    3300770: LadderHandleModel
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -2100,6 +2106,7 @@ ModelImporter:
     4300756: ArrowLight10
     4300758: ArrowLight11
     4300760: ArrowLight12
+    4300762: LadderHandleModel
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
