@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "hdvy2254/bPirQwUatjBgmcgRyQ", "spine": "3.6.53", "width": 268.24, "height": 516.88, "images": "../dudeimages/" },
+"skeleton": { "hash": "Wv/zavGoEGqYDdSUS2vJ3bJSSsw", "spine": "3.6.53", "width": 268.24, "height": 516.88, "images": "../dudeimages/" },
 "bones": [
 	{ "name": "root", "x": -124.98, "y": 518.36 },
 	{ "name": "body2", "parent": "root", "length": 90.4, "rotation": 90, "x": 144.3, "y": -489.89 },
@@ -312,7 +312,7 @@
 	}
 },
 "animations": {
-	"armNormal": {
+	"arm_normal": {
 		"slots": {
 			"eyeBack_left": {
 				"color": [
@@ -459,8 +459,13 @@
 			}
 		}
 	},
-	"armStealth": {
+	"arm_stealth": {
 		"slots": {
+			"body": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" }
+				]
+			},
 			"eyeBack_left": {
 				"color": [
 					{ "time": 0, "color": "ffffffff" }
@@ -713,7 +718,7 @@
 			}
 		]
 	},
-	"armSwing": {
+	"arm_swing": {
 		"slots": {
 			"eyeBack_left": {
 				"color": [
@@ -1007,7 +1012,7 @@
 			}
 		}
 	},
-	"eyeBlink": {
+	"eye_blink": {
 		"slots": {
 			"eyeBack_left": {
 				"color": [
@@ -3746,7 +3751,7 @@
 			}
 		}
 	},
-	"mouthOpenOnce": {
+	"mouth_openonce": {
 		"slots": {
 			"mouth": {
 				"color": [
