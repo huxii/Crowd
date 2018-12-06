@@ -45,6 +45,8 @@ public abstract class PropControl : InteractableControl
     // eg. when a man gets on the merry go round, state: walk -> ride
     public CrowdControl.CrowdState changeState = CrowdControl.CrowdState.IDLE;
 
+    public float changeScaleX = 1;
+
     protected GameObject slotsObj = null;
     [SerializeField]
     protected List<SlotAttr> slots = new List<SlotAttr>();
