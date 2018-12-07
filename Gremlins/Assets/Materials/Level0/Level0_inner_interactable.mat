@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Level0_inner_interactable
-  m_Shader: {fileID: 4800000, guid: 436d8cb566bcd104bb8e66c0b30f796a, type: 3}
+  m_Shader: {fileID: 4800000, guid: ad77ca28ac13c8a4889d7242ba0fe5d5, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -84,7 +84,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0.15
+    - _OutlineWidth: 0
     - _Parallax: 0.02
     - _PatternPower: 0.1
     - _RimPower: 10

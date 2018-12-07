@@ -4,6 +4,7 @@
 	{
 		[Header(Base)]
 		_MainTex("Texture", 2D) = "white" {}
+		_Color("Color Tint", Color) = (1, 1, 1, 1)
 		_AlphaCutOff("Alpha Cut Off", Range(0, 1)) = 0.3
 
 		_XPositiveColor("X+ Color", Color) = (1, 1, 1, 1)
@@ -36,6 +37,7 @@
 		#pragma target 3.0
 
 		uniform sampler2D _MainTex;
+		uniform float4 _Color;
 		uniform float _AlphaCutOff;
 
 		struct Input 
@@ -46,7 +48,7 @@
 		void surf(Input IN, inout SurfaceCustomOutput o) 
 		{
 			fixed4 c = tex2D(_MainTex, IN.uv_MainTex);
-			o.Albedo = c.rgb;
+			o.Albedo = c.rgb * _Color.rgb;
 			o.Alpha = c.a;
 			clip(c.a - _AlphaCutOff);
 		}

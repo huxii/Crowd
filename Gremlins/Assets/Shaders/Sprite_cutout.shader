@@ -71,7 +71,7 @@
 
 		void surf (Input IN, inout SurfaceCustomOutput o)
 		{
-			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * IN.color;
+			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * IN.color * _Color;
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
 

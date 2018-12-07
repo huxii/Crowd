@@ -1,8 +1,9 @@
-﻿Shader "Custom/Outline" 
+﻿Shader "Custom/Toon" 
 {
 	Properties 
 	{
 		[Header(Base)]
+		_Color("Color Tint", Color) = (1, 1, 1, 1)
 		_MainTex("Texture", 2D) = "white" {}
 		_Pattern("Pattern", 2D) = "white" {}
 		_PatternPower("Pattern Power", Float) = 1.0
@@ -25,10 +26,6 @@
 
 		_EmissionMap("Emission", 2D) = "white" {}
 		[HDR]_EmissionColor("Emission Color", Color) = (0, 0, 0, 1)
-
-		[Header(Outline)]
-		_OutlineColor("Outline Color", Color) = (0, 0, 0, 1)
-		_OutlineWidth("Outline Width", Range(0, 1.0)) = 0.05
 	}
 
 	SubShader
@@ -40,6 +37,7 @@
 		#pragma target 3.0
 
 		uniform sampler2D _MainTex;
+		uniform float4 _Color;
 		uniform sampler2D _Pattern;
 		uniform float4 _Pattern_ST;
 		uniform float _PatternPower;
@@ -59,7 +57,7 @@
 		{
 			half4 c = tex2D(_MainTex, IN.uv_MainTex);
 			half4 p = pow(tex2D(_Pattern, TRANSFORM_TEX(IN.uv_MainTex, _Pattern)), _PatternPower);
-			o.Albedo = c.rgb * p.rgb;
+			o.Albedo = c.rgb * p.rgb * _Color.rgb;
 			o.Alpha = c.a;
 
 			half4 ao = tex2D(_AOMap, IN.uv_MainTex);
@@ -88,33 +86,6 @@
 			ZWrite On
 			Blend SrcAlpha OneMinusSrcAlpha
 			ColorMask RGB
-		}
-		
-		Pass
-		{
-			Name "Outline"
-
-			Cull Front
-
-			CGPROGRAM
-			#include "OutlineUtils.cginc"
-
-			#pragma vertex vert
-			#pragma fragment frag
-
-			uniform float _OutlineWidth;
-			uniform float4 _OutlineColor;
-
-			float4 vert(vertexInput v) : SV_POSITION
-			{
-				return GetClipPosition(v.vertex, normalize(v.color.xyz), _OutlineWidth);
-			}
-
-			float4 frag() : COLOR
-			{
-				return _OutlineColor;
-			}
-			ENDCG
 		}
 	}
 	FallBack "Diffuse"
