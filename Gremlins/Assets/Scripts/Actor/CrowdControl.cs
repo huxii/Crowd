@@ -17,9 +17,10 @@ public class CrowdControl : ActorControl
         IDLE,
         WALK,
         CLIMB,
-        DROP,
+        PULL,
         PUSH,
         RIDE,
+        DROP,
         CONFUSED,
     };
 
@@ -117,6 +118,11 @@ public class CrowdControl : ActorControl
                 new Sequence<CrowdControl>(
                     new IsPushing(),
                     new Pushing()
+                    ),
+
+                new Sequence<CrowdControl>(
+                    new IsPulling(),
+                    new Pulling()
                     ),
 
                 new Sequence<CrowdControl>(
@@ -301,6 +307,14 @@ public class CrowdControl : ActorControl
         }
     }
 
+    private class IsPulling : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.PULL;
+        }
+    }
+
     private class IsRiding : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
@@ -390,7 +404,16 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            man.spineAnimController.SetAnimation("push", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            return true;
+        }
+    }
+
+    private class Pulling : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            man.spineAnimController.SetAnimation("pull", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
             return true;
         }
     }

@@ -2842,7 +2842,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 180651225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.694, z: -0.09}
+  m_LocalPosition: {x: -0.3369999, y: -0.694, z: -0.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1980538092}
@@ -9316,6 +9316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2035a465bed0645ac44fd9900cf0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followObject: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &581946759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10472,6 +10474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2035a465bed0645ac44fd9900cf0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followObject: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &620356537
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10993,6 +10997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2035a465bed0645ac44fd9900cf0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followObject: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &654508296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21848,7 +21854,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   gizmoSize: 0.2
   freeManSlotOffset: {x: -0.59, y: -0.64, z: 0}
-  changeState: 4
+  changeState: 3
   changeScaleX: -1
   slots:
   - state: 0
@@ -27441,11 +27447,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015116865
+      value: 0.015116976
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000012979859
+      value: -0.000000012979923
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
@@ -27457,11 +27463,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0030008196
+      value: -0.0030008992
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000023072019
+      value: -0.000000023071985
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
@@ -30261,7 +30267,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1708232954}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.694, z: 0.48600006}
+  m_LocalPosition: {x: -0.337, y: -0.694, z: 0.48600006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1980538092}
@@ -30957,6 +30963,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2035a465bed0645ac44fd9900cf0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followObject: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &1766739128
 BoxCollider:
   m_ObjectHideFlags: 0
