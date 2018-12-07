@@ -22,17 +22,17 @@ public class PointBasedPathFindingManager : PathFindingManager
             pathEdges.Insert(0, edge);
         }
 
-        public override Vector3 LastUnitPos()
-        {
-            // tmp
-            return base.LastUnitPos();
-        }
+        //public override Vector3 LastUnitPos()
+        //{
+        //    // tmp
+        //    return base.LastUnitPos();
+        //}
 
-        public override Vector3 LastUnitOrientation(Vector3 actorPos)
-        {
-            // tmp
-            return base.LastUnitOrientation(actorPos);
-        }
+        //public override Vector3 LastUnitOrientation(Vector3 actorPos)
+        //{
+        //    // tmp
+        //    return base.LastUnitOrientation(actorPos);
+        //}
     }
 
     [SerializeField]

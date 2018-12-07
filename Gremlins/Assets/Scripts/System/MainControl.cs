@@ -29,7 +29,6 @@ public class MainControl : MonoBehaviour
     {
         men = GameObject.FindGameObjectsWithTag("Man");
         menParentObj = GameObject.Find("Actors");
-
         //Physics2D.velocityIterations = velocityIter;
         //Physics2D.positionIterations = positionIter;
 
@@ -225,8 +224,8 @@ public class MainControl : MonoBehaviour
 
             if (sortByDistance.Count != 0)
             {
-                Services.footprintsManager.ClearLastFootprints();
-                Services.footprintsManager.Clear();
+                //Services.footprintsManager.ClearLastFootprints();
+                //Services.footprintsManager.Clear();
 
                 foreach (KeyValuePair<float, GameObject> pair in sortByDistance)
                 {
@@ -240,7 +239,7 @@ public class MainControl : MonoBehaviour
                     MoveManToObject(man, obj, slotId, 0.1f);
                 }
 
-                Services.footprintsManager.Generate();
+                //Services.footprintsManager.Generate();
             }
             else
             {
@@ -349,12 +348,12 @@ public class MainControl : MonoBehaviour
         Vector3 targetPos = obj.GetComponent<PropControl>().GetFreeManSlotPos();
         //UnboundMan(man);
         //MoveManTo(man, targetPos, 0.1f);
-        Services.footprintsManager.Clear();
-        Services.footprintsManager.ClearLastFootprints();
+        //Services.footprintsManager.Clear();
+        //Services.footprintsManager.ClearLastFootprints();
 
         MoveManToPosition(man, targetPos, 0.2f);
 
-        Services.footprintsManager.Generate();
+        //Services.footprintsManager.Generate();
     }
 
     public void UnboundMan(GameObject man)
@@ -441,7 +440,7 @@ public class MainControl : MonoBehaviour
 
     public void MoveMenToPosition(Vector3 targetPos, List<GameObject> selectedMen = null)
     {
-        Services.footprintsManager.Clear();
+        //Services.footprintsManager.Clear();
 
         if (selectedMen != null)
         {
@@ -473,7 +472,7 @@ public class MainControl : MonoBehaviour
             }
         }
 
-        Services.footprintsManager.Generate();
+        //Services.footprintsManager.Generate();
     }
 
     public void MoveNearestManToPosition(Vector3 targetPos)

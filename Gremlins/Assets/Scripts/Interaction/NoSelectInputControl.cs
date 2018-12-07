@@ -58,17 +58,10 @@ public class NoSelectInputControl : InputControl
         else
         if (mouseClickObject.CompareTag("Ground"))
         {
-            //if (orderMode == OrderMode.SINGLEMAN)
-            //{
-            //    Services.gameController.MoveNearestMan(mouseClickPos);
-            //}
-            //else
-            {
-                Services.gameController.MoveMenToPosition(mouseClickPos);
-            }
-
+            Services.gameController.MoveMenToPosition(mouseClickPos);
             Services.soundController.Play("clickOnWood1");
-            Services.hudController.ShowIcon("GoodClickAnim", mouseClickPos, HUDControl.UISpace.CANVAS);
+
+            Services.tileMarkerManager.Activate(Services.pathFindingManager.LastUnit());
         }
         else
         {

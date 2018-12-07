@@ -10,18 +10,26 @@ public abstract class PathFindingManager : MonoBehaviour
         //public Vector3 endPos;
         public Crowd.Event endEvent;
         public float tol;
+        public GameObject endUnit;
+        public bool isComplete;
 
         public FoundPath()
         {
             endEvent = null;
+            endUnit = null;
             tol = 0;
+            isComplete = false;
         }
 
         public virtual void Insert(GameObject tile)
         {
         }
 
-        public virtual void Insert(Vector3 pos, TileEdge.MovementType type = TileEdge.MovementType.WALK)
+        public virtual void InsertAtHead(Vector3 pos, TileEdge.MovementType type = TileEdge.MovementType.WALK)
+        {
+        }
+
+        public virtual void InsertAtHead(GameObject obj, TileEdge.MovementType type = TileEdge.MovementType.WALK)
         {
         }
 
@@ -29,15 +37,15 @@ public abstract class PathFindingManager : MonoBehaviour
         {
         }
 
-        public virtual Vector3 LastUnitPos()
-        {
-            return new Vector3(0, 0, 0);
-        }
+        //public virtual Vector3 LastUnitPos()
+        //{
+        //    return new Vector3(0, 0, 0);
+        //}
 
-        public virtual Vector3 LastUnitOrientation(Vector3 actorPos)
-        {
-            return new Vector3(0, 0, 0);
-        }
+        //public virtual Vector3 LastUnitOrientation(Vector3 actorPos)
+        //{
+        //    return new Vector3(0, 0, 0);
+        //}
     };
 
     protected Dictionary<GameObject, FoundPath> pathTable = new Dictionary<GameObject, FoundPath>();
@@ -86,6 +94,16 @@ public abstract class PathFindingManager : MonoBehaviour
                 ActorMoveUpdate(actor);
             }
         }
+    }
+
+    public GameObject LastUnit()
+    {
+        if (recentPath != null)
+        {
+            return recentPath.endUnit;
+        }
+
+        return null;
     }
 
     public GameObject AddNavmesh()
@@ -141,15 +159,15 @@ public abstract class PathFindingManager : MonoBehaviour
 
     public virtual void Move(GameObject actor, float posTol, Crowd.Event endEvent)
     {
-        if (recentPath == null)
+        if (recentPath == null || !recentPath.isComplete)
         {
             return;
         }
 
-        Vector3 lastUnitPos = recentPath.LastUnitPos();
-        Vector3 lastUnitOrientation = recentPath.LastUnitOrientation(actor.transform.position);
+        //Vector3 lastUnitPos = recentPath.LastUnitPos();
+        //Vector3 lastUnitOrientation = recentPath.LastUnitOrientation(actor.transform.position);
 
-        Services.footprintsManager.Take(lastUnitPos, lastUnitOrientation);
+        //Services.footprintsManager.Take(lastUnitPos, lastUnitOrientation);
 
         recentPath.endEvent = endEvent;
         recentPath.tol = posTol;

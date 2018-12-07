@@ -5,17 +5,58 @@ using UnityEngine;
 
 public class TileBasedPathFindingManager : PathFindingManager
 {
+    protected abstract class PathUnit
+    {
+        public TileEdge.MovementType pathType;
+
+        public virtual Vector3 Position()
+        {
+            return Vector3.zero;
+        }
+    }
+
+    protected class TilePathUnit : PathUnit
+    {
+        public GameObject tile;
+
+        public TilePathUnit(GameObject p, TileEdge.MovementType t)
+        {
+            tile = p;
+            pathType = t;
+        }
+
+        public override Vector3 Position()
+        {
+            return tile.transform.position;
+        }
+    }
+
+    protected class PosPathUnit : PathUnit
+    {
+        public Vector3 pos;
+
+        public PosPathUnit(Vector3 p, TileEdge.MovementType t)
+        {
+            pos = p;
+            pathType = t;
+        }
+
+        public override Vector3 Position()
+        {
+            return pos;
+        }
+    }
+
     protected class TileBasedFoundPath : FoundPath
     {
-        public List<Vector3> paths;
-        public List<TileEdge.MovementType> pathTypes;
+        public List<PathUnit> paths;
 
         private List<Vector3> axises;
 
         public TileBasedFoundPath()
         {
-            paths = new List<Vector3>();
-            pathTypes = new List<TileEdge.MovementType>();
+            paths = new List<PathUnit>();
+            //pathTypes = new List<TileEdge.MovementType>();
             endEvent = null;
             tol = 0;
 
@@ -28,55 +69,61 @@ public class TileBasedPathFindingManager : PathFindingManager
             axises.Add(Vector3.back);
         }
 
-        public override void Insert(Vector3 pos, TileEdge.MovementType type = TileEdge.MovementType.WALK)
+        public override void InsertAtHead(Vector3 pos, TileEdge.MovementType type = TileEdge.MovementType.WALK)
         {
-            paths.Insert(0, pos);
-            pathTypes.Insert(0, type);
+            PosPathUnit t = new PosPathUnit(pos, type);
+            paths.Insert(0, t);
         }
 
-        public override Vector3 LastUnitPos()
+        public override void InsertAtHead(GameObject obj, TileEdge.MovementType type = TileEdge.MovementType.WALK)
         {
-            if (paths.Count <= 1)
-            {
-                Debug.Log("Should never happen.");
-                return new Vector3(0, 0, 0);
-            }
-
-            return paths[paths.Count - 2];
+            TilePathUnit t = new TilePathUnit(obj, type);
+            paths.Insert(0, t);
         }
 
-        public override Vector3 LastUnitOrientation(Vector3 actorPos)
-        {
-            if (paths.Count <= 1)
-            {
-                Debug.Log("Again, should never happen.");
-                return new Vector3(0, 0, 0);
-            }
+        //public override Vector3 LastUnitPos()
+        //{
+        //    if (paths.Count <= 1)
+        //    {
+        //        Debug.Log("Should never happen.");
+        //        return new Vector3(0, 0, 0);
+        //    }
 
-            Vector3 dir;
-            if (paths.Count == 2)
-            {
-                dir = paths[paths.Count - 2] - actorPos;
-            }
-            else
-            {
-                dir = paths[paths.Count - 2] - paths[paths.Count - 3];
-            }
+        //    return paths[paths.Count - 2];
+        //}
 
-            float maxDot = -1;
-            Vector3 closestAxis = new Vector3(0, 0, 0);
-            foreach (Vector3 axis in axises)
-            {
-                float dot = Vector3.Dot(dir.normalized, axis);
-                if (dot > maxDot)
-                {
-                    maxDot = dot;
-                    closestAxis = axis;
-                }
-            }
+        //public override Vector3 LastUnitOrientation(Vector3 actorPos)
+        //{
+        //    if (paths.Count <= 1)
+        //    {
+        //        Debug.Log("Again, should never happen.");
+        //        return new Vector3(0, 0, 0);
+        //    }
 
-            return closestAxis;
-        }
+        //    Vector3 dir;
+        //    if (paths.Count == 2)
+        //    {
+        //        dir = paths[paths.Count - 2] - actorPos;
+        //    }
+        //    else
+        //    {
+        //        dir = paths[paths.Count - 2] - paths[paths.Count - 3];
+        //    }
+
+        //    float maxDot = -1;
+        //    Vector3 closestAxis = new Vector3(0, 0, 0);
+        //    foreach (Vector3 axis in axises)
+        //    {
+        //        float dot = Vector3.Dot(dir.normalized, axis);
+        //        if (dot > maxDot)
+        //        {
+        //            maxDot = dot;
+        //            closestAxis = axis;
+        //        }
+        //    }
+
+        //    return closestAxis;
+        //}
     }
 
     [SerializeField]
@@ -110,7 +157,7 @@ public class TileBasedPathFindingManager : PathFindingManager
         TileBasedFoundPath path = (TileBasedFoundPath)pathTable[actor];
 
         //if (GoToNextPoint(actor, path.pathEdges[0].EndPos(), path.speed))
-        if (Vector3.Distance(actor.transform.position, path.paths[0]) <= path.tol)
+        if (Vector3.Distance(actor.transform.position, path.paths[0].Position()) <= path.tol)
         {
             if (path.paths.Count <= 1)
             {
@@ -125,9 +172,8 @@ public class TileBasedPathFindingManager : PathFindingManager
             }
             else
             {
-                Services.gameController.SetManTargetPosition(actor, path.paths[1], path.tol, path.pathTypes[1]);
+                Services.gameController.SetManTargetPosition(actor, path.paths[1].Position(), path.tol, path.paths[1].pathType);
                 path.paths.RemoveAt(0);
-                path.pathTypes.RemoveAt(0);
             }
         }
     }
@@ -225,7 +271,7 @@ public class TileBasedPathFindingManager : PathFindingManager
 
     public override bool FindPath(GameObject actor, Vector3 endPos, float clampTol = 0.5F)
     {
-        recentPath = null;
+        recentPath = new TileBasedFoundPath();
 
         Vector3 startPos = actor.transform.position;
         GameObject startTile = FindNearestTile(startPos);
@@ -234,7 +280,8 @@ public class TileBasedPathFindingManager : PathFindingManager
         {
             return false;
         }
-        //Debug.Log(startTile + " " + endTile);
+
+        recentPath.endUnit = endTile;
 
         // re-number all the pathpoints
         Dictionary<GameObject, int> IDs = new Dictionary<GameObject, int>();
@@ -317,24 +364,23 @@ public class TileBasedPathFindingManager : PathFindingManager
             return false;
         }
 
-        recentPath = new TileBasedFoundPath();
-
         int curTile = endID;
-        recentPath.Insert(endPos);
+        recentPath.InsertAtHead(endPos);
         while (curTile != -1)
         {
             if (preTile[curTile] == -1)
             {
-                recentPath.Insert(tiles[curTile].transform.position);
+                recentPath.InsertAtHead(tiles[curTile]);
             }
             else
             {
                 //Debug.Log(curTile + " " + preTile[curTile] + " " + pathTypes[curTile, preTile[curTile]]);
-                recentPath.Insert(tiles[curTile].transform.position, pathTypes[curTile, preTile[curTile]]);
+                recentPath.InsertAtHead(tiles[curTile], pathTypes[curTile, preTile[curTile]]);
             }
             curTile = preTile[curTile];
         }
-        recentPath.Insert(startPos);
+        recentPath.InsertAtHead(startPos);
+        recentPath.isComplete = true;
 
         return true;
     }

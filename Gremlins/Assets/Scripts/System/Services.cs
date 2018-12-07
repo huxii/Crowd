@@ -8,7 +8,7 @@ public static class Services
     public static Crowd.TaskManager taskManager = null;
     public static Crowd.SceneManager sceneManager = null;
     public static PathFindingManager pathFindingManager = null;
-    public static FootprintsManager footprintsManager = null;
+    public static TileMarkerManager tileMarkerManager = null;
     public static LevelEventsManager levelEventsManager = null;
     public static MainControl gameController = null;
     public static InputControl inputController = null;
@@ -24,11 +24,15 @@ public static class Services
         eventManager = new Crowd.EventManager();
         taskManager = new Crowd.TaskManager();
         sceneManager = new Crowd.SceneManager();
-        footprintsManager = new FootprintsManager();
 
         if (GameObject.Find("PathFinder"))
         {
             pathFindingManager = GameObject.Find("PathFinder").GetComponent<PathFindingManager>();
+
+            if (GameObject.Find("TileMarkerManager"))
+            {
+                tileMarkerManager = GameObject.Find("TileMarkerManager").GetComponent<TileMarkerManager>();
+            }
         }
         else
         {
@@ -101,7 +105,7 @@ public static class Services
         taskManager = null;
         sceneManager = null;
         pathFindingManager = null;
-        footprintsManager = null;
+        tileMarkerManager = null;
         levelEventsManager = null;
         gameController = null;
         inputController = null;
