@@ -552,6 +552,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2035a465bed0645ac44fd9900cf0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followObject: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &277510822
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -618,6 +620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2035a465bed0645ac44fd9900cf0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followObject: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &339976424
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3014,7 +3018,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  interactionCD: 0
+  interactionCD: 1
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   onInteractionFeedback:
@@ -3036,6 +3040,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManSlotOffset: {x: 1.22, y: -0.7, z: 0.52}
   changeState: 4
+  changeScaleX: 1
   slots:
   - state: 0
     obj: {fileID: 1462612196}
@@ -3126,9 +3131,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 830115740}
+        m_MethodName: Lock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  interactionCD: 0
+  interactionCD: 1
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   onInteractionFeedback:
@@ -3150,6 +3166,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0.44, y: 0.65, z: 0.44}
   changeState: 1
+  changeScaleX: 1
   slots:
   - state: 0
     obj: {fileID: 1077498997}
@@ -4090,6 +4107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2035a465bed0645ac44fd9900cf0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followObject: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &1150662957
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4969,27 +4988,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015116585
+      value: 0.01511722
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000012981053
+      value: -0.000000012981381
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015116576
+      value: 0.015117395
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.9998858
+      value: 0.99988574
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0030008978
+      value: -0.003000794
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000023073015
+      value: -0.000000023073069
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
@@ -5842,6 +5861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2035a465bed0645ac44fd9900cf0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followObject: {fileID: 0}
+  followOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &1691396173
 BoxCollider:
   m_ObjectHideFlags: 0
