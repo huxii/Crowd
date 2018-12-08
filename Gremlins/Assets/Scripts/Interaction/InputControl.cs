@@ -100,7 +100,7 @@ public abstract class InputControl : MonoBehaviour
             }
 
             if (Input.GetMouseButton(0))
-            {
+            {               
                 MouseHold();
 
                 if (Time.time - singleClickTime > holdTime)
@@ -108,7 +108,7 @@ public abstract class InputControl : MonoBehaviour
                     //MouseHoldEnd();
                 }
             }
-
+            
             if (Input.GetMouseButtonUp(0))
             {
                 MouseUp();
@@ -230,7 +230,7 @@ public abstract class InputControl : MonoBehaviour
 
     protected virtual void MouseSingleClick()
     {
-        Debug.Log("Single click " + mouseClickObject);
+        //Debug.Log("Single click " + mouseClickObject + " " + mouseClickPos);
         if (autoFocusCameraEnabled)
         {
             Services.gameController.FocusCamera(mouseClickPos);
@@ -257,31 +257,16 @@ public abstract class InputControl : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100f))
             {
-                Vector3 newMouseClickPos = hit.point;
-                Vector3 mouseDelta = newMouseClickPos - mouseClickPos;
-
-                //if (mouseClickObject.CompareTag("Man"))
-                //{
-                //    if (dragTimer <= 0)
-                //    {
-                //        Services.gameController.MoveMenToPosition(newMouseClickPos);
-                //        dragTimer = dragCoolDown;
-                //    }
-                //}
-                //else
-                if (mouseClickObject.CompareTag("Object") || mouseClickObject.CompareTag("Prop"))
+                Vector3 mouseDelta = Input.mousePosition - mouseDragScreenPos;
+                if ((mouseClickObject.CompareTag("Object") || mouseClickObject.CompareTag("Prop"))
+                    && Services.gameController.DragOn(mouseClickObject, mouseDelta))
                 {
-                    if (!Services.gameController.DragOn(mouseClickObject, mouseDelta))
-                    {
-                        RotateViewport();
-                    }
+                    mouseDragScreenPos = Input.mousePosition;
                 }
                 else
                 {
                     RotateViewport();
                 }
-
-                mouseClickPos = newMouseClickPos;
             }
         }
     }

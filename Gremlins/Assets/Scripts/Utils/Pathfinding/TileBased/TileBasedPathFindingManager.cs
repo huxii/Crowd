@@ -252,7 +252,10 @@ public class TileBasedPathFindingManager : PathFindingManager
         GameObject nearestTile = null;
         foreach (GameObject tile in tiles)
         {
-            Debug.Log(pos + " " + tile.name + " " + dist);
+            if (tile.name == "Tile7" || tile.name == "Tile8")
+            {
+                Debug.Log(pos + " " + tile.name + " " + tile.transform.position + " " +  Vector3.Distance(pos, tile.transform.position));
+            }
             if (Vector3.Distance(pos, tile.transform.position) < dist)
             {
                 dist = Vector3.Distance(pos, tile.transform.position);
