@@ -1,139 +1,139 @@
 
 Character_animation_sketch.png
-size: 1024,256
+size: 1024,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 arm_left
   rotate: true
-  xy: 560, 218
-  size: 36, 194
-  orig: 36, 194
+  xy: 477, 447
+  size: 63, 198
+  orig: 63, 198
   offset: 0, 0
   index: -1
 arm_right
   rotate: true
-  xy: 756, 223
-  size: 31, 167
-  orig: 31, 167
+  xy: 677, 451
+  size: 59, 173
+  orig: 59, 173
   offset: 0, 0
   index: -1
 body
-  rotate: true
-  xy: 2, 7
-  size: 247, 386
-  orig: 247, 386
+  rotate: false
+  xy: 2, 96
+  size: 275, 414
+  orig: 275, 414
   offset: 0, 0
   index: -1
 ear_left
   rotate: false
-  xy: 560, 79
-  size: 126, 55
-  orig: 126, 55
+  xy: 477, 362
+  size: 154, 83
+  orig: 154, 83
   offset: 0, 0
   index: -1
 ear_right
   rotate: false
-  xy: 390, 42
-  size: 162, 45
-  orig: 162, 45
+  xy: 852, 437
+  size: 151, 73
+  orig: 151, 73
   offset: 0, 0
   index: -1
 eyeBack_left
-  rotate: false
-  xy: 688, 78
-  size: 63, 56
-  orig: 63, 56
+  rotate: true
+  xy: 568, 184
+  size: 91, 84
+  orig: 91, 84
   offset: 0, 0
   index: -1
 eyeBack_right
-  rotate: false
-  xy: 753, 94
-  size: 56, 48
-  orig: 56, 48
+  rotate: true
+  xy: 633, 361
+  size: 84, 76
+  orig: 84, 76
   offset: 0, 0
   index: -1
 eyeBall_left
-  rotate: true
-  xy: 456, 9
-  size: 31, 47
-  orig: 31, 47
+  rotate: false
+  xy: 711, 374
+  size: 59, 75
+  orig: 59, 75
   offset: 0, 0
   index: -1
 eyeBall_right
   rotate: false
-  xy: 811, 97
-  size: 30, 45
-  orig: 30, 45
+  xy: 772, 376
+  size: 58, 73
+  orig: 58, 73
   offset: 0, 0
   index: -1
 eyeClose_left
-  rotate: false
-  xy: 950, 153
-  size: 56, 21
-  orig: 56, 21
+  rotate: true
+  xy: 284, 22
+  size: 84, 49
+  orig: 84, 49
   offset: 0, 0
   index: -1
 eyeClose_right
-  rotate: true
-  xy: 660, 25
-  size: 52, 20
-  orig: 52, 20
+  rotate: false
+  xy: 335, 16
+  size: 80, 48
+  orig: 80, 48
   offset: 0, 0
   index: -1
 eyeSkin_left
-  rotate: true
-  xy: 875, 140
-  size: 81, 73
-  orig: 81, 73
+  rotate: false
+  xy: 457, 174
+  size: 109, 101
+  orig: 109, 101
   offset: 0, 0
   index: -1
 eyeSkin_right
-  rotate: false
-  xy: 950, 176
-  size: 72, 78
-  orig: 72, 78
+  rotate: true
+  xy: 348, 66
+  size: 100, 106
+  orig: 100, 106
   offset: 0, 0
   index: -1
 face
   rotate: false
-  xy: 390, 89
-  size: 168, 165
-  orig: 168, 165
+  xy: 279, 317
+  size: 196, 193
+  orig: 196, 193
   offset: 0, 0
   index: -1
 leg_left
-  rotate: true
-  xy: 560, 136
-  size: 40, 179
-  orig: 40, 179
+  rotate: false
+  xy: 279, 108
+  size: 67, 207
+  orig: 67, 207
   offset: 0, 0
   index: -1
 leg_right
   rotate: true
-  xy: 560, 178
-  size: 38, 189
-  orig: 38, 189
+  xy: 2, 28
+  size: 66, 212
+  orig: 66, 212
   offset: 0, 0
   index: -1
 mouth
-  rotate: false
-  xy: 756, 144
-  size: 117, 77
-  orig: 117, 77
+  rotate: true
+  xy: 348, 168
+  size: 147, 107
+  orig: 147, 107
   offset: 0, 0
   index: -1
 nose
-  rotate: false
-  xy: 390, 2
-  size: 64, 38
-  orig: 64, 38
+  rotate: true
+  xy: 216, 2
+  size: 92, 66
+  orig: 92, 66
   offset: 0, 0
   index: -1
 tooth
   rotate: false
-  xy: 554, 22
-  size: 104, 55
-  orig: 104, 55
+  xy: 477, 277
+  size: 132, 83
+  orig: 132, 83
   offset: 0, 0
   index: -1
