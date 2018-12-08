@@ -95,6 +95,11 @@
 		Pass
 		{
 			Name "Outline"
+			Tags
+			{				
+				"RenderType" = "Transparent"
+			}
+			Blend SrcAlpha OneMinusSrcAlpha
 
 			Cull Front
 
