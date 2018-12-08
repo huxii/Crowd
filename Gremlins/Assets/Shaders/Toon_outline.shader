@@ -41,6 +41,7 @@
 	{
 		CGPROGRAM
 		#include "ToonUtils.cginc"
+		#include "Utils.cginc"
 
 		#pragma surface surf ToonOverlay vertex:vert addshadow
 		#pragma target 3.0
@@ -82,13 +83,14 @@
 			// pattern
 			half4 p = pow(tex2D(_Pattern, TRANSFORM_TEX(IN.uv_MainTex, _Pattern)), _PatternPower);
 
+			o.Albedo = c.rgb * p.rgb * _Color.rgb;
+			o.Alpha = c.a;
+
 			// overlay
 			float2 screenUVs = (IN.screenPos.xy / IN.screenPos.w);
 			screenUVs += _OverlaySpeed * _Time;
-			float4 overlayTex = lerp(float4(1, 1, 1, 1), tex2D(_OverlayTex, TRANSFORM_TEX(screenUVs.xy, _OverlayTex)), _Overlay);
-
-			o.Albedo = c.rgb * p.rgb * _Color.rgb * overlayTex.rgb;
-			o.Alpha = c.a;
+			half4 overlayTex = tex2D(_OverlayTex, TRANSFORM_TEX(screenUVs.xy, _OverlayTex));
+			o.Albedo = GetOverlayColor(half4(o.Albedo, 1), float4(1, 1, 1, 1), overlayTex.a * _Overlay).rgb;
 
 			half4 ao = tex2D(_AOMap, IN.uv_MainTex);
 			half4 aoColor = lerp(_AOMinColor, _AOMaxColor, ao);
@@ -99,8 +101,6 @@
 			half4 specGloss = tex2D(_SpecMap, IN.uv_MainTex);
 			o.Specular = specGloss.r;
 			o.Gloss = specGloss.a;
-
-
 		}
 		ENDCG
 		
@@ -132,7 +132,7 @@
 			Cull Front
 
 			CGPROGRAM
-			#include "OutlineUtils.cginc"
+			#include "Utils.cginc"
 
 			#pragma vertex vert_outline
 			#pragma fragment frag_outline
@@ -140,7 +140,7 @@
 			uniform float _OutlineWidth;
 			uniform float4 _OutlineColor;
 
-			float4 vert_outline(vertexInput v) : SV_POSITION
+			float4 vert_outline(appdata_color v) : SV_POSITION
 			{
 				return GetClipPosition(v.vertex, normalize(v.color.xyz), _OutlineWidth);
 			}

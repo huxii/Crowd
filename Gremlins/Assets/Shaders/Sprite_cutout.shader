@@ -38,6 +38,7 @@
 		Blend SrcAlpha OneMinusSrcAlpha
 
 		CGPROGRAM
+		#include "Utils.cginc"
 		#include "ToonUtils.cginc"
 		#pragma surface surf ToonCutout alpha vertex:vert
 		#pragma multi_compile DUMMY PIXELSNAP_ON
@@ -57,7 +58,7 @@
 			float4 posWorld;
 		};
 		
-		void vert (inout appdata_cutout v, out Input o)
+		void vert (inout appdata_color v, out Input o)
 		{
 			#if defined(PIXELSNAP_ON) && !defined(SHADER_API_FLASH)
 			v.vertex = UnityPixelSnap (v.vertex);

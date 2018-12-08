@@ -1,9 +1,7 @@
 #include "AutoLight.cginc"
 #include "UnityCG.cginc"
 
-uniform float4 _LightColor0;
-
-struct vertexInput
+struct appdata_color
 {
 	float4 vertex : POSITION;
 	float3 normal : NORMAL;
@@ -22,4 +20,11 @@ inline float4 GetClipPosition(float4 pos, float3 n, float width)
 	clipPosition.xy += normalize(clipNormal.xy) * width * clipPosition.w / 40 /*/ _ScreenParams.xy * 40**/ /** (1 - ramp)*/;
 
 	return clipPosition;
+}
+
+inline half4 GetOverlayColor(half4 base, half4 color, float factor)
+{
+	float4 effect = lerp(1 - (2 * (1 - base)) * (1 - color), (2 * base) * color, step(base, 0.5f));
+	fixed4 c = lerp(base, effect, factor);
+	return c;
 }
