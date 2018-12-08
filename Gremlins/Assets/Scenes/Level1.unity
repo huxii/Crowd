@@ -4118,15 +4118,15 @@ Prefab:
       objectReference: {fileID: 1428080941}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015117395
+      value: 0.015116576
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.99988574
+      value: 0.9998858
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015116977
+      value: 0.015116471
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -4134,7 +4134,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0030009907
+      value: -0.0030011216
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -6151,7 +6151,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  interactionCD: 1
+  interactionCD: 0.5
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   onInteractionFeedback:
@@ -7492,7 +7492,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  interactionCD: 1
+  interactionCD: 0.5
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   onInteractionFeedback:
@@ -8005,7 +8005,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  interactionCD: 1
+  interactionCD: 0.5
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   onInteractionFeedback:
@@ -9852,6 +9852,30 @@ Prefab:
     - target: {fileID: 100944, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300772, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e23262440138bc4f85e1db67031d288, type: 2}
+    - target: {fileID: 2300774, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e23262440138bc4f85e1db67031d288, type: 2}
+    - target: {fileID: 100950, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100166, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100704, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100168, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
@@ -13113,7 +13137,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  interactionCD: 1
+  interactionCD: 0.5
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   onInteractionFeedback:
