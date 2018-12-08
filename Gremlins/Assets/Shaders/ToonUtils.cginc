@@ -82,3 +82,29 @@ inline half4 LightingToon(SurfaceCustomOutput s, half3 lightDir, half3 viewDir, 
 
 	return c;
 }
+
+inline half4 LightingToonOverlay(SurfaceCustomOutput s, half3 lightDir, half3 viewDir, half atten)
+{
+	// light ramp
+	half NdotL = dot(s.Normal, lightDir);
+	half lighting = min(0.95, max(0.05, atten * NdotL));
+	half3 lightRamp = tex2D(_LightRamp, float2(lighting, 0)).rgb;
+
+	// specular
+	fixed3 h = normalize(lightDir + viewDir);
+	float nh = max(0, dot(s.Normal, h));
+	float spec = max(0.0, min(1.0, pow(nh, s.Gloss * 128) * s.Specular));
+
+	// rim
+	half rim = 1.0f - saturate(dot(s.Normal, viewDir));
+	half4 rimLight = atten * _LightColor0 * _RimColor *
+		saturate(dot(s.Normal, lightDir)) *
+		pow(rim, _RimPower);
+
+	// final
+	half4 c;
+	c.rgb = (s.Albedo * s.Ao * lightRamp * _LightColor0.rgb + _LightColor0 * spec + s.Emission + rimLight.rgb);
+	c.a = s.Alpha;
+
+	return c;
+}

@@ -30,6 +30,11 @@
 		[Header(Outline)]
 		_OutlineColor("Outline Color", Color) = (0, 0, 0, 1)
 		_OutlineWidth("Outline Width", Range(0, 1.0)) = 0.05
+
+		[Header(Overlay)]
+		_Overlay("Overlay", Range(0, 1.0)) = 0.5
+		_OverlayTex("Overlay Texture", 2D) = "white" {}
+		_OverlaySpeed("Overlay Speed", float) = 1
 	}
 
 	SubShader
@@ -37,7 +42,7 @@
 		CGPROGRAM
 		#include "ToonUtils.cginc"
 
-		#pragma surface surf Toon addshadow
+		#pragma surface surf ToonOverlay vertex:vert addshadow
 		#pragma target 3.0
 
 		uniform sampler2D _MainTex;
@@ -52,16 +57,37 @@
 		uniform float4 _AOMinColor;
 		uniform float4 _AOMaxColor;
 
+		uniform float _Overlay;
+		uniform sampler2D _OverlayTex;
+		uniform float4 _OverlayTex_ST;
+		uniform float _OverlaySpeed;
+
 		struct Input
 		{
 			float2 uv_MainTex;
+			float4 screenPos : TEXCOORD0;
 		};
+
+		void vert(inout appdata_full v, out Input o)
+		{
+			UNITY_INITIALIZE_OUTPUT(Input, o);
+			o.screenPos = ComputeScreenPos(UnityObjectToClipPos(v.vertex));
+		}
 
 		void surf(Input IN, inout SurfaceCustomOutput o)
 		{
+			// main tex
 			half4 c = tex2D(_MainTex, IN.uv_MainTex);
+
+			// pattern
 			half4 p = pow(tex2D(_Pattern, TRANSFORM_TEX(IN.uv_MainTex, _Pattern)), _PatternPower);
-			o.Albedo = c.rgb * p.rgb * _Color.rgb;
+
+			// overlay
+			float2 screenUVs = (IN.screenPos.xy / IN.screenPos.w);
+			screenUVs += _OverlaySpeed * _Time;
+			float4 overlayTex = lerp(float4(1, 1, 1, 1), tex2D(_OverlayTex, TRANSFORM_TEX(screenUVs.xy, _OverlayTex)), _Overlay);
+
+			o.Albedo = c.rgb * p.rgb * _Color.rgb * overlayTex.rgb;
 			o.Alpha = c.a;
 
 			half4 ao = tex2D(_AOMap, IN.uv_MainTex);
@@ -73,6 +99,8 @@
 			half4 specGloss = tex2D(_SpecMap, IN.uv_MainTex);
 			o.Specular = specGloss.r;
 			o.Gloss = specGloss.a;
+
+
 		}
 		ENDCG
 		
@@ -106,18 +134,18 @@
 			CGPROGRAM
 			#include "OutlineUtils.cginc"
 
-			#pragma vertex vert
-			#pragma fragment frag
+			#pragma vertex vert_outline
+			#pragma fragment frag_outline
 
 			uniform float _OutlineWidth;
 			uniform float4 _OutlineColor;
 
-			float4 vert(vertexInput v) : SV_POSITION
+			float4 vert_outline(vertexInput v) : SV_POSITION
 			{
 				return GetClipPosition(v.vertex, normalize(v.color.xyz), _OutlineWidth);
 			}
 
-			float4 frag() : COLOR
+			float4 frag_outline() : COLOR
 			{
 				return _OutlineColor;
 			}
