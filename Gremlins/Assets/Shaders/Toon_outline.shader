@@ -32,7 +32,7 @@
 		_OutlineWidth("Outline Width", Range(0, 1.0)) = 0.05
 
 		[Header(Overlay)]
-		_Overlay("Overlay", Range(0, 1.0)) = 0.5
+		_OverlayFactor("Overlay Factor", Range(0, 1.0)) = 0.5
 		_OverlayTex("Overlay Texture", 2D) = "white" {}
 		_OverlaySpeed("Overlay Speed", float) = 1
 	}
@@ -58,7 +58,7 @@
 		uniform float4 _AOMinColor;
 		uniform float4 _AOMaxColor;
 
-		uniform float _Overlay;
+		uniform float _OverlayFactor;
 		uniform sampler2D _OverlayTex;
 		uniform float4 _OverlayTex_ST;
 		uniform float _OverlaySpeed;
@@ -90,7 +90,7 @@
 			float2 screenUVs = (IN.screenPos.xy / IN.screenPos.w);
 			screenUVs += _OverlaySpeed * _Time;
 			half4 overlayTex = tex2D(_OverlayTex, TRANSFORM_TEX(screenUVs.xy, _OverlayTex));
-			o.Albedo = GetOverlayColor(half4(o.Albedo, 1), float4(1, 1, 1, 1), overlayTex.a * _Overlay).rgb;
+			o.Albedo = GetOverlayColor(half4(o.Albedo, 1), float4(1, 1, 1, 1), overlayTex.a * _OverlayFactor).rgb;
 
 			half4 ao = tex2D(_AOMap, IN.uv_MainTex);
 			half4 aoColor = lerp(_AOMinColor, _AOMaxColor, ao);

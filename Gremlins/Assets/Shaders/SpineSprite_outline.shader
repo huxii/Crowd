@@ -12,7 +12,7 @@ Shader "Custom/SpineSprite_outline"
 		_OverlaySpeed("Overlay Speed", float) = 1
 
 		[Header(Outline)]
-		_OutlineFactor("Outline Transparency", Range(0, 1.0)) = 0.5
+		_OutlineWidth("Outline Transparency", Range(0, 1.0)) = 0.5
 		_OutlineColor("Outline Color", Color) = (1, 1, 1, 1)
 	}
 
@@ -207,7 +207,7 @@ Shader "Custom/SpineSprite_outline"
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
 
-			uniform float _OutlineFactor;
+			uniform float _OutlineWidth;
 			uniform fixed4 _OutlineColor;
 
 			VertexOutput vert (VertexInput IN) 
@@ -221,7 +221,7 @@ Shader "Custom/SpineSprite_outline"
 				OUT.vertex = UnityObjectToClipPos(OUT.worldPosition);
 				OUT.texcoord = IN.texcoord;
 
-				OUT.color = IN.color * float4(_OutlineColor.rgb * _OutlineFactor, _OutlineFactor); // Combine a PMA version of _Color with vertexColor.
+				OUT.color = IN.color * float4(_OutlineColor.rgb * _OutlineWidth, _OutlineWidth); // Combine a PMA version of _Color with vertexColor.
 				return OUT;
 			}
 

@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 114925974569722068}
   - component: {fileID: 114810860392653684}
   - component: {fileID: 114073887264002410}
+  - component: {fileID: 114095267683339060}
   m_Layer: 2
   m_Name: Actor
   m_TagString: Man
@@ -174,6 +175,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc44a605293c80145bdc7f9212a3ef54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114095267683339060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1980355776856754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73684270725ead744bc34eccecfc81be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  outlineWidth: 1
+  mats: []
 --- !u!114 &114718129347546674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a5666e3f3d4174c93a45d832577cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   onSelected:
     m_PersistentCalls:

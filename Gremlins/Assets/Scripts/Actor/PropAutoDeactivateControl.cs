@@ -36,7 +36,7 @@ public class PropAutoDeactivateControl : PropAutoControl
         }
 	}
 
-    public override void OnSlotsFull()
+    protected override void OnSlotsFull()
     {
         base.OnSlotsFull();
     }

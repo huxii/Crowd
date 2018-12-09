@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Character_animation_sketch_Material
+  m_Name: CharacterMat
   m_Shader: {fileID: 4800000, guid: 0af4c07c6d1c9084ebc86d7c8de93f5a, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 4
@@ -67,9 +67,10 @@ Material:
     - _Glossiness: 0.5
     - _Hue: 0
     - _Metallic: 0
-    - _OutlineFactor: 0.531
+    - _OutlineFactor: 0
+    - _OutlineWidth: 0.48
     - _Overlay: 0
-    - _OverlayFactor: 0.5
+    - _OverlayFactor: 5.5777526e-37
     - _OverlaySpeed: 0.1
     - _RenderQueue: 0
     - _RimPower: 2

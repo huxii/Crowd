@@ -88,8 +88,9 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0
+    - _OutlineWidth: 5.7100072e-36
     - _Overlay: 0
+    - _OverlayFactor: 1.4275026e-35
     - _OverlaySpeed: 0.1
     - _Parallax: 0.02
     - _PatternPower: 0.1
