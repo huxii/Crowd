@@ -115,6 +115,16 @@ public class MainControl : MonoBehaviour
             obj.GetComponent<PropControl>().ReadySlot(slotId, man);
             man.GetComponent<CrowdControl>().SwitchState(obj.GetComponent<PropControl>().changeState);
             man.GetComponent<CrowdControl>().Flip(obj.GetComponent<PropControl>().changeScaleX);
+
+            if (obj.GetComponent<PropControl>().IsReady())
+            {
+                obj.GetComponent<PropControl>().feedbackController.OnStateChange(PropControl.PropState.FULL);
+                foreach (PropControl.SlotAttr slot in obj.GetComponent<PropControl>().slots)
+                {
+                    slot.man.GetComponent<CrowdControl>().feedbackController.OnStateChange(PropControl.PropState.FULL);
+                }
+            }
+            
         }
         else
         {
@@ -131,6 +141,9 @@ public class MainControl : MonoBehaviour
 
         man.GetComponent<CrowdControl>().SetWorkingObject(obj, slotId);
         obj.GetComponent<PropControl>().PlanSlot(man, slotId);
+
+        man.GetComponent<CrowdControl>().feedbackController.Breathe();
+        obj.GetComponent<PropControl>().feedbackController.Breathe();
     }
 
     void OnManLeavesFromObj(Crowd.Event e)
@@ -155,6 +168,16 @@ public class MainControl : MonoBehaviour
         man.transform.SetParent(menParentObj.transform);
         man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
         obj.GetComponent<PropControl>().FreeSlot(slotId);
+
+        man.GetComponent<CrowdControl>().feedbackController.OnStateChange(PropControl.PropState.EMPTY);
+        if (obj.GetComponent<PropControl>().IsEmpty())
+        {
+            obj.GetComponent<PropControl>().feedbackController.OnStateChange(PropControl.PropState.EMPTY);
+        }
+        else
+        {
+            obj.GetComponent<PropControl>().feedbackController.OnStateChange(PropControl.PropState.NOTFULL);
+        }
 
         man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.IDLE);
     }
@@ -201,7 +224,7 @@ public class MainControl : MonoBehaviour
         }
 
         PropControl.PropState propState = obj.GetComponent<PropControl>().Interact();
-        if (propState == PropControl.PropState.NOTFULL)
+        if (propState == PropControl.PropState.NOTFULL || propState == PropControl.PropState.EMPTY)
         {
             SortedDictionary<float, GameObject> sortByDistance = new SortedDictionary<float, GameObject>();
             if (selectedMen != null)

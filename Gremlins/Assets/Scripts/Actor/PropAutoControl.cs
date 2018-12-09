@@ -19,7 +19,7 @@ public abstract class PropAutoControl : PropControl
     {
 	}
 
-    public override void OnSlotsFull()
+    protected override void OnSlotsFull()
     {
         base.OnSlotsFull();
 

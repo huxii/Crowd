@@ -19,14 +19,14 @@ public abstract class PropPassiveControl : PropControl
     {
     }
 
-    public override void OnSlotsFull()
+    protected override void OnSlotsFull()
     {
         base.OnSlotsFull();
 
         LockAllMen();
     }
 
-    public override void OnSlotsNotFull()
+    protected override void OnSlotsNotFull()
     {
     }
 

@@ -10,7 +10,7 @@ using UnityEngine.Events;
 public abstract class PropControl : InteractableControl
 {
     [System.Serializable]
-    protected class SlotAttr
+    public class SlotAttr
     {
         public SlotState state;
         public GameObject obj;
@@ -24,17 +24,12 @@ public abstract class PropControl : InteractableControl
         }
     };
 
-    protected enum SlotState
+    public enum SlotState
     {
         EMPTY,
         PLANNED,
         READY,
     }
-
-    // the reaction when player interacts with it
-    // eg. model bounces a little bit
-    public UnityEvent onInteractionFeedback;
-    //public Vector3 progressBarPosOffset = new Vector3(0, 0, 0);
 
     public float gizmoSize = 0.2f;
 
@@ -47,11 +42,10 @@ public abstract class PropControl : InteractableControl
 
     public float changeScaleX = 1;
 
+    public List<SlotAttr> slots = new List<SlotAttr>();
     protected GameObject slotsObj = null;
-    [SerializeField]
-    protected List<SlotAttr> slots = new List<SlotAttr>();
-    [HideInInspector]
-    [SerializeField]
+
+    [HideInInspector][SerializeField]
     private float namingCounter = 0;
     private Vector3 localSpawnPos = new Vector3(0, 0, 0);
 
@@ -67,9 +61,10 @@ public abstract class PropControl : InteractableControl
     public enum PropState
     {
         DISABLE,
+        PATH,
+        EMPTY,
         NOTFULL,
         FULL,
-        PATH,
     };
 
     // Use this for initialization
@@ -108,6 +103,11 @@ public abstract class PropControl : InteractableControl
         return currentReadySlotNum >= slots.Count;
     }
 
+    public bool IsEmpty()
+    {
+        return GetEmptySlotNum() == slots.Count;
+    }
+
     public GameObject AddSlot()
     {
         if (slotsObj == null)
@@ -131,18 +131,21 @@ public abstract class PropControl : InteractableControl
     // free the men from the slots
     public void FreeSlot(int id)
     {
-        if (slots[id].state == SlotState.READY)
+        if (slots[id].state == SlotState.PLANNED || slots[id].state == SlotState.READY)
         {
-            --currentReadySlotNum;
-            if (currentReadySlotNum == slots.Count - 1)
+            if (slots[id].state == SlotState.READY)
             {
-                OnSlotsNotFull();
+                --currentReadySlotNum;
+                if (currentReadySlotNum == slots.Count - 1)
+                {
+                    OnSlotsNotFull();
+                }             
             }
+            slots[id].man = null;
+            slots[id].state = SlotState.EMPTY;
 
             OnSlotChange();
         }
-        slots[id].man = null;
-        slots[id].state = SlotState.EMPTY;
     }
 
     // a man is planning to get on the slot but not arrived yet
@@ -286,53 +289,7 @@ public abstract class PropControl : InteractableControl
         }
     }
 
-    public virtual void OnSlotChange()
-    {
-        SetWeight();
-
-        if (GetReadySlotNum() == slots.Count)
-        {
-            // full
-        }
-        else
-        if (GetEmptySlotNum() == slots.Count)
-        {
-            // empty
-        }
-        else
-        {
-            foreach (SlotAttr slot in slots)
-            {
-                if (slot.state == SlotState.PLANNED)
-                {
-
-                }
-            }
-        }
-    }
-
-    //public virtual void OnFillASlot()
-    //{
-    //    SetWeight();
-    //}
-
-    //public virtual void OnFreeASlot()
-    //{
-    //    SetWeight();
-    //}
-
-    public virtual void OnSlotsFull()
-    {
-    }
-
-    public virtual void OnSlotsNotFull()
-    {
-        Deactivate();
-    }
-
-    // return the current state of this prop
-    // so that MainControl can decide what it should do next when another interaction is required
-    public virtual PropState Interact()
+    protected PropState UpdateState()
     {
         if (IsLocked())
         {
@@ -347,19 +304,42 @@ public abstract class PropControl : InteractableControl
         }
         else
         {
-            onInteractionFeedback.Invoke();
-
             if (IsReady())
             {
                 return PropState.FULL;
+            }
+            else
+            if (GetEmptySlotNum() == slots.Count)
+            {
+                return PropState.EMPTY;
             }
             else
             {
                 return PropState.NOTFULL;
             }
         }
+    }
 
-        return PropState.DISABLE;
+    protected virtual void OnSlotsFull()
+    {
+    }
+
+    protected virtual void OnSlotsNotFull()
+    {
+        Deactivate();
+    }
+
+    protected virtual void OnSlotChange()
+    {
+        SetWeight();
+    }
+
+    // return the current state of this prop
+    // so that MainControl can decide what it should do next when another interaction is required
+    public virtual PropState Interact()
+    {
+        feedbackController.OnInteract();
+        return UpdateState();
     }
 
     //public override void Click()

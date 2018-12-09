@@ -19,7 +19,7 @@ public class PropPassiveBasicControl : PropPassiveControl
     {
 	}
 
-    public override void OnSlotsFull()
+    protected override void OnSlotsFull()
     {
         base.OnSlotsFull();
 

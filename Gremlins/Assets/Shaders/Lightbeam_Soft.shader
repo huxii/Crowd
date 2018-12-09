@@ -10,7 +10,7 @@ Shader "Custom/Lightbeam_soft"
 		_Tweak("Tweak", Float) = 0.65
 		_Intensity("Intensity", Float) = 1
 		_HaloIntensity("Halo Intensity", Float) = 1
-		_Overlay("Overlay", Range(0, 1)) = 0.5
+		_OverlayFactor("Overlay Factor", Range(0, 1)) = 0.5
 		_SoftEdge("Soft Edge", Float) = 0.8
 		_DistanceFallOff("Distance Fall Off", Float) = 0.5
 		[HideInInspector]_MaxDistance("Max Distance", Float) = 1

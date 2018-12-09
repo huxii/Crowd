@@ -10,7 +10,7 @@ fixed4 _Color;
 fixed _Width;
 fixed _Tweak;
 fixed _SoftEdge;
-fixed _Overlay;
+fixed _OverlayFactor;
 float _Intensity;
 float _HaloIntensity;
 float4 _SourcePos;
@@ -55,7 +55,7 @@ v2f vert(appdata_full v)
 fixed4 frag_soft(v2f In) : COLOR
 {
 	half4 base = tex2Dproj(_GrabTexture, In.screenPos);
-	float4 c = GetOverlayColor(base, _Color, _Color.a * In.color.a * _Overlay);
+	float4 c = GetOverlayColor(base, _Color, _Color.a * In.color.a * _OverlayFactor);
 
 	// Fade when near the camera
 	c.a *= saturate(In.screenPos.z * 0.2);
@@ -85,7 +85,7 @@ fixed4 frag_soft_halo(v2f In) : COLOR
 	c.a *= In.color.a;
 
 	float4 effect = lerp(1 - (2 * (1 - base)) * (1 - c), (2 * base) *c, step(base, 0.5f));
-	c = lerp(base, effect, _Overlay * c.a);
+	c = lerp(base, effect, _OverlayFactor * c.a);
 
 	// Fade when near the camera
 	c.a *= saturate(In.screenPos.z * 0.2);
