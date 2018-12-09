@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f989d6809761ab14384adbb6dde43491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -493,6 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42af7cf671a61c54e9623d2b1f24832d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -1082,6 +1084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -1163,6 +1166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -1265,6 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -1393,6 +1398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afaed1b5b40a5d74f962aa77e785991b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -1705,33 +1711,6 @@ MonoBehaviour:
   interactionCD: 1
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onInteractionFeedback:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Bounce
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MerryGoRoundTop, 1.05, 1.05, 1.05, 0.5
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1993309045}
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: clickOnMetal6
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   gizmoSize: 0.2
   freeManSlotOffset: {x: -1.5, y: 0, z: 0}
   changeState: 5
@@ -2142,6 +2121,36 @@ CapsuleCollider:
   m_Height: 4.5
   m_Direction: 1
   m_Center: {x: 0, y: 1.35, z: 0}
+--- !u!114 &172576996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 172576992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aff13e5c8448614a9aa6b0069c60caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Bounce
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MerryGoRoundTop, 1.05, 1.05, 1.05, 0.5
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  outlineWidth: 0.3
+  targetObj: {fileID: 945058689}
+  mats: []
 --- !u!1 &172810220
 GameObject:
   m_ObjectHideFlags: 0
@@ -2402,6 +2411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -3015,6 +3025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afaed1b5b40a5d74f962aa77e785991b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -3129,22 +3140,6 @@ MonoBehaviour:
   interactionCD: 1
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onInteractionFeedback:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Bounce
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: PuddleModel, 1.2, 1.2, 1.2, 0.5
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0, y: 0, z: 0}
   changeState: 5
@@ -3397,6 +3392,36 @@ MonoBehaviour:
   parentObject: {fileID: 906860730}
   offset: {x: 0, y: 0, z: 0}
   copyRotation: 0
+--- !u!114 &357420216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 357420211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aff13e5c8448614a9aa6b0069c60caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Bounce
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PuddleModel, 1.2, 1.2, 1.2, 0.5
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  outlineWidth: 0.3
+  targetObj: {fileID: 0}
+  mats: []
 --- !u!1 &359793911 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100154, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -3498,6 +3523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6720691f77616af4eae9537361432dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -3547,6 +3573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f989d6809761ab14384adbb6dde43491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -4086,7 +4113,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015116992
+      value: 0.015117156
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -4094,7 +4121,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0030010247
+      value: -0.0030009465
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -4399,6 +4426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -5122,6 +5150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -5225,6 +5254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -5384,6 +5414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -5579,6 +5610,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &610603103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1768098470764408, guid: 731fd9d139c957140bdc305f3874130d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1447642417}
+--- !u!114 &610603108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 610603103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5295762d7eb025845bc7a4969ce9d959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &634051683
 GameObject:
   m_ObjectHideFlags: 0
@@ -5782,6 +5829,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &723122457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1768098470764408, guid: 731fd9d139c957140bdc305f3874130d,
+    type: 2}
+  m_PrefabInternal: {fileID: 892852070}
+--- !u!114 &723122462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 723122457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5295762d7eb025845bc7a4969ce9d959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &726104363 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100682, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -5849,6 +5912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4687032418bb5a448ed1cbe2974c063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -5864,22 +5928,6 @@ MonoBehaviour:
   interactionCD: 1
   isWalkableAfterDeactivated: 1
   dropMenAfterDeactivated: 0
-  onInteractionFeedback:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: Bounce
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: LadderHandleModel, 1.1, 1.1, 1.1, 0.5
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   gizmoSize: 0.2
   freeManSlotOffset: {x: 0, y: 0.1, z: -0.6}
   changeState: 4
@@ -5936,6 +5984,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.03, y: 3.84, z: 0.72}
   m_Center: {x: 0.09, y: 2.19, z: 0}
+--- !u!114 &740844332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 740844328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aff13e5c8448614a9aa6b0069c60caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: Bounce
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LadderModel, 1.1, 1.1, 1.1, 0.5
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  outlineWidth: 0.3
+  targetObj: {fileID: 0}
+  mats: []
 --- !u!1 &741140168
 GameObject:
   m_ObjectHideFlags: 0
@@ -6055,6 +6133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dd6509af9279a4398a4105e6327631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -6114,6 +6193,28 @@ MonoBehaviour:
   interactionCD: 1
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
+  gizmoSize: 0.2
+  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
+  changeState: 5
+  changeScaleX: 1
+  slots:
+  - state: 0
+    obj: {fileID: 375909485}
+    man: {fileID: 0}
+  namingCounter: 3
+  weightObj: {fileID: 0}
+  deltaWeight: 0
+--- !u!114 &776287341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 776287338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aff13e5c8448614a9aa6b0069c60caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
@@ -6128,30 +6229,11 @@ MonoBehaviour:
           m_StringArgument: CartModel3, 1.1, 1.1, 1.1, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: clickOnMetal5
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  gizmoSize: 0.2
-  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
-  changeState: 5
-  changeScaleX: 1
-  slots:
-  - state: 0
-    obj: {fileID: 375909485}
-    man: {fileID: 0}
-  namingCounter: 3
-  weightObj: {fileID: 0}
-  deltaWeight: 0
+  outlineWidth: 0.3
+  targetObj: {fileID: 0}
+  mats: []
 --- !u!65 &776287342
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6197,6 +6279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -6457,6 +6540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -6789,6 +6873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -6903,6 +6988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -7000,6 +7086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -7140,6 +7227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57db3486925c904cb2fc61549ba79dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -7288,6 +7376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -7396,6 +7485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dd6509af9279a4398a4105e6327631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -7455,6 +7545,28 @@ MonoBehaviour:
   interactionCD: 1
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
+  gizmoSize: 0.2
+  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
+  changeState: 5
+  changeScaleX: 1
+  slots:
+  - state: 0
+    obj: {fileID: 1660261887}
+    man: {fileID: 0}
+  namingCounter: 5
+  weightObj: {fileID: 0}
+  deltaWeight: 0
+--- !u!114 &876407559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 876407556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aff13e5c8448614a9aa6b0069c60caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
@@ -7469,30 +7581,11 @@ MonoBehaviour:
           m_StringArgument: CartModel2, 1.1, 1.1, 1.1, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: clickOnMetal5
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  gizmoSize: 0.2
-  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
-  changeState: 5
-  changeScaleX: 1
-  slots:
-  - state: 0
-    obj: {fileID: 1660261887}
-    man: {fileID: 0}
-  namingCounter: 5
-  weightObj: {fileID: 0}
-  deltaWeight: 0
+  outlineWidth: 0.3
+  targetObj: {fileID: 0}
+  mats: []
 --- !u!65 &876407560
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7521,6 +7614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 1
   canActivateMultipleTimes: 0
   onActivated:
@@ -7709,6 +7803,11 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 33356439744088668, guid: 731fd9d139c957140bdc305f3874130d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
   m_IsPrefabAsset: 0
@@ -7761,6 +7860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f989d6809761ab14384adbb6dde43491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -7811,6 +7911,11 @@ MonoBehaviour:
     interval: 1
   color0: {r: 0, g: 0, b: 0, a: 0}
   color1: {r: 1.0588236, g: 0.14117648, b: 0.14117648, a: 0}
+--- !u!1 &945058689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100796, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInternal: {fileID: 1013358165}
 --- !u!4 &950080946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d,
@@ -7909,6 +8014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dd6509af9279a4398a4105e6327631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -7968,6 +8074,28 @@ MonoBehaviour:
   interactionCD: 1
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
+  gizmoSize: 0.2
+  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
+  changeState: 5
+  changeScaleX: 1
+  slots:
+  - state: 0
+    obj: {fileID: 987195239}
+    man: {fileID: 0}
+  namingCounter: 3
+  weightObj: {fileID: 0}
+  deltaWeight: 0
+--- !u!114 &1007254893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1007254890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aff13e5c8448614a9aa6b0069c60caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
@@ -7982,30 +8110,11 @@ MonoBehaviour:
           m_StringArgument: CartModel, 1.1, 1.1, 1.1, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: clickOnMetal5
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  gizmoSize: 0.2
-  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
-  changeState: 5
-  changeScaleX: 1
-  slots:
-  - state: 0
-    obj: {fileID: 987195239}
-    man: {fileID: 0}
-  namingCounter: 3
-  weightObj: {fileID: 0}
-  deltaWeight: 0
+  outlineWidth: 0.3
+  targetObj: {fileID: 0}
+  mats: []
 --- !u!65 &1007254894
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9862,6 +9971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -9938,6 +10048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -10025,6 +10136,22 @@ Transform:
   m_Father: {fileID: 357420212}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1024272205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1768098470764408, guid: 731fd9d139c957140bdc305f3874130d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1079786856}
+--- !u!114 &1024272210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1024272205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5295762d7eb025845bc7a4969ce9d959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1027653204 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100718, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -10041,6 +10168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -10294,6 +10422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -10748,6 +10877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -10883,6 +11013,11 @@ Prefab:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 33591148196657830, guid: 731fd9d139c957140bdc305f3874130d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 33356439744088668, guid: 731fd9d139c957140bdc305f3874130d,
         type: 2}
       propertyPath: m_Mesh
       value: 
@@ -11374,6 +11509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -11571,18 +11707,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1980355776856754, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
-      propertyPath: m_Name
-      value: Actor (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1980355776856754, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 33591148196657830, guid: 731fd9d139c957140bdc305f3874130d,
+    - target: {fileID: 33356439744088668, guid: 731fd9d139c957140bdc305f3874130d,
         type: 2}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1980355776856754, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
+      propertyPath: m_Name
+      value: Actor (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
@@ -11665,6 +11797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -11731,6 +11864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -12141,6 +12275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -12316,6 +12451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -12422,6 +12558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -12824,6 +12961,11 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 33356439744088668, guid: 731fd9d139c957140bdc305f3874130d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
   m_IsPrefabAsset: 0
@@ -12968,6 +13110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -13025,6 +13168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dd6509af9279a4398a4105e6327631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -13084,6 +13228,28 @@ MonoBehaviour:
   interactionCD: 1
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
+  gizmoSize: 0.2
+  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
+  changeState: 5
+  changeScaleX: 1
+  slots:
+  - state: 0
+    obj: {fileID: 1495107545}
+    man: {fileID: 0}
+  namingCounter: 5
+  weightObj: {fileID: 0}
+  deltaWeight: 0
+--- !u!114 &1479368704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1479368701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aff13e5c8448614a9aa6b0069c60caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
@@ -13098,30 +13264,11 @@ MonoBehaviour:
           m_StringArgument: CartModel1, 1.1, 1.1, 1.1, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: clickOnMetal5
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  gizmoSize: 0.2
-  freeManSlotOffset: {x: 0.15, y: -1.7, z: -1.2}
-  changeState: 5
-  changeScaleX: 1
-  slots:
-  - state: 0
-    obj: {fileID: 1495107545}
-    man: {fileID: 0}
-  namingCounter: 5
-  weightObj: {fileID: 0}
-  deltaWeight: 0
+  outlineWidth: 0.3
+  targetObj: {fileID: 0}
+  mats: []
 --- !u!65 &1479368705
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13396,6 +13543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -13730,6 +13878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57db3486925c904cb2fc61549ba79dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -13847,6 +13996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -13970,6 +14120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -14084,6 +14235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -14214,6 +14366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -14463,6 +14616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -14888,6 +15042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -15022,6 +15177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -16010,6 +16166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -16203,6 +16360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -16440,6 +16598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266875025228c9942977dc68e16bed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -17778,6 +17937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42af7cf671a61c54e9623d2b1f24832d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -17841,6 +18001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:
@@ -18429,6 +18590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e6891acfba99a4d9cbeaab72007597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 1
   onActivated:
@@ -18761,6 +18923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321a64c456611c74a8df5713ce92b4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
   locked: 0
   canActivateMultipleTimes: 0
   onActivated:

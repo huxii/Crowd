@@ -11,7 +11,11 @@ public class CrowdFeedbackBehavior : InteractableFeedbackBehavior
     {
         GetComponent<ActorControl>().feedbackController = this;
 
-        SkeletonDataAsset data = GetComponentInChildren<SkeletonAnimation>().skeletonDataAsset;
+        if (targetObj == null)
+        {
+            targetObj = gameObject;
+        }
+        SkeletonDataAsset data = targetObj.GetComponentInChildren<SkeletonAnimation>().skeletonDataAsset;
 
         Material spineMat = data.atlasAssets[0].materials[0];
         Material newMat = Instantiate(Instantiate(spineMat));

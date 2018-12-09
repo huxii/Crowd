@@ -338,6 +338,7 @@ public abstract class PropControl : InteractableControl
     // so that MainControl can decide what it should do next when another interaction is required
     public virtual PropState Interact()
     {
+        feedbackController.OnInteract();
         return UpdateState();
     }
 

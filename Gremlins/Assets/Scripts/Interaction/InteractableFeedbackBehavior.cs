@@ -11,6 +11,7 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
     //public Vector3 progressBarPosOffset = new Vector3(0, 0, 0);
 
     public float outlineWidth = 0.4f;
+    public GameObject targetObj;
 
     [SerializeField]
     protected List<Material> mats = new List<Material>();
@@ -41,19 +42,68 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
             foreach (Material mat in mats)
             {
                 float o1 = mat.GetFloat(OVERLAY_FACTOR_STRING);
+                if (Mathf.Abs(o1 - overlayFactor) >= 0.01f)
+                {
+                    o1 += (overlayFactor - o1) * fadeSpeed * Time.deltaTime;
+                    mat.SetFloat(OVERLAY_FACTOR_STRING, o1);
+                }
+
                 float o2 = mat.GetFloat(OUTLINE_FACTOR_STRING);
-                o1 += (overlayFactor - o1) * fadeSpeed * Time.deltaTime;
-                o2 += (outlineFactor - o2) * fadeSpeed * Time.deltaTime;
-                mat.SetFloat(OVERLAY_FACTOR_STRING, o1);
-                mat.SetFloat(OUTLINE_FACTOR_STRING, o2);
+                if (Mathf.Abs(o2 - outlineFactor) >= 0.01f)
+                {
+                    o2 += (outlineFactor - o2) * fadeSpeed * Time.deltaTime;
+                    mat.SetFloat(OUTLINE_FACTOR_STRING, o2);
+                }
+            }
+        }
+        else
+        {
+            foreach (Material mat in mats)
+            {
+                float o1 = mat.GetFloat(OVERLAY_FACTOR_STRING);
+                if (Mathf.Abs(o1 - overlayFactor) >= 0.01f)
+                {
+                    o1 += (overlayFactor - o1) * fadeSpeed * Time.deltaTime;
+                    mat.SetFloat(OVERLAY_FACTOR_STRING, o1);
+                }
+
+                float b = mat.GetFloat(OUTLINE_FACTOR_STRING);
+                //Debug.Log(b + " " + breathFactor + " " + outlineWidth);
+                if (breathFactor > 0)
+                {
+                    if (b < outlineWidth - 0.01f)
+                    {
+                        b += (outlineWidth - b) * fadeSpeed * Time.deltaTime;
+                        mat.SetFloat(OUTLINE_FACTOR_STRING, b);
+                    }
+                    else
+                    {
+                        breathFactor = -1;
+                    }                  
+                }
+                else
+                {
+                    if (b > 0.01f)
+                    {
+                        b -= b * fadeSpeed * Time.deltaTime;
+                        mat.SetFloat(OUTLINE_FACTOR_STRING, b);
+                    }
+                    else
+                    {
+                        breathFactor = 1;
+                    }
+                }
             }
         }
     }
 
-    public void OnStateChange(PropControl.PropState state)
+    public void OnInteract()
     {
         onInteractionFeedback.Invoke();
+    }
 
+    public void OnStateChange(PropControl.PropState state)
+    {
         switch (state)
         {
             case PropControl.PropState.EMPTY:
@@ -73,9 +123,20 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
                 outlineFactor = 0;
                 break;                                                                      
         }
+
+        StopBreathing();
     }
 
     public void Breathe()
     {
+        if (breathFactor == 0)
+        {
+            breathFactor = 1;
+        }
+    }
+
+    public void StopBreathing()
+    {
+        breathFactor = 0;
     }
 }

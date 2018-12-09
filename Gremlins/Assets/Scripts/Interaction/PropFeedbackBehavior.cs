@@ -10,7 +10,11 @@ public class PropFeedbackBehavior : InteractableFeedbackBehavior
     {
         GetComponent<ActorControl>().feedbackController = this;
 
-        MeshRenderer[] meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        if (targetObj == null)
+        {
+            targetObj = gameObject;
+        }
+        MeshRenderer[] meshRenderers = targetObj.GetComponentsInChildren<MeshRenderer>();
         foreach (MeshRenderer mesh in meshRenderers)
         {
             mats.AddRange(mesh.materials);
