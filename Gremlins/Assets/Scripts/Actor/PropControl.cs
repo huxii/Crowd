@@ -56,7 +56,7 @@ public abstract class PropControl : InteractableControl
     private Vector3 localSpawnPos = new Vector3(0, 0, 0);
 
     // current number of slots occupied by the crowd
-    protected int currentSlots = 0;
+    protected int currentReadySlotNum = 0;
 
     // to simulate the effect of gravity
     // eg. merry go round sinks a bit when a man is on it
@@ -105,7 +105,7 @@ public abstract class PropControl : InteractableControl
 
     public bool IsReady()
     {
-        return currentSlots >= slots.Count;
+        return currentReadySlotNum >= slots.Count;
     }
 
     public GameObject AddSlot()
@@ -133,13 +133,13 @@ public abstract class PropControl : InteractableControl
     {
         if (slots[id].state == SlotState.READY)
         {
-            --currentSlots;
-            if (currentSlots == slots.Count - 1)
+            --currentReadySlotNum;
+            if (currentReadySlotNum == slots.Count - 1)
             {
                 OnSlotsNotFull();
             }
 
-            OnFreeASlot();
+            OnSlotChange();
         }
         slots[id].man = null;
         slots[id].state = SlotState.EMPTY;
@@ -155,22 +155,22 @@ public abstract class PropControl : InteractableControl
     // a man arrives at the slot
     public void ReadySlot(int id, GameObject man)
     {
-        if (currentSlots == 0 && weightObj != null)
+        if (currentReadySlotNum == 0 && weightObj != null)
         {
             origWeight = weightObj.transform.localPosition.y;
         }
 
         if (slots[id].state != SlotState.READY)
         {
-            ++currentSlots;
-            if (currentSlots == slots.Count)
+            ++currentReadySlotNum;
+            if (currentReadySlotNum == slots.Count)
             {
                 OnSlotsFull();
             }
             slots[id].state = SlotState.READY;
             slots[id].man = man;
 
-            OnFillASlot();
+            OnSlotChange();
         }
     }
 
@@ -191,7 +191,20 @@ public abstract class PropControl : InteractableControl
 
     public int GetEmptySlotNum()
     {
-        return slots.Count - currentSlots;
+        int emptySlotNum = 0;
+        foreach(SlotAttr slot in slots)
+        {
+            if (slot.state == SlotState.EMPTY)
+            {
+                ++emptySlotNum;
+            }
+        }
+        return emptySlotNum;
+    }
+
+    public int GetReadySlotNum()
+    {
+        return currentReadySlotNum;
     }
 
     public Vector3 GetFreeManSlotPos()
@@ -268,20 +281,45 @@ public abstract class PropControl : InteractableControl
     {
         if (weightObj != null)
         {
-            float curWeight = deltaWeight * currentSlots;
+            float curWeight = deltaWeight * currentReadySlotNum;
             Services.dotweenEvents.MoveTo(weightObj.name + " y " + (origWeight - curWeight).ToString() + " 1 OutBounce");
         }
     }
 
-    public virtual void OnFillASlot()
+    public virtual void OnSlotChange()
     {
         SetWeight();
+
+        if (GetReadySlotNum() == slots.Count)
+        {
+            // full
+        }
+        else
+        if (GetEmptySlotNum() == slots.Count)
+        {
+            // empty
+        }
+        else
+        {
+            foreach (SlotAttr slot in slots)
+            {
+                if (slot.state == SlotState.PLANNED)
+                {
+
+                }
+            }
+        }
     }
 
-    public virtual void OnFreeASlot()
-    {
-        SetWeight();
-    }
+    //public virtual void OnFillASlot()
+    //{
+    //    SetWeight();
+    //}
+
+    //public virtual void OnFreeASlot()
+    //{
+    //    SetWeight();
+    //}
 
     public virtual void OnSlotsFull()
     {

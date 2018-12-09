@@ -15,15 +15,6 @@ uniform float _RimPower;
 uniform sampler2D _EmissionMap;
 uniform float4 _EmissionColor;
 
-struct appdata_cutout
-{
-	float4 vertex   : POSITION;
-	float3 normal : NORMAL;
-	float4 color    : COLOR;
-	float2 texcoord : TEXCOORD0;
-	UNITY_VERTEX_INPUT_INSTANCE_ID
-};
-
 struct SurfaceCustomOutput
 {
 	fixed3 Albedo;  // diffuse color
