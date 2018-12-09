@@ -1,51 +1,51 @@
-﻿// - Vertex Lit + ShadowCaster
-// - Premultiplied Alpha Blending (One OneMinusSrcAlpha)
-// - Double-sided, no depth
+﻿// This is a premultiply-alpha adaptation of the built-in Unity shader "UI/Default" to allow Unity UI stencil masking.
 
-Shader "Custom/SpineSprite_outline" 
+Shader "Custom/SpineSprite_outline"
 {
 	Properties
 	{
-		_Cutoff("Shadow alpha cutoff", Range(0,1)) = 0.1
-		[NoScaleOffset] _MainTex("Main Texture", 2D) = "black" {}
+		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
 
 		[Header(Overlay)]
-		_Overlay("Overlay", Range(0, 1.0)) = 0.5
+		_OverlayFactor("Overlay Factor", Range(0, 1.0)) = 0.5
 		_OverlayTex("Overlay Texture", 2D) = "white" {}
 		_OverlaySpeed("Overlay Speed", float) = 1
+
+		[Header(Outline)]
+		_OutlineFactor("Outline Transparency", Range(0, 1.0)) = 0.5
+		_OutlineColor("Outline Color", Color) = (1, 1, 1, 1)
 	}
 
 	SubShader
 	{
-		Tags { "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
-		LOD 100
+		Tags
+		{ 
+			"Queue"="Transparent" 
+			"IgnoreProjector"="True" 
+			"RenderType"="Transparent" 
+			"PreviewType"="Plane"
+			"CanUseSpriteAtlas"="True"
+		}
 
 		Cull Off
+		Lighting Off
 		ZWrite Off
 		Blend One OneMinusSrcAlpha
 
-		//		Pass {
-		//			Tags { "LightMode"="Vertex" }
-		//			ColorMaterial AmbientAndDiffuse
-		//			Lighting On
-		//			SetTexture [_MainTex] {
-		//				Combine texture * primary DOUBLE, texture * primary
-		//			}
-		//		}
-
 		Pass 
 		{
+			Name "Base"
 			Tags 
 			{
 				"LIGHTMODE" = "Vertex"
-				"QUEUE" = "Transparent"
-				"IGNOREPROJECTOR" = "true"
-				"RenderType" = "Transparent"
 			}
 
-			ZWrite Off
-			Cull Off
-			Blend One OneMinusSrcAlpha
+			stencil
+			{
+				Ref 2
+				Comp Always
+				Pass Replace
+			}
 
 			CGPROGRAM
 			#pragma vertex vert
@@ -98,12 +98,7 @@ Shader "Custom/SpineSprite_outline"
 				return min(computeLighting(idx, dirToLight, eyeNormal, viewDir, diffuseColor, att), 1.0);
 			}
 
-			int4 unity_VertexLightParams; // x: light count, y: zero, z: one (y/z needed by d3d9 vs loop instruction)
-
-			uniform float _Overlay;
-			uniform sampler2D _OverlayTex;
-			uniform float4 _OverlayTex_ST;
-			uniform float _OverlaySpeed;
+			int4 unity_VertexLightParams; // x: light count, y: zero, z: one (y/z needed by d3d9 vs loop instruction)		
 
 			struct appdata {
 				float3 pos : POSITION;
@@ -120,6 +115,12 @@ Shader "Custom/SpineSprite_outline"
 				float4 pos : SV_POSITION;
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
+
+			sampler2D _MainTex;
+			uniform float _OverlayFactor;
+			uniform sampler2D _OverlayTex;
+			uniform float4 _OverlayTex_ST;
+			uniform float _OverlaySpeed;
 
 			VertexOutput vert(appdata v) 
 			{
@@ -148,8 +149,6 @@ Shader "Custom/SpineSprite_outline"
 				return o;
 			}
 
-			sampler2D _MainTex;
-
 			fixed4 frag(VertexOutput i) : SV_Target 
 			{
 				fixed4 tex = tex2D(_MainTex, i.uv0);
@@ -159,11 +158,13 @@ Shader "Custom/SpineSprite_outline"
 				col *= 2;
 				col.a = tex.a * i.color.a;
 
+				clip(col.a - 0.9f);
+
 				// overlay
 				float2 screenUVs = (i.screenPos.xy / i.screenPos.w);
 				screenUVs += _OverlaySpeed * _Time;
 				half4 overlayTex = tex2D(_OverlayTex, TRANSFORM_TEX(screenUVs.xy, _OverlayTex));
-				col = GetOverlayColor(col, float4(1, 1, 1, 1), overlayTex.a * _Overlay);
+				col = GetOverlayColor(col, float4(1, 1, 1, 1), overlayTex.a * _OverlayFactor);
 
 				return col;
 			}
@@ -171,46 +172,66 @@ Shader "Custom/SpineSprite_outline"
 
 		}
 
-		Pass {
-			Name "Caster"
-			Tags { "LightMode" = "ShadowCaster" }
-			Offset 1, 1
+		Pass
+		{
+			Name "Outline"
 
-			Fog { Mode Off }
-			ZWrite On
-			ZTest LEqual
-			Cull Off
-			Lighting Off
+			stencil
+			{
+				Ref 2
+				Comp NotEqual
+				Pass Replace
+			}
 
-			CGPROGRAM
+		CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			#pragma multi_compile_shadowcaster
-			#pragma fragmentoption ARB_precision_hint_fastest
+
 			#include "UnityCG.cginc"
-			struct v2f {
-				V2F_SHADOW_CASTER;
-				float2  uv : TEXCOORD1;
+			#include "UnityUI.cginc"
+
+			#pragma multi_compile __ UNITY_UI_ALPHACLIP
+
+			struct VertexInput {
+				float4 vertex   : POSITION;
+				float4 color    : COLOR;
+				float2 texcoord : TEXCOORD0;
+				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
 
-			uniform float4 _MainTex_ST;
+			struct VertexOutput {
+				float4 vertex   : SV_POSITION;
+				fixed4 color    : COLOR;
+				half2 texcoord  : TEXCOORD0;
+				float4 worldPosition : TEXCOORD3;
+				UNITY_VERTEX_OUTPUT_STEREO
+			};
 
-			v2f vert(appdata_base v) {
-				v2f o;
-				TRANSFER_SHADOW_CASTER(o)
-				o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
-				return o;
+			uniform float _OutlineFactor;
+			uniform fixed4 _OutlineColor;
+
+			VertexOutput vert (VertexInput IN) 
+			{
+				VertexOutput OUT;
+
+				UNITY_SETUP_INSTANCE_ID(IN);
+				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(OUT);
+
+				OUT.worldPosition = IN.vertex;
+				OUT.vertex = UnityObjectToClipPos(OUT.worldPosition);
+				OUT.texcoord = IN.texcoord;
+
+				OUT.color = IN.color * float4(_OutlineColor.rgb * _OutlineFactor, _OutlineFactor); // Combine a PMA version of _Color with vertexColor.
+				return OUT;
 			}
 
-			uniform sampler2D _MainTex;
-			uniform fixed _Cutoff;
+			sampler2D _MainTex;
 
-			float4 frag(v2f i) : COLOR {
-				fixed4 texcol = tex2D(_MainTex, i.uv);
-				clip(texcol.a - _Cutoff);
-				SHADOW_CASTER_FRAGMENT(i)
+			fixed4 frag (VertexOutput IN) : SV_Target
+			{
+				return IN.color;
 			}
-			ENDCG
+		ENDCG
 		}
 	}
 }
