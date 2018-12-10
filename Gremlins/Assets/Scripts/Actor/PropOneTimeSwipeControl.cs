@@ -25,15 +25,14 @@ public class PropOneTimeSwipeControl : PropOneTimeControl
     {
         base.Activate();
 
-        //Services.cameraController.ResetAngle();
-        Services.cameraController.SetEnable(false);
+        Services.gameController.StartSwipe(gameObject);
     }
 
     public override void Deactivate()
     {
         base.Deactivate();
 
-        Services.cameraController.SetEnable(true);
+        Services.gameController.EndSwipe();
     }
 
     public override void Swipe()

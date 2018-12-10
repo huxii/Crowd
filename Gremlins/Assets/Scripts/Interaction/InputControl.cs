@@ -201,7 +201,8 @@ public abstract class InputControl : MonoBehaviour
     {
         if (Vector3.Distance(Input.mousePosition, mouseClickScreenPos) > 1f)
         {
-            Services.gameController.SwipeOn(mouseClickObject);
+            Services.gameController.Swipe();
+            //Services.gameController.SwipeOn(mouseClickObject);
         }
         else
         //if (Time.time - singleClickTime < 1f)

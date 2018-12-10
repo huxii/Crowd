@@ -19,6 +19,8 @@ public class MainControl : MonoBehaviour
     private Vector2 navMeshMinBound = new Vector3(float.MaxValue, float.MaxValue);
     private Vector2 navMeshMaxBound = new Vector3(-float.MaxValue, -float.MaxValue);
 
+    private GameObject swipeObj = null;
+
     private void Awake()
     {
         Services.Init();
@@ -164,7 +166,7 @@ public class MainControl : MonoBehaviour
             return;
         }
 
-        Debug.Log(man + " " + obj);
+        //Debug.Log(man + " " + obj);
         man.transform.SetParent(menParentObj.transform);
         man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
         obj.GetComponent<PropControl>().FreeSlot(slotId);
@@ -567,12 +569,34 @@ public class MainControl : MonoBehaviour
         return false;
     }
 
+    public void Swipe()
+    {
+        if (swipeObj == null)
+        {
+            return;
+        }
+
+        SwipeOn(swipeObj);
+    }
+
     public void SwipeOn(GameObject obj)
     {
         if (obj != null && obj.GetComponent<InteractableControl>())
         {
             obj.GetComponent<InteractableControl>().Swipe();
         }
+    }
+
+    public void StartSwipe(GameObject obj)
+    {
+        swipeObj = obj;
+        Services.cameraController.SetEnable(false);
+    }
+
+    public void EndSwipe()
+    {
+        swipeObj = null;
+        Services.cameraController.SetEnable(true);
     }
 
     public void FocusCamera(Vector3 pos)
