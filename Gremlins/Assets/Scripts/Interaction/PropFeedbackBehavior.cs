@@ -8,8 +8,6 @@ public class PropFeedbackBehavior : InteractableFeedbackBehavior
     // Use this for initialization
     void Start()
     {
-        GetComponent<ActorControl>().feedbackController = this;
-
         if (targetObj == null)
         {
             targetObj = gameObject;
@@ -20,11 +18,7 @@ public class PropFeedbackBehavior : InteractableFeedbackBehavior
             mats.AddRange(mesh.materials);
         }
 
-        foreach (Material mat in mats)
-        {
-            mat.SetFloat(OVERLAY_FACTOR_STRING, overlayFactor);
-            mat.SetFloat(OUTLINE_FACTOR_STRING, outlineFactor);
-        }
+        Init();
     }
 
     // Update is called once per frame

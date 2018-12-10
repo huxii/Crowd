@@ -22,11 +22,16 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
     protected float overlayFactor = 0;
     protected float outlineFactor = 0;
     protected float breathFactor = 0;
+    protected float breathLoop = 0;
     protected float fadeSpeed = 5f;
+
+    protected float curOverlayFactor = 0;
+    protected float curOutlineFactor = 0;
 
     // Use this for initialization
     void Start()
     {
+        Init();
     }
 
     // Update is called once per frame
@@ -35,71 +40,97 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
 
     }
 
+    protected void Init()
+    {
+        GetComponent<ActorControl>().feedbackController = this;
+        foreach (Material mat in mats)
+        {
+            mat.SetFloat(OVERLAY_FACTOR_STRING, overlayFactor);
+            mat.SetFloat(OUTLINE_FACTOR_STRING, outlineFactor);
+        }
+    }
+
     protected void UpdateFactors()
     {
         if (breathFactor == 0)
         {
-            foreach (Material mat in mats)
+            if (Mathf.Abs(curOverlayFactor - overlayFactor) >= 0.0001f)
             {
-                float o1 = mat.GetFloat(OVERLAY_FACTOR_STRING);
-                if (Mathf.Abs(o1 - overlayFactor) >= 0.001f)
+                curOverlayFactor += (overlayFactor - curOverlayFactor) * fadeSpeed * Time.deltaTime;
+                foreach (Material mat in mats)
                 {
-                    o1 += (overlayFactor - o1) * fadeSpeed * Time.deltaTime;
-                    mat.SetFloat(OVERLAY_FACTOR_STRING, o1);
+                    mat.SetFloat(OVERLAY_FACTOR_STRING, curOverlayFactor);
                 }
+            }
 
-                float o2 = mat.GetFloat(OUTLINE_FACTOR_STRING);
-                if (Mathf.Abs(o2 - outlineFactor) >= 0.001f)
+            if (Mathf.Abs(curOutlineFactor - outlineFactor) >= 0.0001f)
+            {
+                curOutlineFactor += (outlineFactor - curOutlineFactor) * fadeSpeed * Time.deltaTime;
+                foreach (Material mat in mats)
                 {
-                    o2 += (outlineFactor - o2) * fadeSpeed * Time.deltaTime;
-                    mat.SetFloat(OUTLINE_FACTOR_STRING, o2);
-                }
+                    mat.SetFloat(OUTLINE_FACTOR_STRING, curOutlineFactor);
+                }                
             }
         }
         else
         {
-            foreach (Material mat in mats)
+            if (breathLoop > 0 || breathLoop == -1)
             {
-                float o1 = mat.GetFloat(OVERLAY_FACTOR_STRING);
-                if (Mathf.Abs(o1 - overlayFactor) >= 0.01f)
+                if (Mathf.Abs(curOverlayFactor - overlayFactor) >= 0.0001f)
                 {
-                    o1 += (overlayFactor - o1) * fadeSpeed * Time.deltaTime;
-                    mat.SetFloat(OVERLAY_FACTOR_STRING, o1);
+                    curOverlayFactor += (overlayFactor - curOverlayFactor) * fadeSpeed * Time.deltaTime;
+                    foreach (Material mat in mats)
+                    {
+                        mat.SetFloat(OVERLAY_FACTOR_STRING, curOverlayFactor);
+                    }
                 }
 
-                float b = mat.GetFloat(OUTLINE_FACTOR_STRING);
-                //Debug.Log(b + " " + breathFactor + " " + outlineWidth);
                 if (breathFactor > 0)
                 {
-                    if (b < outlineWidth - 0.01f)
+                    if (curOutlineFactor < outlineWidth - 0.01f)
                     {
-                        b += (outlineWidth - b) * fadeSpeed * Time.deltaTime;
-                        mat.SetFloat(OUTLINE_FACTOR_STRING, b);
+                        curOutlineFactor += (outlineWidth - curOutlineFactor) * fadeSpeed * Time.deltaTime;
+                        foreach (Material mat in mats)
+                        {
+                            mat.SetFloat(OUTLINE_FACTOR_STRING, curOutlineFactor);
+                        }
                     }
                     else
                     {
                         breathFactor = -1;
-                    }                  
+                    }
                 }
                 else
                 {
-                    if (b > 0.01f)
+                    if (curOutlineFactor > 0.0001f)
                     {
-                        b -= b * fadeSpeed * Time.deltaTime;
-                        mat.SetFloat(OUTLINE_FACTOR_STRING, b);
+                        curOutlineFactor -= curOutlineFactor * fadeSpeed * Time.deltaTime;
+                        foreach (Material mat in mats)
+                        {
+                            mat.SetFloat(OUTLINE_FACTOR_STRING, curOutlineFactor);
+                        }
+
+                        if (curOutlineFactor <= 0.0001f)
+                        {
+                            if (breathLoop != -1)
+                            {
+                                --breathLoop;
+                            }
+                        }
                     }
                     else
                     {
                         breathFactor = 1;
                     }
                 }
-            }
+            } 
         }
     }
 
     public void OnInteract()
     {
         onInteractionFeedback.Invoke();
+        Breathe(1);
     }
 
     public void OnStateChange(PropControl.PropState state)
@@ -127,11 +158,22 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
         StopBreathing();
     }
 
-    public void Breathe()
+    public void Breathe(int loop = -1)
     {
         if (breathFactor == 0)
         {
             breathFactor = 1;
+        }
+
+        if (loop == -1)
+        {
+            breathLoop = -1;
+        }
+        else
+        if (breathLoop != -1)
+        {
+            breathLoop = loop;
+            curOutlineFactor = 0;
         }
     }
 

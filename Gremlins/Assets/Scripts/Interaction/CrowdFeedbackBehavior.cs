@@ -9,8 +9,6 @@ public class CrowdFeedbackBehavior : InteractableFeedbackBehavior
     // Use this for initialization
     void Start()
     {
-        GetComponent<ActorControl>().feedbackController = this;
-
         if (targetObj == null)
         {
             targetObj = gameObject;
@@ -28,6 +26,8 @@ public class CrowdFeedbackBehavior : InteractableFeedbackBehavior
         GetComponentInChildren<SkeletonAnimation>().Initialize(true);
 
         mats.Add(newMat);
+
+        Init();
     }
 
     // Update is called once per frame
