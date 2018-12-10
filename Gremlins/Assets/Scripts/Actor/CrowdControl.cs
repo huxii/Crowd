@@ -21,6 +21,7 @@ public class CrowdControl : ActorControl
         PUSH,
         RIDE,
         DROP,
+        CELEBRATE,
         CONFUSED,
     };
 
@@ -105,6 +106,11 @@ public class CrowdControl : ActorControl
     {
         btree = new Tree<CrowdControl>(
             new Selector<CrowdControl>(
+                new Sequence<CrowdControl>(
+                    new IsCelebrating(),
+                    new Celebrating()
+                    ),
+
                 new Sequence<CrowdControl>(
                     new IsClimbing(),
                     new Climbing()
@@ -273,6 +279,14 @@ public class CrowdControl : ActorControl
     ////////////////////
     // Conditions
     ////////////////////
+    private class IsCelebrating : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.CELEBRATE;
+        }
+    }
+
     private class IsMoving : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
@@ -384,6 +398,15 @@ public class CrowdControl : ActorControl
         }
     }
 
+    private class Celebrating : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            man.spineAnimController.SetAnimation("cheers1", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            return true;
+        }
+    }
+
     private class Moving : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
@@ -408,6 +431,11 @@ public class CrowdControl : ActorControl
         public override bool Update(CrowdControl man)
         {
             man.spineAnimController.SetAnimation("push", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            //if (man.transform.hasChanged)
+            //{
+            //    man.spineAnimController.SetAnimation("feet_push");
+            //    man.transform.hasChanged = false;
+            //}
             return true;
         }
     }
@@ -417,6 +445,11 @@ public class CrowdControl : ActorControl
         public override bool Update(CrowdControl man)
         {
             man.spineAnimController.SetAnimation("pull", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            //if (man.transform.hasChanged)
+            //{
+            //    man.spineAnimController.SetAnimation("feet_push");
+            //    man.transform.hasChanged = false;
+            //}
             return true;
         }
     }

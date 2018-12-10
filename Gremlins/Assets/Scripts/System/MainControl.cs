@@ -599,4 +599,15 @@ public class MainControl : MonoBehaviour
             }
         }
     }
+
+    public void EndLevelCelebration()
+    {
+        foreach (GameObject man in men)
+        {
+            if (!man.GetComponent<CrowdControl>().IsBusy())
+            {
+                man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.CELEBRATE);
+            }
+        }
+    }
 }
