@@ -438,6 +438,7 @@ public class CrowdControl : ActorControl
 
             interval = 2f;
             man.stateCoolingDown = interval;
+            man.spineAnimController.SetAnimation("confuse", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
         }
 
         public override void OnInterval(CrowdControl man)
