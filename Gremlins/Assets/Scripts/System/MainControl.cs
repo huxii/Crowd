@@ -113,7 +113,7 @@ public class MainControl : MonoBehaviour
 
         if (obj != null)
         {
-            man.GetComponent<CrowdControl>().Flip(obj.GetComponent<PropControl>().changeScaleX, true);
+            man.GetComponent<CrowdControl>().Flip(obj.GetComponent<PropControl>().changeScaleX);
             man.transform.SetParent(obj.GetComponent<PropControl>().GetSlotObject(slotId).transform);
             obj.GetComponent<PropControl>().ReadySlot(slotId, man);
             man.GetComponent<CrowdControl>().SwitchState(obj.GetComponent<PropControl>().changeState);
@@ -428,7 +428,7 @@ public class MainControl : MonoBehaviour
             UnboundMan(man);
             OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
             man.GetComponent<CrowdControl>().LoadSucceeded();
-
+            TurnMan(man, targetPos);
             Services.pathFindingManager.Move(man, tol, new ManArrives(man, obj, slotId));
             return true;
         }
@@ -451,7 +451,7 @@ public class MainControl : MonoBehaviour
         {
             UnboundMan(man);
             man.GetComponent<CrowdControl>().WalkSucceeded();
-
+            TurnMan(man, targetPos);
             Services.pathFindingManager.Move(man, tol, new ManArrives(man, null, -1));
             return true;
         }
@@ -608,19 +608,24 @@ public class MainControl : MonoBehaviour
         //Debug.Log(pos + " " + Mathf.Sin(ratioY * 90f) + " " + ratioY);
     }
 
+    public void TurnMan(GameObject man, Vector3 pos)
+    {
+        Vector3 dir = (pos - man.transform.position).normalized;
+        if (Vector3.Dot(dir, Vector3.right) > Vector3.Dot(dir, -Vector3.right))
+        {
+            man.GetComponent<CrowdControl>().Flip(-1);
+        }
+        else
+        {
+            man.GetComponent<CrowdControl>().Flip(1);
+        }
+    }
+
     public void TurnMen(Vector3 pos)
     {
         foreach (GameObject man in men)
         {
-            Vector3 dir = (pos - man.transform.position).normalized;
-            if (Vector3.Dot(dir, Vector3.right) > Vector3.Dot(dir, -Vector3.right))
-            {
-                man.GetComponent<CrowdControl>().Flip(-1);
-            }
-            else
-            {
-                man.GetComponent<CrowdControl>().Flip(1);
-            }
+            TurnMan(man, pos);
         }
     }
 
