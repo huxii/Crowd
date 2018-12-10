@@ -607,7 +607,9 @@ public class MainControl : MonoBehaviour
             if (!man.GetComponent<CrowdControl>().IsBusy())
             {
                 man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.CELEBRATE);
+                man.GetComponent<CrowdControl>().Lock();
             }
         }
+        Services.soundController.Play("levelEnd");
     }
 }
