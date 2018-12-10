@@ -42,14 +42,14 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
             foreach (Material mat in mats)
             {
                 float o1 = mat.GetFloat(OVERLAY_FACTOR_STRING);
-                if (Mathf.Abs(o1 - overlayFactor) >= 0.01f)
+                if (Mathf.Abs(o1 - overlayFactor) >= 0.001f)
                 {
                     o1 += (overlayFactor - o1) * fadeSpeed * Time.deltaTime;
                     mat.SetFloat(OVERLAY_FACTOR_STRING, o1);
                 }
 
                 float o2 = mat.GetFloat(OUTLINE_FACTOR_STRING);
-                if (Mathf.Abs(o2 - outlineFactor) >= 0.01f)
+                if (Mathf.Abs(o2 - outlineFactor) >= 0.001f)
                 {
                     o2 += (outlineFactor - o2) * fadeSpeed * Time.deltaTime;
                     mat.SetFloat(OUTLINE_FACTOR_STRING, o2);
