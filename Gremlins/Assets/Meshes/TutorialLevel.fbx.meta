@@ -48,6 +48,11 @@ ModelImporter:
     100084: Stair5 1
     100086: Stair6 1
     100088: Stair7 1
+    100090: Floor1
+    100092: Floor2
+    100094: Floor3
+    100096: Floor4
+    100098: Floors
     400000: Back
     400002: Box
     400004: Handle
@@ -93,6 +98,11 @@ ModelImporter:
     400084: Stair5 1
     400086: Stair6 1
     400088: Stair7 1
+    400090: Floor1
+    400092: Floor2
+    400094: Floor3
+    400096: Floor4
+    400098: Floors
     2100000: lambert1
     2100002: Level1_InnerMat
     2100004: Level0_InnerMat
@@ -127,6 +137,10 @@ ModelImporter:
     2300056: Stair5 1
     2300058: Stair6 1
     2300060: Stair7 1
+    2300062: Floor1
+    2300064: Floor2
+    2300066: Floor3
+    2300068: Floor4
     3300000: Back
     3300002: Box
     3300004: Handle
@@ -158,6 +172,10 @@ ModelImporter:
     3300056: Stair5 1
     3300058: Stair6 1
     3300060: Stair7 1
+    3300062: Floor1
+    3300064: Floor2
+    3300066: Floor3
+    3300068: Floor4
     4300000: Box
     4300002: Level1:Back
     4300004: Level1:Stair1
@@ -189,6 +207,10 @@ ModelImporter:
     4300056: Stair5
     4300058: Stair6
     4300060: Stair7
+    4300062: Floor1
+    4300064: Floor2
+    4300066: Floor3
+    4300068: Floor4
   externalObjects: {}
   materials:
     importMaterials: 0
