@@ -111,10 +111,10 @@ public class MainControl : MonoBehaviour
 
         if (obj != null)
         {
+            man.GetComponent<CrowdControl>().Flip(obj.GetComponent<PropControl>().changeScaleX, true);
             man.transform.SetParent(obj.GetComponent<PropControl>().GetSlotObject(slotId).transform);
             obj.GetComponent<PropControl>().ReadySlot(slotId, man);
             man.GetComponent<CrowdControl>().SwitchState(obj.GetComponent<PropControl>().changeState);
-            man.GetComponent<CrowdControl>().Flip(obj.GetComponent<PropControl>().changeScaleX);
 
             if (obj.GetComponent<PropControl>().IsReady())
             {
