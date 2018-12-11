@@ -264,16 +264,13 @@ public class CrowdControl : ActorControl
         stateCoolingDown = stateMagicNumber;
     }
 
-    public void Flip(float p, bool force = false)
+    public void Flip(float p)
     {
-        if (!IsBusy() || force)
-        {
-            transform.localScale = new Vector3(
-                p,
-                transform.localScale.y,
-                transform.localScale.z
-                );
-        }
+        transform.localScale = new Vector3(
+            p,
+            transform.localScale.y,
+            transform.localScale.z
+            );
     }
 
     ////////////////////
