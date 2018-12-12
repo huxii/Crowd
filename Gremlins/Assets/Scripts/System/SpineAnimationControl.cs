@@ -44,7 +44,7 @@ public class SpineAnimationControl : MonoBehaviour
         anim = GetComponentInChildren<SkeletonAnimation>();
         anim.state.Complete += OnComplete;
 
-        TextAsset textAsset = Resources.Load<TextAsset>("SpineData/SpineAnimationList");
+        TextAsset textAsset = Resources.Load<TextAsset>("Rosters/SpineAnimationList");
         string texts = textAsset.text;
         string[] lines = texts.Split('\n', '\r');
         for (int i = 1; i < lines.Length; i++)

@@ -45,7 +45,7 @@ public class SoundControl : MonoBehaviour
             audioSources.Add(audio);
         }
 
-        TextAsset textAsset = Resources.Load<TextAsset>("Sounds/AudioList");
+        TextAsset textAsset = Resources.Load<TextAsset>("Rosters/AudioList");
         string texts = textAsset.text;
         string[] lines = texts.Split('\n','\r');
         for (int i = 1; i < lines.Length; i++)
