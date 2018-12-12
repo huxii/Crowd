@@ -242,7 +242,7 @@ MonoBehaviour:
   - onOff: 11111111111
     interval: 1
   color0: {r: 0, g: 0, b: 0, a: 0}
-  color1: {r: 0.7764706, g: 0.05490196, b: 0.05490196, a: 0}
+  color1: {r: 0.2924528, g: 0.26543772, b: 0.25796545, a: 0}
 --- !u!114 &26701859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4127,15 +4127,15 @@ Prefab:
       objectReference: {fileID: 1428080941}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015116576
+      value: 0.015117395
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.9998858
+      value: 0.99988574
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.0151167335
+      value: 0.015116798
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -4143,7 +4143,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.003000791
+      value: -0.0030008045
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -7932,7 +7932,7 @@ MonoBehaviour:
   - onOff: 111111111111111111111111111
     interval: 1
   color0: {r: 0, g: 0, b: 0, a: 0}
-  color1: {r: 1.0588236, g: 0.14117648, b: 0.14117648, a: 0}
+  color1: {r: 0.24705882, g: 0.011764705, b: 0.089365296, a: 0}
 --- !u!1 &945058689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100796, guid: b2e9286c22cb687469da9f0cc667f429,
