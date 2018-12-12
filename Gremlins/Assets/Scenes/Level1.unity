@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18377458, g: 0.22832033, b: 0.29968494, a: 1}
+  m_IndirectSpecularColor: {r: 0.1837747, g: 0.2283208, b: 0.2996853, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4127,15 +4127,15 @@ Prefab:
       objectReference: {fileID: 1428080941}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015117395
+      value: 0.015116576
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.99988574
+      value: 0.9998858
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015117017
+      value: 0.0151167335
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -4143,7 +4143,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.003001156
+      value: -0.003000791
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -8211,7 +8211,7 @@ Prefab:
     - target: {fileID: 2300528, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5e23262440138bc4f85e1db67031d288, type: 2}
+      objectReference: {fileID: 2100000, guid: efeee4c3dd527174dbc88a928a752bdc, type: 2}
     - target: {fileID: 2300596, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -8223,7 +8223,7 @@ Prefab:
     - target: {fileID: 2300140, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5e23262440138bc4f85e1db67031d288, type: 2}
+      objectReference: {fileID: 2100000, guid: efeee4c3dd527174dbc88a928a752bdc, type: 2}
     - target: {fileID: 2300594, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -8247,7 +8247,7 @@ Prefab:
     - target: {fileID: 2300526, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5e23262440138bc4f85e1db67031d288, type: 2}
+      objectReference: {fileID: 2100000, guid: efeee4c3dd527174dbc88a928a752bdc, type: 2}
     - target: {fileID: 2300218, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -8263,7 +8263,7 @@ Prefab:
     - target: {fileID: 2300090, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5e23262440138bc4f85e1db67031d288, type: 2}
+      objectReference: {fileID: 2100000, guid: efeee4c3dd527174dbc88a928a752bdc, type: 2}
     - target: {fileID: 2300558, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
