@@ -75,9 +75,7 @@ public class GameEvents : MonoBehaviour
     {
         string[] paras = animParas.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
         GameObject obj = GameObject.Find(paras[0]);
-        string animName = paras[1];
         Animation ani = obj.GetComponent<Animation>();
-        ani[animName].speed = 1;
         ani.Play();
     }
 
