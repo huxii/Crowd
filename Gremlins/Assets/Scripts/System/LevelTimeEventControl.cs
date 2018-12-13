@@ -34,6 +34,9 @@ public class LevelTimeEventControl : LevelEventControl
     {
         base.Do();
 
-        timer = delayTime;
+        if (timer == -1)
+        {
+            timer = delayTime;
+        }
     }
 }

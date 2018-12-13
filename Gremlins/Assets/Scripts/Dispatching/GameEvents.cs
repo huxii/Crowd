@@ -1,13 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using DG.Tweening;
 
-public class GameEvents : MonoBehaviour
+public class GameEvents : CustomEvents
 {
-    char[] spliters = { ',', ' ' };
-
     // unity events only allow one or zero parameter.
     // so combine two game objects into one by names (eg. "gameobject0, gameobject1")
     public void ConnectPath(string pointsName)
