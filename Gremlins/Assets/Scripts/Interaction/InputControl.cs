@@ -274,6 +274,11 @@ public abstract class InputControl : MonoBehaviour
 
     protected void TranslateViewport(float x, float y)
     {
+        if (Services.cameraController == null)
+        {
+            return;
+        }
+
         Services.cameraController.Translate(x, y);
     }
 
@@ -288,7 +293,12 @@ public abstract class InputControl : MonoBehaviour
     }
 
     protected void RotateViewport()
-    {            
+    {
+        if (Services.cameraController == null)
+        {
+            return;
+        }
+
         // rotate viewport
         Vector3 mouseDelta = Input.mousePosition - mouseDragScreenPos;
         if (mouseDelta.magnitude > 0.1f)
@@ -303,6 +313,11 @@ public abstract class InputControl : MonoBehaviour
 
     protected void Zoom(float delta)
     {
+        if (Services.cameraController == null)
+        {
+            return;
+        }
+
         //Debug.Log("Pinch " + delta);
         Services.cameraController.Zoom(delta);
     }
