@@ -296,6 +296,8 @@ ModelImporter:
     100580: LeftEyeLid
     100582: RightEyeLid
     100584: LockHandleModel
+    100586: LockHandleModel1
+    100588: LockHeadOuterModel
     400000: BackShell
     400002: Bulb
     400004: Bulb 1
@@ -589,6 +591,8 @@ ModelImporter:
     400580: LeftEyeLid
     400582: RightEyeLid
     400584: LockHandleModel
+    400586: LockHandleModel1
+    400588: LockHeadOuterModel
     2100000: InnerMat
     2100002: CutoutMat
     2100004: OutterMat
@@ -818,6 +822,8 @@ ModelImporter:
     2300446: LeftEyeLid
     2300448: RightEyeLid
     2300450: LockHandleModel
+    2300452: LockHandleModel1
+    2300454: LockHeadOuterModel
     3300000: BackShell
     3300002: Bulb
     3300004: Bulb 1
@@ -1044,6 +1050,8 @@ ModelImporter:
     3300446: LeftEyeLid
     3300448: RightEyeLid
     3300450: LockHandleModel
+    3300452: LockHandleModel1
+    3300454: LockHeadOuterModel
     4300000: Ladder
     4300002: Wheet13
     4300004: Fence
@@ -1270,8 +1278,11 @@ ModelImporter:
     4300446: RightEyeLid
     4300448: LeftEyeLid
     4300450: LockHandleModel
+    4300452: LockHandleModel1
+    4300454: LockHeadOuterModel
     9500000: //RootNode
     13700000: Wheet13
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 0
