@@ -138,30 +138,32 @@ public class SoundControl : MonoBehaviour
                 source.loop = (soundList[id].loop == -1);
                 source.clip = soundList[id].audioClip;
                 audioSources[i].SetActive(true);
-                source.DOFade(1, soundList[id].fadeInDuration);
                 source.PlayDelayed(soundList[id].startDelay);
-
+                source.volume = 0f;
+                source.DOFade(1, soundList[id].fadeInDuration);
                 break;
             }
         }
     }
 
-    public void Stop(string id, bool all = false)
+    public void Stop(string id)
     {
+        string[] row = id.Split(splitter);
         foreach (GameObject source in audioSources)
         {
             Debug.Log(source.GetComponent<AudioSource>());
-            if (source.GetComponent<AudioSource>().clip != null && source.GetComponent<AudioSource>().clip.name == soundList[id].audioClip.name)
+            if (source.GetComponent<AudioSource>().clip != null && source.GetComponent<AudioSource>().clip.name == soundList[row[0]].audioClip.name)
             {
-                source.GetComponent<AudioSource>().DOFade(0, soundList[id].fadeOutDuration).OnComplete(() => { source.SetActive(false); });
+                source.GetComponent<AudioSource>().DOFade(0, soundList[row[0]].fadeOutDuration).OnComplete(() => { source.SetActive(false); });
             }
-            if (!all)
+            if (row[1] == "one")
             {
                 break;
             }
 
         }
     }
+    /*
     public void SetVolume(string id, float volume = 0)
     {
         foreach (GameObject source in audioSources)
@@ -171,5 +173,7 @@ public class SoundControl : MonoBehaviour
                 source.GetComponent<AudioSource>().DOFade(volume, soundList[id].fadeOutDuration);
             }
         }
-    }
+    }*/
+
+
 }
