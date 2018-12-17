@@ -11,7 +11,8 @@ public class HUDControl : MonoBehaviour
     {
         WORLD,
         CANVAS,
-        CAMERA
+        CAMERA,
+        OBJECT,
     };
 
     public GameObject canvas;
@@ -94,6 +95,11 @@ public class HUDControl : MonoBehaviour
                 icon = Instantiate(Resources.Load("Prefabs/" + name), canvas.transform) as GameObject;
                 icon.transform.position = pos;
                 break;
+            case UISpace.OBJECT:
+                icon = Instantiate(Resources.Load("Prefabs/" + name), null) as GameObject;
+                icon.transform.position = pos;
+                icon.AddComponent<LookAtCamera>();
+                break;
         }
 
         return icon;
@@ -131,6 +137,19 @@ public class HUDControl : MonoBehaviour
         Vector3 pos = new Vector3(x, y, z);
 
         GameObject icon = ShowIcon(paras[0], pos, UISpace.CANVAS);
+        icon.name = paras[4];
+    }
+
+    public void ShowIconOnObject(string para)
+    {
+        string[] paras = para.Split(splitters, System.StringSplitOptions.RemoveEmptyEntries);
+        float x, y, z;
+        float.TryParse(paras[1], out x);
+        float.TryParse(paras[2], out y);
+        float.TryParse(paras[3], out z);
+        Vector3 pos = new Vector3(x, y, z);
+
+        GameObject icon = ShowIcon(paras[0], pos, UISpace.OBJECT);
         icon.name = paras[4];
     }
 
