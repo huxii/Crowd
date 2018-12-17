@@ -35,7 +35,7 @@ public abstract class InteractableControl : ActorControl
     {		
 	}
 
-    protected void CoolDown()
+    public void CoolDown()
     {
         interactionTimer = Time.time;
     }
