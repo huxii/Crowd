@@ -37,6 +37,7 @@ public class CrowdControl : ActorControl
     private Tree<CrowdControl> btree;
     [SerializeField]
     private CrowdState state = CrowdState.IDLE;
+    private CrowdState lastState = CrowdState.IDLE;
     private float stateCoolingDown = 0;
     private float stateMagicNumber = -373737;
 
@@ -260,6 +261,10 @@ public class CrowdControl : ActorControl
 
     public void SwitchState(CrowdState s)
     {
+        if (s == CrowdState.CONFUSED && state != CrowdState.CONFUSED)
+        {
+            lastState = state;
+        }
         state = s;
         stateCoolingDown = stateMagicNumber;
     }
@@ -475,7 +480,7 @@ public class CrowdControl : ActorControl
         {
             base.OnInterval(man);
 
-            man.SwitchState(CrowdState.IDLE);
+            man.SwitchState(man.lastState);
         }
     }
 
