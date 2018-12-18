@@ -52,7 +52,7 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
 
     protected void UpdateFactors()
     {
-        if (breathFactor == 0)
+        if (breathLoop == 0)
         {
             if (Mathf.Abs(curOverlayFactor - overlayFactor) >= 0.0001f)
             {
@@ -74,56 +74,53 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
         }
         else
         {
-            if (breathLoop > 0 || breathLoop == -1)
+            if (Mathf.Abs(curOverlayFactor - overlayFactor) >= 0.0001f)
             {
-                if (Mathf.Abs(curOverlayFactor - overlayFactor) >= 0.0001f)
+                curOverlayFactor += (overlayFactor - curOverlayFactor) * fadeSpeed * Time.deltaTime;
+                foreach (Material mat in mats)
                 {
-                    curOverlayFactor += (overlayFactor - curOverlayFactor) * fadeSpeed * Time.deltaTime;
+                    mat.SetFloat(OVERLAY_FACTOR_STRING, curOverlayFactor);
+                }
+            }
+
+            if (breathFactor > 0)
+            {
+                if (curOutlineFactor < outlineWidth - 0.01f)
+                {
+                    curOutlineFactor += (outlineWidth - curOutlineFactor) * fadeSpeed * Time.deltaTime;
                     foreach (Material mat in mats)
                     {
-                        mat.SetFloat(OVERLAY_FACTOR_STRING, curOverlayFactor);
-                    }
-                }
-
-                if (breathFactor > 0)
-                {
-                    if (curOutlineFactor < outlineWidth - 0.01f)
-                    {
-                        curOutlineFactor += (outlineWidth - curOutlineFactor) * fadeSpeed * Time.deltaTime;
-                        foreach (Material mat in mats)
-                        {
-                            mat.SetFloat(OUTLINE_FACTOR_STRING, curOutlineFactor);
-                        }
-                    }
-                    else
-                    {
-                        breathFactor = -1;
+                        mat.SetFloat(OUTLINE_FACTOR_STRING, curOutlineFactor);
                     }
                 }
                 else
                 {
-                    if (curOutlineFactor > 0.0001f)
+                    breathFactor = -1;
+                }
+            }
+            else
+            {
+                if (curOutlineFactor > 0.0001f)
+                {
+                    curOutlineFactor -= curOutlineFactor * fadeSpeed * Time.deltaTime;
+                    foreach (Material mat in mats)
                     {
-                        curOutlineFactor -= curOutlineFactor * fadeSpeed * Time.deltaTime;
-                        foreach (Material mat in mats)
-                        {
-                            mat.SetFloat(OUTLINE_FACTOR_STRING, curOutlineFactor);
-                        }
-
-                        if (curOutlineFactor <= 0.0001f)
-                        {
-                            if (breathLoop != -1)
-                            {
-                                --breathLoop;
-                            }
-                        }
+                        mat.SetFloat(OUTLINE_FACTOR_STRING, curOutlineFactor);
                     }
-                    else
+
+                    if (curOutlineFactor <= 0.0001f)
                     {
-                        breathFactor = 1;
+                        if (breathLoop != -1)
+                        {
+                            --breathLoop;
+                        }
                     }
                 }
-            } 
+                else
+                {
+                    breathFactor = 1;
+                }
+            }
         }
     }
 
@@ -140,7 +137,6 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
             case PropControl.PropState.EMPTY:
                 overlayFactor = 0;
                 outlineFactor = 0;
-                breathLoop = 0;
                 break;
             case PropControl.PropState.NOTFULL:
                 overlayFactor = 0;
@@ -153,7 +149,6 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
             default:
                 overlayFactor = 0;
                 outlineFactor = 0;
-                breathLoop = 0;
                 break;                                                                      
         }
 
@@ -175,12 +170,13 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
         if (breathLoop != -1)
         {
             breathLoop = loop;
-            curOutlineFactor = 0;
+            //curOutlineFactor = 0;
         }
     }
 
     public void StopBreathing()
     {
+        breathLoop = 0;
         breathFactor = 0;
     }
 }
