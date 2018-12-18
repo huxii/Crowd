@@ -52,10 +52,6 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
 
     protected void UpdateFactors()
     {
-        if (gameObject.name == "Cart2")
-        {
-            Debug.Log(breathLoop);
-        }
         if (breathFactor == 0)
         {
             if (Mathf.Abs(curOverlayFactor - overlayFactor) >= 0.0001f)

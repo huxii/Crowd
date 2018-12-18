@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class InputControl : MonoBehaviour
 {
+    public bool resetCenterOnRelease = true;
     public bool gyroEnabled = false;
-    public bool zoomEnabled = false;
 
     protected bool locked = false;
 
@@ -113,20 +113,6 @@ public abstract class InputControl : MonoBehaviour
             {
                 MouseUp();
             }
-
-            // only on PC
-            //if (Input.GetMouseButton(1))
-            //{
-            //    TranslateViewport();
-            //}
-
-            if (zoomEnabled)
-            {
-                if (Input.GetAxis("Mouse ScrollWheel") != 0)
-                {
-                    Zoom(Input.GetAxis("Mouse ScrollWheel"));
-                }
-            }
         }
         //else
         //if (Input.touchCount == 2)
@@ -167,6 +153,29 @@ public abstract class InputControl : MonoBehaviour
         //            break;
         //    }
         //}
+
+
+        // only on PC
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            if (Input.GetMouseButton(1))
+            {
+                TranslateViewport();
+            }
+
+            if (Input.GetMouseButtonUp(1))
+            {
+                if (resetCenterOnRelease)
+                {
+                    ResetTranslateViewport();
+                }
+            }
+
+            if (Input.GetAxis("Mouse ScrollWheel") != 0)
+            {
+                Zoom(Input.GetAxis("Mouse ScrollWheel"));
+            }
+        }
 
         if (gyroEnabled)
         {
@@ -287,9 +296,15 @@ public abstract class InputControl : MonoBehaviour
         Vector3 mouseDelta = Input.mousePosition - mouseDragScreenPos;
         if (mouseDelta.magnitude > 0.1f)
         {
-            TranslateViewport(mouseDelta.x * 0.03f, mouseDelta.y * 0.03f);
+            // kind of buggy there...
+            TranslateViewport(mouseDelta.x * 0.3f, mouseDelta.y * 0.3f);
             mouseDragScreenPos = Input.mousePosition;
         }
+    }
+
+    protected void ResetTranslateViewport()
+    {
+        Services.cameraController.ResetTranslate();
     }
 
     protected void RotateViewport()
