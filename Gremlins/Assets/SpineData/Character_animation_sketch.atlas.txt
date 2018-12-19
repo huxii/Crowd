@@ -1,138 +1,215 @@
 
 Character_animation_sketch.png
-size: 1024,512
+size: 2048,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+BlackMark_back
+  rotate: false
+  xy: 1419, 790
+  size: 195, 232
+  orig: 195, 232
+  offset: 0, 0
+  index: -1
+BlackMark_mark1
+  rotate: false
+  xy: 1616, 790
+  size: 195, 232
+  orig: 195, 232
+  offset: 0, 0
+  index: -1
+BlackMark_mark2
+  rotate: false
+  xy: 1813, 790
+  size: 195, 232
+  orig: 195, 232
+  offset: 0, 0
+  index: -1
+BlackMark_mark3
+  rotate: false
+  xy: 318, 489
+  size: 195, 232
+  orig: 195, 232
+  offset: 0, 0
+  index: -1
 arm_left
   rotate: true
-  xy: 477, 447
+  xy: 1419, 725
   size: 63, 198
   orig: 63, 198
   offset: 0, 0
   index: -1
 arm_right
   rotate: true
-  xy: 677, 451
+  xy: 318, 230
   size: 59, 173
   orig: 59, 173
   offset: 0, 0
   index: -1
 body
   rotate: false
-  xy: 2, 96
+  xy: 2, 608
   size: 275, 414
   orig: 275, 414
   offset: 0, 0
   index: -1
+cheer_face_mark1
+  rotate: true
+  xy: 2, 228
+  size: 378, 156
+  orig: 378, 156
+  offset: 0, 0
+  index: -1
+cheer_face_mark2
+  rotate: true
+  xy: 160, 228
+  size: 378, 156
+  orig: 378, 156
+  offset: 0, 0
+  index: -1
+cheer_jump_mark1
+  rotate: false
+  xy: 659, 723
+  size: 378, 299
+  orig: 378, 299
+  offset: 0, 0
+  index: -1
+cheer_jump_mark2
+  rotate: false
+  xy: 1039, 723
+  size: 378, 299
+  orig: 378, 299
+  offset: 0, 0
+  index: -1
+cheer_jump_mark3
+  rotate: false
+  xy: 279, 723
+  size: 378, 299
+  orig: 378, 299
+  offset: 0, 0
+  index: -1
 ear_left
   rotate: false
-  xy: 477, 362
+  xy: 801, 638
   size: 154, 83
   orig: 154, 83
   offset: 0, 0
   index: -1
 ear_right
   rotate: false
-  xy: 852, 437
+  xy: 957, 648
   size: 151, 73
   orig: 151, 73
   offset: 0, 0
   index: -1
 eyeBack_left
-  rotate: true
-  xy: 568, 184
+  rotate: false
+  xy: 1110, 637
   size: 91, 84
   orig: 91, 84
   offset: 0, 0
   index: -1
 eyeBack_right
-  rotate: true
-  xy: 633, 361
+  rotate: false
+  xy: 1203, 645
   size: 84, 76
   orig: 84, 76
   offset: 0, 0
   index: -1
 eyeBall_left
-  rotate: false
-  xy: 711, 374
+  rotate: true
+  xy: 1619, 729
   size: 59, 75
   orig: 59, 75
   offset: 0, 0
   index: -1
 eyeBall_right
-  rotate: false
-  xy: 772, 376
+  rotate: true
+  xy: 1864, 730
   size: 58, 73
   orig: 58, 73
   offset: 0, 0
   index: -1
 eyeClose_left
-  rotate: true
-  xy: 284, 22
+  rotate: false
+  xy: 1696, 739
   size: 84, 49
   orig: 84, 49
   offset: 0, 0
   index: -1
 eyeClose_right
   rotate: false
-  xy: 335, 16
+  xy: 1782, 740
   size: 80, 48
   orig: 80, 48
   offset: 0, 0
   index: -1
 eyeSkin_left
-  rotate: false
-  xy: 457, 174
+  rotate: true
+  xy: 414, 119
   size: 109, 101
   orig: 109, 101
   offset: 0, 0
   index: -1
 eyeSkin_right
-  rotate: true
-  xy: 348, 66
+  rotate: false
+  xy: 414, 11
   size: 100, 106
   orig: 100, 106
   offset: 0, 0
   index: -1
 face
-  rotate: false
-  xy: 279, 317
+  rotate: true
+  xy: 318, 291
   size: 196, 193
   orig: 196, 193
   offset: 0, 0
   index: -1
 leg_left
   rotate: false
-  xy: 279, 108
+  xy: 583, 514
   size: 67, 207
   orig: 67, 207
   offset: 0, 0
   index: -1
 leg_right
-  rotate: true
-  xy: 2, 28
+  rotate: false
+  xy: 515, 509
   size: 66, 212
   orig: 66, 212
   offset: 0, 0
   index: -1
 mouth
-  rotate: true
-  xy: 348, 168
+  rotate: false
+  xy: 652, 614
   size: 147, 107
   orig: 147, 107
   offset: 0, 0
   index: -1
 nose
-  rotate: true
-  xy: 216, 2
+  rotate: false
+  xy: 1289, 655
   size: 92, 66
   orig: 92, 66
   offset: 0, 0
   index: -1
+questionMark_back
+  rotate: false
+  xy: 2, 2
+  size: 204, 224
+  orig: 204, 224
+  offset: 0, 0
+  index: -1
+questionMark_mark
+  rotate: false
+  xy: 208, 2
+  size: 204, 224
+  orig: 204, 224
+  offset: 0, 0
+  index: -1
 tooth
   rotate: false
-  xy: 477, 277
+  xy: 652, 529
   size: 132, 83
   orig: 132, 83
   offset: 0, 0
