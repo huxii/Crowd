@@ -140,6 +140,7 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
             case PropControl.PropState.EMPTY:
                 overlayFactor = 0;
                 outlineFactor = 0;
+                breathLoop = 0;
                 break;
             case PropControl.PropState.NOTFULL:
                 overlayFactor = 0;
@@ -152,6 +153,7 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
             default:
                 overlayFactor = 0;
                 outlineFactor = 0;
+                breathLoop = 0;
                 break;                                                                      
         }
 

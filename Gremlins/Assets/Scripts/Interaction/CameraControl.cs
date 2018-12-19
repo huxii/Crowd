@@ -36,7 +36,7 @@ public class CameraControl : MonoBehaviour
     private CameraAttr targetCameraAttr;
     [SerializeField]
     private Vector2 targetAngle;
-    private Vector3 targetDeltaTranslate;
+    private Vector3 targetTranslate;
     private Vector3 origTranslate;
     private Vector2 cameraSpeed;
 
@@ -55,6 +55,7 @@ public class CameraControl : MonoBehaviour
     {
         zoomLevel = defaultZoomLevel;
         origTranslate = pivots.transform.position;
+        targetTranslate = origTranslate;
 
         targetCameraAttr = zoomLevelAttrs[zoomLevel];
         freeLookCam.m_Orbits[0] = new CinemachineFreeLook.Orbit(targetCameraAttr.topRigOrbit.x, targetCameraAttr.topRigOrbit.y);
@@ -80,7 +81,7 @@ public class CameraControl : MonoBehaviour
         freeLookCam.m_Orbits[1] = new CinemachineFreeLook.Orbit(middleOrbit.x, middleOrbit.y);
         freeLookCam.m_Orbits[2] = new CinemachineFreeLook.Orbit(bottomOrbit.x, bottomOrbit.y);
 
-        pivots.transform.position = Vector3.Lerp(pivots.transform.position, origTranslate + targetDeltaTranslate, Time.deltaTime * 2f);
+        pivots.transform.position = Vector3.Lerp(pivots.transform.position, targetTranslate, Time.deltaTime * 10f);
     }
 
     private float Clamp360(float angle)
@@ -99,23 +100,32 @@ public class CameraControl : MonoBehaviour
         return angle;
     }
 
-    public void ResetTranslate()
-    {
-        targetDeltaTranslate = new Vector3(0, 0, 0);
-    }
-
     public void ResetAngle()
     {
         targetAngle = targetCameraAttr.angleZero;
     }
 
+    public void ResetTranslate()
+    {
+        targetTranslate = origTranslate;
+    }
+
+    public void SetTranslate(float x, float y)
+    {
+        float nx = x;
+        float ny = y;
+        nx = Mathf.Min(targetCameraAttr.translateRange[2] + origTranslate.x, Mathf.Max(targetCameraAttr.translateRange[0] + origTranslate.x, nx));
+        ny = Mathf.Min(targetCameraAttr.translateRange[3] + origTranslate.y, Mathf.Max(targetCameraAttr.translateRange[1] + origTranslate.y, ny));
+        targetTranslate = new Vector3(nx, ny, 0);
+    }
+
     public void Translate(float x, float y)
     {
-        float nx = targetDeltaTranslate.x - x;
-        float ny = targetDeltaTranslate.y - y;
-        nx = Mathf.Min(targetCameraAttr.translateRange[2], Mathf.Max(targetCameraAttr.translateRange[0], nx));
-        ny = Mathf.Min(targetCameraAttr.translateRange[3], Mathf.Max(targetCameraAttr.translateRange[1], ny));
-        targetDeltaTranslate = new Vector3(nx, ny, 0);
+        float nx = targetTranslate.x - x;
+        float ny = targetTranslate.y - y;
+        nx = Mathf.Min(targetCameraAttr.translateRange[2] + origTranslate.x, Mathf.Max(targetCameraAttr.translateRange[0] + origTranslate.x, nx));
+        ny = Mathf.Min(targetCameraAttr.translateRange[3] + origTranslate.y, Mathf.Max(targetCameraAttr.translateRange[1] + origTranslate.y, ny));
+        targetTranslate = new Vector3(nx, ny, 0);
     }
 
     public Vector2 Orbit(float x, float y)

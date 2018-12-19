@@ -692,7 +692,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   autoNext: 1
-  delayTime: 1
+  delayTime: 0
 --- !u!4 &557395721
 Transform:
   m_ObjectHideFlags: 0
