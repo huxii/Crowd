@@ -633,11 +633,8 @@ public class MainControl : MonoBehaviour
     {
         foreach (GameObject man in men)
         {
-            if (!man.GetComponent<CrowdControl>().IsBusy())
-            {
-                man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.CELEBRATE);
-                man.GetComponent<CrowdControl>().Lock();
-            }
+            man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.CELEBRATE);
+            man.GetComponent<CrowdControl>().Lock();
         }
         Services.soundController.Play("levelEnd");
     }

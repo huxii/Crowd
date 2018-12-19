@@ -400,15 +400,6 @@ public class CrowdControl : ActorControl
         }
     }
 
-    private class Celebrating : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            man.spineAnimController.SetAnimation("cheers1", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-            return true;
-        }
-    }
-
     private class Moving : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
@@ -462,6 +453,32 @@ public class CrowdControl : ActorControl
         {
             man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
             return true;
+        }
+    }
+
+    private class Celebrating : TimedAction
+    {
+        public override void OnStart(CrowdControl man)
+        {
+            base.OnStart(man);
+
+            interval = 10000000000;
+            man.stateCoolingDown = interval;
+
+            if (!man.IsBusy())
+            {
+                man.spineAnimController.SetAnimation("cheers_face", SpineAnimationControl.ClearPolicy.CLEARALL);
+                man.spineAnimController.SetRandomAnimation("cheers", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL, "cheers_face");
+            }
+            else
+            {
+                man.spineAnimController.SetAnimation("cheers_face", SpineAnimationControl.ClearPolicy.CLEARFACIAL);
+            }
+        }
+
+        public override void OnInterval(CrowdControl man)
+        {
+            base.OnInterval(man);
         }
     }
 
