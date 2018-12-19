@@ -553,7 +553,7 @@ public class MainControl : MonoBehaviour
 
         if (obj.GetComponent<PropControl>())
         {
-            obj.GetComponent<PropControl>().Drag(delta);
+            obj.GetComponent<PropControl>().Drag(delta * 0.05f);
             return true;
         }
         else

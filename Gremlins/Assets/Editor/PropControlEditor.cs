@@ -41,15 +41,6 @@ public class PropClickControlEditor : PropControlEditor
     }
 }
 
-[CustomEditor(typeof(PropDragControl))]
-public class PropDragControlEditor : PropControlEditor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-    }
-}
-
 [CustomEditor(typeof(PropAutoHolderControl))]
 public class PropAutoHolderControlEditor : PropControlEditor
 {
@@ -122,8 +113,8 @@ public class PropOneTimeSwipeControlEditor : PropOneTimeControlEditor
     }
 }
 
-[CustomEditor(typeof(PropDragTransformControl))]
-public class PropDragTransformControlEditor : PropDragControlEditor
+[CustomEditor(typeof(PropOneTimeDragControl))]
+public class PropOneTimeDragControlEditor : PropOneTimeControlEditor
 {
     public override void OnInspectorGUI()
     {
