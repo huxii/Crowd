@@ -14,6 +14,8 @@ public class PropOneTimeDragControl : PropOneTimeControl
     protected Vector3 minBound;
     protected Vector3 maxBound;
     protected float speed = 5f;
+    protected float hintTimer;
+    protected float hintCD = 3f;
 
     // on dragging for sound effect
     // Use this for initialization
@@ -48,6 +50,7 @@ public class PropOneTimeDragControl : PropOneTimeControl
 
         minBound = new Vector3(minx, miny, minz);
         maxBound = new Vector3(maxx, maxy, maxz);
+        hintTimer = 1f;
     }
 	
 	// Update is called once per frame
@@ -70,13 +73,29 @@ public class PropOneTimeDragControl : PropOneTimeControl
                     FreeAllMen();
                     Lock();
                 }
+                else
+                {
+                    if (IsActivated())
+                    {
+                        if (hintTimer <= 0)
+                        {
+                            hintTimer = hintCD;
+                            Services.dotweenEvents.Spring(gameObject.name + " x -0.2 0.25 2");
+                            CoolDown();
+                        }
+                        else
+                        {
+                            hintTimer -= Time.deltaTime;
+                        }
+                    }
+                }
             }
         }
 	}
 
     public override void Drag(Vector3 d)
     {
-        if (IsActivated() && !IsLocked())
+        if (!IsCoolingDown() && IsActivated() && !IsLocked())
         {
             base.Drag(d);
 
