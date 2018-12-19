@@ -228,7 +228,8 @@ Shader "Custom/SpineSprite_outline"
 			sampler2D _MainTex;
 
 			fixed4 frag (VertexOutput IN) : SV_Target
-			{
+			{ 
+				clip(IN.color.a - 0.1f);
 				return IN.color;
 			}
 		ENDCG
