@@ -326,7 +326,6 @@ public abstract class PropControl : InteractableControl
 
     protected virtual void OnSlotsNotFull()
     {
-        Deactivate();
     }
 
     protected virtual void OnSlotChange()

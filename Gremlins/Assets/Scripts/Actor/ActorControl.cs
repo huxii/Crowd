@@ -6,10 +6,10 @@ using UnityEngine;
  *                                      ActorControl
  *                        /                                 \
  *          CrowdControl                                InteractableControl
- *                                                     /                            \
- *                                       ObjectControl                              PropControl
- *                                         /        \                            /                       \
- *                          MultiplePropControl          ...                PropAutoControl                 PropPassiveControl
+ *                                                     /                                        \
+ *                                       ObjectControl                                      PropControl
+ *                                         /        \                            /                       \                          \
+ *                          MultiplePropControl          ...                PropAutoControl                 PropPassiveControl      PropHolderControl
  *                                                                  /                   |              \
  *                                                             PropAutoLoopControl   PropOneTimeControl  ...
  *                                                          

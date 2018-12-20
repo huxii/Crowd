@@ -25,4 +25,11 @@ public abstract class PropAutoControl : PropControl
 
         Activate();
     }
+
+    protected override void OnSlotsNotFull()
+    {
+        base.OnSlotsNotFull();
+
+        Deactivate();
+    }
 }

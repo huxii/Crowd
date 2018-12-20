@@ -41,8 +41,8 @@ public class PropClickControlEditor : PropControlEditor
     }
 }
 
-[CustomEditor(typeof(PropAutoHolderControl))]
-public class PropAutoHolderControlEditor : PropControlEditor
+[CustomEditor(typeof(PropHolderControl))]
+public class PropHolderControlEditor : PropControlEditor
 {
     public override void OnInspectorGUI()
     {
