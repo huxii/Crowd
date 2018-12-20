@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /*
 * activate and deactivate by other props when slots are filled
@@ -8,6 +9,9 @@ using UnityEngine;
 
 public abstract class PropPassiveControl : PropControl
 {
+    public UnityEvent onSlotFull;
+    public UnityEvent onSlotNotFull;
+
     // Use this for initialization
     void Start()
     {
@@ -23,18 +27,13 @@ public abstract class PropPassiveControl : PropControl
     {
         base.OnSlotsFull();
 
-        LockAllMen();
+        onSlotFull.Invoke();
     }
 
     protected override void OnSlotsNotFull()
     {
-    }
+        base.OnSlotsNotFull();
 
-    public override void Deactivate()
-    {
-        base.Deactivate();
-
-        UnlockAllMen();
-        FreeAllMen();
+        onSlotNotFull.Invoke();
     }
 }

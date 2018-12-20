@@ -41,15 +41,6 @@ public class PropClickControlEditor : PropControlEditor
     }
 }
 
-[CustomEditor(typeof(PropHolderControl))]
-public class PropHolderControlEditor : PropControlEditor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-    }
-}
-
 [CustomEditor(typeof(PropAutoControl))]
 public class PropAutoControlEditor : PropControlEditor
 {
@@ -133,6 +124,15 @@ public class PropPassiveControlEditor : PropControlEditor
 
 [CustomEditor(typeof(PropPassiveBasicControl))]
 public class PropPassiveBasicControlEditor : PropPassiveControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
+[CustomEditor(typeof(PropPassiveHolderControl))]
+public class PropPassiveHolderControlEditor : PropPassiveControlEditor
 {
     public override void OnInspectorGUI()
     {
