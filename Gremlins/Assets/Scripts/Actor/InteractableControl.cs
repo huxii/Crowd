@@ -62,10 +62,15 @@ public abstract class InteractableControl : ActorControl
         return isActivated;
     }
 
+    public virtual bool CanActivateMultipleTimes()
+    {
+        return canActivateMultipleTimes;
+    }
+
     // it can not be activated when it is locked but can be deactivated
     public virtual void Activate()
     {
-        if ((!IsActivated() || canActivateMultipleTimes) && !IsLocked())
+        if ((!IsActivated() || CanActivateMultipleTimes()) && !IsLocked())
         {
             isActivated = true;
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PropPassiveBasicControl : PropPassiveControl
+public class CanBehavior : ObjectCountedDeactivateControl
 {
 
     // Use this for initialization

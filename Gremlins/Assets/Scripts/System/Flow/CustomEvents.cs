@@ -88,11 +88,11 @@ public class CustomEvents : MonoBehaviour
         }
     }
 
-    protected bool ParseIsLocalAxis()
+    protected bool ParseIsLocalAxis(bool defaultAxis = false)
     {
         if (curParaIdx < paras.Length)
         {
-            bool isLocal = false;
+            bool isLocal = defaultAxis;
             if (bool.TryParse(paras[curParaIdx], out isLocal))
             {
                 ++curParaIdx;
@@ -100,12 +100,12 @@ public class CustomEvents : MonoBehaviour
             }
             else
             {
-                return false;
+                return defaultAxis;
             }
         }
         else
         {
-            return false;
+            return defaultAxis;
         }
     }
 
@@ -119,8 +119,20 @@ public class CustomEvents : MonoBehaviour
                 case "OutBounce":
                     retEaseType = Ease.OutBounce;
                     break;
+                case "InSine":
+                    retEaseType = Ease.InSine;
+                    break;
+                case "OutSine":
+                    retEaseType = Ease.OutSine;
+                    break;
                 case "InOutSine":
                     retEaseType = Ease.InOutSine;
+                    break;
+                case "InCubic":
+                    retEaseType = Ease.InCubic;
+                    break;
+                case "OutCubic":
+                    retEaseType = Ease.OutCubic;
                     break;
                 case "InOutCubic":
                     retEaseType = Ease.InOutCubic;

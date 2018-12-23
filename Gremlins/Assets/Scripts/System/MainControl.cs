@@ -348,11 +348,19 @@ public class MainControl : MonoBehaviour
 
     public void LockMan(GameObject man)
     {
+        if (man == null)
+        {
+            return;
+        }
         man.GetComponent<CrowdControl>().Lock();
     }
 
     public void UnlockMan(GameObject man)
     {
+        if (man == null)
+        {
+            return;
+        }
         man.GetComponent<CrowdControl>().Unlock();
     }
 
@@ -627,6 +635,11 @@ public class MainControl : MonoBehaviour
         {
             TurnMan(man, pos);
         }
+    }
+
+    public void ResetMan(GameObject man)
+    {
+        man.transform.SetParent(menParentObj.transform);        
     }
 
     public void EndLevelCelebration()

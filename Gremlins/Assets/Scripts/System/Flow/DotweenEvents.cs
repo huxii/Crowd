@@ -79,6 +79,7 @@ public class DotweenEvents : CustomEvents
         GameObject obj = ParseGameObject();
         Vector3 deltaPos = ParseIncrement();
         float time = ParseTime();
+        bool isLocal = ParseIsLocalAxis(true);
         Ease easeType = ParseEaseType(Ease.InOutFlash);
 
         if (obj == null)
@@ -86,7 +87,14 @@ public class DotweenEvents : CustomEvents
             return;
         }
 
-        obj.transform.DOLocalMove(obj.transform.localPosition + deltaPos, time).SetEase(easeType);
+        if (isLocal)
+        {
+            obj.transform.DOLocalMove(obj.transform.localPosition + deltaPos, time).SetEase(easeType);
+        }
+        else
+        {
+            obj.transform.DOMove(obj.transform.localPosition + deltaPos, time).SetEase(easeType);
+        }
     }
 
     public void MoveTo(string para)
@@ -96,6 +104,7 @@ public class DotweenEvents : CustomEvents
         GameObject obj = ParseGameObject();
         Vector3 targetPos = ParseIncrement(obj.transform.localPosition.x, obj.transform.localPosition.y, obj.transform.localPosition.z);
         float time = ParseTime();
+        bool isLocal = ParseIsLocalAxis(true);
         Ease easeType = ParseEaseType();
 
         if (obj == null)
@@ -103,7 +112,14 @@ public class DotweenEvents : CustomEvents
             return;
         }
 
-        obj.transform.DOLocalMove(targetPos, time).SetEase(easeType);
+        if (isLocal)
+        {
+            obj.transform.DOLocalMove(targetPos, time).SetEase(easeType);
+        }
+        else
+        {
+            obj.transform.DOMove(targetPos, time).SetEase(easeType);
+        }
     }
 
     public void Ping(string para)

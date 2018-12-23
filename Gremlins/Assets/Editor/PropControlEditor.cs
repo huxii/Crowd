@@ -59,15 +59,6 @@ public class PropAutoBasicControlEditor : PropAutoControlEditor
     }
 }
 
-[CustomEditor(typeof(PropAutoDeactivateControl))]
-public class PropAutoDeactivateControlEditor : PropAutoControlEditor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-    }
-}
-
 [CustomEditor(typeof(PropAutoLoopControl))]
 public class PropAutoLoopControlEditor : PropAutoControlEditor
 {
@@ -113,6 +104,15 @@ public class PropOneTimeDragControlEditor : PropOneTimeControlEditor
     }
 }
 
+[CustomEditor(typeof(PropAutoTimedDeactivateControl))]
+public class PropAutoTimedDeactivateControlEditor : PropAutoControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
 [CustomEditor(typeof(PropPassiveControl))]
 public class PropPassiveControlEditor : PropControlEditor
 {
@@ -123,7 +123,7 @@ public class PropPassiveControlEditor : PropControlEditor
 }
 
 [CustomEditor(typeof(PropPassiveBasicControl))]
-public class PropPassiveBasicControlEditor : PropPassiveControlEditor
+public class PropPassiveBasicControlEditor : PropControlEditor
 {
     public override void OnInspectorGUI()
     {
@@ -133,6 +133,24 @@ public class PropPassiveBasicControlEditor : PropPassiveControlEditor
 
 [CustomEditor(typeof(PropPassiveHolderControl))]
 public class PropPassiveHolderControlEditor : PropPassiveControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
+[CustomEditor(typeof(PropPassiveTimedDeactivateControl))]
+public class PropPassiveTimedDeactivateControlEditor : PropPassiveControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
+[CustomEditor(typeof(PropPassiveElevatorControl))]
+public class PropPassiveElevatorControlEditor : PropPassiveTimedDeactivateControlEditor
 {
     public override void OnInspectorGUI()
     {

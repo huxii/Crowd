@@ -75,6 +75,14 @@ public class GameEvents : CustomEvents
         ani.Play();
     }
 
+    public void StopAnimation(string animParas)
+    {
+        string[] paras = animParas.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
+        GameObject obj = GameObject.Find(paras[0]);
+        Animation ani = obj.GetComponent<Animation>();
+        ani.Stop();
+    }
+
     public void RewindAnimation(string animParas)
     {
         string[] paras = animParas.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
@@ -110,5 +118,16 @@ public class GameEvents : CustomEvents
         float.TryParse(paras[3], out z);
 
         Services.gameController.SetManTargetPosition(actor, new Vector3(x, y, z), 0.1f);
+    }
+
+    public void MakeFloatMan(GameObject man, float height = 2f)
+    {
+        if (man == null)
+        {
+            return;
+        }
+
+        man.GetComponent<CrowdControl>().Lock();
+        man.AddComponent<FloatBehavior>();
     }
 }

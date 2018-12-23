@@ -192,6 +192,11 @@ public abstract class PropControl : InteractableControl
         return slots[id].man;
     }
 
+    public SlotState GetSlotState(int id)
+    {
+        return slots[id].state;
+    }
+
     public int GetEmptySlotNum()
     {
         int emptySlotNum = 0;
@@ -226,14 +231,32 @@ public abstract class PropControl : InteractableControl
         }
     }
 
+    public void LockMan(int i)
+    {
+        GameObject man = GetSlotMan(i);
+        if (man != null && GetSlotState(i) == SlotState.READY)
+        {
+            man.GetComponent<CrowdControl>().Lock();
+        }
+    }
+
     public void LockAllMen()
     {
         foreach (SlotAttr slot in slots)
         {
-            if (slot.man != null)
+            if (slot.man != null && slot.state == SlotState.READY)
             {
                 Services.gameController.LockMan(slot.man);
             }
+        }
+    }
+
+    public void UnlockMan(int i)
+    {
+        GameObject man = GetSlotMan(i);
+        if (man != null)
+        {
+            man.GetComponent<CrowdControl>().Unlock();
         }
     }
 

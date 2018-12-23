@@ -191,7 +191,7 @@ public abstract class InputControl : MonoBehaviour
 
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 100f))
+        if (Physics.Raycast(ray, out hit, 200f))
         {
             mouseClickObject = hit.collider.gameObject;
             mouseClickPos = hit.point;

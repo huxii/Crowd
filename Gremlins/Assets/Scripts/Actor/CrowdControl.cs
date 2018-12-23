@@ -81,18 +81,21 @@ public class CrowdControl : ActorControl
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector3(0, 0, 0);
-        if (isMoving)
+        if (!IsLocked())
         {
-            if (Vector3.Distance(targetPos, transform.position) > targetPosTol)
+            rb.velocity = new Vector3(0, 0, 0);
+            if (isMoving)
             {
-                //Debug.Log(gameObject.name + " " + transform.position + " " + targetPos + " " + (targetPos - transform.position).normalized * speed);
-                //rb.velocity = (targetPos - transform.position).normalized * speed; 
-                rb.MovePosition(transform.position + (targetPos - transform.position).normalized * speed * Time.deltaTime);
-            }
-            else
-            {
-                isMoving = false;
+                if (Vector3.Distance(targetPos, transform.position) > targetPosTol)
+                {
+                    //Debug.Log(gameObject.name + " " + transform.position + " " + targetPos + " " + (targetPos - transform.position).normalized * speed);
+                    //rb.velocity = (targetPos - transform.position).normalized * speed; 
+                    rb.MovePosition(transform.position + (targetPos - transform.position).normalized * speed * Time.deltaTime);
+                }
+                else
+                {
+                    isMoving = false;
+                }
             }
         }
     }
@@ -159,6 +162,11 @@ public class CrowdControl : ActorControl
                 voiceTimer[i] -= Time.deltaTime;
             }
         }
+    }
+
+    public bool IsThisMoving()
+    {
+        return isMoving;
     }
 
     // the man will be set to kinematic when it gets on an working slot 

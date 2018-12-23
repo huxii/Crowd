@@ -9,6 +9,7 @@ using UnityEngine.Events;
 
 public abstract class PropPassiveControl : PropControl
 {
+    [Header("Passive Settings")]
     public UnityEvent onSlotFull;
     public UnityEvent onSlotNotFull;
 
