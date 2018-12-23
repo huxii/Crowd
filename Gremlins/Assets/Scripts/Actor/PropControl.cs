@@ -131,9 +131,13 @@ public abstract class PropControl : InteractableControl
     // free the men from the slots
     public void FreeSlot(int id)
     {
-        if (slots[id].state == SlotState.PLANNED || slots[id].state == SlotState.READY)
+        SlotState state = slots[id].state;
+        if (state == SlotState.PLANNED || state == SlotState.READY)
         {
-            if (slots[id].state == SlotState.READY)
+            slots[id].man = null;
+            slots[id].state = SlotState.EMPTY;
+
+            if (state == SlotState.READY)
             {
                 --currentReadySlotNum;
                 if (currentReadySlotNum == slots.Count - 1)
@@ -141,8 +145,6 @@ public abstract class PropControl : InteractableControl
                     OnSlotsNotFull();
                 }             
             }
-            slots[id].man = null;
-            slots[id].state = SlotState.EMPTY;
 
             OnSlotChange();
         }

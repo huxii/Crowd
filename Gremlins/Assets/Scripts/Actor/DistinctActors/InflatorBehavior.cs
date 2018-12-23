@@ -24,7 +24,7 @@ public class InflatorBehavior : ObjectCountedDeactivateControl
             return false;
         }
 
-        GameObject man = prop.GetSlotMan(0);
+        GameObject man = prop.GetSlotMan(1);
         if (man != null)
         {
             Services.dotweenEvents.Scale(man.gameObject.name + " 1.1, 1.1, 1.1, 0.5");
@@ -32,6 +32,22 @@ public class InflatorBehavior : ObjectCountedDeactivateControl
         }
 
         return false;
+    }
+
+    public void Deflate()
+    {
+        PropControl prop = GetComponent<PropControl>();
+        if (prop == null)
+        {
+            return;
+        }
+
+        GameObject man = prop.GetSlotMan(1);
+        if (man != null)
+        {
+            Services.dotweenEvents.ScaleTo(man.gameObject.name + " 1, 1, 1, 0.9");
+            ResetCount();
+        }
     }
 
     public override void Activate()
@@ -44,7 +60,7 @@ public class InflatorBehavior : ObjectCountedDeactivateControl
 
     public override void Deactivate()
     {
-        GameObject man = GetComponent<PropControl>().GetSlotMan(0);
+        GameObject man = GetComponent<PropControl>().GetSlotMan(1);
         Services.gameController.UnboundMan(man);
         Services.gameEvents.MakeFloatMan(man);
 

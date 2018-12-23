@@ -32,8 +32,13 @@ public class ObjectCountedDeactivateControl : ObjectControl
         ++count;
         if (count >= activatedCount)
         {
-            count = 0;
+            ResetCount();
             Deactivate();
         }
+    }
+
+    public void ResetCount()
+    {
+        count = 0;
     }
 }

@@ -12,8 +12,8 @@ public class FloatBehavior : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        paths.Add(new Vector3(2.43f, 8.9f, -2.13f));
-        paths.Add(new Vector3(-1.43f, 8.9f, -2.13f));
+        paths.Add(new Vector3(2.43f, 9.5f, -2.13f));
+        paths.Add(new Vector3(-1.43f, 9.5f, -2.13f));
         paths.Add(new Vector3(2.8f, 1.5f, 0.4f));
         Blowing();
     }

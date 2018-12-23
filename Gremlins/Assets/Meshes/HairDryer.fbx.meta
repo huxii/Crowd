@@ -215,6 +215,7 @@ ModelImporter:
     100418: HookBase
     100420: BackShell
     100422: FrontShell
+    100424: InflatorPipes
     400000: Can
     400002: CanTube
     400004: CanTube0
@@ -427,6 +428,7 @@ ModelImporter:
     400418: HookBase
     400420: BackShell
     400422: FrontShell
+    400424: InflatorPipes
     2100000: lambert1
     2300000: Can
     2300002: CanTube
@@ -600,6 +602,7 @@ ModelImporter:
     2300338: HookBase
     2300340: BackShell
     2300342: FrontShell
+    2300344: InflatorMouth
     3300000: Can
     3300002: CanTube
     3300004: CanTube0
@@ -772,6 +775,7 @@ ModelImporter:
     3300338: HookBase
     3300340: BackShell
     3300342: FrontShell
+    3300344: InflatorMouth
     4300000: ControlPanelModel
     4300002: HamsterWheelModel
     4300004: ElevatorModel
@@ -943,6 +947,7 @@ ModelImporter:
     4300336: Hook2Finger1
     4300338: BackShell
     4300340: FrontShell
+    4300342: InflatorMouth
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:

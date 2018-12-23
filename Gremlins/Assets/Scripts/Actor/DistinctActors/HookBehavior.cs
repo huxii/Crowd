@@ -16,7 +16,7 @@ public class HookBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Man") && other.GetComponent<FloatBehavior>())
+        if (man == null && other.CompareTag("Man") && other.GetComponent<FloatBehavior>())
         {
             other.transform.SetParent(transform);
             other.transform.localPosition = new Vector3(0, 0, 0);

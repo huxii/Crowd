@@ -50,11 +50,17 @@ public class DotweenEvents : CustomEvents
 
         Vector3 deltaPos = ParseIncrement();
         float time = ParseTime();
+        bool isLocal = ParseIsLocalAxis();
         Ease easeType = ParseEaseType(Ease.Linear);
 
         if (obj.GetComponent<Rigidbody2D>())
         {
             obj.GetComponent<Rigidbody2D>().DOMove(obj.transform.position + deltaPos, time).SetEase(easeType);
+        }
+        else
+        if (obj.GetComponent<Rigidbody>())
+        {
+            obj.GetComponent<Rigidbody>().DOMove(obj.transform.position + deltaPos, time).SetEase(easeType);
         }
     }
 
@@ -69,6 +75,11 @@ public class DotweenEvents : CustomEvents
         if (obj.GetComponent<Rigidbody2D>())
         {
             obj.GetComponent<Rigidbody2D>().DOMove(targetPos, Vector3.Distance(targetPos, obj.transform.position) / speed).SetEase(easeType);
+        }
+        else
+        if (obj.GetComponent<Rigidbody>())
+        {
+            obj.GetComponent<Rigidbody>().DOMove(targetPos, Vector3.Distance(targetPos, obj.transform.position) / speed).SetEase(easeType);
         }
     }
 
