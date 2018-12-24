@@ -201,8 +201,6 @@ public abstract class InputControl : MonoBehaviour
             mouseClickObject = null;
         }
 
-        Services.eventManager.Fire(new ClickEvent(mouseClickObject, mouseClickPos));
-
         //Services.gameController.HoldStart(mouseClickObject);
     }
 
@@ -245,6 +243,8 @@ public abstract class InputControl : MonoBehaviour
         {
             Services.gameController.FocusCamera(mouseClickPos);
         }
+
+        Services.eventManager.Fire(new ClickEvent(mouseClickObject, mouseClickPos));
     }
 
     protected virtual void MouseDoubleClick()

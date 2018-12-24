@@ -8,14 +8,10 @@ public class GameEvents : CustomEvents
     // so combine two game objects into one by names (eg. "gameobject0, gameobject1")
     public void ConnectPath(string pointsName)
     {
-        string[] pointsNames = pointsName.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        if (pointsNames.Length != 2)
-        {
-            return;
-        }
+        ParseNewPara(pointsName);
 
-        GameObject p0 = GameObject.Find(pointsNames[0]);
-        GameObject p1 = GameObject.Find(pointsNames[1]);
+        GameObject p0 = ParseGameObject();
+        GameObject p1 = ParseGameObject();
         if (p0 == null || p1 == null)
         {
             return;
@@ -25,14 +21,10 @@ public class GameEvents : CustomEvents
 
     public void DisconnectPath(string pointsName)
     {
-        string[] pointsNames = pointsName.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        if (pointsNames.Length != 2)
-        {
-            return;
-        }
+        ParseNewPara(pointsName);
 
-        GameObject p0 = GameObject.Find(pointsNames[0]);
-        GameObject p1 = GameObject.Find(pointsNames[1]);
+        GameObject p0 = ParseGameObject();
+        GameObject p1 = ParseGameObject();
         if (p0 == null || p1 == null)
         {
             return;
@@ -42,57 +34,76 @@ public class GameEvents : CustomEvents
 
     public void SetFollowPathPoint(string pointsName)
     {
-        string[] pointsNames = pointsName.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        if (pointsNames.Length != 2)
-        {
-            return;
-        }
+        ParseNewPara(pointsName);
 
-        GameObject p0 = GameObject.Find(pointsNames[0]);
-        GameObject p1 = GameObject.Find(pointsNames[1]);
+        GameObject p0 = ParseGameObject();
+        GameObject p1 = ParseGameObject();
 
         p0.GetComponent<PathPoint>().followPoint = p1;
     }
 
     public void ClearFollowPathPoint(string pointsName)
     {
-        string[] pointsNames = pointsName.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        if (pointsNames.Length != 1)
-        {
-            return;
-        }
+        ParseNewPara(pointsName);
 
-        GameObject p0 = GameObject.Find(pointsNames[0]);
+        GameObject p0 = ParseGameObject();
+        GameObject p1 = ParseGameObject();
 
         p0.GetComponent<PathPoint>().followPoint = null;
     }
 
     public void PlayAnimation(string animParas)
     {
-        string[] paras = animParas.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
+        ParseNewPara(animParas);
+
+        GameObject obj = ParseGameObject();
+        string aniName = ParseAnimationName();
+
         Animation ani = obj.GetComponent<Animation>();
-        ani.Play();
+        if (aniName == null)
+        {
+            ani.Play();
+        }
+        else
+        {
+            ani.Play(aniName);
+        }
     }
 
     public void StopAnimation(string animParas)
     {
-        string[] paras = animParas.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
+        ParseNewPara(animParas);
+
+        GameObject obj = ParseGameObject();
+        string aniName = ParseAnimationName();
+
         Animation ani = obj.GetComponent<Animation>();
-        ani.Stop();
+        if (aniName == null)
+        {
+            ani.Stop();
+        }
+        else
+        {
+            ani.Stop(aniName);
+        }
     }
 
     public void RewindAnimation(string animParas)
     {
-        string[] paras = animParas.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
-        GameObject obj = GameObject.Find(paras[0]);
-        string animName = paras[1];
+        ParseNewPara(animParas);
+
+        GameObject obj = ParseGameObject();
+        string aniName = ParseAnimationName();
+        if (aniName == null)
+        {
+            return;
+        }
+
         Animation ani = obj.GetComponent<Animation>();
-        ani[animName].speed = -1;
+        ani[aniName].speed = -1;
         if (!ani.isPlaying)
         {
-            ani[animName].time = ani[animName].length;
+            ani[aniName].time = ani[aniName].length;
         }
         ani.Play();
     }
@@ -104,20 +115,17 @@ public class GameEvents : CustomEvents
 
     public void MoveActorTo(string para)
     {
-        string[] paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
+        ParseNewPara(para);
 
-        GameObject actor = GameObject.Find(paras[0]);
+        GameObject actor = ParseGameObject();
         if (actor == null)
         {
             return;
         }
 
-        float x, y, z;
-        float.TryParse(paras[1], out x);
-        float.TryParse(paras[2], out y);
-        float.TryParse(paras[3], out z);
+        Vector3 pos = ParseIncrement();
 
-        Services.gameController.SetManTargetPosition(actor, new Vector3(x, y, z), 0.1f);
+        Services.gameController.SetManTargetPosition(actor, pos, 0.1f);
     }
 
     public void MakeFloatMan(GameObject man, float height = 2f)

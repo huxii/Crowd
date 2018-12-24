@@ -17,7 +17,12 @@ public class CustomEvents : MonoBehaviour
 
     protected GameObject ParseGameObject()
     {
-        return GameObject.Find(paras[curParaIdx++]);
+        if (curParaIdx < paras.Length)
+        {
+            return GameObject.Find(paras[curParaIdx++]);
+        }
+
+        return null;
     }
 
     protected Vector3 ParseIncrement(float x = 0, float y = 0, float z = 0)
@@ -65,6 +70,16 @@ public class CustomEvents : MonoBehaviour
     protected float ParseAlpha()
     {
         return float.Parse(paras[curParaIdx++]);
+    }
+
+    protected string ParseAnimationName()
+    {
+        if (curParaIdx < paras.Length)
+        {
+            return paras[curParaIdx++];
+        }
+
+        return null;
     }
 
     protected int ParseLoop()
