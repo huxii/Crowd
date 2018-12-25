@@ -17,10 +17,14 @@ public class PropOneTimeDragControl : PropOneTimeControl
     protected float hintTimer;
     protected float hintCD = 3f;
 
+    protected bool isDragging = false;
+
     // on dragging for sound effect
     // Use this for initialization
     void Start ()
     {
+        RegisterEvents();
+
         origPos = transform.position;
         deltaPos = new Vector3(0, 0, 0);
 
@@ -52,9 +56,14 @@ public class PropOneTimeDragControl : PropOneTimeControl
         maxBound = new Vector3(maxx, maxy, maxz);
         hintTimer = 1f;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    private void OnApplicationQuit()
+    {
+        UnregisterEvents();
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         if (!IsLocked())
         {
@@ -93,11 +102,36 @@ public class PropOneTimeDragControl : PropOneTimeControl
         }
 	}
 
+    protected void RegisterEvents()
+    {
+        Services.eventManager.Register<ReleaseEvent>(OnRelease);
+    }
+
+    protected void UnregisterEvents()
+    {
+        Services.eventManager.Unregister<ReleaseEvent>(OnRelease);
+    }
+
+    protected void OnRelease(Crowd.Event e)
+    {
+        if (isDragging)
+        {
+            isDragging = false;
+            Services.dotweenEvents.ScaleTo(GetComponent<PropFeedbackBehavior>().targetObj.name + " 1, 1, 1, 0.5");
+        }
+    }
+
     public override void Drag(Vector3 d)
     {
         if (!IsCoolingDown() && IsActivated() && !IsLocked())
         {
             base.Drag(d);
+
+            if (!isDragging)
+            {
+                isDragging = true;
+                Services.dotweenEvents.ScaleTo(GetComponent<PropFeedbackBehavior>().targetObj.name + " 1.1, 1.1, 1.1, 0.5");
+            }        
 
             deltaPos += d;
             deltaPos = new Vector3(

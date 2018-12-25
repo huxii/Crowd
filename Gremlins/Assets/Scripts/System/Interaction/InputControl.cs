@@ -21,7 +21,6 @@ public abstract class InputControl : MonoBehaviour
 
     // hold 
     protected float holdTime = 1f;
-    protected bool isHoldUp = false;
 
     // drag
     protected Vector3 mouseDragScreenPos;
@@ -100,13 +99,8 @@ public abstract class InputControl : MonoBehaviour
             }
 
             if (Input.GetMouseButton(0))
-            {               
+            {
                 MouseHold();
-
-                if (Time.time - singleClickTime > holdTime)
-                {
-                    //MouseHoldEnd();
-                }
             }
             
             if (Input.GetMouseButtonUp(0))
@@ -185,7 +179,6 @@ public abstract class InputControl : MonoBehaviour
 
     private void MouseDown()
     {
-        isHoldUp = false;
         mouseDragScreenPos = Input.mousePosition;
         mouseClickScreenPos = Input.mousePosition;
 
@@ -217,22 +210,7 @@ public abstract class InputControl : MonoBehaviour
             MouseSingleClick();
         }
 
-        isHoldUp = true;
-
         Services.eventManager.Fire(new ReleaseEvent());
-        //Services.hudController.DestroyHoldIcon(mouseClickObject);
-    }
-
-    private void MouseHoldEnd()
-    {
-        if (isHoldUp)
-        {
-            return;
-        }
-
-        Debug.Log("Hold " + mouseClickObject);
-
-        isHoldUp = true;
         //Services.hudController.DestroyHoldIcon(mouseClickObject);
     }
 
