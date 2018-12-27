@@ -7,6 +7,7 @@ public class PropOneTimeDragControl : PropOneTimeControl
 {
     [Header("Drag Settings")]
     public Vector3 dragOffset;
+    public UnityEvent onDragging;
     public UnityEvent onReachEnd;
 
     protected Vector3 deltaPos;
@@ -73,6 +74,11 @@ public class PropOneTimeDragControl : PropOneTimeControl
             {
                 newPos = Vector3.Lerp(newPos, targetPos, Time.deltaTime * speed);
                 transform.position = newPos;
+
+                if (Vector3.Distance(targetPos, newPos) > 0.05f)
+                {
+                    onDragging.Invoke();
+                }
             }
             else
             {

@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelEvents:
   - {fileID: 1725076528}
-  - {fileID: 526060284}
+  - {fileID: 526060286}
   - {fileID: 525170900}
   - {fileID: 606793951}
   - {fileID: 537791261}
@@ -8968,7 +8968,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261,
     type: 2}
   m_PrefabInternal: {fileID: 591628680}
---- !u!114 &526060284
+--- !u!114 &526060286
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8976,7 +8976,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 526060282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3be10c3f7474fa48a51690d237f2aba, type: 3}
+  m_Script: {fileID: 11500000, guid: bde37074e9524e44892f980c3d73fccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   levelEvent:
@@ -8989,7 +8989,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
-          m_FloatArgument: 1
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -9013,11 +9013,12 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  autoNext: 0
+  autoNext: 1
+  delayTime: 1
 --- !u!1 &536099888
 GameObject:
   m_ObjectHideFlags: 0
@@ -9932,7 +9933,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1049376376885018, guid: a819850fd01d2b14795d9665e6875261, type: 2}
       propertyPath: m_Name
-      value: OpenLevelEventTrigger1
+      value: OpenLevelEventTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 114160637959817490, guid: a819850fd01d2b14795d9665e6875261,
         type: 2}
@@ -22200,6 +22201,22 @@ MonoBehaviour:
   weightObj: {fileID: 0}
   deltaWeight: 0
   dragOffset: {x: -1.7, y: 0, z: 0}
+  onDragging:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 735364560}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: boltMove
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onReachEnd:
     m_PersistentCalls:
       m_Calls:
@@ -28249,11 +28266,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015116719
+      value: 0.01511663
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000129855895
+      value: -0.000000012985556
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
@@ -28265,11 +28282,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.003001147
+      value: -0.0030011437
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000023076351
+      value: -0.000000023076362
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}

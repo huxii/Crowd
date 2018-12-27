@@ -480,6 +480,14 @@ ModelImporter:
     100948: BodyBase
     100950: BodyFloor
     100952: EyeBalls
+    100954: BoatModel
+    100956: Platforms
+    100958: StarCase
+    100960: StarChain
+    100962: StarModel
+    100964: flag00
+    100966: flag01
+    100968: flag02
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -957,6 +965,14 @@ ModelImporter:
     400948: BodyBase
     400950: BodyFloor
     400952: EyeBalls
+    400954: BoatModel
+    400956: Platforms
+    400958: StarCase
+    400960: StarChain
+    400962: StarModel
+    400964: flag00
+    400966: flag01
+    400968: flag02
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -1347,6 +1363,11 @@ ModelImporter:
     2300770: LadderHandleModel
     2300772: BodyBase
     2300774: BodyFloor
+    2300776: StarCase
+    2300778: StarModel
+    2300780: flag00
+    2300782: flag01
+    2300784: flag02
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1735,6 +1756,11 @@ ModelImporter:
     3300770: LadderHandleModel
     3300772: BodyBase
     3300774: BodyFloor
+    3300776: StarCase
+    3300778: StarModel
+    3300780: flag00
+    3300782: flag01
+    3300784: flag02
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -2119,6 +2145,11 @@ ModelImporter:
     4300762: LadderHandleModel
     4300764: BodyBase
     4300766: BodyFloor
+    4300768: StarCase
+    4300770: StarModel
+    4300772: flag02
+    4300774: flag00
+    4300776: flag01
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
