@@ -53,6 +53,9 @@ ModelImporter:
     100094: Floor3
     100096: Floor4
     100098: Floors
+    100100: group1
+    100102: Stair10
+    100104: Stair9
     400000: Back
     400002: Box
     400004: Handle
@@ -103,6 +106,9 @@ ModelImporter:
     400094: Floor3
     400096: Floor4
     400098: Floors
+    400100: group1
+    400102: Stair10
+    400104: Stair9
     2100000: lambert1
     2100002: Level1_InnerMat
     2100004: Level0_InnerMat
@@ -141,6 +147,8 @@ ModelImporter:
     2300064: Floor2
     2300066: Floor3
     2300068: Floor4
+    2300070: Stair10
+    2300072: Stair9
     3300000: Back
     3300002: Box
     3300004: Handle
@@ -176,6 +184,8 @@ ModelImporter:
     3300064: Floor2
     3300066: Floor3
     3300068: Floor4
+    3300070: Stair10
+    3300072: Stair9
     4300000: Box
     4300002: Level1:Back
     4300004: Level1:Stair1
@@ -211,6 +221,8 @@ ModelImporter:
     4300064: Floor2
     4300066: Floor3
     4300068: Floor4
+    4300070: Stair9
+    4300072: Stair10
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -245,12 +257,12 @@ ModelImporter:
     globalScale: 0.01
     meshCompression: 0
     addColliders: 0
-    importVisibility: 1
+    importVisibility: 0
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
