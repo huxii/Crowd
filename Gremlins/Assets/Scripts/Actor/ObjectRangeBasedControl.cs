@@ -72,7 +72,7 @@ public class ObjectRangeBasedControl : ObjectControl
 
         var clicke = e as RotateEvent;
         float deltaX = clicke.delta.x;
-        if (Mathf.Abs(deltaX) < 10f)
+        if (Mathf.Abs(deltaX) < 5f)
         {
             return;
         }

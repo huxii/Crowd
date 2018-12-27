@@ -16,8 +16,9 @@ public class ObjectZeroOneControl : ObjectControl
 
     }
 
-    public virtual void Trigger()
+    public override void Click()
     {
+        base.Click();
         if (IsActivated())
         {
             Deactivate();
