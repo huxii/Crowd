@@ -144,6 +144,14 @@ public abstract class PathFindingManager : MonoBehaviour
     {
     }
 
+    public virtual void EnableUnit(GameObject p)
+    {
+    }
+
+    public virtual void DisableUnit(GameObject p)
+    {
+    }
+
     public virtual void ConnectPath(GameObject p0, GameObject p1)
     {
     }

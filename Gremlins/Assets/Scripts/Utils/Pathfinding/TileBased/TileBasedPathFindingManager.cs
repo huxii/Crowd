@@ -203,6 +203,16 @@ public class TileBasedPathFindingManager : PathFindingManager
         return newTile;
     }
 
+    public override void EnableUnit(GameObject p)
+    {
+        p.GetComponent<Tile>().enabled = true;
+    }
+
+    public override void DisableUnit(GameObject p)
+    {
+        p.GetComponent<Tile>().enabled = false;
+    }
+
     public override void ConnectPath(GameObject p0, GameObject p1)
     {
         if (edgesObj == null)
@@ -252,14 +262,17 @@ public class TileBasedPathFindingManager : PathFindingManager
         GameObject nearestTile = null;
         foreach (GameObject tile in tiles)
         {
-            if (tile.name == "Tile7" || tile.name == "Tile8")
+            if (tile.GetComponent<Tile>().enabled)
             {
-                Debug.Log(pos + " " + tile.name + " " + tile.transform.position + " " +  Vector3.Distance(pos, tile.transform.position));
-            }
-            if (Vector3.Distance(pos, tile.transform.position) < dist)
-            {
-                dist = Vector3.Distance(pos, tile.transform.position);
-                nearestTile = tile;
+                if (tile.name == "Tile7" || tile.name == "Tile8")
+                {
+                    Debug.Log(pos + " " + tile.name + " " + tile.transform.position + " " + Vector3.Distance(pos, tile.transform.position));
+                }
+                if (Vector3.Distance(pos, tile.transform.position) < dist)
+                {
+                    dist = Vector3.Distance(pos, tile.transform.position);
+                    nearestTile = tile;
+                }
             }
         }
 
@@ -313,12 +326,13 @@ public class TileBasedPathFindingManager : PathFindingManager
         {
             GameObject p0 = edge.GetComponent<TileEdge>().t0;
             GameObject p1 = edge.GetComponent<TileEdge>().t1;
-
-            int id0 = IDs[p0];
-            int id1 = IDs[p1];
-            path[id0, id1] = path[id1, id0] = Vector3.Distance(p0.transform.position, p1.transform.position);
-            pathTypes[id0, id1] = pathTypes[id1, id0] = edge.GetComponent<TileEdge>().type;
-
+            if (p0.GetComponent<Tile>().enabled && p1.GetComponent<Tile>().enabled)
+            {
+                int id0 = IDs[p0];
+                int id1 = IDs[p1];
+                path[id0, id1] = path[id1, id0] = Vector3.Distance(p0.transform.position, p1.transform.position);
+                pathTypes[id0, id1] = pathTypes[id1, id0] = edge.GetComponent<TileEdge>().type;
+            }
             //Debug.Log(p0 + " " + p1 + " " + id0 + " " + id1 + " " + edge.GetComponent<TileEdge>().type);
         }
 

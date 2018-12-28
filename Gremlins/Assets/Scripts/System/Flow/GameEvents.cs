@@ -6,6 +6,30 @@ public class GameEvents : CustomEvents
 {
     // unity events only allow one or zero parameter.
     // so combine two game objects into one by names (eg. "gameobject0, gameobject1")
+    public void EnableUnit(string pointName)
+    {
+        ParseNewPara(pointName);
+
+        GameObject p = ParseGameObject();
+        if (p == null)
+        {
+            return;
+        }
+        Services.pathFindingManager.EnableUnit(p);
+    }
+
+    public void DisableUnit(string pointName)
+    {
+        ParseNewPara(pointName);
+
+        GameObject p = ParseGameObject();
+        if (p == null)
+        {
+            return;
+        }
+        Services.pathFindingManager.DisableUnit(p);
+    }
+
     public void ConnectPath(string pointsName)
     {
         ParseNewPara(pointsName);

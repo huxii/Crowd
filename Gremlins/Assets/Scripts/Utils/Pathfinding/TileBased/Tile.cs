@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    public bool enabled = true;
     public float tileSize = 1f;
     public GameObject followObject = null;
     public Vector3 followOffset;
