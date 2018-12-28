@@ -86,6 +86,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Overlay: 1
+    - _OverlayFactor: 0.5
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SoftEdge: 8

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightBeamBehavior : MonoBehaviour
+public class LightBeamBehavior : ObjectControl
 {
     private Mesh mesh;
     private Material mat;
@@ -97,13 +97,17 @@ public class LightBeamBehavior : MonoBehaviour
         mesh.colors = colors;
     }
 
-    public void FadeIn()
+    public override void Activate()
     {
+        base.Activate();
+
         tweak = 10;
     }
 
-    public void FadeOut()
+    public override void Deactivate()
     {
+        base.Deactivate();
+
         tweak = -5;
     }
 }
