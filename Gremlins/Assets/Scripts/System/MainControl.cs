@@ -36,6 +36,7 @@ public class MainControl : MonoBehaviour
 
         // do a favor for outline shader
         Services.utils.RecalculateNormals();
+
         RegisterEvents();
 
         DetectNavMeshBounds();

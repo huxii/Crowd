@@ -24,14 +24,14 @@ inline float4 GetClipPosition(float4 pos, float3 n, float width)
 
 inline half4 GetOverlayColor(half4 base, half4 color, float factor)
 {
-	float4 effect = lerp(1 - (2 * (1 - base)) * (1 - color), (2 * base) * color, step(base, 0.5f));
+	float4 effect = saturate(lerp(1 - (2 * (1 - base)) * (1 - color), (2 * base) * color, step(base, 0.5f)));
 	fixed4 c = lerp(base, effect, factor);
 	return c;
 }
 
 inline half4 GetSoftLightColor(half4 base, half4 color, float factor)
 {
-	float4 effect = lerp(2 * base * color, 2 * base * (1 - color) + sqrt(base) * (2 * color - 1), step(color, 0.5f));
+	float4 effect = saturate(lerp(2 * base * color, 2 * base * (1 - color) + sqrt(base) * (2 * color - 1), step(color, 0.5f)));
 	fixed4 c = lerp(base, effect, factor);
 	return c;
 }

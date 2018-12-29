@@ -20,6 +20,19 @@
 
 	SubShader
 	{
+		Name "Base"
+		Tags
+		{
+			//"LightMode" = "ForwardBase"
+			"Queue" = "Transparent"
+			"RenderType" = "Transparent"
+			"IgnoreProjector" = "True"
+		}
+		LOD 200
+		ZWrite On
+		Blend SrcAlpha OneMinusSrcAlpha
+		ColorMask RGB
+
 		CGPROGRAM
 		#include "ToonUtils.cginc"
 
@@ -45,22 +58,6 @@
 			o.Gloss = specGloss.g;
 		}
 		ENDCG
-		
-		Pass
-		{
-			Name "Base"
-			Tags
-			{
-				"LightMode" = "ForwardBase"
-				"Queue" = "Transparent"
-				"RenderType" = "Transparent"
-				"IgnoreProjector" = "True"
-			}
-			LOD 200
-			ZWrite On
-			Blend SrcAlpha OneMinusSrcAlpha
-			ColorMask RGB
-		}
 	}
 	FallBack "Diffuse"
 }

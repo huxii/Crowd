@@ -66,6 +66,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: e958c6041cfe445e987c73751e8d4082, type: 3}
         m_Scale: {x: 6, y: 6}
         m_Offset: {x: 0, y: 0}
+    - _ReplaceTex:
+        m_Texture: {fileID: 2800000, guid: 4cf7360796ae23246a304fd37c6fd69b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecMap:
         m_Texture: {fileID: 2800000, guid: 4a7d416f1bd16324191baef09e2a3df7, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -87,6 +91,7 @@ Material:
     - _OutlineWidth: 0
     - _Parallax: 0.02
     - _PatternPower: 0.1
+    - _ReplaceFactor: -0.011009943
     - _RimPower: 8.3
     - _ShadowLineWidth: 0.01
     - _SmoothnessTextureChannel: 0

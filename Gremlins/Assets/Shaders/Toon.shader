@@ -5,6 +5,8 @@
 		[Header(Base)]
 		_Color("Color Tint", Color) = (1, 1, 1, 1)
 		_MainTex("Texture", 2D) = "white" {}
+		_ReplaceTex("Replace Texture", 2D) = "white" {}
+		_ReplaceFactor("Replace Factor", Range(0, 1)) = 0
 		_Pattern("Pattern", 2D) = "white" {}
 		_PatternPower("Pattern Power", Float) = 1.0
 		_XPositiveColor("X+ Color", Color) = (1, 1, 1, 1)
@@ -14,9 +16,7 @@
 
 		[Header(Lighting)]
 		_LightRamp("Light Ramp", 2D) = "white" {}
-
 		_SpecMap("Specular Map", 2D) = "black" {}
-
 		_AOMap("AO Map", 2D) = "white" {}
 		_AOMinColor("AO Min Color", Color) = (1, 1, 1, 1)
 		_AOMaxColor("AO Max Color", Color) = (1, 1, 1, 1)
@@ -30,14 +30,25 @@
 
 	SubShader
 	{
+		Name "Base"
+		Tags
+		{
+			//"LightMode" = "ForwardBase"
+			"Queue" = "Opaque"
+			"RenderType" = "Opaque"
+			"IgnoreProjector" = "True"
+		}
+
 		CGPROGRAM
 		#include "ToonUtils.cginc"
 
 		#pragma surface surf Toon addshadow
 		#pragma target 3.0
 
-		uniform sampler2D _MainTex;
 		uniform float4 _Color;
+		uniform sampler2D _MainTex;
+		uniform sampler2D _ReplaceTex;
+		uniform float _ReplaceFactor;
 		uniform sampler2D _Pattern;
 		uniform float4 _Pattern_ST;
 		uniform float _PatternPower;
@@ -55,10 +66,11 @@
 
 		void surf(Input IN, inout SurfaceCustomOutput o)
 		{
-			half4 c = tex2D(_MainTex, IN.uv_MainTex);
+			half4 c0 = tex2D(_MainTex, IN.uv_MainTex);
+			half4 c1 = tex2D(_ReplaceTex, IN.uv_MainTex);
 			half4 p = pow(tex2D(_Pattern, TRANSFORM_TEX(IN.uv_MainTex, _Pattern)), _PatternPower);
-			o.Albedo = c.rgb * p.rgb * _Color.rgb;
-			o.Alpha = c.a;
+			o.Albedo = lerp(c0.rgb, c1.rgb, _ReplaceFactor) * p.rgb * _Color.rgb;
+			o.Alpha = lerp(c0.a, c1.a, _ReplaceFactor);
 
 			half4 ao = tex2D(_AOMap, IN.uv_MainTex);
 			half4 aoColor = lerp(_AOMinColor, _AOMaxColor, ao);
@@ -71,22 +83,6 @@
 			o.Gloss = specGloss.a;
 		}
 		ENDCG
-		
-		Pass
-		{
-			Name "Base"
-			Tags
-			{
-				"LightMode" = "ForwardBase"
-				"Queue" = "Opaque"
-				"RenderType" = "Opaque"
-				"IgnoreProjector" = "True"
-			}
-			LOD 200
-			ZWrite On
-			Blend SrcAlpha OneMinusSrcAlpha
-			ColorMask RGB
-		}
 	}
 	FallBack "Diffuse"
 }
