@@ -29,7 +29,17 @@ public class Utils
     public void RecalculateNormals()
     {
         GameObject interactables = GameObject.Find("Interactables");
+        if (interactables == null)
+        {
+            return;
+        }
+
         MeshFilter[] meshFilters = interactables.GetComponentsInChildren<MeshFilter>();
+        if (meshFilters == null)
+        {
+            return;
+        }
+
         foreach (MeshFilter meshFilter in meshFilters)
         {
             Mesh mesh = meshFilter.sharedMesh;
