@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class DayAndNightBehavior : MonoBehaviour
 {
@@ -20,8 +21,9 @@ public class DayAndNightBehavior : MonoBehaviour
         mats.Add(GameObject.Find("Nail").GetComponentInChildren<MeshRenderer>().sharedMaterial);
         foreach (MeshRenderer meshRenderer in GameObject.Find("Interactables").GetComponentsInChildren<MeshRenderer>())
         {
-            mats.AddRange(meshRenderer.materials);
+            mats.AddRange(meshRenderer.sharedMaterials);
         }
+        mats = mats.ToArray().Distinct().ToList();
 
         foreach (Material mat in mats)
         {
