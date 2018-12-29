@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class PropFeedbackBehavior : InteractableFeedbackBehavior
-{    
+{
     // Use this for initialization
     void Start()
     {
@@ -12,11 +12,20 @@ public class PropFeedbackBehavior : InteractableFeedbackBehavior
         {
             targetObj = gameObject;
         }
+
+        // replace the shared material to a new intance 
+        Material mat = targetObj.GetComponentInChildren<MeshRenderer>().sharedMaterial;
+        Material newInstance = Instantiate(mat);
         MeshRenderer[] meshRenderers = targetObj.GetComponentsInChildren<MeshRenderer>();
         foreach (MeshRenderer mesh in meshRenderers)
         {
-            mats.AddRange(mesh.materials);
+            if (mesh.sharedMaterial.name.ToLower().Contains("interactable"))
+            {
+                mesh.material = newInstance;
+            }
         }
+
+        mats.Add(newInstance);
 
         Init();
     }

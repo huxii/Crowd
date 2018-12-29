@@ -488,6 +488,8 @@ ModelImporter:
     100964: flag00
     100966: flag01
     100968: flag02
+    100970: PulleyChain
+    100972: FerrisWheelCarts
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -973,6 +975,8 @@ ModelImporter:
     400964: flag00
     400966: flag01
     400968: flag02
+    400970: PulleyChain
+    400972: FerrisWheelCarts
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
