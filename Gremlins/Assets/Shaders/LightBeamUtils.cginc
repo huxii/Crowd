@@ -6,16 +6,23 @@ sampler2D _GrabTexture;
 sampler2D _CameraDepthTexture;
 
 sampler2D _MainTex;
-fixed4 _Color;
 fixed _Width;
 fixed _Tweak;
 fixed _SoftEdge;
-fixed _OverlayFactor;
-float _Intensity;
-float _HaloIntensity;
+
 float4 _SourcePos;
 float _DistanceFallOff;
 float _MaxDistance;
+
+fixed4 _Color;
+fixed _OverlayFactor;
+float _Intensity;
+float _HaloIntensity;
+
+fixed4 _SoftLightColor;
+fixed _SoftLightFactor;
+float _SoftLightIntensity;
+
 
 struct v2f
 {
@@ -52,17 +59,17 @@ v2f vert(appdata_full v)
 	return o;
 }
 
-fixed4 frag_soft(v2f In) : COLOR
+fixed4 frag_overlay(v2f In) : COLOR
 {
 	half4 base = tex2Dproj(_GrabTexture, In.screenPos);
-	float4 c = GetOverlayColor(base, _Color, _Color.a * In.color.a * _OverlayFactor);
+	float4 c = GetOverlayColor(base, _Color, _Color.a * In.color.a * _OverlayFactor) * _Intensity;
 
 	// Fade when near the camera
 	c.a *= saturate(In.screenPos.z * 0.2);
 
 	fixed falloff1 = tex2D(_MainTex, In.falloffUVs.xy).r;
 	fixed falloff2 = tex2D(_MainTex, In.falloffUVs.zw).g;
-	c.a *= min(1.0, max(0, falloff1 * falloff2 * _Intensity));
+	c.a *= min(1.0, max(0, falloff1 * falloff2));
 
 	// Soft Edges
 	float4 depth = tex2Dproj(_CameraDepthTexture, In.screenPos);
@@ -77,7 +84,7 @@ fixed4 frag_soft(v2f In) : COLOR
 	return c;
 }
 
-fixed4 frag_soft_halo(v2f In) : COLOR
+fixed4 frag_overlay_halo(v2f In) : COLOR
 {
 	half4 base = tex2Dproj(_GrabTexture, In.screenPos);
 
@@ -92,13 +99,38 @@ fixed4 frag_soft_halo(v2f In) : COLOR
 
 	fixed falloff1 = tex2D(_MainTex, In.falloffUVs.xy).r;
 	fixed falloff2 = tex2D(_MainTex, In.falloffUVs.zw).g;
-	c.a *= min(1.0, max(0, falloff1 * falloff2 * _Intensity));
+	c.a *= min(1.0, max(0, falloff1 * falloff2));
 
 	// Soft Edges
 	float4 depth = tex2Dproj(_CameraDepthTexture, In.screenPos);
 	fixed destDepth = LinearEyeDepth(depth);
 	fixed diff = min(1.0f, max(0, saturate((destDepth - In.screenPos.z) * _SoftEdge)));
 	c.a *= diff;
+
+	return c;
+}
+
+fixed4 frag_soft(v2f In) : COLOR
+{
+	half4 base = tex2Dproj(_GrabTexture, In.screenPos);
+	float4 c = GetSoftLightColor(base, _SoftLightColor, _SoftLightColor.a * In.color.a * _SoftLightFactor) * _SoftLightIntensity;
+
+	// Fade when near the camera
+	c.a *= saturate(In.screenPos.z * 0.2);
+
+	fixed falloff1 = tex2D(_MainTex, In.falloffUVs.xy).r;
+	fixed falloff2 = tex2D(_MainTex, In.falloffUVs.zw).g;
+	c.a *= min(1.0, max(0, falloff1 * falloff2));
+
+	// Soft Edges
+	float4 depth = tex2Dproj(_CameraDepthTexture, In.screenPos);
+	fixed destDepth = LinearEyeDepth(depth);
+	fixed diff = min(1.0f, max(0, saturate((destDepth - In.screenPos.z) * _SoftEdge)));
+	c.a *= diff;
+
+	float distRatio = min(1.0f, max(0, length(In.worldPos.xyz - _SourcePos.xyz) / _MaxDistance));
+	float distPower = min(1.0f, max(0, 1 - pow(distRatio, _DistanceFallOff)));
+	c.a *= distPower;
 
 	return c;
 }

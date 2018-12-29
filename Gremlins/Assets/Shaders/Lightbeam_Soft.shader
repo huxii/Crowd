@@ -4,15 +4,23 @@ Shader "Custom/Lightbeam_soft"
 {
 	Properties 
 	{
-		_Color("Color", Color) = (1, 1, 1, 1)
 		_MainTex("Base (RGB)", 2D) = "white" {}
 		_Width("Width", Float) = 8.71
 		_Tweak("Tweak", Float) = 0.65
+		_SoftEdge("Soft Edge", Float) = 0.8
+		_DistanceFallOff("Distance Fall Off", Float) = 0.5
+
+		[Header(Overlay)]
+		_Color("Overlay Color", Color) = (1, 1, 1, 1)
 		_Intensity("Intensity", Float) = 1
 		_HaloIntensity("Halo Intensity", Float) = 1
 		_OverlayFactor("Overlay Factor", Range(0, 1)) = 0.5
-		_SoftEdge("Soft Edge", Float) = 0.8
-		_DistanceFallOff("Distance Fall Off", Float) = 0.5
+
+		[Header(Soft Light)]
+		_SoftLightColor("Soft Light Color", Color) = (1, 1, 1, 1)
+		_SoftLightIntensity("Soft Light Intensity", Float) = 1		
+		_SoftLightFactor("Soft Light Factor", Range(0, 1)) = 0.5
+
 		[HideInInspector]_MaxDistance("Max Distance", Float) = 1
 		[HideInInspector]_SourcePos("Source Position", Vector) = (0, 0, 0, 0)
 	}
@@ -46,7 +54,7 @@ Shader "Custom/Lightbeam_soft"
 			#include "LightBeamUtils.cginc"		
 
 			#pragma vertex vert
-			#pragma fragment frag_soft			
+			#pragma fragment frag_overlay			
 			ENDCG
 		}
 
@@ -71,7 +79,25 @@ Shader "Custom/Lightbeam_soft"
 			#include "LightBeamUtils.cginc"		
 
 			#pragma vertex vert
-			#pragma fragment frag_soft_halo		
+			#pragma fragment frag_overlay_halo		
+			ENDCG
+		}
+
+		GrabPass{}
+
+		Pass
+		{
+			Cull Back
+			Blend SrcAlpha OneMinusSrcAlpha
+			ZWrite Off
+			ZTest LEqual
+			Lighting Off
+
+			CGPROGRAM
+			#include "LightBeamUtils.cginc"		
+
+			#pragma vertex vert
+			#pragma fragment frag_soft			
 			ENDCG
 		}
 	} 
