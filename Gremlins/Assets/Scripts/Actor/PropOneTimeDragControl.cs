@@ -5,15 +5,22 @@ using UnityEngine.Events;
 
 public class PropOneTimeDragControl : PropOneTimeControl
 {
+    public enum DragAxis
+    {
+        X,
+        Y
+    };
+
     [Header("Drag Settings")]
-    public Vector3 dragOffset;
+    public DragAxis dragAxis;
+    public float dragOffset;
     public UnityEvent onDragging;
     public UnityEvent onReachEnd;
 
-    protected Vector3 deltaPos;
+    protected float deltaOffset;
     protected Vector3 origPos;
-    protected Vector3 minBound;
-    protected Vector3 maxBound;
+    protected float minDelta;
+    protected float maxDelta;
     protected float speed = 5f;
     protected float hintTimer;
     protected float hintCD = 3f;
@@ -27,34 +34,16 @@ public class PropOneTimeDragControl : PropOneTimeControl
         RegisterEvents();
 
         origPos = transform.position;
-        deltaPos = new Vector3(0, 0, 0);
+        deltaOffset = 0;
 
-        float minx = 0;
-        float maxx = dragOffset.x;
-        float miny = 0;
-        float maxy = dragOffset.y;
-        float minz = 0;
-        float maxz = dragOffset.z;
-        if (minx > maxx)
+        minDelta = 0;
+        maxDelta = dragOffset;
+        if (minDelta > maxDelta)
         {
-            minx = maxx;
-            maxx = 0;
+            minDelta = maxDelta;
+            maxDelta = 0;
         }
 
-        if (miny > maxy)
-        {
-            miny = maxy;
-            maxy = 0;
-        }
-
-        if (minz > maxz)
-        {
-            minz = maxz;
-            maxz = 0;
-        }
-
-        minBound = new Vector3(minx, miny, minz);
-        maxBound = new Vector3(maxx, maxy, maxz);
         hintTimer = 1f;
     }
 
@@ -68,7 +57,8 @@ public class PropOneTimeDragControl : PropOneTimeControl
     {
         if (!IsLocked())
         {
-            Vector3 targetPos = origPos + deltaPos;
+            Vector3 targetPos = origPos;
+            targetPos[(int)dragAxis] += deltaOffset;
             Vector3 newPos = transform.position;
             if (Vector3.Distance(targetPos, newPos) > 0.001f)
             {
@@ -82,7 +72,9 @@ public class PropOneTimeDragControl : PropOneTimeControl
             }
             else
             {
-                if (Vector3.Distance(newPos, origPos + dragOffset) < 0.001f)
+                Vector3 finalPos = origPos;
+                finalPos[(int)dragAxis] += dragOffset;
+                if (Vector3.Distance(newPos, finalPos) < 0.001f)
                 {
                     onReachEnd.Invoke();
                     FreeAllMen();
@@ -124,6 +116,10 @@ public class PropOneTimeDragControl : PropOneTimeControl
         {
             isDragging = false;
             Services.dotweenEvents.ScaleTo(GetComponent<PropFeedbackBehavior>().targetObj.name + " 1, 1, 1, 0.5");
+            if (Mathf.Abs(deltaOffset) < Mathf.Abs(dragOffset))
+            {
+                deltaOffset = 0;
+            }
         }
     }
 
@@ -139,12 +135,7 @@ public class PropOneTimeDragControl : PropOneTimeControl
                 Services.dotweenEvents.ScaleTo(GetComponent<PropFeedbackBehavior>().targetObj.name + " 1.1, 1.1, 1.1, 0.5");
             }        
 
-            deltaPos += d;
-            deltaPos = new Vector3(
-                Mathf.Min(Mathf.Max(minBound.x, deltaPos.x), maxBound.x),
-                Mathf.Min(Mathf.Max(minBound.y, deltaPos.y), maxBound.y),
-                Mathf.Min(Mathf.Max(minBound.z, deltaPos.z), maxBound.z)
-                );
+            deltaOffset = Mathf.Min(Mathf.Max(minDelta, deltaOffset + d[(int)dragAxis]), maxDelta);
         }
     }
 }
