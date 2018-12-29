@@ -5,8 +5,7 @@ using UnityEngine.Events;
 
 public class PropFeedbackBehavior : InteractableFeedbackBehavior
 {
-    // Use this for initialization
-    void Start()
+    void Awake()
     {
         if (targetObj == null)
         {
