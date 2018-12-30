@@ -447,7 +447,7 @@ public class DotweenEvents : CustomEvents
         GameObject obj = ParseGameObject();
         float targetAlpha = ParseAlpha();
         float time = ParseTime();
-        obj.GetComponent<SpriteRenderer>().DOColor(new Color(1, 1, 1, 1), time);
+        obj.GetComponent<SpriteRenderer>().DOColor(new Color(1, 1, 1, targetAlpha), time);
     }
 
     public void KillSequence(GameObject obj)

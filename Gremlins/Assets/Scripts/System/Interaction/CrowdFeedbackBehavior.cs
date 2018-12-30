@@ -6,8 +6,7 @@ using Spine.Unity;
 
 public class CrowdFeedbackBehavior : InteractableFeedbackBehavior
 {
-    // Use this for initialization
-    void Start()
+    void Awake()
     {
         if (targetObj == null)
         {
