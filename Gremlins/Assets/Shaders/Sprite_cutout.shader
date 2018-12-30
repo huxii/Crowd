@@ -40,7 +40,6 @@
 		Blend SrcAlpha OneMinusSrcAlpha
 
 		CGPROGRAM
-		#include "Utils.cginc"
 		#include "ToonUtils.cginc"
 		#pragma surface surf ToonCutout alpha vertex:vert
 		#pragma multi_compile DUMMY PIXELSNAP_ON

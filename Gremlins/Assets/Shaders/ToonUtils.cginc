@@ -1,5 +1,6 @@
 #include "AutoLight.cginc"
 #include "UnityCG.cginc"
+#include "Utils.cginc"
 
 uniform sampler2D _LightRamp;
 uniform float4 _LightRamp_ST;
@@ -94,7 +95,7 @@ inline half4 LightingToonOverlay(SurfaceCustomOutput s, half3 lightDir, half3 vi
 
 	// final
 	half4 c;
-	c.rgb = (s.Albedo * s.Ao * lightRamp * _LightColor0.rgb + _LightColor0 * spec + s.Emission + rimLight.rgb);
+	c.rgb = (s.Albedo * s.Ao * lightRamp * _LightColor0.rgb + _LightColor0 * spec + rimLight.rgb);
 	c.a = s.Alpha;
 
 	return c;

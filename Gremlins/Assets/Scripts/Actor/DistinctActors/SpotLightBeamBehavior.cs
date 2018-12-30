@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class LightBeamBehavior : ObjectControl
+public class SpotLightBeamBehavior : MonoBehaviour
 {
     [System.Serializable]
     public struct LightEffectSettings
@@ -155,21 +155,17 @@ public class LightBeamBehavior : ObjectControl
         mesh.colors = colors;
     }
 
-    public override void Activate()
+    public void On()
     {
-        base.Activate();
-
         tweak = 10;
     }
 
-    public override void Deactivate()
+    public void Off()
     {
-        base.Deactivate();
-
         tweak = -5;
     }
 
-    public void Trigger()
+    public void Transit()
     {
         effectTimer = 0;
     }

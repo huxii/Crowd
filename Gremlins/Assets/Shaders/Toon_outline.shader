@@ -56,7 +56,6 @@
 
 		CGPROGRAM
 		#include "ToonUtils.cginc"
-		#include "Utils.cginc"
 
 		#pragma surface surf ToonOverlay vertex:vert addshadow
 		#pragma target 3.0

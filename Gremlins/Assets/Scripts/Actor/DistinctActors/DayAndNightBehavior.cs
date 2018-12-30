@@ -27,6 +27,11 @@ public class DayAndNightBehavior : MonoBehaviour
 
         foreach (MeshRenderer meshRenderer in GameObject.Find("Lock").GetComponentsInChildren<MeshRenderer>())
         {
+            if (meshRenderer.sharedMaterial.name.ToLower().Contains("instance"))
+            {
+                mats.Add(meshRenderer.sharedMaterial);
+            }
+            else
             if (meshRenderer.sharedMaterial.name.ToLower().Contains("outer"))
             {
                 meshRenderer.material = newOuterInstance;
