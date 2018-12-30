@@ -6,6 +6,8 @@ Shader "Custom/Cutout_dynamic"
 	{
 		[Header(Base)]
 		_MainTex("Texture", 2D) = "white" {}
+		_ReplaceTex("Replace Texture", 2D) = "white" {}
+		_ReplaceFactor("Replace Factor", Range(0, 1)) = 0
 		_AlphaCutOff("Alpha Cut Off", Range(0, 1)) = 0.3
 
 		_MinX("Min X", Range(-20, 20)) = -20
@@ -39,6 +41,8 @@ Shader "Custom/Cutout_dynamic"
 		#pragma target 3.0
 
 		uniform sampler2D _MainTex;
+		uniform sampler2D _ReplaceTex;
+		uniform float _ReplaceFactor;
 		uniform float _AlphaCutOff;
 		uniform float _MinX;
 		uniform float _MinY;
@@ -62,7 +66,10 @@ Shader "Custom/Cutout_dynamic"
 		{
 			half2 uv = IN.uv_MainTex;
 			uv.y += _Offset;
-			half4 c = tex2D(_MainTex, uv);
+
+			half4 c0 = tex2D(_MainTex, IN.uv_MainTex);
+			half4 c1 = tex2D(_ReplaceTex, IN.uv_MainTex);
+			half4 c = lerp(c0, c1, _ReplaceFactor);
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
 

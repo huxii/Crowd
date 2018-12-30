@@ -3,7 +3,9 @@
 	Properties
 	{
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
-		_Color ("Tint", Color) = (1,1,1,1)
+		_Color ("Base Color", Color) = (1, 1, 1, 1)
+		_ReplaceColor("Replace Color", Color) = (1, 1, 1, 1)
+		_ReplaceFactor("Replace Factor", Range(0, 1)) = 0
 		[MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
 		_Cutoff ("Shadow alpha cutoff", Range(0,1)) = 0.5
 
@@ -43,8 +45,10 @@
 		#pragma surface surf ToonCutout alpha vertex:vert
 		#pragma multi_compile DUMMY PIXELSNAP_ON
 
-		sampler2D _MainTex;
-		fixed4 _Color;
+		uniform sampler2D _MainTex;
+		uniform fixed4 _Color;
+		uniform fixed4 _ReplaceColor;
+		uniform float _ReplaceFactor;
 		uniform float _Cutoff;
 		uniform float _MinX;
 		uniform float _MinY;
@@ -72,7 +76,7 @@
 
 		void surf (Input IN, inout SurfaceCustomOutput o)
 		{
-			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * IN.color * _Color;
+			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * IN.color * lerp(_Color, _ReplaceColor, _ReplaceFactor);
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
 
