@@ -48,6 +48,33 @@ public class DayAndNightBehavior : MonoBehaviour
         {
             mats.AddRange(meshRenderer.sharedMaterials);
         }
+
+        Material newThickRopeInstance = null;
+        Material newThinRopeInstance = null;
+
+        foreach (SpriteRenderer spriteRenderer in GameObject.Find("Lock").GetComponentsInChildren<SpriteRenderer>())
+        {
+            if (spriteRenderer.sharedMaterial.name.ToLower().Contains("rope_thick"))
+            {
+                if (newThickRopeInstance == null)
+                {
+                    newThickRopeInstance = Instantiate(spriteRenderer.sharedMaterial);
+                }
+                spriteRenderer.material = newThickRopeInstance;
+            }
+            else
+            if (spriteRenderer.sharedMaterial.name.ToLower().Contains("rope"))
+            {
+                if (newThinRopeInstance == null)
+                {
+                    newThinRopeInstance = Instantiate(spriteRenderer.sharedMaterial);
+                }
+                spriteRenderer.material = newThinRopeInstance;
+            }
+        }
+        mats.Add(newThickRopeInstance);
+        mats.Add(newThinRopeInstance);
+
         mats = mats.ToArray().Distinct().ToList();
 
         foreach (Material mat in mats)

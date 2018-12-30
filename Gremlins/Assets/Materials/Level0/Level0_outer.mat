@@ -91,7 +91,7 @@ Material:
     - _OutlineWidth: 0
     - _Parallax: 0.02
     - _PatternPower: 0.1
-    - _ReplaceFactor: -0.011009943
+    - _ReplaceFactor: 0
     - _RimPower: 8.3
     - _ShadowLineWidth: 0.01
     - _SmoothnessTextureChannel: 0
