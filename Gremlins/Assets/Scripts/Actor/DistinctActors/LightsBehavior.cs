@@ -16,9 +16,7 @@ public class LightsBehavior : ObjectControl
     public List<LightAttr> lightOrder;
 
     [ColorUsageAttribute(true, true)]
-    public Color color0;
-    [ColorUsageAttribute(true, true)]
-    public Color color1;
+    public Color emissionColor;
 
     private float timer = 0;
     private int curOrder = 0;
@@ -26,6 +24,11 @@ public class LightsBehavior : ObjectControl
     // Use this for initialization
     void Start()
     {
+        foreach (GameObject lightObj in lightObjs)
+        {
+            lightObj.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", emissionColor);
+        }
+
         LightsOff();
     }
 
@@ -56,11 +59,11 @@ public class LightsBehavior : ObjectControl
         {
             if (onOff[i] == '1')
             {
-                lightObjs[i].GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", color1);
+                lightObjs[i].GetComponent<MeshRenderer>().material.SetFloat("_EmissionIntensity", 1);
             }
             else
             {
-                lightObjs[i].GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", color0);
+                lightObjs[i].GetComponent<MeshRenderer>().material.SetFloat("_EmissionIntensity", 0);
             }
         }
     }
@@ -69,7 +72,7 @@ public class LightsBehavior : ObjectControl
     {
         foreach (GameObject lightObj in lightObjs)
         {
-            lightObj.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
+            lightObj.GetComponent<MeshRenderer>().material.SetFloat("_EmissionIntensity", 0);
         }
     }
 
