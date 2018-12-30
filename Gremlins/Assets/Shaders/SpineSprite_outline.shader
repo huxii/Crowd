@@ -5,6 +5,8 @@ Shader "Custom/SpineSprite_outline"
 	Properties
 	{
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
+		_Color("Tint Color", Color) = (1, 1, 1, 1)
+		_ReplaceFactor("Replace Factor", Range(0, 1)) = 0
 
 		[Header(Overlay)]
 		_OverlayFactor("Overlay Factor", Range(0, 1.0)) = 0.5
@@ -116,7 +118,9 @@ Shader "Custom/SpineSprite_outline"
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
 
-			sampler2D _MainTex;
+			uniform sampler2D _MainTex;
+			uniform float _ReplaceFactor;
+			uniform float4 _Color;
 			uniform float _OverlayFactor;
 			uniform sampler2D _OverlayTex;
 			uniform float4 _OverlayTex_ST;
@@ -164,7 +168,7 @@ Shader "Custom/SpineSprite_outline"
 				float2 screenUVs = (i.screenPos.xy / i.screenPos.w);
 				screenUVs += _OverlaySpeed * _Time;
 				half4 overlayTex = tex2D(_OverlayTex, TRANSFORM_TEX(screenUVs.xy, _OverlayTex));
-				col = GetOverlayColor(col, float4(1, 1, 1, 1), overlayTex.a * _OverlayFactor);
+				col = GetOverlayColor(col, float4(1, 1, 1, 1), overlayTex.a * _OverlayFactor) * lerp(float4(1, 1, 1, 1), _Color, _ReplaceFactor);
 
 				return col;
 			}

@@ -77,6 +77,12 @@ public class DayAndNightBehavior : MonoBehaviour
 
         mats = mats.ToArray().Distinct().ToList();
 
+        GameObject[] men = GameObject.FindGameObjectsWithTag("Man");
+        foreach (GameObject man in men)
+        {
+            mats.Add(man.GetComponentInChildren<MeshRenderer>().material);
+        }
+
         foreach (Material mat in mats)
         {
             mat.SetFloat("_ReplaceFactor", curFactor);
