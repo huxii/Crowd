@@ -81,7 +81,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _ReplaceFactor: 0
+    - _ReplaceFactor: 1
     - _RimPower: 3
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -93,5 +93,5 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ReplaceColor: {r: 1, g: 0, b: 0, a: 1}
+    - _ReplaceColor: {r: 0.5100399, g: 0.45612317, b: 0.7735849, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
