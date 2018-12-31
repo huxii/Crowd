@@ -57,7 +57,7 @@ public class Tile : MonoBehaviour
             if (followObject != null && followObject.GetComponent<ObjectControl>() != null && !followObject.GetComponent<ObjectControl>().IsActivated()
                 && followObject.GetComponent<ObjectControl>().dropMenAfterDeactivated)
             {
-                Services.gameController.DropMan(man);
+                Services.gameEvents.DropMan(man);
             }
             else
             {
@@ -87,7 +87,7 @@ public class Tile : MonoBehaviour
         {
             foreach (GameObject man in menOnThis)
             {
-                Services.gameController.DropMan(man);
+                Services.gameEvents.DropMan(man);
             }
 
             menOnThis.Clear();

@@ -35,9 +35,7 @@
 		Tags
 		{
 			//"LightMode" = "ForwardBase"
-			"Queue" = "Opaque"
 			"RenderType" = "Opaque"
-			"IgnoreProjector" = "True"
 		}
 
 		CGPROGRAM

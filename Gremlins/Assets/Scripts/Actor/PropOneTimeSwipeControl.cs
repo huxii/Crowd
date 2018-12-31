@@ -25,14 +25,14 @@ public class PropOneTimeSwipeControl : PropOneTimeControl
     {
         base.Activate();
 
-        Services.gameController.StartSwipe(gameObject);
+        //Services.gameController.StartSwipe(gameObject);
     }
 
     public override void Deactivate()
     {
         base.Deactivate();
 
-        Services.gameController.EndSwipe();
+        //Services.gameController.EndSwipe();
     }
 
     public override void Swipe()

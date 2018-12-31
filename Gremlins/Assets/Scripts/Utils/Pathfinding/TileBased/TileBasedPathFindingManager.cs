@@ -168,7 +168,7 @@ public class TileBasedPathFindingManager : PathFindingManager
                 }
 
                 pathTable.Remove(actor);
-                Services.gameController.StopMan(actor);
+                Services.gameEvents.StopMan(actor);
             }
             else
             {

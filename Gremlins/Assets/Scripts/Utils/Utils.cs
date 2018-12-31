@@ -154,4 +154,14 @@ public class Utils
         }
         return retValue;
     }
+
+    public void CheckPlatform()
+    {
+        switch (Application.platform)
+        {
+            case RuntimePlatform.IPhonePlayer:
+                Application.targetFrameRate = 30;
+                break;
+        }
+    }
 }

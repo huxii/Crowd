@@ -23,6 +23,7 @@ public class CrowdControl : ActorControl
         DROP,
         CELEBRATE,
         CONFUSED,
+        WORK,
     };
 
     // the events when the man is selected/deselected. (removed already)
@@ -143,6 +144,11 @@ public class CrowdControl : ActorControl
                 new Sequence<CrowdControl>(
                     new IsConfused(),
                     new Confused()
+                    ),
+
+                new Sequence<CrowdControl>(
+                    new IsWorking(),
+                    new Working()
                     ),
 
                 new Sequence<CrowdControl>(
@@ -267,9 +273,22 @@ public class CrowdControl : ActorControl
         }
     }
 
+    // busy
+    public void OrderBusy()
+    {
+        SwitchState(CrowdState.WORK);
+
+        //if (voiceTimer[2] <= 0)
+        //{
+        //    int id = Random.Range(0, 3) + 1;
+        //    Services.soundController.Play("noWay" + id);
+        //    voiceTimer[2] = voiceCoolDown;
+        //}
+    }
+
     public void SwitchState(CrowdState s)
     {
-        if (s == CrowdState.CONFUSED && state != CrowdState.CONFUSED)
+        if (state != CrowdState.CONFUSED && state != CrowdState.WORK)
         {
             lastState = state;
         }
@@ -355,6 +374,14 @@ public class CrowdControl : ActorControl
         public override bool Update(CrowdControl man)
         {
             return man.state == CrowdState.CONFUSED;
+        }
+    }
+
+    private class IsWorking : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.WORK;
         }
     }
 
@@ -498,7 +525,35 @@ public class CrowdControl : ActorControl
 
             interval = 2f;
             man.stateCoolingDown = interval;
-            man.spineAnimController.SetRandomAnimation("confuse", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+
+            if (man.gameObject.transform.localScale.x == -1)
+            {
+                man.spineAnimController.SetRandomAnimation("confuse_right", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            }
+            else
+            {
+                man.spineAnimController.SetRandomAnimation("confuse_left", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            }
+        }
+
+        public override void OnInterval(CrowdControl man)
+        {
+            base.OnInterval(man);
+
+            man.SwitchState(man.lastState);
+        }
+    }
+
+    private class Working : TimedAction
+    {
+        public override void OnStart(CrowdControl man)
+        {
+            base.OnStart(man);
+
+            interval = 2f;
+            man.stateCoolingDown = interval;
+
+            man.spineAnimController.SetAnimation("busy", SpineAnimationControl.ClearPolicy.CLEARTHIS);
         }
 
         public override void OnInterval(CrowdControl man)
