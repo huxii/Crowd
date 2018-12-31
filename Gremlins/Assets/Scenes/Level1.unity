@@ -190,8 +190,7 @@ MonoBehaviour:
     interval: 1
   - onOff: 11111111111
     interval: 1
-  color0: {r: 0, g: 0, b: 0, a: 0}
-  color1: {r: 0.2924528, g: 0.26543772, b: 0.25796545, a: 0}
+  emissionColor: {r: 1.4980392, g: 0.9098039, b: 0.44705883, a: 0}
 --- !u!114 &26701857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4323,15 +4322,15 @@ Prefab:
       objectReference: {fileID: 1428080941}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015116576
+      value: 0.015117395
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.9998858
+      value: 0.99988574
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015116453
+      value: 0.0151171265
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -4339,7 +4338,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0030008017
+      value: -0.0030009688
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
@@ -8595,8 +8594,7 @@ MonoBehaviour:
     interval: 1
   - onOff: 111111111111111111111111111
     interval: 1
-  color0: {r: 0, g: 0, b: 0, a: 0}
-  color1: {r: 0.24705882, g: 0.011764705, b: 0.089365296, a: 0}
+  emissionColor: {r: 1.4980392, g: 0.9098039, b: 0.44705883, a: 0}
 --- !u!1 &945058689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100796, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -15890,7 +15888,7 @@ MonoBehaviour:
   onActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1581691015}
+      - m_Target: {fileID: 1699332624}
         m_MethodName: Activate
         m_Mode: 1
         m_Arguments:
@@ -15906,7 +15904,7 @@ MonoBehaviour:
   onDeactivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1581691015}
+      - m_Target: {fileID: 1699332624}
         m_MethodName: Deactivate
         m_Mode: 1
         m_Arguments:
@@ -15923,70 +15921,6 @@ MonoBehaviour:
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   lockDuration: -1
---- !u!114 &1581691015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1581691013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f989d6809761ab14384adbb6dde43491, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feedbackController: {fileID: 0}
-  locked: 0
-  canActivateMultipleTimes: 0
-  onActivated:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onDeactivated:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  interactionCD: 0
-  isWalkableAfterDeactivated: 0
-  dropMenAfterDeactivated: 0
-  lightObjs:
-  - {fileID: 323201994}
-  - {fileID: 965581086}
-  - {fileID: 1696029925}
-  - {fileID: 1119162071}
-  - {fileID: 1447030315}
-  - {fileID: 1233471302}
-  - {fileID: 543768676}
-  - {fileID: 1166578736}
-  - {fileID: 742858349}
-  - {fileID: 1911096322}
-  - {fileID: 417829839}
-  - {fileID: 95268090}
-  - {fileID: 2035760432}
-  - {fileID: 776377691}
-  - {fileID: 1926166775}
-  - {fileID: 1059897488}
-  - {fileID: 445380176}
-  - {fileID: 1153865671}
-  - {fileID: 1936116671}
-  - {fileID: 1308182638}
-  - {fileID: 500179898}
-  lightOrder:
-  - onOff: 000000000000000000001
-    interval: 0.5
-  - onOff: 111111110000000000001
-    interval: 0.5
-  - onOff: 000011111111000000001
-    interval: 0.5
-  - onOff: 000000001111111100001
-    interval: 0.5
-  - onOff: 000000000000111111111
-    interval: 0.5
-  - onOff: 000000000000000011111
-    interval: 0.5
-  color0: {r: 0.047169805, g: 0.047169805, b: 0.047169805, a: 1}
-  color1: {r: 0.24528301, g: 0.06377584, b: 0.0127269495, a: 1}
 --- !u!1 &1587384707 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100412, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -17012,6 +16946,74 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100318, guid: b2e9286c22cb687469da9f0cc667f429,
     type: 3}
   m_PrefabInternal: {fileID: 1013358165}
+--- !u!1 &1699332622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100074, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInternal: {fileID: 1013358165}
+--- !u!114 &1699332624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1699332622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f989d6809761ab14384adbb6dde43491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feedbackController: {fileID: 0}
+  locked: 0
+  canActivateMultipleTimes: 0
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  interactionCD: 0
+  isWalkableAfterDeactivated: 0
+  dropMenAfterDeactivated: 0
+  lightObjs:
+  - {fileID: 323201994}
+  - {fileID: 965581086}
+  - {fileID: 1696029925}
+  - {fileID: 1119162071}
+  - {fileID: 1447030315}
+  - {fileID: 1233471302}
+  - {fileID: 543768676}
+  - {fileID: 1166578736}
+  - {fileID: 742858349}
+  - {fileID: 1911096322}
+  - {fileID: 417829839}
+  - {fileID: 95268090}
+  - {fileID: 2035760432}
+  - {fileID: 776377691}
+  - {fileID: 1926166775}
+  - {fileID: 1059897488}
+  - {fileID: 445380176}
+  - {fileID: 1153865671}
+  - {fileID: 1936116671}
+  - {fileID: 1308182638}
+  - {fileID: 500179898}
+  lightOrder:
+  - onOff: 000000000000000000001
+    interval: 0.5
+  - onOff: 111111110000000000001
+    interval: 0.5
+  - onOff: 000011111111000000001
+    interval: 0.5
+  - onOff: 000000001111111100001
+    interval: 0.5
+  - onOff: 000000000000111111111
+    interval: 0.5
+  - onOff: 000000000000000011111
+    interval: 0.5
+  emissionColor: {r: 1.4980392, g: 0.9098039, b: 0.44705883, a: 0}
 --- !u!1 &1701840099
 GameObject:
   m_ObjectHideFlags: 0

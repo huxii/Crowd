@@ -24,7 +24,8 @@
 		_RimColor("Rim Color", Color) = (1, 1, 1, 1)
 		_RimPower("Rim Power", Range(0.1, 10.0)) = 3.0
 
-		_EmissionMap("Emission", 2D) = "white" {}
+		_EmissionIntensity("Emission Intensity", Range(0, 1.0)) = 0
+		_EmissionMap("Emission", 2D) = "black" {}
 		[HDR]_EmissionColor("Emission Color", Color) = (0, 0, 0, 1)
 	}
 
@@ -53,6 +54,9 @@
 		uniform float4 _Pattern_ST;
 		uniform float _PatternPower;
 		uniform sampler2D _SpecMap;
+		uniform float _EmissionIntensity;
+		uniform sampler2D _EmissionMap;
+		uniform float4 _EmissionColor;
 
 		uniform sampler2D _AOMap;
 		uniform float4 _AOMap_ST;
@@ -69,14 +73,15 @@
 			half4 c0 = tex2D(_MainTex, IN.uv_MainTex);
 			half4 c1 = tex2D(_ReplaceTex, IN.uv_MainTex);
 			half4 p = pow(tex2D(_Pattern, TRANSFORM_TEX(IN.uv_MainTex, _Pattern)), _PatternPower);
-			o.Albedo = lerp(c0.rgb, c1.rgb, _ReplaceFactor) * p.rgb * _Color.rgb;
-			o.Alpha = lerp(c0.a, c1.a, _ReplaceFactor);
+			half4 c = lerp(c0, c1, _ReplaceFactor) * p * _Color;
+
+			float ce = tex2D(_EmissionMap, IN.uv_MainTex).r * _EmissionIntensity;
+			o.Albedo = lerp(c.rgb, _EmissionColor.rgb, ce);
+			o.Alpha = c.a;
 
 			half4 ao = tex2D(_AOMap, IN.uv_MainTex);
 			half4 aoColor = lerp(_AOMinColor, _AOMaxColor, ao);
 			o.Ao = aoColor.rgb;
-
-			o.Emission = tex2D(_EmissionMap, IN.uv_MainTex).rgb * _EmissionColor.rgb;
 
 			half4 specGloss = tex2D(_SpecMap, IN.uv_MainTex);
 			o.Specular = specGloss.r;
