@@ -248,7 +248,7 @@ public abstract class PropControl : InteractableControl
         {
             if (slot.man != null && slot.state == SlotState.READY)
             {
-                Services.gameController.LockMan(slot.man);
+                Services.gameEvents.LockMan(slot.man);
             }
         }
     }
@@ -268,7 +268,7 @@ public abstract class PropControl : InteractableControl
         {
             if (slot.man != null)
             {
-                Services.gameController.UnlockMan(slot.man);
+                Services.gameEvents.UnlockMan(slot.man);
             }
         }
     }

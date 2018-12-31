@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GameEvents : CustomEvents
 {
@@ -161,5 +162,111 @@ public class GameEvents : CustomEvents
 
         man.GetComponent<CrowdControl>().Lock();
         man.AddComponent<FloatBehavior>();
+    }
+
+    public void SelectMan(GameObject man)
+    {
+        if (man != null && man.GetComponent<CrowdControl>())
+        {
+            man.GetComponent<CrowdControl>().Selected();
+        }
+    }
+
+    public void DeselectMan(GameObject man)
+    {
+        if (man != null && man.GetComponent<CrowdControl>())
+        {
+            man.GetComponent<CrowdControl>().Deselected();
+        }
+    }
+
+    public void DeselectMan(List<GameObject> selectedMen)
+    {
+        foreach (GameObject man in selectedMen)
+        {
+            man.GetComponent<CrowdControl>().Deselected();
+        }
+    }
+
+    public void LockMan(GameObject man)
+    {
+        if (man == null)
+        {
+            return;
+        }
+        man.GetComponent<CrowdControl>().Lock();
+    }
+
+    public void UnlockMan(GameObject man)
+    {
+        if (man == null)
+        {
+            return;
+        }
+        man.GetComponent<CrowdControl>().Unlock();
+    }
+
+    public void StopMan(GameObject man)
+    {
+        man.GetComponent<CrowdControl>().Stop();
+    }
+
+    public void DropMan(GameObject man)
+    {
+        //Services.eventManager.Fire(new ManDrop(man));
+
+        StopMan(man);
+        Services.pathFindingManager.StopActor(man);
+
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(man.transform.position, Vector3.down, 100f);
+        if (hits != null)
+        {
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.transform.gameObject.CompareTag("Ground"))
+                {
+                    Vector3 landPos = hit.point;
+                    man.GetComponent<Rigidbody>().DOMove(landPos, 1f).SetEase(Ease.InCubic);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void TurnMan(GameObject man, Vector3 pos)
+    {
+        Vector3 dir = (pos - man.transform.position).normalized;
+        if (Vector3.Dot(dir, Vector3.right) > Vector3.Dot(dir, -Vector3.right))
+        {
+            man.GetComponent<CrowdControl>().Flip(-1);
+        }
+        else
+        {
+            man.GetComponent<CrowdControl>().Flip(1);
+        }
+    }
+
+    public void TurnMen(Vector3 pos)
+    {
+        foreach (GameObject man in Services.men)
+        {
+            TurnMan(man, pos);
+        }
+    }
+
+    public void ResetMan(GameObject man)
+    {
+        man.transform.SetParent(Services.menParentObj.transform);
+    }
+
+    public void EndLevelCelebration()
+    {
+        foreach (GameObject man in Services.men)
+        {
+            man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.CELEBRATE);
+            man.GetComponent<CrowdControl>().Lock();
+        }
+        Services.soundController.Play("levelEnd");
     }
 }

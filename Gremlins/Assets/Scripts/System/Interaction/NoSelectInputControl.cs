@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class NoSelectInputControl : InputControl
 {
-    public enum OrderMode
-    {
-        SINGLEMAN,
-        ALLMAN,
-    };
-
-    public OrderMode orderMode = OrderMode.SINGLEMAN;
-
     private void Update()
     {
         CoolDown();
@@ -41,14 +33,7 @@ public class NoSelectInputControl : InputControl
         //else
         if (mouseClickObject.CompareTag("Prop"))
         {
-            if (orderMode == OrderMode.SINGLEMAN)
-            {
-                Services.gameController.InteractMan(mouseClickObject, mouseClickPos);
-            }
-            else
-            {
-                Services.gameController.InteractMen(mouseClickObject, mouseClickPos);
-            }
+            Services.gameController.InteractMen(mouseClickObject, mouseClickPos);
         }
         else
         if (mouseClickObject.CompareTag("Object"))

@@ -13,18 +13,21 @@ public class PropFeedbackBehavior : InteractableFeedbackBehavior
         }
 
         // replace the shared material to a new intance 
-        Material mat = targetObj.GetComponentInChildren<MeshRenderer>().sharedMaterial;
-        Material newInstance = Instantiate(mat);
-        MeshRenderer[] meshRenderers = targetObj.GetComponentsInChildren<MeshRenderer>();
-        foreach (MeshRenderer mesh in meshRenderers)
+        if (targetObj.GetComponentInChildren<MeshRenderer>())
         {
-            if (mesh.sharedMaterial.name.ToLower().Contains("interactable"))
+            Material mat = targetObj.GetComponentInChildren<MeshRenderer>().sharedMaterial;
+            Material newInstance = Instantiate(mat);
+            MeshRenderer[] meshRenderers = targetObj.GetComponentsInChildren<MeshRenderer>();
+            foreach (MeshRenderer mesh in meshRenderers)
             {
-                mesh.material = newInstance;
+                if (mesh.sharedMaterial.name.ToLower().Contains("interactable"))
+                {
+                    mesh.material = newInstance;
+                }
             }
-        }
 
-        mats.Add(newInstance);
+            mats.Add(newInstance);
+        }
 
         Init();
     }

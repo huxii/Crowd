@@ -106,7 +106,7 @@ public class PointBasedPathFindingManager : PathFindingManager
                 }
 
                 pathTable.Remove(actor);
-                Services.gameController.StopMan(actor);
+                Services.gameEvents.StopMan(actor);
             }
             else
             {

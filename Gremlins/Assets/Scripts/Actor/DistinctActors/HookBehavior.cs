@@ -28,7 +28,7 @@ public class HookBehavior : MonoBehaviour
     {
         if (man != null)
         {
-            Services.gameController.ResetMan(man);
+            Services.gameEvents.ResetMan(man);
             man.GetComponent<FloatBehavior>().Blowing();
 
             // tmp

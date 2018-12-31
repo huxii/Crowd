@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using DG.Tweening;
 
 // TODO: main menu & hints & ladder & look at camera & think about physics and make it real & metalness & level1 new ao
 // & shaking char & water texture & ballon & level0 nails & level0 mechanic & level1 mechanic & deactivate all after level ends
@@ -11,13 +10,6 @@ public class MainControl : MonoBehaviour
 {
     //public int velocityIter = 8;
     //public int positionIter = 3;
-
-    private GameObject[] men;
-    private GameObject menParentObj = null;
-
-    // nav mesh
-    private Vector2 navMeshMinBound = new Vector3(float.MaxValue, float.MaxValue);
-    private Vector2 navMeshMaxBound = new Vector3(-float.MaxValue, -float.MaxValue);
 
     private GameObject swipeObj = null;
 
@@ -29,19 +21,15 @@ public class MainControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        men = GameObject.FindGameObjectsWithTag("Man");
-        menParentObj = GameObject.Find("Actors");
         //Physics2D.velocityIterations = velocityIter;
         //Physics2D.positionIterations = positionIter;
 
         // do a favor for outline shader
         Services.utils.RecalculateNormals();
 
+        Services.utils.CheckPlatform();
+
         RegisterEvents();
-
-        DetectNavMeshBounds();
-
-        CheckPlatform();
     }
 
     // Update is called once per frame
@@ -69,40 +57,6 @@ public class MainControl : MonoBehaviour
         Services.eventManager.Unregister<ManArrives>(OnManArrives);
         Services.eventManager.Unregister<ManLeavesForObj>(OnManLeavesForObj);
         Services.eventManager.Unregister<ManLeavesFromObj>(OnManLeavesFromObj);
-    }
-
-    void CheckPlatform()
-    {
-        switch (Application.platform)
-        {
-            case RuntimePlatform.IPhonePlayer:
-                Application.targetFrameRate = 30;
-                break;
-        }
-    }
-
-    private void DetectNavMeshBounds()
-    {
-        GameObject[] navs = GameObject.FindGameObjectsWithTag("Ground");
-        foreach (GameObject nav in navs)
-        {
-            Collider collider = nav.GetComponent<BoxCollider>();
-            if (collider != null)
-            {
-                Vector3 c_min = collider.bounds.min;
-                Vector3 c_max = collider.bounds.max;
-
-                navMeshMinBound = new Vector2(
-                    Mathf.Min(c_min.x, navMeshMinBound.x),
-                    Mathf.Min(c_min.y, navMeshMinBound.y)
-                    );
-
-                navMeshMaxBound = new Vector2(
-                    Mathf.Max(c_max.x, navMeshMaxBound.x),
-                    Mathf.Max(c_max.y, navMeshMaxBound.y)
-                    );
-            }
-        }
     }
 
     void OnManArrives(Crowd.Event e)
@@ -168,7 +122,7 @@ public class MainControl : MonoBehaviour
         }
 
         //Debug.Log(man + " " + obj);
-        man.transform.SetParent(menParentObj.transform);
+        man.transform.SetParent(Services.menParentObj.transform);
         man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
         obj.GetComponent<PropControl>().FreeSlot(slotId);
 
@@ -185,30 +139,6 @@ public class MainControl : MonoBehaviour
         man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.IDLE);
     }
 
-    public void SelectMan(GameObject man)
-    {
-        if (man != null && man.GetComponent<CrowdControl>())
-        {
-            man.GetComponent<CrowdControl>().Selected();
-        }
-    }
-
-    public void DeselectMan(GameObject man)
-    {
-        if (man != null && man.GetComponent<CrowdControl>())
-        {
-            man.GetComponent<CrowdControl>().Deselected();
-        }
-    }
-
-    public void DeselectMan(List<GameObject> selectedMen)
-    {
-        foreach (GameObject man in selectedMen)
-        {
-            man.GetComponent<CrowdControl>().Deselected();
-        }
-    }
-
     public void InteractObject(GameObject obj)
     {
         if (!obj.GetComponent<ObjectControl>() || obj.GetComponent<ObjectControl>().IsCoolingDown())
@@ -219,7 +149,7 @@ public class MainControl : MonoBehaviour
         obj.GetComponent<ObjectControl>().Click();
     }
 
-    public void InteractMen(GameObject obj, Vector3 pos, List<GameObject> selectedMen = null)
+    public void InteractMen(GameObject obj, Vector3 pos)
     {
         if (!obj.GetComponent<PropControl>() || obj.GetComponent<PropControl>().IsCoolingDown())
         {
@@ -230,22 +160,15 @@ public class MainControl : MonoBehaviour
         if (propState == PropControl.PropState.NOTFULL || propState == PropControl.PropState.EMPTY)
         {
             SortedDictionary<float, GameObject> sortByDistance = new SortedDictionary<float, GameObject>();
-            if (selectedMen != null)
+            foreach (GameObject man in Services.men)
             {
-                float diffKey = 0;
-                foreach (GameObject selectedMan in selectedMen)
+                if (man.GetComponent<CrowdControl>().IsBusy() || man.GetComponent<CrowdControl>().IsLocked())
                 {
-                    sortByDistance.Add(diffKey, selectedMan);
-                    diffKey += 1e-12f;
+                    man.GetComponent<CrowdControl>().OrderBusy();
+                    continue;
                 }
-            }
 
-            foreach (GameObject man in men)
-            {
-                if (!sortByDistance.ContainsValue(man) && man.GetComponent<CrowdControl>().IsBusy() == false && !man.GetComponent<CrowdControl>().IsLocked())
-                {
-                    sortByDistance.Add(Vector3.Distance(man.transform.position, obj.transform.position), man);
-                }
+                sortByDistance.Add(Vector3.Distance(man.transform.position, obj.transform.position), man);
             }
 
             if (sortByDistance.Count != 0)
@@ -281,12 +204,12 @@ public class MainControl : MonoBehaviour
         else
         if (propState == PropControl.PropState.PATH)
         {
-            MoveMenToPosition(pos, selectedMen);
+            MoveMenToPosition(pos);
         }
         else
         if (propState == PropControl.PropState.DISABLE)
         {
-            foreach (GameObject man in men)
+            foreach (GameObject man in Services.men)
             {
                 if (!man.GetComponent<CrowdControl>().IsBusy())
                 {
@@ -294,75 +217,6 @@ public class MainControl : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void InteractMan(GameObject obj, Vector3 pos)
-    {
-        if (!obj.GetComponent<PropControl>() || obj.GetComponent<PropControl>().IsCoolingDown())
-        {
-            return;
-        }
-
-        // this obj is walkable
-        if (obj.GetComponent<PropControl>().IsLocked() && obj.GetComponent<PropControl>().isWalkableAfterDeactivated)
-        {
-            MoveMenToPosition(pos);
-            return;
-        }
-
-        // click on object feedback
-        obj.GetComponent<PropControl>().Click();
-
-        int slotId = obj.GetComponent<PropControl>().FindEmptySlot();
-        if (slotId == -1)
-        {
-            return;
-        }
-
-        GameObject nearestMan = null;
-        float maxDistance = float.MaxValue;
-        foreach (GameObject man in men)
-        {
-            if (!man.GetComponent<CrowdControl>().IsBusy() && !man.GetComponent<CrowdControl>().IsLocked() &&
-                Vector3.Distance(man.transform.position, obj.transform.position) < maxDistance)
-            {
-                maxDistance = Vector3.Distance(man.transform.position, obj.transform.position);
-                nearestMan = man;
-            }
-        }
-
-        if (nearestMan == null)
-        {
-            return;
-        }
-
-        MoveManToObject(nearestMan, obj, slotId, 0.1f);
-    }
-
-    public void OrderFailed(GameObject man)
-    {
-        if (man != null && man.GetComponent<CrowdControl>() && !man.GetComponent<CrowdControl>().IsBusy())
-        {
-            man.GetComponent<CrowdControl>().OrderFailed();
-        }
-    }
-
-    public void LockMan(GameObject man)
-    {
-        if (man == null)
-        {
-            return;
-        }
-        man.GetComponent<CrowdControl>().Lock();
-    }
-
-    public void UnlockMan(GameObject man)
-    {
-        if (man == null)
-        {
-            return;
-        }
-        man.GetComponent<CrowdControl>().Unlock();
     }
 
     public void FreeMan(GameObject man)
@@ -400,28 +254,7 @@ public class MainControl : MonoBehaviour
         OnManLeavesFromObj(new ManLeavesFromObj(man, obj, slotId));
 
         Services.pathFindingManager.StopActor(man);
-        StopMan(man);
-    }
-
-    public void StopMan(GameObject man)
-    {
-        man.GetComponent<CrowdControl>().Stop();
-    }
-
-    public void SetManTargetPosition(GameObject man, Vector3 targetPos, float tol, TileEdge.MovementType type = TileEdge.MovementType.WALK)
-    {
-        switch (type)
-        {
-            case TileEdge.MovementType.WALK:
-                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.WALK);
-                break;
-            case TileEdge.MovementType.CLIMB:
-                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.CLIMB);
-                break;
-            default:
-                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.WALK);
-                break;
-        }
+        Services.gameEvents.StopMan(man);
     }
 
     public bool MoveManToObject(GameObject man, GameObject obj, int slotId, float tol)
@@ -437,7 +270,7 @@ public class MainControl : MonoBehaviour
             UnboundMan(man);
             OnManLeavesForObj(new ManLeavesForObj(man, obj, slotId));
             man.GetComponent<CrowdControl>().LoadSucceeded();
-            TurnMan(man, targetPos);
+            Services.gameEvents.TurnMan(man, targetPos);
             Services.pathFindingManager.Move(man, tol, new ManArrives(man, obj, slotId));
             return true;
         }
@@ -460,7 +293,7 @@ public class MainControl : MonoBehaviour
         {
             UnboundMan(man);
             man.GetComponent<CrowdControl>().WalkSucceeded();
-            TurnMan(man, targetPos);
+            Services.gameEvents.TurnMan(man, targetPos);
             Services.pathFindingManager.Move(man, tol, new ManArrives(man, null, -1));
             return true;
         }
@@ -472,37 +305,28 @@ public class MainControl : MonoBehaviour
         return false;
     }
 
-    public void MoveMenToPosition(Vector3 targetPos, List<GameObject> selectedMen = null)
+    public void MoveMenToPosition(Vector3 targetPos)
     {
         //Services.footprintsManager.Clear();
 
-        if (selectedMen != null)
+        int reachableMenNum = 0;
+        foreach (GameObject man in Services.men)
         {
-            foreach (GameObject man in selectedMen)
+            if (!man.GetComponent<CrowdControl>().IsBusy() && Services.pathFindingManager.FindPath(man, targetPos))
             {
-                if (!man.GetComponent<CrowdControl>().IsBusy())
-                {
-                    MoveManToPosition(man, targetPos, (selectedMen.Count - 1) * 0.2f + 0.05f);
-                }
+                ++reachableMenNum;
             }
         }
-        else
-        {
-            int reachableMenNum = 0;
-            foreach (GameObject man in men)
-            {
-                if (!man.GetComponent<CrowdControl>().IsBusy() && Services.pathFindingManager.FindPath(man, targetPos))
-                {
-                    ++reachableMenNum;
-                }
-            }
 
-            foreach (GameObject man in men)
+        foreach (GameObject man in Services.men)
+        {
+            if (!man.GetComponent<CrowdControl>().IsBusy())
             {
-                if (!man.GetComponent<CrowdControl>().IsBusy())
-                {
-                    MoveManToPosition(man, targetPos, (reachableMenNum - 1) * 0.2f + 0.05f);
-                }
+                MoveManToPosition(man, targetPos, (reachableMenNum - 1) * 0.2f + 0.05f);
+            }
+            else
+            {
+                man.GetComponent<CrowdControl>().OrderBusy();
             }
         }
 
@@ -513,7 +337,7 @@ public class MainControl : MonoBehaviour
     {
         GameObject nearestMan = null;
         float maxDistance = float.MaxValue;
-        foreach (GameObject man in men)
+        foreach (GameObject man in Services.men)
         {
             if (!man.GetComponent<CrowdControl>().IsBusy() && Vector3.Distance(man.transform.position, targetPos) < maxDistance)
             {
@@ -530,26 +354,19 @@ public class MainControl : MonoBehaviour
         MoveManToPosition(nearestMan, targetPos, 0.15f);
     }
 
-    public void DropMan(GameObject man)
+    public void SetManTargetPosition(GameObject man, Vector3 targetPos, float tol, TileEdge.MovementType type = TileEdge.MovementType.WALK)
     {
-        //Services.eventManager.Fire(new ManDrop(man));
-
-        StopMan(man);
-        Services.pathFindingManager.StopActor(man);
-
-        RaycastHit[] hits;
-        hits = Physics.RaycastAll(man.transform.position, Vector3.down, 100f);
-        if (hits != null)
+        switch (type)
         {
-            foreach (RaycastHit hit in hits)
-            {
-                if (hit.transform.gameObject.CompareTag("Ground"))
-                {
-                    Vector3 landPos = hit.point;
-                    man.GetComponent<Rigidbody>().DOMove(landPos, 1f).SetEase(Ease.InCubic);
-                    break;
-                }
-            }
+            case TileEdge.MovementType.WALK:
+                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.WALK);
+                break;
+            case TileEdge.MovementType.CLIMB:
+                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.CLIMB);
+                break;
+            default:
+                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.WALK);
+                break;
         }
     }
 
@@ -594,62 +411,5 @@ public class MainControl : MonoBehaviour
         {
             obj.GetComponent<InteractableControl>().Swipe();
         }
-    }
-
-    public void StartSwipe(GameObject obj)
-    {
-        swipeObj = obj;
-        Services.cameraController.SetEnable(false);
-    }
-
-    public void EndSwipe()
-    {
-        swipeObj = null;
-        Services.cameraController.SetEnable(true);
-    }
-
-    public void FocusCamera(Vector3 pos)
-    {
-        float ratioX = Mathf.Clamp((pos.x - navMeshMinBound.x) / (navMeshMaxBound.x - navMeshMinBound.x), 0, 1);
-        float ratioY = Mathf.Clamp((pos.y - navMeshMinBound.y) / (navMeshMaxBound.y - navMeshMinBound.y), 0.5f, 1);
-        Services.cameraController.SetOrbit(-1, Mathf.Sin(ratioY * 90f / 180f * Mathf.PI));
-
-        //Debug.Log(pos + " " + Mathf.Sin(ratioY * 90f) + " " + ratioY);
-    }
-
-    public void TurnMan(GameObject man, Vector3 pos)
-    {
-        Vector3 dir = (pos - man.transform.position).normalized;
-        if (Vector3.Dot(dir, Vector3.right) > Vector3.Dot(dir, -Vector3.right))
-        {
-            man.GetComponent<CrowdControl>().Flip(-1);
-        }
-        else
-        {
-            man.GetComponent<CrowdControl>().Flip(1);
-        }
-    }
-
-    public void TurnMen(Vector3 pos)
-    {
-        foreach (GameObject man in men)
-        {
-            TurnMan(man, pos);
-        }
-    }
-
-    public void ResetMan(GameObject man)
-    {
-        man.transform.SetParent(menParentObj.transform);        
-    }
-
-    public void EndLevelCelebration()
-    {
-        foreach (GameObject man in men)
-        {
-            man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.CELEBRATE);
-            man.GetComponent<CrowdControl>().Lock();
-        }
-        Services.soundController.Play("levelEnd");
     }
 }

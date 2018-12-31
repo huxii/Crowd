@@ -113,12 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &17465719 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114071134189052764, guid: 02262fe7c3d18114ab3b977f25fc0b84,
-    type: 2}
-  m_PrefabInternal: {fileID: 1095591039}
-  m_Script: {fileID: 11500000, guid: aadd0449a71dc284089dfd3e7ef2e011, type: 3}
 --- !u!1 &54214717
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -294,7 +289,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 17465719}
+      - m_Target: {fileID: 1428080938}
         m_MethodName: EndLevelCelebration
         m_Mode: 1
         m_Arguments:
@@ -349,6 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -621,6 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -841,6 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -1031,27 +1029,27 @@ Prefab:
       objectReference: {fileID: 1428080941}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015117395
+      value: 0.015116576
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.99988574
+      value: 0.9998858
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.015117108
+      value: 0.015116728
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000012960465
+      value: -0.000000012960276
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.0030008364
+      value: -0.0030011865
       objectReference: {fileID: 0}
     - target: {fileID: 4095007066977592, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000000023056906
+      value: -0.000000023056739
       objectReference: {fileID: 0}
     - target: {fileID: 114948890261393444, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 2}
@@ -1394,6 +1392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -2416,6 +2415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -2639,7 +2639,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 963bbca887f1bf5488cc8e26cb059e66, type: 2}
+      objectReference: {fileID: 2100000, guid: f43716b286e26a94db530fbaa34aa2cf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
   m_IsPrefabAsset: 0
@@ -2819,6 +2819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -2984,6 +2985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -3080,7 +3082,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 963bbca887f1bf5488cc8e26cb059e66, type: 2}
+      objectReference: {fileID: 2100000, guid: f43716b286e26a94db530fbaa34aa2cf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
   m_IsPrefabAsset: 0
@@ -3669,7 +3671,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 963bbca887f1bf5488cc8e26cb059e66, type: 2}
+      objectReference: {fileID: 2100000, guid: f43716b286e26a94db530fbaa34aa2cf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
   m_IsPrefabAsset: 0
@@ -4013,6 +4015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -4199,6 +4202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -4411,7 +4415,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 963bbca887f1bf5488cc8e26cb059e66, type: 2}
+      objectReference: {fileID: 2100000, guid: f43716b286e26a94db530fbaa34aa2cf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731fd9d139c957140bdc305f3874130d, type: 2}
   m_IsPrefabAsset: 0
@@ -4456,6 +4460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -4513,6 +4518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -4801,6 +4807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -5082,6 +5089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -5126,6 +5134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -5196,6 +5205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -5253,6 +5263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -5353,6 +5364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}
@@ -5537,6 +5549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb67bab8b61430543a0085b50e60458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
   tileSize: 1
   followObject: {fileID: 0}
   followOffset: {x: 0, y: 0, z: 0}

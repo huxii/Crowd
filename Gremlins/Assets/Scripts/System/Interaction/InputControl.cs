@@ -219,7 +219,7 @@ public abstract class InputControl : MonoBehaviour
         //Debug.Log("Single click " + mouseClickObject + " " + mouseClickPos);
         if (autoFocusCameraEnabled)
         {
-            Services.gameController.FocusCamera(mouseClickPos);
+            Services.cameraController.Focus(mouseClickPos);
         }
 
         Services.eventManager.Fire(new ClickEvent(mouseClickObject, mouseClickPos));

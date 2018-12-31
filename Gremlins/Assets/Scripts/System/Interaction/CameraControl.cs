@@ -232,6 +232,15 @@ public class CameraControl : MonoBehaviour
         return zoomLevel != defaultZoomLevel;
     }
 
+    public void Focus(Vector3 pos)
+    {
+        float ratioX = Mathf.Clamp((pos.x - Services.navMeshMinBound.x) / (Services.navMeshMaxBound.x - Services.navMeshMinBound.x), 0, 1);
+        float ratioY = Mathf.Clamp((pos.y - Services.navMeshMinBound.y) / (Services.navMeshMaxBound.y - Services.navMeshMinBound.y), 0.5f, 1);
+        SetOrbit(-1, Mathf.Sin(ratioY * 90f / 180f * Mathf.PI));
+
+        //Debug.Log(pos + " " + Mathf.Sin(ratioY * 90f) + " " + ratioY);
+    }
+
     public void SetEnable(bool en)
     {
         enabled = en;

@@ -19,6 +19,13 @@ public static class Services
     public static GameEvents gameEvents = null;
     public static DotweenEvents dotweenEvents = null;
 
+    public static GameObject[] men = null;
+    public static GameObject menParentObj = null;
+
+    // nav mesh
+    public static Vector2 navMeshMinBound;
+    public static Vector2 navMeshMaxBound;
+
     public static void Init()
     {
         eventManager = new Crowd.EventManager();
@@ -91,6 +98,32 @@ public static class Services
         }
 
         utils = new Utils();
+
+        men = GameObject.FindGameObjectsWithTag("Man");
+        menParentObj = GameObject.Find("Actors");
+
+        navMeshMinBound = new Vector3(float.MaxValue, float.MaxValue);
+        navMeshMaxBound = new Vector3(-float.MaxValue, -float.MaxValue);
+        GameObject[] navs = GameObject.FindGameObjectsWithTag("Ground");
+        foreach (GameObject nav in navs)
+        {
+            Collider collider = nav.GetComponent<BoxCollider>();
+            if (collider != null)
+            {
+                Vector3 c_min = collider.bounds.min;
+                Vector3 c_max = collider.bounds.max;
+
+                navMeshMinBound = new Vector2(
+                    Mathf.Min(c_min.x, navMeshMinBound.x),
+                    Mathf.Min(c_min.y, navMeshMinBound.y)
+                    );
+
+                navMeshMaxBound = new Vector2(
+                    Mathf.Max(c_max.x, navMeshMaxBound.x),
+                    Mathf.Max(c_max.y, navMeshMaxBound.y)
+                    );
+            }
+        }
     }
 
     public static void Update()
@@ -115,5 +148,8 @@ public static class Services
         utils = null;
         gameEvents = null;
         dotweenEvents = null;
+
+        men = null;
+        menParentObj = null;
     }
 }
