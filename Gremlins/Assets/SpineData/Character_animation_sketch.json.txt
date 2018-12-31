@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "APpCQ5Ngzalki9M7+CNPq+5fIMs", "spine": "3.6.53", "width": 361.37, "height": 776.41, "images": "../dudeimages3/" },
+"skeleton": { "hash": "ZAEpEc/oniJr/v/dp4xPMveh/jk", "spine": "3.6.53", "width": 361.37, "height": 776.41, "images": "../dudeimages3/" },
 "bones": [
 	{ "name": "root", "x": -124.98, "y": 518.36 },
 	{ "name": "body2", "parent": "root", "length": 90.4, "rotation": 90, "x": 144.3, "y": -489.89 },
@@ -1191,7 +1191,7 @@
 					{ "time": 1.3333, "color": "ffffffff" },
 					{ "time": 1.4333, "color": "fbefe6ff" },
 					{ "time": 1.6667, "color": "f0c9ad00" },
-					{ "time": 2, "color": "ffffffff" }
+					{ "time": 2, "color": "ffffff00" }
 				]
 			}
 		},
