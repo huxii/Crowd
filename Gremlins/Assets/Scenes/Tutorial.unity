@@ -5131,11 +5131,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4566512411006030, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000051809312
+      value: -0.0000000051809304
       objectReference: {fileID: 0}
     - target: {fileID: 4566512411006030, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.99944615
+      objectReference: {fileID: 0}
+    - target: {fileID: 114481709400166676, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
+        type: 3}
+      propertyPath: m_XAxis.m_MinValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114481709400166676, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
+        type: 3}
+      propertyPath: m_XAxis.m_MaxValue
+      value: 360
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114029893651837534, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 3}
@@ -5243,7 +5253,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 1472036961}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 1
   antialiasingMode: 1
