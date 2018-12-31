@@ -32,6 +32,13 @@ BlackMark_mark3
   orig: 195, 232
   offset: 0, 0
   index: -1
+BusyMark
+  rotate: false
+  xy: 652, 589
+  size: 132, 132
+  orig: 132, 132
+  offset: 0, 0
+  index: -1
 arm_left
   rotate: true
   xy: 1419, 725
@@ -69,49 +76,49 @@ cheer_face_mark2
   index: -1
 cheer_jump_mark1
   rotate: false
-  xy: 659, 723
+  xy: 279, 723
   size: 378, 299
   orig: 378, 299
   offset: 0, 0
   index: -1
 cheer_jump_mark2
   rotate: false
-  xy: 1039, 723
+  xy: 659, 723
   size: 378, 299
   orig: 378, 299
   offset: 0, 0
   index: -1
 cheer_jump_mark3
   rotate: false
-  xy: 279, 723
+  xy: 1039, 723
   size: 378, 299
   orig: 378, 299
   offset: 0, 0
   index: -1
 ear_left
   rotate: false
-  xy: 801, 638
+  xy: 935, 638
   size: 154, 83
   orig: 154, 83
   offset: 0, 0
   index: -1
 ear_right
   rotate: false
-  xy: 957, 648
+  xy: 1091, 648
   size: 151, 73
   orig: 151, 73
   offset: 0, 0
   index: -1
 eyeBack_left
-  rotate: false
-  xy: 1110, 637
+  rotate: true
+  xy: 1352, 630
   size: 91, 84
   orig: 91, 84
   offset: 0, 0
   index: -1
 eyeBack_right
   rotate: false
-  xy: 1203, 645
+  xy: 1438, 647
   size: 84, 76
   orig: 84, 76
   offset: 0, 0
@@ -125,35 +132,35 @@ eyeBall_left
   index: -1
 eyeBall_right
   rotate: true
-  xy: 1864, 730
+  xy: 1696, 730
   size: 58, 73
   orig: 58, 73
   offset: 0, 0
   index: -1
 eyeClose_left
   rotate: false
-  xy: 1696, 739
+  xy: 1524, 674
   size: 84, 49
   orig: 84, 49
   offset: 0, 0
   index: -1
 eyeClose_right
   rotate: false
-  xy: 1782, 740
+  xy: 1771, 740
   size: 80, 48
   orig: 80, 48
   offset: 0, 0
   index: -1
 eyeSkin_left
-  rotate: true
-  xy: 414, 119
+  rotate: false
+  xy: 652, 486
   size: 109, 101
   orig: 109, 101
   offset: 0, 0
   index: -1
 eyeSkin_right
-  rotate: false
-  xy: 414, 11
+  rotate: true
+  xy: 1244, 621
   size: 100, 106
   orig: 100, 106
   offset: 0, 0
@@ -181,14 +188,14 @@ leg_right
   index: -1
 mouth
   rotate: false
-  xy: 652, 614
+  xy: 786, 614
   size: 147, 107
   orig: 147, 107
   offset: 0, 0
   index: -1
 nose
-  rotate: false
-  xy: 1289, 655
+  rotate: true
+  xy: 414, 2
   size: 92, 66
   orig: 92, 66
   offset: 0, 0
@@ -208,8 +215,8 @@ questionMark_mark
   offset: 0, 0
   index: -1
 tooth
-  rotate: false
-  xy: 652, 529
+  rotate: true
+  xy: 414, 96
   size: 132, 83
   orig: 132, 83
   offset: 0, 0
