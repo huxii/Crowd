@@ -36,7 +36,6 @@
 		{
 			//"LightMode" = "ForwardBase"
 			"RenderType" = "Opaque"
-			"IgnoreProjector" = "True"
 		}
 
 		CGPROGRAM
