@@ -67,8 +67,8 @@ Shader "Custom/Cutout_dynamic"
 			half2 uv = IN.uv_MainTex;
 			uv.y += _Offset;
 
-			half4 c0 = tex2D(_MainTex, IN.uv_MainTex);
-			half4 c1 = tex2D(_ReplaceTex, IN.uv_MainTex);
+			half4 c0 = tex2D(_MainTex, uv);
+			half4 c1 = tex2D(_ReplaceTex, uv);
 			half4 c = lerp(c0, c1, _ReplaceFactor);
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;

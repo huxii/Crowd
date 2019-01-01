@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Level0_cutout_rope
   m_Shader: {fileID: 4800000, guid: 5940a056dabe6694a831472834d97dd4, type: 3}
   m_ShaderKeywords: _BLENDMODE_ALPHACUTOUT
@@ -82,7 +83,7 @@ Material:
     - _MaxY: 20
     - _Metallic: 0
     - _MinX: -20
-    - _MinY: 9.3
+    - _MinY: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset: 0
