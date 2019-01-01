@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "fYyxp/t8gqvtxl1Xl9KArdwStFw", "spine": "3.6.53", "width": 361.37, "height": 776.41, "images": "../dudeimages3/" },
+"skeleton": { "hash": "CSZ3YWlfXkkxFQevRWt/DafNtxM", "spine": "3.6.53", "width": 361.37, "height": 776.41, "images": "../dudeimages3/" },
 "bones": [
 	{ "name": "root", "x": -124.98, "y": 518.36 },
 	{ "name": "body2", "parent": "root", "length": 90.4, "rotation": 90, "x": 144.3, "y": -489.89 },
@@ -6735,7 +6735,7 @@
 					{ "time": 0.3333, "x": 1, "y": 1 }
 				],
 				"shear": [
-					{ "time": 0.4667, "x": 0, "y": -180 }
+					{ "time": 0, "x": 0, "y": -180 }
 				]
 			},
 			"bone5": {
