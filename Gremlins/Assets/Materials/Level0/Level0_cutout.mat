@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Level0_cutout
   m_Shader: {fileID: 4800000, guid: d1605b3e0854642479d858a1083c6927, type: 3}
   m_ShaderKeywords: _BLENDMODE_ALPHACUTOUT
@@ -39,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LightRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4051b4aebf6b9f942978e56ede883a26, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:

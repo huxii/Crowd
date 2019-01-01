@@ -63,6 +63,7 @@ fixed4 frag_overlay(v2f In) : COLOR
 {
 	half4 base = tex2Dproj(_GrabTexture, In.screenPos);
 	float4 c = GetOverlayColor(base, _Color, _Color.a * In.color.a * _OverlayFactor) * _Intensity;
+	c.a *= In.color.a;
 
 	// Fade when near the camera
 	c.a *= saturate(In.screenPos.z * 0.2);
@@ -114,6 +115,7 @@ fixed4 frag_soft(v2f In) : COLOR
 {
 	half4 base = tex2Dproj(_GrabTexture, In.screenPos);
 	float4 c = GetSoftLightColor(base, _SoftLightColor, _SoftLightColor.a * In.color.a * _SoftLightFactor) * _SoftLightIntensity;
+	c.a *= In.color.a;
 
 	// Fade when near the camera
 	c.a *= saturate(In.screenPos.z * 0.2);
