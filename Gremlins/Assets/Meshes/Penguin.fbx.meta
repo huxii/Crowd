@@ -490,6 +490,13 @@ ModelImporter:
     100968: flag02
     100970: PulleyChain
     100972: FerrisWheelCarts
+    100974: Ballon2
+    100976: BallonLine0
+    100978: BallonLine1
+    100980: BallonLine2
+    100982: BallonModel0
+    100984: BallonModel1
+    100986: BallonModel2
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -977,6 +984,13 @@ ModelImporter:
     400968: flag02
     400970: PulleyChain
     400972: FerrisWheelCarts
+    400974: Ballon2
+    400976: BallonLine0
+    400978: BallonLine1
+    400980: BallonLine2
+    400982: BallonModel0
+    400984: BallonModel1
+    400986: BallonModel2
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -1372,6 +1386,12 @@ ModelImporter:
     2300780: flag00
     2300782: flag01
     2300784: flag02
+    2300786: BallonLine0
+    2300788: BallonLine1
+    2300790: BallonLine2
+    2300792: BallonModel0
+    2300794: BallonModel1
+    2300796: BallonModel2
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1765,6 +1785,12 @@ ModelImporter:
     3300780: flag00
     3300782: flag01
     3300784: flag02
+    3300786: BallonLine0
+    3300788: BallonLine1
+    3300790: BallonLine2
+    3300792: BallonModel0
+    3300794: BallonModel1
+    3300796: BallonModel2
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -2154,6 +2180,12 @@ ModelImporter:
     4300772: flag02
     4300774: flag00
     4300776: flag01
+    4300778: BallonLine0
+    4300780: BallonModel0
+    4300782: BallonLine1
+    4300784: BallonModel1
+    4300786: BallonLine2
+    4300788: BallonModel2
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -2189,6 +2221,7 @@ ModelImporter:
     globalScale: 0.01
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
@@ -2213,6 +2246,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 0
   copyAvatar: 0
   humanDescription:
