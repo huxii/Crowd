@@ -2885,7 +2885,7 @@ GameObject:
   - component: {fileID: 290602763}
   - component: {fileID: 290602765}
   - component: {fileID: 290602764}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Navmesh1
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -4790,11 +4790,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000003440883
+      value: 0.00000003440883
       objectReference: {fileID: 0}
     - target: {fileID: 4088495856581624, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 5.2021937e-10
+      value: -5.2021937e-10
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4802,11 +4802,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 2.601096e-10
+      value: -2.6010968e-10
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017204416
+      value: 0.000000017204416
       objectReference: {fileID: 0}
     - target: {fileID: 4183303692319196, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4843,11 +4843,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4566512411006030, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -2.3311328e-10
+      value: 0.0000000125020385
       objectReference: {fileID: 0}
     - target: {fileID: 4566512411006030, guid: d881bc8ccf6dfc44e8bb413b13aebaeb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 7.761931e-12
+      value: -4.1627243e-10
       objectReference: {fileID: 0}
     - target: {fileID: 114481709400166676, guid: d881bc8ccf6dfc44e8bb413b13aebaeb,
         type: 3}
@@ -5762,7 +5762,7 @@ GameObject:
   - component: {fileID: 568119792}
   - component: {fileID: 568119791}
   - component: {fileID: 568119790}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Navmesh5
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -14070,7 +14070,7 @@ GameObject:
   - component: {fileID: 1267805230}
   - component: {fileID: 1267805232}
   - component: {fileID: 1267805231}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Navmesh3
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -16338,7 +16338,7 @@ GameObject:
   - component: {fileID: 1565897404}
   - component: {fileID: 1565897406}
   - component: {fileID: 1565897405}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Navmesh2
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -16929,7 +16929,7 @@ GameObject:
   - component: {fileID: 1645062196}
   - component: {fileID: 1645062195}
   - component: {fileID: 1645062194}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Navmesh4
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -19524,7 +19524,7 @@ GameObject:
   - component: {fileID: 1887590293}
   - component: {fileID: 1887590292}
   - component: {fileID: 1887590291}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Navmesh0
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -20175,7 +20175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1971646618}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Navmeshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
