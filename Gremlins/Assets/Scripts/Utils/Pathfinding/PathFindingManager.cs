@@ -122,7 +122,7 @@ public abstract class PathFindingManager : MonoBehaviour
         newNavmesh.transform.SetParent(navmeshObj.transform);
         newNavmesh.transform.localPosition = new Vector3(0, 0, 0);
         newNavmesh.tag = "Ground";
-        newNavmesh.layer = 10;
+        newNavmesh.layer = 8;
         newNavmesh.AddComponent<BoxCollider>();
         newNavmesh.GetComponent<BoxCollider>().isTrigger = true;
         newNavmesh.AddComponent<Navmesh>();

@@ -19,6 +19,12 @@ public class ObjectZeroOneControl : ObjectControl
     public override void Click()
     {
         base.Click();
+        Charge();
+
+    }
+
+    public void Charge()
+    {
         if (IsActivated())
         {
             Deactivate();

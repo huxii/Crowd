@@ -20,10 +20,10 @@ TagManager:
   - 
   - NavMesh
   - HiddenInScene
-  - Inner
-  - Outer
-  - NoPP
   - GridProjector
+  - 
+  - 
+  - 
   - 
   - 
   - 
