@@ -31,6 +31,7 @@ inline half4 LightingToonCutout(SurfaceCustomOutput s, half3 lightDir, half3 vie
 	half NdotL = dot(s.Normal, lightDir);
 	half lighting = min(0.95, max(0.05, atten * NdotL));
 	half3 lightRamp = tex2D(_LightRamp, float2(lighting, 0)).rgb;
+	half4 shadowColor = lerp(GetSoftLightColor(half4(s.Albedo, 1.0), half4(1, 1, 1, 1), 1.0), half4(1, 1, 1, 1), lightRamp.r);
 
 	// rim
 	half rim = 1.0f - saturate(dot(s.Normal, viewDir));
@@ -40,7 +41,7 @@ inline half4 LightingToonCutout(SurfaceCustomOutput s, half3 lightDir, half3 vie
 
 	// final
 	half4 c;
-	c.rgb = s.Albedo * lightRamp + UNITY_LIGHTMODEL_AMBIENT.rgb + rimLight.rgb;
+	c.rgb = s.Albedo * shadowColor.rgb + UNITY_LIGHTMODEL_AMBIENT.rgb + rimLight.rgb;
 	c.a = s.Alpha;
 
 	return c;
@@ -52,6 +53,7 @@ inline half4 LightingToon(SurfaceCustomOutput s, half3 lightDir, half3 viewDir, 
 	half NdotL = dot(s.Normal, lightDir);
 	half lighting = min(0.95, max(0.05, atten * NdotL));
 	half3 lightRamp = tex2D(_LightRamp, float2(lighting, 0)).rgb;
+	half4 shadowColor = lerp(GetSoftLightColor(half4(s.Albedo, 1.0), half4(1, 1, 1, 1), 1.0), half4(1, 1, 1, 1), lightRamp.r);
 
 	// specular
 	fixed3 h = normalize(lightDir + viewDir);
@@ -66,7 +68,7 @@ inline half4 LightingToon(SurfaceCustomOutput s, half3 lightDir, half3 viewDir, 
 
 	// final
 	half4 c;
-	c.rgb = (s.Albedo * s.Ao * lightRamp * _LightColor0.rgb + _LightColor0 * spec + rimLight.rgb);
+	c.rgb = (s.Albedo * s.Ao * shadowColor.rgb * _LightColor0.rgb + _LightColor0 * spec + rimLight.rgb);
 	c.a = s.Alpha;
 
 	return c;
@@ -78,6 +80,7 @@ inline half4 LightingToonOverlay(SurfaceCustomOutput s, half3 lightDir, half3 vi
 	half NdotL = dot(s.Normal, lightDir);
 	half lighting = min(0.95, max(0.05, atten * NdotL));
 	half3 lightRamp = tex2D(_LightRamp, float2(lighting, 0)).rgb;
+	half4 shadowColor = lerp(GetSoftLightColor(half4(s.Albedo, 1.0), half4(1, 1, 1, 1), 1.0), half4(1, 1, 1, 1), lightRamp.r);
 
 	// specular
 	fixed3 h = normalize(lightDir + viewDir);
@@ -92,7 +95,7 @@ inline half4 LightingToonOverlay(SurfaceCustomOutput s, half3 lightDir, half3 vi
 
 	// final
 	half4 c;
-	c.rgb = (s.Albedo * s.Ao * lightRamp * _LightColor0.rgb + _LightColor0 * spec + rimLight.rgb);
+	c.rgb = (s.Albedo * s.Ao * shadowColor.rgb * _LightColor0.rgb + _LightColor0 * spec + rimLight.rgb);
 	c.a = s.Alpha;
 
 	return c;
