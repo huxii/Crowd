@@ -56,6 +56,98 @@ ModelImporter:
     100100: group1
     100102: Stair10
     100104: Stair9
+    100106: Board0
+    100108: Board1
+    100110: Board3
+    100112: Buckle
+    100114: Buckle1
+    100116: BuckleBase
+    100118: BuckleBase1
+    100120: BuckleKnot
+    100122: BuckleKnot1
+    100124: BuckleNail
+    100126: BuckleNail1
+    100128: Bulb1
+    100130: Bulb2
+    100132: Cable0
+    100134: Cable1
+    100136: Cable2
+    100138: Cable3
+    100140: CableSkin
+    100142: CableSkin 1
+    100144: CableSkin2
+    100146: CableSkin3
+    100148: CableWire
+    100150: CableWire 1
+    100152: CableWire2
+    100154: CableWire3
+    100156: Floor0
+    100158: FrontShell
+    100160: Ladder
+    100162: Stairs0
+    100164: Stairs1
+    100166: Stairs2
+    100168: Stairs3
+    100170: Stairs4
+    100172: Stairs5
+    100174: Tube
+    100176: Tube1
+    100178: Tube2
+    100180: Switch
+    100182: BackShell
+    100184: BackShellModel
+    100186: FrontShellModel
+    100188: Base
+    100190: CircleButton0
+    100192: CircleButton1
+    100194: CircleButton2
+    100196: CircleButton3
+    100198: CrossButton
+    100200: GameCard
+    100202: SelectButton
+    100204: StartButton
+    100206: VolumeButton
+    100208: BlackBoard
+    100210: Chair
+    100212: Chip
+    100214: ChipBase
+    100216: Classroom
+    100218: Element0
+    100220: Element1
+    100222: ElementBase0
+    100224: ElementBase0 1
+    100226: ElementFoot0
+    100228: ElementFoot0 1
+    100230: ElementFoot1
+    100232: ElementFoot1 1
+    100234: Feet0
+    100236: Feet1
+    100238: Feet2
+    100240: Feet3
+    100242: Foot0
+    100244: Foot0 1
+    100246: Foot0 2
+    100248: Foot0 3
+    100250: Foot1
+    100252: Foot1 1
+    100254: Foot1 2
+    100256: Foot1 3
+    100258: Foot2
+    100260: Foot2 1
+    100262: Foot2 2
+    100264: Foot2 3
+    100266: Foot3
+    100268: Foot3 1
+    100270: Foot3 2
+    100272: Foot3 3
+    100274: Foot4
+    100276: Foot4 1
+    100278: Foot4 2
+    100280: Foot4 3
+    100282: Foot5
+    100284: Foot5 1
+    100286: Foot5 2
+    100288: Foot5 3
     400000: Back
     400002: Box
     400004: Handle
@@ -109,6 +201,98 @@ ModelImporter:
     400100: group1
     400102: Stair10
     400104: Stair9
+    400106: Board0
+    400108: Board1
+    400110: Board3
+    400112: Buckle
+    400114: Buckle1
+    400116: BuckleBase
+    400118: BuckleBase1
+    400120: BuckleKnot
+    400122: BuckleKnot1
+    400124: BuckleNail
+    400126: BuckleNail1
+    400128: Bulb1
+    400130: Bulb2
+    400132: Cable0
+    400134: Cable1
+    400136: Cable2
+    400138: Cable3
+    400140: CableSkin
+    400142: CableSkin 1
+    400144: CableSkin2
+    400146: CableSkin3
+    400148: CableWire
+    400150: CableWire 1
+    400152: CableWire2
+    400154: CableWire3
+    400156: Floor0
+    400158: FrontShell
+    400160: Ladder
+    400162: Stairs0
+    400164: Stairs1
+    400166: Stairs2
+    400168: Stairs3
+    400170: Stairs4
+    400172: Stairs5
+    400174: Tube
+    400176: Tube1
+    400178: Tube2
+    400180: Switch
+    400182: BackShell
+    400184: BackShellModel
+    400186: FrontShellModel
+    400188: Base
+    400190: CircleButton0
+    400192: CircleButton1
+    400194: CircleButton2
+    400196: CircleButton3
+    400198: CrossButton
+    400200: GameCard
+    400202: SelectButton
+    400204: StartButton
+    400206: VolumeButton
+    400208: BlackBoard
+    400210: Chair
+    400212: Chip
+    400214: ChipBase
+    400216: Classroom
+    400218: Element0
+    400220: Element1
+    400222: ElementBase0
+    400224: ElementBase0 1
+    400226: ElementFoot0
+    400228: ElementFoot0 1
+    400230: ElementFoot1
+    400232: ElementFoot1 1
+    400234: Feet0
+    400236: Feet1
+    400238: Feet2
+    400240: Feet3
+    400242: Foot0
+    400244: Foot0 1
+    400246: Foot0 2
+    400248: Foot0 3
+    400250: Foot1
+    400252: Foot1 1
+    400254: Foot1 2
+    400256: Foot1 3
+    400258: Foot2
+    400260: Foot2 1
+    400262: Foot2 2
+    400264: Foot2 3
+    400266: Foot3
+    400268: Foot3 1
+    400270: Foot3 2
+    400272: Foot3 3
+    400274: Foot4
+    400276: Foot4 1
+    400278: Foot4 2
+    400280: Foot4 3
+    400282: Foot5
+    400284: Foot5 1
+    400286: Foot5 2
+    400288: Foot5 3
     2100000: lambert1
     2100002: Level1_InnerMat
     2100004: Level0_InnerMat
@@ -149,6 +333,83 @@ ModelImporter:
     2300068: Floor4
     2300070: Stair10
     2300072: Stair9
+    2300074: Board0
+    2300076: Board1
+    2300078: Board3
+    2300080: BuckleBase
+    2300082: BuckleBase1
+    2300084: BuckleKnot
+    2300086: BuckleKnot1
+    2300088: BuckleNail
+    2300090: BuckleNail1
+    2300092: Bulb1
+    2300094: Bulb2
+    2300096: CableSkin
+    2300098: CableSkin 1
+    2300100: CableSkin2
+    2300102: CableSkin3
+    2300104: CableWire
+    2300106: CableWire 1
+    2300108: CableWire2
+    2300110: CableWire3
+    2300112: Floor0
+    2300114: FrontShell
+    2300116: LogModel
+    2300118: Stairs0
+    2300120: Stairs1
+    2300122: Stairs2
+    2300124: Stairs3
+    2300126: Stairs4
+    2300128: Stairs5
+    2300130: Tube
+    2300132: Tube1
+    2300134: Tube2
+    2300136: Switch
+    2300138: BackShellModel
+    2300140: FrontShellModel
+    2300142: Base
+    2300144: CircleButton0
+    2300146: CircleButton1
+    2300148: CircleButton2
+    2300150: CircleButton3
+    2300152: CrossButton
+    2300154: GameCard
+    2300156: SelectButton
+    2300158: StartButton
+    2300160: VolumeButton
+    2300162: BlackBoard
+    2300164: Chair
+    2300166: ChipBase
+    2300168: ElementBase0
+    2300170: ElementBase0 1
+    2300172: ElementFoot0
+    2300174: ElementFoot0 1
+    2300176: ElementFoot1
+    2300178: ElementFoot1 1
+    2300180: Foot0
+    2300182: Foot0 1
+    2300184: Foot0 2
+    2300186: Foot0 3
+    2300188: Foot1
+    2300190: Foot1 1
+    2300192: Foot1 2
+    2300194: Foot1 3
+    2300196: Foot2
+    2300198: Foot2 1
+    2300200: Foot2 2
+    2300202: Foot2 3
+    2300204: Foot3
+    2300206: Foot3 1
+    2300208: Foot3 2
+    2300210: Foot3 3
+    2300212: Foot4
+    2300214: Foot4 1
+    2300216: Foot4 2
+    2300218: Foot4 3
+    2300220: Foot5
+    2300222: Foot5 1
+    2300224: Foot5 2
+    2300226: Foot5 3
     3300000: Back
     3300002: Box
     3300004: Handle
@@ -186,6 +447,83 @@ ModelImporter:
     3300068: Floor4
     3300070: Stair10
     3300072: Stair9
+    3300074: Board0
+    3300076: Board1
+    3300078: Board3
+    3300080: BuckleBase
+    3300082: BuckleBase1
+    3300084: BuckleKnot
+    3300086: BuckleKnot1
+    3300088: BuckleNail
+    3300090: BuckleNail1
+    3300092: Bulb1
+    3300094: Bulb2
+    3300096: CableSkin
+    3300098: CableSkin 1
+    3300100: CableSkin2
+    3300102: CableSkin3
+    3300104: CableWire
+    3300106: CableWire 1
+    3300108: CableWire2
+    3300110: CableWire3
+    3300112: Floor0
+    3300114: FrontShell
+    3300116: LogModel
+    3300118: Stairs0
+    3300120: Stairs1
+    3300122: Stairs2
+    3300124: Stairs3
+    3300126: Stairs4
+    3300128: Stairs5
+    3300130: Tube
+    3300132: Tube1
+    3300134: Tube2
+    3300136: Switch
+    3300138: BackShellModel
+    3300140: FrontShellModel
+    3300142: Base
+    3300144: CircleButton0
+    3300146: CircleButton1
+    3300148: CircleButton2
+    3300150: CircleButton3
+    3300152: CrossButton
+    3300154: GameCard
+    3300156: SelectButton
+    3300158: StartButton
+    3300160: VolumeButton
+    3300162: BlackBoard
+    3300164: Chair
+    3300166: ChipBase
+    3300168: ElementBase0
+    3300170: ElementBase0 1
+    3300172: ElementFoot0
+    3300174: ElementFoot0 1
+    3300176: ElementFoot1
+    3300178: ElementFoot1 1
+    3300180: Foot0
+    3300182: Foot0 1
+    3300184: Foot0 2
+    3300186: Foot0 3
+    3300188: Foot1
+    3300190: Foot1 1
+    3300192: Foot1 2
+    3300194: Foot1 3
+    3300196: Foot2
+    3300198: Foot2 1
+    3300200: Foot2 2
+    3300202: Foot2 3
+    3300204: Foot3
+    3300206: Foot3 1
+    3300208: Foot3 2
+    3300210: Foot3 3
+    3300212: Foot4
+    3300214: Foot4 1
+    3300216: Foot4 2
+    3300218: Foot4 3
+    3300220: Foot5
+    3300222: Foot5 1
+    3300224: Foot5 2
+    3300226: Foot5 3
     4300000: Box
     4300002: Level1:Back
     4300004: Level1:Stair1
@@ -223,6 +561,83 @@ ModelImporter:
     4300068: Floor4
     4300070: Stair9
     4300072: Stair10
+    4300074: FrontShell
+    4300076: Board1
+    4300078: Bulb1
+    4300080: Bulb2
+    4300082: CableSkin2
+    4300084: CableWire2
+    4300086: Board0
+    4300088: CableSkin3
+    4300090: CableWire3
+    4300092: Board3
+    4300094: LogModel
+    4300096: Stairs0
+    4300098: Stairs1
+    4300100: Stairs2
+    4300102: Stairs3
+    4300104: Stairs4
+    4300106: Stairs5
+    4300108: Floor0
+    4300110: Tube
+    4300112: Tube1
+    4300114: Tube2
+    4300116: CableSkin
+    4300118: CableWire
+    4300120: CableSkin
+    4300122: CableWire
+    4300124: BuckleBase1
+    4300126: BuckleKnot1
+    4300128: BuckleNail1
+    4300130: BuckleBase
+    4300132: BuckleKnot
+    4300134: BuckleNail
+    4300136: Switch
+    4300138: BackShellModel
+    4300140: FrontShellModel
+    4300142: CrossButton
+    4300144: Base
+    4300146: SelectButton
+    4300148: StartButton
+    4300150: CircleButton3
+    4300152: CircleButton2
+    4300154: CircleButton1
+    4300156: CircleButton0
+    4300158: VolumeButton
+    4300160: GameCard
+    4300162: Chair
+    4300164: BlackBoard
+    4300166: ElementBase0
+    4300168: ElementFoot0
+    4300170: ElementFoot1
+    4300172: ElementBase0
+    4300174: ElementFoot0
+    4300176: ElementFoot1
+    4300178: ChipBase
+    4300180: Foot0
+    4300182: Foot1
+    4300184: Foot2
+    4300186: Foot3
+    4300188: Foot4
+    4300190: Foot5
+    4300192: Foot0
+    4300194: Foot1
+    4300196: Foot2
+    4300198: Foot3
+    4300200: Foot4
+    4300202: Foot5
+    4300204: Foot0
+    4300206: Foot1
+    4300208: Foot2
+    4300210: Foot3
+    4300212: Foot4
+    4300214: Foot5
+    4300216: Foot0
+    4300218: Foot1
+    4300220: Foot2
+    4300222: Foot3
+    4300224: Foot4
+    4300226: Foot5
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -257,6 +672,7 @@ ModelImporter:
     globalScale: 0.01
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
@@ -281,6 +697,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 0
   copyAvatar: 0
   humanDescription:
