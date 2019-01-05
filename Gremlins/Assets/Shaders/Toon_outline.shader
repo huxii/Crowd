@@ -57,7 +57,7 @@
 		CGPROGRAM
 		#include "ToonUtils.cginc"
 
-		#pragma surface surf ToonOverlay vertex:vert addshadow
+		#pragma surface surf Toon vertex:vert addshadow
 		#pragma target 3.0
 
 		uniform sampler2D _MainTex;

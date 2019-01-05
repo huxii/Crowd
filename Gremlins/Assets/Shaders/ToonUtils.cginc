@@ -1,5 +1,3 @@
-#include "AutoLight.cginc"
-#include "UnityCG.cginc"
 #include "Utils.cginc"
 
 uniform sampler2D _LightRamp;
@@ -25,23 +23,39 @@ struct SurfaceCustomOutput
 	fixed3 Ao;
 };
 
-inline half4 LightingToonCutout(SurfaceCustomOutput s, half3 lightDir, half3 viewDir, half atten)
+inline half4 CaculateShadow(half3 albedo, half3 normal, half3 lightDir, half atten)
 {
-	// light ramp
-	half NdotL = dot(s.Normal, lightDir);
+	half NdotL = dot(normal, lightDir);
 	half lighting = min(0.95, max(0.05, atten * NdotL));
 	half3 lightRamp = tex2D(_LightRamp, float2(lighting, 0)).rgb;
-	half4 shadowColor = lerp(GetSoftLightColor(half4(s.Albedo, 1.0), half4(1, 1, 1, 1), 1.0), half4(1, 1, 1, 1), lightRamp.r);
+	half4 shadowColor = lerp(GetSoftLightColor(half4(albedo, 1.0), half4(1, 1, 1, 1), 1.0), half4(1, 1, 1, 1), lightRamp.r);
+	return shadowColor;
+}
 
-	// rim
-	half rim = 1.0f - saturate(dot(s.Normal, viewDir));
+inline half CaculateSpec(half specular, half gloss, half3 normal, half3 lightDir, half3 viewDir)
+{
+	fixed3 h = normalize(lightDir + viewDir);
+	float nh = max(0, dot(normal, h));
+	float spec = max(0.0, min(1.0, pow(nh, gloss * 128) * specular));
+	return spec;
+}
+
+inline half4 CaculateRim(half3 normal, half3 lightDir, half3 viewDir, half atten)
+{
+	half rim = 1.0f - saturate(dot(normal, viewDir));
 	half4 rimLight = atten * _LightColor0 * _RimColor *
-		saturate(dot(s.Normal, lightDir)) *
+		saturate(dot(normal, lightDir)) *
 		pow(rim, _RimPower);
+	return rimLight;
+}
+
+inline half4 LightingToonCutout(SurfaceCustomOutput s, half3 lightDir, half3 viewDir, half atten)
+{
+	half4 shadowColor = CaculateShadow(s.Albedo, s.Normal, lightDir, atten);
 
 	// final
 	half4 c;
-	c.rgb = s.Albedo * shadowColor.rgb + UNITY_LIGHTMODEL_AMBIENT.rgb + rimLight.rgb;
+	c.rgb = s.Albedo * shadowColor.rgb + UNITY_LIGHTMODEL_AMBIENT.rgb;
 	c.a = s.Alpha;
 
 	return c;
@@ -49,49 +63,9 @@ inline half4 LightingToonCutout(SurfaceCustomOutput s, half3 lightDir, half3 vie
 
 inline half4 LightingToon(SurfaceCustomOutput s, half3 lightDir, half3 viewDir, half atten)
 {
-	// light ramp
-	half NdotL = dot(s.Normal, lightDir);
-	half lighting = min(0.95, max(0.05, atten * NdotL));
-	half3 lightRamp = tex2D(_LightRamp, float2(lighting, 0)).rgb;
-	half4 shadowColor = lerp(GetSoftLightColor(half4(s.Albedo, 1.0), half4(1, 1, 1, 1), 1.0), half4(1, 1, 1, 1), lightRamp.r);
-
-	// specular
-	fixed3 h = normalize(lightDir + viewDir);
-	float nh = max(0, dot(s.Normal, h));
-	float spec = max(0.0, min(1.0, pow(nh, s.Gloss * 128) * s.Specular));
-
-	// rim
-	half rim = 1.0f - saturate(dot(s.Normal, viewDir));
-	half4 rimLight = atten * _LightColor0 * _RimColor *
-		saturate(dot(s.Normal, lightDir)) *
-		pow(rim, _RimPower);
-
-	// final
-	half4 c;
-	c.rgb = (s.Albedo * s.Ao * shadowColor.rgb * _LightColor0.rgb + _LightColor0 * spec + rimLight.rgb);
-	c.a = s.Alpha;
-
-	return c;
-}
-
-inline half4 LightingToonOverlay(SurfaceCustomOutput s, half3 lightDir, half3 viewDir, half atten)
-{
-	// light ramp
-	half NdotL = dot(s.Normal, lightDir);
-	half lighting = min(0.95, max(0.05, atten * NdotL));
-	half3 lightRamp = tex2D(_LightRamp, float2(lighting, 0)).rgb;
-	half4 shadowColor = lerp(GetSoftLightColor(half4(s.Albedo, 1.0), half4(1, 1, 1, 1), 1.0), half4(1, 1, 1, 1), lightRamp.r);
-
-	// specular
-	fixed3 h = normalize(lightDir + viewDir);
-	float nh = max(0, dot(s.Normal, h));
-	float spec = max(0.0, min(1.0, pow(nh, s.Gloss * 128) * s.Specular));
-
-	// rim
-	half rim = 1.0f - saturate(dot(s.Normal, viewDir));
-	half4 rimLight = atten * _LightColor0 * _RimColor *
-		saturate(dot(s.Normal, lightDir)) *
-		pow(rim, _RimPower);
+	half4 shadowColor = CaculateShadow(s.Albedo, s.Normal, lightDir, atten);
+	half spec = CaculateSpec(s.Specular, s.Gloss, s.Normal, lightDir, viewDir);
+	half4 rimLight = CaculateRim(s.Normal, lightDir, viewDir, atten);
 
 	// final
 	half4 c;
