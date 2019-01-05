@@ -148,6 +148,7 @@ ModelImporter:
     100284: Foot5 1
     100286: Foot5 2
     100288: Foot5 3
+    100290: LadderBase
     400000: Back
     400002: Box
     400004: Handle
@@ -293,6 +294,7 @@ ModelImporter:
     400284: Foot5 1
     400286: Foot5 2
     400288: Foot5 3
+    400290: LadderBase
     2100000: lambert1
     2100002: Level1_InnerMat
     2100004: Level0_InnerMat
@@ -410,6 +412,7 @@ ModelImporter:
     2300222: Foot5 1
     2300224: Foot5 2
     2300226: Foot5 3
+    2300228: LadderBase
     3300000: Back
     3300002: Box
     3300004: Handle
@@ -524,6 +527,7 @@ ModelImporter:
     3300222: Foot5 1
     3300224: Foot5 2
     3300226: Foot5 3
+    3300228: LadderBase
     4300000: Box
     4300002: Level1:Back
     4300004: Level1:Stair1
@@ -638,6 +642,7 @@ ModelImporter:
     4300222: Foot3
     4300224: Foot4
     4300226: Foot5
+    4300228: LadderBase
   externalObjects: {}
   materials:
     importMaterials: 0

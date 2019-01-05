@@ -100,7 +100,7 @@ Shader "Hidden/WaterColorFilter" {
 
 				fixed4 grad = abs(src_r - src_l) + abs(src_b - src_t);
 				float intens = saturate(0.333 * (grad.x + grad.y + grad.z));
-				float d = _EdgePower * intens + 1;
+				float d = _EdgePower * _ScreenParams.y * _ScreenParams.z / 1000 * intens + 1;
 				return ColorMod(src, d);
 			}
 			ENDCG
