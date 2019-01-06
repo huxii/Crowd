@@ -85,7 +85,7 @@ Material:
     - _Parallax: 0.02
     - _ReplaceFactor: 0
     - _RimPower: 3
-    - _ScaleX: 1
+    - _ScaleX: 0.3
     - _ScaleY: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
