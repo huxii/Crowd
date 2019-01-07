@@ -25,7 +25,7 @@ using UnityEngine;
 
 public abstract class ActorControl : MonoBehaviour
 {
-    public InteractableFeedbackBehavior feedbackController = null;
+    protected ActorFeedbackBehavior feedbackController = null;
 
     // 1. men can't move    2. props/objects can't activate
     [SerializeField]

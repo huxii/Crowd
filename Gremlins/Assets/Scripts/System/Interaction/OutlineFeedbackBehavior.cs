@@ -1,15 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-public abstract class InteractableFeedbackBehavior : MonoBehaviour
+public abstract class OutlineFeedbackBehavior : ActorFeedbackBehavior
 {    
-    // the reaction when player interacts with it
-    // eg. model bounces a little bit
-    public UnityEvent onInteractionFeedback;
     //public Vector3 progressBarPosOffset = new Vector3(0, 0, 0);
-
     public float outlineWidth = 0.4f;
     public GameObject targetObj;
 
@@ -31,23 +26,12 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Init();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-    }
-
-    protected void Init()
-    {
-        GetComponent<ActorControl>().feedbackController = this;
-        foreach (Material mat in mats)
-        {
-            mat.SetFloat(OVERLAY_FACTOR_STRING, overlayFactor);
-            mat.SetFloat(OUTLINE_FACTOR_STRING, outlineFactor);
-        }
     }
 
     protected void UpdateFactors()
@@ -122,12 +106,6 @@ public abstract class InteractableFeedbackBehavior : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void OnInteract()
-    {
-        onInteractionFeedback.Invoke();
-        Breathe(1);
     }
 
     public void OnStateChange(PropControl.PropState state)

@@ -9,6 +9,12 @@ using UnityEngine.Events;
 
 public abstract class ObjectControl : InteractableControl
 {
+    public ObjectFeedbackBehavior ObjectFeedbackController
+    {
+        get { return (ObjectFeedbackBehavior)feedbackController; }
+        set { feedbackController = value; }
+    }
+
     // Use this for initialization
     void Start ()
     {       
@@ -25,5 +31,15 @@ public abstract class ObjectControl : InteractableControl
     public virtual bool IsDragOverride()
     {
         return true;
+    }
+
+    public void Interact()
+    {
+        if (feedbackController != null)
+        {
+            feedbackController.OnInteract();
+        }
+
+        Click();
     }
 }

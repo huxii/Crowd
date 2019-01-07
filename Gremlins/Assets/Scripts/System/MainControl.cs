@@ -73,15 +73,17 @@ public class MainControl : MonoBehaviour
             obj.GetComponent<PropControl>().ReadySlot(slotId, man);
             man.GetComponent<CrowdControl>().SwitchState(obj.GetComponent<PropControl>().changeState);
 
-            if (obj.GetComponent<PropControl>().IsReady())
+            if (obj.GetComponent<PropControl>().PropFeedbackController != null && obj.GetComponent<PropControl>().IsReady())
             {
-                obj.GetComponent<PropControl>().feedbackController.OnStateChange(PropControl.PropState.FULL);
+                obj.GetComponent<PropControl>().PropFeedbackController.OnStateChange(PropControl.PropState.FULL);
                 foreach (PropControl.SlotAttr slot in obj.GetComponent<PropControl>().slots)
                 {
-                    slot.man.GetComponent<CrowdControl>().feedbackController.OnStateChange(PropControl.PropState.FULL);
+                    if (slot.man.GetComponent<CrowdControl>().CrowdFeedbackController != null)
+                    {
+                        slot.man.GetComponent<CrowdControl>().CrowdFeedbackController.OnStateChange(PropControl.PropState.FULL);
+                    }
                 }
-            }
-            
+            }            
         }
         else
         {
@@ -99,8 +101,14 @@ public class MainControl : MonoBehaviour
         man.GetComponent<CrowdControl>().SetWorkingObject(obj, slotId);
         obj.GetComponent<PropControl>().PlanSlot(man, slotId);
 
-        man.GetComponent<CrowdControl>().feedbackController.Breathe();
-        obj.GetComponent<PropControl>().feedbackController.Breathe();
+        if (man.GetComponent<CrowdControl>().CrowdFeedbackController != null)
+        {
+            man.GetComponent<CrowdControl>().CrowdFeedbackController.Breathe();
+        }
+        if (obj.GetComponent<PropControl>().PropFeedbackController != null)
+        {
+            obj.GetComponent<PropControl>().PropFeedbackController.Breathe();
+        }
     }
 
     void OnManLeavesFromObj(Crowd.Event e)
@@ -126,14 +134,21 @@ public class MainControl : MonoBehaviour
         man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
         obj.GetComponent<PropControl>().FreeSlot(slotId);
 
-        man.GetComponent<CrowdControl>().feedbackController.OnStateChange(PropControl.PropState.EMPTY);
-        if (obj.GetComponent<PropControl>().IsEmpty())
+        if (man.GetComponent<CrowdControl>().CrowdFeedbackController != null)
         {
-            obj.GetComponent<PropControl>().feedbackController.OnStateChange(PropControl.PropState.EMPTY);
+            man.GetComponent<CrowdControl>().CrowdFeedbackController.OnStateChange(PropControl.PropState.EMPTY);
         }
-        else
+
+        if (obj.GetComponent<PropControl>().PropFeedbackController != null)
         {
-            obj.GetComponent<PropControl>().feedbackController.OnStateChange(PropControl.PropState.NOTFULL);
+            if (obj.GetComponent<PropControl>().IsEmpty())
+            {
+                obj.GetComponent<PropControl>().PropFeedbackController.OnStateChange(PropControl.PropState.EMPTY);
+            }
+            else
+            {
+                obj.GetComponent<PropControl>().PropFeedbackController.OnStateChange(PropControl.PropState.NOTFULL);
+            }
         }
 
         man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.IDLE);
@@ -146,7 +161,7 @@ public class MainControl : MonoBehaviour
             return;
         }
 
-        obj.GetComponent<ObjectControl>().Click();
+        obj.GetComponent<ObjectControl>().Interact();
     }
 
     public void InteractMen(GameObject obj, Vector3 pos)

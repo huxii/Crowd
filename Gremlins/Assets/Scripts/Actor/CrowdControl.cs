@@ -12,6 +12,12 @@ using BehaviorTree;
 
 public class CrowdControl : ActorControl
 {
+    public CrowdFeedbackBehavior CrowdFeedbackController
+    {
+        get { return (CrowdFeedbackBehavior)feedbackController; }
+        set { feedbackController = value; }
+    }
+
     public enum CrowdState
     {
         IDLE,
