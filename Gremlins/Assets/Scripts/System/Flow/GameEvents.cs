@@ -150,7 +150,7 @@ public class GameEvents : CustomEvents
 
         Vector3 pos = ParseIncrement();
 
-        Services.gameController.SetManTargetPosition(actor, pos, 0.1f);
+        SetManTargetPosition(actor, pos, 0.1f);
     }
 
     public void MakeFloatMan(GameObject man, float height = 2f)
@@ -269,4 +269,278 @@ public class GameEvents : CustomEvents
         }
         Services.soundController.Play("levelEnd");
     }
+
+    public void InteractObject(GameObject obj)
+    {
+        if (!obj.GetComponent<ObjectControl>() || obj.GetComponent<ObjectControl>().IsCoolingDown())
+        {
+            return;
+        }
+
+        obj.GetComponent<ObjectControl>().Interact();
+    }
+
+    public void InteractMen(GameObject obj, Vector3 pos)
+    {
+        if (!obj.GetComponent<PropControl>() || obj.GetComponent<PropControl>().IsCoolingDown())
+        {
+            return;
+        }
+
+        PropControl.PropState propState = obj.GetComponent<PropControl>().Interact();
+        if (propState == PropControl.PropState.NOTFULL || propState == PropControl.PropState.EMPTY)
+        {
+            SortedDictionary<float, GameObject> sortByDistance = new SortedDictionary<float, GameObject>();
+            foreach (GameObject man in Services.men)
+            {
+                if (man.GetComponent<CrowdControl>().IsBusy() || man.GetComponent<CrowdControl>().IsLocked())
+                {
+                    man.GetComponent<CrowdControl>().OrderBusy();
+                    continue;
+                }
+
+                sortByDistance.Add(Vector3.Distance(man.transform.position, obj.transform.position), man);
+            }
+
+            if (sortByDistance.Count != 0)
+            {
+                //Services.footprintsManager.ClearLastFootprints();
+                //Services.footprintsManager.Clear();
+
+                foreach (KeyValuePair<float, GameObject> pair in sortByDistance)
+                {
+                    GameObject man = pair.Value;
+                    int slotId = obj.GetComponent<PropControl>().FindEmptySlot();
+                    if (slotId == -1)
+                    {
+                        return;
+                    }
+
+                    MoveManToObject(man, obj, slotId, 0.1f);
+                }
+
+                //Services.footprintsManager.Generate();
+            }
+            else
+            {
+                // no any avaliable men, release all the man to avoid dead lock
+                obj.GetComponent<PropControl>().FreeAllMen();
+            }
+        }
+        else
+        if (propState == PropControl.PropState.FULL)
+        {
+            obj.GetComponent<PropControl>().FreeAllMen();
+        }
+        else
+        if (propState == PropControl.PropState.PATH)
+        {
+            MoveMenToPosition(pos);
+        }
+        else
+        if (propState == PropControl.PropState.DISABLE)
+        {
+            foreach (GameObject man in Services.men)
+            {
+                if (!man.GetComponent<CrowdControl>().IsBusy())
+                {
+                    man.GetComponent<CrowdControl>().OrderFailed();
+                }
+            }
+        }
+    }
+
+    public void FreeMan(GameObject man)
+    {
+        if (man.GetComponent<CrowdControl>().IsLocked())
+        {
+            man.GetComponent<CrowdControl>().OrderFailed();
+            return;
+        }
+
+        GameObject obj = man.GetComponent<CrowdControl>().GetWorkingObject();
+        if (obj == null)
+        {
+            return;
+        }
+
+        Vector3 targetPos = obj.GetComponent<PropControl>().GetFreeManSlotPos();
+        //UnboundMan(man);
+        //MoveManTo(man, targetPos, 0.1f);
+        //Services.footprintsManager.Clear();
+        //Services.footprintsManager.ClearLastFootprints();
+
+        MoveManToPosition(man, targetPos, 0.2f);
+
+        //Services.footprintsManager.Generate();
+    }
+
+    public void UnboundMan(GameObject man)
+    {
+        Services.eventManager.Fire(new ManLeavesFromObj(man));
+    }
+
+    public void ImmediateUnboundMan(GameObject man, GameObject obj, int slotId)
+    {
+        Services.eventManager.Fire(new ManLeavesFromObj(man, obj, slotId));
+
+        Services.pathFindingManager.StopActor(man);
+        StopMan(man);
+    }
+
+    public bool MoveManToObject(GameObject man, GameObject obj, int slotId, float tol)
+    {
+        if (man == null || man.GetComponent<CrowdControl>().IsLocked())
+        {
+            return false;
+        }
+
+        Vector3 targetPos = obj.GetComponent<PropControl>().GetSlotPos(slotId);
+        if (Services.pathFindingManager.FindPath(man, targetPos, tol))
+        {
+            UnboundMan(man);
+            Services.eventManager.Fire(new ManLeavesForObj(man, obj, slotId));
+            man.GetComponent<CrowdControl>().LoadSucceeded();
+            TurnMan(man, targetPos);
+            Services.pathFindingManager.Move(man, tol, new ManArrives(man, obj, slotId));
+            return true;
+        }
+        else
+        {
+            man.GetComponent<CrowdControl>().OrderFailed();
+        }
+
+        return false;
+    }
+
+    public bool MoveManToPosition(GameObject man, Vector3 targetPos, float tol)
+    {
+        if (man == null || man.GetComponent<CrowdControl>().IsLocked())
+        {
+            return false;
+        }
+
+        if (Services.pathFindingManager.FindPath(man, targetPos))
+        {
+            UnboundMan(man);
+            man.GetComponent<CrowdControl>().WalkSucceeded();
+            TurnMan(man, targetPos);
+            Services.pathFindingManager.Move(man, tol, new ManArrives(man, null, -1));
+            return true;
+        }
+        else
+        {
+            man.GetComponent<CrowdControl>().OrderFailed();
+        }
+
+        return false;
+    }
+
+    public void MoveMenToPosition(Vector3 targetPos)
+    {
+        //Services.footprintsManager.Clear();
+
+        int reachableMenNum = 0;
+        foreach (GameObject man in Services.men)
+        {
+            if (!man.GetComponent<CrowdControl>().IsBusy() && Services.pathFindingManager.FindPath(man, targetPos))
+            {
+                ++reachableMenNum;
+            }
+        }
+
+        foreach (GameObject man in Services.men)
+        {
+            if (!man.GetComponent<CrowdControl>().IsBusy())
+            {
+                MoveManToPosition(man, targetPos, (reachableMenNum - 1) * 0.2f + 0.05f);
+            }
+            else
+            {
+                man.GetComponent<CrowdControl>().OrderBusy();
+            }
+        }
+
+        //Services.footprintsManager.Generate();
+    }
+
+    public void MoveNearestManToPosition(Vector3 targetPos)
+    {
+        GameObject nearestMan = null;
+        float maxDistance = float.MaxValue;
+        foreach (GameObject man in Services.men)
+        {
+            if (!man.GetComponent<CrowdControl>().IsBusy() && Vector3.Distance(man.transform.position, targetPos) < maxDistance)
+            {
+                maxDistance = Vector3.Distance(man.transform.position, targetPos);
+                nearestMan = man;
+            }
+        }
+
+        if (nearestMan == null)
+        {
+            return;
+        }
+
+        MoveManToPosition(nearestMan, targetPos, 0.15f);
+    }
+
+    public void SetManTargetPosition(GameObject man, Vector3 targetPos, float tol, TileEdge.MovementType type = TileEdge.MovementType.WALK)
+    {
+        switch (type)
+        {
+            case TileEdge.MovementType.WALK:
+                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.WALK);
+                break;
+            case TileEdge.MovementType.CLIMB:
+                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.CLIMB);
+                break;
+            default:
+                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.WALK);
+                break;
+        }
+    }
+
+    public bool DragOn(GameObject obj, Vector3 delta)
+    {
+        if (obj == null)
+        {
+            return false;
+        }
+
+        if (obj.GetComponent<PropControl>())
+        {
+            obj.GetComponent<PropControl>().Drag(delta * 0.05f);
+            return true;
+        }
+        else
+        if (obj.GetComponent<ObjectControl>())
+        {
+            if (!obj.GetComponent<ObjectControl>().IsDragOverride())
+            {
+                obj.GetComponent<InteractableControl>().Drag(delta);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    //public void Swipe()
+    //{
+    //    if (swipeObj == null)
+    //    {
+    //        return;
+    //    }
+
+    //    SwipeOn(swipeObj);
+    //}
+
+    //public void SwipeOn(GameObject obj)
+    //{
+    //    if (obj != null && obj.GetComponent<InteractableControl>())
+    //    {
+    //        obj.GetComponent<InteractableControl>().Swipe();
+    //    }
+    //}
 }

@@ -4,10 +4,44 @@ using UnityEngine;
 
 public class NoSelectInputControl : InputControl
 {
+    public bool resetCenterOnRelease = true;
+    public bool gyroEnabled = false;
+
     private void Update()
     {
         CoolDown();
         DetectMouse();
+        DetectMousePC();
+    }
+
+    private void DetectMousePC()
+    {        
+        // only on PC
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            if (Input.GetMouseButton(1))
+            {
+                TranslateViewport();
+            }
+
+            if (Input.GetMouseButtonUp(1))
+            {
+                if (resetCenterOnRelease)
+                {
+                    ResetTranslateViewport();
+                }
+            }
+
+            if (Input.GetAxis("Mouse ScrollWheel") != 0)
+            {
+                Zoom(Input.GetAxis("Mouse ScrollWheel"));
+            }
+        }
+
+        if (gyroEnabled)
+        {
+            Services.cameraController.Orbit(Input.acceleration.x * 2500f, (Input.acceleration.y + 0.5f) * 1500f);
+        }
     }
 
     protected override void MouseSingleClick()
@@ -33,17 +67,17 @@ public class NoSelectInputControl : InputControl
         //else
         if (mouseClickObject.CompareTag("Prop"))
         {
-            Services.gameController.InteractMen(mouseClickObject, mouseClickPos);
+            Services.gameEvents.InteractMen(mouseClickObject, mouseClickPos);
         }
         else
         if (mouseClickObject.CompareTag("Object"))
         {
-            Services.gameController.InteractObject(mouseClickObject);
+            Services.gameEvents.InteractObject(mouseClickObject);
         }
         else
         if (mouseClickObject.CompareTag("Ground"))
         {
-            Services.gameController.MoveMenToPosition(mouseClickPos);
+            Services.gameEvents.MoveMenToPosition(mouseClickPos);
             Services.soundController.Play("clickOnWood1");
 
             Services.tileMarkerManager.Activate(Services.pathFindingManager.LastUnit());

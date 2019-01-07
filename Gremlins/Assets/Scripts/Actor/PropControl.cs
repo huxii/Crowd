@@ -235,7 +235,7 @@ public abstract class PropControl : InteractableControl
         {
             if (slot.man != null)
             {
-                Services.gameController.FreeMan(slot.man);
+                Services.gameEvents.FreeMan(slot.man);
             }
         }
     }
@@ -396,7 +396,7 @@ public abstract class PropControl : InteractableControl
             SlotAttr slot = slots[i];
             if (slot.state == SlotState.PLANNED)
             {
-                Services.gameController.ImmediateUnboundMan(slot.man, gameObject, i);
+                Services.gameEvents.ImmediateUnboundMan(slot.man, gameObject, i);
             }
         }
     }
