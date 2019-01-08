@@ -132,4 +132,11 @@ public class GameControl : MainControl
 
         man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.IDLE);
     }
+
+    public override void Ending()
+    {
+        base.Ending();
+        
+        // go back to title
+    }
 }

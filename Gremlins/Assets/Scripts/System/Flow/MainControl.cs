@@ -37,4 +37,8 @@ public class MainControl : MonoBehaviour
     protected virtual void UnregisterEvents()
     {
     }
+
+    public virtual void Ending()
+    {
+    }
 }

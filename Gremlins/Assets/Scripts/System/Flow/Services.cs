@@ -10,13 +10,14 @@ public static class Services
     public static PathFindingManager pathFindingManager = null;
     public static TileMarkerManager tileMarkerManager = null;
     public static LevelEventsManager levelEventsManager = null;
-    public static MainControl gameController = null;
+    public static MainControl mainController = null;
     public static InputControl inputController = null;
     public static CameraControl cameraController = null;
     public static HUDControl hudController = null;
     public static SoundControl soundController = null;
     public static Utils utils = null;
     public static GameEvents gameEvents = null;
+    public static ComicEvents comicEvents = null;
     public static DotweenEvents dotweenEvents = null;
 
     public static GameObject[] men = null;
@@ -57,17 +58,26 @@ public static class Services
 
         if (GameObject.FindGameObjectWithTag("GameController"))
         {
-            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainControl>();
-            inputController = gameController.gameObject.GetComponent<InputControl>();
-            gameEvents = gameController.gameObject.GetComponent<GameEvents>();
-            dotweenEvents = gameController.gameObject.GetComponent<DotweenEvents>();
+            mainController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainControl>();
+            inputController = mainController.gameObject.GetComponent<InputControl>();
+            gameEvents = mainController.gameObject.GetComponent<GameEvents>();
+            dotweenEvents = mainController.gameObject.GetComponent<DotweenEvents>();
         }
         else
         {
-            gameController = null;
+            mainController = null;
             inputController = null;
             gameEvents = null;
             dotweenEvents = null;
+        }
+
+        if (GameObject.FindGameObjectWithTag("Comic"))
+        {
+            comicEvents = GameObject.FindGameObjectWithTag("Comic").GetComponent<ComicEvents>();
+        }
+        else
+        {
+            comicEvents = null;
         }
 
         if (GameObject.Find("CameraSystem"))
@@ -140,13 +150,14 @@ public static class Services
         pathFindingManager = null;
         tileMarkerManager = null;
         levelEventsManager = null;
-        gameController = null;
+        mainController = null;
         inputController = null;
         cameraController = null;
         hudController = null;
         soundController = null;
         utils = null;
         gameEvents = null;
+        comicEvents = null;
         dotweenEvents = null;
 
         men = null;

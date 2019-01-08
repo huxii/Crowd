@@ -24,8 +24,10 @@ public class ComicControl : MainControl
         
     }
 
-    public void LoadNextScene()
+    public override void Ending()
     {
+        base.Ending();
+
         async.allowSceneActivation = true;
     }
 }
