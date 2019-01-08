@@ -75,7 +75,7 @@ public class RopeSpriteWeightBehavior : ObjectRangeBasedControl
 
     public void LeftSwing()
     {
-        if (!IsActivated() && !IsLocked() && !IsCoolingDown())
+        if (CanActivate())
         {
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0;
@@ -87,7 +87,7 @@ public class RopeSpriteWeightBehavior : ObjectRangeBasedControl
 
     public void RightSwing()
     {
-        if (!IsActivated() && !IsLocked() && !IsCoolingDown())
+        if (CanActivate())
         {
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0;

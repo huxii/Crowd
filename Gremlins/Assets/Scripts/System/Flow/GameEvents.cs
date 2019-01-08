@@ -153,6 +153,12 @@ public class GameEvents : CustomEvents
         SetManTargetPosition(actor, pos, 0.1f);
     }
 
+    public void PlayAnimation(GameObject obj)
+    {
+        Animation ani = obj.GetComponent<Animation>();
+        ani.Play();
+    }
+
     public void MakeFloatMan(GameObject man, float height = 2f)
     {
         if (man == null)

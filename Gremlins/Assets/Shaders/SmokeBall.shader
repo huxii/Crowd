@@ -9,6 +9,7 @@
 		_LightRamp("Light Ramp", 2D) = "white" {}
 		_DissolveTimer("Dissolve Timer", Range(0, 1)) = 0
 		_DissolveNoise("Dissolve Noise", 2D) = "white" {}
+		_DissolveNoiseOffset("Dissolve Noise Offset", Range(0, 1)) = 0 
 		_DeformNoise("Deform Noise", 2D) = "white" {}
 		_DeformSpeed("Deform Speed", Float) = 1
 		_DeformStrength("Deform Strength", Float) = 1
@@ -17,6 +18,7 @@
     {
         Tags { "RenderType"="Opaque" }
         LOD 200
+		Cull Off
 
         CGPROGRAM
 		#include "ToonUtils.cginc"
@@ -33,6 +35,7 @@
 		uniform float _DissolveTimer;
 		uniform sampler2D _DissolveNoise;
 		uniform float4 _DissolveNoise_ST;
+		uniform float _DissolveNoiseOffset;
 		uniform sampler2D _DeformNoise;
 		uniform float4 _DeformNoise_ST;
 		uniform float _DeformSpeed;
@@ -68,7 +71,9 @@
             o.Albedo = c.rgb;
             o.Alpha = c.a;
 
-			float4 noiseSample = tex2Dlod(_DissolveNoise, float4(TRANSFORM_TEX(IN.uv_MainTex, _DissolveNoise), 0, 0));
+			float2 uv = IN.uv_MainTex;
+			uv.x += _DissolveNoiseOffset;
+			float4 noiseSample = tex2Dlod(_DissolveNoise, float4(TRANSFORM_TEX(uv, _DissolveNoise), 0, 0));
 			clip(noiseSample - _DissolveTimer * (2 - IN.uv_MainTex.y * IN.uv_MainTex.y));
         }
         ENDCG

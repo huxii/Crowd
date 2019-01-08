@@ -73,6 +73,7 @@ Material:
     - _DeformSpeed: 1
     - _DeformStrength: 0.1
     - _DetailNormalMapScale: 1
+    - _DissolveNoiseOffset: 0
     - _DissolveTimer: 0
     - _DstBlend: 0
     - _GlossMapScale: 1
@@ -89,6 +90,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.6037736, g: 0.5952296, b: 0.5952296, a: 1}
+    - _Color: {r: 0.7647059, g: 0.72156864, b: 0.62352943, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ReplaceColor: {r: 0.6039216, g: 0.59607846, b: 0.59607846, a: 1}
+    - _ReplaceColor: {r: 0.3254902, g: 0.30980393, b: 0.3882353, a: 1}

@@ -22,7 +22,7 @@ public class ObjectRandomControl : ObjectBasicControl
     {
         if (isAutoPlaying)
         {
-            if (!IsCoolingDown() && !IsActivated() && !IsLocked())
+            if (CanActivate())
             {
                 if (autoPlayingTimer > 0)
                 {
@@ -55,7 +55,7 @@ public class ObjectRandomControl : ObjectBasicControl
     {
         //base.Click();
 
-        if (!IsCoolingDown() && !IsActivated() && !IsLocked())
+        if (CanActivate())
         {
             onClick.Invoke();
 

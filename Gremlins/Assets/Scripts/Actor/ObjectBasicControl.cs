@@ -22,7 +22,7 @@ public class ObjectBasicControl : ObjectControl
     {
         base.Click();
 
-        if (!IsLocked() && !IsActivated() && !IsCoolingDown())
+        if (CanActivate())
         {
             CoolDown();
             onClick.Invoke();
