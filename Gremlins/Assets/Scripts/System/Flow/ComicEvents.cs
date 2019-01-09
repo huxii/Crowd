@@ -34,19 +34,22 @@ public class ComicEvents : CustomEvents
 
     public void Pause()
     {
-        Debug.Log("Pause");
-        anim[animNames[animIdx]].speed = 0;
+        if (animIdx < animNames.Count)
+        {
+            anim[animNames[animIdx]].speed = 0;
+        }
     }
 
     public void Resume()
     {
-        Debug.Log("Resume");
-        anim[animNames[animIdx]].speed = 1;
+        if (animIdx < animNames.Count)
+        {
+            anim[animNames[animIdx]].speed = 1;
+        }
     }
 
     public void Next()
     {
-        Debug.Log("Next");
         ++animIdx;
         if (animIdx < animNames.Count)
         {

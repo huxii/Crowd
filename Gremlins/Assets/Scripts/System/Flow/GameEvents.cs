@@ -133,11 +133,6 @@ public class GameEvents : CustomEvents
         ani.Play();
     }
 
-    public void LoadScene(string scene)
-    {
-        Services.sceneManager.LoadScene(scene);
-    }
-
     public void MoveActorTo(string para)
     {
         ParseNewPara(para);

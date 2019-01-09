@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 114660680039525826}
   - component: {fileID: 810871483}
   - component: {fileID: 851635867171021453}
+  - component: {fileID: 8471896607964882106}
   m_Layer: 0
   m_Name: ComicController
   m_TagString: GameController
@@ -70,6 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786456f60f1eab2409f82c8b478e5f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locked: 0
 --- !u!114 &851635867171021453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,5 +82,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3823139f1ef124344a9a077472a8228a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8471896607964882106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116066292614460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9af88dc899a8b0409139d3ec47ecdda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

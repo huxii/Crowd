@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class InputControl : MonoBehaviour
 {
+    [SerializeField]
     protected bool locked = false;
 
     // single click

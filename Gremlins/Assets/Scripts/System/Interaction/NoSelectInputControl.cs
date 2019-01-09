@@ -15,7 +15,12 @@ public class NoSelectInputControl : InputControl
     }
 
     private void DetectMousePC()
-    {        
+    {
+        if (locked)
+        {
+            return;
+        }
+
         // only on PC
         if (Application.platform == RuntimePlatform.WindowsEditor)
         {

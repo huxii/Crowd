@@ -6,15 +6,16 @@ public static class Services
 {
     public static Crowd.EventManager eventManager = null;
     public static Crowd.TaskManager taskManager = null;
-    public static Crowd.SceneManager sceneManager = null;
     public static PathFindingManager pathFindingManager = null;
     public static TileMarkerManager tileMarkerManager = null;
-    public static LevelEventsManager levelEventsManager = null;
     public static MainControl mainController = null;
     public static InputControl inputController = null;
     public static CameraControl cameraController = null;
     public static HUDControl hudController = null;
     public static SoundControl soundController = null;
+    public static SceneControl sceneController = null;
+    public static SceneTransitionControl sceneTransitionController = null;
+    public static LevelEventsControl levelEventsController = null;
     public static Utils utils = null;
     public static GameEvents gameEvents = null;
     public static ComicEvents comicEvents = null;
@@ -31,7 +32,6 @@ public static class Services
     {
         eventManager = new Crowd.EventManager();
         taskManager = new Crowd.TaskManager();
-        sceneManager = new Crowd.SceneManager();
 
         if (GameObject.Find("PathFinder"))
         {
@@ -47,19 +47,20 @@ public static class Services
             pathFindingManager = null;
         }
 
-        if (GameObject.Find("LevelEventsManager"))
+        if (GameObject.Find("LevelEvents"))
         {
-            levelEventsManager = GameObject.Find("LevelEventsManager").GetComponent<LevelEventsManager>();
+            levelEventsController = GameObject.Find("LevelEvents").GetComponent<LevelEventsControl>();
         }
         else
         {
-            levelEventsManager = null;
+            levelEventsController = null;
         }
 
         if (GameObject.FindGameObjectWithTag("GameController"))
         {
             mainController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainControl>();
             inputController = mainController.gameObject.GetComponent<InputControl>();
+            sceneController = mainController.gameObject.GetComponent<SceneControl>();
             gameEvents = mainController.gameObject.GetComponent<GameEvents>();
             dotweenEvents = mainController.gameObject.GetComponent<DotweenEvents>();
         }
@@ -67,8 +68,18 @@ public static class Services
         {
             mainController = null;
             inputController = null;
+            sceneController = null;
             gameEvents = null;
             dotweenEvents = null;
+        }
+
+        if (GameObject.FindGameObjectWithTag("Transition"))
+        {
+            sceneTransitionController = GameObject.FindGameObjectWithTag("Transition").GetComponent<SceneTransitionControl>();
+        }
+        else
+        {
+            sceneTransitionController = null;
         }
 
         if (GameObject.FindGameObjectWithTag("Comic"))
@@ -146,15 +157,16 @@ public static class Services
     {
         eventManager = null;
         taskManager = null;
-        sceneManager = null;
         pathFindingManager = null;
         tileMarkerManager = null;
-        levelEventsManager = null;
+        levelEventsController = null;
         mainController = null;
         inputController = null;
         cameraController = null;
         hudController = null;
         soundController = null;
+        sceneController = null;
+        sceneTransitionController = null;
         utils = null;
         gameEvents = null;
         comicEvents = null;

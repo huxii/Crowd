@@ -17,12 +17,25 @@ public class GameControl : MainControl
     protected override void Start()
     {
         base.Start();
+
+        Services.sceneController.PreloadScene();
+
         //Physics2D.velocityIterations = velocityIter;
         //Physics2D.positionIterations = positionIter;
 
         // do a favor for outline shader
         Services.utils.RecalculateNormals();
     }
+
+    //protected override void Update()
+    //{
+    //    base.Update();
+
+    //    if (Input.GetKeyUp(KeyCode.Space))
+    //    {
+    //        Services.sceneController.LoadNextScene();
+    //    }
+    //}
 
     protected override void RegisterEvents()
     {

@@ -39,10 +39,10 @@ public abstract class LevelEventControl : MonoBehaviour
         {
             levelEvent.Invoke();
 
-            Services.levelEventsManager.MoveToNext();
+            Services.levelEventsController.MoveToNext();
             if (autoNext)
             {
-                Services.levelEventsManager.DoCurrentEvent();
+                Services.levelEventsController.DoCurrentEvent();
             }
 
             Destroy(gameObject);
