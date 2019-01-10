@@ -8,7 +8,7 @@ public class SceneControl : MonoBehaviour
     AsyncOperation thisAsync;
     AsyncOperation nextAsync;
 
-    void Start()
+    void Awake()
     {
         thisAsync = null;
         nextAsync = null;

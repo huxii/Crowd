@@ -96,6 +96,13 @@ public class SceneTransitionControl : MonoBehaviour
             Material mat = new Material(Shader.Find("Custom/Unlit_alpha"));
             transitionScreen.GetComponent<MeshRenderer>().material = mat;
         }
+        else
+        {
+            Color c = transitionScreen.GetComponent<MeshRenderer>().material.color;
+            transitionScreen.GetComponent<MeshRenderer>().material.color = new Color(
+                c.r, c.g, c.b, 1.0f
+            );
+        }
 
         StartCoroutine(RecordFrame());
     }
