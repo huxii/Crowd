@@ -26,10 +26,10 @@ public class ComicEvents : CustomEvents
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(1))
-        {
-            Resume();
-        }
+        //if (Input.GetMouseButton(1))
+        //{
+        //    Resume();
+        //}
     }
 
     public void Pause()
