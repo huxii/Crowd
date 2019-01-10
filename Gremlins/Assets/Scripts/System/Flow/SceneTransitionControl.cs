@@ -61,7 +61,7 @@ public class SceneTransitionControl : MonoBehaviour
         transitionCamera.depth = float.MaxValue;
         transitionCamera.cullingMask = 1 << transitionLayer;
         transitionCamera.clearFlags = CameraClearFlags.Nothing;
-        transitionCamera.enabled = true;
+        transitionCamera.enabled = false;
 
         if (!transitionScreen)
         {
@@ -72,6 +72,7 @@ public class SceneTransitionControl : MonoBehaviour
             transitionScreen.layer = transitionLayer;
             transitionScreen.AddComponent<MeshFilter>();
             transitionScreen.AddComponent<MeshRenderer>();
+            transitionScreen.SetActive(false);
 
             float halfHeight = transitionCamera.orthographicSize;
             float halfWidth = halfHeight * Screen.width / Screen.height;
@@ -94,14 +95,12 @@ public class SceneTransitionControl : MonoBehaviour
             transitionScreen.GetComponent<MeshFilter>().mesh = mesh;
 
             Material mat = new Material(Shader.Find("Custom/Unlit_alpha"));
+            mat.color = Color.white;
             transitionScreen.GetComponent<MeshRenderer>().material = mat;
         }
         else
         {
-            Color c = transitionScreen.GetComponent<MeshRenderer>().material.color;
-            transitionScreen.GetComponent<MeshRenderer>().material.color = new Color(
-                c.r, c.g, c.b, 1.0f
-            );
+            transitionScreen.GetComponent<MeshRenderer>().material.color = Color.white;
         }
 
         StartCoroutine(RecordFrame());
@@ -111,9 +110,11 @@ public class SceneTransitionControl : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         var texture = ScreenCapture.CaptureScreenshotAsTexture();
+        texture.alphaIsTransparency = false;
 
         transitionScreen.GetComponent<MeshRenderer>().material.mainTexture = texture;
         transitionScreen.SetActive(true);
+        transitionCamera.enabled = true;
 
         Services.sceneController.LoadNextScene();
         isFading = true;
