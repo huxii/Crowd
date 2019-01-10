@@ -110,7 +110,6 @@ public class SceneTransitionControl : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         var texture = ScreenCapture.CaptureScreenshotAsTexture();
-        texture.alphaIsTransparency = false;
 
         transitionScreen.GetComponent<MeshRenderer>().material.mainTexture = texture;
         transitionScreen.SetActive(true);
