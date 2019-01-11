@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Prop
   - Comic
+  - Transition
   layers:
   - Default
   - TransparentFX
@@ -45,4 +46,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Comic
+    uniqueID: 1787146099
+    locked: 0
+  - name: UI
+    uniqueID: 1642112291
     locked: 0

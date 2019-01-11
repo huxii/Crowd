@@ -61,7 +61,7 @@ public class InflatorBehavior : ObjectCountedDeactivateControl
     public override void Deactivate()
     {
         GameObject man = GetComponent<PropControl>().GetSlotMan(1);
-        Services.gameController.UnboundMan(man);
+        Services.gameEvents.UnboundMan(man);
         Services.gameEvents.MakeFloatMan(man);
 
         base.Deactivate();

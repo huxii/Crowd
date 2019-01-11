@@ -9,6 +9,21 @@ using UnityEngine.Events;
 
 public abstract class PropControl : InteractableControl
 {
+    public PropFeedbackBehavior PropFeedbackController
+    {
+        get { return (PropFeedbackBehavior)feedbackController; }
+        set { feedbackController = value; }
+    }
+
+    public enum PropState
+    {
+        DISABLE,
+        PATH,
+        EMPTY,
+        NOTFULL,
+        FULL,
+    };
+
     [System.Serializable]
     public class SlotAttr
     {
@@ -58,14 +73,6 @@ public abstract class PropControl : InteractableControl
     public float deltaWeight = 0f;
     protected float origWeight;
 
-    public enum PropState
-    {
-        DISABLE,
-        PATH,
-        EMPTY,
-        NOTFULL,
-        FULL,
-    };
 
     // Use this for initialization
     void Start()
@@ -228,7 +235,7 @@ public abstract class PropControl : InteractableControl
         {
             if (slot.man != null)
             {
-                Services.gameController.FreeMan(slot.man);
+                Services.gameEvents.FreeMan(slot.man);
             }
         }
     }
@@ -389,7 +396,7 @@ public abstract class PropControl : InteractableControl
             SlotAttr slot = slots[i];
             if (slot.state == SlotState.PLANNED)
             {
-                Services.gameController.ImmediateUnboundMan(slot.man, gameObject, i);
+                Services.gameEvents.ImmediateUnboundMan(slot.man, gameObject, i);
             }
         }
     }

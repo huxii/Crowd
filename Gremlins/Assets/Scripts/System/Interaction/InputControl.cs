@@ -4,9 +4,7 @@ using UnityEngine;
 
 public abstract class InputControl : MonoBehaviour
 {
-    public bool resetCenterOnRelease = true;
-    public bool gyroEnabled = false;
-
+    [SerializeField]
     protected bool locked = false;
 
     // single click
@@ -147,34 +145,6 @@ public abstract class InputControl : MonoBehaviour
         //            break;
         //    }
         //}
-
-
-        // only on PC
-        if (Application.platform == RuntimePlatform.WindowsEditor)
-        {
-            if (Input.GetMouseButton(1))
-            {
-                TranslateViewport();
-            }
-
-            if (Input.GetMouseButtonUp(1))
-            {
-                if (resetCenterOnRelease)
-                {
-                    ResetTranslateViewport();
-                }
-            }
-
-            if (Input.GetAxis("Mouse ScrollWheel") != 0)
-            {
-                Zoom(Input.GetAxis("Mouse ScrollWheel"));
-            }
-        }
-
-        if (gyroEnabled)
-        {
-            Services.cameraController.Orbit(Input.acceleration.x * 2500f, (Input.acceleration.y + 0.5f) * 1500f);
-        }
     }
 
     private void MouseDown()
@@ -201,7 +171,7 @@ public abstract class InputControl : MonoBehaviour
     {
         if (Vector3.Distance(Input.mousePosition, mouseClickScreenPos) > 1f)
         {
-            Services.gameController.Swipe();
+            //Services.gameEvents.Swipe();
             //Services.gameController.SwipeOn(mouseClickObject);
         }
         else
@@ -247,7 +217,7 @@ public abstract class InputControl : MonoBehaviour
             {
                 Vector3 mouseDelta = Input.mousePosition - mouseDragScreenPos;
                 if ((mouseClickObject.CompareTag("Object") || mouseClickObject.CompareTag("Prop"))
-                    && Services.gameController.DragOn(mouseClickObject, mouseDelta))
+                    && Services.gameEvents.DragOn(mouseClickObject, mouseDelta))
                 {
                     mouseDragScreenPos = Input.mousePosition;
                 }

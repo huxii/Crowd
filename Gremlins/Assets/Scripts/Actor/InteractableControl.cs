@@ -35,6 +35,16 @@ public abstract class InteractableControl : ActorControl
     {		
 	}
 
+    protected bool CanActivate()
+    {
+        return !IsLocked() && (!IsActivated() || CanActivateMultipleTimes()) && !IsCoolingDown();
+    }
+
+    protected bool CanDeactivate()
+    {
+        return IsActivated();
+    }
+
     public void CoolDown()
     {
         interactionTimer = Time.time;
@@ -70,7 +80,7 @@ public abstract class InteractableControl : ActorControl
     // it can not be activated when it is locked but can be deactivated
     public virtual void Activate()
     {
-        if ((!IsActivated() || CanActivateMultipleTimes()) && !IsLocked())
+        if (CanActivate())
         {
             isActivated = true;
 
@@ -81,7 +91,7 @@ public abstract class InteractableControl : ActorControl
 
     public virtual void Deactivate()
     {
-        if (IsActivated())
+        if (CanDeactivate())
         {
             isActivated = false;
 

@@ -28,7 +28,7 @@ public class ComicInputControl : InputControl
 
         if (mouseClickObject.CompareTag("Comic"))
         {
-            Services.levelEventsManager.DoCurrentEvent();
+            Services.comicEvents.Resume();
         }
     }
 }

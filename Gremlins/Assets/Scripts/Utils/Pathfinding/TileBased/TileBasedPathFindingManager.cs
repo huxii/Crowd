@@ -172,7 +172,7 @@ public class TileBasedPathFindingManager : PathFindingManager
             }
             else
             {
-                Services.gameController.SetManTargetPosition(actor, path.paths[1].Position(), path.tol, path.paths[1].pathType);
+                Services.gameEvents.SetManTargetPosition(actor, path.paths[1].Position(), path.tol, path.paths[1].pathType);
                 path.paths.RemoveAt(0);
             }
         }

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PropFeedbackBehavior : InteractableFeedbackBehavior
+public class PropFeedbackBehavior : OutlineFeedbackBehavior
 {
     void Awake()
     {
+        GetComponent<PropControl>().PropFeedbackController = this;
         if (targetObj == null)
         {
             targetObj = gameObject;
@@ -29,12 +30,22 @@ public class PropFeedbackBehavior : InteractableFeedbackBehavior
             mats.Add(newInstance);
         }
 
-        Init();
+        foreach (Material mat in mats)
+        {
+            mat.SetFloat(OVERLAY_FACTOR_STRING, overlayFactor);
+            mat.SetFloat(OUTLINE_FACTOR_STRING, outlineFactor);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateFactors();
+    }
+
+    public override void OnInteract()
+    {
+        onInteractionFeedback.Invoke();
+        Breathe(1);
     }
 }
