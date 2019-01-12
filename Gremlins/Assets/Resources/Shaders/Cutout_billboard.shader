@@ -14,8 +14,8 @@
 		[Header(Lighting)]
 		_MinX("Min X", Range(-20, 20)) = -20
 		_MaxX("Max X", Range(-20, 20)) = 20
-		_MinY("Min Y", Range(0, 20)) = 0
-		_MaxY("Max Y", Range(0, 20)) = 20
+		_MinY("Min Y", Range(-20, 20)) = 0
+		_MaxY("Max Y", Range(-20, 20)) = 20
 
 		[Header(Lighting)]
 		_LightRamp("Light Ramp", 2D) = "white" {}

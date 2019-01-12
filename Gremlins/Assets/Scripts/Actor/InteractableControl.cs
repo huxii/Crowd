@@ -22,7 +22,7 @@ public abstract class InteractableControl : ActorControl
     // specifically for objects like moving platforms
     public bool dropMenAfterDeactivated = false;
 
-    protected float interactionTimer = 0;
+    protected float interactionTimer = -1;
     protected bool isActivated = false;
 
     // Use this for initialization
@@ -52,7 +52,7 @@ public abstract class InteractableControl : ActorControl
 
     public bool IsCoolingDown()
     {
-        return Time.time - interactionTimer <= interactionCD;
+        return (interactionTimer >= 0 && Time.time - interactionTimer <= interactionCD);
     }
 
     public virtual void Click()
