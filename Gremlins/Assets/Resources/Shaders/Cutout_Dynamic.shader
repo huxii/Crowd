@@ -35,7 +35,8 @@ Shader "Custom/Cutout_dynamic"
 		Lighting Off
 
 		CGPROGRAM
-		#include "ToonUtils.cginc"
+		#include "ToonLightingUtils.cginc"
+		#include "ToonVertUtils.cginc"
 
 		#pragma surface surf ToonCutout vertex:vert addshadow
 		#pragma target 3.0
@@ -49,18 +50,6 @@ Shader "Custom/Cutout_dynamic"
 		uniform float _MaxX;
 		uniform float _MaxY;
 		uniform float _Offset;
-
-		struct Input
-		{
-			float2 uv_MainTex;
-			float4 posWorld;
-		};
-
-		void vert(inout appdata_full v, out Input o) 
-		{
-			UNITY_INITIALIZE_OUTPUT(Input, o);
-			o.posWorld = mul(unity_ObjectToWorld, v.vertex);
-		}
 
 		void surf(Input IN, inout SurfaceCustomOutput o)
 		{

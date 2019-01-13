@@ -21,7 +21,7 @@
 		Cull Off
 
         CGPROGRAM
-		#include "ToonUtils.cginc"
+		#include "ToonLightingUtils.cginc"
         #pragma surface surf ToonCutout vertex:vert addshadow
 
         // Use shader model 3.0 target, to get nicer looking lighting

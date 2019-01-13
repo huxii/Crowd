@@ -11,7 +11,6 @@
 		_ScaleX("Scale X", Float) = 1.0
 		_ScaleY("Scale Y", Float) = 1.0
 
-		[Header(Lighting)]
 		_MinX("Min X", Range(-20, 20)) = -20
 		_MaxX("Max X", Range(-20, 20)) = 20
 		_MinY("Min Y", Range(-20, 20)) = 0
@@ -45,7 +44,7 @@
 		Pass
 		{
 			CGPROGRAM
-			#include "ToonUtils.cginc"
+			#include "ToonLightingUtils.cginc"
 			#pragma vertex vert
 			#pragma fragment frag
 			#pragma multi_compile DUMMY PIXELSNAP_ON

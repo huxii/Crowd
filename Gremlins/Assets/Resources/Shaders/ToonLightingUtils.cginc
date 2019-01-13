@@ -3,11 +3,6 @@
 uniform sampler2D _LightRamp;
 uniform float4 _LightRamp_ST;
 
-uniform float4 _XPositiveColor;
-uniform float4 _XNegativeColor;
-uniform float4 _YPositiveColor;
-uniform float4 _YNegativeColor;
-
 uniform float4 _RimColor;
 uniform float _RimPower;
 
