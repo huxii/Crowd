@@ -21,7 +21,7 @@ public static class Services
     public static ComicEvents comicEvents = null;
     public static DotweenEvents dotweenEvents = null;
 
-    public static GameObject[] men = null;
+    public static List<GameObject> men = null;
     public static GameObject menParentObj = null;
 
     // nav mesh
@@ -120,7 +120,7 @@ public static class Services
 
         utils = new Utils();
 
-        men = GameObject.FindGameObjectsWithTag("Man");
+        men = new List<GameObject>(GameObject.FindGameObjectsWithTag("Man"));
         menParentObj = GameObject.Find("Actors");
 
         navMeshMinBound = new Vector3(float.MaxValue, float.MaxValue);

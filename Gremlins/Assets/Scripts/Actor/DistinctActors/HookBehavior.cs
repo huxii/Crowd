@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HookBehavior : MonoBehaviour
+public class HookBehavior : ObjectTimedDeactivateControl
 {
     GameObject man = null;
 
@@ -12,38 +12,56 @@ public class HookBehavior : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        TimeUpdate();
+    }
+
     // Update is called once per frame
 
     private void OnTriggerEnter(Collider other)
     {
         if (man == null && other.CompareTag("Man") && other.GetComponent<FloatBehavior>())
         {
-            other.transform.SetParent(transform);
-            other.transform.localPosition = new Vector3(0, 0, 0);
+            Services.gameEvents.AddAnchor(other.gameObject, gameObject);
             man = other.gameObject;
+
+            Deactivate();
         }
     }
 
-    public void Catch()
+    // Deactivate control panel through hook animations
+    public void DeactivateControlPanel()
     {
-        if (man != null)
-        {
-            Services.gameEvents.ResetMan(man);
-            man.GetComponent<FloatBehavior>().Blowing();
-
-            // tmp
-            GameObject.Find("Can").GetComponent<ObjectControl>().Activate();
-        
-            man = null;
-        }
-        else
-        {
-            GetComponent<ObjectControl>().Activate();
-        }
+        GameObject.Find("ControlPanel").GetComponent<PropControl>().FreeAllMen();
     }
 
-    public void Collect()
+    public override void Activate()
     {
-        GetComponent<ObjectControl>().Deactivate();
+        base.Activate();
+
+        man = null;
+        Services.gameEvents.PlayAnimation(gameObject.name + " HookExpand");
+    }
+
+    public override void Deactivate()
+    {
+        if (CanDeactivate())
+        {
+            isActivated = false;
+
+            CoolDown();
+
+            if (man != null)
+            {
+                Services.gameEvents.PlayAnimation(gameObject.name + " HookCatched");
+            }
+            else
+            {
+                Services.gameEvents.PlayAnimation(gameObject.name + " HookEmpty");
+            }
+
+            onDeactivated.Invoke();
+        }
     }
 }

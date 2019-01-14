@@ -216,6 +216,8 @@ ModelImporter:
     100420: BackShell
     100422: FrontShell
     100424: InflatorPipes
+    100426: CanStraw
+    100428: CanStrawModel
     400000: Can
     400002: CanTube
     400004: CanTube0
@@ -429,6 +431,8 @@ ModelImporter:
     400420: BackShell
     400422: FrontShell
     400424: InflatorPipes
+    400426: CanStraw
+    400428: CanStrawModel
     2100000: lambert1
     2300000: Can
     2300002: CanTube
@@ -603,6 +607,7 @@ ModelImporter:
     2300340: BackShell
     2300342: FrontShell
     2300344: InflatorMouth
+    2300346: CanStrawModel
     3300000: Can
     3300002: CanTube
     3300004: CanTube0
@@ -776,6 +781,7 @@ ModelImporter:
     3300340: BackShell
     3300342: FrontShell
     3300344: InflatorMouth
+    3300346: CanStrawModel
     4300000: ControlPanelModel
     4300002: HamsterWheelModel
     4300004: ElevatorModel
@@ -948,6 +954,7 @@ ModelImporter:
     4300338: BackShell
     4300340: FrontShell
     4300342: InflatorMouth
+    4300344: CanStrawModel
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -983,6 +990,7 @@ ModelImporter:
     globalScale: 0.01
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -1007,6 +1015,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 0
   copyAvatar: 0
   humanDescription:

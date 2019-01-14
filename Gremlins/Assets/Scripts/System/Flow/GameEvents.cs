@@ -133,6 +133,29 @@ public class GameEvents : CustomEvents
         ani.Play();
     }
 
+    public void AddAnchor(GameObject man, GameObject obj)
+    {
+        if (man == null)
+        {
+            return;
+        }
+        if (man.GetComponent<AnchorBehavior>() == null)
+        {
+            man.AddComponent<AnchorBehavior>();
+        }
+        man.GetComponent<AnchorBehavior>().parentObject = obj;
+    }
+
+    public void RemoveAnchor(GameObject man)
+    {
+        if (man == null)
+        {
+            return;
+        }
+
+        DestroyImmediate(man.GetComponent<AnchorBehavior>());
+    }
+
     public void MoveActorTo(string para)
     {
         ParseNewPara(para);
@@ -187,6 +210,13 @@ public class GameEvents : CustomEvents
         {
             man.GetComponent<CrowdControl>().Deselected();
         }
+    }
+
+    public void DisableMan(GameObject man)
+    {
+        Destroy(man.GetComponent<CrowdControl>());
+        Destroy(man.GetComponent<CrowdFeedbackBehavior>());
+        Services.men.Remove(man);
     }
 
     public void LockMan(GameObject man)
@@ -258,7 +288,10 @@ public class GameEvents : CustomEvents
 
     public void ResetMan(GameObject man)
     {
-        man.transform.SetParent(Services.menParentObj.transform);
+        if (man != null)
+        {
+            man.transform.SetParent(Services.menParentObj.transform);
+        }
     }
 
     public void EndLevelCelebration()
@@ -303,26 +336,23 @@ public class GameEvents : CustomEvents
                 sortByDistance.Add(Vector3.Distance(man.transform.position, obj.transform.position), man);
             }
 
-            if (sortByDistance.Count != 0)
+            int successManNum = 0;
+            foreach (KeyValuePair<float, GameObject> pair in sortByDistance)
             {
-                //Services.footprintsManager.ClearLastFootprints();
-                //Services.footprintsManager.Clear();
-
-                foreach (KeyValuePair<float, GameObject> pair in sortByDistance)
+                GameObject man = pair.Value;
+                int slotId = obj.GetComponent<PropControl>().FindEmptySlot();
+                if (slotId == -1)
                 {
-                    GameObject man = pair.Value;
-                    int slotId = obj.GetComponent<PropControl>().FindEmptySlot();
-                    if (slotId == -1)
-                    {
-                        return;
-                    }
-
-                    MoveManToObject(man, obj, slotId, 0.1f);
+                    return;
                 }
 
-                //Services.footprintsManager.Generate();
+                if (MoveManToObject(man, obj, slotId, 0.1f))
+                {
+                    ++successManNum;
+                }
             }
-            else
+
+            if (successManNum == 0)
             {
                 // no any avaliable men, release all the man to avoid dead lock
                 obj.GetComponent<PropControl>().FreeAllMen();
