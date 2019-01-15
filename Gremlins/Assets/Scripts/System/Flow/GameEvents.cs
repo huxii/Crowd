@@ -77,6 +77,23 @@ public class GameEvents : CustomEvents
         p0.GetComponent<PathPoint>().followPoint = null;
     }
 
+    public void SetMaterialColor(string para)
+    {
+        ParseNewPara(para);
+
+        GameObject obj = ParseGameObject();
+        Color c = ParseColor();
+
+        Material mat = obj.GetComponent<MeshRenderer>().sharedMaterial;
+        mat.color = c;
+    }
+
+    public void PlayAnimation(GameObject obj)
+    {
+        Animation ani = obj.GetComponent<Animation>();
+        ani.Play();
+    }
+
     public void PlayAnimation(string animParas)
     {
         ParseNewPara(animParas);
@@ -169,12 +186,6 @@ public class GameEvents : CustomEvents
         Vector3 pos = ParseIncrement();
 
         SetManTargetPosition(actor, pos, 0.1f);
-    }
-
-    public void PlayAnimation(GameObject obj)
-    {
-        Animation ani = obj.GetComponent<Animation>();
-        ani.Play();
     }
 
     public void MakeFloatMan(GameObject man, float height = 2f)
