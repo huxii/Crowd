@@ -8,6 +8,7 @@ public class RopeSpriteBehavior : ObjectControl
     public GameObject weightObj;
     public GameObject ropeObj;
     public float autoDeactiveCD = -1f;
+    public GameObject anchorObject = null;
 
     private GameObject firstSegment;
 
@@ -27,6 +28,20 @@ public class RopeSpriteBehavior : ObjectControl
             if (autoDeactiveCD <= 0)
             {
                 Deactivate();
+            }
+        }
+
+        if (anchorObject != null)
+        {
+            Vector3 pos = new Vector3(
+                anchorObject.transform.position.x,
+                anchorObject.transform.position.y,
+                transform.position.z
+                );
+
+            if (Vector3.Distance(pos, transform.position) > 0.01f)
+            {
+                firstSegment.GetComponent<Rigidbody2D>().MovePosition(pos);
             }
         }
 	}

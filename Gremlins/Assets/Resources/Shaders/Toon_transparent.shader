@@ -4,10 +4,6 @@
 	{
 		[Header(Base)]
 		_MainTex("Texture", 2D) = "white" {}
-		_XPositiveColor("X+ Color", Color) = (1, 1, 1, 1)
-		_XNegativeColor("X- Color", Color) = (1, 1, 1, 1)
-		_YPositiveColor("Y+ Color", Color) = (1, 1, 1, 1)
-		_YNegativeColor("Y- Color", Color) = (1, 1, 1, 1)
 
 		[Header(Lighting)]
 		_LightRamp("Light Ramp", 2D) = "white" {}
@@ -34,7 +30,7 @@
 		ColorMask RGB
 
 		CGPROGRAM
-		#include "ToonUtils.cginc"
+		#include "ToonLightingUtils.cginc"
 
 		#pragma surface surf Toon addshadow alpha:blend
 		#pragma target 3.0

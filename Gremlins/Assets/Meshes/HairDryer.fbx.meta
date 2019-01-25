@@ -216,6 +216,28 @@ ModelImporter:
     100420: BackShell
     100422: FrontShell
     100424: InflatorPipes
+    100426: CanStraw
+    100428: CanStrawModel
+    100430: DownstairBump
+    100432: FramePivot0
+    100434: FramePivot1
+    100436: FramePivot2
+    100438: FramePivot3
+    100440: FramePivot4
+    100442: FramePivot5
+    100444: FramePivot6
+    100446: FramePivot7
+    100448: StairsPlatform1
+    100450: FrameSupport
+    100452: GlassRoomBottom
+    100454: GlassRoomFrame
+    100456: GlassRoomWireWeb
+    100458: Wire8
+    100460: Generator
+    100462: GeneratorTmp
+    100464: GlassTube1
+    100466: SwitchLight0
+    100468: SwitchLight1
     400000: Can
     400002: CanTube
     400004: CanTube0
@@ -429,6 +451,28 @@ ModelImporter:
     400420: BackShell
     400422: FrontShell
     400424: InflatorPipes
+    400426: CanStraw
+    400428: CanStrawModel
+    400430: DownstairBump
+    400432: FramePivot0
+    400434: FramePivot1
+    400436: FramePivot2
+    400438: FramePivot3
+    400440: FramePivot4
+    400442: FramePivot5
+    400444: FramePivot6
+    400446: FramePivot7
+    400448: StairsPlatform1
+    400450: FrameSupport
+    400452: GlassRoomBottom
+    400454: GlassRoomFrame
+    400456: GlassRoomWireWeb
+    400458: Wire8
+    400460: Generator
+    400462: GeneratorTmp
+    400464: GlassTube1
+    400466: SwitchLight0
+    400468: SwitchLight1
     2100000: lambert1
     2300000: Can
     2300002: CanTube
@@ -603,6 +647,26 @@ ModelImporter:
     2300340: BackShell
     2300342: FrontShell
     2300344: InflatorMouth
+    2300346: CanStrawModel
+    2300348: DownstairBump
+    2300350: FramePivot0
+    2300352: FramePivot1
+    2300354: FramePivot2
+    2300356: FramePivot3
+    2300358: FramePivot4
+    2300360: FramePivot5
+    2300362: FramePivot6
+    2300364: FramePivot7
+    2300366: StairsPlatform1
+    2300368: FrameSupport
+    2300370: GlassRoomBottom
+    2300372: GlassRoomFrame
+    2300374: GlassRoomWireWeb
+    2300376: Wire8
+    2300378: GeneratorTmp
+    2300380: GlassTube1
+    2300382: SwitchLight0
+    2300384: SwitchLight1
     3300000: Can
     3300002: CanTube
     3300004: CanTube0
@@ -776,6 +840,26 @@ ModelImporter:
     3300340: BackShell
     3300342: FrontShell
     3300344: InflatorMouth
+    3300346: CanStrawModel
+    3300348: DownstairBump
+    3300350: FramePivot0
+    3300352: FramePivot1
+    3300354: FramePivot2
+    3300356: FramePivot3
+    3300358: FramePivot4
+    3300360: FramePivot5
+    3300362: FramePivot6
+    3300364: FramePivot7
+    3300366: StairsPlatform1
+    3300368: FrameSupport
+    3300370: GlassRoomBottom
+    3300372: GlassRoomFrame
+    3300374: GlassRoomWireWeb
+    3300376: Wire8
+    3300378: GeneratorTmp
+    3300380: GlassTube1
+    3300382: SwitchLight0
+    3300384: SwitchLight1
     4300000: ControlPanelModel
     4300002: HamsterWheelModel
     4300004: ElevatorModel
@@ -948,6 +1032,26 @@ ModelImporter:
     4300338: BackShell
     4300340: FrontShell
     4300342: InflatorMouth
+    4300344: CanStrawModel
+    4300346: StairsPlatform1
+    4300348: FramePivot0
+    4300350: FramePivot1
+    4300352: FramePivot2
+    4300354: FramePivot3
+    4300356: FramePivot4
+    4300358: FramePivot5
+    4300360: FramePivot6
+    4300362: FramePivot7
+    4300364: DownstairBump
+    4300366: FrameSupport
+    4300368: GlassRoomBottom
+    4300370: GlassRoomWireWeb
+    4300372: GlassRoomFrame
+    4300374: Wire8
+    4300376: GlassTube1
+    4300378: GeneratorTmp
+    4300380: SwitchLight0
+    4300382: SwitchLight1
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -983,6 +1087,7 @@ ModelImporter:
     globalScale: 0.01
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -1007,6 +1112,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 0
   copyAvatar: 0
   humanDescription:

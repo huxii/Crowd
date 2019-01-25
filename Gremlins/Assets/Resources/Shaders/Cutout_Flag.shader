@@ -29,7 +29,7 @@
 		Lighting Off
 
 		CGPROGRAM
-		#include "ToonUtils.cginc"
+		#include "ToonLightingUtils.cginc"
 		#pragma surface surf ToonCutout vertex:vert addshadow
 		#pragma target 3.0
 

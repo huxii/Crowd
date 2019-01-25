@@ -22,6 +22,7 @@ public class CameraControl : MonoBehaviour
         public Vector2 angleRange;
         public Vector2 angleZero = new Vector2(0, 90f);
         public Vector2 sensitivity;
+        public Vector3 translateZero;
         public Vector4 translateRange;
     }
 
@@ -54,8 +55,6 @@ public class CameraControl : MonoBehaviour
     void Start()
     {
         zoomLevel = defaultZoomLevel;
-        origTranslate = pivots.transform.position;
-        targetTranslate = origTranslate;
 
         targetCameraAttr = zoomLevelAttrs[zoomLevel];
         freeLookCam.m_Orbits[0] = new CinemachineFreeLook.Orbit(targetCameraAttr.topRigOrbit.x, targetCameraAttr.topRigOrbit.y);
@@ -65,6 +64,10 @@ public class CameraControl : MonoBehaviour
         targetAngle = targetCameraAttr.angleZero;
         freeLookCam.m_XAxis.Value = targetAngle.x;
         freeLookCam.m_YAxis.Value = targetAngle.y / 180f;
+
+        origTranslate = targetCameraAttr.translateZero;
+        pivots.transform.position = origTranslate;
+        targetTranslate = origTranslate;
     }
 
     // Update is called once per frame
@@ -213,9 +216,6 @@ public class CameraControl : MonoBehaviour
                 onExitMaxZoomOut.Invoke();
             }
 
-            ResetTranslate();
-            cameraSpeed = zoomCameraSpeed;
-
             if (level != zoomLevel)
             {
                 Services.eventManager.Fire(new ZoomEvent());
@@ -223,7 +223,13 @@ public class CameraControl : MonoBehaviour
 
             zoomLevel = level;
             targetCameraAttr = zoomLevelAttrs[zoomLevel];
-            targetAngle = targetCameraAttr.angleZero;           
+            targetAngle = targetCameraAttr.angleZero;
+
+            origTranslate = targetCameraAttr.translateZero;
+            pivots.transform.position = origTranslate;
+            ResetTranslate();
+
+            cameraSpeed = zoomCameraSpeed;
         }
     }
 

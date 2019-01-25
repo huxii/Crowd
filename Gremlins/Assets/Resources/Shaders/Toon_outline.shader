@@ -9,10 +9,6 @@
 		_ReplaceFactor("Replace Factor", Range(0, 1)) = 0
 		_Pattern("Pattern", 2D) = "white" {}
 		_PatternPower("Pattern Power", Float) = 1.0
-		_XPositiveColor("X+ Color", Color) = (1, 1, 1, 1)
-		_XNegativeColor("X- Color", Color) = (1, 1, 1, 1)
-		_YPositiveColor("Y+ Color", Color) = (1, 1, 1, 1)
-		_YNegativeColor("Y- Color", Color) = (1, 1, 1, 1)
 
 		[Header(Lighting)]
 		_LightRamp("Light Ramp", 2D) = "white" {}
@@ -55,7 +51,7 @@
 		ColorMask RGB
 
 		CGPROGRAM
-		#include "ToonUtils.cginc"
+		#include "ToonLightingUtils.cginc"
 
 		#pragma surface surf Toon vertex:vert addshadow
 		#pragma target 3.0

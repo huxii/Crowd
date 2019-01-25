@@ -9,6 +9,11 @@
 		_ReplaceFactor("Replace Factor", Range(0, 1)) = 0
 		_AlphaCutOff("Alpha Cut Off", Range(0, 1)) = 0.3
 
+		[Header(Gradient)]
+		_XGradientMax("Max Gradient X", Float) = 20
+		_XGradientMin("Min Gradient X", Float) = -20
+		_YGradientMax("Max Gradient Y", Float) = 20
+		_YGradientMin("Min Gradient Y", Float) = -20
 		_XPositiveColor("X+ Color", Color) = (1, 1, 1, 1)
 		_XNegativeColor("X- Color", Color) = (1, 1, 1, 1)
 		_YPositiveColor("Y+ Color", Color) = (1, 1, 1, 1)
@@ -34,8 +39,9 @@
 		Lighting Off
 
 		CGPROGRAM
-		#include "ToonUtils.cginc"
-		#pragma surface surf ToonCutout addshadow
+		#include "ToonLightingUtils.cginc"
+		#include "ToonVertUtils.cginc"
+		#pragma surface surf ToonCutout vertex:vert addshadow
 		#pragma target 3.0
 
 		uniform sampler2D _MainTex;
@@ -44,17 +50,26 @@
 		uniform float4 _Color;
 		uniform float _AlphaCutOff;
 
-		struct Input 
-		{
-			float2 uv_MainTex;
-		};
+		uniform float _XGradientMax;
+		uniform float _XGradientMin;
+		uniform float _YGradientMax;
+		uniform float _YGradientMin;
+		uniform float4 _XPositiveColor;
+		uniform float4 _XNegativeColor;
+		uniform float4 _YPositiveColor;
+		uniform float4 _YNegativeColor;
 
 		void surf(Input IN, inout SurfaceCustomOutput o) 
 		{
 			half4 c0 = tex2D(_MainTex, IN.uv_MainTex);
 			half4 c1 = tex2D(_ReplaceTex, IN.uv_MainTex);
 			half4 c = lerp(c0, c1, _ReplaceFactor);
-			o.Albedo = c.rgb;
+
+			float gradientX = max(0.0, min(1.0, (IN.posWorld.x - _XGradientMin) / (_XGradientMax - _XGradientMin)));
+			float gradientY = max(0.0, min(1.0, (IN.posWorld.y - _YGradientMin) / (_YGradientMax - _YGradientMin)));
+			half4 gradientColor = lerp(_XNegativeColor, _XPositiveColor, gradientX) * lerp(_YNegativeColor, _YPositiveColor, gradientY);
+
+			o.Albedo = c.rgb * gradientColor.rgb;
 			o.Alpha = c.a;
 
 			clip(c.a - _AlphaCutOff);

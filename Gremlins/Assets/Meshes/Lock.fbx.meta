@@ -302,6 +302,38 @@ ModelImporter:
     100592: ArmPivot
     100594: GremlinsOnTheWall
     100596: Trees
+    100598: HouseChimneyBase
+    100600: KeyChain
+    100602: pCylinder1
+    100604: pSphere1
+    100606: pTorus1
+    100608: pTorus2
+    100610: GoldFish
+    100612: FishBody
+    100614: FishHand
+    100616: FishTail
+    100618: FishHook
+    100620: KeyRing
+    100622: Ring0
+    100624: Ring1
+    100626: Ring2
+    100628: Bell
+    100630: Bell1
+    100632: Bell 1
+    100634: Ring3
+    100636: Ball0
+    100638: Ball1
+    100640: BallModel0
+    100642: BallModel0 1
+    100644: FishHook1
+    100646: FishHook1 1
+    100648: FishModel
+    100650: KeyRing0
+    100652: KeyRing1
+    100654: RingModel0
+    100656: ChimneyModel
+    100658: BallModel00
+    100660: FishHook01
     400000: BackShell
     400002: Bulb
     400004: Bulb 1
@@ -601,6 +633,38 @@ ModelImporter:
     400592: ArmPivot
     400594: GremlinsOnTheWall
     400596: Trees
+    400598: HouseChimneyBase
+    400600: KeyChain
+    400602: pCylinder1
+    400604: pSphere1
+    400606: pTorus1
+    400608: pTorus2
+    400610: GoldFish
+    400612: FishBody
+    400614: FishHand
+    400616: FishTail
+    400618: FishHook
+    400620: KeyRing
+    400622: Ring0
+    400624: Ring1
+    400626: Ring2
+    400628: Bell
+    400630: Bell1
+    400632: Bell 1
+    400634: Ring3
+    400636: Ball0
+    400638: Ball1
+    400640: BallModel0
+    400642: BallModel0 1
+    400644: FishHook1
+    400646: FishHook1 1
+    400648: FishModel
+    400650: KeyRing0
+    400652: KeyRing1
+    400654: RingModel0
+    400656: ChimneyModel
+    400658: BallModel00
+    400660: FishHook01
     2100000: InnerMat
     2100002: CutoutMat
     2100004: OutterMat
@@ -834,6 +898,30 @@ ModelImporter:
     2300454: LockHeadOuterModel
     2300456: Arm
     2300458: ArmPivot
+    2300460: HouseChimneyBase
+    2300462: pCylinder1
+    2300464: pSphere1
+    2300466: pTorus1
+    2300468: pTorus2
+    2300470: GoldFish
+    2300472: FishBody
+    2300474: FishHand
+    2300476: FishTail
+    2300478: FishHook
+    2300480: Ring0
+    2300482: Ring1
+    2300484: Ring2
+    2300486: Bell
+    2300488: Bell 1
+    2300490: Ring3
+    2300492: BallModel0
+    2300494: BallModel0 1
+    2300496: FishHook1
+    2300498: FishHook1 1
+    2300500: RingModel0
+    2300502: ChimneyModel
+    2300504: BallModel00
+    2300506: FishHook01
     3300000: BackShell
     3300002: Bulb
     3300004: Bulb 1
@@ -1064,6 +1152,30 @@ ModelImporter:
     3300454: LockHeadOuterModel
     3300456: Arm
     3300458: ArmPivot
+    3300460: HouseChimneyBase
+    3300462: pCylinder1
+    3300464: pSphere1
+    3300466: pTorus1
+    3300468: pTorus2
+    3300470: GoldFish
+    3300472: FishBody
+    3300474: FishHand
+    3300476: FishTail
+    3300478: FishHook
+    3300480: Ring0
+    3300482: Ring1
+    3300484: Ring2
+    3300486: Bell
+    3300488: Bell 1
+    3300490: Ring3
+    3300492: BallModel0
+    3300494: BallModel0 1
+    3300496: FishHook1
+    3300498: FishHook1 1
+    3300500: RingModel0
+    3300502: ChimneyModel
+    3300504: BallModel00
+    3300506: FishHook01
     4300000: Ladder
     4300002: Wheet13
     4300004: Fence
@@ -1294,6 +1406,29 @@ ModelImporter:
     4300454: LockHeadOuterModel
     4300456: ArmPivot
     4300458: Arm
+    4300460: HouseChimneyBase
+    4300462: pSphere1
+    4300464: pTorus2
+    4300466: pCylinder1
+    4300468: pTorus1
+    4300470: GoldFish
+    4300472: FishTail
+    4300474: FishHand
+    4300476: FishBody
+    4300478: FishHook
+    4300480: Ring0
+    4300482: Ring1
+    4300484: Ring2
+    4300486: Bell
+    4300488: Ring3
+    4300490: FishHook1
+    4300492: BallModel0
+    4300494: FishHook1
+    4300496: BallModel0
+    4300498: RingModel0
+    4300500: ChimneyModel
+    4300502: FishHook01
+    4300504: BallModel00
     9500000: //RootNode
     13700000: Wheet13
     2186277476908879412: ImportLogs
@@ -1331,6 +1466,7 @@ ModelImporter:
     globalScale: 0.01
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
@@ -1355,6 +1491,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 0
   copyAvatar: 0
   humanDescription:

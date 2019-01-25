@@ -166,13 +166,23 @@ public class ObjectDragControl : ObjectBasicControl
             }
 
             float newValue = curValue;
-            if (isAxisRevert)
+            float deltaPosValue;
+            if (dragAxis == Axis.RX || dragAxis == Axis.RY || dragAxis == Axis.TX)
             {
-                newValue -= deltaPos.x * 100;
+                deltaPosValue = deltaPos.x;
             }
             else
             {
-                newValue += deltaPos.x * 100;
+                deltaPosValue = deltaPos.y;
+            }
+
+            if (isAxisRevert)
+            {
+                newValue -= deltaPosValue * 100;
+            }
+            else
+            {
+                newValue += deltaPosValue * 100;
             }
 
             newValue = Mathf.Min(range.y, Mathf.Max(range.x, newValue));

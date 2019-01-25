@@ -67,6 +67,15 @@ public class CustomEvents : MonoBehaviour
         return float.Parse(paras[curParaIdx++]);
     }
 
+    protected Color ParseColor()
+    {
+        float r = float.Parse(paras[curParaIdx++]);
+        float g = float.Parse(paras[curParaIdx++]);
+        float b = float.Parse(paras[curParaIdx++]);
+        float a = float.Parse(paras[curParaIdx++]);
+        return new Color(r, g, b, a);
+    }
+
     protected float ParseAlpha()
     {
         return float.Parse(paras[curParaIdx++]);
