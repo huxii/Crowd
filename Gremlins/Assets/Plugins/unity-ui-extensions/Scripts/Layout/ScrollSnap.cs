@@ -134,12 +134,12 @@ namespace UnityEngine.UI.Extensions
                     PreviousScreen();
                 });
             }
-            if (_scroll_rect.horizontalScrollbar != null && _scroll_rect.horizontal)
+            if (_scroll_rect.horizontalScrollbar != null && _scroll_rect.horizontal && !_scroll_rect.horizontalScrollbar.gameObject.GetComponent<ScrollSnapScrollbarHelper>())
             {
                 var hscroll = _scroll_rect.horizontalScrollbar.gameObject.AddComponent<ScrollSnapScrollbarHelper>();
                 hscroll.ss = this;
             }
-            if (_scroll_rect.verticalScrollbar != null && _scroll_rect.vertical)
+            if (_scroll_rect.verticalScrollbar != null && _scroll_rect.vertical && !_scroll_rect.verticalScrollbar.gameObject.GetComponent<ScrollSnapScrollbarHelper>())
             {
                 var vscroll = _scroll_rect.verticalScrollbar.gameObject.AddComponent<ScrollSnapScrollbarHelper>();
                 vscroll.ss = this;
