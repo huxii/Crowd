@@ -11,6 +11,7 @@ public class ScrollRectControl : ScrollRect
 
     private UnityEngine.UI.Extensions.ScrollSnap scrollSnap;
     private List<Transform> contentList;
+    private int contentIdx = 0;
     private float contentDistance;
 
     private void Update()
@@ -24,19 +25,21 @@ public class ScrollRectControl : ScrollRect
             foreach (Transform t in content)
             {
                 contentList.Add(t);
+                t.gameObject.SetActive(false);
             }
-
+            contentList[contentIdx].gameObject.SetActive(true);
+            ++contentIdx;
             contentDistance = 1.0f / (contentList.Count - 1);
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            SetScrolling(true);
+            SetDragging(true);
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            SetScrolling(false);
+            SetDragging(false);
         }
     }
 
@@ -83,7 +86,7 @@ public class ScrollRectControl : ScrollRect
         }
     }
 
-    public void SetScrolling(bool en)
+    public void SetDragging(bool en)
     {
         enableDragging = en;
         scrollSnap.enableDragging = en;
@@ -106,5 +109,21 @@ public class ScrollRectControl : ScrollRect
         }
 
         ScaleEffect(page0, page1, value);
+    }
+
+    public void NextScreen()
+    {        
+        scrollSnap.NextScreen();
+    }
+
+    public void UnlockNextScreen()
+    {
+        if (contentIdx >= contentList.Count)
+        {
+            return;
+        }
+
+        contentList[contentIdx].gameObject.SetActive(true);
+        ++contentIdx;
     }
 }
