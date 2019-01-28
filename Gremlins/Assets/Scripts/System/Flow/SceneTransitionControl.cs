@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransitionControl : MonoBehaviour
 {
+    public Shader transitionShader;
+    public Texture transitionTexture;
+    public float transitionTextureScale = 1.0f;
+
     GameObject transitionScreen = null;
     Camera transitionCamera = null;
     int transitionLayer = 31;
@@ -26,17 +30,11 @@ public class SceneTransitionControl : MonoBehaviour
     {
         if (isFading)
         {
-            Color c = transitionScreen.GetComponent<MeshRenderer>().material.color;
-            float alpha = c.a;
-            alpha -= Time.deltaTime;
-            transitionScreen.GetComponent<MeshRenderer>().material.color = new Color(
-                c.r,
-                c.g,
-                c.b,
-                alpha
-                );
+            float progress = transitionScreen.GetComponent<MeshRenderer>().material.GetFloat("_Progress");
+            progress += Time.deltaTime;
+            transitionScreen.GetComponent<MeshRenderer>().material.SetFloat("_Progress", progress);
 
-            if (alpha <= 0)
+            if (progress >= 1)
             {
                 isFading = false;
 
@@ -94,13 +92,16 @@ public class SceneTransitionControl : MonoBehaviour
             mesh.name = "TransitionQuad";
             transitionScreen.GetComponent<MeshFilter>().mesh = mesh;
 
-            Material mat = new Material(Shader.Find("Custom/Unlit_alpha"));
+            Material mat = new Material(transitionShader);
             mat.color = Color.white;
+            mat.SetTexture("_PatternTex", transitionTexture);
+            mat.SetTextureScale("_PatternTex", new Vector2(transitionTextureScale, transitionTextureScale));
             transitionScreen.GetComponent<MeshRenderer>().material = mat;
         }
         else
         {
             transitionScreen.GetComponent<MeshRenderer>().material.color = Color.white;
+            transitionScreen.GetComponent<MeshRenderer>().material.SetFloat("_Progress", 0);
         }
 
         StartCoroutine(RecordFrame());
