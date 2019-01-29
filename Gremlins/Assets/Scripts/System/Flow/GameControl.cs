@@ -149,7 +149,9 @@ public class GameControl : MainControl
     public override void Ending()
     {
         base.Ending();
-        
+
         // go back to title
+        DataSet.recentCompletedLevelIdx = Services.sceneController.CurrentSceneIdx();
+        Services.sceneController.LoadScene("Title");
     }
 }

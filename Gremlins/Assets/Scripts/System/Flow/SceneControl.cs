@@ -14,6 +14,11 @@ public class SceneControl : MonoBehaviour
         nextAsync = null;
     }
 
+    public int CurrentSceneIdx()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
+
     public void ReloadCurrentScene()
     {
         if (thisAsync == null)

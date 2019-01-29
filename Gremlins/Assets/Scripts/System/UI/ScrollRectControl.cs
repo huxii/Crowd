@@ -11,35 +11,27 @@ public class ScrollRectControl : ScrollRect
 
     private UnityEngine.UI.Extensions.ScrollSnap scrollSnap;
     private List<Transform> contentList;
-    private int contentIdx = 0;
     private float contentDistance;
+
+    private float setDraggingCD = 1f;
+    private float timer = 0;
 
     private void Update()
     {
-        // not inited
-        if (scrollSnap == null)
+        if (timer > 0)
         {
-            scrollSnap = GetComponent<UnityEngine.UI.Extensions.ScrollSnap>();
-
-            contentList = new List<Transform>();
-            foreach (Transform t in content)
+            timer -= Time.deltaTime;
+            if (timer <= 0)
             {
-                contentList.Add(t);
-                t.gameObject.SetActive(false);
+                SetDragging(true);
+                NextScreen();
             }
-            contentList[contentIdx].gameObject.SetActive(true);
-            ++contentIdx;
-            contentDistance = 1.0f / (contentList.Count - 1);
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        Debug.Log(DataSet.recentContentPos);
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            SetDragging(true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            SetDragging(false);
+            ResumeContentPosition();
         }
     }
 
@@ -92,6 +84,23 @@ public class ScrollRectControl : ScrollRect
         scrollSnap.enableDragging = en;
     }
 
+    public void RecordContentPosition()
+    {
+        DataSet.recentContentPos = content.anchoredPosition;
+    }
+
+    public void ResumeContentPosition()
+    {
+        StartCoroutine(RefreshResumedContentPosition());        
+    }
+
+    IEnumerator RefreshResumedContentPosition()
+    {
+        yield return null;
+        yield return null;
+        content.anchoredPosition = DataSet.recentContentPos;
+    }
+
     public void OnValueChanged(Vector2 scroll)
     {
         float value = scroll.x;
@@ -111,19 +120,64 @@ public class ScrollRectControl : ScrollRect
         ScaleEffect(page0, page1, value);
     }
 
-    public void NextScreen()
-    {        
-        scrollSnap.NextScreen();
+    public void Init()
+    {
+        scrollSnap = GetComponent<UnityEngine.UI.Extensions.ScrollSnap>();
+
+        contentList = new List<Transform>();
+        foreach (Transform t in content)
+        {
+            contentList.Add(t);
+            t.gameObject.SetActive(false);
+        }
+        contentDistance = 1.0f / (contentList.Count - 1);
+
+        for (int i = 0; i <= DataSet.unlockedLevelIdx; ++i)
+        {
+            contentList[i].gameObject.SetActive(true);
+        }
+        ResumeContentPosition();
+
+        CheckUnlockedScreen();
     }
 
-    public void UnlockNextScreen()
-    {
-        if (contentIdx >= contentList.Count)
-        {
-            return;
-        }
+    public void NextScreen()
+    {        
+        scrollSnap.NextScreen();        
+    }
 
-        contentList[contentIdx].gameObject.SetActive(true);
-        ++contentIdx;
+    public void CheckUnlockedScreen()
+    {
+        if (DataSet.unlockedLevelIdx <= DataSet.recentCompletedLevelIdx)
+        {
+            ReadyToUnlockNextScreen();
+
+            for (int i = DataSet.unlockedLevelIdx + 1; i <= DataSet.recentCompletedLevelIdx + 1; ++i)
+            {
+                contentList[i].gameObject.SetActive(true);
+            }
+            DataSet.unlockedLevelIdx = DataSet.recentCompletedLevelIdx + 1;
+        }       
+    }
+
+    public void ReadyToUnlockNextScreen()
+    {
+        SetDragging(false);
+        timer = setDraggingCD;
+    }
+
+    public void MoveToLevelSelect()
+    {
+        if (DataSet.unlockedLevelIdx <= 0)
+        {
+            ReadyToUnlockNextScreen();
+
+            DataSet.recentCompletedLevelIdx = 0;
+            CheckUnlockedScreen();
+        }
+        else
+        {
+            NextScreen();
+        }
     }
 }
