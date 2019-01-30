@@ -27,12 +27,6 @@ public class ScrollRectControl : ScrollRect
                 NextScreen();
             }
         }
-
-        Debug.Log(DataSet.recentContentPos);
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ResumeContentPosition();
-        }
     }
 
     private void ScaleEffect(int page0, int page1, float value)
