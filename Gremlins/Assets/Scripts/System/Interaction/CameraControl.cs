@@ -10,9 +10,6 @@ public class CameraControl : MonoBehaviour
     // cameracontrol: x - 0~360    y - 0~180
     // should convert when applying angles to cinemachine
 
-    public UnityEvent onEnterMaxZoomOut;
-    public UnityEvent onExitMaxZoomOut;
-
     [System.Serializable]
     public class CameraAttr
     {
@@ -31,76 +28,28 @@ public class CameraControl : MonoBehaviour
     public int maxZoomLevel = 0;
     public int defaultZoomLevel = 0;
     public List<CameraAttr> zoomLevelAttrs;
-    private int zoomLevel = 0;
+    protected int zoomLevel = 0;
 
-    private CinemachineFreeLook freeLookCam;
-    private CameraAttr targetCameraAttr;
+    protected CameraAttr targetCameraAttr;
     [SerializeField]
-    private Vector2 targetAngle;
-    private Vector3 targetTranslate;
-    private Vector3 origTranslate;
-    private Vector2 cameraSpeed;
+    protected Vector2 targetAngle;
+    protected Vector3 targetTranslate;
+    protected Vector3 origTranslate;
+    protected Vector2 cameraSpeed;
 
-    private Vector2 zoomCameraSpeed = new Vector2(8, 8);
-    private Vector2 clickCameraSpeed = new Vector2(1, 1);
+    protected Vector2 zoomCameraSpeed = new Vector2(8, 8);
+    protected Vector2 clickCameraSpeed = new Vector2(1, 1);
 
-    private bool enabled = true;
-
-    private void Awake()
-    {
-        freeLookCam = GameObject.Find("FreeLookCamera").GetComponent<CinemachineFreeLook>();
-    }
+    protected bool isEnabled = true;
 
     // Use this for initialization
     void Start()
     {
-        zoomLevel = defaultZoomLevel;
-
-        targetCameraAttr = zoomLevelAttrs[zoomLevel];
-        freeLookCam.m_Orbits[0] = new CinemachineFreeLook.Orbit(targetCameraAttr.topRigOrbit.x, targetCameraAttr.topRigOrbit.y);
-        freeLookCam.m_Orbits[1] = new CinemachineFreeLook.Orbit(targetCameraAttr.middleRigOrbit.x, targetCameraAttr.middleRigOrbit.y);
-        freeLookCam.m_Orbits[2] = new CinemachineFreeLook.Orbit(targetCameraAttr.bottomRigOrbit.x, targetCameraAttr.bottomRigOrbit.y);
-
-        targetAngle = targetCameraAttr.angleZero;
-        freeLookCam.m_XAxis.Value = targetAngle.x;
-        freeLookCam.m_YAxis.Value = targetAngle.y / 180f;
-
-        origTranslate = targetCameraAttr.translateZero;
-        pivots.transform.position = origTranslate;
-        targetTranslate = origTranslate;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(freeLookCam.m_XAxis.Value + "---" + targetAngle.x);
-        freeLookCam.m_XAxis.Value = Services.utils.LerpRotation(freeLookCam.m_XAxis.Value, targetAngle.x, cameraSpeed.x);
-        freeLookCam.m_YAxis.Value = Services.utils.LerpRotation(freeLookCam.m_YAxis.Value * 180, targetAngle.y, cameraSpeed.y) / 180;
-
-        Vector2 topOrbit = Vector2.Lerp(new Vector2(freeLookCam.m_Orbits[0].m_Height, freeLookCam.m_Orbits[0].m_Radius), targetCameraAttr.topRigOrbit, Time.deltaTime * 8f);
-        Vector2 middleOrbit = Vector2.Lerp(new Vector2(freeLookCam.m_Orbits[1].m_Height, freeLookCam.m_Orbits[1].m_Radius), targetCameraAttr.middleRigOrbit, Time.deltaTime * 8f);
-        Vector2 bottomOrbit = Vector2.Lerp(new Vector2(freeLookCam.m_Orbits[2].m_Height, freeLookCam.m_Orbits[2].m_Radius), targetCameraAttr.bottomRigOrbit, Time.deltaTime * 8f);
-        freeLookCam.m_Orbits[0] = new CinemachineFreeLook.Orbit(topOrbit.x, topOrbit.y);
-        freeLookCam.m_Orbits[1] = new CinemachineFreeLook.Orbit(middleOrbit.x, middleOrbit.y);
-        freeLookCam.m_Orbits[2] = new CinemachineFreeLook.Orbit(bottomOrbit.x, bottomOrbit.y);
-
-        pivots.transform.position = Vector3.Lerp(pivots.transform.position, targetTranslate, Time.deltaTime * 10f);
-    }
-
-    private float Clamp360(float angle)
-    {
-        int loop = (int)Mathf.Abs(angle / 360f);
-
-        if (angle < 0)
-        {
-            angle += 360f * (loop + 1);
-        }
-        else
-        {
-            angle -= 360f * loop;
-        }
-
-        return angle;
     }
 
     public void ResetAngle()
@@ -133,7 +82,7 @@ public class CameraControl : MonoBehaviour
 
     public Vector2 Orbit(float x, float y)
     {
-        if (enabled)
+        if (isEnabled)
         {
             float newAngleX = targetAngle.x + x / Screen.width * targetCameraAttr.sensitivity.x;
             //Debug.Log(targetAngle.x + "..." + newAngleX);
@@ -159,7 +108,7 @@ public class CameraControl : MonoBehaviour
 
     public void SetOrbit(float x, float y)
     {
-        if (enabled)
+        if (isEnabled)
         {
             if (x >= 0 && x <= 1)
             {
@@ -180,7 +129,7 @@ public class CameraControl : MonoBehaviour
         SetZoom(zoomLevel - 1);
     }
 
-    private void ZoomIn()
+    protected void ZoomIn()
     {
         SetZoom(zoomLevel + 1);
     }
@@ -208,12 +157,12 @@ public class CameraControl : MonoBehaviour
         {
             if (level == 0)
             {
-                onEnterMaxZoomOut.Invoke();
+                //onEnterMaxZoomOut.Invoke();
             }
             else
             if (zoomLevel == 0)
             {
-                onExitMaxZoomOut.Invoke();
+                //onExitMaxZoomOut.Invoke();
             }
 
             if (level != zoomLevel)
@@ -249,6 +198,6 @@ public class CameraControl : MonoBehaviour
 
     public void SetEnable(bool en)
     {
-        enabled = en;
+        isEnabled = en;
     }
 }
