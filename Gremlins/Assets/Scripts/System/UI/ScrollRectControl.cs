@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class ScrollRectControl : ScrollRect
 {
+    [Header("Custom Settings")]
+    public bool unlockAllLevel = false;
     public bool enableDragging = true;
     public float effectScale = 1.0f;
 
@@ -26,12 +28,6 @@ public class ScrollRectControl : ScrollRect
                 SetDragging(true);
                 NextScreen();
             }
-        }
-
-        Debug.Log(DataSet.recentContentPos);
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ResumeContentPosition();
         }
     }
 
@@ -138,6 +134,11 @@ public class ScrollRectControl : ScrollRect
         }
         ResumeContentPosition();
 
+        if (unlockAllLevel)
+        {
+            DataSet.recentCompletedLevelIdx = contentList.Count;
+        }
+
         CheckUnlockedScreen();
     }
 
@@ -150,10 +151,18 @@ public class ScrollRectControl : ScrollRect
     {
         if (DataSet.unlockedLevelIdx <= DataSet.recentCompletedLevelIdx)
         {
-            ReadyToUnlockNextScreen();
+            if (DataSet.unlockedLevelIdx == DataSet.recentCompletedLevelIdx)
+            {
+                ReadyToUnlockNextScreen();
+            }
 
             for (int i = DataSet.unlockedLevelIdx + 1; i <= DataSet.recentCompletedLevelIdx + 1; ++i)
             {
+                if (i >= contentList.Count)
+                {
+                    break;
+                }
+
                 contentList[i].gameObject.SetActive(true);
             }
             DataSet.unlockedLevelIdx = DataSet.recentCompletedLevelIdx + 1;

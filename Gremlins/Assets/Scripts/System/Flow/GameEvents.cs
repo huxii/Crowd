@@ -84,7 +84,7 @@ public class GameEvents : CustomEvents
         GameObject obj = ParseGameObject();
         Color c = ParseColor();
 
-        Material mat = obj.GetComponent<MeshRenderer>().sharedMaterial;
+        Material mat = obj.GetComponent<MeshRenderer>().material;
         mat.color = c;
     }
 
