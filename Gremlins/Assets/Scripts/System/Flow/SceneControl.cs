@@ -71,19 +71,29 @@ public class SceneControl : MonoBehaviour
         async.allowSceneActivation = false;
     }
 
+    public void LoadSceneWithZoomAndRecord(string sceneName)
+    {
+        PreloadScene(sceneName);
+
+        Camera2DControl cam2D = (Camera2DControl)Services.cameraController;
+        Services.taskManager.Do(new ActionTask(cam2D.ZoomToLevel))
+            .Then(new Wait(1))
+            .Then(new ActionTask(Services.sceneTransitionController.RecordScreen))
+            .Then(new ActionTask(WaifForAsyncLoading));
+    }
+
     public void LoadSceneWithLoadingScreen(string sceneName)
     {
         PreloadScene(sceneName);
         Services.sceneTransitionController.FadeIntoLoadingScreen();
 
-        // wait for fade out
-        StartCoroutine(WaitForTransition(1));        
+        Services.taskManager
+            .Do(new Wait(1))
+            .Then(new ActionTask(WaifForAsyncLoading));   
     }
 
-    IEnumerator WaitForTransition(float time)
+    private void WaifForAsyncLoading()
     {
-        yield return new WaitForSeconds(time);
-
         StartCoroutine(LoadLevel());
     }
 

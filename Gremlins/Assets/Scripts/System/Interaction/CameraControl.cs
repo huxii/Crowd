@@ -65,7 +65,12 @@ public class CameraControl : MonoBehaviour
     {
     }
 
-    public virtual void Zoom(float delta)
+    public virtual void Zoom(float value)
     {
+    }
+
+    public virtual float OrthographicSize()
+    {
+        return 22;
     }
 }

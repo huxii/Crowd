@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-/*
+
 public class ActionTask : Task
 {
     public Action Action { get; private set; }
@@ -14,10 +13,10 @@ public class ActionTask : Task
     protected override void Init()
     {
         Action();
-        SetStatus(TaskStatus.Success);
+        SetStatus(TaskStatus.SUCCESS);
     }
 }
-*/
+
 
 public class FeedbackTask : Task
 {
@@ -147,17 +146,5 @@ public class TimedMaterialWithCameraTask : TimedMaterialTask
             obj.SetActive(false);
             cam.enabled = false;
         }
-    }
-}
-
-
-public class NextScreenTask : Task
-{
-    public NextScreenTask() { }
-
-    protected override void Init()
-    {
-        ((MenuControl)Services.mainController).NextScreen();
-        SetStatus(TaskStatus.SUCCESS);
     }
 }
