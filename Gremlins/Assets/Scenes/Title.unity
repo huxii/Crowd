@@ -683,6 +683,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  unlockAllLevel: 0
   enableDragging: 1
   effectScale: 1
 --- !u!114 &262924021
