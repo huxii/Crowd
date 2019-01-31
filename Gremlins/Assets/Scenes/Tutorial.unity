@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1813249, g: 0.2229071, b: 0.284005, a: 1}
+  m_IndirectSpecularColor: {r: 0.18132468, g: 0.22290683, b: 0.28400475, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -213,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.93
+      value: 1.87
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.y
@@ -249,6 +249,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65328098609466078, guid: a819850fd01d2b14795d9665e6875261,
+        type: 3}
+      propertyPath: m_Size.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114160637959817490, guid: a819850fd01d2b14795d9665e6875261,
@@ -321,11 +326,6 @@ PrefabInstance:
       propertyPath: levelEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Move1
       objectReference: {fileID: 0}
-    - target: {fileID: 65328098609466078, guid: a819850fd01d2b14795d9665e6875261,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114160637959817490, guid: a819850fd01d2b14795d9665e6875261, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a819850fd01d2b14795d9665e6875261, type: 3}
@@ -358,7 +358,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SwipeIcon, -1.6, 1.45, -1.2, Swipe1
+          m_StringArgument: SwipeIcon, -1.1, 1.7, -1.2, Swipe1
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -1783,11 +1783,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.13
+      value: 3.18
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1957,7 +1957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.99
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2197,7 +2197,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TapIcon, -1, 5, -1.2, Load1
+          m_StringArgument: TapIcon, 0, 5, -1.2, Load1
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -3103,7 +3103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.65
+      value: -1.08
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3311,11 +3311,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.19
+      value: 3.17
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.36
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3575,11 +3575,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.07
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.46
+      value: 1.73
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3851,7 +3851,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TapIcon, -1, 1.46, -1.2, Load1
+          m_StringArgument: TapIcon, 0.5, 1.7, -1.2, Load1
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -4243,7 +4243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.53
+      value: 2.62
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4279,6 +4279,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65328098609466078, guid: a819850fd01d2b14795d9665e6875261,
+        type: 3}
+      propertyPath: m_Size.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114160637959817490, guid: a819850fd01d2b14795d9665e6875261,
@@ -4350,11 +4355,6 @@ PrefabInstance:
         type: 3}
       propertyPath: levelEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Move1
-      objectReference: {fileID: 0}
-    - target: {fileID: 65328098609466078, guid: a819850fd01d2b14795d9665e6875261,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114160637959817490, guid: a819850fd01d2b14795d9665e6875261, type: 3}
@@ -4968,7 +4968,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TapIcon, 2,1.2, -1.2, Move2
+          m_StringArgument: TapIcon, 3.17,1.4, -1.2, Move2
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -5556,7 +5556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.01
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5696,7 +5696,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TapIcon, 1, 5, -1.2, Unload1
+          m_StringArgument: TapIcon, 1.87, 5, -1.2, Unload1
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -5784,11 +5784,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.92
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.34
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5912,11 +5912,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.36
+      value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.33
+      value: 1.72
       objectReference: {fileID: 0}
     - target: {fileID: 4757009615083004, guid: a819850fd01d2b14795d9665e6875261, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7100,7 +7100,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: 0.03327794, y: 0.000000016024563, z: -0.000000005144664, w: 0.99944615}
+  m_LocalRotation: {x: 0.033277918, y: -0.000000019861304, z: -0.0000000039497947,
+    w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
