@@ -16,22 +16,6 @@ public class MenuControl : MainControl
         scrollController.Init();
     }
 
-    protected override void RegisterEvents()
-    {
-        Services.eventManager.Register<TransitionFadeOut>(OnTransitionFadeOut);
-    }
-
-    protected override void UnregisterEvents()
-    {
-        Services.eventManager.Unregister<TransitionFadeOut>(OnTransitionFadeOut);
-    }
-
-    void OnTransitionFadeOut(Crowd.Event e)
-    {
-        Debug.Log("fade out");
-        Services.sceneController.ContinueLoadingSceneWithTransition();
-    }
-
     public void OnStartButtonClicked()
     {
         scrollController.MoveToLevelSelect();        

@@ -30,8 +30,15 @@ public static class Services
 
     public static void Init()
     {
-        eventManager = new Crowd.EventManager();
-        taskManager = new Crowd.TaskManager();
+        if (eventManager == null)
+        {
+            eventManager = new Crowd.EventManager();
+        }
+
+        if (taskManager == null)
+        {
+            taskManager = new Crowd.TaskManager();
+        }
 
         if (GameObject.Find("PathFinder"))
         {
@@ -155,8 +162,8 @@ public static class Services
 
     public static void Destroy()
     {
-        eventManager = null;
-        taskManager = null;
+        //eventManager = null;
+        //taskManager = null;
         pathFindingManager = null;
         tileMarkerManager = null;
         levelEventsController = null;

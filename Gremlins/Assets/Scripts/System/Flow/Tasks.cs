@@ -57,7 +57,7 @@ public abstract class TimedTask : Task
         var now = Time.time;
         var elapsed = now - StartTime;
         var t = Mathf.Clamp01(elapsed / Duration);
-        if (t > 1)
+        if (t >= 1)
         {
             OnElapsed();
         }
@@ -109,12 +109,44 @@ public class TimedMaterialTask : TimedTask
 
     protected override void OnTick(float t)
     {
-        mat.SetFloat(attrName, Mathf.Lerp(start, end, t));
+        // temp fix for transition texture
+        mat.SetFloat(attrName, Mathf.Lerp(start, end, t * 1.1f));
     }
 
-    protected override void OnSuccess()
+    //protected override void OnSuccess()
+    //{
+    //    obj.SetActive(false);
+    //}
+}
+
+
+public class TimedMaterialWithCameraTask : TimedMaterialTask
+{
+    protected Camera cam;
+    protected bool disableWhenDone;
+
+    public TimedMaterialWithCameraTask(GameObject o, Camera c, string attr, float s, float e, float d, bool bd) : base(o, attr, s, e, d)
     {
-        obj.SetActive(false);
+        cam = c;
+        disableWhenDone = bd;
+    }
+
+    protected override void Init()
+    {
+        base.Init();
+
+        cam.enabled = true;
+    }
+
+    protected override void OnElapsed()
+    {
+        base.OnElapsed();
+
+        if (disableWhenDone)
+        {
+            obj.SetActive(false);
+            cam.enabled = false;
+        }
     }
 }
 
@@ -125,7 +157,6 @@ public class NextScreenTask : Task
 
     protected override void Init()
     {
-        Debug.Log("next");
         ((MenuControl)Services.mainController).NextScreen();
         SetStatus(TaskStatus.SUCCESS);
     }

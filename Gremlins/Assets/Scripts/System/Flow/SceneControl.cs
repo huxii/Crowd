@@ -71,27 +71,33 @@ public class SceneControl : MonoBehaviour
         async.allowSceneActivation = false;
     }
 
-    public void LoadSceneWithTransition(string sceneName)
+    public void LoadSceneWithLoadingScreen(string sceneName)
     {
         PreloadScene(sceneName);
-        Services.sceneTransitionController.FadeOut();        
+        Services.sceneTransitionController.FadeIntoLoadingScreen();
+
+        // wait for fade out
+        StartCoroutine(WaitForTransition(1));        
     }
 
-    public void ContinueLoadingSceneWithTransition()
+    IEnumerator WaitForTransition(float time)
     {
+        yield return new WaitForSeconds(time);
+
         StartCoroutine(LoadLevel());
     }
 
     IEnumerator LoadLevel()
     {
-        async.allowSceneActivation = true;
         while (!async.isDone)
         {
-            Debug.Log("loading");
-            yield return null;
-        }
+            if (async.progress >= 0.9f)
+            {
+                Services.sceneTransitionController.FadeOutOfLoadingScreen();
+                async.allowSceneActivation = true;               
+            }
 
-        Debug.Log("loaded");      
-        Services.sceneTransitionController.FadeIn();
+            yield return null;          
+        }
     }
 }

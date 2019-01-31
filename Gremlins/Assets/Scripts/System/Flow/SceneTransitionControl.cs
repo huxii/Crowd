@@ -12,7 +12,7 @@ public class SceneTransitionControl : MonoBehaviour
     GameObject transitionScreen = null;
     Camera transitionCamera = null;
     int transitionLayer = 31;
-    int orthoSize = 22;
+    int orthoSize = 8;
     bool isFading = false;
 
     void Awake()
@@ -120,18 +120,18 @@ public class SceneTransitionControl : MonoBehaviour
         isFading = true;
     }
 
-    public void FadeOut()
+    public void FadeIntoLoadingScreen()
     {
         GenerateTransitionScreen();
 
-        Services.taskManager.Do(new TimedMaterialTask(transitionScreen, "_Progress", 1, 0, 1));
-            //.Then(new FeedbackTask(new TransitionFadeOut()));
+        Services.taskManager.Do(new TimedMaterialWithCameraTask(transitionScreen, transitionCamera, "_Progress", 1, 0, 1, false));
     }
 
-    public void FadeIn()
+    public void FadeOutOfLoadingScreen()
     {
-        GenerateTransitionScreen();
+        //Debug.Log("Fade in");
+        //GenerateTransitionScreen();
 
-        Services.taskManager.Do(new TimedMaterialTask(transitionScreen, "_Progress", 0, 1, 1));
+        Services.taskManager.Do(new TimedMaterialWithCameraTask(transitionScreen, transitionCamera, "_Progress", 0, 1, 1, true));
     }
 }
