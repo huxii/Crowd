@@ -8,6 +8,8 @@ public class SceneControl : MonoBehaviour
     AsyncOperation thisAsync;
     AsyncOperation nextAsync;
 
+    AsyncOperation async;
+
     void Awake()
     {
         thisAsync = null;
@@ -61,5 +63,35 @@ public class SceneControl : MonoBehaviour
     public void LoadNextScene()
     {
         nextAsync.allowSceneActivation = true;
+    }
+
+    public void PreloadScene(string sceneName)
+    {
+        async = SceneManager.LoadSceneAsync(sceneName);
+        async.allowSceneActivation = false;
+    }
+
+    public void LoadSceneWithTransition(string sceneName)
+    {
+        PreloadScene(sceneName);
+        Services.sceneTransitionController.FadeOut();        
+    }
+
+    public void ContinueLoadingSceneWithTransition()
+    {
+        StartCoroutine(LoadLevel());
+    }
+
+    IEnumerator LoadLevel()
+    {
+        async.allowSceneActivation = true;
+        while (!async.isDone)
+        {
+            Debug.Log("loading");
+            yield return null;
+        }
+
+        Debug.Log("loaded");      
+        Services.sceneTransitionController.FadeIn();
     }
 }

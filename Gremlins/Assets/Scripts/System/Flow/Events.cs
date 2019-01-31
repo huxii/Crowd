@@ -88,3 +88,10 @@ public class ZoomEvent : InputEvent
     {
     }
 }
+
+public class TransitionFadeOut : Crowd.Event
+{
+    public TransitionFadeOut() : base()
+    {
+    }
+}

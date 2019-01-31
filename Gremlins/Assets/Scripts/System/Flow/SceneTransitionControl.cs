@@ -28,21 +28,21 @@ public class SceneTransitionControl : MonoBehaviour
 
     private void Update()
     {
-        if (isFading)
-        {
-            float progress = transitionScreen.GetComponent<MeshRenderer>().material.GetFloat("_Progress");
-            progress += Time.deltaTime;
-            transitionScreen.GetComponent<MeshRenderer>().material.SetFloat("_Progress", progress);
+        //if (isFading)
+        //{
+        //    float progress = transitionScreen.GetComponent<MeshRenderer>().material.GetFloat("_Progress");
+        //    progress += Time.deltaTime;
+        //    transitionScreen.GetComponent<MeshRenderer>().material.SetFloat("_Progress", progress);
 
-            if (progress >= 1)
-            {
-                isFading = false;
+        //    if (progress >= 1)
+        //    {
+        //        isFading = false;
 
-                transitionScreen.SetActive(false);
-                transitionCamera.enabled = false;
-                Destroy(transitionScreen.GetComponent<MeshRenderer>().material.mainTexture);
-            }
-        }
+        //        transitionScreen.SetActive(false);
+        //        transitionCamera.enabled = false;
+        //        Destroy(transitionScreen.GetComponent<MeshRenderer>().material.mainTexture);
+        //    }
+        //}
     }
 
     public void GenerateTransitionScreen()
@@ -104,7 +104,7 @@ public class SceneTransitionControl : MonoBehaviour
             transitionScreen.GetComponent<MeshRenderer>().material.SetFloat("_Progress", 0);
         }
 
-        StartCoroutine(RecordFrame());
+        //StartCoroutine(RecordFrame());
     }
 
     IEnumerator RecordFrame()
@@ -118,5 +118,20 @@ public class SceneTransitionControl : MonoBehaviour
 
         Services.sceneController.LoadNextScene();
         isFading = true;
+    }
+
+    public void FadeOut()
+    {
+        GenerateTransitionScreen();
+
+        Services.taskManager.Do(new TimedMaterialTask(transitionScreen, "_Progress", 1, 0, 1));
+            //.Then(new FeedbackTask(new TransitionFadeOut()));
+    }
+
+    public void FadeIn()
+    {
+        GenerateTransitionScreen();
+
+        Services.taskManager.Do(new TimedMaterialTask(transitionScreen, "_Progress", 0, 1, 1));
     }
 }
