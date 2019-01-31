@@ -3,24 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MenuControl : MonoBehaviour
+public class MenuControl : MainControl
 {
     private ScrollRectControl scrollController;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         scrollController = GameObject.Find("LevelScroll").GetComponent<ScrollRectControl>();
         scrollController.Init();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     public void OnStartButtonClicked()
     {
         scrollController.MoveToLevelSelect();        
+    }
+
+    public void NextScreen()
+    {
+        scrollController.NextScreen();
     }
 }

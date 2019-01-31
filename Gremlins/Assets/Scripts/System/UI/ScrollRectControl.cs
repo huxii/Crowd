@@ -15,20 +15,8 @@ public class ScrollRectControl : ScrollRect
     private List<Transform> contentList;
     private float contentDistance;
 
-    private float setDraggingCD = 1f;
-    private float timer = 0;
-
     private void Update()
     {
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                SetDragging(true);
-                NextScreen();
-            }
-        }
     }
 
     private void ScaleEffect(int page0, int page1, float value)
@@ -87,7 +75,7 @@ public class ScrollRectControl : ScrollRect
 
     public void ResumeContentPosition()
     {
-        StartCoroutine(RefreshResumedContentPosition());        
+        StartCoroutine(RefreshResumedContentPosition());
     }
 
     IEnumerator RefreshResumedContentPosition()
@@ -137,25 +125,47 @@ public class ScrollRectControl : ScrollRect
         if (unlockAllLevel)
         {
             DataSet.recentCompletedLevelIdx = contentList.Count;
+            CheckUnlockedLevel();
         }
-
-        CheckUnlockedScreen();
+        else
+        {
+            CheckNextLevel();
+        }
     }
 
     public void NextScreen()
-    {        
-        scrollSnap.NextScreen();        
+    {
+        scrollSnap.NextScreen();
     }
 
-    public void CheckUnlockedScreen()
+    public void UnlockNextLevel()
+    {
+        DataSet.recentCompletedLevelIdx = DataSet.unlockedLevelIdx;
+        CheckNextLevel();
+    }
+
+    public void CheckNextLevel()
+    {
+        if (DataSet.unlockedLevelIdx == DataSet.recentCompletedLevelIdx)
+        {
+            DataSet.unlockedLevelIdx = DataSet.recentCompletedLevelIdx + 1;
+            if (DataSet.unlockedLevelIdx >= contentList.Count)
+            {
+                return;
+            }
+
+            contentList[DataSet.unlockedLevelIdx].gameObject.SetActive(true);
+
+            Services.taskManager
+                .Do(new Wait(1))
+                .Then(new NextScreenTask());
+        }
+    }
+
+    public void CheckUnlockedLevel()
     {
         if (DataSet.unlockedLevelIdx <= DataSet.recentCompletedLevelIdx)
         {
-            if (DataSet.unlockedLevelIdx == DataSet.recentCompletedLevelIdx)
-            {
-                ReadyToUnlockNextScreen();
-            }
-
             for (int i = DataSet.unlockedLevelIdx + 1; i <= DataSet.recentCompletedLevelIdx + 1; ++i)
             {
                 if (i >= contentList.Count)
@@ -166,23 +176,14 @@ public class ScrollRectControl : ScrollRect
                 contentList[i].gameObject.SetActive(true);
             }
             DataSet.unlockedLevelIdx = DataSet.recentCompletedLevelIdx + 1;
-        }       
-    }
-
-    public void ReadyToUnlockNextScreen()
-    {
-        SetDragging(false);
-        timer = setDraggingCD;
+        }
     }
 
     public void MoveToLevelSelect()
     {
         if (DataSet.unlockedLevelIdx <= 0)
         {
-            ReadyToUnlockNextScreen();
-
-            DataSet.recentCompletedLevelIdx = 0;
-            CheckUnlockedScreen();
+            UnlockNextLevel();
         }
         else
         {
