@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18132468, g: 0.22290683, b: 0.28400475, a: 1}
+  m_IndirectSpecularColor: {r: 0.1813249, g: 0.2229071, b: 0.284005, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -251,11 +251,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 65328098609466078, guid: a819850fd01d2b14795d9665e6875261,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114160637959817490, guid: a819850fd01d2b14795d9665e6875261,
         type: 3}
       propertyPath: levelEvent.m_PersistentCalls.m_Calls.Array.size
@@ -325,6 +320,11 @@ PrefabInstance:
         type: 3}
       propertyPath: levelEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Move1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65328098609466078, guid: a819850fd01d2b14795d9665e6875261,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114160637959817490, guid: a819850fd01d2b14795d9665e6875261, type: 3}
@@ -4281,11 +4281,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 65328098609466078, guid: a819850fd01d2b14795d9665e6875261,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114160637959817490, guid: a819850fd01d2b14795d9665e6875261,
         type: 3}
       propertyPath: levelEvent.m_PersistentCalls.m_Calls.Array.size
@@ -4355,6 +4350,11 @@ PrefabInstance:
         type: 3}
       propertyPath: levelEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Move1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65328098609466078, guid: a819850fd01d2b14795d9665e6875261,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114160637959817490, guid: a819850fd01d2b14795d9665e6875261, type: 3}
@@ -6993,7 +6993,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279771982915951}
-  m_LocalRotation: {x: -0.0030012093, y: 0.000000017208045, z: -0.000000024506804,
+  m_LocalRotation: {x: -0.0030012093, y: -0.000000017355456, z: -0.000000024610536,
     w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -7100,7 +7100,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: 0.033277918, y: -0.000000019861304, z: -0.0000000039497947,
+  m_LocalRotation: {x: 0.033277906, y: -0.000000029631703, z: -0.0000000036244758,
     w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -7170,7 +7170,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1847
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

@@ -44,51 +44,40 @@ public class SceneTransitionControl : MonoBehaviour
         transitionCamera.clearFlags = CameraClearFlags.Nothing;
         transitionCamera.enabled = false;
 
-        // set main camera culling mask
-        Camera.main.cullingMask &= ~(1 << transitionLayer);
+        // transtion screen
+        transitionScreen = new GameObject();
+        transitionScreen.transform.SetParent(transform);
+        transitionScreen.name = "TransitionScreen";
+        transitionScreen.layer = transitionLayer;
+        transitionScreen.AddComponent<MeshFilter>();
+        transitionScreen.AddComponent<MeshRenderer>();
+        transitionScreen.SetActive(false);
 
-        if (!transitionScreen)
-        {
-            // transtion screen
-            transitionScreen = new GameObject();
-            transitionScreen.transform.SetParent(transform);
-            transitionScreen.name = "TransitionScreen";
-            transitionScreen.layer = transitionLayer;
-            transitionScreen.AddComponent<MeshFilter>();
-            transitionScreen.AddComponent<MeshRenderer>();
-            transitionScreen.SetActive(false);
-
-            float halfHeight = transitionCamera.orthographicSize;
-            float halfWidth = halfHeight * Screen.width / Screen.height;
-            Mesh mesh = new Mesh();
-            mesh.vertices = new Vector3[] {
+        float halfHeight = transitionCamera.orthographicSize;
+        float halfWidth = halfHeight * Screen.width / Screen.height;
+        Mesh mesh = new Mesh();
+        mesh.vertices = new Vector3[] {
                 new Vector3( -halfWidth, -halfHeight, 0 ),
                 new Vector3( -halfWidth, halfHeight, 0 ),
                 new Vector3( halfWidth, -halfHeight, 0 ),
                 new Vector3( halfWidth, halfHeight, 0 )
             };
-            mesh.uv = new Vector2[]
-            {
+        mesh.uv = new Vector2[]
+        {
                 new Vector2( 0, 0 ),
                 new Vector2( 0, 1 ),
                 new Vector2( 1, 0 ),
                 new Vector2( 1, 1 )
-            };
-            mesh.triangles = new int[] { 0, 1, 2, 3, 2, 1 };
-            mesh.name = "TransitionQuad";
-            transitionScreen.GetComponent<MeshFilter>().mesh = mesh;
+        };
+        mesh.triangles = new int[] { 0, 1, 2, 3, 2, 1 };
+        mesh.name = "TransitionQuad";
+        transitionScreen.GetComponent<MeshFilter>().mesh = mesh;
 
-            Material mat = new Material(transitionShader);
-            mat.color = Color.white;
-            mat.SetTexture("_PatternTex", transitionTexture);
-            mat.SetTextureScale("_PatternTex", new Vector2(transitionTextureScale, transitionTextureScale));
-            transitionScreen.GetComponent<MeshRenderer>().material = mat;
-        }
-        else
-        {
-            transitionScreen.GetComponent<MeshRenderer>().material.color = Color.white;
-            transitionScreen.GetComponent<MeshRenderer>().material.SetFloat("_Progress", 0);
-        }
+        Material mat = new Material(transitionShader);
+        mat.color = Color.white;
+        mat.SetTexture("_PatternTex", transitionTexture);
+        mat.SetTextureScale("_PatternTex", new Vector2(transitionTextureScale, transitionTextureScale));
+        transitionScreen.GetComponent<MeshRenderer>().material = mat;
     }
 
     public void RecordScreen()
@@ -117,7 +106,7 @@ public class SceneTransitionControl : MonoBehaviour
 
     public void FadeOutOfLoadingScreen()
     {
-        //Debug.Log("Fade in");
+        //Debug.Log("Fade out");
         //GenerateTransitionScreen();
 
         Services.taskManager.Do(new TimedMaterialWithCameraTask(transitionScreen, transitionCamera, "_Progress", 0, 1, 1, true));

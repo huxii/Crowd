@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7927670738656567272}
   - component: {fileID: 3415642355510170305}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: TransitionController
   m_TagString: Transition
   m_Icon: {fileID: 0}

@@ -12,12 +12,6 @@ public class ComicControl : MainControl
         //Services.sceneController.PreloadNextScene();
     }
 
-    // Update is called once per frame
-    protected override void Update()
-    {
-        
-    }
-
     public override void Ending()
     {
         base.Ending();

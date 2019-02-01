@@ -308,7 +308,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1847
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1262,6 +1262,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TransitionController
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683291964556024614, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7927670738656567272, guid: 452f2a11f96b7964baa631fbd34bb58e,
         type: 3}
@@ -2928,7 +2933,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level0
+          m_StringArgument: Level0_comic
           m_BoolArgument: 0
         m_CallState: 1
       - m_Target: {fileID: 262924020}
