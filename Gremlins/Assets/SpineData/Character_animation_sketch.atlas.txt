@@ -34,7 +34,7 @@ BlackMark_mark3
   index: -1
 BusyMark
   rotate: false
-  xy: 652, 589
+  xy: 1163, 589
   size: 132, 132
   orig: 132, 132
   offset: 0, 0
@@ -51,6 +51,27 @@ arm_right
   xy: 318, 230
   size: 59, 173
   orig: 59, 173
+  offset: 0, 0
+  index: -1
+bigSweat1
+  rotate: false
+  xy: 1729, 700
+  size: 91, 88
+  orig: 91, 88
+  offset: 0, 0
+  index: -1
+bigSweat2
+  rotate: false
+  xy: 515, 570
+  size: 130, 151
+  orig: 130, 151
+  offset: 0, 0
+  index: -1
+bigSweat3
+  rotate: true
+  xy: 1619, 710
+  size: 78, 108
+  orig: 78, 108
   offset: 0, 0
   index: -1
 body
@@ -96,71 +117,71 @@ cheer_jump_mark3
   offset: 0, 0
   index: -1
 ear_left
-  rotate: false
-  xy: 935, 638
+  rotate: true
+  xy: 414, 74
   size: 154, 83
   orig: 154, 83
   offset: 0, 0
   index: -1
 ear_right
   rotate: false
-  xy: 1091, 648
+  xy: 861, 648
   size: 151, 73
   orig: 151, 73
   offset: 0, 0
   index: -1
 eyeBack_left
-  rotate: true
-  xy: 1352, 630
+  rotate: false
+  xy: 1822, 704
   size: 91, 84
   orig: 91, 84
   offset: 0, 0
   index: -1
 eyeBack_right
   rotate: false
-  xy: 1438, 647
+  xy: 1915, 712
   size: 84, 76
   orig: 84, 76
   offset: 0, 0
   index: -1
 eyeBall_left
   rotate: true
-  xy: 1619, 729
+  xy: 493, 230
   size: 59, 75
   orig: 59, 75
   offset: 0, 0
   index: -1
 eyeBall_right
   rotate: true
-  xy: 1696, 730
+  xy: 414, 14
   size: 58, 73
   orig: 58, 73
   offset: 0, 0
   index: -1
 eyeClose_left
-  rotate: false
-  xy: 1524, 674
+  rotate: true
+  xy: 499, 144
   size: 84, 49
   orig: 84, 49
   offset: 0, 0
   index: -1
 eyeClose_right
   rotate: false
-  xy: 1771, 740
+  xy: 856, 598
   size: 80, 48
   orig: 80, 48
   offset: 0, 0
   index: -1
 eyeSkin_left
   rotate: false
-  xy: 652, 486
+  xy: 515, 467
   size: 109, 101
   orig: 109, 101
   offset: 0, 0
   index: -1
 eyeSkin_right
-  rotate: true
-  xy: 1244, 621
+  rotate: false
+  xy: 513, 359
   size: 100, 106
   orig: 100, 106
   offset: 0, 0
@@ -173,29 +194,29 @@ face
   offset: 0, 0
   index: -1
 leg_left
-  rotate: false
-  xy: 583, 514
+  rotate: true
+  xy: 647, 586
   size: 67, 207
   orig: 67, 207
   offset: 0, 0
   index: -1
 leg_right
-  rotate: false
-  xy: 515, 509
+  rotate: true
+  xy: 647, 655
   size: 66, 212
   orig: 66, 212
   offset: 0, 0
   index: -1
 mouth
   rotate: false
-  xy: 786, 614
+  xy: 1014, 614
   size: 147, 107
   orig: 147, 107
   offset: 0, 0
   index: -1
 nose
-  rotate: true
-  xy: 414, 2
+  rotate: false
+  xy: 513, 291
   size: 92, 66
   orig: 92, 66
   offset: 0, 0
@@ -216,7 +237,7 @@ questionMark_mark
   index: -1
 tooth
   rotate: true
-  xy: 414, 96
+  xy: 1297, 589
   size: 132, 83
   orig: 132, 83
   offset: 0, 0
