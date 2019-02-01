@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: CharacterMat
   m_Shader: {fileID: 4800000, guid: 0af4c07c6d1c9084ebc86d7c8de93f5a, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
@@ -68,11 +69,12 @@ Material:
     - _Hue: 0
     - _Metallic: 0
     - _OutlineFactor: 0
-    - _OutlineWidth: 0.48
+    - _OutlineWidth: 0
     - _Overlay: 0
     - _OverlayFactor: 5.5777526e-37
     - _OverlaySpeed: 0.1
     - _RenderQueue: 0
+    - _ReplaceFactor: 0
     - _RimPower: 2
     - _Saturation: 1
     - _ShadowAlphaCutoff: 0.1
