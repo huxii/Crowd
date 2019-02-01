@@ -12,8 +12,6 @@ public class SceneTransitionControl : MonoBehaviour
     GameObject transitionScreen = null;
     Camera transitionCamera = null;
     int transitionLayer = 31;
-    int orthoSize = 22;
-    bool isFading = false;
 
     void Awake()
     {
@@ -28,21 +26,6 @@ public class SceneTransitionControl : MonoBehaviour
 
     private void Update()
     {
-        if (isFading)
-        {
-            float progress = transitionScreen.GetComponent<MeshRenderer>().material.GetFloat("_Progress");
-            progress += Time.deltaTime;
-            transitionScreen.GetComponent<MeshRenderer>().material.SetFloat("_Progress", progress);
-
-            if (progress >= 1)
-            {
-                isFading = false;
-
-                transitionScreen.SetActive(false);
-                transitionCamera.enabled = false;
-                Destroy(transitionScreen.GetComponent<MeshRenderer>().material.mainTexture);
-            }
-        }
     }
 
     public void GenerateTransitionScreen()
@@ -53,7 +36,7 @@ public class SceneTransitionControl : MonoBehaviour
         }
 
         transitionCamera.orthographic = true;
-        transitionCamera.orthographicSize = orthoSize;
+        transitionCamera.orthographicSize = Services.cameraController.OrthographicSize();
         transitionCamera.nearClipPlane = -1f;
         transitionCamera.farClipPlane = 1f;
         transitionCamera.depth = float.MaxValue;
@@ -103,20 +86,37 @@ public class SceneTransitionControl : MonoBehaviour
             transitionScreen.GetComponent<MeshRenderer>().material.color = Color.white;
             transitionScreen.GetComponent<MeshRenderer>().material.SetFloat("_Progress", 0);
         }
+    }
 
+    public void RecordScreen()
+    {
+        GenerateTransitionScreen();
         StartCoroutine(RecordFrame());
     }
 
     IEnumerator RecordFrame()
     {
+        yield return null;
         yield return new WaitForEndOfFrame();
         var texture = ScreenCapture.CaptureScreenshotAsTexture();
 
         transitionScreen.GetComponent<MeshRenderer>().material.mainTexture = texture;
         transitionScreen.SetActive(true);
         transitionCamera.enabled = true;
+    }
 
-        Services.sceneController.LoadNextScene();
-        isFading = true;
+    public void FadeIntoLoadingScreen()
+    {
+        GenerateTransitionScreen();
+
+        Services.taskManager.Do(new TimedMaterialWithCameraTask(transitionScreen, transitionCamera, "_Progress", 1, 0, 1, false));
+    }
+
+    public void FadeOutOfLoadingScreen()
+    {
+        //Debug.Log("Fade in");
+        //GenerateTransitionScreen();
+
+        Services.taskManager.Do(new TimedMaterialWithCameraTask(transitionScreen, transitionCamera, "_Progress", 0, 1, 1, true));
     }
 }

@@ -158,7 +158,7 @@ public class ScrollRectControl : ScrollRect
 
             Services.taskManager
                 .Do(new Wait(1))
-                .Then(new NextScreenTask());
+                .Then(new ActionTask(NextScreen));
         }
     }
 

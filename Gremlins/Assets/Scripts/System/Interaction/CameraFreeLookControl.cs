@@ -202,16 +202,16 @@ public class CameraFreeLookControl : CameraControl
         }
     }
 
-    public override void Zoom(float delta)
+    public override void Zoom(float value)
     {
-        base.Zoom(delta);
+        base.Zoom(value);
 
         // 0.1f is the scale of mouse wheel
-        if (Mathf.Abs(delta) < 0.1f)
+        if (Mathf.Abs(value) < 0.1f)
         {
             return;
         }
-        if (delta > 0)
+        if (value > 0)
         {
             ZoomIn();
         }

@@ -18,7 +18,8 @@ public class GameControl : MainControl
     {
         base.Start();
 
-        Services.sceneController.PreloadScene();
+        //Services.sceneTransitionController.FadeIn();
+        //Services.sceneController.PreloadScene();
 
         //Physics2D.velocityIterations = velocityIter;
         //Physics2D.positionIterations = positionIter;

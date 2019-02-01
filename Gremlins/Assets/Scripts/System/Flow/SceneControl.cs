@@ -8,6 +8,8 @@ public class SceneControl : MonoBehaviour
     AsyncOperation thisAsync;
     AsyncOperation nextAsync;
 
+    AsyncOperation async;
+
     void Awake()
     {
         thisAsync = null;
@@ -61,5 +63,51 @@ public class SceneControl : MonoBehaviour
     public void LoadNextScene()
     {
         nextAsync.allowSceneActivation = true;
+    }
+
+    public void PreloadScene(string sceneName)
+    {
+        async = SceneManager.LoadSceneAsync(sceneName);
+        async.allowSceneActivation = false;
+    }
+
+    public void LoadSceneWithZoomAndRecord(string sceneName)
+    {
+        PreloadScene(sceneName);
+
+        Camera2DControl cam2D = (Camera2DControl)Services.cameraController;
+        Services.taskManager.Do(new ActionTask(cam2D.ZoomToLevel))
+            .Then(new Wait(1))
+            .Then(new ActionTask(Services.sceneTransitionController.RecordScreen))
+            .Then(new ActionTask(WaifForAsyncLoading));
+    }
+
+    public void LoadSceneWithLoadingScreen(string sceneName)
+    {
+        PreloadScene(sceneName);
+        Services.sceneTransitionController.FadeIntoLoadingScreen();
+
+        Services.taskManager
+            .Do(new Wait(1))
+            .Then(new ActionTask(WaifForAsyncLoading));   
+    }
+
+    private void WaifForAsyncLoading()
+    {
+        StartCoroutine(LoadLevel());
+    }
+
+    IEnumerator LoadLevel()
+    {
+        while (!async.isDone)
+        {
+            if (async.progress >= 0.9f)
+            {
+                Services.sceneTransitionController.FadeOutOfLoadingScreen();
+                async.allowSceneActivation = true;               
+            }
+
+            yield return null;          
+        }
     }
 }
