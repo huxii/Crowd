@@ -9,7 +9,7 @@ public class ComicControl : MainControl
     {
         base.Start();
 
-        Services.sceneController.PreloadNextScene();
+        //Services.sceneController.PreloadNextScene();
     }
 
     // Update is called once per frame
@@ -23,6 +23,6 @@ public class ComicControl : MainControl
         base.Ending();
 
         Debug.Log("End");
-        Services.sceneController.LoadNextSceneWithTransition();
+        Services.sceneController.LoadSceneWithRecord("Level0");
     }
 }

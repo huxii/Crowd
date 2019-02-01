@@ -148,7 +148,7 @@ public class ScrollRectControl : ScrollRect
     {
         if (DataSet.unlockedLevelIdx == DataSet.recentCompletedLevelIdx)
         {
-            DataSet.unlockedLevelIdx = DataSet.recentCompletedLevelIdx + 1;
+            DataSet.unlockedLevelIdx = Mathf.Min(DataSet.recentCompletedLevelIdx + 1, contentList.Count - 1);
             if (DataSet.unlockedLevelIdx >= contentList.Count)
             {
                 return;
@@ -175,7 +175,7 @@ public class ScrollRectControl : ScrollRect
 
                 contentList[i].gameObject.SetActive(true);
             }
-            DataSet.unlockedLevelIdx = DataSet.recentCompletedLevelIdx + 1;
+            DataSet.unlockedLevelIdx = Mathf.Min(DataSet.recentCompletedLevelIdx + 1, contentList.Count - 1);
         }
     }
 

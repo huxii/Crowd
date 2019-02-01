@@ -44,6 +44,9 @@ public class SceneTransitionControl : MonoBehaviour
         transitionCamera.clearFlags = CameraClearFlags.Nothing;
         transitionCamera.enabled = false;
 
+        // set main camera culling mask
+        Camera.main.cullingMask &= ~(1 << transitionLayer);
+
         if (!transitionScreen)
         {
             // transtion screen
