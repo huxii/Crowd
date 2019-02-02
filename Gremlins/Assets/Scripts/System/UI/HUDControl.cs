@@ -158,4 +158,9 @@ public class HUDControl : MonoBehaviour
         GameObject icon = GameObject.Find(name);
         Destroy(icon);
     }
+
+    public void SetInput(bool en)
+    {
+        GetComponent<GraphicRaycaster>().enabled = en;
+    }
 }

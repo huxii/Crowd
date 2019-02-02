@@ -8,7 +8,6 @@ public class ScrollRectControl : ScrollRect
 {
     [Header("Custom Settings")]
     public bool unlockAllLevel = false;
-    public bool enableDragging = true;
     public float effectScale = 1.0f;
 
     private UnityEngine.UI.Extensions.ScrollSnap scrollSnap;
@@ -35,37 +34,6 @@ public class ScrollRectControl : ScrollRect
         {
             contentList[page1].localScale = new Vector3(newScale, newScale, newScale);
         }
-    }
-
-    // will disable both ScrollRect & ScrollSnap when dragging is disabled
-    public override void OnBeginDrag(PointerEventData eventData)
-    {
-        if (enableDragging)
-        {
-            base.OnBeginDrag(eventData);
-        }
-    }
-
-    public override void OnDrag(PointerEventData eventData)
-    {
-        if (enableDragging)
-        {
-            base.OnDrag(eventData);
-        }
-    }
-
-    public override void OnEndDrag(PointerEventData eventData)
-    {
-        if (enableDragging)
-        {
-            base.OnEndDrag(eventData);
-        }
-    }
-
-    public void SetDragging(bool en)
-    {
-        enableDragging = en;
-        scrollSnap.enableDragging = en;
     }
 
     public void RecordContentPosition()

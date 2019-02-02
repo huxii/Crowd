@@ -56,7 +56,7 @@ public class ObjectRangeBasedControl : ObjectControl
         var clicke = e as ClickEvent;
         GameObject obj = clicke.mouseClickObj;
         Vector3 pos = clicke.mouseClickPos;
-        if (Vector3.Distance(transform.position, pos) < maxClickRange)
+        if (obj != null && Vector3.Distance(transform.position, pos) < maxClickRange)
         {
             onClick.Invoke();
             CoolDown();

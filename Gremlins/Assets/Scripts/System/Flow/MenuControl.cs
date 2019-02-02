@@ -16,6 +16,20 @@ public class MenuControl : MainControl
         scrollController.Init();
     }
 
+    public override void EnableInput()
+    {
+        base.EnableInput();
+
+        Services.hudController.SetInput(true);
+    }
+
+    public override void DisableInput()
+    {
+        base.DisableInput();
+
+        Services.hudController.SetInput(false);
+    }
+
     public void OnStartButtonClicked()
     {
         scrollController.MoveToLevelSelect();        

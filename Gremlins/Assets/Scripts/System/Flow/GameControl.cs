@@ -155,4 +155,18 @@ public class GameControl : MainControl
         DataSet.recentCompletedLevelIdx = Services.sceneController.CurrentSceneIdx();
         Services.sceneController.LoadScene("Title");
     }
+
+    public override void EnableInput()
+    {
+        base.EnableInput();
+
+        Services.hudController.SetInput(true);
+    }
+
+    public override void DisableInput()
+    {
+        base.DisableInput();
+
+        Services.hudController.SetInput(false);
+    }
 }

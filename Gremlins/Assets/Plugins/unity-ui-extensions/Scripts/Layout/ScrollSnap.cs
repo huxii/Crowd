@@ -74,8 +74,6 @@ namespace UnityEngine.UI.Extensions
 
         private int _fastSwipeTarget = 10;
 
-        public bool enableDragging = true;
-
         [Tooltip("Button to go to the next page. (optional)")]
         public Button NextButton;
 
@@ -497,11 +495,6 @@ namespace UnityEngine.UI.Extensions
         #region Interfaces
         public void OnBeginDrag(PointerEventData eventData)
         {
-            if (!enableDragging)
-            {
-                return;
-            }
-
             UpdateScrollbar(false);
 
             _fastSwipeCounter = 0;
@@ -513,11 +506,6 @@ namespace UnityEngine.UI.Extensions
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            if (!enableDragging)
-            {
-                return;
-            }
-
             _startDrag = true;
             float change = 0;
 
@@ -568,11 +556,6 @@ namespace UnityEngine.UI.Extensions
 
         public void OnDrag(PointerEventData eventData)
         {
-            if (!enableDragging)
-            {
-                return;
-            }
-
             _lerp = false;
 
             if (_startDrag)

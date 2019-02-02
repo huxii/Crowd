@@ -630,7 +630,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c598b387777d96643991be3f0b6c98c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDragging: 1
   NextButton: {fileID: 0}
   PrevButton: {fileID: 0}
   ItemsVisibleAtOnce: 1
@@ -684,7 +683,6 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   unlockAllLevel: 1
-  enableDragging: 1
   effectScale: 1
 --- !u!114 &262924021
 MonoBehaviour:

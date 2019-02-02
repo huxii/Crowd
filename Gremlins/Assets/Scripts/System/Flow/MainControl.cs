@@ -14,6 +14,15 @@ public class MainControl : MonoBehaviour
     {
         Services.utils.CheckPlatform();
 
+        if (!DataSet.isInputEnabled)
+        {
+            DisableInput();
+        }
+        else
+        {
+            EnableInput();
+        }
+
         RegisterEvents();
     }
 
@@ -40,5 +49,15 @@ public class MainControl : MonoBehaviour
 
     public virtual void Ending()
     {
+    }
+
+    public virtual void EnableInput()
+    {
+        DataSet.isInputEnabled = true;
+    }
+
+    public virtual void DisableInput()
+    {
+        DataSet.isInputEnabled = false;
     }
 }
