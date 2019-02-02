@@ -6993,7 +6993,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279771982915951}
-  m_LocalRotation: {x: -0.0030012093, y: -0.000000017355456, z: -0.000000024610536,
+  m_LocalRotation: {x: -0.0030012093, y: 0.000000017208045, z: -0.000000024506804,
     w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -7100,8 +7100,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: 0.033277906, y: -0.000000029631703, z: -0.0000000036244758,
-    w: 0.99944615}
+  m_LocalRotation: {x: 0.03327792, y: -0.000000017930429, z: -0.000000004014086, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7746,7 +7745,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2129004333}
-        m_MethodName: LoadScene
+        m_MethodName: LoadSceneWithRecordAndZoom
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8024,8 +8023,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2129004333}
-        m_MethodName: ReloadCurrentScene
-        m_Mode: 1
+        m_MethodName: ReloadSceneWithRecord
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

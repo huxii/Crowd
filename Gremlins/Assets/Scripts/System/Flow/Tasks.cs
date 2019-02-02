@@ -111,29 +111,31 @@ public class TimedMaterialTask : TimedTask
         // temp fix for transition texture
         mat.SetFloat(attrName, Mathf.Lerp(start, end, t * 1.1f));
     }
-
-    //protected override void OnSuccess()
-    //{
-    //    obj.SetActive(false);
-    //}
 }
 
 
-public class TimedMaterialWithCameraTask : TimedMaterialTask
+public class TimedTransitionTask : TimedTask
 {
+    protected GameObject obj;
     protected Camera cam;
+    protected float start;
+    protected float end;
     protected bool disableWhenDone;
 
-    public TimedMaterialWithCameraTask(GameObject o, Camera c, string attr, float s, float e, float d, bool bd) : base(o, attr, s, e, d)
+    public TimedTransitionTask(GameObject o, Camera c, float s, float e, float d, bool dd) : base(d)
     {
+        obj = o;
         cam = c;
-        disableWhenDone = bd;
+        start = s;
+        end = e;
+        disableWhenDone = dd;
     }
 
     protected override void Init()
     {
         base.Init();
 
+        obj.SetActive(true);
         cam.enabled = true;
     }
 
@@ -146,5 +148,45 @@ public class TimedMaterialWithCameraTask : TimedMaterialTask
             obj.SetActive(false);
             cam.enabled = false;
         }
+    }
+}
+
+public class TimedTransitionMaterialTask : TimedTransitionTask
+{
+    protected string attrName;
+    protected Material mat;
+
+    public TimedTransitionMaterialTask(GameObject o, Camera c, string attr, float s, float e, float d, bool dd) : base(o, c, s, e, d, dd)
+    {
+        attrName = attr;
+    }
+
+    protected override void Init()
+    {
+        base.Init();
+
+        mat = obj.GetComponent<MeshRenderer>().material;
+        mat.SetFloat(attrName, start);
+    }
+
+    protected override void OnTick(float t)
+    {
+        // temp fix for transition texture
+        mat.SetFloat(attrName, Mathf.Lerp(start, end, t * 1.1f));
+    }
+}
+
+public class TimedTransitionZoomTask : TimedTransitionTask
+{
+    protected float orthoSize;
+
+    public TimedTransitionZoomTask(GameObject o, Camera c, float orth, float s, float e, float d, bool dd) : base(o, c, s, e, d, dd)
+    {
+        orthoSize = orth;
+    }
+
+    protected override void OnTick(float t)
+    {
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, orthoSize, Mathf.Lerp(start, end, t));
     }
 }

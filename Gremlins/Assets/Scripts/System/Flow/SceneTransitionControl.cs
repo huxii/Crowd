@@ -24,11 +24,7 @@ public class SceneTransitionControl : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Update()
-    {
-    }
-
-    public void GenerateTransitionScreen()
+    private void GenerateTransitionScreen()
     {
         if (!transitionCamera)
         {
@@ -97,11 +93,21 @@ public class SceneTransitionControl : MonoBehaviour
         transitionCamera.enabled = true;
     }
 
+    public void FadeIntoTransitionScreen()
+    {
+        if (transitionScreen)
+        {
+            transitionScreen.SetActive(true);
+            transitionCamera.enabled = true;
+            Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, "_Progress", 1, 0, 1, false));
+        }
+    }
+
     public void FadeIntoLoadingScreen()
     {
         GenerateTransitionScreen();
 
-        Services.taskManager.Do(new TimedMaterialWithCameraTask(transitionScreen, transitionCamera, "_Progress", 1, 0, 1, false));
+        Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, "_Progress", 1, 0, 1, false));
     }
 
     public void FadeOutOfLoadingScreen()
@@ -109,6 +115,16 @@ public class SceneTransitionControl : MonoBehaviour
         //Debug.Log("Fade out");
         //GenerateTransitionScreen();
 
-        Services.taskManager.Do(new TimedMaterialWithCameraTask(transitionScreen, transitionCamera, "_Progress", 0, 1, 1, true));
+        Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, "_Progress", 0, 1, 1, true));
+    }
+
+    public void ZoomInTransitionScreen()
+    {
+        Services.taskManager.Do(new TimedTransitionZoomTask(transitionScreen, transitionCamera, 4, 0, 1, 1, false));
+    }
+
+    public void ZoomOutTransitionScreen()
+    {
+        Services.taskManager.Do(new TimedTransitionZoomTask(transitionScreen, transitionCamera, 8, 0, 1, 1, true));
     }
 }

@@ -34,11 +34,6 @@ public class Camera2DControl : CameraControl
         timer = 1;
     }
 
-    public void ZoomToLevel()
-    {
-        Zoom(4);
-    }
-
     public override float OrthographicSize()
     {
         return camera2D.m_Lens.OrthographicSize;

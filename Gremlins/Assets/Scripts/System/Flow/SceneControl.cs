@@ -5,15 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneControl : MonoBehaviour
 {
-    AsyncOperation thisAsync;
-    AsyncOperation nextAsync;
-
     AsyncOperation async;
 
     void Awake()
     {
-        thisAsync = null;
-        nextAsync = null;
+        async = null;
     }
 
     public int CurrentSceneIdx()
@@ -23,15 +19,8 @@ public class SceneControl : MonoBehaviour
 
     public void ReloadCurrentScene()
     {
-        if (thisAsync == null)
-        {
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
-        }
-        else
-        {
-            thisAsync.allowSceneActivation = true;
-        }
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 
     public void LoadScene(string name)
@@ -40,57 +29,39 @@ public class SceneControl : MonoBehaviour
         return;
     }
 
-    public void PreloadNextScene()
-    {
-        string currentName = SceneManager.GetActiveScene().name;
-        string[] nextNames = currentName.Split('_');
-        name = nextNames[0];
-        nextAsync = SceneManager.LoadSceneAsync(name);
-        nextAsync.allowSceneActivation = false;
-    }
-
-    public void PreloadScene()
-    {
-        thisAsync = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-        thisAsync.allowSceneActivation = false;
-    }
-
-    public void LoadNextSceneWithTransition()
-    {
-        Services.sceneTransitionController.GenerateTransitionScreen();
-    }
-
-    public void LoadNextScene()
-    {
-        nextAsync.allowSceneActivation = true;
-    }
-
     public void PreloadScene(string sceneName)
     {
         async = SceneManager.LoadSceneAsync(sceneName);
         async.allowSceneActivation = false;
     }
 
+    /*
+     * 2d -> 3d
+    */
     public void LoadSceneWithRecord(string sceneName)
     {
         PreloadScene(sceneName);
 
-        Camera2DControl cam2D = (Camera2DControl)Services.cameraController;
         Services.taskManager
             .Do(new ActionTask(Services.sceneTransitionController.RecordScreen))
-            .Then(new ActionTask(WaifForAsyncLoading));
+            .Then(new ActionTask(WaifForAsyncLoadingWithFade));
     }
 
     public void LoadSceneWithZoomAndRecord(string sceneName)
     {
         PreloadScene(sceneName);
 
-        Camera2DControl cam2D = (Camera2DControl)Services.cameraController;
+        //Services.taskManager
+        //    .Do(new ActionTask(ZoomToLevel))
+        //    .Then(new Wait(1))
+        //    .Then(new ActionTask(Services.sceneTransitionController.RecordScreen))
+        //    .Then(new ActionTask(WaifForAsyncLoadingWithFade));
+
         Services.taskManager
-            .Do(new ActionTask(cam2D.ZoomToLevel))
+            .Do(new ActionTask(Services.sceneTransitionController.RecordScreen))
+            .Then(new ActionTask(Services.sceneTransitionController.ZoomInTransitionScreen))
             .Then(new Wait(1))
-            .Then(new ActionTask(Services.sceneTransitionController.RecordScreen))
-            .Then(new ActionTask(WaifForAsyncLoading));
+            .Then(new ActionTask(WaifForAsyncLoadingWithFade));
     }
 
     public void LoadSceneWithLoadingScreen(string sceneName)
@@ -100,15 +71,38 @@ public class SceneControl : MonoBehaviour
 
         Services.taskManager
             .Do(new Wait(1))
-            .Then(new ActionTask(WaifForAsyncLoading));   
+            .Then(new ActionTask(WaifForAsyncLoadingWithFade));   
     }
-
-    private void WaifForAsyncLoading()
+    
+    /*
+    * 3d -> 2d
+    */
+    public void ReloadSceneWithRecord(string sceneName)
     {
-        StartCoroutine(LoadLevel());
+        PreloadScene(sceneName);
+
+        Services.taskManager
+            .Do(new ActionTask(Services.sceneTransitionController.FadeIntoTransitionScreen))
+            .Then(new Wait(1f))
+            .Then(new ActionTask(WaifForAsyncLoadingWithFade));
     }
 
-    IEnumerator LoadLevel()
+    public void LoadSceneWithRecordAndZoom(string sceneName)
+    {
+        PreloadScene(sceneName);
+
+        Services.taskManager
+            .Do(new ActionTask(Services.sceneTransitionController.FadeIntoTransitionScreen))
+            .Then(new Wait(1f))
+            .Then(new ActionTask(WaifForAsyncLoadingWithZoom));
+    }
+
+    private void WaifForAsyncLoadingWithFade()
+    {
+        StartCoroutine(AsyncLoadingWithFade());
+    }
+
+    IEnumerator AsyncLoadingWithFade()
     {
         while (!async.isDone)
         {
@@ -119,6 +113,25 @@ public class SceneControl : MonoBehaviour
             }
 
             yield return null;          
+        }
+    }
+
+    private void WaifForAsyncLoadingWithZoom()
+    {
+        StartCoroutine(AsyncLoadingWithZoom());
+    }
+
+    IEnumerator AsyncLoadingWithZoom()
+    {
+        while (!async.isDone)
+        {
+            if (async.progress >= 0.9f)
+            {
+                Services.sceneTransitionController.ZoomOutTransitionScreen();
+                async.allowSceneActivation = true;
+            }
+
+            yield return null;
         }
     }
 }
