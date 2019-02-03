@@ -223,7 +223,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1536
+        y: 1024
         width: 256
         height: 256
       alignment: 0
@@ -233,7 +233,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13997ba5f6474d14db5b6523a2899233
+      spriteID: d79e95860e878614d9f79f7147783ccc
       vertices: []
       indices: 
       edges: []
@@ -243,7 +243,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 1536
+        y: 1024
         width: 256
         height: 256
       alignment: 0
@@ -253,7 +253,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76772526d6fb17e47bcb11ef7ac6cd00
+      spriteID: 1f7f20410e16a0e4c852ff2a61fe77da
       vertices: []
       indices: 
       edges: []
@@ -263,7 +263,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 1536
+        y: 1024
         width: 256
         height: 256
       alignment: 0
@@ -273,7 +273,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49db549a27cf4474ba49c027408e2f99
+      spriteID: 86d9d305d87732f40a46f1154e6b9b2c
       vertices: []
       indices: 
       edges: []
@@ -283,7 +283,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 1536
+        y: 1024
         width: 256
         height: 256
       alignment: 0
@@ -293,7 +293,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4364d9775b7740c439ddd757a8cbe8eb
+      spriteID: f93681a9d252eed49940d3c58775c3c1
       vertices: []
       indices: 
       edges: []
@@ -303,7 +303,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1024
-        y: 1536
+        y: 1024
         width: 256
         height: 256
       alignment: 0
@@ -313,7 +313,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1a00b00f8649ee4db04bfa5f0703dd0
+      spriteID: 43a7a6f69f33e6e4b9a52cc01edec199
       vertices: []
       indices: 
       edges: []
@@ -322,8 +322,8 @@ TextureImporter:
       name: Tap_sheet_5
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 1536
+        x: 0
+        y: 768
         width: 256
         height: 256
       alignment: 0
@@ -333,7 +333,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79dbf151ff799054b8de850affac740d
+      spriteID: 1d2148e0dd14b8e49aab025618becefb
       vertices: []
       indices: 
       edges: []
@@ -342,8 +342,8 @@ TextureImporter:
       name: Tap_sheet_6
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 1536
+        x: 256
+        y: 768
         width: 256
         height: 256
       alignment: 0
@@ -353,7 +353,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6d1706f2fc2f00459f67f20f3edb659
+      spriteID: c900cb65f7284d645b872ddf06638d43
       vertices: []
       indices: 
       edges: []
@@ -362,8 +362,8 @@ TextureImporter:
       name: Tap_sheet_7
       rect:
         serializedVersion: 2
-        x: 1792
-        y: 1536
+        x: 512
+        y: 768
         width: 256
         height: 256
       alignment: 0
@@ -373,7 +373,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fffcd6b0bea2c3848907010d4f6c3251
+      spriteID: 511a547c2c1c8b6438ec25402430eea9
       vertices: []
       indices: 
       edges: []
@@ -382,8 +382,8 @@ TextureImporter:
       name: Tap_sheet_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1280
+        x: 768
+        y: 768
         width: 256
         height: 256
       alignment: 0
@@ -393,7 +393,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34dd04e64d8c80545a013c97250d1a81
+      spriteID: 50cbdf7fe67d5a049af840a49b4248ab
       vertices: []
       indices: 
       edges: []
@@ -402,8 +402,8 @@ TextureImporter:
       name: Tap_sheet_9
       rect:
         serializedVersion: 2
-        x: 256
-        y: 1280
+        x: 1024
+        y: 768
         width: 256
         height: 256
       alignment: 0
@@ -413,7 +413,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 305d0f92b51bacb4f907386e6d725b35
+      spriteID: 735282d06ef84a6488420319b60338e2
       vertices: []
       indices: 
       edges: []
@@ -422,8 +422,8 @@ TextureImporter:
       name: Tap_sheet_10
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1280
+        x: 0
+        y: 512
         width: 256
         height: 256
       alignment: 0
@@ -433,7 +433,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a635e0e8f80e7fd4e849575a1720d098
+      spriteID: 4d0d0148b6866184d948733d1c6dd0a5
       vertices: []
       indices: 
       edges: []
@@ -442,8 +442,8 @@ TextureImporter:
       name: Tap_sheet_11
       rect:
         serializedVersion: 2
-        x: 768
-        y: 1280
+        x: 256
+        y: 512
         width: 256
         height: 256
       alignment: 0
@@ -453,7 +453,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb662ec933c89984aba22cbcf16cfdc6
+      spriteID: 64657f801c7b78c4f9d5d3c47ed08e0b
       vertices: []
       indices: 
       edges: []
@@ -462,8 +462,8 @@ TextureImporter:
       name: Tap_sheet_12
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1280
+        x: 512
+        y: 512
         width: 256
         height: 256
       alignment: 0
@@ -473,7 +473,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6ecfbd8696d56440b41c467fcacf6c9
+      spriteID: 38393f003639bc048affac57ab75b6f0
       vertices: []
       indices: 
       edges: []
@@ -482,8 +482,8 @@ TextureImporter:
       name: Tap_sheet_13
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 1280
+        x: 768
+        y: 512
         width: 256
         height: 256
       alignment: 0
@@ -493,7 +493,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45e3d6b96af59fd4fbd809aea4ab4a41
+      spriteID: c15bafd4b2de73943b51bba55be76c69
       vertices: []
       indices: 
       edges: []
@@ -502,8 +502,8 @@ TextureImporter:
       name: Tap_sheet_14
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 1280
+        x: 1024
+        y: 512
         width: 256
         height: 256
       alignment: 0
@@ -513,7 +513,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc156ef2a9c59834fbfe33694f5d0161
+      spriteID: 9843fdf09da841940b8888bfc402a36e
       vertices: []
       indices: 
       edges: []
@@ -522,8 +522,8 @@ TextureImporter:
       name: Tap_sheet_15
       rect:
         serializedVersion: 2
-        x: 1792
-        y: 1280
+        x: 0
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -533,7 +533,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89d6f069a7380e747ab52bc52024207c
+      spriteID: 92c70c0b6cb82e148af48011de012558
       vertices: []
       indices: 
       edges: []
@@ -542,8 +542,8 @@ TextureImporter:
       name: Tap_sheet_16
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1024
+        x: 256
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -553,7 +553,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03b1acf62585c3642bdeb8d363591a01
+      spriteID: e1eb9257063e7a54d8e6cf93b668ee7e
       vertices: []
       indices: 
       edges: []
@@ -562,8 +562,8 @@ TextureImporter:
       name: Tap_sheet_17
       rect:
         serializedVersion: 2
-        x: 256
-        y: 1024
+        x: 512
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -573,7 +573,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffcd63af4c6eb974ab7ab749d10ee57f
+      spriteID: dc17a06243cdbdf428f70df32d788c25
       vertices: []
       indices: 
       edges: []
@@ -582,8 +582,8 @@ TextureImporter:
       name: Tap_sheet_18
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1024
+        x: 768
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -593,7 +593,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4283e34a3af2dc43b31c8c65df64b08
+      spriteID: a0a16b430af959b40941f1d3dbc0cf32
       vertices: []
       indices: 
       edges: []
@@ -602,8 +602,8 @@ TextureImporter:
       name: Tap_sheet_19
       rect:
         serializedVersion: 2
-        x: 768
-        y: 1024
+        x: 1024
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -613,7 +613,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f51a03b43803a3b4fa8f2dd435452923
+      spriteID: 95928a3795bf449468245523bc19e36c
       vertices: []
       indices: 
       edges: []
@@ -622,8 +622,8 @@ TextureImporter:
       name: Tap_sheet_20
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1024
+        x: 0
+        y: 0
         width: 256
         height: 256
       alignment: 0
@@ -633,7 +633,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73640947c8ed6504783a9e48e0cc91e3
+      spriteID: b45491ca846261a488b31a4c9d1c432c
       vertices: []
       indices: 
       edges: []
@@ -642,8 +642,8 @@ TextureImporter:
       name: Tap_sheet_21
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 1024
+        x: 256
+        y: 0
         width: 256
         height: 256
       alignment: 0
@@ -653,7 +653,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc7b97f8500b6a74bbece8fa8c937dd6
+      spriteID: f3b45851985c5bb49a322732aace6ed2
       vertices: []
       indices: 
       edges: []
@@ -662,8 +662,8 @@ TextureImporter:
       name: Tap_sheet_22
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 1024
+        x: 512
+        y: 0
         width: 256
         height: 256
       alignment: 0
@@ -673,7 +673,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b05695c7696998e438708933657ed2d7
+      spriteID: 994a0609c1b766840b9d91807745a293
       vertices: []
       indices: 
       edges: []
@@ -682,8 +682,8 @@ TextureImporter:
       name: Tap_sheet_23
       rect:
         serializedVersion: 2
-        x: 1792
-        y: 1024
+        x: 768
+        y: 0
         width: 256
         height: 256
       alignment: 0
@@ -693,7 +693,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1006c513290a2bf4cb7c7e7dcc6fd1d1
+      spriteID: b903dbad456985141841716a4d6d8c10
       vertices: []
       indices: 
       edges: []
@@ -702,487 +702,7 @@ TextureImporter:
       name: Tap_sheet_24
       rect:
         serializedVersion: 2
-        x: 0
-        y: 768
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce038ddca4ff6434fa00952e43d3604b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_25
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 768
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 00e1230a3c38b5c43ab157f3ca382e89
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_26
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 768
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32ae627fcc9e2f34fa6eabc37007d75d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_27
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 768
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b4c6c77f0e90da4bad85d7c6bc2ac73
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_28
-      rect:
-        serializedVersion: 2
         x: 1024
-        y: 768
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca37d1edcc205ee4ab4b3e84739ad758
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_29
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 768
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d98f7ab359dc54b4ca6840d6ed052e13
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_30
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 768
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5da22a20dfff0aa4e98b8acd540770d5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_31
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 768
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a79e4449eba8a540bd3ae6bc6b2ef73
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_32
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad4a6cb460782694a844f58817c04ed4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_33
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1e3ab97c7ce88674d8293f16ef5b0245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_34
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3328f3216865e7e4d94ce8d7c1fb45d7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_35
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 734ecb89b31fb084d9619f4a75039d18
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_36
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 37dc79e3ca475c3489b2cae8870613e0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_37
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc553c1642c20ad4a815611ea9b16c75
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_38
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d97095943fc73204c817dcdd37c5e42d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_39
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b36abd0c46811a24f92454b60319aa8e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_40
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 674f0a8ef8abb834c940c6371c46fbb8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_41
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 713958719f4b8d142b47954068f12347
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_42
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bb996377da5aa6c42afd329ce0b6e654
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_43
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77eae02d2f315be449a052be25cebe5a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_44
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a28b1cb289f83ca46b1e3e500804ee4a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_45
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02af70e8aba29604aa582de3d3342ffd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_46
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c16f47d1400449d46a42694dd88388cc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_47
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2cfec17989b2c174289803a6085e3d71
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_48
-      rect:
-        serializedVersion: 2
-        x: 0
         y: 0
         width: 256
         height: 256
@@ -1193,47 +713,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 319d9fbaecbf0464c978d9e036c9b01b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_49
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4574965ddc889114b9074174946acbc6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tap_sheet_50
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0cead9fd9c74b22418da55b628564ada
+      spriteID: 17a4fbc252f0ec54fab2768bf335533e
       vertices: []
       indices: 
       edges: []
