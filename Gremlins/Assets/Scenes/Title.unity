@@ -1261,11 +1261,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TransitionController
       objectReference: {fileID: 0}
-    - target: {fileID: 7683291964556024614, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 31
-      objectReference: {fileID: 0}
     - target: {fileID: 7927670738656567272, guid: 452f2a11f96b7964baa631fbd34bb58e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1323,113 +1318,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
         type: 3}
-      propertyPath: presets.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: dots.texture
-      value: 
-      objectReference: {fileID: 2800000, guid: c4341361379f2f84cae3acad0d6bc4cb, type: 3}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: circle.texture
-      value: 
-      objectReference: {fileID: 2800000, guid: c4341361379f2f84cae3acad0d6bc4cb, type: 3}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: circle.offset
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: circle.scale
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: dots.scale
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: dots.scale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: dots.scale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: circle.scale.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: circle.scale.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: circle.offset.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: circle.offset.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: presets.Array.data[0].texture
-      value: 
-      objectReference: {fileID: 2800000, guid: c4341361379f2f84cae3acad0d6bc4cb, type: 3}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
       propertyPath: presets.Array.data[1].texture
       value: 
-      objectReference: {fileID: 2800000, guid: c4341361379f2f84cae3acad0d6bc4cb, type: 3}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: presets.Array.data[0].duration
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2800000, guid: 457cf34446c22e245b68c53143c38552, type: 3}
     - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
         type: 3}
       propertyPath: presets.Array.data[1].duration
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: presets.Array.data[1].offset.x
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: presets.Array.data[1].offset.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: presets.Array.data[1].scale.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: presets.Array.data[1].scale.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: presets.Array.data[0].scale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
-        type: 3}
-      propertyPath: presets.Array.data[0].scale.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 452f2a11f96b7964baa631fbd34bb58e, type: 3}

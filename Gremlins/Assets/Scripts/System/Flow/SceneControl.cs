@@ -80,7 +80,7 @@ public class SceneControl : MonoBehaviour
         Services.taskManager
             .Do(new ActionTask(Services.mainController.DisableInput))
             .Then(new ActionTask(() => Services.sceneTransitionController.FadeIntoTransitionScreen(SceneTransitionControl.TransitionStyle.CIRCLE)))
-            .Then(new Wait(0.3f))
+            .Then(new Wait(0.5f))
             .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.CIRCLE)));
     }
 
