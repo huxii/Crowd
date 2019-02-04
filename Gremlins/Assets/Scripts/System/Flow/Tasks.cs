@@ -17,7 +17,6 @@ public class ActionTask : Task
     }
 }
 
-
 public class FeedbackTask : Task
 {
     public Crowd.Event Feedback { get; private set; }

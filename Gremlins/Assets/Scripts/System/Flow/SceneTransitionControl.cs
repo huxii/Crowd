@@ -5,9 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransitionControl : MonoBehaviour
 {
+    public enum TransitionStyle
+    {
+        DOTS,
+        CIRCLE,
+        BLANK
+    };
+
+    [System.Serializable]
+    public struct TransitionTexturePreset
+    {
+        public Texture texture;
+        public Vector2 scale;
+        public Vector2 offset;
+        public float duration;
+    }
+
     public Shader transitionShader;
-    public Texture transitionTexture;
-    public float transitionTextureScale = 1.0f;
+    public List<TransitionTexturePreset> presets;
 
     GameObject transitionScreen = null;
     Camera transitionCamera = null;
@@ -22,6 +37,15 @@ public class SceneTransitionControl : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void ApplyTransitionStyle(TransitionStyle style)
+    {
+        Material mat = transitionScreen.GetComponent<MeshRenderer>().material;
+        TransitionTexturePreset texturePreset = presets[(int)style];
+        mat.SetTexture("_PatternTex", texturePreset.texture);
+        mat.SetTextureScale("_PatternTex", texturePreset.scale);
+        mat.SetTextureOffset("_PatternTex", texturePreset.offset);
     }
 
     private void GenerateTransitionScreen()
@@ -71,8 +95,6 @@ public class SceneTransitionControl : MonoBehaviour
 
         Material mat = new Material(transitionShader);
         mat.color = Color.white;
-        mat.SetTexture("_PatternTex", transitionTexture);
-        mat.SetTextureScale("_PatternTex", new Vector2(transitionTextureScale, transitionTextureScale));
         transitionScreen.GetComponent<MeshRenderer>().material = mat;
     }
 
@@ -93,38 +115,43 @@ public class SceneTransitionControl : MonoBehaviour
         transitionCamera.enabled = true;
     }
 
-    public void FadeIntoTransitionScreen()
+    public void FadeIntoTransitionScreen(TransitionStyle style)
     {
         if (transitionScreen)
         {
+            ApplyTransitionStyle(style);
             transitionScreen.SetActive(true);
             transitionCamera.enabled = true;
-            Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, "_Progress", 1, 0, 1, false));
+            Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, "_Progress", 1, 0, presets[(int)style].duration, false));
         }
     }
 
-    public void FadeIntoLoadingScreen()
+    public void FadeIntoLoadingScreen(TransitionStyle style)
     {
         GenerateTransitionScreen();
+        ApplyTransitionStyle(style);
 
-        Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, "_Progress", 1, 0, 1, false));
+        Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, "_Progress", 1, 0, presets[(int)style].duration, false));
     }
 
-    public void FadeOutOfLoadingScreen()
+    public void FadeOutOfLoadingScreen(TransitionStyle style)
     {
         //Debug.Log("Fade out");
         //GenerateTransitionScreen();
+        ApplyTransitionStyle(style);
 
-        Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, "_Progress", 0, 1, 1, true));
+        Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, "_Progress", 0, 1, presets[(int)style].duration, true));
     }
 
-    public void ZoomInTransitionScreen()
+    public void ZoomInTransitionScreen(TransitionStyle style)
     {
-        Services.taskManager.Do(new TimedTransitionZoomTask(transitionScreen, transitionCamera, 4, 0, 1, 1, false));
+        ApplyTransitionStyle(style);
+        Services.taskManager.Do(new TimedTransitionZoomTask(transitionScreen, transitionCamera, 4, 0, 1, presets[(int)style].duration, false));
     }
 
-    public void ZoomOutTransitionScreen()
+    public void ZoomOutTransitionScreen(TransitionStyle style)
     {
-        Services.taskManager.Do(new TimedTransitionZoomTask(transitionScreen, transitionCamera, 8, 0, 1, 1, true));
+        ApplyTransitionStyle(style);
+        Services.taskManager.Do(new TimedTransitionZoomTask(transitionScreen, transitionCamera, 8, 0, 1, presets[(int)style].duration, true));
     }
 }
