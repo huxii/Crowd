@@ -30,10 +30,7 @@ public static class Services
 
     public static void Init()
     {
-        if (eventManager == null)
-        {
-            eventManager = new Crowd.EventManager();
-        }
+        eventManager = new Crowd.EventManager();
 
         if (taskManager == null)
         {
