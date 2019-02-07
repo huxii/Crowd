@@ -62,9 +62,9 @@ public class GameControl : MainControl
         if (obj != null)
         {
             man.GetComponent<CrowdControl>().Flip(obj.GetComponent<PropControl>().changeScaleX);
-            man.transform.SetParent(obj.GetComponent<PropControl>().GetSlotObject(slotId).transform);
-            obj.GetComponent<PropControl>().ReadySlot(slotId, man);
             man.GetComponent<CrowdControl>().SwitchState(obj.GetComponent<PropControl>().changeState);
+            man.transform.SetParent(obj.GetComponent<PropControl>().GetSlotObject(slotId).transform);
+            obj.GetComponent<PropControl>().ReadySlot(slotId, man);           
 
             if (obj.GetComponent<PropControl>().PropFeedbackController != null && obj.GetComponent<PropControl>().IsReady())
             {
