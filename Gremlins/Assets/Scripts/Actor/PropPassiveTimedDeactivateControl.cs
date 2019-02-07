@@ -14,14 +14,8 @@ public class PropPassiveTimedDeactivateControl : PropPassiveControl
     {
 		
 	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        TimeUpdate();
-    }
 
-    protected void TimeUpdate()
+    protected virtual void Update()
     {
         if (IsActivated())
         {

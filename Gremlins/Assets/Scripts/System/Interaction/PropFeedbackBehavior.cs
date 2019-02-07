@@ -37,12 +37,6 @@ public class PropFeedbackBehavior : OutlineFeedbackBehavior
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        UpdateFactors();
-    }
-
     public override void OnInteract()
     {
         onInteractionFeedback.Invoke();

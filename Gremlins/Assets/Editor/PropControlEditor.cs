@@ -68,6 +68,15 @@ public class PropAutoLoopControlEditor : PropAutoControlEditor
     }
 }
 
+[CustomEditor(typeof(InflatorControl))]
+public class InflatorControlEditor : PropAutoLoopControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
 [CustomEditor(typeof(PropOneTimeControl))]
 public class PropOneTimeControlEditor : PropAutoControlEditor
 {

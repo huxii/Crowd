@@ -32,7 +32,7 @@ public class MainControl : MonoBehaviour
         Services.Update();
     }
 
-    protected virtual void OnDestroy()
+    protected virtual void OnApplicationQuit()
     {
         UnregisterEvents();
 

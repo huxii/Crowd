@@ -13,17 +13,12 @@ public class RopeSpriteWeightBehavior : ObjectRangeBasedControl
     private float resetTimer;
 
     // Use this for initialization
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         rb = GetComponent<Rigidbody2D>();
         origPos = transform.position;
-        RegisterEvents();
-    }
-
-    // excute before OnDestroy
-    private void OnApplicationQuit()
-    {
-        UnregisterEvents();
     }
 
     // Update is called once per frame

@@ -28,13 +28,7 @@ public abstract class OutlineFeedbackBehavior : ActorFeedbackBehavior
     {
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    protected void UpdateFactors()
+    protected virtual void Update()
     {
         if (breathLoop == 0)
         {

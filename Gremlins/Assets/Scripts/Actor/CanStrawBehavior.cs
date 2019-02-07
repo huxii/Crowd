@@ -12,12 +12,6 @@ public class CanStrawBehavior : ObjectTimedDeactivateControl
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        TimeUpdate();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Man") && CanActivate())

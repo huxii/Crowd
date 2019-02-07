@@ -15,7 +15,7 @@ public class ObjectTimedDeactivateControl : ObjectControl
     }
 
     // Update is called once per frame
-    protected void TimeUpdate()
+    protected virtual void Update()
     {
         if (IsActivated())
         {

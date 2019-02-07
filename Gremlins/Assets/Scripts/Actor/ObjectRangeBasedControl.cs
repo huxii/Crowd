@@ -15,13 +15,13 @@ public class ObjectRangeBasedControl : ObjectControl
     public UnityEvent onLeftRotate;
 
     // Use this for initialization
-    void Start()
+    protected virtual void Start()
     {
         RegisterEvents();
     }
 
     // excute before OnDestroy
-    private void OnApplicationQuit()
+    protected virtual void OnApplicationQuit()
     {
         UnregisterEvents();
     }
@@ -56,7 +56,7 @@ public class ObjectRangeBasedControl : ObjectControl
         var clicke = e as ClickEvent;
         GameObject obj = clicke.mouseClickObj;
         Vector3 pos = clicke.mouseClickPos;
-        if (transform != null && Vector3.Distance(transform.position, pos) < maxClickRange)
+        if (Vector3.Distance(transform.position, pos) < maxClickRange)
         {
             onClick.Invoke();
             CoolDown();

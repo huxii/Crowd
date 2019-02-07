@@ -12,11 +12,6 @@ public class HookBehavior : ObjectTimedDeactivateControl
 
     }
 
-    private void Update()
-    {
-        TimeUpdate();
-    }
-
     // Update is called once per frame
 
     private void OnTriggerEnter(Collider other)

@@ -12,12 +12,6 @@ public class PropPassiveElevatorControl : PropPassiveTimedDeactivateControl
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        TimeUpdate();
-    }
-
     protected override void OnSlotsFull()
     {
         base.OnSlotsFull();

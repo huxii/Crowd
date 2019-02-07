@@ -19,34 +19,7 @@ public class LightBehavior : ObjectControl
         RecreateMaterial();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        UpdateEmission();
-    }
-
-    protected void RecreateMaterial()
-    {
-        mat = null;
-        foreach (MeshRenderer meshRenderer in GetComponentsInChildren<MeshRenderer>())
-        {
-            if (meshRenderer.sharedMaterial.name.ToLower().Contains("inner"))
-            {
-                if (mat == null)
-                {
-                    mat = Instantiate(meshRenderer.sharedMaterial);
-                    mat.name += "(Instance)";
-                }
-
-                meshRenderer.material = mat;
-            }
-        }
-
-        mat.SetColor("_EmissionColor", emissionColor);
-        mat.SetFloat("_EmissionIntensity", timer);
-    }
-
-    protected void UpdateEmission()
+    protected virtual void Update()
     {
         if (isStarting)
         {
@@ -69,6 +42,27 @@ public class LightBehavior : ObjectControl
                 isReversing = false;
             }
         }
+    }
+
+    protected void RecreateMaterial()
+    {
+        mat = null;
+        foreach (MeshRenderer meshRenderer in GetComponentsInChildren<MeshRenderer>())
+        {
+            if (meshRenderer.sharedMaterial.name.ToLower().Contains("inner"))
+            {
+                if (mat == null)
+                {
+                    mat = Instantiate(meshRenderer.sharedMaterial);
+                    mat.name += "(Instance)";
+                }
+
+                meshRenderer.material = mat;
+            }
+        }
+
+        mat.SetColor("_EmissionColor", emissionColor);
+        mat.SetFloat("_EmissionIntensity", timer);
     }
 
     public override void Activate()
