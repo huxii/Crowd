@@ -23,7 +23,7 @@ Load,animation name,"tracks [0,4] 0 = lowest priority",loop,made(do not read),No
 1,push,0,NOTLOOP_KEEP,,
 1,pull,0,NOTLOOP_KEEP,,
 1,walk_normal,0,LOOP,finished,
-1,busy,2,NOTLOOP_KEEP,,
+1,busy,0,NOTLOOP_KEEP,,
 1,menu_pose1,2,LOOP,,
 1,menu_pose2,2,LOOP,,
 1,menu_pose3,2,LOOP,,

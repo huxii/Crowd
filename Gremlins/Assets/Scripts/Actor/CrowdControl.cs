@@ -522,7 +522,7 @@ public class CrowdControl : ActorControl
             switch (man.state)
             {
                 case CrowdState.INFLATE_HANDLE:
-                    //man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+                    man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
                     break;
                 case CrowdState.INFLATE_ING:
                     man.spineAnimController.SetAnimation("inflate_mouth_prepare", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
