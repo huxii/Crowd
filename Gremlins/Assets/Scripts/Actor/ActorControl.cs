@@ -8,8 +8,8 @@ using UnityEngine;
  *          CrowdControl                                InteractableControl
  *                                                     /                                        \
  *                                       ObjectControl                                      PropControl
- *                                         /        \                            /                       \                          \
- *                          MultiplePropControl          ...                PropAutoControl                 PropPassiveControl      PropHolderControl
+ *                                         /        \                            /                       \                      
+ *                          MultiplePropControl          ...                PropAutoControl                 PropPassiveControl     
  *                                                                  /                   |              \
  *                                                             PropAutoLoopControl   PropOneTimeControl  ...
  *                                                          

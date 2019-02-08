@@ -380,7 +380,15 @@ public class GameEvents : CustomEvents
         else
         if (propState == PropControl.PropState.FULL)
         {
-            obj.GetComponent<PropControl>().FreeAllMen();
+            if (obj.GetComponent<PropAutoControl>())
+            {
+                obj.GetComponent<PropControl>().FreeAllMen();
+            }
+            else
+            if (obj.GetComponent<PropPassiveControl>())
+            {
+                //obj.GetComponent<PropControl>().FreeAllMen();
+            }
         }
         else
         if (propState == PropControl.PropState.PATH)

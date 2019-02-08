@@ -25,12 +25,6 @@ public class HookBehavior : ObjectTimedDeactivateControl
         }
     }
 
-    // Deactivate control panel through hook animations
-    public void DeactivateControlPanel()
-    {
-        GameObject.Find("ControlPanel").GetComponent<PropControl>().FreeAllMen();
-    }
-
     public override void Activate()
     {
         base.Activate();
@@ -49,11 +43,21 @@ public class HookBehavior : ObjectTimedDeactivateControl
 
             if (man != null)
             {
-                Services.gameEvents.PlayAnimation(gameObject.name + " HookCatched");
+                Services.taskManager
+                    .Do(new ActionTask(
+                        () => Services.gameEvents.PlayAnimation(gameObject.name + " HookCatched")
+                        ))
+                    .Then(new Wait(5))
+                    .Then(new ActionTask(GameObject.Find("ControlPanel").GetComponent<PropControl>().FreeAllMen));
             }
             else
             {
-                Services.gameEvents.PlayAnimation(gameObject.name + " HookEmpty");
+                Services.taskManager
+                    .Do(new ActionTask(
+                        () => Services.gameEvents.PlayAnimation(gameObject.name + " HookEmpty")
+                        ))
+                    .Then(new Wait(1))
+                    .Then(new ActionTask(GameObject.Find("ControlPanel").GetComponent<PropControl>().FreeAllMen));
             }
 
             onDeactivated.Invoke();

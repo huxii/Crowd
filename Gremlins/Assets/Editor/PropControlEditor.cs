@@ -167,6 +167,15 @@ public class PropPassiveElevatorControlEditor : PropPassiveTimedDeactivateContro
     }
 }
 
+[CustomEditor(typeof(ControlPanelControl))]
+public class ControlPanelControlEditor : PropPassiveControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
 [CustomEditor(typeof(MultiplePropControl))]
 public class MultiplePropControlEditor : Editor
 {
