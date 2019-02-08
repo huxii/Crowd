@@ -57,13 +57,9 @@ public class InflatorControl : PropAutoLoopControl
             if (count >= inflatorCount)
             {
                 Services.gameEvents.UnboundMan(man);
+                //Services.gameEvents.SwitchCrowdState(man, CrowdControl.CrowdState.INFLATE_FLOAT);
                 Services.gameEvents.MakeFloatMan(man);
 
-                Services.taskManager
-                    .Do(new ActionTask(
-                        () => Services.gameEvents.SwitchCrowdState(man, CrowdControl.CrowdState.INFLATE_FLOAT)
-                        ));
-               
                 ResetCount();
             }
         }

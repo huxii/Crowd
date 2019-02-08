@@ -150,6 +150,11 @@ public class GameEvents : CustomEvents
         ani.Play();
     }
 
+    public void SetCrowdAnimation(GameObject man, string aniName, SpineAnimationControl.ClearPolicy clearPolicy = SpineAnimationControl.ClearPolicy.DONT)
+    {
+        man.GetComponent<SpineAnimationControl>().SetAnimation(aniName, clearPolicy);
+    }
+
     public void AddAnchor(GameObject man, GameObject obj)
     {
         if (man == null)
@@ -195,7 +200,10 @@ public class GameEvents : CustomEvents
             return;
         }
 
-        man.GetComponent<CrowdControl>().Lock();
+        DisableMan(man);
+        SetCrowdAnimation(man, "inflate_mouth_drift");
+
+        //man.GetComponent<CrowdControl>().Lock();
         man.AddComponent<FloatBehavior>();
     }
 
@@ -226,7 +234,7 @@ public class GameEvents : CustomEvents
     public void DisableMan(GameObject man)
     {
         Destroy(man.GetComponent<CrowdControl>());
-        Destroy(man.GetComponent<CrowdFeedbackBehavior>());
+        //Destroy(man.GetComponent<CrowdFeedbackBehavior>());
         Services.men.Remove(man);
     }
 

@@ -30,17 +30,17 @@ public class FloatBehavior : MonoBehaviour
             return;
         }
 
-        if (idx < paths.Count && GetComponent<CrowdControl>().IsLocked())
+        if (idx < paths.Count)
         {
             Services.dotweenEvents.MoveTo(gameObject.name + " " + paths[idx].x + " " + paths[idx].y + " " + paths[idx].z + " 1 false");
 
             ++idx;
-            if (idx >= paths.Count)
-            {
-                GetComponent<CrowdControl>().Unlock();
-                Services.dotweenEvents.ScaleTo(gameObject.name + " 1, 1, 1, 0.5 false");
-                Destroy(this);
-            }
+            //if (idx >= paths.Count)
+            //{
+            //    GetComponent<CrowdControl>().Unlock();
+            //    Services.dotweenEvents.ScaleTo(gameObject.name + " 1, 1, 1, 0.5 false");
+            //    Destroy(this);
+            //}
         }
     }
 }

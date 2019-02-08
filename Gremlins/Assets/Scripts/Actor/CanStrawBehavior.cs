@@ -18,7 +18,7 @@ public class CanStrawBehavior : ObjectTimedDeactivateControl
         {
             man = other.gameObject;
             Services.gameEvents.AddAnchor(other.gameObject, transform.GetChild(0).gameObject);
-            Services.gameEvents.SwitchCrowdState(man, CrowdControl.CrowdState.IDLE);
+            Services.gameEvents.SetCrowdAnimation(man, "idle_breath", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
             //Services.dotweenEvents.ScaleTo(other.gameObject.name + " 1, 1, 1, 2.5");
 
             Activate();
@@ -30,7 +30,6 @@ public class CanStrawBehavior : ObjectTimedDeactivateControl
         if (CanDeactivate())
         {
             Services.gameEvents.RemoveAnchor(man);
-            Services.gameEvents.DisableMan(man);
             // dead :)
             Services.dotweenEvents.MoveTo(man.name + " 2.5, 1, -1.8, 1");
             
