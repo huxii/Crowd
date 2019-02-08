@@ -4569,6 +4569,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f43716b286e26a94db530fbaa34aa2cf, type: 2}
+    - target: {fileID: 136689480411225892, guid: 731fd9d139c957140bdc305f3874130d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731fd9d139c957140bdc305f3874130d, type: 3}
 --- !u!1 &1450516862
@@ -6379,7 +6384,7 @@ MonoBehaviour:
   namingCounter: 2
   weightObj: {fileID: 0}
   deltaWeight: 0
-  loopInterval: 1.2
+  loopInterval: 1
   startDelay: 0
   loopEvent:
     m_PersistentCalls:
@@ -6407,7 +6412,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  inflatorCount: 5
+  inflatorCount: 3
 --- !u!1 &2101486358
 GameObject:
   m_ObjectHideFlags: 0
@@ -6997,7 +7002,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279773217180396}
-  m_LocalRotation: {x: -0.0030012114, y: 0.000000017141053, z: -0.000000024488665,
+  m_LocalRotation: {x: -0.0030012114, y: -0.00000001728835, z: -0.000000024591996,
     w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -7103,8 +7108,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625331400867550}
-  m_LocalRotation: {x: 0.033277906, y: -0.000000029631703, z: -0.000000003624475,
-    w: 0.99944615}
+  m_LocalRotation: {x: 0.033277936, y: 0.000000012655743, z: -0.000000005032493, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

@@ -27,6 +27,11 @@ public class CrowdControl : ActorControl
         PUSH,
         RIDE,
         DROP,
+        FLOAT,
+        INFLATE_HANDLE,
+        INFLATE_ING,
+        INFLATE_COMPLETE,
+        INFLATE_FLOAT,
         CELEBRATE,
         CONFUSED,
         WORK,
@@ -145,6 +150,11 @@ public class CrowdControl : ActorControl
                 new Sequence<CrowdControl>(
                     new IsRiding(),
                     new Riding()
+                    ),
+                
+                new Sequence<CrowdControl>(
+                    new IsInflating(),
+                    new Inflating()
                     ),
 
                 new Sequence<CrowdControl>(
@@ -375,6 +385,14 @@ public class CrowdControl : ActorControl
         }
     }
 
+    private class IsInflating : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state >= CrowdState.INFLATE_HANDLE && man.state <= CrowdState.INFLATE_FLOAT;
+        }
+    }
+
     private class IsConfused : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
@@ -493,6 +511,31 @@ public class CrowdControl : ActorControl
         public override bool Update(CrowdControl man)
         {
             man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            return true;
+        }
+    }
+
+    private class Inflating : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            switch (man.state)
+            {
+                case CrowdState.INFLATE_HANDLE:
+                    //man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+                    break;
+                case CrowdState.INFLATE_ING:
+                    man.spineAnimController.SetAnimation("inflate_mouth_prepare", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+                    break;
+                case CrowdState.INFLATE_COMPLETE:
+                    man.spineAnimController.SetAnimation("inflate_mouth_finish", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+                    break;
+                case CrowdState.INFLATE_FLOAT:
+                    man.spineAnimController.SetAnimation("inflate_mouth_drift", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+                    break;
+                default:
+                    break;
+            }        
             return true;
         }
     }

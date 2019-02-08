@@ -23,7 +23,24 @@ public class InflatorControl : PropAutoLoopControl
     {
         base.OnSlotChange();
 
+        GameObject man0 = GetSlotMan(0);
+        GameObject man1 = GetSlotMan(1);
 
+        if (man0 == null && man1 != null)
+        {
+            Services.gameEvents.SwitchCrowdState(man1, CrowdControl.CrowdState.INFLATE_ING);
+        }
+        else
+        if (man0 != null && man1 == null)
+        {
+            Services.gameEvents.SwitchCrowdState(man0, CrowdControl.CrowdState.INFLATE_HANDLE);
+        }
+        else
+        if (man0 != null && man1 != null)
+        {
+            Services.gameEvents.SwitchCrowdState(man0, CrowdControl.CrowdState.INFLATE_HANDLE);
+            Services.gameEvents.SwitchCrowdState(man1, CrowdControl.CrowdState.INFLATE_COMPLETE);
+        }
     }
 
     public void Inflate()
@@ -33,7 +50,7 @@ public class InflatorControl : PropAutoLoopControl
             GameObject man = GetSlotMan(1);
             if (man != null)
             {
-                Services.dotweenEvents.Scale(man.gameObject.name + " 1.1, 1.1, 1.1, 0.5");
+                //Services.dotweenEvents.Scale(man.gameObject.name + " 1.1, 1.1, 1.1, 0.5");
             }
 
             ++count;
@@ -42,6 +59,11 @@ public class InflatorControl : PropAutoLoopControl
                 Services.gameEvents.UnboundMan(man);
                 Services.gameEvents.MakeFloatMan(man);
 
+                Services.taskManager
+                    .Do(new ActionTask(
+                        () => Services.gameEvents.SwitchCrowdState(man, CrowdControl.CrowdState.INFLATE_FLOAT)
+                        ));
+               
                 ResetCount();
             }
         }
@@ -56,14 +78,20 @@ public class InflatorControl : PropAutoLoopControl
         GameObject man = GetSlotMan(1);
         if (man != null)
         {
-            Services.dotweenEvents.ScaleTo(man.gameObject.name + " 1, 1, 1, 0.9");
+            Services.gameEvents.SwitchCrowdState(man, CrowdControl.CrowdState.IDLE);
+            //Services.dotweenEvents.ScaleTo(man.gameObject.name + " 1, 1, 1, 0.9");
         }
+
+        ResetCount();
     }
 
 
     public override void Deactivate()
     {
-        Deflate();
+        if (count < inflatorCount)
+        {
+            Deflate();
+        }
 
         base.Deactivate();
     }

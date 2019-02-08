@@ -568,6 +568,16 @@ public class GameEvents : CustomEvents
         return false;
     }
 
+    public void SwitchCrowdState(GameObject man, CrowdControl.CrowdState state)
+    {
+        if (man == null)
+        {
+            return;
+        }
+
+        man.GetComponent<CrowdControl>().SwitchState(state);
+    }
+
     //public void Swipe()
     //{
     //    if (swipeObj == null)
