@@ -374,21 +374,13 @@ public class GameEvents : CustomEvents
             if (successManNum == 0)
             {
                 // no any avaliable men, release all the man to avoid dead lock
-                obj.GetComponent<PropControl>().FreeAllMen();
+                obj.GetComponent<PropControl>().TryFreeAllMen();
             }
         }
         else
         if (propState == PropControl.PropState.FULL)
         {
-            if (obj.GetComponent<PropAutoControl>())
-            {
-                obj.GetComponent<PropControl>().FreeAllMen();
-            }
-            else
-            if (obj.GetComponent<PropPassiveControl>())
-            {
-                //obj.GetComponent<PropControl>().FreeAllMen();
-            }
+            obj.GetComponent<PropControl>().TryFreeAllMen();
         }
         else
         if (propState == PropControl.PropState.PATH)

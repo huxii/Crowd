@@ -32,4 +32,11 @@ public abstract class PropAutoControl : PropControl
 
         Deactivate();
     }
+
+    public override void TryFreeAllMen()
+    {
+        base.TryFreeAllMen();
+
+        FreeAllMen();
+    }
 }

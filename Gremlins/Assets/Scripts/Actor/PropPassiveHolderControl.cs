@@ -35,4 +35,11 @@ public class PropPassiveHolderControl : PropPassiveControl
             OnSlotsNotFull();
         }
     }
+
+    public override void TryFreeAllMen()
+    {
+        base.TryFreeAllMen();
+
+        FreeAllMen();
+    }
 }

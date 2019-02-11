@@ -385,6 +385,10 @@ public abstract class PropControl : InteractableControl
     //    //Services.soundController.Play("objectClick");
     //}
 
+    public virtual void TryFreeAllMen()
+    {
+    }
+
     // if this prop is locked, the men on it will be locked as well
     // and the men who are heading to it will be dismissed
     public override void Lock()
