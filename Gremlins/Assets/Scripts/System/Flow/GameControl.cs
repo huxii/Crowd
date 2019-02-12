@@ -153,7 +153,7 @@ public class GameControl : MainControl
 
         // go back to title
         DataSet.recentCompletedLevelIdx = Services.sceneController.CurrentSceneIdx();
-        Services.sceneController.LoadScene("Title");
+        Services.sceneController.LoadSceneWithRecordAndZoom("Title");
     }
 
     public override void EnableInput()
