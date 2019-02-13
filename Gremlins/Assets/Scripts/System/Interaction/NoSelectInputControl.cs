@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NoSelectInputControl : InputControl
 {
+    public bool groundEnabled = true;
     public bool resetCenterOnRelease = true;
     public bool gyroEnabled = false;
 
@@ -82,10 +83,13 @@ public class NoSelectInputControl : InputControl
         else
         if (mouseClickObject.CompareTag("Ground"))
         {
-            Services.gameEvents.MoveMenToPosition(mouseClickPos);
-            Services.soundController.Play("clickOnWood1");
+            if (groundEnabled)
+            {
+                Services.gameEvents.MoveMenToPosition(mouseClickPos);
+                Services.soundController.Play("clickOnWood1");
 
-            Services.tileMarkerManager.Activate(Services.pathFindingManager.LastUnit());
+                Services.tileMarkerManager.Activate(Services.pathFindingManager.LastUnit());
+            }
         }
         else
         {
