@@ -24211,6 +24211,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1614843341436788}
+        m_MethodName: SetZoom
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 15
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onDeactivated:
@@ -24229,6 +24240,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 698883445}
         m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1614843341436788}
+        m_MethodName: ResumeZoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -44234,14 +44256,14 @@ MonoBehaviour:
     sensitivity: {x: 300, y: 300}
     translateZero: {x: 0, y: 7.5, z: 2.82}
     translateRange: {x: -1, y: -1, z: 1, w: 1}
-  - topRigOrbit: {x: 3, y: 24}
-    middleRigOrbit: {x: 0, y: 27}
-    bottomRigOrbit: {x: -3, y: 24}
+  - topRigOrbit: {x: 3, y: 20}
+    middleRigOrbit: {x: 0, y: 23}
+    bottomRigOrbit: {x: -3, y: 20}
     angleRange: {x: -30, y: 30}
     angleZero: {x: 0, y: 90}
     sensitivity: {x: 300, y: 300}
-    translateZero: {x: 0, y: 7.5, z: 2.82}
-    translateRange: {x: 0, y: 0, z: 0, w: 0}
+    translateZero: {x: -0.4, y: 7.5, z: 2.82}
+    translateRange: {x: -1, y: -1, z: 1, w: 1}
   - topRigOrbit: {x: 2, y: 10}
     middleRigOrbit: {x: 0, y: 14}
     bottomRigOrbit: {x: -1, y: 13}
@@ -44250,7 +44272,9 @@ MonoBehaviour:
     sensitivity: {x: 200, y: 200}
     translateZero: {x: 0, y: 7.5, z: 2.82}
     translateRange: {x: 0, y: 0, z: 0, w: 0}
-  targetAngle: {x: 0, y: 0}
+  targetAngle: {x: 1.3345189, y: 90}
+  targetTranslate: {x: 0, y: 0, z: 0}
+  origTranslate: {x: 0, y: 0, z: 0}
 --- !u!1 &1625330425388381
 GameObject:
   m_ObjectHideFlags: 3
@@ -44434,7 +44458,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279771982915951}
-  m_LocalRotation: {x: -0.00300121, y: 0.000000017134694, z: -0.00000002450938, w: 0.9999955}
+  m_LocalRotation: {x: -0.00300121, y: -0.000000017282115, z: -0.000000024612673,
+    w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -44540,7 +44565,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: 0.033277906, y: 0.000000029939113, z: -0.0000000056079674,
+  m_LocalRotation: {x: 0.033277962, y: -0.00000002946276, z: -0.0000000036300996,
     w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}

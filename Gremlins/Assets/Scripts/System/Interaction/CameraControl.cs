@@ -37,7 +37,7 @@ public class CameraControl : MonoBehaviour
     }
 
     public virtual void ResetAngle()
-    {        
+    {
     }
 
     public virtual void ResetTranslate()
@@ -58,6 +58,14 @@ public class CameraControl : MonoBehaviour
     }
 
     public virtual void SetOrbit(float x, float y)
+    {
+    }
+
+    public virtual void ResumeZoom()
+    {
+    }
+
+    public virtual void SetZoom(float rigDelta)
     {
     }
 

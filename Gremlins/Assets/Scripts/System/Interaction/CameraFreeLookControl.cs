@@ -9,13 +9,13 @@ public class CameraFreeLookControl : CameraControl
     // cameracontrol: x - 0~360    y - 0~180
     // should convert when applying angles to cinemachine
     [System.Serializable]
-    public class FreeLookCamAttr
+    public struct FreeLookCamAttr
     {
         public Vector2 topRigOrbit;
         public Vector2 middleRigOrbit;
         public Vector2 bottomRigOrbit;
         public Vector2 angleRange;
-        public Vector2 angleZero = new Vector2(0, 90f);
+        public Vector2 angleZero;
         public Vector2 sensitivity;
         public Vector3 translateZero;
         public Vector4 translateRange;
@@ -32,7 +32,9 @@ public class CameraFreeLookControl : CameraControl
     protected FreeLookCamAttr targetCameraAttr;
     [SerializeField]
     protected Vector2 targetAngle;
+    [SerializeField]
     protected Vector3 targetTranslate;
+    [SerializeField]
     protected Vector3 origTranslate;
     protected Vector2 cameraSpeed;
 
@@ -167,6 +169,25 @@ public class CameraFreeLookControl : CameraControl
 
             cameraSpeed = clickCameraSpeed;
         }
+    }
+
+    public override void ResumeZoom()
+    {
+        base.ResumeZoom();
+
+        FreeLookCamAttr attr = zoomLevelAttrs[zoomLevel];
+        targetCameraAttr.middleRigOrbit = attr.middleRigOrbit;
+        targetCameraAttr.topRigOrbit = attr.topRigOrbit;
+        targetCameraAttr.bottomRigOrbit = attr.bottomRigOrbit;
+    }
+
+    public override void SetZoom(float rigDelta)
+    {
+        base.SetZoom(rigDelta);
+
+        targetCameraAttr.middleRigOrbit += new Vector2(0, rigDelta);
+        targetCameraAttr.topRigOrbit += new Vector2(0, rigDelta);
+        targetCameraAttr.bottomRigOrbit += new Vector2(0, rigDelta);
     }
 
     public override void SetZoom(int level)
