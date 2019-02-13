@@ -16,6 +16,7 @@ public class DotweenEvents : CustomEvents
         Vector3 deltaRot = ParseIncrement();
         float time = ParseTime();
         int loop = ParseLoop();
+        bool isLocalAxis = ParseIsLocalAxis(false);
         Ease easeType = ParseEaseType(Ease.InOutFlash);
 
         if (obj == null || DOTween.IsTweening(obj))
@@ -24,7 +25,14 @@ public class DotweenEvents : CustomEvents
         }
 
         Vector3 targetRot = deltaRot + obj.transform.localEulerAngles;
-        obj.transform.DOLocalRotate(targetRot, time).SetLoops(loop).SetEase(easeType);
+        if (isLocalAxis)
+        {
+            obj.transform.DOLocalRotate(targetRot, time, RotateMode.LocalAxisAdd).SetLoops(loop).SetEase(easeType);
+        }
+        else
+        {
+            obj.transform.DOLocalRotate(targetRot, time).SetLoops(loop).SetEase(easeType);
+        }
     }
 
     public void RotateTo(string para)
@@ -283,6 +291,7 @@ public class DotweenEvents : CustomEvents
         float time = ParseTime();
         int loop = ParseLoop();
         bool isLocalAxis = ParseIsLocalAxis();
+        Ease easeType = ParseEaseType(Ease.InBack);
 
         Sequence seq = DOTween.Sequence();
 
@@ -297,8 +306,8 @@ public class DotweenEvents : CustomEvents
         }
         else
         {
-            seq.Append(obj.transform.DOLocalRotate(deltaRot, 0.5f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InBack));
-            seq.Append(obj.transform.DOLocalRotate(-deltaRot, 0.5f * time, RotateMode.LocalAxisAdd).SetEase(Ease.InBack));
+            seq.Append(obj.transform.DOLocalRotate(deltaRot, 0.5f * time, RotateMode.LocalAxisAdd).SetEase(easeType));
+            seq.Append(obj.transform.DOLocalRotate(-deltaRot, 0.5f * time, RotateMode.LocalAxisAdd).SetEase(easeType));
             seq.SetLoops(loop, LoopType.Restart);
         }
     }

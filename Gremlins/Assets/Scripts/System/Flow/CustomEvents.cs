@@ -9,6 +9,27 @@ public class CustomEvents : MonoBehaviour
     protected string[] paras;
     protected int curParaIdx = 0;
 
+    protected bool ParseBool(bool defaultValue)
+    {
+        if (curParaIdx < paras.Length)
+        {
+            bool value = defaultValue;
+            if (bool.TryParse(paras[curParaIdx], out value))
+            {
+                ++curParaIdx;
+                return value;
+            }
+            else
+            {
+                return defaultValue;
+            }
+        }
+        else
+        {
+            return defaultValue;
+        }
+    }
+
     protected void ParseNewPara(string para)
     {
         paras = para.Split(spliters, System.StringSplitOptions.RemoveEmptyEntries);
@@ -114,23 +135,12 @@ public class CustomEvents : MonoBehaviour
 
     protected bool ParseIsLocalAxis(bool defaultAxis = false)
     {
-        if (curParaIdx < paras.Length)
-        {
-            bool isLocal = defaultAxis;
-            if (bool.TryParse(paras[curParaIdx], out isLocal))
-            {
-                ++curParaIdx;
-                return isLocal;
-            }
-            else
-            {
-                return defaultAxis;
-            }
-        }
-        else
-        {
-            return defaultAxis;
-        }
+        return ParseBool(defaultAxis);
+    }
+
+    protected bool ParseIsQueued(bool defaultOption = false)
+    {
+        return ParseBool(defaultOption);
     }
 
     protected Ease ParseEaseType(Ease easeType = Ease.Unset)

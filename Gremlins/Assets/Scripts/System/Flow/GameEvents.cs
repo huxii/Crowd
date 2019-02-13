@@ -100,6 +100,7 @@ public class GameEvents : CustomEvents
 
         GameObject obj = ParseGameObject();
         string aniName = ParseAnimationName();
+        bool isQueued = ParseIsQueued(false);
 
         Animation ani = obj.GetComponent<Animation>();
         if (aniName == null)
@@ -108,7 +109,14 @@ public class GameEvents : CustomEvents
         }
         else
         {
-            ani.Play(aniName);
+            if (isQueued)
+            {
+                ani.PlayQueued(aniName, QueueMode.PlayNow);
+            }
+            else
+            {
+                ani.Play(aniName);
+            }
         }
     }
 
