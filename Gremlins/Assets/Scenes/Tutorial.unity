@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18132468, g: 0.22290683, b: 0.28400475, a: 1}
+  m_IndirectSpecularColor: {r: 0.1813249, g: 0.2229071, b: 0.284005, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2299,7 +2299,8 @@ MonoBehaviour:
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
-  freeManSlotOffset: {x: 3.11, y: -0.7, z: -0.01}
+  freeManTile: {fileID: 0}
+  freeManOffset: {x: 2.73, y: -0.84, z: 0}
   changeState: 4
   changeScaleX: 1
   slots:
@@ -2467,7 +2468,8 @@ MonoBehaviour:
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
-  freeManSlotOffset: {x: 1.25, y: 0.64, z: -0.5}
+  freeManTile: {fileID: 811556918}
+  freeManOffset: {x: 0, y: 0, z: 0}
   changeState: 1
   changeScaleX: 1
   slots:
@@ -6444,8 +6446,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: 0.03327794, y: -0.000000015717157, z: -0.0000000040877794,
-    w: 0.99944615}
+  m_LocalRotation: {x: 0.033277918, y: 0.00000002016871, z: -0.0000000052826485, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

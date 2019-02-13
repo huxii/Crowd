@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14297906, g: 0.15767953, b: 0.15648684, a: 1}
+  m_IndirectSpecularColor: {r: 0.14297923, g: 0.15767969, b: 0.15648699, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1526,7 +1526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113555179}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.677433, y: 9.60613, z: 2.528419}
+  m_LocalPosition: {x: -2.677433, y: 5.89, z: 2.528419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 426760024}
@@ -1546,7 +1546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabled: 1
   tileSize: 1
-  followObject: {fileID: 2130280201}
+  followObject: {fileID: 0}
   followOffset: {x: -1.21, y: -2.7, z: 0}
   menOnThis: []
 --- !u!65 &113555182
@@ -6845,7 +6845,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 663871628}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &354887863 stripped
 GameObject:
@@ -6953,7 +6953,8 @@ MonoBehaviour:
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
-  freeManSlotOffset: {x: 1.12, y: -0.31, z: 0}
+  freeManTile: {fileID: 1088944627}
+  freeManOffset: {x: 0, y: 0, z: 0}
   changeState: 5
   changeScaleX: -1
   slots:
@@ -12662,7 +12663,6 @@ Transform:
   - {fileID: 489268620}
   - {fileID: 770239124}
   - {fileID: 84845692}
-  - {fileID: 1528332450}
   - {fileID: 1825771146}
   - {fileID: 1951206897}
   - {fileID: 1313099105}
@@ -16540,6 +16540,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1939067503}
+        m_MethodName: ConnectPath
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Tile5, Tile6
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1939067503}
+        m_MethodName: SetFreeManTile
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PaperCrane, Tile6
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onDeactivated:
@@ -18725,7 +18747,6 @@ MonoBehaviour:
   - {fileID: 489268619}
   - {fileID: 770239122}
   - {fileID: 84845690}
-  - {fileID: 1528332448}
   - {fileID: 1825771145}
   - {fileID: 1951206896}
   - {fileID: 1313099104}
@@ -19394,7 +19415,8 @@ MonoBehaviour:
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
-  freeManSlotOffset: {x: 0.24, y: -1.84, z: 0.74}
+  freeManTile: {fileID: 1173689944}
+  freeManOffset: {x: 0, y: 0, z: 0}
   changeState: 5
   changeScaleX: 1
   slots:
@@ -24222,7 +24244,8 @@ MonoBehaviour:
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
-  freeManSlotOffset: {x: -0.59, y: -0.64, z: 0}
+  freeManTile: {fileID: 0}
+  freeManOffset: {x: -0.6, y: -0.77, z: 0}
   changeState: 3
   changeScaleX: -1
   slots:
@@ -26619,7 +26642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 663871628}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1313099106
 MonoBehaviour:
@@ -31041,7 +31064,7 @@ MonoBehaviour:
   enabled: 1
   tileSize: 1
   followObject: {fileID: 2130280201}
-  followOffset: {x: 0, y: -2.25, z: 0}
+  followOffset: {x: 0, y: -2.3, z: 0}
   menOnThis: []
 --- !u!65 &1468615951
 BoxCollider:
@@ -31064,7 +31087,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468615949}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.467433, y: 10.056129, z: 2.528419}
+  m_LocalPosition: {x: -1.467433, y: 10.006129, z: 2.528419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 426760024}
@@ -31667,52 +31690,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 778466348}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1528332448
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1528332450}
-  - component: {fileID: 1528332449}
-  m_Layer: 0
-  m_Name: TileEdgeTile5Tile6
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1528332449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528332448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  t0: {fileID: 113555179}
-  t1: {fileID: 1468615949}
---- !u!4 &1528332450
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528332448}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 663871628}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1535192918 stripped
 GameObject:
@@ -36024,7 +36001,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 663871628}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1825771147
 MonoBehaviour:
@@ -38931,7 +38908,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 663871628}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1951206898
 MonoBehaviour:
@@ -44443,7 +44420,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681085338296175}
-  m_LocalRotation: {x: 0.0151170455, y: -0.00000003440883, z: 5.2021937e-10, w: 0.9998858}
+  m_LocalRotation: {x: 0.0151170455, y: 0.00000003440883, z: -5.2021937e-10, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 8.5, z: -27.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -44486,7 +44463,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175609400129945}
-  m_LocalRotation: {x: 0.015117045, y: -0.00000001712562, z: -0.0000000049516062,
+  m_LocalRotation: {x: 0.015117045, y: 0.000000017283211, z: -0.0000000054718257,
     w: 0.99988574}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -44563,7 +44540,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: 0.03327794, y: 0.000000016024563, z: -0.000000005144664, w: 0.99944615}
+  m_LocalRotation: {x: 0.033277906, y: 0.000000029939113, z: -0.0000000056079674,
+    w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

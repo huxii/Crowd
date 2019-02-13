@@ -66,21 +66,7 @@ public abstract class PathFindingManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-    }
-
-    private void OnDrawGizmos()
-    {
-        Refresh();
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Refresh();
-    }
-
-    protected void MoveUpdate()
+    protected virtual void Update()
     {
         List<GameObject> keys = new List<GameObject>(pathTable.Keys);
         foreach (GameObject actor in keys)
@@ -94,6 +80,16 @@ public abstract class PathFindingManager : MonoBehaviour
                 ActorMoveUpdate(actor);
             }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Refresh();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Refresh();
     }
 
     public GameObject LastUnit()

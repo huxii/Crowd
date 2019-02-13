@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18344563, g: 0.22740105, b: 0.2964599, a: 1}
+  m_IndirectSpecularColor: {r: 0.18344595, g: 0.22740132, b: 0.29646042, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -669,7 +669,8 @@ MonoBehaviour:
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
-  freeManSlotOffset: {x: 0, y: 0, z: -1.09}
+  freeManTile: {fileID: 0}
+  freeManOffset: {x: 0, y: 0, z: -0.92}
   changeState: 0
   changeScaleX: 1
   slots:
@@ -900,7 +901,8 @@ MonoBehaviour:
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
-  freeManSlotOffset: {x: -0.76, y: -2.27, z: -0.42}
+  freeManTile: {fileID: 961387214}
+  freeManOffset: {x: 0, y: 0, z: 0}
   changeState: 0
   changeScaleX: -1
   slots:
@@ -2190,7 +2192,8 @@ MonoBehaviour:
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
-  freeManSlotOffset: {x: 0, y: 0, z: -1.09}
+  freeManTile: {fileID: 0}
+  freeManOffset: {x: 0, y: 0, z: -0.92}
   changeState: 0
   changeScaleX: 1
   slots:
@@ -6448,7 +6451,8 @@ MonoBehaviour:
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
-  freeManSlotOffset: {x: -0.12, y: -1.35, z: -1.95}
+  freeManTile: {fileID: 1827434376}
+  freeManOffset: {x: 0, y: 0, z: 0}
   changeState: 0
   changeScaleX: 1
   slots:
@@ -6586,7 +6590,8 @@ MonoBehaviour:
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
-  freeManSlotOffset: {x: -0.1, y: 0.04, z: 1.08}
+  freeManTile: {fileID: 1792229322}
+  freeManOffset: {x: 0, y: 0, z: 0}
   changeState: 0
   changeScaleX: -1
   slots:
@@ -7217,7 +7222,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279773217180396}
-  m_LocalRotation: {x: -0.0030012114, y: 0.000000017141053, z: -0.000000024488665,
+  m_LocalRotation: {x: -0.0030012114, y: -0.00000001728835, z: -0.000000024591996,
     w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -7324,7 +7329,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625331400867550}
-  m_LocalRotation: {x: 0.033277962, y: -0.00000002946276, z: -0.0000000036300987,
+  m_LocalRotation: {x: 0.033277906, y: -0.000000029631703, z: -0.000000003624475,
     w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}

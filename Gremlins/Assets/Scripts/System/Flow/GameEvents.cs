@@ -57,6 +57,15 @@ public class GameEvents : CustomEvents
         Services.pathFindingManager.DisconnectPath(p0, p1);
     }
 
+    public void SetFreeManTile(string para)
+    {
+        ParseNewPara(para);
+        GameObject obj = ParseGameObject();
+        GameObject tile = ParseGameObject();
+
+        obj.GetComponent<PropControl>().freeManTile = tile;
+    }
+
     public void SetFollowPathPoint(string pointsName)
     {
         ParseNewPara(pointsName);

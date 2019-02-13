@@ -49,7 +49,8 @@ public abstract class PropControl : InteractableControl
     public float gizmoSize = 0.2f;
 
     // the point the men should head towards when they are released from the slots
-    public Vector3 freeManSlotOffset = new Vector3(0, 0, 0);
+    public GameObject freeManTile;
+    public Vector3 freeManOffset;
 
     // men states will be changed when get on the working slots
     // eg. when a man gets on the merry go round, state: walk -> ride
@@ -102,7 +103,7 @@ public abstract class PropControl : InteractableControl
         }
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(transform.position + freeManSlotOffset, new Vector3(gizmoSize, gizmoSize, gizmoSize));
+        Gizmos.DrawWireCube(GetFreeManSlotPos(), new Vector3(gizmoSize, gizmoSize, gizmoSize));
     }
 
     public bool IsReady()
@@ -226,7 +227,14 @@ public abstract class PropControl : InteractableControl
 
     public Vector3 GetFreeManSlotPos()
     {
-        return transform.position + freeManSlotOffset;
+        if (freeManTile)
+        {
+            return freeManTile.transform.position;
+        }
+        else
+        {
+            return transform.position + freeManOffset;
+        }
     }
 
     public void FreeAllMen()

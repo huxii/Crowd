@@ -76,12 +76,6 @@ public class PointBasedPathFindingManager : PathFindingManager
     {
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        MoveUpdate();
-    }
-
     protected override void ActorMoveUpdate(GameObject actor)
     {
         base.ActorMoveUpdate(actor);

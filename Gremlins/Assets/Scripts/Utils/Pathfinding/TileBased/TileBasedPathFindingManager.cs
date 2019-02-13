@@ -13,6 +13,11 @@ public class TileBasedPathFindingManager : PathFindingManager
         {
             return Vector3.zero;
         }
+
+        public virtual GameObject Object()
+        {
+            return null;
+        }
     }
 
     protected class TilePathUnit : PathUnit
@@ -28,6 +33,11 @@ public class TileBasedPathFindingManager : PathFindingManager
         public override Vector3 Position()
         {
             return tile.transform.position;
+        }
+
+        public override GameObject Object()
+        {
+            return tile;
         }
     }
 
@@ -144,12 +154,6 @@ public class TileBasedPathFindingManager : PathFindingManager
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        MoveUpdate();
-    }
-
     protected override void ActorMoveUpdate(GameObject actor)
     {
         base.ActorMoveUpdate(actor);
@@ -161,6 +165,13 @@ public class TileBasedPathFindingManager : PathFindingManager
         {
             if (path.paths.Count <= 1)
             {
+                // special case for hidden stairs
+                GameObject curTile = path.paths[0].Object();
+                if (curTile && curTile.GetComponent<Tile>().followObject != null)
+                {
+                    actor.transform.SetParent(curTile.transform);
+                }
+
                 // arrived at the final position
                 if (path.endEvent != null)
                 {
@@ -413,6 +424,7 @@ public class TileBasedPathFindingManager : PathFindingManager
             ((TileBasedFoundPath)recentPath).paths.RemoveAt(((TileBasedFoundPath)recentPath).paths.Count - 1);
         }
 
+        Services.gameEvents.ResetMan(actor);
         //Debug.Log(actor.gameObject.name + " " + ((TileBasedFoundPath)recentPath).paths.Count);
     }
 
