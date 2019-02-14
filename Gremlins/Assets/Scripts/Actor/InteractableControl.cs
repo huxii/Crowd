@@ -59,7 +59,7 @@ public abstract class InteractableControl : ActorControl
     {
     }
 
-    public virtual void Drag(Vector3 deltaPos)
+    public virtual void Drag(Vector3 deltaPos, Vector3 mouseClickPos)
     {
     }
 

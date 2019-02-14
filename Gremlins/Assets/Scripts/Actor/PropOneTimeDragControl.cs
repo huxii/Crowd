@@ -123,11 +123,11 @@ public class PropOneTimeDragControl : PropOneTimeControl
         }
     }
 
-    public override void Drag(Vector3 d)
+    public override void Drag(Vector3 d, Vector3 mouseClickPos)
     {
         if (!IsCoolingDown() && IsActivated() && !IsLocked())
         {
-            base.Drag(d);
+            base.Drag(d, mouseClickPos);
 
             if (!isDragging)
             {

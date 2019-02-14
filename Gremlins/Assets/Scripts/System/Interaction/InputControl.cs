@@ -217,7 +217,7 @@ public abstract class InputControl : MonoBehaviour
             {
                 Vector3 mouseDelta = Input.mousePosition - mouseDragScreenPos;
                 if ((mouseClickObject.CompareTag("Object") || mouseClickObject.CompareTag("Prop"))
-                    && Services.gameEvents.DragOn(mouseClickObject, mouseDelta))
+                    && Services.gameEvents.DragOn(mouseClickObject, mouseDelta, mouseClickPos))
                 {
                     mouseDragScreenPos = Input.mousePosition;
                 }

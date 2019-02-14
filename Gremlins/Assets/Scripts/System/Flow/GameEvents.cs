@@ -568,7 +568,7 @@ public class GameEvents : CustomEvents
         }
     }
 
-    public bool DragOn(GameObject obj, Vector3 delta)
+    public bool DragOn(GameObject obj, Vector3 delta, Vector3 mouseClickPos)
     {
         if (obj == null)
         {
@@ -577,7 +577,7 @@ public class GameEvents : CustomEvents
 
         if (obj.GetComponent<PropControl>())
         {
-            obj.GetComponent<PropControl>().Drag(delta * 0.05f);
+            obj.GetComponent<PropControl>().Drag(delta * 0.05f, mouseClickPos);
             return true;
         }
         else
@@ -585,7 +585,7 @@ public class GameEvents : CustomEvents
         {
             if (!obj.GetComponent<ObjectControl>().IsDragOverride())
             {
-                obj.GetComponent<InteractableControl>().Drag(delta);
+                obj.GetComponent<InteractableControl>().Drag(delta, mouseClickPos);
                 return true;
             }
         }

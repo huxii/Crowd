@@ -25,26 +25,26 @@ public class ObjectDragControl : ObjectBasicControl
     public bool isAxisRevert = false;
     public bool isSnappingBack = false;
 
-    Vector3 origValue = new Vector3(0, 0, 0);
-    Vector3 deltaValue = new Vector3(0, 0, 0);
-    bool isDirty = true;
-    bool isMinReached = false;
-    bool isMaxReached = false;
-    bool isMouseDown = false;
+    protected Vector3 origValue = new Vector3(0, 0, 0);
+    protected Vector3 deltaValue = new Vector3(0, 0, 0);
+    protected bool isDirty = true;
+    protected bool isMinReached = false;
+    protected bool isMaxReached = false;
+    protected bool isMouseDown = false;
 
     // Use this for initialization
-    void Start()
+    protected void Start()
     {
         Services.eventManager.Register<ReleaseEvent>(OnHoldRelease);
     }
 
-    private void OnApplicationQuit()
+    protected void OnApplicationQuit()
     {
         Services.eventManager.Unregister<ReleaseEvent>(OnHoldRelease);
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         if (!IsCoolingDown())
         {
@@ -147,9 +147,9 @@ public class ObjectDragControl : ObjectBasicControl
         deltaValue = new Vector3(0, 0, 0);
     }
 
-    public override void Drag(Vector3 deltaPos)
+    public override void Drag(Vector3 deltaPos, Vector3 mouseClickPos)
     {
-        base.Drag(deltaPos);
+        base.Drag(deltaPos, mouseClickPos);
 
         if (!IsLocked() && !IsActivated())
         {
