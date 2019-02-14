@@ -12530,6 +12530,11 @@ PrefabInstance:
       propertyPath: groundEnabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
+        type: 3}
+      propertyPath: autoFocusCameraEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4127109821785624, guid: 02262fe7c3d18114ab3b977f25fc0b84, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12722,18 +12727,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1111890259 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
-    type: 3}
-  m_PrefabInstance: {fileID: 1095591039}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69c96976c38ecc84a92f74cba945d912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1116406572 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100192, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -14054,17 +14047,6 @@ MonoBehaviour:
       - m_Target: {fileID: 879427523}
         m_MethodName: Deactivate
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1111890259}
-        m_MethodName: SetAutoFocusCamera
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -19110,17 +19092,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1111890259}
-        m_MethodName: SetAutoFocusCamera
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   autoNext: 0
@@ -21745,7 +21716,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279773217180396}
-  m_LocalRotation: {x: -0.0030012098, y: 0.000000017211024, z: 5.1654132e-11, w: 0.9999955}
+  m_LocalRotation: {x: -0.0030012098, y: -0.000000017211029, z: -5.1654132e-11, w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21850,7 +21821,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625331400867550}
-  m_LocalRotation: {x: 0.033277944, y: -0.00000001696003, z: 5.647078e-10, w: 0.99944615}
+  m_LocalRotation: {x: 0.033277906, y: 0.000000029785408, z: -9.917452e-10, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

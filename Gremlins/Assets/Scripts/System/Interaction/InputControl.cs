@@ -4,7 +4,8 @@ using UnityEngine;
 
 public abstract class InputControl : MonoBehaviour
 {
-    [SerializeField]
+    public bool autoFocusCameraEnabled = false;
+
     protected bool locked = false;
 
     // single click
@@ -29,8 +30,6 @@ public abstract class InputControl : MonoBehaviour
     // pinch
     protected bool pinchEnded = false;
     protected float deltaPinchMag = 0;
-
-    protected bool autoFocusCameraEnabled = false;
 
     // Use this for initialization
     void Start()
@@ -187,11 +186,6 @@ public abstract class InputControl : MonoBehaviour
     protected virtual void MouseSingleClick()
     {
         //Debug.Log("Single click " + mouseClickObject + " " + mouseClickPos);
-        if (autoFocusCameraEnabled)
-        {
-            Services.cameraController.Focus(mouseClickPos);
-        }
-
         Services.eventManager.Fire(new ClickEvent(mouseClickObject, mouseClickPos));
     }
 

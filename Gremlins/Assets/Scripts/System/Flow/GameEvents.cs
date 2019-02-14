@@ -402,7 +402,7 @@ public class GameEvents : CustomEvents
         else
         if (propState == PropControl.PropState.PATH)
         {
-            MoveMenToPosition(pos);
+            //MoveMenToPosition(pos);
         }
         else
         if (propState == PropControl.PropState.DISABLE)

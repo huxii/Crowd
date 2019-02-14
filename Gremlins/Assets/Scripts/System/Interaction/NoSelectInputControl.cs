@@ -73,6 +73,11 @@ public class NoSelectInputControl : InputControl
         //else
         if (mouseClickObject.CompareTag("Prop"))
         {
+            if (autoFocusCameraEnabled)
+            {
+                Services.cameraController.Focus(mouseClickPos);
+            }
+
             Services.gameEvents.InteractMen(mouseClickObject, mouseClickPos);
         }
         else

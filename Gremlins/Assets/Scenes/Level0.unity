@@ -8098,17 +8098,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 609758660}
-        m_MethodName: SetAutoFocusCamera
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 630507613}
         m_MethodName: Deactivate
         m_Mode: 1
@@ -9813,17 +9802,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 609758660}
-        m_MethodName: SetAutoFocusCamera
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 429762535}
         m_MethodName: Activate
@@ -11586,18 +11564,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 490076741}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &609758660 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
-    type: 3}
-  m_PrefabInstance: {fileID: 2129004332}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69c96976c38ecc84a92f74cba945d912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &611958699 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1049376376885018, guid: a819850fd01d2b14795d9665e6875261,
@@ -43926,6 +43892,11 @@ PrefabInstance:
       propertyPath: groundEnabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
+        type: 3}
+      propertyPath: autoFocusCameraEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4127109821785624, guid: 02262fe7c3d18114ab3b977f25fc0b84, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -44458,8 +44429,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279771982915951}
-  m_LocalRotation: {x: -0.00300121, y: -0.000000017282115, z: -0.000000024612673,
-    w: 0.9999955}
+  m_LocalRotation: {x: -0.00300121, y: 0.000000017134694, z: -0.00000002450938, w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -44565,8 +44535,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: 0.033277962, y: -0.00000002946276, z: -0.0000000036300996,
-    w: 0.99944615}
+  m_LocalRotation: {x: 0.033277933, y: -2.5016633e-10, z: -0.0000000046027746, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

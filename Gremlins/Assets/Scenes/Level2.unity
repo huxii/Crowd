@@ -3320,6 +3320,11 @@ PrefabInstance:
       propertyPath: groundEnabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
+        type: 3}
+      propertyPath: autoFocusCameraEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4127109821785624, guid: 02262fe7c3d18114ab3b977f25fc0b84, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3675,18 +3680,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9af88dc899a8b0409139d3ec47ecdda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1111890259 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
-    type: 3}
-  m_PrefabInstance: {fileID: 1095591039}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69c96976c38ecc84a92f74cba945d912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1124038247
@@ -5385,17 +5378,6 @@ MonoBehaviour:
   levelEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1111890259}
-        m_MethodName: SetAutoFocusCamera
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1614844584547569}
         m_MethodName: SetZoom
         m_Mode: 3
@@ -7041,6 +7023,8 @@ MonoBehaviour:
     translateZero: {x: 0, y: 6.91, z: 0}
     translateRange: {x: 0, y: 0, z: 0, w: 0}
   targetAngle: {x: 0, y: 0}
+  targetTranslate: {x: 0, y: 0, z: 0}
+  origTranslate: {x: 0, y: 0, z: 0}
 --- !u!1 &1625331400867550
 GameObject:
   m_ObjectHideFlags: 3
@@ -7329,8 +7313,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625331400867550}
-  m_LocalRotation: {x: 0.033277906, y: -0.000000029631703, z: -0.000000003624475,
-    w: 0.99944615}
+  m_LocalRotation: {x: 0.033277936, y: 3.86818e-10, z: -0.000000004623982, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

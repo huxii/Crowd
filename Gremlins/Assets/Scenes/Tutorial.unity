@@ -1312,18 +1312,6 @@ Transform:
   m_Father: {fileID: 926140814}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &609758660 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
-    type: 3}
-  m_PrefabInstance: {fileID: 2129004332}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69c96976c38ecc84a92f74cba945d912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &643489069 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1049376376885018, guid: a819850fd01d2b14795d9665e6875261,
@@ -3572,17 +3560,6 @@ MonoBehaviour:
   levelEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 609758660}
-        m_MethodName: SetAutoFocusCamera
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1614843341436788}
         m_MethodName: SetZoom
         m_Mode: 3
@@ -4799,18 +4776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 609758660}
-        m_MethodName: SetAutoFocusCamera
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   autoNext: 1
@@ -5680,6 +5646,11 @@ PrefabInstance:
       propertyPath: groundEnabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
+        type: 3}
+      propertyPath: autoFocusCameraEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4127109821785624, guid: 02262fe7c3d18114ab3b977f25fc0b84, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6156,6 +6127,8 @@ MonoBehaviour:
     translateZero: {x: 0, y: 7.5, z: -0.06}
     translateRange: {x: 0, y: 0, z: 0, w: 0}
   targetAngle: {x: 0, y: 0}
+  targetTranslate: {x: 0, y: 0, z: 0}
+  origTranslate: {x: 0, y: 0, z: 0}
 --- !u!1 &1625330425388381
 GameObject:
   m_ObjectHideFlags: 3
@@ -6325,7 +6298,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681085338296175}
-  m_LocalRotation: {x: 0.0151170455, y: -0.000000034425625, z: 5.204731e-10, w: 0.9998858}
+  m_LocalRotation: {x: 0.0151170455, y: 0.000000034425625, z: -5.204731e-10, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 6.73, z: -30.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -6369,8 +6342,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175609400129945}
-  m_LocalRotation: {x: 0.015117044, y: -0.000000017134063, z: -0.000000004948447,
-    w: 0.99988574}
+  m_LocalRotation: {x: 0.015117044, y: 0.00000001729156, z: -0.00000000546892, w: 0.99988574}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6446,7 +6418,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: 0.033277918, y: 0.00000002016871, z: -0.0000000052826485, w: 0.99944615}
+  m_LocalRotation: {x: 0.03327792, y: -0.000000017930429, z: -0.000000004014086, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
