@@ -238,6 +238,24 @@ ModelImporter:
     100464: GlassTube1
     100466: SwitchLight0
     100468: SwitchLight1
+    100470: HairDryerBase
+    100472: HairDryerHandle
+    100474: BackShelf0
+    100476: BackShelf1
+    100478: BackShelf2
+    100480: BackShelf3
+    100482: BackShelf4
+    100484: BackShelf5
+    100486: BackShelf6
+    100488: BackShelf7
+    100490: BackWire
+    100492: FrontFan
+    100494: FrontFan1
+    100496: FrontShelf0
+    100498: FrontShelf1
+    100500: FrontShelf2
+    100502: FrontShelf3
+    100504: FrontShelf4
     400000: Can
     400002: CanTube
     400004: CanTube0
@@ -473,6 +491,24 @@ ModelImporter:
     400464: GlassTube1
     400466: SwitchLight0
     400468: SwitchLight1
+    400470: HairDryerBase
+    400472: HairDryerHandle
+    400474: BackShelf0
+    400476: BackShelf1
+    400478: BackShelf2
+    400480: BackShelf3
+    400482: BackShelf4
+    400484: BackShelf5
+    400486: BackShelf6
+    400488: BackShelf7
+    400490: BackWire
+    400492: FrontFan
+    400494: FrontFan1
+    400496: FrontShelf0
+    400498: FrontShelf1
+    400500: FrontShelf2
+    400502: FrontShelf3
+    400504: FrontShelf4
     2100000: lambert1
     2300000: Can
     2300002: CanTube
@@ -667,6 +703,24 @@ ModelImporter:
     2300380: GlassTube1
     2300382: SwitchLight0
     2300384: SwitchLight1
+    2300386: HairDryerBase
+    2300388: HairDryerHandle
+    2300390: BackShelf0
+    2300392: BackShelf1
+    2300394: BackShelf2
+    2300396: BackShelf3
+    2300398: BackShelf4
+    2300400: BackShelf5
+    2300402: BackShelf6
+    2300404: BackShelf7
+    2300406: BackWire
+    2300408: FrontFan
+    2300410: FrontFan1
+    2300412: FrontShelf0
+    2300414: FrontShelf1
+    2300416: FrontShelf2
+    2300418: FrontShelf3
+    2300420: FrontShelf4
     3300000: Can
     3300002: CanTube
     3300004: CanTube0
@@ -860,6 +914,24 @@ ModelImporter:
     3300380: GlassTube1
     3300382: SwitchLight0
     3300384: SwitchLight1
+    3300386: HairDryerBase
+    3300388: HairDryerHandle
+    3300390: BackShelf0
+    3300392: BackShelf1
+    3300394: BackShelf2
+    3300396: BackShelf3
+    3300398: BackShelf4
+    3300400: BackShelf5
+    3300402: BackShelf6
+    3300404: BackShelf7
+    3300406: BackWire
+    3300408: FrontFan
+    3300410: FrontFan1
+    3300412: FrontShelf0
+    3300414: FrontShelf1
+    3300416: FrontShelf2
+    3300418: FrontShelf3
+    3300420: FrontShelf4
     4300000: ControlPanelModel
     4300002: HamsterWheelModel
     4300004: ElevatorModel
@@ -1052,6 +1124,24 @@ ModelImporter:
     4300378: GeneratorTmp
     4300380: SwitchLight0
     4300382: SwitchLight1
+    4300384: HairDryerBase
+    4300386: HairDryerHandle
+    4300388: BackShelf0
+    4300390: BackShelf1
+    4300392: BackShelf2
+    4300394: BackShelf3
+    4300396: BackShelf4
+    4300398: BackShelf5
+    4300400: BackShelf6
+    4300402: BackShelf7
+    4300404: BackWire
+    4300406: FrontShelf0
+    4300408: FrontShelf1
+    4300410: FrontShelf2
+    4300412: FrontShelf3
+    4300414: FrontShelf4
+    4300416: FrontFan
+    4300418: FrontFan1
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
