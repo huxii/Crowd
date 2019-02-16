@@ -256,6 +256,16 @@ ModelImporter:
     100500: FrontShelf2
     100502: FrontShelf3
     100504: FrontShelf4
+    100506: DryerSphere
+    100508: DryerSphere1
+    100510: DryerSwitch
+    100512: DryerWire
+    100514: End
+    100516: EndBase
+    100518: EndCircle
+    100520: FrontFan2
+    100522: FrontFan3
+    100524: FrontWeb
     400000: Can
     400002: CanTube
     400004: CanTube0
@@ -509,6 +519,16 @@ ModelImporter:
     400500: FrontShelf2
     400502: FrontShelf3
     400504: FrontShelf4
+    400506: DryerSphere
+    400508: DryerSphere1
+    400510: DryerSwitch
+    400512: DryerWire
+    400514: End
+    400516: EndBase
+    400518: EndCircle
+    400520: FrontFan2
+    400522: FrontFan3
+    400524: FrontWeb
     2100000: lambert1
     2300000: Can
     2300002: CanTube
@@ -721,6 +741,15 @@ ModelImporter:
     2300416: FrontShelf2
     2300418: FrontShelf3
     2300420: FrontShelf4
+    2300422: DryerSphere
+    2300424: DryerSphere1
+    2300426: DryerSwitch
+    2300428: DryerWire
+    2300430: EndBase
+    2300432: EndCircle
+    2300434: FrontFan2
+    2300436: FrontFan3
+    2300438: FrontWeb
     3300000: Can
     3300002: CanTube
     3300004: CanTube0
@@ -932,6 +961,15 @@ ModelImporter:
     3300416: FrontShelf2
     3300418: FrontShelf3
     3300420: FrontShelf4
+    3300422: DryerSphere
+    3300424: DryerSphere1
+    3300426: DryerSwitch
+    3300428: DryerWire
+    3300430: EndBase
+    3300432: EndCircle
+    3300434: FrontFan2
+    3300436: FrontFan3
+    3300438: FrontWeb
     4300000: ControlPanelModel
     4300002: HamsterWheelModel
     4300004: ElevatorModel
@@ -1142,6 +1180,15 @@ ModelImporter:
     4300414: FrontShelf4
     4300416: FrontFan
     4300418: FrontFan1
+    4300420: EndCircle
+    4300422: EndBase
+    4300424: DryerWire
+    4300426: DryerSwitch
+    4300428: DryerSphere
+    4300430: DryerSphere1
+    4300432: FrontWeb
+    4300434: FrontFan2
+    4300436: FrontFan3
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
