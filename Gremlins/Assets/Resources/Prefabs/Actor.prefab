@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 114810860392653684}
   - component: {fileID: 114073887264002410}
   - component: {fileID: 114095267683339060}
+  - component: {fileID: 3083598313854413583}
   m_Layer: 2
   m_Name: Actor
   m_TagString: Man
@@ -309,3 +310,19 @@ MonoBehaviour:
   outlineWidth: 1
   targetObj: {fileID: 0}
   mats: []
+--- !u!111 &3083598313854413583
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980355776856754}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3ee04eb9937cf4644bdbdfed27c2dd6d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3ee04eb9937cf4644bdbdfed27c2dd6d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
