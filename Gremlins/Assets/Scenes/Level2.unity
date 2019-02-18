@@ -1199,6 +1199,88 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &283421198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100466, guid: 57e8477b7cb383240a141046c5f9c887,
+    type: 3}
+  m_PrefabInstance: {fileID: 588499773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &283421200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283421198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  canActivateMultipleTimes: 0
+  onActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: SetMaterialColor
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SwitchGreenLight0, 0, 1, 0, 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: SetMaterialColor
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SwitchRedLight0, 1, 1, 1, 1
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: SetMaterialColor
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SwitchGreenLight0, 1, 1, 1, 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: SetMaterialColor
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SwitchRedLight0, 1, 0, 0, 1
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  interactionCD: 0.5
+  isWalkableAfterDeactivated: 0
+  dropMenAfterDeactivated: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &313126938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437806679}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.911, y: 0, z: 0}
+  m_LocalPosition: {x: -1.063, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 40987757}
@@ -2072,6 +2154,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d0eeb28cccb0e3a4e9d07dbd240fb985, type: 2}
+    - target: {fileID: 2300512, guid: 57e8477b7cb383240a141046c5f9c887, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5cb1b5fde13accf41a875ebb4b677c9f, type: 2}
+    - target: {fileID: 2300514, guid: 57e8477b7cb383240a141046c5f9c887, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5cb1b5fde13accf41a875ebb4b677c9f, type: 2}
+    - target: {fileID: 2300520, guid: 57e8477b7cb383240a141046c5f9c887, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5cb1b5fde13accf41a875ebb4b677c9f, type: 2}
+    - target: {fileID: 2300522, guid: 57e8477b7cb383240a141046c5f9c887, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5cb1b5fde13accf41a875ebb4b677c9f, type: 2}
     - target: {fileID: 2300566, guid: 57e8477b7cb383240a141046c5f9c887, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -5022,6 +5120,88 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   autoNext: 0
+--- !u!1 &1587152381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100468, guid: 57e8477b7cb383240a141046c5f9c887,
+    type: 3}
+  m_PrefabInstance: {fileID: 588499773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1587152383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587152381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  canActivateMultipleTimes: 0
+  onActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: SetMaterialColor
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SwitchGreenLight1, 0, 1, 0, 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: SetMaterialColor
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SwitchRedLight1, 1, 1, 1, 1
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: SetMaterialColor
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SwitchGreenLight1, 1, 1, 1, 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: SetMaterialColor
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SwitchRedLight1, 1, 0, 0, 1
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  interactionCD: 0.5
+  isWalkableAfterDeactivated: 0
+  dropMenAfterDeactivated: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1591363757
 GameObject:
   m_ObjectHideFlags: 0
@@ -6337,26 +6517,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1428080938}
-        m_MethodName: SetMaterialColor
-        m_Mode: 5
+      - m_Target: {fileID: 283421200}
+        m_MethodName: Activate
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SwitchLight0, 0, 1, 0, 1
+          m_StringArgument: SwitchGreenLight0, 0, 1, 0, 1
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1428080938}
-        m_MethodName: SetMaterialColor
-        m_Mode: 5
+      - m_Target: {fileID: 1587152383}
+        m_MethodName: Activate
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SwitchLight1, 0, 1, 0, 1
+          m_StringArgument: SwitchGreenLight1, 0, 1, 0, 1
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -6441,26 +6621,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1428080938}
-        m_MethodName: SetMaterialColor
-        m_Mode: 5
+      - m_Target: {fileID: 283421200}
+        m_MethodName: Deactivate
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SwitchLight0, 1, 0, 0, 1
+          m_StringArgument: SwitchGreenLight0, 1, 0, 0, 1
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1428080938}
-        m_MethodName: SetMaterialColor
-        m_Mode: 5
+      - m_Target: {fileID: 1587152383}
+        m_MethodName: Deactivate
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SwitchLight1, 1, 0, 0, 1
+          m_StringArgument: SwitchGreenLight1, 1, 0, 0, 1
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -6471,7 +6651,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 1827434376}
   freeManOffset: {x: 0, y: 0, z: 0}
-  changeState: 0
+  changeState: 7
   changeScaleX: 1
   slots:
   - state: 0
@@ -6611,7 +6791,7 @@ MonoBehaviour:
   freeManTile: {fileID: 1792229322}
   freeManOffset: {x: 0, y: 0, z: 0}
   changeState: 0
-  changeScaleX: -1
+  changeScaleX: 1
   slots:
   - state: 0
     obj: {fileID: 437806679}
@@ -7348,7 +7528,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625331400867550}
-  m_LocalRotation: {x: 0.033277962, y: 0.000000029770167, z: -0.000000005602343, w: 0.99944615}
+  m_LocalRotation: {x: 0.03327792, y: 0.000000018237834, z: -0.0000000052183564, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

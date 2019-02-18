@@ -6955,8 +6955,8 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 1088944627}
   freeManOffset: {x: 0, y: 0, z: 0}
-  changeState: 5
-  changeScaleX: -1
+  changeState: 7
+  changeScaleX: 1
   slots:
   - state: 0
     obj: {fileID: 542337972}
@@ -10199,7 +10199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542337972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.073, y: 0.07, z: -0.07}
+  m_LocalPosition: {x: -0.073, y: -0.247, z: -0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1071299912}
@@ -44429,7 +44429,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279771982915951}
-  m_LocalRotation: {x: -0.00300121, y: 0.000000017134694, z: -0.00000002450938, w: 0.9999955}
+  m_LocalRotation: {x: -0.00300121, y: -0.000000017282115, z: -0.000000024612673,
+    w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -44535,7 +44536,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: 0.033277933, y: -2.5016633e-10, z: -0.0000000046027746, w: 0.99944615}
+  m_LocalRotation: {x: 0.033277933, y: 5.575739e-10, z: -0.0000000046296686, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

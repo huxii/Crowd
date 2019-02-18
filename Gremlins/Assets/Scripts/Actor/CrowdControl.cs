@@ -20,14 +20,19 @@ public class CrowdControl : ActorControl
 
     public enum CrowdState
     {
+        // set from editor
         IDLE,
         WALK,
         CLIMB,
         PULL,
         PUSH,
         RIDE,
-        DROP,
+        SIT,
+        RUN,
+
+        // set from code
         FLOAT,
+        FALL,
         INFLATE_HANDLE,
         INFLATE_ING,
         INFLATE_COMPLETE,
@@ -128,18 +133,13 @@ public class CrowdControl : ActorControl
                     ),
 
                 new Sequence<CrowdControl>(
-                    new IsClimbing(),
-                    new Climbing()
-                    ),
-
-                new Sequence<CrowdControl>(
                     new IsMoving(),
                     new Moving()
                     ),
 
                 new Sequence<CrowdControl>(
-                    new IsPushing(),
-                    new Pushing()
+                    new IsClimbing(),
+                    new Climbing()
                     ),
 
                 new Sequence<CrowdControl>(
@@ -148,10 +148,25 @@ public class CrowdControl : ActorControl
                     ),
 
                 new Sequence<CrowdControl>(
+                    new IsPushing(),
+                    new Pushing()
+                    ),
+
+                new Sequence<CrowdControl>(
                     new IsRiding(),
                     new Riding()
                     ),
-                
+
+                new Sequence<CrowdControl>(
+                    new IsSitting(),
+                    new Sitting()
+                    ),
+
+                new Sequence<CrowdControl>(
+                    new IsRunning(),
+                    new Running()
+                    ),
+
                 new Sequence<CrowdControl>(
                     new IsInflating(),
                     new Inflating()
@@ -324,11 +339,11 @@ public class CrowdControl : ActorControl
     ////////////////////
     // Conditions
     ////////////////////
-    private class IsCelebrating : Node<CrowdControl>
+    private class IsIdling : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
         {
-            return man.state == CrowdState.CELEBRATE;
+            return man.state == CrowdState.IDLE;
         }
     }
 
@@ -361,19 +376,19 @@ public class CrowdControl : ActorControl
         }
     }
 
-    private class IsPushing : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            return man.state == CrowdState.PUSH;
-        }
-    }
-
     private class IsPulling : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
         {
             return man.state == CrowdState.PULL;
+        }
+    }
+
+    private class IsPushing : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.PUSH;
         }
     }
 
@@ -385,11 +400,43 @@ public class CrowdControl : ActorControl
         }
     }
 
+    private class IsSitting : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.SIT;
+        }
+    }
+
+    private class IsRunning : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.RUN;
+        }
+    }
+
+    private class IsFloating : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.FLOAT;
+        }
+    }
+
     private class IsInflating : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
         {
             return man.state >= CrowdState.INFLATE_HANDLE && man.state <= CrowdState.INFLATE_FLOAT;
+        }
+    }
+
+    private class IsCelebrating : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.CELEBRATE;
         }
     }
 
@@ -406,14 +453,6 @@ public class CrowdControl : ActorControl
         public override bool Update(CrowdControl man)
         {
             return man.state == CrowdState.WORK;
-        }
-    }
-
-    private class IsIdling : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            return man.state == CrowdState.IDLE;
         }
     }
 
@@ -459,6 +498,26 @@ public class CrowdControl : ActorControl
         }
     }
 
+    private class Idling : TimedAction
+    {
+        public override void OnStart(CrowdControl man)
+        {
+            base.OnStart(man);
+
+            interval = Random.Range(3f, 8f);
+            man.stateCoolingDown = interval;
+
+            man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+        }
+
+        public override void OnInterval(CrowdControl man)
+        {
+            base.OnInterval(man);
+
+            man.spineAnimController.SetRandomAnimation("idle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+        }
+    }
+
     private class Moving : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
@@ -478,20 +537,6 @@ public class CrowdControl : ActorControl
         }
     }
 
-    private class Pushing : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            man.spineAnimController.SetAnimation("push", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-            //if (man.transform.hasChanged)
-            //{
-            //    man.spineAnimController.SetAnimation("feet_push");
-            //    man.transform.hasChanged = false;
-            //}
-            return true;
-        }
-    }
-
     private class Pulling : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
@@ -506,11 +551,25 @@ public class CrowdControl : ActorControl
         }
     }
 
+    private class Pushing : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            man.spineAnimController.SetAnimation("push", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            //if (man.transform.hasChanged)
+            //{
+            //    man.spineAnimController.SetAnimation("feet_push");
+            //    man.transform.hasChanged = false;
+            //}
+            return true;
+        }
+    }
+
     private class Riding : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            man.spineAnimController.SetAnimation("ride_bike", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
             return true;
         }
     }
@@ -522,7 +581,7 @@ public class CrowdControl : ActorControl
             switch (man.state)
             {
                 case CrowdState.INFLATE_HANDLE:
-                    man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+                    man.spineAnimController.SetAnimation("inflate_pump", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
                     break;
                 case CrowdState.INFLATE_ING:
                     man.spineAnimController.SetAnimation("inflate_mouth_prepare", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
@@ -536,6 +595,24 @@ public class CrowdControl : ActorControl
                 default:
                     break;
             }        
+            return true;
+        }
+    }
+
+    private class Sitting : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            man.spineAnimController.SetAnimation("sit", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            return true;
+        }
+    }
+
+    private class Running : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            man.spineAnimController.SetAnimation("wheel_run", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
             return true;
         }
     }
@@ -610,26 +687,6 @@ public class CrowdControl : ActorControl
             base.OnInterval(man);
 
             man.SwitchState(man.lastState);
-        }
-    }
-
-    private class Idling : TimedAction
-    {
-        public override void OnStart(CrowdControl man)
-        {
-            base.OnStart(man);
-
-            interval = Random.Range(3f, 8f);
-            man.stateCoolingDown = interval;
-
-            man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);          
-        }
-
-        public override void OnInterval(CrowdControl man)
-        {
-            base.OnInterval(man);
-
-            man.spineAnimController.SetRandomAnimation("idle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
         }
     }
 }
