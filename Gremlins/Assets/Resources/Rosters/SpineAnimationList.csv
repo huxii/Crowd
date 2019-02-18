@@ -14,7 +14,7 @@ Load,animation name,"tracks [0,4] 0 = lowest priority",loop,made(do not read),ad
 1,cheers_bow,2,LOOP,,x,
 1,cheers_jump,2,LOOP,,x,
 1,cheers_face,4,LOOP,,x,
-1,floating,2,LOOP,,,
+1,floating,2,LOOP,,x,
 1,inflate_mouth_drift,2,LOOP,,,
 1,inflate_mouth_finish,2,NOTLOOP_KEEP,,,
 0,inflate_mouth_prepare,2,NOTLOOP_KEEP,,,

@@ -29,9 +29,9 @@ public class CrowdControl : ActorControl
         RIDE,
         SIT,
         RUN,
+        FLOAT,
 
         // set from code
-        FLOAT,
         FALL,
         INFLATE_HANDLE,
         INFLATE_ING,
@@ -165,6 +165,11 @@ public class CrowdControl : ActorControl
                 new Sequence<CrowdControl>(
                     new IsRunning(),
                     new Running()
+                    ),
+
+                new Sequence<CrowdControl>(
+                    new IsFloating(),
+                    new Floating()
                     ),
 
                 new Sequence<CrowdControl>(
@@ -613,6 +618,15 @@ public class CrowdControl : ActorControl
         public override bool Update(CrowdControl man)
         {
             man.spineAnimController.SetAnimation("wheel_run", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            return true;
+        }
+    }
+
+    private class Floating : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            man.spineAnimController.SetAnimation("floating", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
             return true;
         }
     }

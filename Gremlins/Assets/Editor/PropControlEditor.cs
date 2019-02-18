@@ -158,8 +158,8 @@ public class PropPassiveTimedDeactivateControlEditor : PropPassiveControlEditor
     }
 }
 
-[CustomEditor(typeof(PropPassiveElevatorControl))]
-public class PropPassiveElevatorControlEditor : PropPassiveTimedDeactivateControlEditor
+[CustomEditor(typeof(ElevatorControl))]
+public class ElevatorControlEditor : PropPassiveTimedDeactivateControlEditor
 {
     public override void OnInspectorGUI()
     {
