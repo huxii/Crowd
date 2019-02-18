@@ -30,6 +30,7 @@ public class CrowdControl : ActorControl
         SIT,
         RUN,
         FLOAT,
+        DROP,
 
         // set from code
         FALL,
@@ -170,6 +171,11 @@ public class CrowdControl : ActorControl
                 new Sequence<CrowdControl>(
                     new IsFloating(),
                     new Floating()
+                    ),
+
+                new Sequence<CrowdControl>(
+                    new IsDropping(),
+                    new Dropping()
                     ),
 
                 new Sequence<CrowdControl>(
@@ -429,6 +435,14 @@ public class CrowdControl : ActorControl
         }
     }
 
+    private class IsDropping : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.DROP;
+        }
+    }
+
     private class IsInflating : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
@@ -627,6 +641,15 @@ public class CrowdControl : ActorControl
         public override bool Update(CrowdControl man)
         {
             man.spineAnimController.SetAnimation("floating", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            return true;
+        }
+    }
+
+    private class Dropping : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            man.spineAnimController.SetAnimation("chain_drop", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
             return true;
         }
     }

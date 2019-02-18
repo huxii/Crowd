@@ -9,7 +9,7 @@ Load,animation name,"tracks [0,4] 0 = lowest priority",loop,made(do not read),ad
 1,sit,2,LOOP,,x,
 1,climb_back,2,LOOP,,,
 1,climb_side,2,LOOP,,,
-1,chain_drop,2,LOOP,,,
+1,chain_drop,2,LOOP,,x,
 1,ride_bike,2,LOOP,,,
 1,cheers_bow,2,LOOP,,x,
 1,cheers_jump,2,LOOP,,x,
