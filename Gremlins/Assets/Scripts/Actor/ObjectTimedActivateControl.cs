@@ -9,12 +9,6 @@ public class ObjectTimedActivateControl : ObjectControl
     private bool isAboutToActivate = false;
     private float timer = 0;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     protected virtual void Update()
     {
         if (isAboutToActivate)

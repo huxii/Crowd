@@ -74,19 +74,6 @@ public abstract class PropControl : InteractableControl
     public float deltaWeight = 0f;
     protected float origWeight;
 
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnDrawGizmos()
     {
         foreach (SlotAttr slot in slots.ToArray())

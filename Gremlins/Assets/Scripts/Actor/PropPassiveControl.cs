@@ -13,12 +13,6 @@ public abstract class PropPassiveControl : PropControl
     public UnityEvent onSlotFull;
     public UnityEvent onSlotNotFull;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {

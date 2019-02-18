@@ -24,6 +24,8 @@ public class LightsBehavior : ObjectControl
     // Use this for initialization
     void Start()
     {
+        base.Start();
+        
         foreach (GameObject lightObj in lightObjs)
         {
             lightObj.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", emissionColor);

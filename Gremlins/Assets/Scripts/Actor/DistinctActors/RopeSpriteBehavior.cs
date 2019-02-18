@@ -13,8 +13,10 @@ public class RopeSpriteBehavior : ObjectControl
     private GameObject firstSegment;
 
 	// Use this for initialization
-	void Start ()
+	protected override void Start ()
     {
+        base.Start();
+
         firstSegment = ropeObj.transform.GetChild(0).gameObject;
         firstSegment.GetComponent<Rigidbody2D>().isKinematic = true;
     }

@@ -8,12 +8,6 @@ public class PropAutoTimedDeactivateControl : PropAutoControl
 
     private float timer = 0;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     protected virtual void Update()
     {
         if (IsActivated())

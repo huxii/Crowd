@@ -29,9 +29,9 @@ public class PropOneTimeDragControl : PropOneTimeControl
 
     // on dragging for sound effect
     // Use this for initialization
-    void Start ()
+    protected override void Start ()
     {
-        RegisterEvents();
+        base.Start();
 
         origPos = transform.position;
         deltaOffset = 0;
@@ -47,11 +47,6 @@ public class PropOneTimeDragControl : PropOneTimeControl
         hintTimer = 1f;
     }
 
-    private void OnApplicationQuit()
-    {
-        UnregisterEvents();
-    }
-
     // Update is called once per frame
     void Update ()
     {
@@ -60,6 +55,7 @@ public class PropOneTimeDragControl : PropOneTimeControl
             Vector3 targetPos = origPos;
             targetPos[(int)dragAxis] += deltaOffset;
             Vector3 newPos = transform.position;
+            // only invoke onDragging when it's actually being dragged
             if (Vector3.Distance(targetPos, newPos) > 0.001f)
             {
                 newPos = Vector3.Lerp(newPos, targetPos, Time.deltaTime * speed);
@@ -69,11 +65,16 @@ public class PropOneTimeDragControl : PropOneTimeControl
                 {
                     onDragging.Invoke();
                 }
+
+                // syncing animation
+                Services.eventManager.Fire(new DragEvent(deltaOffset / dragOffset));
             }
             else
             {
                 Vector3 finalPos = origPos;
                 finalPos[(int)dragAxis] += dragOffset;
+
+                // has reached the end
                 if (Vector3.Distance(newPos, finalPos) < 0.001f)
                 {
                     onReachEnd.Invoke();
@@ -84,6 +85,7 @@ public class PropOneTimeDragControl : PropOneTimeControl
                 {
                     if (IsActivated())
                     {
+                        // automatically shake a little bit to indicate dragging
                         if (hintTimer <= 0)
                         {
                             hintTimer = hintCD;
@@ -100,12 +102,12 @@ public class PropOneTimeDragControl : PropOneTimeControl
         }
 	}
 
-    protected void RegisterEvents()
+    protected override void RegisterEvents()
     {
         Services.eventManager.Register<ReleaseEvent>(OnRelease);
     }
 
-    protected void UnregisterEvents()
+    protected override void UnregisterEvents()
     {
         Services.eventManager.Unregister<ReleaseEvent>(OnRelease);
     }

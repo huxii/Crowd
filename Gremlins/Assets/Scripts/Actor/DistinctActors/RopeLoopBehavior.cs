@@ -14,9 +14,9 @@ public class RopeLoopBehavior : RopeBehavior
     private float timer = 0;
 
     // Use this for initialization
-    void Start()
+    protected override void Start()
     {
-        Init();
+        base.Start();
 
         mat.SetFloat("_MinY", minY);
         mat.SetFloat("_maxY", maxY);

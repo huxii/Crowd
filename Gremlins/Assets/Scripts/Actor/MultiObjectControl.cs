@@ -11,12 +11,6 @@ public class MultiObjectControl : ObjectControl
     protected int curObjectNumber = 0;
     protected float timer = 0;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {

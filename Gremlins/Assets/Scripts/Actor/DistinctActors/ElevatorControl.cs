@@ -8,12 +8,6 @@ public class ElevatorControl : PropPassiveTimedDeactivateControl
 
     private bool parentPermission = false;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     protected override void OnSlotsFull()
     {
         base.OnSlotsFull();

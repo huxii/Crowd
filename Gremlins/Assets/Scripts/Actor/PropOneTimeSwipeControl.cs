@@ -11,11 +11,6 @@ public class PropOneTimeSwipeControl : PropOneTimeControl
     public UnityEvent onStartSwipe;
     public UnityEvent onReachEnd;
 
-    // Use this for initialization
-    void Start()
-    {
-    }
-
     // Update is called once per frame
     void Update()
     {

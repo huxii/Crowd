@@ -8,12 +8,6 @@ public class ObjectCountedDeactivateControl : ObjectControl
 
     private int count = 0;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {

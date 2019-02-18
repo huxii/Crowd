@@ -32,16 +32,30 @@ public abstract class ActorControl : MonoBehaviour
     protected bool locked = false;
 
     // Use this for initialization
-    void Start ()
+    protected virtual void Start()
+    {
+        RegisterEvents();
+    }
+
+    // excute before OnDestroy
+    protected virtual void OnApplicationQuit()
+    {
+        UnregisterEvents();
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
 		
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    protected virtual void RegisterEvents()
     {
-		
-	}
+    }
+
+    protected virtual void UnregisterEvents()
+    {
+    }
 
     public virtual void Lock()
     {

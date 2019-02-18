@@ -15,16 +15,6 @@ public abstract class ObjectControl : InteractableControl
         set { feedbackController = value; }
     }
 
-    // Use this for initialization
-    void Start ()
-    {       
-    }
-	
-	// Update is called once per frame
-	void Update ()
-    {		
-	}
-
     // only override mouse drag when it requires the interaction of dragging
     // so that it won't mess up with viewport rotation
     // eg. gears require dragging, while penguin mouth does not.

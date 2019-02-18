@@ -81,6 +81,16 @@ public class ReleaseEvent : InputEvent
     }
 }
 
+public class DragEvent : InputEvent
+{
+    public readonly float progress;
+    public DragEvent(float p)
+        : base()
+    {
+        progress = p;
+    }
+}
+
 public class ZoomEvent : InputEvent
 {
     public ZoomEvent()

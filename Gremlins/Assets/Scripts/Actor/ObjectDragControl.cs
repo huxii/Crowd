@@ -32,17 +32,6 @@ public class ObjectDragControl : ObjectBasicControl
     protected bool isMaxReached = false;
     protected bool isMouseDown = false;
 
-    // Use this for initialization
-    protected void Start()
-    {
-        Services.eventManager.Register<ReleaseEvent>(OnHoldRelease);
-    }
-
-    protected void OnApplicationQuit()
-    {
-        Services.eventManager.Unregister<ReleaseEvent>(OnHoldRelease);
-    }
-
     // Update is called once per frame
     protected void Update()
     {
@@ -120,6 +109,16 @@ public class ObjectDragControl : ObjectBasicControl
                 }
             }
         }
+    }
+
+    protected override void RegisterEvents()
+    {
+        Services.eventManager.Register<ReleaseEvent>(OnHoldRelease);
+    }
+
+    protected override void UnregisterEvents()
+    {
+        Services.eventManager.Unregister<ReleaseEvent>(OnHoldRelease);
     }
 
     private void OnHoldRelease(Crowd.Event e)

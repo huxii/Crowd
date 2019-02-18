@@ -14,32 +14,20 @@ public class ObjectRangeBasedControl : ObjectControl
     public UnityEvent onRightRotate;
     public UnityEvent onLeftRotate;
 
-    // Use this for initialization
-    protected virtual void Start()
-    {
-        RegisterEvents();
-    }
-
-    // excute before OnDestroy
-    protected virtual void OnApplicationQuit()
-    {
-        UnregisterEvents();
-    }
-
     // Update is called once per frame
     void Update()
     {
 
     }
 
-    protected void RegisterEvents()
+    protected override void RegisterEvents()
     {
         Services.eventManager.Register<ClickEvent>(OnRespondClick);
         Services.eventManager.Register<RotateEvent>(OnRespondRotate);
         Services.eventManager.Register<ZoomEvent>(OnRespondZoom);
     }
 
-    protected void UnregisterEvents()
+    protected override void UnregisterEvents()
     {
         Services.eventManager.Unregister<ClickEvent>(OnRespondClick);
         Services.eventManager.Unregister<RotateEvent>(OnRespondRotate);

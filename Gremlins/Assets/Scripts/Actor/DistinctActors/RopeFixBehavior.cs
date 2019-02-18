@@ -16,9 +16,9 @@ public class RopeFixBehavior : RopeBehavior
     public GameObject anchorObj = null;
 
     // Use this for initialization
-    void Start()
+    protected override void Start()
     {
-        Init();
+        base.Start();
 
         if (axis == DirectionMode.Y)
         {

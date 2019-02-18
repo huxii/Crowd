@@ -13,12 +13,7 @@ public class MultiplePropControl : ObjectControl
     [Header("Multi Props")]
     public float lockDuration = -1;
     private float lockTimer;
-
-    // Use this for initialization
-    void Start()
-    {
-    }
-
+    
     // Update is called once per frame
     void Update()
     {

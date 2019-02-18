@@ -8,13 +8,6 @@ using UnityEngine;
 
 public abstract class PropOneTimeControl : PropAutoControl
 {
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {

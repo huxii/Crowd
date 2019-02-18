@@ -12,21 +12,16 @@ public abstract class RopeBehavior : MonoBehaviour
     protected float curSpeed;
     protected float curOffset = 0;
 
-    // Use this for initialization
-    void Start()
-    {
-    }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-	}
-
-    protected void Init()
+    protected virtual void Start()
     {
         mat = GetComponentInChildren<MeshRenderer>().material;
         mat.SetFloat("_Offset", 0);
     }
+
+	// Update is called once per frame
+	void Update ()
+    {
+	}
 
     public virtual void Play()
     {

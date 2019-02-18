@@ -14,6 +14,8 @@ public class ObjectRandomControl : ObjectBasicControl
     // Use this for initialization
     void Start()
     {
+        base.Start();
+        
         SetAutoPlayingCD();
     }
 

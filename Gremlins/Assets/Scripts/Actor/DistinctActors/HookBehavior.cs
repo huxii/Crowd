@@ -6,14 +6,7 @@ public class HookBehavior : ObjectTimedDeactivateControl
 {
     GameObject man = null;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
-
     private void OnTriggerEnter(Collider other)
     {
         if (man == null && other.CompareTag("Man") && other.GetComponent<FloatBehavior>())

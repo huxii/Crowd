@@ -25,16 +25,6 @@ public abstract class InteractableControl : ActorControl
     protected float interactionTimer = -1;
     protected bool isActivated = false;
 
-    // Use this for initialization
-    void Start ()
-    {       
-    }
-	
-	// Update is called once per frame
-	void Update ()
-    {		
-	}
-
     protected bool CanActivate()
     {
         return !IsLocked() && (!IsActivated() || CanActivateMultipleTimes()) && !IsCoolingDown();

@@ -43,12 +43,16 @@ public class CrowdControl : ActorControl
         WORK,
     };
 
-    // the events when the man is selected/deselected. (removed already)
-    public UnityEvent onSelected;
-    public UnityEvent onDeselected;
+    //// the events when the man is selected/deselected. (removed already)
+    //public UnityEvent onSelected;
+    //public UnityEvent onDeselected;
 
     // the moving speed
     public float speed = 5f;
+
+    // the walking progress when dragging (for syncing animation)
+    [SerializeField]
+    private float animationProgress = 0f;
 
     // behavior tree to control the animations and states
     // this part is not easy to understand by a couple of lines of comments, let me know if you are interested in it.
@@ -78,8 +82,10 @@ public class CrowdControl : ActorControl
     private float[] voiceTimer = new float[3];
 
     // Use this for initialization
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+        
         SwitchState(CrowdState.IDLE);
 
         rb = GetComponent<Rigidbody>();
@@ -122,6 +128,22 @@ public class CrowdControl : ActorControl
     {
         //Handles.color = Color.yellow;
         //Handles.DrawWireDisc(transform.position, Vector3.up, targetPosTol);
+    }
+
+    protected override void RegisterEvents()
+    {
+        Services.eventManager.Register<DragEvent>(OnDragging);
+    }
+
+    protected override void UnregisterEvents()
+    {
+        Services.eventManager.Unregister<DragEvent>(OnDragging);
+    }
+
+    private void OnDragging(Crowd.Event e)
+    {
+        DragEvent de = (DragEvent)e;
+        animationProgress = de.progress * 3;
     }
 
     private void InitBehaviorTree()
@@ -271,12 +293,12 @@ public class CrowdControl : ActorControl
 
     public void Selected()
     {
-        onSelected.Invoke();
+        //onSelected.Invoke();
     }
 
     public void Deselected()
     {
-        onDeselected.Invoke();
+        //onDeselected.Invoke();
     }
 
     // successfully get on a working slot
@@ -345,6 +367,11 @@ public class CrowdControl : ActorControl
             transform.localScale.y,
             transform.localScale.z
             );
+    }
+
+    public void SetAnimationProgress(float value)
+    {
+        animationProgress = value;
     }
 
     ////////////////////
@@ -560,12 +587,9 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("pull", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-            //if (man.transform.hasChanged)
-            //{
-            //    man.spineAnimController.SetAnimation("feet_push");
-            //    man.transform.hasChanged = false;
-            //}
+            man.spineAnimController.SetAnimation("feet_pull", SpineAnimationControl.ClearPolicy.CLEARNOTBODY, 0.2f);
+            man.spineAnimController.SetProgress("feet_pull", man.animationProgress);
+            man.spineAnimController.SetAnimation("pull");
             return true;
         }
     }
@@ -574,12 +598,18 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("push", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
             //if (man.transform.hasChanged)
             //{
-            //    man.spineAnimController.SetAnimation("feet_push");
+            //    man.spineAnimController.SetAnimation("feet_push", SpineAnimationControl.ClearPolicy.CLEARNOTBODY, 0.2f);
             //    man.transform.hasChanged = false;
             //}
+            //else
+            //{
+            //    man.spineAnimController.ClearAnimation("feet_push", 0.2f);
+            //}
+            man.spineAnimController.SetAnimation("feet_push", SpineAnimationControl.ClearPolicy.CLEARNOTBODY, 0.2f);
+            man.spineAnimController.SetProgress("feet_push", man.animationProgress);
+            man.spineAnimController.SetAnimation("push");
             return true;
         }
     }

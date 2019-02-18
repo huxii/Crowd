@@ -12,6 +12,8 @@ public class InflatorControl : PropAutoLoopControl
     // Use this for initialization
     void Start()
     {
+        base.Start();
+        
         ResetCount();
 
         windPs = transform.Find("ShortWind").GetComponent<ParticleSystem>();
