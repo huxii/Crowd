@@ -103,6 +103,12 @@ public class GameEvents : CustomEvents
         ani.Play();
     }
 
+    public void StopAnimation(GameObject obj)
+    {
+        Animation ani = obj.GetComponent<Animation>();
+        ani.Stop();
+    }
+
     public void PlayAnimation(string animParas)
     {
         ParseNewPara(animParas);

@@ -6,14 +6,13 @@ using UnityEngine.Events;
 public class ControlPanelControl : PropPassiveControl
 {
     [Header("Control Panel Settings")]
-    public UnityEvent onActivatedWhenWheelIsNot;
-    private bool isWheelActivated;
+    public UnityEvent onActivatedWhenParentIsNot;
 
     protected override void OnSlotsFull()
     {
         base.OnSlotsFull();
 
-        if (isWheelActivated)
+        if (GameObject.Find("ControlCenter").GetComponent<ObjectControl>().IsActivated())
         {
             if (CanActivate())
             {
@@ -30,7 +29,7 @@ public class ControlPanelControl : PropPassiveControl
                 isActivated = true;
 
                 CoolDown();
-                onActivatedWhenWheelIsNot.Invoke();
+                onActivatedWhenParentIsNot.Invoke();
 
                 Services.taskManager
                     .Do(new Wait(1))
@@ -44,10 +43,5 @@ public class ControlPanelControl : PropPassiveControl
         base.OnSlotsNotFull();
 
         Deactivate();
-    }
-
-    public void SetWheelActivated(bool en)
-    {
-        isWheelActivated = en;
     }
 }

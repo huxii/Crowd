@@ -14,7 +14,7 @@ public class InflatorControl : PropAutoLoopControl
     {
         ResetCount();
 
-        windPs = transform.Find("Wind").GetComponent<ParticleSystem>();
+        windPs = transform.Find("ShortWind").GetComponent<ParticleSystem>();
     }
 
     private void ResetCount()

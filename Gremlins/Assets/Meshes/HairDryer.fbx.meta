@@ -361,6 +361,7 @@ ModelImporter:
     100710: Box6
     100712: GasCan1
     100714: GasCan2
+    100716: Floors
     400000: Can
     400002: CanTube
     400004: CanTube0
@@ -719,6 +720,7 @@ ModelImporter:
     400710: Box6
     400712: GasCan1
     400714: GasCan2
+    400716: Floors
     2100000: lambert1
     2300000: Can
     2300002: CanTube
