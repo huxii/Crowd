@@ -362,6 +362,7 @@ ModelImporter:
     100712: GasCan1
     100714: GasCan2
     100716: Floors
+    100718: StairsSupport
     400000: Can
     400002: CanTube
     400004: CanTube0
@@ -721,6 +722,7 @@ ModelImporter:
     400712: GasCan1
     400714: GasCan2
     400716: Floors
+    400718: StairsSupport
     2100000: lambert1
     2300000: Can
     2300002: CanTube
@@ -1026,6 +1028,8 @@ ModelImporter:
     2300602: Box6
     2300604: GasCan1
     2300606: GasCan2
+    2300608: StairsSupport
+    2300610: ControlBar
     3300000: Can
     3300002: CanTube
     3300004: CanTube0
@@ -1330,6 +1334,8 @@ ModelImporter:
     3300602: Box6
     3300604: GasCan1
     3300606: GasCan2
+    3300608: StairsSupport
+    3300610: ControlBar
     4300000: ControlPanelModel
     4300002: HamsterWheelModel
     4300004: ElevatorModel
@@ -1633,6 +1639,8 @@ ModelImporter:
     4300600: Box4
     4300602: Box5
     4300604: Box6
+    4300606: StairsSupport
+    4300608: ControlBar
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
