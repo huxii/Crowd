@@ -595,7 +595,7 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("feet_pull", SpineAnimationControl.ClearPolicy.CLEARNOTBODY, 0.2f);
+            man.spineAnimController.SetAnimation("feet_pull", SpineAnimationControl.ClearPolicy.CLEARNOTBODY);
             man.spineAnimController.SetProgress("feet_pull", man.animationProgress);
             man.spineAnimController.SetAnimation("pull");
             return true;
@@ -615,7 +615,7 @@ public class CrowdControl : ActorControl
             //{
             //    man.spineAnimController.ClearAnimation("feet_push", 0.2f);
             //}
-            man.spineAnimController.SetAnimation("feet_push", SpineAnimationControl.ClearPolicy.CLEARNOTBODY, 0.2f);
+            man.spineAnimController.SetAnimation("feet_push", SpineAnimationControl.ClearPolicy.CLEARNOTBODY);
             man.spineAnimController.SetProgress("feet_push", man.animationProgress);
             man.spineAnimController.SetAnimation("push");
             return true;
