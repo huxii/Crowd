@@ -288,8 +288,7 @@ public class GameEvents : CustomEvents
     {
         //Services.eventManager.Fire(new ManDrop(man));
 
-        StopMan(man);
-        Services.pathFindingManager.StopActor(man);
+        ImmediateUnboundMan(man);
 
         RaycastHit[] hits;
         hits = Physics.RaycastAll(man.transform.position, Vector3.down, 100f);
@@ -453,7 +452,7 @@ public class GameEvents : CustomEvents
         Services.eventManager.Fire(new ManLeavesFromObj(man));
     }
 
-    public void ImmediateUnboundMan(GameObject man, GameObject obj, int slotId)
+    public void ImmediateUnboundMan(GameObject man, GameObject obj = null, int slotId = -1)
     {
         Services.eventManager.Fire(new ManLeavesFromObj(man, obj, slotId));
 
