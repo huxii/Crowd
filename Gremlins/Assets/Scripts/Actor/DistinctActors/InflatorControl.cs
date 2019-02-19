@@ -8,6 +8,7 @@ public class InflatorControl : PropAutoLoopControl
     public int inflatorCount;
     private int count;
     private ParticleSystem windPs;
+    private Animation pumpAnimation;
 
     // Use this for initialization
     protected override void Start()
@@ -17,6 +18,7 @@ public class InflatorControl : PropAutoLoopControl
         ResetCount();
 
         windPs = transform.Find("ShortWind").GetComponent<ParticleSystem>();
+        pumpAnimation = GetComponent<Animation>();
     }
 
     private void ResetCount()
@@ -34,14 +36,17 @@ public class InflatorControl : PropAutoLoopControl
         if (man0 == null && man1 != null)
         {
             Services.gameEvents.SwitchCrowdState(man1, CrowdControl.CrowdState.INFLATE_ING);
-            GetComponent<Animation>().Stop();
+            pumpAnimation.Stop();
             windPs.Pause();
         }
         else
         if (man0 != null && man1 == null)
         {
             Services.gameEvents.SwitchCrowdState(man0, CrowdControl.CrowdState.INFLATE_HANDLE);
-            GetComponent<Animation>().Play();
+            if (!pumpAnimation.isPlaying)
+            {
+                pumpAnimation.Play();
+            }
             windPs.Play();
         }
         else
@@ -49,12 +54,15 @@ public class InflatorControl : PropAutoLoopControl
         {
             Services.gameEvents.SwitchCrowdState(man0, CrowdControl.CrowdState.INFLATE_HANDLE);
             Services.gameEvents.SwitchCrowdState(man1, CrowdControl.CrowdState.INFLATE_COMPLETE);
-            GetComponent<Animation>().Stop();
+            if (!pumpAnimation.isPlaying)
+            {
+                pumpAnimation.Play();
+            }
             windPs.Pause();
         }
         else
         {
-            GetComponent<Animation>().Stop();
+            pumpAnimation.Stop();
             windPs.Pause();
         }
     }

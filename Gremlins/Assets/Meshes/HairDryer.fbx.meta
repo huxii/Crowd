@@ -363,6 +363,8 @@ ModelImporter:
     100714: GasCan2
     100716: Floors
     100718: StairsSupport
+    100720: HookWithBendy
+    100722: HookItself
     400000: Can
     400002: CanTube
     400004: CanTube0
@@ -723,6 +725,8 @@ ModelImporter:
     400714: GasCan2
     400716: Floors
     400718: StairsSupport
+    400720: HookWithBendy
+    400722: HookItself
     2100000: lambert1
     2300000: Can
     2300002: CanTube

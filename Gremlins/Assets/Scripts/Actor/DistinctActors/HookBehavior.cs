@@ -23,7 +23,7 @@ public class HookBehavior : ObjectTimedDeactivateControl
         base.Activate();
 
         man = null;
-        Services.gameEvents.PlayAnimation(gameObject.name + " HookExpand");
+        Services.gameEvents.PlayAnimation("HookWithBendy HookExpand");
     }
 
     public override void Deactivate()
@@ -38,7 +38,7 @@ public class HookBehavior : ObjectTimedDeactivateControl
             {
                 Services.taskManager
                     .Do(new ActionTask(
-                        () => Services.gameEvents.PlayAnimation(gameObject.name + " HookCatched")
+                        () => Services.gameEvents.PlayAnimation("HookWithBendy HookCatched")
                         ))
                     .Then(new Wait(5))
                     .Then(new ActionTask(GameObject.Find("ControlPanel").GetComponent<PropControl>().FreeAllMen));
@@ -47,7 +47,7 @@ public class HookBehavior : ObjectTimedDeactivateControl
             {
                 Services.taskManager
                     .Do(new ActionTask(
-                        () => Services.gameEvents.PlayAnimation(gameObject.name + " HookEmpty")
+                        () => Services.gameEvents.PlayAnimation("HookWithBendy HookEmpty")
                         ))
                     .Then(new Wait(1))
                     .Then(new ActionTask(GameObject.Find("ControlPanel").GetComponent<PropControl>().FreeAllMen));
