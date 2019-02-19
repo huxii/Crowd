@@ -93,9 +93,16 @@ public class DragEvent : InputEvent
 
 public class ZoomEvent : InputEvent
 {
+    public readonly Vector2 delta;
     public ZoomEvent()
-    : base()
+        : base()
     {
+    }
+
+    public ZoomEvent(Vector2 d)
+        : base()
+    {
+        delta = d;
     }
 }
 

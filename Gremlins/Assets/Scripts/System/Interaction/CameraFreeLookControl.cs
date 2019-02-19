@@ -208,7 +208,7 @@ public class CameraFreeLookControl : CameraControl
 
             if (level != zoomLevel)
             {
-                Services.eventManager.Fire(new ZoomEvent());
+                Services.eventManager.Fire(new ZoomEvent((zoomLevelAttrs[level].angleZero - targetAngle)));
             }
 
             zoomLevel = level;
