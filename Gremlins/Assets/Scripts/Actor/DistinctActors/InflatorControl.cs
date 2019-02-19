@@ -10,7 +10,7 @@ public class InflatorControl : PropAutoLoopControl
     private ParticleSystem windPs;
 
     // Use this for initialization
-    void Start()
+    protected override void Start()
     {
         base.Start();
         
@@ -34,12 +34,14 @@ public class InflatorControl : PropAutoLoopControl
         if (man0 == null && man1 != null)
         {
             Services.gameEvents.SwitchCrowdState(man1, CrowdControl.CrowdState.INFLATE_ING);
+            GetComponent<Animation>().Stop();
             windPs.Pause();
         }
         else
         if (man0 != null && man1 == null)
         {
             Services.gameEvents.SwitchCrowdState(man0, CrowdControl.CrowdState.INFLATE_HANDLE);
+            GetComponent<Animation>().Play();
             windPs.Play();
         }
         else
@@ -47,25 +49,22 @@ public class InflatorControl : PropAutoLoopControl
         {
             Services.gameEvents.SwitchCrowdState(man0, CrowdControl.CrowdState.INFLATE_HANDLE);
             Services.gameEvents.SwitchCrowdState(man1, CrowdControl.CrowdState.INFLATE_COMPLETE);
+            GetComponent<Animation>().Stop();
             windPs.Pause();
         }
         else
         {
+            GetComponent<Animation>().Stop();
             windPs.Pause();
         }
     }
 
     public void Inflate()
     {
-        GameObject man = GetSlotMan(1);
-        if (man != null)
-        {
-            //Services.dotweenEvents.Scale(man.gameObject.name + " 1.1, 1.1, 1.1, 0.5");
-        }
-
         ++count;
         if (count >= inflatorCount)
         {
+            GameObject man = GetSlotMan(1);
             Services.gameEvents.UnboundMan(man);
             //Services.gameEvents.SwitchCrowdState(man, CrowdControl.CrowdState.INFLATE_FLOAT);
             Services.gameEvents.MakeFloatMan(man);
