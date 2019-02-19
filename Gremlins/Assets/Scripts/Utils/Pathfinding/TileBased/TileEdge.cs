@@ -7,7 +7,8 @@ public class TileEdge : MonoBehaviour
     public enum MovementType
     {
         WALK,
-        CLIMB,
+        CLIMB_BACK,
+        CLIMB_SIDE
     };
 
     public MovementType type = MovementType.WALK;

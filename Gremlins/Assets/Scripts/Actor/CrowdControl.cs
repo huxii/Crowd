@@ -23,7 +23,8 @@ public class CrowdControl : ActorControl
         // set from editor
         IDLE,
         WALK,
-        CLIMB,
+        CLIMB_BACK,
+        CLIMB_SIDE,
         PULL,
         PUSH,
         RIDE,
@@ -410,7 +411,7 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            return man.state == CrowdState.CLIMB;
+            return man.state == CrowdState.CLIMB_BACK || man.state == CrowdState.CLIMB_SIDE;
         }
     }
 
@@ -578,7 +579,14 @@ public class CrowdControl : ActorControl
     {
         public override bool Update(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("walk_normal", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            if (man.state == CrowdState.CLIMB_BACK)
+            {
+                man.spineAnimController.SetAnimation("climb_back", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            }
+            else
+            {
+                man.spineAnimController.SetAnimation("climb_side", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            }
             return true;
         }
     }

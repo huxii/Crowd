@@ -2289,7 +2289,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 0}
   freeManOffset: {x: 2.73, y: -0.84, z: 0}
-  changeState: 4
+  changeState: 5
   changeScaleX: 1
   slots:
   - state: 0
@@ -2458,8 +2458,8 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 811556918}
   freeManOffset: {x: 0, y: 0, z: 0}
-  changeState: 1
-  changeScaleX: 1
+  changeState: 8
+  changeScaleX: -1
   slots:
   - state: 0
     obj: {fileID: 1077498997}
@@ -5612,7 +5612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   t0: {fileID: 1262704902}
   t1: {fileID: 832949934}
 --- !u!1001 &2129004332
@@ -6418,7 +6418,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: 0.03327792, y: -0.000000017930429, z: -0.000000004014086, w: 0.99944615}
+  m_LocalRotation: {x: 0.033277944, y: -0.000000016806325, z: -0.000000004051514,
+    w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

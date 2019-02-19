@@ -1908,7 +1908,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 1384795587}
   freeManOffset: {x: 0, y: 0, z: 0}
-  changeState: 5
+  changeState: 6
   changeScaleX: 1
   slots:
   - state: 0
@@ -3442,7 +3442,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 0}
   freeManOffset: {x: 0, y: 0, z: 0}
-  changeState: 9
+  changeState: 10
   changeScaleX: 1
   slots:
   - state: 0
@@ -6150,7 +6150,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 0}
   freeManOffset: {x: 0.69, y: 0, z: 0.92}
-  changeState: 4
+  changeState: 5
   changeScaleX: 1
   slots:
   - state: 0
@@ -6487,7 +6487,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 0}
   freeManOffset: {x: 0.15, y: -1.66, z: -1.18}
-  changeState: 5
+  changeState: 7
   changeScaleX: 1
   slots:
   - state: 0
@@ -7900,7 +7900,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 0}
   freeManOffset: {x: 0.15, y: -1.66, z: -1.18}
-  changeState: 5
+  changeState: 7
   changeScaleX: 1
   slots:
   - state: 0
@@ -8744,7 +8744,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 0}
   freeManOffset: {x: 0.15, y: -1.66, z: -1.18}
-  changeState: 5
+  changeState: 7
   changeScaleX: 1
   slots:
   - state: 0
@@ -15015,7 +15015,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 0}
   freeManOffset: {x: 0.15, y: -1.66, z: -1.18}
-  changeState: 5
+  changeState: 7
   changeScaleX: 1
   slots:
   - state: 0
@@ -21075,7 +21075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba8cd74adefb8a4b8d6bf0f9191b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 2
   t0: {fileID: 1810025054}
   t1: {fileID: 484912990}
 --- !u!4 &2132532436
@@ -21723,7 +21723,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279773217180396}
-  m_LocalRotation: {x: -0.0030012098, y: -0.000000017211029, z: -5.1654132e-11, w: 0.9999955}
+  m_LocalRotation: {x: -0.0030012098, y: 0.000000017211024, z: 5.1654132e-11, w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

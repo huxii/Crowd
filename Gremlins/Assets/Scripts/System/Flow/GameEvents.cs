@@ -565,8 +565,11 @@ public class GameEvents : CustomEvents
             case TileEdge.MovementType.WALK:
                 man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.WALK);
                 break;
-            case TileEdge.MovementType.CLIMB:
-                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.CLIMB);
+            case TileEdge.MovementType.CLIMB_BACK:
+                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.CLIMB_BACK);
+                break;
+            case TileEdge.MovementType.CLIMB_SIDE:
+                man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.CLIMB_SIDE);
                 break;
             default:
                 man.GetComponent<CrowdControl>().MoveTo(targetPos, tol, CrowdControl.CrowdState.WALK);
