@@ -122,6 +122,15 @@ public class PropAutoTimedDeactivateControlEditor : PropAutoControlEditor
     }
 }
 
+[CustomEditor(typeof(BouncingBedControl))]
+public class BouncingBedControlEditor : PropAutoTimedDeactivateControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
 [CustomEditor(typeof(PropPassiveControl))]
 public class PropPassiveControlEditor : PropControlEditor
 {

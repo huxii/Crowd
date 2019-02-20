@@ -57,7 +57,7 @@ public class Tile : MonoBehaviour
             if (followObject != null && followObject.GetComponent<ObjectControl>() != null && !followObject.GetComponent<ObjectControl>().IsActivated()
                 && followObject.GetComponent<ObjectControl>().dropMenAfterDeactivated)
             {
-                Services.gameEvents.DropMan(man);
+                Services.gameEvents.DropMan(man, "Flash");
             }
             else
             {

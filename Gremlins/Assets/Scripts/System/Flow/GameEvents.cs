@@ -284,23 +284,28 @@ public class GameEvents : CustomEvents
         man.GetComponent<CrowdControl>().Stop();
     }
 
-    public void DropMan(GameObject man)
+    public void DropMan(GameObject man, string easyStr = "InCubic" )
     {
         //Services.eventManager.Fire(new ManDrop(man));
 
         ImmediateUnboundMan(man);
 
         RaycastHit[] hits;
-        hits = Physics.RaycastAll(man.transform.position, Vector3.down, 100f);
+        hits = Physics.RaycastAll(man.transform.position, Vector3.down, 20f);
         if (hits != null)
         {
             foreach (RaycastHit hit in hits)
             {
                 if (hit.transform.gameObject.CompareTag("Ground"))
                 {
-                    Vector3 landPos = hit.point;
-                    man.GetComponent<Rigidbody>().DOMove(landPos, 1f).SetEase(Ease.InCubic);
-                    break;
+                    GameObject navObj = hit.transform.gameObject.GetComponent<Navmesh>().followObject;
+                    if (navObj == null || (navObj != null && navObj.GetComponent<InteractableControl>().IsActivated()))
+                    {
+                        Vector3 landPos = hit.point;
+                        Services.dotweenEvents.MoveTo(man.name + " " + landPos.ToString() + " 1 false " + easyStr);
+                        //man.transform.DOMove(landPos, 1f).SetEase(Ease.Flash);
+                        break;
+                    }
                 }
             }
         }

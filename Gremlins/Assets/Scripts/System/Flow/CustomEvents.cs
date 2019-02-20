@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class CustomEvents : MonoBehaviour
 {
-    protected char[] spliters = { ',', ' ' };
+    protected char[] spliters = { ',', ' ', '(', ')' };
     protected string[] paras;
     protected int curParaIdx = 0;
 
@@ -182,6 +182,9 @@ public class CustomEvents : MonoBehaviour
                     break;
                 case "Linear":
                     retEaseType = Ease.Linear;
+                    break;
+                case "Flash":
+                    retEaseType = Ease.Flash;
                     break;
                 default:
                     break;

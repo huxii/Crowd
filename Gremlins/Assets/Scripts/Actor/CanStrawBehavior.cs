@@ -26,7 +26,7 @@ public class CanStrawBehavior : ObjectTimedDeactivateControl
             Services.gameEvents.RemoveAnchor(man);
             // dead :)
             Services.gameEvents.SetCrowdAnimation(man, "inflate_asshole_tired", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-            Services.gameEvents.PlayAnimation(man);
+            Services.gameEvents.PlayAnimation(man.name + " ThrowOut");
             //Services.taskManager
             //    .Do(new ActionTask(() => Services.dotweenEvents.MoveTo(man.name + " 2.77, 0.82, -2.53, 1")))
             //    .Then(new Wait(1))

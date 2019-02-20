@@ -501,6 +501,11 @@ ModelImporter:
     100990: LadderWheel1
     100992: LadderWheel2
     100994: LadderWheel3
+    100996: BouncingBed
+    100998: BouncingBedCenter
+    101000: BouncingBedFrame
+    101002: BouncingBedModel
+    101004: LadderBase
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -999,6 +1004,11 @@ ModelImporter:
     400990: LadderWheel1
     400992: LadderWheel2
     400994: LadderWheel3
+    400996: BouncingBed
+    400998: BouncingBedCenter
+    401000: BouncingBedFrame
+    401002: BouncingBedModel
+    401004: LadderBase
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -1404,6 +1414,9 @@ ModelImporter:
     2300800: LadderWheel1
     2300802: LadderWheel2
     2300804: LadderWheel3
+    2300806: BouncingBedCenter
+    2300808: BouncingBedFrame
+    2300810: LadderBase
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1807,6 +1820,9 @@ ModelImporter:
     3300800: LadderWheel1
     3300802: LadderWheel2
     3300804: LadderWheel3
+    3300806: BouncingBedCenter
+    3300808: BouncingBedFrame
+    3300810: LadderBase
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -2206,6 +2222,9 @@ ModelImporter:
     4300792: LadderWheel1
     4300794: LadderWheel2
     4300796: LadderWheel3
+    4300798: LadderBase
+    4300800: BouncingBedCenter
+    4300802: BouncingBedFrame
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
