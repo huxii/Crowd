@@ -3038,7 +3038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400302, guid: fc01ecd81a8411d4797939f62d4847e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -27.42667
+      value: -49.493336
       objectReference: {fileID: 0}
     - target: {fileID: 400304, guid: fc01ecd81a8411d4797939f62d4847e7, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3054,7 +3054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400304, guid: fc01ecd81a8411d4797939f62d4847e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 27.42667
+      value: 49.493336
       objectReference: {fileID: 0}
     - target: {fileID: 400304, guid: fc01ecd81a8411d4797939f62d4847e7, type: 3}
       propertyPath: m_LocalRotation.z
@@ -3066,7 +3066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400292, guid: fc01ecd81a8411d4797939f62d4847e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -3.0022202
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 400298, guid: fc01ecd81a8411d4797939f62d4847e7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5156,7 +5156,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   onDeactivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1939067503}
+        m_MethodName: PlayAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Elevator, ElevatorDoorOpen
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   interactionCD: 0.3
@@ -8004,7 +8015,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681085338296175}
-  m_LocalRotation: {x: 0.0151170455, y: 0.000000034425625, z: -5.204731e-10, w: 0.9998858}
+  m_LocalRotation: {x: 0.0151170455, y: -0.000000034425625, z: 5.204731e-10, w: 0.9998858}
   m_LocalPosition: {x: 0, y: 6.73, z: -30.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -8048,7 +8059,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175609400129945}
-  m_LocalRotation: {x: 0.015117044, y: 0.00000001729156, z: -0.00000000546892, w: 0.99988574}
+  m_LocalRotation: {x: 0.015117044, y: -0.000000017134063, z: -0.000000004948447,
+    w: 0.99988574}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
