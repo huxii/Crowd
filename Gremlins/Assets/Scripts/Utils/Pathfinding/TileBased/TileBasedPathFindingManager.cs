@@ -287,7 +287,7 @@ public class TileBasedPathFindingManager : PathFindingManager
             }
         }
 
-        if (dist < 3f)
+        if (dist < 1.5f)
         {
             return nearestTile;
         }

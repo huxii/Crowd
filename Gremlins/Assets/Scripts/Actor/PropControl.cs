@@ -7,6 +7,8 @@ using UnityEngine.Events;
  *  The objects with slots and directly related to the puzzles
  */
 
+[RequireComponent(typeof(PropFeedbackBehavior))]
+
 public abstract class PropControl : InteractableControl
 {
     public PropFeedbackBehavior PropFeedbackController
