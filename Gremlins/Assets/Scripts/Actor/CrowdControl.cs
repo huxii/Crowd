@@ -9,6 +9,7 @@ using BehaviorTree;
 /*
  *      Control the men
  */
+[RequireComponent(typeof(CrowdFeedbackBehavior))]
 
 public class CrowdControl : ActorControl
 {

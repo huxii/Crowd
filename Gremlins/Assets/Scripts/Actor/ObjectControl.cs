@@ -6,6 +6,7 @@ using UnityEngine.Events;
 /*
  *  The objects with no slots and not directly related to the puzzles
  */
+[RequireComponent(typeof(ObjectFeedbackBehavior))]
 
 public abstract class ObjectControl : InteractableControl
 {

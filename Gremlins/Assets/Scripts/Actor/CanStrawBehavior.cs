@@ -12,8 +12,9 @@ public class CanStrawBehavior : ObjectTimedDeactivateControl
         {
             man = other.gameObject;
             Services.gameEvents.AddAnchor(other.gameObject, transform.GetChild(0).gameObject);
-            Services.gameEvents.SetCrowdAnimation(man, "inflate_asshole_squeeze", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-            //Services.dotweenEvents.ScaleTo(other.gameObject.name + " 1, 1, 1, 2.5");
+            Services.taskManager
+                .Do(new Wait(1))
+                .Then(new ActionTask(() => Services.gameEvents.SetCrowdAnimation(man, "inflate_asshole_squeeze", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL)));
 
             Activate();
         }
