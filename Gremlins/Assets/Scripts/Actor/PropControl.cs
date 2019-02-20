@@ -365,7 +365,7 @@ public abstract class PropControl : InteractableControl
     public virtual PropState Interact()
     {
         PropState state = UpdateState();
-        if (state >= PropState.EMPTY)
+        if (state != PropState.PATH)
         {
             feedbackController.OnInteract();
         }
