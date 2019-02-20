@@ -122,6 +122,24 @@ public class PropZeroOneControlEditor : PropAutoControlEditor
     }
 }
 
+[CustomEditor(typeof(PropZeroOneBasicControl))]
+public class PropZeroOneBasicControlEditor : PropZeroOneControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
+[CustomEditor(typeof(ControlPanelControl))]
+public class ControlPanelControlEditor : PropZeroOneControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
 [CustomEditor(typeof(PropAutoTimedDeactivateControl))]
 public class PropAutoTimedDeactivateControlEditor : PropAutoControlEditor
 {
@@ -178,15 +196,6 @@ public class PropPassiveTimedDeactivateControlEditor : PropPassiveControlEditor
 
 [CustomEditor(typeof(ElevatorControl))]
 public class ElevatorControlEditor : PropPassiveTimedDeactivateControlEditor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-    }
-}
-
-[CustomEditor(typeof(ControlPanelControl))]
-public class ControlPanelControlEditor : PropPassiveControlEditor
 {
     public override void OnInspectorGUI()
     {

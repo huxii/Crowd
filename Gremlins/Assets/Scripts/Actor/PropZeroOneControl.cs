@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PropZeroOneControl : PropAutoControl
+public abstract class PropZeroOneControl : PropAutoControl
 {
     [Header("Zero One Control")]
     public UnityEvent onActivatedZero;
