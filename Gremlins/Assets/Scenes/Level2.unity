@@ -936,19 +936,20 @@ MonoBehaviour:
   namingCounter: 1
   weightObj: {fileID: 0}
   deltaWeight: 0
-  onSlotFull:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onSlotNotFull:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onActivatedWhenParentIsNot:
+  onActivatedZero:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 233303901}
+        m_MethodName: UnableToUse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1428080941}
         m_MethodName: RotateTo
         m_Mode: 5
@@ -3667,6 +3668,17 @@ MonoBehaviour:
           m_StringArgument: SwitchGreenLight0, 0, 1, 0, 1
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 233303901}
+        m_MethodName: SetZeroOne
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onDeactivated:
@@ -3694,9 +3706,20 @@ MonoBehaviour:
           m_StringArgument: SwitchGreenLight0, 1, 1, 1, 1
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 233303901}
+        m_MethodName: SetZeroOne
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  interactionCD: 0
+  interactionCD: 0.5
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
   timeToAutoActivate: 0.5
@@ -8199,8 +8222,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625331400867550}
-  m_LocalRotation: {x: 0.033277962, y: -0.00000002946276, z: -0.0000000036300987,
-    w: 0.99944615}
+  m_LocalRotation: {x: 0.033277936, y: 3.86818e-10, z: -0.000000004623982, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

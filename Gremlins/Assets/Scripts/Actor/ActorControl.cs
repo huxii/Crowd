@@ -11,7 +11,7 @@ using UnityEngine;
  *                                         /        \                            /                       \                      
  *                          MultiplePropControl          ...                PropAutoControl                 PropPassiveControl     
  *                                                                  /                   |              \
- *                                                             PropAutoLoopControl   PropOneTimeControl  ...
+ *                                                             PropAutoLoopControl   PropOneTimeControl  PropZeroOneControl...
  *                                                          
 */
 

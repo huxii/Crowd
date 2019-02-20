@@ -8,17 +8,6 @@ using UnityEngine;
 
 public abstract class PropAutoControl : PropControl
 {
-	// Use this for initialization
-	void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-	}
-
     protected override void OnSlotsFull()
     {
         base.OnSlotsFull();

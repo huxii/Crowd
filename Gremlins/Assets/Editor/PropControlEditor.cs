@@ -113,6 +113,15 @@ public class PropOneTimeDragControlEditor : PropOneTimeControlEditor
     }
 }
 
+[CustomEditor(typeof(PropZeroOneControl))]
+public class PropZeroOneControlEditor : PropAutoControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
 [CustomEditor(typeof(PropAutoTimedDeactivateControl))]
 public class PropAutoTimedDeactivateControlEditor : PropAutoControlEditor
 {
