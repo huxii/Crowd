@@ -94,6 +94,12 @@ public class SceneControl : MonoBehaviour
     /*
     * 3d -> 2d
     */
+    public void ReloadSceneWithRecord()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        ReloadSceneWithRecord(sceneName);
+    }
+
     public void ReloadSceneWithRecord(string sceneName)
     {
         if (Services.sceneTransitionController)
