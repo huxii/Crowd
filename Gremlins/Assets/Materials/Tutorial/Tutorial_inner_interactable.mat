@@ -112,7 +112,7 @@ Material:
     - _AOMaxColor: {r: 1, g: 1, b: 1, a: 1}
     - _AOMinColor: {r: 0.4811321, g: 0.09328071, b: 0, a: 1}
     - _BrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.375534, g: 0.6832488, b: 0.8207547, a: 1}
+    - _Color: {r: 0.8584906, g: 0.8292784, b: 0.10123708, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 0.9029459, g: 0.9716981, b: 0.9534267, a: 1}
