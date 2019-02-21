@@ -166,7 +166,7 @@ public class ObjectDragControl : ObjectBasicControl
 
             float newValue = curValue;
             float deltaPosValue;
-            if (dragAxis == Axis.RX || dragAxis == Axis.RY || dragAxis == Axis.TX)
+            if (dragAxis == Axis.RY || dragAxis == Axis.TX)
             {
                 deltaPosValue = deltaPos.x;
             }

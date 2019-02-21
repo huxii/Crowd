@@ -36,7 +36,10 @@ public class InflatorControl : PropAutoLoopControl
         if (man0 == null && man1 != null)
         {
             Services.gameEvents.SwitchCrowdState(man1, CrowdControl.CrowdState.INFLATE_ING);
-            pumpAnimation.Stop();
+            if (pumpAnimation.isPlaying)
+            {
+                pumpAnimation.Stop();
+            }
             windPs.Pause();
         }
         else
@@ -62,7 +65,10 @@ public class InflatorControl : PropAutoLoopControl
         }
         else
         {
-            pumpAnimation.Stop();
+            if (pumpAnimation.isPlaying)
+            {
+                pumpAnimation.Stop();
+            }
             windPs.Pause();
         }
     }
@@ -73,7 +79,7 @@ public class InflatorControl : PropAutoLoopControl
         if (count >= inflatorCount)
         {
             GameObject man = GetSlotMan(1);
-            Services.gameEvents.UnboundMan(man);
+            Services.gameEvents.ImmediateUnboundMan(man);
             //Services.gameEvents.SwitchCrowdState(man, CrowdControl.CrowdState.INFLATE_FLOAT);
             Services.gameEvents.MakeFloatMan(man);
 
