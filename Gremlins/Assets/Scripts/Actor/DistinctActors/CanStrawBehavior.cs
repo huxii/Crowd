@@ -14,6 +14,7 @@ public class CanStrawBehavior : ObjectTimedDeactivateControl
             Services.gameEvents.AddAnchor(other.gameObject, transform.GetChild(0).gameObject);
             Services.taskManager
                 .Do(new Wait(1))
+                .Then(new ActionTask(() => GameObject.Find("Can").GetComponent<CanBehavior>().Activate()))
                 .Then(new ActionTask(() => Services.gameEvents.SetCrowdAnimation(man, "inflate_asshole_squeeze", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL)));
 
             Activate();
