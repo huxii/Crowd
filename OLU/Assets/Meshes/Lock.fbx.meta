@@ -334,6 +334,12 @@ ModelImporter:
     100656: ChimneyModel
     100658: BallModel00
     100660: FishHook01
+    100662: Carrot4
+    100664: Carrot5
+    100666: Carrot6
+    100668: CarrotSoil
+    100670: CeilingRopes
+    100672: FirstFloorBase
     400000: BackShell
     400002: Bulb
     400004: Bulb 1
@@ -665,6 +671,12 @@ ModelImporter:
     400656: ChimneyModel
     400658: BallModel00
     400660: FishHook01
+    400662: Carrot4
+    400664: Carrot5
+    400666: Carrot6
+    400668: CarrotSoil
+    400670: CeilingRopes
+    400672: FirstFloorBase
     2100000: InnerMat
     2100002: CutoutMat
     2100004: OutterMat
@@ -922,6 +934,16 @@ ModelImporter:
     2300502: ChimneyModel
     2300504: BallModel00
     2300506: FishHook01
+    2300508: Carrot
+    2300510: Carrot4
+    2300512: Carrot5
+    2300514: Carrot6
+    2300516: CarrotSoil
+    2300518: CeilingRopes
+    2300520: FirstFloorBase
+    2300522: TreeModel
+    2300524: TreeModel1
+    2300526: TreeModel2
     3300000: BackShell
     3300002: Bulb
     3300004: Bulb 1
@@ -1176,6 +1198,16 @@ ModelImporter:
     3300502: ChimneyModel
     3300504: BallModel00
     3300506: FishHook01
+    3300508: Carrot
+    3300510: Carrot4
+    3300512: Carrot5
+    3300514: Carrot6
+    3300516: CarrotSoil
+    3300518: CeilingRopes
+    3300520: FirstFloorBase
+    3300522: TreeModel
+    3300524: TreeModel1
+    3300526: TreeModel2
     4300000: Ladder
     4300002: Wheet13
     4300004: Fence
@@ -1429,6 +1461,16 @@ ModelImporter:
     4300500: ChimneyModel
     4300502: FishHook01
     4300504: BallModel00
+    4300506: CeilingRopes
+    4300508: Carrot
+    4300510: CarrotSoil
+    4300512: Carrot4
+    4300514: Carrot5
+    4300516: Carrot6
+    4300518: TreeModel2
+    4300520: TreeModel1
+    4300522: TreeModel
+    4300524: FirstFloorBase
     9500000: //RootNode
     13700000: Wheet13
     2186277476908879412: ImportLogs
