@@ -4611,6 +4611,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1013358165}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &464201814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 101008, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInstance: {fileID: 1013358165}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &471107504
 GameObject:
   m_ObjectHideFlags: 0
@@ -5484,12 +5490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5295762d7eb025845bc7a4969ce9d959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &620635316 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100268, guid: b2e9286c22cb687469da9f0cc667f429,
-    type: 3}
-  m_PrefabInstance: {fileID: 1013358165}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &634051683
 GameObject:
   m_ObjectHideFlags: 0
@@ -6061,8 +6061,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.03, y: 3.84, z: 0.72}
-  m_Center: {x: 0.09, y: 2.19, z: 0}
+  m_Size: {x: 1.27, y: 1.35, z: 0.72}
+  m_Center: {x: 0.09, y: 0.67, z: 0}
 --- !u!114 &740844332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6086,13 +6086,13 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LadderModel, 1.1, 1.1, 1.1, 0.5
+          m_StringArgument: LadderBottom, 1.1, 1.1, 1.1, 0.5
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   outlineWidth: 0.3
-  targetObj: {fileID: 620635316}
+  targetObj: {fileID: 464201814}
   mats: []
 --- !u!1 &742718249 stripped
 GameObject:
@@ -11176,6 +11176,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
     - target: {fileID: 2300810, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
+    - target: {fileID: 2300812, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
+    - target: {fileID: 2300814, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9ce93680fbde3b64bb326c8c554373a1, type: 2}
@@ -21191,7 +21199,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279773217180396}
-  m_LocalRotation: {x: -0.0030012098, y: -0.000000017211029, z: -5.1654132e-11, w: 0.9999955}
+  m_LocalRotation: {x: -0.0030012098, y: 0.000000017211024, z: 5.1654132e-11, w: 0.9999955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21296,7 +21304,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625331400867550}
-  m_LocalRotation: {x: 0.033277936, y: -2.3311328e-10, z: 7.761931e-12, w: 0.99944615}
+  m_LocalRotation: {x: 0.033277962, y: -0.000000029616464, z: 9.861219e-10, w: 0.99944615}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
