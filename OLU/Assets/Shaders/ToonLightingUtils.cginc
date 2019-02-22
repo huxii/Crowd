@@ -69,3 +69,15 @@ inline half4 LightingToon(SurfaceCustomOutput s, half3 lightDir, half3 viewDir, 
 
 	return c;
 }
+
+inline half4 LightingToonUnlit(SurfaceCustomOutput s, half3 lightDir, half3 viewDir, half atten)
+{
+	half4 shadowColor = GetSoftLightColor(half4(s.Albedo, 1.0), half4(1, 1, 1, 1) * 0.6f, 1.0);
+
+	// final
+	half4 c;
+	c.rgb = s.Ao * shadowColor.rgb * _LightColor0.rgb;
+	c.a = s.Alpha;
+
+	return c;
+}
