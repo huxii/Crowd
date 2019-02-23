@@ -6,6 +6,7 @@ Shader "Custom/Unlit_transition"
 {
 	Properties
 	{
+		_Alpha("Alpha", Range(0.0, 1.0)) = 0.0
 		_Progress("Progress", Range(0.0, 1.0)) = 0.0
 		_MainTex("Base (RGB)", 2D) = "white" {}
 		_PatternTex("Transition Pattern", 2D) = "white" {}
@@ -26,6 +27,7 @@ Shader "Custom/Unlit_transition"
 			#pragma fragmentoption ARB_precision_hint_fastest
 			#include "UnityCG.cginc"
 
+			uniform float _Alpha;
 			uniform float _Progress;
 			uniform sampler2D _MainTex;
 			uniform float4 _MainTex_ST;
@@ -55,8 +57,11 @@ Shader "Custom/Unlit_transition"
 			fixed4 frag(v2f i) :COLOR
 			{
 				float4 patternColor = tex2D(_PatternTex, TRANSFORM_TEX(i.uvWorld, _PatternTex));
-				clip(patternColor.r - _Progress);
-				return tex2D(_MainTex, i.uv) * _Color;
+				clip(_Progress - patternColor.r);
+	
+				float4 c = tex2D(_MainTex, i.uv) * _Color;
+				c.a = _Alpha;
+				return c;
 			}
 
 		ENDCG

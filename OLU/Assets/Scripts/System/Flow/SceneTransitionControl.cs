@@ -9,6 +9,7 @@ public class SceneTransitionControl : MonoBehaviour
     {
         DOTS,
         CIRCLE,
+        FADE,
         BLANK
     };
 
@@ -19,6 +20,7 @@ public class SceneTransitionControl : MonoBehaviour
         public Vector2 scale;
         public Vector2 offset;
         public float duration;
+        public string attrName;
     }
 
     public Shader transitionShader;
@@ -115,6 +117,14 @@ public class SceneTransitionControl : MonoBehaviour
         transitionCamera.enabled = true;
     }
 
+    public void ResetTransitionScreen(TransitionStyle style, float attrStartValue)
+    {
+        Material mat = transitionScreen.GetComponent<MeshRenderer>().material;
+        mat.SetFloat("_Progress", 1);
+        mat.SetFloat("_Alpha", 1);
+        mat.SetFloat(presets[(int)style].attrName, attrStartValue);
+    }
+
     public void FadeIntoTransitionScreen(TransitionStyle style)
     {
         if (transitionScreen)
@@ -122,7 +132,10 @@ public class SceneTransitionControl : MonoBehaviour
             ApplyTransitionStyle(style);
             transitionScreen.SetActive(true);
             transitionCamera.enabled = true;
-            Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, "_Progress", 1, 0, presets[(int)style].duration, false));
+
+            ResetTransitionScreen(style, 0);
+
+            Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, presets[(int)style].attrName, 0, 1, presets[(int)style].duration, false));
         }
     }
 
@@ -131,7 +144,9 @@ public class SceneTransitionControl : MonoBehaviour
         GenerateTransitionScreen();
         ApplyTransitionStyle(style);
 
-        Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, "_Progress", 1, 0, presets[(int)style].duration, false));
+        ResetTransitionScreen(style, 0);
+
+        Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, presets[(int)style].attrName, 0, 1, presets[(int)style].duration, false));
     }
 
     public void FadeOutOfLoadingScreen(TransitionStyle style)
@@ -140,18 +155,26 @@ public class SceneTransitionControl : MonoBehaviour
         //GenerateTransitionScreen();
         ApplyTransitionStyle(style);
 
-        Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, "_Progress", 0, 1, presets[(int)style].duration, true));
+        ResetTransitionScreen(style, 1);
+
+        Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, presets[(int)style].attrName, 1, 0, presets[(int)style].duration, true));
     }
 
     public void ZoomInTransitionScreen(TransitionStyle style)
     {
         ApplyTransitionStyle(style);
+
+        ResetTransitionScreen(style, 1);
+
         Services.taskManager.Do(new TimedTransitionZoomTask(transitionScreen, transitionCamera, 4, 0, 1, presets[(int)style].duration, false));
     }
 
     public void ZoomOutTransitionScreen(TransitionStyle style)
     {
         ApplyTransitionStyle(style);
+
+        ResetTransitionScreen(style, 1);
+
         Services.taskManager.Do(new TimedTransitionZoomTask(transitionScreen, transitionCamera, 8, 0, 1, presets[(int)style].duration, true));
     }
 }

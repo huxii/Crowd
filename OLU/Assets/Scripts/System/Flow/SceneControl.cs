@@ -91,6 +91,25 @@ public class SceneControl : MonoBehaviour
         }
     }
 
+    public void LoadSceneWithExpandAndRecord(string sceneName)
+    {
+        if (Services.sceneTransitionController)
+        {
+            PreloadScene(sceneName);
+
+            Services.taskManager
+                .Do(new ActionTask(Services.mainController.DisableInput))
+                .Then(new ActionTask(Services.sceneTransitionController.RecordScreen))
+                //.Then(new ActionTask(() => Services.sceneTransitionController.ZoomInTransitionScreen(SceneTransitionControl.TransitionStyle.FADE)))
+                //.Then(new Wait(1))
+                .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.FADE)));
+        }
+        else
+        {
+            LoadScene(sceneName);
+        }
+    }
+
     /*
     * 3d -> 2d
     */

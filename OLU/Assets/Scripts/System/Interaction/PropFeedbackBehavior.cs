@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class PropFeedbackBehavior : OutlineFeedbackBehavior
 {
+    private bool inited = false;
+
     void Awake()
     {
         GetComponent<PropControl>().PropFeedbackController = this;
@@ -39,6 +41,12 @@ public class PropFeedbackBehavior : OutlineFeedbackBehavior
 
     public override void OnInteract()
     {
+        if (!inited)
+        {
+            inited = true;
+            Services.utils.RecalculateNormals(targetObj);
+        }
+
         onInteractionFeedback.Invoke();
         Breathe(1);
     }

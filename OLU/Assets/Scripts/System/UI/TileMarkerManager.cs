@@ -7,7 +7,7 @@ public class TileMarkerManager : MonoBehaviour
     private GameObject gridProjector;
 
     // Use this for initialization
-    void Start()
+    public void Init()
     {
         gridProjector = Instantiate(Resources.Load<GameObject>("Prefabs/GridProjector") as GameObject, Vector3.zero, Quaternion.identity);
     }

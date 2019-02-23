@@ -40,11 +40,6 @@ public static class Services
         if (GameObject.Find("PathFinder"))
         {
             pathFindingManager = GameObject.Find("PathFinder").GetComponent<PathFindingManager>();
-
-            if (GameObject.Find("TileMarkerManager"))
-            {
-                tileMarkerManager = GameObject.Find("TileMarkerManager").GetComponent<TileMarkerManager>();
-            }
         }
         else
         {
@@ -67,6 +62,16 @@ public static class Services
             sceneController = mainController.gameObject.GetComponent<SceneControl>();
             gameEvents = mainController.gameObject.GetComponent<GameEvents>();
             dotweenEvents = mainController.gameObject.GetComponent<DotweenEvents>();
+
+            if (inputController != null && inputController.groundEnabled)
+            {
+                tileMarkerManager = new TileMarkerManager();
+                tileMarkerManager.Init();
+            }
+            else
+            {
+                tileMarkerManager = null;
+            }
         }
         else
         {
