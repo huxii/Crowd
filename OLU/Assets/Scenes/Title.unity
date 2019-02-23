@@ -1633,6 +1633,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
         type: 3}
+      propertyPath: presets.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
       propertyPath: presets.Array.data[1].texture
       value: 
       objectReference: {fileID: 2800000, guid: c4341361379f2f84cae3acad0d6bc4cb, type: 3}
@@ -1659,13 +1664,118 @@ PrefabInstance:
     - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
         type: 3}
       propertyPath: presets.Array.data[2].duration
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
         type: 3}
       propertyPath: presets.Array.data[0].texture
       value: 
       objectReference: {fileID: 2800000, guid: 457cf34446c22e245b68c53143c38552, type: 3}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[0].duration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[3].duration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[3].attrName
+      value: _Progress
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[3].texture
+      value: 
+      objectReference: {fileID: 2800000, guid: c4341361379f2f84cae3acad0d6bc4cb, type: 3}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[3].scale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[3].scale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[3].offset.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[3].offset.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[2].color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[2].color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[2].color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[1].color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[1].color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[1].color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[0].color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[0].color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[0].color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[0].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[1].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[2].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[3].color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 452f2a11f96b7964baa631fbd34bb58e, type: 3}
 --- !u!1 &642664478
@@ -1777,8 +1887,9 @@ GameObject:
   - component: {fileID: 645491604}
   - component: {fileID: 645491606}
   - component: {fileID: 645491605}
+  - component: {fileID: 645491607}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: SelectPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1795,7 +1906,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0033321, y: 1.0033323, z: 1.0033323}
   m_Children:
-  - {fileID: 769805584}
+  - {fileID: 1022429963}
   m_Father: {fileID: 313142338}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1824,6 +1935,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645491603}
   m_CullTransparentMesh: 0
+--- !u!111 &645491607
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645491603}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 978b5fa15f8684249ad3a921793f781b, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 978b5fa15f8684249ad3a921793f781b, type: 2}
+  - {fileID: 7400000, guid: 4c381f4457a85a34cbcdaf6034499e86, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &651028708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,7 +2101,7 @@ GameObject:
   - component: {fileID: 769805585}
   - component: {fileID: 769805587}
   m_Layer: 0
-  m_Name: Level1
+  m_Name: SelectButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1987,10 +2115,10 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769805583}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.000031806267}
   m_LocalScale: {x: 0.79, y: 0.79, z: 0.79}
   m_Children: []
-  m_Father: {fileID: 645491604}
+  m_Father: {fileID: 1022429963}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2087,7 +2215,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2129004333}
-        m_MethodName: LoadSceneWithExpandAndRecord
+        m_MethodName: LoadSceneWithAnimationAndRecord
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2425,6 +2553,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1022429962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1022429963}
+  m_Layer: 5
+  m_Name: SelectButtonRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1022429963
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022429962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.6841, y: 1.6841, z: 1.6841}
+  m_Children:
+  - {fileID: 769805584}
+  m_Father: {fileID: 645491604}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 176, y: -517}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1058245751
 GameObject:
   m_ObjectHideFlags: 0

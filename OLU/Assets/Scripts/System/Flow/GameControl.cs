@@ -147,13 +147,26 @@ public class GameControl : MainControl
         man.GetComponent<CrowdControl>().SwitchState(CrowdControl.CrowdState.IDLE);
     }
 
-    public override void Ending()
+    public override void Ending(bool cleared)
     {
-        base.Ending();
+        if (!hasEnded)
+        {
+            base.Ending(cleared);
 
-        // go back to title
-        DataSet.recentCompletedLevelIdx = Services.sceneController.CurrentSceneIdx();
-        Services.sceneController.LoadSceneWithRecordAndZoom("Title");
+            if (cleared)
+            {
+                // go back to title
+                DataSet.recentCompletedLevelIdx = Services.sceneController.CurrentSceneIdx();
+            }
+
+            Services.cameraController.SetZoom(0);
+            GameObject.Find("BackShell").GetComponent<ObjectControl>().Deactivate();
+
+            Services.taskManager
+                .Do(new Wait(1f))
+                .Then(new ActionTask(() => Services.sceneController.LoadSceneWithRecordAndAnimation("Title")));
+            //Services.sceneController.LoadSceneWithRecordAndZoom("Title");
+        }
     }
 
     public override void EnableInput()
@@ -161,6 +174,7 @@ public class GameControl : MainControl
         base.EnableInput();
 
         Services.hudController.SetInput(true);
+        Services.inputController.Lock(false);
     }
 
     public override void DisableInput()
@@ -168,5 +182,6 @@ public class GameControl : MainControl
         base.DisableInput();
 
         Services.hudController.SetInput(false);
+        Services.inputController.Lock(true);
     }
 }

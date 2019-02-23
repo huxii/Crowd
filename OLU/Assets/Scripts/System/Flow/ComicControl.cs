@@ -12,11 +12,11 @@ public class ComicControl : MainControl
         //Services.sceneController.PreloadNextScene();
     }
 
-    public override void Ending()
+    public override void Ending(bool cleared)
     {
-        base.Ending();
+        base.Ending(cleared);
 
         Debug.Log("End");
-        Services.sceneController.LoadSceneWithRecord("Level0");
+        //Services.sceneController.LoadSceneWithRecord("Level0");
     }
 }

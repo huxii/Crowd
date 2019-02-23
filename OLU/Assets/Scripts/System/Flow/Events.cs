@@ -112,3 +112,10 @@ public class TransitionFadeOut : Crowd.Event
     {
     }
 }
+
+public class LevelLoaded : Crowd.Event
+{
+    public LevelLoaded() : base()
+    {
+    }
+}

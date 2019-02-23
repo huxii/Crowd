@@ -10,6 +10,7 @@ public class SceneTransitionControl : MonoBehaviour
         DOTS,
         CIRCLE,
         FADE,
+        BLACK,
         BLANK
     };
 
@@ -21,6 +22,7 @@ public class SceneTransitionControl : MonoBehaviour
         public Vector2 offset;
         public float duration;
         public string attrName;
+        public Color color;
     }
 
     public Shader transitionShader;
@@ -29,6 +31,8 @@ public class SceneTransitionControl : MonoBehaviour
     GameObject transitionScreen = null;
     Camera transitionCamera = null;
     int transitionLayer = 31;
+    bool isTransiting = false;
+    TransitionStyle currentStyle = TransitionStyle.BLANK;
 
     void Awake()
     {
@@ -41,21 +45,13 @@ public class SceneTransitionControl : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void ApplyTransitionStyle(TransitionStyle style, float attrStartValue)
-    {
-        Material mat = transitionScreen.GetComponent<MeshRenderer>().material;
-        TransitionTexturePreset texturePreset = presets[(int)style];
-        mat.SetTexture("_PatternTex", texturePreset.texture);
-        mat.SetTextureScale("_PatternTex", texturePreset.scale);
-        mat.SetTextureOffset("_PatternTex", texturePreset.offset);
-
-        mat.SetFloat("_Progress", 1);
-        mat.SetFloat("_Alpha", 1);
-        mat.SetFloat(presets[(int)style].attrName, attrStartValue);
-    }
-
     private void GenerateTransitionScreen()
     {
+        if (transitionScreen)
+        {
+            Destroy(transitionScreen);
+        }
+
         if (!transitionCamera)
         {
             transitionCamera = gameObject.AddComponent<Camera>();
@@ -114,53 +110,96 @@ public class SceneTransitionControl : MonoBehaviour
     {
         yield return null;
         yield return new WaitForEndOfFrame();
+
         var texture = ScreenCapture.CaptureScreenshotAsTexture();
+        //Texture2D texture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGBA32, true);
+        //texture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+        //texture.Apply();
 
         transitionScreen.GetComponent<MeshRenderer>().material.mainTexture = texture;
-        transitionScreen.SetActive(true);
-        transitionCamera.enabled = true;
+        FadeIntoLoadingScreen(TransitionStyle.FADE);
+        //transitionScreen.SetActive(true);
+        //transitionCamera.enabled = true;
     }
 
-    public void FadeIntoTransitionScreen(TransitionStyle style)
+    private void ApplyTransitionStyle(TransitionStyle style, float attrStartValue)
     {
-        if (transitionScreen)
-        {
-            ApplyTransitionStyle(style, 0);
-            transitionScreen.SetActive(true);
-            transitionCamera.enabled = true;
+        currentStyle = style;
 
-            Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, presets[(int)style].attrName, 0, 1, presets[(int)style].duration, false));
+        Material mat = transitionScreen.GetComponent<MeshRenderer>().material;
+        TransitionTexturePreset texturePreset = presets[(int)style];
+        mat.SetTexture("_PatternTex", texturePreset.texture);
+        mat.SetTextureScale("_PatternTex", texturePreset.scale);
+        mat.SetTextureOffset("_PatternTex", texturePreset.offset);
+        mat.SetColor("_Color", texturePreset.color);
+
+        mat.SetFloat("_Progress", 1);
+        mat.SetFloat("_Alpha", 1);
+        mat.SetFloat(presets[(int)style].attrName, attrStartValue);
+    }
+
+    private void SetTransition(bool en)
+    {
+        if (en)
+        {
+            Services.mainController.DisableInput();
+            isTransiting = true;
         }
+        else
+        {
+            Services.mainController.EnableInput();
+            isTransiting = false;
+        }        
     }
 
     public void FadeIntoLoadingScreen(TransitionStyle style)
     {
-        GenerateTransitionScreen();
-        ApplyTransitionStyle(style, 0);
+        if (transitionScreen)
+        {
+            if (!isTransiting)
+            {
+                SetTransition(true);
 
-        Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, presets[(int)style].attrName, 0, 1, presets[(int)style].duration, false));
+                ApplyTransitionStyle(style, 0);
+
+                Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, presets[(int)style].attrName, 0, 1, presets[(int)style].duration, false));
+            }
+        }
+    }
+
+    public void FadeOutOfLoadingScreen()
+    {
+        FadeOutOfLoadingScreen(currentStyle);
     }
 
     public void FadeOutOfLoadingScreen(TransitionStyle style)
     {
-        //Debug.Log("Fade out");
-        //GenerateTransitionScreen();
-        ApplyTransitionStyle(style, 1);
+        if (isTransiting)
+        {
+            //Debug.Log("Fade out");
+            //GenerateTransitionScreen();
+            ApplyTransitionStyle(style, 1);
 
-        Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, presets[(int)style].attrName, 1, 0, presets[(int)style].duration, true));
+            Services.taskManager
+                .Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, presets[(int)style].attrName, 1, 0, presets[(int)style].duration, true))
+                .Then(new Wait(presets[(int)style].duration))
+                .Then(new ActionTask(() => SetTransition(false)));
+        }
     }
 
-    public void ZoomInTransitionScreen(TransitionStyle style)
-    {
-        ApplyTransitionStyle(style, 1);
 
-        Services.taskManager.Do(new TimedTransitionZoomTask(transitionScreen, transitionCamera, 4, 0, 1, presets[(int)style].duration, false));
-    }
 
-    public void ZoomOutTransitionScreen(TransitionStyle style)
-    {
-        ApplyTransitionStyle(style, 1);
+    //public void ZoomInTransitionScreen(TransitionStyle style)
+    //{
+    //    ApplyTransitionStyle(style, 1);
 
-        Services.taskManager.Do(new TimedTransitionZoomTask(transitionScreen, transitionCamera, 8, 0, 1, presets[(int)style].duration, true));
-    }
+    //    Services.taskManager.Do(new TimedTransitionZoomTask(transitionScreen, transitionCamera, 4, 0, 1, presets[(int)style].duration, false));
+    //}
+
+    //public void ZoomOutTransitionScreen(TransitionStyle style)
+    //{
+    //    ApplyTransitionStyle(style, 1);
+
+    //    Services.taskManager.Do(new TimedTransitionZoomTask(transitionScreen, transitionCamera, 8, 0, 1, presets[(int)style].duration, true));
+    //}
 }

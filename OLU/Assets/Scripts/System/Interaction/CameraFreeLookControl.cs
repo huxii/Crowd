@@ -21,6 +21,8 @@ public class CameraFreeLookControl : CameraControl
         public Vector4 translateRange;
     }
 
+    public bool startWithZoom = false;
+    public float startDelay = 0f;
     public GameObject pivots;
 
     public int maxZoomLevel = 0;
@@ -42,12 +44,11 @@ public class CameraFreeLookControl : CameraControl
     protected Vector2 clickCameraSpeed = new Vector2(1, 1);
 
     private CinemachineFreeLook freeLookCam;
-    private bool inited = false;
+    private bool inited;
 
     private void Awake()
     {
         freeLookCam = GetComponentInChildren<CinemachineFreeLook>();
-        freeLookCam.enabled = false;
 
         //Time.timeScale = 0;
         //RecordFrameToFile("C:/Users/huxin/Desktop/" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + ".png");
@@ -55,12 +56,32 @@ public class CameraFreeLookControl : CameraControl
 
     private void Start()
     {
-        StartCoroutine(InitDelay());
+        StartCoroutine(InitDelay(startDelay));
+
+        zoomLevel = defaultZoomLevel;
+
+        targetCameraAttr = zoomLevelAttrs[zoomLevel];
+        targetAngle = targetCameraAttr.angleZero;
+        origTranslate = targetCameraAttr.translateZero;
+        targetTranslate = origTranslate;
+
+        if (!startWithZoom)
+        {
+            pivots.transform.position = origTranslate;
+            freeLookCam.m_XAxis.Value = targetAngle.x;
+            freeLookCam.m_YAxis.Value = targetAngle.y / 180f;
+            freeLookCam.m_Orbits[0] = new CinemachineFreeLook.Orbit(targetCameraAttr.topRigOrbit.x, targetCameraAttr.topRigOrbit.y);
+            freeLookCam.m_Orbits[1] = new CinemachineFreeLook.Orbit(targetCameraAttr.middleRigOrbit.x, targetCameraAttr.middleRigOrbit.y);
+            freeLookCam.m_Orbits[2] = new CinemachineFreeLook.Orbit(targetCameraAttr.bottomRigOrbit.x, targetCameraAttr.bottomRigOrbit.y);            
+        }
+
+        inited = false;
+        freeLookCam.enabled = false;
     }
 
-    IEnumerator InitDelay()
+    IEnumerator InitDelay(float startDelay)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(startDelay);
 
         Init();
     }
@@ -69,21 +90,6 @@ public class CameraFreeLookControl : CameraControl
     {
         inited = true;
         freeLookCam.enabled = true;
-
-        zoomLevel = defaultZoomLevel;
-
-        targetCameraAttr = zoomLevelAttrs[zoomLevel];
-        //freeLookCam.m_Orbits[0] = new CinemachineFreeLook.Orbit(targetCameraAttr.topRigOrbit.x, targetCameraAttr.topRigOrbit.y);
-        //freeLookCam.m_Orbits[1] = new CinemachineFreeLook.Orbit(targetCameraAttr.middleRigOrbit.x, targetCameraAttr.middleRigOrbit.y);
-        //freeLookCam.m_Orbits[2] = new CinemachineFreeLook.Orbit(targetCameraAttr.bottomRigOrbit.x, targetCameraAttr.bottomRigOrbit.y);
-
-        targetAngle = targetCameraAttr.angleZero;
-        //freeLookCam.m_XAxis.Value = targetAngle.x;
-        //freeLookCam.m_YAxis.Value = targetAngle.y / 180f;
-
-        origTranslate = targetCameraAttr.translateZero;
-        //pivots.transform.position = origTranslate;
-        targetTranslate = origTranslate;
     }
 
     // Update is called once per frame

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MainControl : MonoBehaviour
 {
+    protected bool hasEnded = false;
+
     protected virtual void Awake()
     {
         Services.Init();
@@ -47,8 +49,10 @@ public class MainControl : MonoBehaviour
     {
     }
 
-    public virtual void Ending()
+    public virtual void Ending(bool cleared = false)
     {
+        hasEnded = true;
+        DisableInput();
     }
 
     public virtual void EnableInput()

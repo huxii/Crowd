@@ -12,6 +12,34 @@ public class SceneControl : MonoBehaviour
         async = null;
     }
 
+    //private void Start()
+    //{
+    //    Services.eventManager.Register<LevelLoaded>()
+    //}
+
+    //private void OnLevelLoaded()
+    //{
+    //    )
+    //}
+
+    private void OnLevelWasLoaded(int level)
+    {
+        //Debug.Log(level + " loaded.");
+        if (level == 0)
+        {
+            Services.taskManager
+                .Do(new ActionTask(() => Services.gameEvents.PlayAnimation("SelectPanel Level1Select")))
+                .Then(new Wait(0.5f))
+                .Then(new ActionTask(() => Services.sceneTransitionController.FadeOutOfLoadingScreen()))
+                .Then(new Wait(0.5f))
+                .Then(new ActionTask(() => Services.gameEvents.PlayAnimation("SelectPanel Level1Back")));
+        }
+        else
+        {
+            Services.sceneTransitionController.FadeOutOfLoadingScreen();
+        }
+    }
+
     public int CurrentSceneIdx()
     {
         return SceneManager.GetActiveScene().buildIndex;
@@ -37,71 +65,76 @@ public class SceneControl : MonoBehaviour
     /*
      * 2d -> 3d
     */
-    public void LoadSceneWithRecord(string sceneName)
+    //public void LoadSceneWithRecord(string sceneName)
+    //{
+    //    if (Services.sceneTransitionController)
+    //    {
+    //        PreloadScene(sceneName);
+
+    //        Services.mainController.DisableInput();
+    //        Services.sceneTransitionController.RecordScreen();
+    //        WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.DOTS);
+    //    }
+    //    else
+    //    {
+    //        LoadScene(sceneName);
+    //    }
+    //}
+
+    //public void LoadSceneWithZoomAndRecord(string sceneName)
+    //{
+    //    if (Services.sceneTransitionController)
+    //    {
+    //        PreloadScene(sceneName);
+
+    //        Services.mainController.DisableInput();
+    //        Services.sceneTransitionController.RecordScreen();
+    //        Services.sceneTransitionController.ZoomInTransitionScreen(SceneTransitionControl.TransitionStyle.DOTS);
+
+    //        Services.taskManager
+    //            .Do(new ActionTask())
+    //            .Then(new ActionTask())
+    //            .Then(new ActionTask(() => ))
+    //            .Then(new Wait(1))
+    //            .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.DOTS)));
+    //    }
+    //    else
+    //    {
+    //        LoadScene(sceneName);
+    //    }
+    //}
+
+    //public void LoadSceneWithLoadingScreen(string sceneName)
+    //{
+    //    if (Services.sceneTransitionController)
+    //    {
+    //        PreloadScene(sceneName);
+
+    //        Services.taskManager
+    //            .Do(new ActionTask(Services.mainController.DisableInput))
+    //            .Then(new ActionTask(() => Services.sceneTransitionController.FadeIntoLoadingScreen(SceneTransitionControl.TransitionStyle.DOTS)))
+    //            .Then(new Wait(1))
+    //            .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.DOTS)));
+    //    }
+    //    else
+    //    {
+    //        LoadScene(sceneName);
+    //    }
+    //}
+
+    public void LoadSceneWithAnimationAndRecord(string sceneName)
     {
         if (Services.sceneTransitionController)
         {
             PreloadScene(sceneName);
 
+            Services.mainController.DisableInput();
+            Services.gameEvents.PlayAnimation("SelectPanel Level1Select");
+
             Services.taskManager
-                .Do(new ActionTask(Services.mainController.DisableInput))
+                .Do(new Wait(0.5f))
                 .Then(new ActionTask(Services.sceneTransitionController.RecordScreen))
-                .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.DOTS)));
-        }
-        else
-        {
-            LoadScene(sceneName);
-        }
-    }
-
-    public void LoadSceneWithZoomAndRecord(string sceneName)
-    {
-        if (Services.sceneTransitionController)
-        {
-            PreloadScene(sceneName);
-
-            Services.taskManager
-                .Do(new ActionTask(Services.mainController.DisableInput))
-                .Then(new ActionTask(Services.sceneTransitionController.RecordScreen))
-                .Then(new ActionTask(() => Services.sceneTransitionController.ZoomInTransitionScreen(SceneTransitionControl.TransitionStyle.DOTS)))
-                .Then(new Wait(1))
-                .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.DOTS)));
-        }
-        else
-        {
-            LoadScene(sceneName);
-        }
-    }
-
-    public void LoadSceneWithLoadingScreen(string sceneName)
-    {
-        if (Services.sceneTransitionController)
-        {
-            PreloadScene(sceneName);
-
-            Services.taskManager
-                .Do(new ActionTask(Services.mainController.DisableInput))
-                .Then(new ActionTask(() => Services.sceneTransitionController.FadeIntoLoadingScreen(SceneTransitionControl.TransitionStyle.DOTS)))
-                .Then(new Wait(1))
-                .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.DOTS)));
-        }
-        else
-        {
-            LoadScene(sceneName);
-        }
-    }
-
-    public void LoadSceneWithExpandAndRecord(string sceneName)
-    {
-        if (Services.sceneTransitionController)
-        {
-            PreloadScene(sceneName);
-
-            Services.taskManager
-                .Do(new ActionTask(Services.mainController.DisableInput))
-                .Then(new ActionTask(Services.sceneTransitionController.RecordScreen))
-                //.Then(new ActionTask(() => Services.sceneTransitionController.ZoomInTransitionScreen(SceneTransitionControl.TransitionStyle.FADE)))
-                //.Then(new Wait(1))
+                .Then(new Wait(0.5f))
                 .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.FADE)));
         }
         else
@@ -126,10 +159,9 @@ public class SceneControl : MonoBehaviour
             PreloadScene(sceneName);
 
             Services.taskManager
-                .Do(new ActionTask(Services.mainController.DisableInput))
-                .Then(new ActionTask(() => Services.sceneTransitionController.FadeIntoTransitionScreen(SceneTransitionControl.TransitionStyle.CIRCLE)))
+                .Do(new ActionTask(() => Services.sceneTransitionController.FadeIntoLoadingScreen(SceneTransitionControl.TransitionStyle.BLACK)))
                 .Then(new Wait(0.5f))
-                .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.CIRCLE)));
+                .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.BLACK)));
         }
         else
         {
@@ -137,23 +169,49 @@ public class SceneControl : MonoBehaviour
         }
     }
 
-    public void LoadSceneWithRecordAndZoom(string sceneName)
+    public void LoadSceneWithRecordAndAnimation(string sceneName)
     {
         if (Services.sceneTransitionController)
         {
             PreloadScene(sceneName);
 
             Services.taskManager
-                .Do(new ActionTask(Services.mainController.DisableInput))
-                .Then(new ActionTask(() => Services.sceneTransitionController.FadeIntoTransitionScreen(SceneTransitionControl.TransitionStyle.DOTS)))
-                .Then(new Wait(1f))
-                .Then(new ActionTask(() => WaifForAsyncLoadingWithZoom(SceneTransitionControl.TransitionStyle.DOTS)));
+                .Do(new ActionTask(() => Services.sceneTransitionController.FadeIntoLoadingScreen(SceneTransitionControl.TransitionStyle.FADE)))
+                .Then(new Wait(0.5f))
+                .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.FADE)));
+
+
+            //Services.gameEvents.PlayAnimation("SelectPanel Level1Select");
+
+            //Services.taskManager
+            //    .Do(new Wait(1))
+            //    .Then(new ActionTask(Services.sceneTransitionController.RecordScreen))
+            //    .Then(new Wait(1))
+            //    .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.FADE)));
         }
         else
         {
             LoadScene(sceneName);
         }
     }
+
+    //public void LoadSceneWithRecordAndZoom(string sceneName)
+    //{
+    //    if (Services.sceneTransitionController)
+    //    {
+    //        PreloadScene(sceneName);
+
+    //        Services.taskManager
+    //            .Do(new ActionTask(Services.mainController.DisableInput))
+    //            .Then(new ActionTask(() => Services.sceneTransitionController.FadeIntoTransitionScreen(SceneTransitionControl.TransitionStyle.DOTS)))
+    //            .Then(new Wait(1f))
+    //            .Then(new ActionTask(() => WaifForAsyncLoadingWithZoom(SceneTransitionControl.TransitionStyle.DOTS)));
+    //    }
+    //    else
+    //    {
+    //        LoadScene(sceneName);
+    //    }
+    //}
 
     private void WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle style)
     {
@@ -166,10 +224,10 @@ public class SceneControl : MonoBehaviour
         {
             if (async.progress >= 0.9f)
             {
-                Services.taskManager
-                    .Do(new ActionTask(() => Services.sceneTransitionController.FadeOutOfLoadingScreen(style)))
-                    .Then(new Wait(1f))
-                    .Then(new ActionTask(Services.mainController.EnableInput));
+                //Services.taskManager
+                //    .Do(new ActionTask(() => Services.sceneTransitionController.FadeOutOfLoadingScreen(style)))
+                //    .Then(new Wait(1f))
+                //    .Then(new ActionTask(Services.mainController.EnableInput));
               
                 async.allowSceneActivation = true;
             }
@@ -178,26 +236,26 @@ public class SceneControl : MonoBehaviour
         }
     }
 
-    private void WaifForAsyncLoadingWithZoom(SceneTransitionControl.TransitionStyle style)
-    {
-        StartCoroutine(AsyncLoadingWithZoom(style));
-    }
+    //private void WaifForAsyncLoadingWithZoom(SceneTransitionControl.TransitionStyle style)
+    //{
+    //    StartCoroutine(AsyncLoadingWithZoom(style));
+    //}
 
-    IEnumerator AsyncLoadingWithZoom(SceneTransitionControl.TransitionStyle style)
-    {
-        while (!async.isDone)
-        {
-            if (async.progress >= 0.9f)
-            {
-                Services.taskManager
-                    .Do(new ActionTask(() => Services.sceneTransitionController.ZoomOutTransitionScreen(style)))
-                    .Then(new Wait(1f))
-                    .Then(new ActionTask(Services.mainController.EnableInput));
+    //IEnumerator AsyncLoadingWithZoom(SceneTransitionControl.TransitionStyle style)
+    //{
+    //    while (!async.isDone)
+    //    {
+    //        if (async.progress >= 0.9f)
+    //        {
+    //            Services.taskManager
+    //                .Do(new ActionTask(() => Services.sceneTransitionController.ZoomOutTransitionScreen(style)))
+    //                .Then(new Wait(1f))
+    //                .Then(new ActionTask(Services.mainController.EnableInput));
 
-                async.allowSceneActivation = true;
-            }
+    //            async.allowSceneActivation = true;
+    //        }
 
-            yield return null;
-        }
-    }
+    //        yield return null;
+    //    }
+    //}
 }
