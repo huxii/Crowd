@@ -53,6 +53,18 @@ public class CameraFreeLookControl : CameraControl
         //RecordFrameToFile("C:/Users/huxin/Desktop/" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + ".png");
     }
 
+    private void Start()
+    {
+        StartCoroutine(InitDelay());
+    }
+
+    IEnumerator InitDelay()
+    {
+        yield return new WaitForSeconds(1);
+
+        Init();
+    }
+
     private void Init()
     {
         inited = true;
@@ -80,7 +92,7 @@ public class CameraFreeLookControl : CameraControl
         // wait for cinemachine init to avoid unsync
         if (!inited)
         {
-            Init();
+            //Init();
         }
         else
         {
