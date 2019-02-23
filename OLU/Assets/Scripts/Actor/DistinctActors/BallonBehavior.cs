@@ -12,10 +12,10 @@ public class BallonBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!activated)
-        {
-            Services.dotweenEvents.Zigzag(gameObject.name + " y " + swingAngle.ToString() + " " + swingDuration.ToString() + " -1 true");
-            activated = true;
-        }
+        //if (!activated)
+        //{
+        //    Services.dotweenEvents.Zigzag(gameObject.name + " y " + swingAngle.ToString() + " " + swingDuration.ToString() + " -1 true");
+        //    activated = true;
+        //}
     }
 }

@@ -14,19 +14,19 @@ public class GameControl : MainControl
     //private GameObject swipeObj = null;
 
     // Use this for initialization
-    protected override void Start()
-    {
-        base.Start();
+    //protected override void Start()
+    //{
+    //    base.Start();
 
-        //Services.sceneTransitionController.FadeIn();
-        //Services.sceneController.PreloadScene();
+    //    //Services.sceneTransitionController.FadeIn();
+    //    //Services.sceneController.PreloadScene();
 
-        //Physics2D.velocityIterations = velocityIter;
-        //Physics2D.positionIterations = positionIter;
+    //    //Physics2D.velocityIterations = velocityIter;
+    //    //Physics2D.positionIterations = positionIter;
 
-        // do a favor for outline shader
-        Services.utils.RecalculateNormals();
-    }
+    //    // do a favor for outline shader
+    //    //Services.utils.RecalculateNormals();
+    //}
 
     //protected override void Update()
     //{

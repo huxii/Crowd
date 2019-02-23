@@ -36,6 +36,17 @@ public class CameraControl : MonoBehaviour
         //Debug.Log(pos + " " + Mathf.Sin(ratioY * 90f) + " " + ratioY);
     }
 
+    public void RecordFrameToFile(string filename)
+    {
+        StartCoroutine(WaitForRecordFrameToFile(filename));
+    }
+
+    IEnumerator WaitForRecordFrameToFile(string filename)
+    {
+        yield return new WaitForEndOfFrame();
+        ScreenCapture.CaptureScreenshot(filename);
+    }
+
     public virtual void ResetAngle()
     {
     }

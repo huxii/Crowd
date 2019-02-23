@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class InputControl : MonoBehaviour
 {
     public bool autoFocusCameraEnabled = false;
+    public bool groundEnabled = true;
 
     protected bool locked = false;
 

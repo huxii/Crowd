@@ -28,13 +28,17 @@ public class Utils
 
     public void RecalculateNormals()
     {
-        GameObject interactables = GameObject.Find("Interactables");
-        if (interactables == null)
+        RecalculateNormals(GameObject.Find("Interactables"));
+    }
+
+    public void RecalculateNormals(GameObject obj)
+    {
+        if (obj == null)
         {
             return;
         }
 
-        MeshFilter[] meshFilters = interactables.GetComponentsInChildren<MeshFilter>();
+        MeshFilter[] meshFilters = obj.GetComponentsInChildren<MeshFilter>();
         if (meshFilters == null)
         {
             return;
