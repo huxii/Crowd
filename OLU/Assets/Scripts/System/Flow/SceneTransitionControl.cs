@@ -25,13 +25,13 @@ public class SceneTransitionControl : MonoBehaviour
         public Color color;
     }
 
+    public bool isTransiting = false;
     public Shader transitionShader;
     public List<TransitionTexturePreset> presets;
 
     GameObject transitionScreen = null;
     Camera transitionCamera = null;
     int transitionLayer = 31;
-    bool isTransiting = false;
     TransitionStyle currentStyle = TransitionStyle.BLANK;
 
     void Awake()

@@ -17913,11 +17913,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4966353445783059105, guid: 73162b8cff30ba14e82c0ae89a646668,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5185874801333202833, guid: 73162b8cff30ba14e82c0ae89a646668,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18028,36 +18023,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 20557031702313362}
-    - target: {fileID: 5183699312502256281, guid: 73162b8cff30ba14e82c0ae89a646668,
-        type: 3}
-      propertyPath: m_PixelPerfect
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5004151683276138449, guid: 73162b8cff30ba14e82c0ae89a646668,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1095591040}
-    - target: {fileID: 5004151683276138449, guid: 73162b8cff30ba14e82c0ae89a646668,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReloadSceneWithRecord
-      objectReference: {fileID: 0}
     - target: {fileID: 5007183227503392339, guid: 73162b8cff30ba14e82c0ae89a646668,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1095591041}
-    - target: {fileID: 5007183227503392339, guid: 73162b8cff30ba14e82c0ae89a646668,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Ending
-      objectReference: {fileID: 0}
-    - target: {fileID: 5007183227503392339, guid: 73162b8cff30ba14e82c0ae89a646668,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73162b8cff30ba14e82c0ae89a646668, type: 3}
 --- !u!1 &1842676111 stripped
@@ -21149,7 +21124,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681086170184940}
-  m_LocalRotation: {x: -3.7269195e-11, y: 0.99999195, z: -0.0040171067, w: -0.000000009277535}
+  m_LocalRotation: {x: -3.139171e-10, y: 0.99999195, z: -0.004017103, w: -0.00000007814454}
   m_LocalPosition: {x: 0.000003934025, y: 9.5, z: 45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -21192,7 +21167,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175608430156314}
-  m_LocalRotation: {x: -1.0652785e-10, y: 0.99999195, z: -0.004017103, w: -0.00000002651948}
+  m_LocalRotation: {x: -2.448513e-10, y: 0.99999195, z: -0.004017101, w: -0.00000006095298}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21268,7 +21243,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625331400867550}
-  m_LocalRotation: {x: -0.000000001352741, y: 0.9997534, z: -0.022205792, w: -0.00000006090276}
+  m_LocalRotation: {x: -5.8857785e-10, y: 0.9997534, z: -0.022205772, w: -0.000000026498478}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
