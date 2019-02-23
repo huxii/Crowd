@@ -73,7 +73,10 @@ public class RopeSpriteBehavior : ObjectControl
         //}
 
         base.Activate();
-        weightObj.GetComponent<RopeSpriteWeightBehavior>().Activate();
+        if (weightObj != null)
+        {
+            weightObj.GetComponent<RopeSpriteWeightBehavior>().Activate();
+        }
     }
 
     public override void Deactivate()
@@ -91,6 +94,9 @@ public class RopeSpriteBehavior : ObjectControl
         //}
 
         base.Deactivate();
-        weightObj.GetComponent<RopeSpriteWeightBehavior>().Deactivate();
+        if (weightObj != null)
+        {
+            weightObj.GetComponent<RopeSpriteWeightBehavior>().Deactivate();
+        }
     }
 }
