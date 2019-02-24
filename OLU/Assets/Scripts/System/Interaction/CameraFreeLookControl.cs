@@ -49,11 +49,6 @@ public class CameraFreeLookControl : CameraControl
     private void Awake()
     {
         freeLookCam = GetComponentInChildren<CinemachineFreeLook>();
-
-        //Services.mainController.gameObject.GetComponent<FPSDisplay>().enabled = false;
-        //Services.hudController.gameObject.SetActive(false);
-        //Time.timeScale = 0;
-        //RecordFrameToFile("C:/Users/huxin/Desktop/" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_cover.png");
     }
 
     private void Start()
@@ -100,6 +95,10 @@ public class CameraFreeLookControl : CameraControl
         // wait for cinemachine init to avoid unsync
         if (!inited)
         {
+            //Services.mainController.gameObject.GetComponent<FPSDisplay>().enabled = false;
+            //Services.hudController.gameObject.SetActive(false);
+            //Time.timeScale = 0;
+            //RecordFrameToFile("C:/Users/huxin/Desktop/" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_cover.png");
             //Init();
         }
         else
