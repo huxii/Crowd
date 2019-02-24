@@ -159,6 +159,8 @@ public class GameControl : MainControl
                 DataSet.recentCompletedLevelIdx = Services.sceneController.CurrentSceneIdx();
             }
 
+            DataSet.recentQuitLevelName = Services.sceneController.CurrentSceneName();
+
             Services.cameraController.SetZoom(0);
             GameObject.Find("BackShell").GetComponent<ObjectControl>().Deactivate();
 

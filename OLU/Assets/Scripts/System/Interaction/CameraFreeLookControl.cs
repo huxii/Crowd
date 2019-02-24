@@ -50,8 +50,10 @@ public class CameraFreeLookControl : CameraControl
     {
         freeLookCam = GetComponentInChildren<CinemachineFreeLook>();
 
+        //Services.mainController.gameObject.GetComponent<FPSDisplay>().enabled = false;
+        //Services.hudController.gameObject.SetActive(false);
         //Time.timeScale = 0;
-        //RecordFrameToFile("C:/Users/huxin/Desktop/" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + ".png");
+        //RecordFrameToFile("C:/Users/huxin/Desktop/" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_cover.png");
     }
 
     private void Start()

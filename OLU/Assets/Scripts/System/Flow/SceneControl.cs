@@ -11,28 +11,22 @@ public class SceneControl : MonoBehaviour
     {
         async = null;
     }
-
-    //private void Start()
-    //{
-    //    Services.eventManager.Register<LevelLoaded>()
-    //}
-
-    //private void OnLevelLoaded()
-    //{
-    //    )
-    //}
-
+    
     private void OnLevelWasLoaded(int level)
     {
         //Debug.Log(level + " loaded.");
         if (level == 0)
         {
-            Services.taskManager
-                .Do(new ActionTask(() => Services.gameEvents.PlayAnimation("SelectPanel Level1Select")))
-                .Then(new Wait(0.5f))
-                .Then(new ActionTask(() => Services.sceneTransitionController.FadeOutOfLoadingScreen()))
-                .Then(new Wait(0.5f))
-                .Then(new ActionTask(() => Services.gameEvents.PlayAnimation("SelectPanel Level1Back")));
+            //Debug.Log(DataSet.recentQuitLevelName);
+            if (Services.sceneTransitionController.isTransiting)
+            {
+                Services.taskManager
+                    .Do(new ActionTask(() => Services.gameEvents.PlayAnimation(DataSet.recentQuitLevelName + "SelectPanel " + DataSet.recentQuitLevelName + "Select")))
+                    .Then(new Wait(0.5f))
+                    .Then(new ActionTask(() => Services.sceneTransitionController.FadeOutOfLoadingScreen()))
+                    .Then(new Wait(0.5f))
+                    .Then(new ActionTask(() => Services.gameEvents.PlayAnimation(DataSet.recentQuitLevelName + "SelectPanel " + DataSet.recentQuitLevelName + "Back")));
+            }
         }
         else
         {
@@ -43,6 +37,14 @@ public class SceneControl : MonoBehaviour
     public int CurrentSceneIdx()
     {
         return SceneManager.GetActiveScene().buildIndex;
+    }
+
+    public string CurrentSceneName()
+    {
+        return SceneManager.GetActiveScene().name;
+
+        // return SceneManager.GetSceneByBuildIndex(idx).name;
+        // not working
     }
 
     public void ReloadCurrentScene()
@@ -122,6 +124,12 @@ public class SceneControl : MonoBehaviour
     //    }
     //}
 
+    public void LegacyLoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+        Services.mainController.EnableInput();
+    }
+
     public void LoadSceneWithAnimationAndRecord(string sceneName)
     {
         if (Services.sceneTransitionController)
@@ -129,7 +137,7 @@ public class SceneControl : MonoBehaviour
             PreloadScene(sceneName);
 
             Services.mainController.DisableInput();
-            Services.gameEvents.PlayAnimation("SelectPanel Level1Select");
+            Services.gameEvents.PlayAnimation(sceneName + "SelectPanel " + sceneName + "Select");
 
             Services.taskManager
                 .Do(new Wait(0.5f))
@@ -139,7 +147,7 @@ public class SceneControl : MonoBehaviour
         }
         else
         {
-            LoadScene(sceneName);
+            LegacyLoadScene(sceneName);
         }
     }
 
@@ -165,7 +173,7 @@ public class SceneControl : MonoBehaviour
         }
         else
         {
-            LoadScene(sceneName);
+            LegacyLoadScene(sceneName);
         }
     }
 
@@ -179,19 +187,10 @@ public class SceneControl : MonoBehaviour
                 .Do(new ActionTask(() => Services.sceneTransitionController.FadeIntoLoadingScreen(SceneTransitionControl.TransitionStyle.FADE)))
                 .Then(new Wait(0.5f))
                 .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.FADE)));
-
-
-            //Services.gameEvents.PlayAnimation("SelectPanel Level1Select");
-
-            //Services.taskManager
-            //    .Do(new Wait(1))
-            //    .Then(new ActionTask(Services.sceneTransitionController.RecordScreen))
-            //    .Then(new Wait(1))
-            //    .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.FADE)));
         }
         else
         {
-            LoadScene(sceneName);
+            LegacyLoadScene(sceneName);
         }
     }
 
