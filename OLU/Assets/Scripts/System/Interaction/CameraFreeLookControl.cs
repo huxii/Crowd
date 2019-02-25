@@ -74,6 +74,8 @@ public class CameraFreeLookControl : CameraControl
 
         inited = false;
         freeLookCam.enabled = false;
+
+        //RecordFrameToFile(null, 3f);
     }
 
     IEnumerator InitDelay(float startDelay)
@@ -95,10 +97,6 @@ public class CameraFreeLookControl : CameraControl
         // wait for cinemachine init to avoid unsync
         if (!inited)
         {
-            //Services.mainController.gameObject.GetComponent<FPSDisplay>().enabled = false;
-            //Services.hudController.gameObject.SetActive(false);
-            //Time.timeScale = 0;
-            //RecordFrameToFile("C:/Users/huxin/Desktop/" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_cover.png");
             //Init();
         }
         else
@@ -115,7 +113,19 @@ public class CameraFreeLookControl : CameraControl
             freeLookCam.m_Orbits[2] = new CinemachineFreeLook.Orbit(bottomOrbit.x, bottomOrbit.y);
 
             pivots.transform.position = Vector3.Lerp(pivots.transform.position, targetTranslate, Time.deltaTime * 10f);
+
+            Services.mainController.UpdateParallaxScrolling();
         }
+    }
+
+    protected void ZoomOut()
+    {
+        SetZoom(zoomLevel - 1);
+    }
+
+    protected void ZoomIn()
+    {
+        SetZoom(zoomLevel + 1);
     }
 
     public bool isZoomed()
@@ -276,13 +286,8 @@ public class CameraFreeLookControl : CameraControl
         }
     }
 
-    protected void ZoomOut()
+    public override Vector2 CurrentOrbit()
     {
-        SetZoom(zoomLevel - 1);
-    }
-
-    protected void ZoomIn()
-    {
-        SetZoom(zoomLevel + 1);
+        return new Vector2(freeLookCam.m_XAxis.Value, freeLookCam.m_YAxis.Value * 180f);
     }
 }

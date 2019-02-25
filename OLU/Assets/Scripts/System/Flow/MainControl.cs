@@ -64,4 +64,8 @@ public class MainControl : MonoBehaviour
     {
         DataSet.isInputEnabled = false;
     }
+
+    public virtual void UpdateParallaxScrolling()
+    {
+    }
 }

@@ -22,6 +22,26 @@ public class CameraControl : MonoBehaviour
     {
     }
 
+    public void RecordFrameToFile(string filename = null, float delayTime = 1f)
+    {
+        Services.mainController.gameObject.GetComponent<FPSDisplay>().enabled = false;
+        Services.hudController.gameObject.SetActive(false);
+
+        if (filename == null)
+        {
+            filename = "C:/Users/huxin/Desktop/" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_cover.png";
+        }
+
+        StartCoroutine(WaitForRecordFrameToFile(filename, delayTime));
+    }
+
+    IEnumerator WaitForRecordFrameToFile(string filename, float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        yield return new WaitForEndOfFrame();
+        ScreenCapture.CaptureScreenshot(filename);
+    }
+
     public void SetEnable(bool en)
     {
         isEnabled = en;
@@ -34,17 +54,6 @@ public class CameraControl : MonoBehaviour
         SetOrbit(-1, Mathf.Sin(ratioY * 90f / 180f * Mathf.PI));
 
         //Debug.Log(pos + " " + Mathf.Sin(ratioY * 90f) + " " + ratioY);
-    }
-
-    public void RecordFrameToFile(string filename)
-    {
-        StartCoroutine(WaitForRecordFrameToFile(filename));
-    }
-
-    IEnumerator WaitForRecordFrameToFile(string filename)
-    {
-        yield return new WaitForEndOfFrame();
-        ScreenCapture.CaptureScreenshot(filename);
     }
 
     public virtual void ResetAngle()
@@ -70,6 +79,11 @@ public class CameraControl : MonoBehaviour
 
     public virtual void SetOrbit(float x, float y)
     {
+    }
+
+    public virtual Vector2 CurrentOrbit()
+    {
+        return new Vector2(0, 0);
     }
 
     public virtual void ResumeZoom()

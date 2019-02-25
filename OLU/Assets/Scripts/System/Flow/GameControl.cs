@@ -186,4 +186,16 @@ public class GameControl : MainControl
         Services.hudController.SetInput(false);
         Services.inputController.Lock(true);
     }
+
+    public override void UpdateParallaxScrolling()
+    {
+        base.UpdateParallaxScrolling();
+
+        Vector2 value = Services.cameraController.CurrentOrbit();
+        if (value.x > 180)
+        {
+            value = new Vector2(360 - value.x, value.y);
+        }
+        Services.eventManager.Fire(new ParallaxScrollingEvent(value));
+    }
 }

@@ -113,9 +113,11 @@ public class TransitionFadeOut : Crowd.Event
     }
 }
 
-public class LevelLoaded : Crowd.Event
+public class ParallaxScrollingEvent : Crowd.Event
 {
-    public LevelLoaded() : base()
+    public Vector2 scrollValue;
+    public ParallaxScrollingEvent(Vector2 value) : base()
     {
+        scrollValue = value;
     }
 }

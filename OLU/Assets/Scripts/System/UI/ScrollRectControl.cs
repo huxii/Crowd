@@ -13,9 +13,14 @@ public class ScrollRectControl : ScrollRect
     private UnityEngine.UI.Extensions.ScrollSnap scrollSnap;
     private List<Transform> contentList;
     private float contentDistance;
+    private float contentWidth = 2048f;
+
+    private int page0 = -1;
+    private int page1 = 0;
 
     private void Update()
     {
+        //Debug.Log(page0 + " " + page1);
     }
 
     private void ScaleEffect(int page0, int page1, float value)
@@ -56,20 +61,24 @@ public class ScrollRectControl : ScrollRect
     public void OnValueChanged(Vector2 scroll)
     {
         float value = scroll.x;
-        int page0 = 0;
-        int page1 = 1;
-        while (page1 < contentList.Count)
-        {
-            if (value >= page0 * contentDistance && value < page1 * contentDistance)
-            {
-                break;
-            }
+        page0 = Mathf.Abs((int)((-content.anchoredPosition.x - contentWidth / 2) / contentWidth));
+        page1 = page0 + 1;
 
-            ++page0;
-            ++page1;
-        }
+        Services.mainController.UpdateParallaxScrolling();
+        //page0 = 0;
+        //page1 = 1;
+        //while (page1 < contentList.Count)
+        //{
+        //    if (value >= page0 * contentDistance && value < page1 * contentDistance)
+        //    {
+        //        break;
+        //    }
 
-        ScaleEffect(page0, page1, value);
+        //    ++page0;
+        //    ++page1;
+        //}
+
+        //ScaleEffect(page0, page1, value);
     }
 
     public void Init()

@@ -30,6 +30,14 @@ public class MenuControl : MainControl
         Services.hudController.SetInput(false);
     }
 
+    public override void UpdateParallaxScrolling()
+    {
+        base.UpdateParallaxScrolling();
+
+        Vector2 value = scrollController.content.anchoredPosition;
+        Services.eventManager.Fire(new ParallaxScrollingEvent(value));
+    }
+
     public void OnStartButtonClicked()
     {
         scrollController.MoveToLevelSelect();        

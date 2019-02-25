@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Utils
+public class Utils : MonoBehaviour
 {
     int[] union;
 
