@@ -5430,21 +5430,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1095591040}
-    - target: {fileID: 5004151683276138449, guid: 73162b8cff30ba14e82c0ae89a646668,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReloadSceneWithRecord
-      objectReference: {fileID: 0}
     - target: {fileID: 5007183227503392339, guid: 73162b8cff30ba14e82c0ae89a646668,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1854778968}
-    - target: {fileID: 5007183227503392339, guid: 73162b8cff30ba14e82c0ae89a646668,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Ending
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73162b8cff30ba14e82c0ae89a646668, type: 3}
 --- !u!1 &1258003780
