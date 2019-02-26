@@ -75,7 +75,7 @@ public class CameraFreeLookControl : CameraControl
         inited = false;
         freeLookCam.enabled = false;
 
-        //RecordFrameToFile(null, 3f);
+        //RecordFrameToFile(null, 1f);
     }
 
     IEnumerator InitDelay(float startDelay)

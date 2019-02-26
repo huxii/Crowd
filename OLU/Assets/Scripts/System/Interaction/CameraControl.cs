@@ -29,15 +29,26 @@ public class CameraControl : MonoBehaviour
 
         if (filename == null)
         {
-            filename = "C:/Users/huxin/Desktop/" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_cover.png";
+            filename = "C:/Users/huxin/Desktop/" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_cover";
         }
 
-        StartCoroutine(WaitForRecordFrameToFile(filename, delayTime));
+        string filename0 = filename + "_green";
+
+        StartCoroutine(WaitForRecordFrameToFile(filename + ".png", delayTime));
+        StartCoroutine(WaitForRecordFrameToFileGreen(filename0 + ".png", delayTime + 1f));
     }
 
     IEnumerator WaitForRecordFrameToFile(string filename, float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
+        yield return new WaitForEndOfFrame();
+        ScreenCapture.CaptureScreenshot(filename);
+    }
+
+    IEnumerator WaitForRecordFrameToFileGreen(string filename, float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        GameObject.Find("Background").SetActive(false);
         yield return new WaitForEndOfFrame();
         ScreenCapture.CaptureScreenshot(filename);
     }
