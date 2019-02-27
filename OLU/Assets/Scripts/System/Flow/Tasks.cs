@@ -165,7 +165,15 @@ public class TimedTransitionMaterialTask : TimedTransitionTask
         base.Init();
 
         mat = obj.GetComponent<MeshRenderer>().material;
-        mat.SetFloat(attrName, start);
+
+        if (start == DataSet.magicNumber)
+        {
+            start = mat.GetFloat(attrName);
+        }
+        else
+        {
+            mat.SetFloat(attrName, start);
+        }
     }
 
     protected override void OnTick(float t)

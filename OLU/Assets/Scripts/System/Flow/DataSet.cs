@@ -10,4 +10,6 @@ public static class DataSet
     public static Vector2 recentContentPos = new Vector2(0, 0);
 
     public static bool isInputEnabled = true;
+
+    public static float magicNumber = -373737;
 }

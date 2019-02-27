@@ -63,7 +63,6 @@ public class CrowdControl : ActorControl
     private CrowdState state = CrowdState.IDLE;
     private CrowdState lastState = CrowdState.IDLE;
     private float stateCoolingDown = 0;
-    private float stateMagicNumber = -373737;
 
     // spine animation
     private SpineAnimationControl spineAnimController = null;
@@ -359,7 +358,7 @@ public class CrowdControl : ActorControl
             lastState = state;
         }
         state = s;
-        stateCoolingDown = stateMagicNumber;
+        stateCoolingDown = DataSet.magicNumber;
     }
 
     public void Flip(float p)
@@ -514,7 +513,7 @@ public class CrowdControl : ActorControl
 
         public override bool Update(CrowdControl man)
         {
-            if (man.stateCoolingDown == man.stateMagicNumber)
+            if (man.stateCoolingDown == DataSet.magicNumber)
             {
                 OnStart(man);
             }
