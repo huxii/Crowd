@@ -8,6 +8,7 @@ public class SoundClip
 {
     public string id = null;
     public AudioClip audioClip = null;
+    public string filename = null;
     public int loop = 1; // -1: infinite
     public float startDelay = 0;
     public float fadeInDuration = 0;
@@ -55,7 +56,9 @@ public class SoundControl : MonoBehaviour
             if (row[0] == "1")
             {             
                 clip.id = row[1];
-                clip.audioClip = Resources.Load<AudioClip>("Sounds/" + row[2]);
+                //clip.audioClip = Resources.Load<AudioClip>("Sounds/" + row[2]);
+                clip.audioClip = null;
+                clip.filename = row[2];
                 int.TryParse(row[3], out clip.loop);
                 float.TryParse(row[4], out clip.startDelay);
                 float.TryParse(row[5], out clip.fadeInDuration);
@@ -134,6 +137,11 @@ public class SoundControl : MonoBehaviour
             AudioSource source = audioSources[i].GetComponent<AudioSource>();
             if (source.clip == null)
             {
+                if (soundList[id].audioClip == null)
+                {
+                    soundList[id].audioClip = Resources.Load<AudioClip>("Sounds/" + soundList[id].filename);
+                }
+
                 source.playOnAwake = false;
                 source.loop = (soundList[id].loop == -1);
                 source.clip = soundList[id].audioClip;

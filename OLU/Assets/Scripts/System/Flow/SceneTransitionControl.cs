@@ -192,7 +192,7 @@ public class SceneTransitionControl : MonoBehaviour
 
     IEnumerator RecordFrame()
     {
-        yield return null;
+        //yield return null;
         yield return new WaitForEndOfFrame();
 
         var texture = ScreenCapture.CaptureScreenshotAsTexture();
