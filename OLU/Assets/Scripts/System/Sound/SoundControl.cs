@@ -102,31 +102,40 @@ public class SoundControl : MonoBehaviour
     // source.clip != null
     public void Play(string id)
     {
-        for (int i = 0; i < audioSources.Count; i++)
+        if (soundList[id].audioClip == null)
         {
-            AudioSource source = audioSources[i].GetComponent<AudioSource>();
-            if (source.clip != null)
+            // the first time playing this clip
+            soundList[id].audioClip = Resources.Load<AudioClip>("Sounds/" + soundList[id].filename);
+        }
+        else
+        {
+            // find the previous one
+            for (int i = 0; i < audioSources.Count; i++)
             {
-                if (!source.isPlaying)
+                AudioSource source = audioSources[i].GetComponent<AudioSource>();
+                if (source.clip != null)
                 {
-                    source.clip = null;
-                }
-                else
-                if (source.clip.name == soundList[id].audioClip.name)
-                {
-                    if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.NOTREPLACE)
+                    if (!source.isPlaying)
                     {
-                        return;
+                        source.clip = null;
                     }
                     else
-                    if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.REPLACE)
+                    if (source.clip.name == soundList[id].audioClip.name)
                     {
-                        audioSources[i].SetActive(false);
-                        break;
-                    }
-                    else
-                    if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.MULTIPLE)
-                    {
+                        if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.NOTREPLACE)
+                        {
+                            return;
+                        }
+                        else
+                        if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.REPLACE)
+                        {
+                            audioSources[i].SetActive(false);
+                            break;
+                        }
+                        else
+                        if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.MULTIPLE)
+                        {
+                        }
                     }
                 }
             }
@@ -137,11 +146,6 @@ public class SoundControl : MonoBehaviour
             AudioSource source = audioSources[i].GetComponent<AudioSource>();
             if (source.clip == null)
             {
-                if (soundList[id].audioClip == null)
-                {
-                    soundList[id].audioClip = Resources.Load<AudioClip>("Sounds/" + soundList[id].filename);
-                }
-
                 source.playOnAwake = false;
                 source.loop = (soundList[id].loop == -1);
                 source.clip = soundList[id].audioClip;

@@ -1,4 +1,4 @@
-Load,id,audio file name,loop,startDelay,fadeInDuration,fadeOutDuration,spacialBlend,duplicatePolicy,type,found,Notes
+Load,id,audioFileName,loop,startDelay,fadeInDuration,fadeOutDuration,spacialBlend,duplicatePolicy,type,found,Notes
 Man,,,,,,,,,,,
 1,noWay1,noWay1,1,0,0,0,0,MULTIPLE,sfx,0,
 1,noWay2,noWay2,1,0,0,0,0,MULTIPLE,sfx,0,
