@@ -365,6 +365,10 @@ ModelImporter:
     100718: StairsSupport
     100720: HookWithBendy
     100722: HookItself
+    100724: WireCircle
+    100726: WireCircle1
+    100728: WireCircle2
+    100730: WireCircle3
     400000: Can
     400002: CanTube
     400004: CanTube0
@@ -727,6 +731,10 @@ ModelImporter:
     400718: StairsSupport
     400720: HookWithBendy
     400722: HookItself
+    400724: WireCircle
+    400726: WireCircle1
+    400728: WireCircle2
+    400730: WireCircle3
     2100000: lambert1
     2300000: Can
     2300002: CanTube
@@ -1034,6 +1042,10 @@ ModelImporter:
     2300606: GasCan2
     2300608: StairsSupport
     2300610: ControlBar
+    2300612: WireCircle
+    2300614: WireCircle1
+    2300616: WireCircle2
+    2300618: WireCircle3
     3300000: Can
     3300002: CanTube
     3300004: CanTube0
@@ -1340,6 +1352,10 @@ ModelImporter:
     3300606: GasCan2
     3300608: StairsSupport
     3300610: ControlBar
+    3300612: WireCircle
+    3300614: WireCircle1
+    3300616: WireCircle2
+    3300618: WireCircle3
     4300000: ControlPanelModel
     4300002: HamsterWheelModel
     4300004: ElevatorModel
@@ -1645,6 +1661,10 @@ ModelImporter:
     4300604: Box6
     4300606: StairsSupport
     4300608: ControlBar
+    4300610: WireCircle
+    4300612: WireCircle1
+    4300614: WireCircle3
+    4300616: WireCircle2
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
