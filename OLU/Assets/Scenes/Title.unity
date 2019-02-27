@@ -279,7 +279,7 @@ MonoBehaviour:
   isVertical: 0
   horizontalRange: {x: -11264, y: -7168}
   verticalRange: {x: 0, y: 0}
-  horizontalOffset: {x: -139, y: 261}
+  horizontalOffset: {x: -239, y: 361}
   verticalOffset: {x: 0, y: 0}
   speed: 5
 --- !u!114 &100216666
@@ -556,7 +556,7 @@ MonoBehaviour:
   isVertical: 0
   horizontalRange: {x: -11264, y: -7168}
   verticalRange: {x: 0, y: 0}
-  horizontalOffset: {x: -227, y: 243}
+  horizontalOffset: {x: -327, y: 343}
   verticalOffset: {x: 0, y: 0}
   speed: 5
 --- !u!114 &221505411
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   isVertical: 0
   horizontalRange: {x: -7168, y: -3072}
   verticalRange: {x: 0, y: 0}
-  horizontalOffset: {x: -62.5, y: 97.5}
+  horizontalOffset: {x: -162.5, y: 197.5}
   verticalOffset: {x: 0, y: 0}
   speed: 5
 --- !u!114 &305897936
@@ -1609,7 +1609,7 @@ MonoBehaviour:
   isVertical: 0
   horizontalRange: {x: -9216, y: -5120}
   verticalRange: {x: 0, y: 0}
-  horizontalOffset: {x: -160, y: 160}
+  horizontalOffset: {x: -260, y: 260}
   verticalOffset: {x: 0, y: 0}
   speed: 5
 --- !u!114 &359189955 stripped
@@ -2113,7 +2113,7 @@ MonoBehaviour:
   isVertical: 0
   horizontalRange: {x: -7168, y: -3072}
   verticalRange: {x: 0, y: 0}
-  horizontalOffset: {x: -140, y: 200}
+  horizontalOffset: {x: -240, y: 300}
   verticalOffset: {x: 0, y: 0}
   speed: 5
 --- !u!114 &559745179
@@ -4355,7 +4355,7 @@ MonoBehaviour:
   isVertical: 0
   horizontalRange: {x: -7168, y: -3072}
   verticalRange: {x: 0, y: 0}
-  horizontalOffset: {x: -199, y: 101}
+  horizontalOffset: {x: -299, y: 201}
   verticalOffset: {x: 0, y: 0}
   speed: 5
 --- !u!114 &1176369800
@@ -5469,98 +5469,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374994811}
   m_CullTransparentMesh: 0
---- !u!1 &1376721415
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1376721419}
-  - component: {fileID: 1376721418}
-  - component: {fileID: 1376721417}
-  - component: {fileID: 1376721416}
-  m_Layer: 0
-  m_Name: Plane
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!64 &1376721416
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376721415}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1376721417
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376721415}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: b34743a4525174844b5dbd5f6142821e, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1376721418
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376721415}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1376721419
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376721415}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.0631855, y: -1.671371, z: 2.4596024}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1411721236
 GameObject:
   m_ObjectHideFlags: 0
@@ -5726,7 +5634,7 @@ MonoBehaviour:
   isVertical: 0
   horizontalRange: {x: -11264, y: -7168}
   verticalRange: {x: 0, y: 0}
-  horizontalOffset: {x: -70, y: 105}
+  horizontalOffset: {x: -170, y: 205}
   verticalOffset: {x: 0, y: 0}
   speed: 5
 --- !u!114 &1470436010
@@ -6158,7 +6066,7 @@ MonoBehaviour:
   isVertical: 0
   horizontalRange: {x: -9216, y: -5120}
   verticalRange: {x: 0, y: 0}
-  horizontalOffset: {x: -100, y: 170}
+  horizontalOffset: {x: -200, y: 270}
   verticalOffset: {x: 0, y: 0}
   speed: 5
 --- !u!1 &1536547357
@@ -6488,7 +6396,7 @@ MonoBehaviour:
   isVertical: 0
   horizontalRange: {x: -9216, y: -5120}
   verticalRange: {x: 0, y: 0}
-  horizontalOffset: {x: -140, y: 260}
+  horizontalOffset: {x: -240, y: 360}
   verticalOffset: {x: 0, y: 0}
   speed: 5
 --- !u!1 &1634792437
