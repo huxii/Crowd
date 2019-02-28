@@ -3134,7 +3134,7 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  weightObj: {fileID: 1852845933}
+  weightObj: {fileID: 0}
   ropeObj: {fileID: 615784693}
   autoDeactiveCD: 3.05
   anchorObject: {fileID: 0}
@@ -18300,7 +18300,7 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  weightObj: {fileID: 873508855}
+  weightObj: {fileID: 0}
   ropeObj: {fileID: 372840165}
   autoDeactiveCD: 3.05
   anchorObject: {fileID: 0}
@@ -19817,7 +19817,7 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  weightObj: {fileID: 939567586}
+  weightObj: {fileID: 0}
   ropeObj: {fileID: 848973589}
   autoDeactiveCD: 3.05
   anchorObject: {fileID: 0}
@@ -20098,7 +20098,7 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  weightObj: {fileID: 342657948}
+  weightObj: {fileID: 0}
   ropeObj: {fileID: 649110113}
   autoDeactiveCD: 3.05
   anchorObject: {fileID: 0}
@@ -22460,7 +22460,7 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  weightObj: {fileID: 1984135294}
+  weightObj: {fileID: 0}
   ropeObj: {fileID: 487923585}
   autoDeactiveCD: 3.05
   anchorObject: {fileID: 0}
@@ -31977,7 +31977,7 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  weightObj: {fileID: 1049847795}
+  weightObj: {fileID: 0}
   ropeObj: {fileID: 1756577468}
   autoDeactiveCD: 3.05
   anchorObject: {fileID: 0}
@@ -32712,7 +32712,7 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  weightObj: {fileID: 1683337520}
+  weightObj: {fileID: 0}
   ropeObj: {fileID: 1603423932}
   autoDeactiveCD: 3.05
   anchorObject: {fileID: 0}
@@ -37771,7 +37771,7 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  weightObj: {fileID: 521984384}
+  weightObj: {fileID: 0}
   ropeObj: {fileID: 778466347}
   autoDeactiveCD: 3.05
   anchorObject: {fileID: 0}
@@ -40423,7 +40423,7 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  weightObj: {fileID: 1383458259}
+  weightObj: {fileID: 0}
   ropeObj: {fileID: 105123370}
   autoDeactiveCD: 3.05
   anchorObject: {fileID: 0}
@@ -41600,7 +41600,7 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  weightObj: {fileID: 446730581}
+  weightObj: {fileID: 0}
   ropeObj: {fileID: 1599992394}
   autoDeactiveCD: 3.05
   anchorObject: {fileID: 0}
@@ -42878,7 +42878,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: -0.0043371553, y: 0.9845005, z: -0.024597155, w: -0.17359412}
+  m_LocalRotation: {x: -0.0043371525, y: 0.9845005, z: -0.024597133, w: -0.17359415}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
