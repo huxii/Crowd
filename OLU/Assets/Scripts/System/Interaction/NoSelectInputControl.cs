@@ -15,17 +15,18 @@ public class NoSelectInputControl : InputControl
             switch (touch0.phase)
             {
                 case TouchPhase.Began:
-                    break;
-                case TouchPhase.Moved:
+                    Vector2 centerPos = (Input.GetTouch(0).position + Input.GetTouch(1).position) / 2;
                     Vector3 pos = Camera.main.ScreenToWorldPoint(
                         new Vector3(
-                            Input.mousePosition.x,
-                            Input.mousePosition.y,
+                            centerPos.x,
+                            centerPos.y,
                             Vector3.Distance(Camera.main.transform.position, GameObject.Find("Pivots").transform.position)
                             )
                         );
                     Services.cameraController.SetTranslate(pos.x, pos.y);
                     Services.cameraController.SetZoom(-15f);
+                    break;
+                case TouchPhase.Moved:
                     break;
                 case TouchPhase.Ended:
                     Services.cameraController.ResetTranslate();

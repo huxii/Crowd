@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Shagody
+  companyName: Shagoudie
   productName: OLU
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -155,8 +155,9 @@ PlayerSettings:
   applicationIdentifier:
     Android: Shagody.Crowd
     Standalone: com.Shagody.Crowd
-    iOS: com.Shagody.OLU
-  buildNumber: {}
+    iOS: com.ShaGouDie.CrowdTest
+  buildNumber:
+    iOS: 20
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 18
   AndroidTargetSdkVersion: 0
