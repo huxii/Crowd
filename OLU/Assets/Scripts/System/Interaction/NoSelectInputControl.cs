@@ -15,26 +15,60 @@ public class NoSelectInputControl : InputControl
             switch (touch0.phase)
             {
                 case TouchPhase.Began:
-                    Vector2 centerPos = (Input.GetTouch(0).position + Input.GetTouch(1).position) / 2;
-                    Vector3 pos = Camera.main.ScreenToWorldPoint(
-                        new Vector3(
-                            centerPos.x,
-                            centerPos.y,
-                            Vector3.Distance(Camera.main.transform.position, GameObject.Find("Pivots").transform.position)
-                            )
+                    pinching = true;
+                    deltaPinchMag = 0;
+
+                    Vector2 centerPos = (touch0.position + touch1.position) / 2;
+                    float dis = Vector3.Distance(Camera.main.transform.position, GameObject.Find("Pivots").transform.position);
+                    Vector2 pinchTranslatePos = Camera.main.ScreenToWorldPoint(
+                        new Vector3(centerPos.x, centerPos.y, dis)
                         );
-                    Services.cameraController.SetTranslate(pos.x, pos.y);
-                    Services.cameraController.SetZoom(-15f);
+                    Services.cameraController.SetTranslate(pinchTranslatePos.x, pinchTranslatePos.y);
+                    maxPinchMag = dis / 2;
                     break;
+
                 case TouchPhase.Moved:
+                    if (pinching)
+                    {
+                        Vector2 touchPrePos0 = touch0.position - touch0.deltaPosition;
+                        Vector2 touchPrePos1 = touch1.position - touch1.deltaPosition;
+
+                        float preMag = (touchPrePos0 - touchPrePos1).magnitude;
+                        float deltaMag = (touch0.position - touch1.position).magnitude;
+                        float magDiff = deltaMag - preMag;
+                        float curDeltaPinchMag = Mathf.Clamp(deltaPinchMag + magDiff, 0, maxPinchMag);
+                        float dd = curDeltaPinchMag - deltaPinchMag;
+                        deltaPinchMag = curDeltaPinchMag;
+
+                        if (Mathf.Abs(dd) > 1f)
+                        {
+                            Services.cameraController.FreeZoom(-dd);
+                        }
+                    }
                     break;
+
                 case TouchPhase.Ended:
+                    pinching = false;
+                    deltaPinchMag = 0;
                     Services.cameraController.ResetTranslate();
                     Services.cameraController.ResumeZoom();
+
+                    CoolDown();
                     break;
+
                 default:
                     break;
             }
+        }
+        else
+        if (pinching)
+        {
+            pinching = false;
+            deltaPinchMag = 0;
+            Services.cameraController.ResetTranslate();
+            Services.cameraController.ResumeZoom();
+
+            CoolDown();
         }
     }
 

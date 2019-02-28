@@ -101,7 +101,7 @@ public class CameraControl : MonoBehaviour
     {
     }
 
-    public virtual void SetZoom(float rigDelta)
+    public virtual void FreeZoom(float rigDelta)
     {
     }
 

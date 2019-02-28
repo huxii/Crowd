@@ -225,9 +225,9 @@ public class CameraFreeLookControl : CameraControl
         targetCameraAttr.bottomRigOrbit = attr.bottomRigOrbit;
     }
 
-    public override void SetZoom(float rigDelta)
+    public override void FreeZoom(float rigDelta)
     {
-        base.SetZoom(rigDelta);
+        base.FreeZoom(rigDelta);
 
         targetCameraAttr.middleRigOrbit += new Vector2(0, rigDelta);
         targetCameraAttr.topRigOrbit += new Vector2(0, rigDelta);

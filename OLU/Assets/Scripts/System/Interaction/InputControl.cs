@@ -10,6 +10,8 @@ public abstract class InputControl : MonoBehaviour
     public bool gyroEnabled = false;
 
     protected bool locked = false;
+    protected float coolDownTimer = 0;
+    protected float coolDown = 0.3f;
 
     // single click
     protected GameObject mouseClickObject = null;
@@ -27,12 +29,11 @@ public abstract class InputControl : MonoBehaviour
     // drag
     protected Vector3 mouseDragScreenPos;
     protected Vector3 mouseClickScreenPos;
-    protected float dragTimer = 0;
-    private float dragCoolDown = 0.3f;
 
     // pinch
-    protected bool pinchEnded = false;
+    protected bool pinching = false;
     protected float deltaPinchMag = 0;
+    protected float maxPinchMag = 15;
 
     // Use this for initialization
     void Start()
@@ -42,8 +43,12 @@ public abstract class InputControl : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        CoolDown();
-        if (!locked)
+        if (coolDownTimer > 0)
+        {
+            coolDownTimer -= Time.deltaTime;
+        }
+
+        if (!locked && coolDownTimer <= 0)
         {
             DetectMouse();
             DetectMousePC();
@@ -57,10 +62,7 @@ public abstract class InputControl : MonoBehaviour
 
     protected void CoolDown()
     {
-        if (dragTimer > 0)
-        {
-            dragTimer -= Time.deltaTime;
-        }
+        coolDownTimer = coolDown;
     }
 
     protected virtual void DetectMouse()
@@ -120,43 +122,46 @@ public abstract class InputControl : MonoBehaviour
         // only on PC
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor)
         {
-            if (Input.GetMouseButton(1))
+            if (Input.touchCount < 2)
             {
-                TranslateViewport();
-            }
-
-            if (Input.GetMouseButtonUp(1))
-            {
-                if (resetCenterOnRelease)
+                if (Input.GetMouseButton(1))
                 {
-                    Services.cameraController.ResetTranslate();
+                    TranslateViewport();
+                }
+
+                if (Input.GetMouseButtonUp(1))
+                {
+                    if (resetCenterOnRelease)
+                    {
+                        Services.cameraController.ResetTranslate();
+                    }
+                }
+
+                if (Input.GetAxis("Mouse ScrollWheel") != 0)
+                {
+                    Zoom(Input.GetAxis("Mouse ScrollWheel"));
                 }
             }
 
-            if (Input.GetAxis("Mouse ScrollWheel") != 0)
-            {
-                Zoom(Input.GetAxis("Mouse ScrollWheel"));
-            }
+            //if (Input.GetMouseButtonDown(2))
+            //{
+            //    Vector3 pos = Camera.main.ScreenToWorldPoint(
+            //        new Vector3(
+            //            Input.mousePosition.x, 
+            //            Input.mousePosition.y, 
+            //            Vector3.Distance(Camera.main.transform.position, GameObject.Find("Pivots").transform.position)
+            //            )
+            //        );
+            //    Services.cameraController.SetTranslate(pos.x, pos.y);
+            //    Services.cameraController.SetZoom(-15f);
+            //    //Debug.Log(pos);
+            //}
 
-            if (Input.GetMouseButtonDown(2))
-            {
-                Vector3 pos = Camera.main.ScreenToWorldPoint(
-                    new Vector3(
-                        Input.mousePosition.x, 
-                        Input.mousePosition.y, 
-                        Vector3.Distance(Camera.main.transform.position, GameObject.Find("Pivots").transform.position)
-                        )
-                    );
-                Services.cameraController.SetTranslate(pos.x, pos.y);
-                Services.cameraController.SetZoom(-15f);
-                //Debug.Log(pos);
-            }
-
-            if (Input.GetMouseButtonUp(2))
-            {
-                Services.cameraController.ResetTranslate();
-                Services.cameraController.ResumeZoom();
-            }
+            //if (Input.GetMouseButtonUp(2))
+            //{
+            //    Services.cameraController.ResetTranslate();
+            //    Services.cameraController.ResumeZoom();
+            //}
         }
     }
 

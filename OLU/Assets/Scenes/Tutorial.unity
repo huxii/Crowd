@@ -5689,7 +5689,7 @@ MonoBehaviour:
     angleZero: {x: 180, y: 90}
     sensitivity: {x: 300, y: 300}
     translateZero: {x: 0, y: 9, z: -0.06}
-    translateRange: {x: 0, y: 0, z: 0, w: 0}
+    translateRange: {x: -3, y: -3, z: 3, w: 3}
   - topRigOrbit: {x: 5, y: 30}
     middleRigOrbit: {x: 0, y: 35}
     bottomRigOrbit: {x: -5, y: 30}
@@ -5697,7 +5697,7 @@ MonoBehaviour:
     angleZero: {x: 0, y: 150}
     sensitivity: {x: 300, y: 300}
     translateZero: {x: 0, y: 7.5, z: -0.06}
-    translateRange: {x: 0, y: 0, z: 0, w: 0}
+    translateRange: {x: -3, y: -3, z: 3, w: 3}
   targetAngle: {x: 0, y: 0}
   targetTranslate: {x: 0, y: 0, z: 0}
   origTranslate: {x: 0, y: 0, z: 0}
