@@ -106,45 +106,70 @@ public abstract class InputControl : MonoBehaviour
                 MouseUp();
             }
         }
-        //else
-        //if (Input.touchCount == 2)
-        //{
-        //    Touch touch0 = Input.GetTouch(0);
-        //    Touch touch1 = Input.GetTouch(1);
-        //    switch (touch0.phase)
-        //    {
-        //        case TouchPhase.Began:
-        //            pinchEnded = false;
-        //            deltaPinchMag = 0;
-        //            break;
-        //        case TouchPhase.Moved:
-        //            if (!pinchEnded)
-        //            {
-        //                Vector2 touchPrePos0 = touch0.position - touch0.deltaPosition;
-        //                Vector2 touchPrePos1 = touch1.position - touch1.deltaPosition;
+        else
+        if (Input.touchCount == 2)
+        {
+            Touch touch0 = Input.GetTouch(0);
+            Touch touch1 = Input.GetTouch(1);
+            switch (touch0.phase)
+            {
+                case TouchPhase.Began:
+                    break;
+                case TouchPhase.Moved:
+                    float halfWidth = Screen.width / 2;
+                    float halfHeight = Screen.height / 2;
+                    Vector2 centerPos = (touch0.position + touch1.position) / 2;
+                    Vector2 pos = new Vector2(
+                        (centerPos.x - halfWidth) / halfWidth,
+                        (centerPos.y - halfHeight) / halfHeight
+                    );
 
-        //                float preMag = (touchPrePos0 - touchPrePos1).magnitude;
-        //                float deltaMag = (touch0.position - touch1.position).magnitude;
-        //                float magDiff = deltaMag - preMag;
-        //                deltaPinchMag += magDiff;
+                    Services.cameraController.SetTranslate(pos.x, pos.y);
 
-        //                if (Mathf.Abs(deltaPinchMag) > 1f)
-        //                {
-        //                    Zoom(deltaPinchMag);
-        //                    pinchEnded = true;
-        //                }
-        //            }
-        //            break;
-        //        case TouchPhase.Ended:
-        //            pinchEnded = false;
-        //            deltaPinchMag = 0;
-        //            break;
-        //        default:
-        //            pinchEnded = false;
-        //            deltaPinchMag = 0;
-        //            break;
-        //    }
-        //}
+                    Debug.Log(pos);
+                    break;
+                case TouchPhase.Ended:
+                    Services.cameraController.ResetTranslate();
+                    break;
+                default:
+                    break;
+            }           
+            //Touch touch0 = Input.GetTouch(0);
+            //Touch touch1 = Input.GetTouch(1);
+            //switch (touch0.phase)
+            //{
+            //    case TouchPhase.Began:
+            //        pinchEnded = false;
+            //        deltaPinchMag = 0;
+            //        break;
+            //    case TouchPhase.Moved:
+            //        if (!pinchEnded)
+            //        {
+            //            Vector2 touchPrePos0 = touch0.position - touch0.deltaPosition;
+            //            Vector2 touchPrePos1 = touch1.position - touch1.deltaPosition;
+
+            //            float preMag = (touchPrePos0 - touchPrePos1).magnitude;
+            //            float deltaMag = (touch0.position - touch1.position).magnitude;
+            //            float magDiff = deltaMag - preMag;
+            //            deltaPinchMag += magDiff;
+
+            //            if (Mathf.Abs(deltaPinchMag) > 1f)
+            //            {
+            //                Zoom(deltaPinchMag);
+            //                pinchEnded = true;
+            //            }
+            //        }
+            //        break;
+            //    case TouchPhase.Ended:
+            //        pinchEnded = false;
+            //        deltaPinchMag = 0;
+            //        break;
+            //    default:
+            //        pinchEnded = false;
+            //        deltaPinchMag = 0;
+            //        break;
+            //}
+        }
     }
 
     private void MouseDown()

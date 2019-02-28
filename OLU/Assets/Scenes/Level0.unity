@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14297923, g: 0.15767969, b: 0.15648699, a: 1}
+  m_IndirectSpecularColor: {r: 0.14297906, g: 0.15767953, b: 0.15648684, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -42628,7 +42628,7 @@ MonoBehaviour:
     angleZero: {x: 200, y: 90}
     sensitivity: {x: 300, y: 300}
     translateZero: {x: 0, y: 7.5, z: 2.82}
-    translateRange: {x: -1, y: -1, z: 1, w: 1}
+    translateRange: {x: -3, y: -3, z: 3, w: 3}
   - topRigOrbit: {x: 3, y: 20}
     middleRigOrbit: {x: 0, y: 23}
     bottomRigOrbit: {x: -3, y: 20}
@@ -42636,7 +42636,7 @@ MonoBehaviour:
     angleZero: {x: 0, y: 90}
     sensitivity: {x: 300, y: 300}
     translateZero: {x: -0.4, y: 7.5, z: 2.82}
-    translateRange: {x: -1, y: -1, z: 1, w: 1}
+    translateRange: {x: -3, y: -3, z: 3, w: 3}
   - topRigOrbit: {x: 2, y: 10}
     middleRigOrbit: {x: 0, y: 14}
     bottomRigOrbit: {x: -1, y: 13}
@@ -42644,7 +42644,7 @@ MonoBehaviour:
     angleZero: {x: 0, y: 90}
     sensitivity: {x: 200, y: 200}
     translateZero: {x: 0, y: 7.5, z: 2.82}
-    translateRange: {x: 0, y: 0, z: 0, w: 0}
+    translateRange: {x: -1, y: -1, z: 1, w: 1}
   targetAngle: {x: 1.3345189, y: 90}
   targetTranslate: {x: 0, y: 0, z: 0}
   origTranslate: {x: 0, y: 0, z: 0}
@@ -42759,7 +42759,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681085338296175}
-  m_LocalRotation: {x: -0.0011788385, y: 0.984785, z: -0.0066855196, w: -0.17364433}
+  m_LocalRotation: {x: -0.0011788385, y: 0.9847851, z: -0.0066855196, w: -0.17364435}
   m_LocalPosition: {x: 13.680815, y: 8.5, z: 40.4077}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -42878,7 +42878,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: -0.0043371525, y: 0.9845005, z: -0.024597133, w: -0.17359415}
+  m_LocalRotation: {x: -0.0043371553, y: 0.9845005, z: -0.024597155, w: -0.17359412}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
