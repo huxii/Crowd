@@ -5,7 +5,9 @@ using UnityEngine;
 public abstract class InputControl : MonoBehaviour
 {
     public bool autoFocusCameraEnabled = false;
+    public bool resetCenterOnRelease = true;
     public bool groundEnabled = true;
+    public bool gyroEnabled = false;
 
     protected bool locked = false;
 
@@ -38,9 +40,19 @@ public abstract class InputControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
+        CoolDown();
+        if (!locked)
+        {
+            DetectMouse();
+            DetectMousePC();
 
+            if (gyroEnabled)
+            {
+                Services.cameraController.Orbit(Input.acceleration.x * 2500f, (Input.acceleration.y + 0.5f) * 1500f);
+            }
+        }
     }
 
     protected void CoolDown()
@@ -51,13 +63,8 @@ public abstract class InputControl : MonoBehaviour
         }
     }
 
-    protected void DetectMouse()
+    protected virtual void DetectMouse()
     {
-        if (locked)
-        {
-            return;
-        }
-
         if (Input.touchCount < 2)
         {
             if (Time.time - doubleClickTime > doubleClickTolerence)
@@ -106,69 +113,50 @@ public abstract class InputControl : MonoBehaviour
                 MouseUp();
             }
         }
-        else
-        if (Input.touchCount == 2)
+    }
+
+    private void DetectMousePC()
+    {
+        // only on PC
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor)
         {
-            Touch touch0 = Input.GetTouch(0);
-            Touch touch1 = Input.GetTouch(1);
-            switch (touch0.phase)
+            if (Input.GetMouseButton(1))
             {
-                case TouchPhase.Began:
-                    break;
-                case TouchPhase.Moved:
-                    float halfWidth = Screen.width / 2;
-                    float halfHeight = Screen.height / 2;
-                    Vector2 centerPos = (touch0.position + touch1.position) / 2;
-                    Vector2 pos = new Vector2(
-                        (centerPos.x - halfWidth) / halfWidth,
-                        (centerPos.y - halfHeight) / halfHeight
-                    );
+                TranslateViewport();
+            }
 
-                    Services.cameraController.SetTranslate(pos.x, pos.y);
-
-                    Debug.Log(pos);
-                    break;
-                case TouchPhase.Ended:
+            if (Input.GetMouseButtonUp(1))
+            {
+                if (resetCenterOnRelease)
+                {
                     Services.cameraController.ResetTranslate();
-                    break;
-                default:
-                    break;
-            }           
-            //Touch touch0 = Input.GetTouch(0);
-            //Touch touch1 = Input.GetTouch(1);
-            //switch (touch0.phase)
-            //{
-            //    case TouchPhase.Began:
-            //        pinchEnded = false;
-            //        deltaPinchMag = 0;
-            //        break;
-            //    case TouchPhase.Moved:
-            //        if (!pinchEnded)
-            //        {
-            //            Vector2 touchPrePos0 = touch0.position - touch0.deltaPosition;
-            //            Vector2 touchPrePos1 = touch1.position - touch1.deltaPosition;
+                }
+            }
 
-            //            float preMag = (touchPrePos0 - touchPrePos1).magnitude;
-            //            float deltaMag = (touch0.position - touch1.position).magnitude;
-            //            float magDiff = deltaMag - preMag;
-            //            deltaPinchMag += magDiff;
+            if (Input.GetAxis("Mouse ScrollWheel") != 0)
+            {
+                Zoom(Input.GetAxis("Mouse ScrollWheel"));
+            }
 
-            //            if (Mathf.Abs(deltaPinchMag) > 1f)
-            //            {
-            //                Zoom(deltaPinchMag);
-            //                pinchEnded = true;
-            //            }
-            //        }
-            //        break;
-            //    case TouchPhase.Ended:
-            //        pinchEnded = false;
-            //        deltaPinchMag = 0;
-            //        break;
-            //    default:
-            //        pinchEnded = false;
-            //        deltaPinchMag = 0;
-            //        break;
-            //}
+            if (Input.GetMouseButtonDown(2))
+            {
+                Vector3 pos = Camera.main.ScreenToWorldPoint(
+                    new Vector3(
+                        Input.mousePosition.x, 
+                        Input.mousePosition.y, 
+                        Vector3.Distance(Camera.main.transform.position, GameObject.Find("Pivots").transform.position)
+                        )
+                    );
+                Services.cameraController.SetTranslate(pos.x, pos.y);
+                Services.cameraController.SetZoom(-15f);
+                //Debug.Log(pos);
+            }
+
+            if (Input.GetMouseButtonUp(2))
+            {
+                Services.cameraController.ResetTranslate();
+                Services.cameraController.ResumeZoom();
+            }
         }
     }
 
@@ -268,11 +256,6 @@ public abstract class InputControl : MonoBehaviour
             TranslateViewport(mouseDelta.x * 0.3f, mouseDelta.y * 0.3f);
             mouseDragScreenPos = Input.mousePosition;
         }
-    }
-
-    protected void ResetTranslateViewport()
-    {
-        Services.cameraController.ResetTranslate();
     }
 
     protected void RotateViewport()

@@ -4,48 +4,36 @@ using UnityEngine;
 
 public class NoSelectInputControl : InputControl
 {
-    public bool resetCenterOnRelease = true;
-    public bool gyroEnabled = false;
-
-    private void Update()
+    protected override void DetectMouse()
     {
-        CoolDown();
-        DetectMouse();
-        DetectMousePC();
-    }
+        base.DetectMouse();
 
-    private void DetectMousePC()
-    {
-        if (locked)
+        if (Input.touchCount == 2)
         {
-            return;
-        }
-
-        // only on PC
-        if (Application.platform == RuntimePlatform.WindowsEditor)
-        {
-            if (Input.GetMouseButton(1))
+            Touch touch0 = Input.GetTouch(0);
+            Touch touch1 = Input.GetTouch(1);
+            switch (touch0.phase)
             {
-                TranslateViewport();
+                case TouchPhase.Began:
+                    break;
+                case TouchPhase.Moved:
+                    Vector3 pos = Camera.main.ScreenToWorldPoint(
+                        new Vector3(
+                            Input.mousePosition.x,
+                            Input.mousePosition.y,
+                            Vector3.Distance(Camera.main.transform.position, GameObject.Find("Pivots").transform.position)
+                            )
+                        );
+                    Services.cameraController.SetTranslate(pos.x, pos.y);
+                    Services.cameraController.SetZoom(-15f);
+                    break;
+                case TouchPhase.Ended:
+                    Services.cameraController.ResetTranslate();
+                    Services.cameraController.ResumeZoom();
+                    break;
+                default:
+                    break;
             }
-
-            if (Input.GetMouseButtonUp(1))
-            {
-                if (resetCenterOnRelease)
-                {
-                    ResetTranslateViewport();
-                }
-            }
-
-            if (Input.GetAxis("Mouse ScrollWheel") != 0)
-            {
-                Zoom(Input.GetAxis("Mouse ScrollWheel"));
-            }
-        }
-
-        if (gyroEnabled)
-        {
-            Services.cameraController.Orbit(Input.acceleration.x * 2500f, (Input.acceleration.y + 0.5f) * 1500f);
         }
     }
 

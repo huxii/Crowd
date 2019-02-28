@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class ComicInputControl : InputControl
 {
-
     // Use this for initialization
     void Start()
     {
         autoFocusCameraEnabled = false;
-    }
-
-    private void Update()
-    {
-        CoolDown();
-        DetectMouse();
     }
 
     protected override void MouseSingleClick()
