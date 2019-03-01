@@ -11,7 +11,7 @@ public abstract class InputControl : MonoBehaviour
 
     protected bool locked = false;
     protected float coolDownTimer = 0;
-    protected float coolDown = 0.3f;
+    protected float coolDown = 0.5f;
 
     // single click
     protected GameObject mouseClickObject = null;

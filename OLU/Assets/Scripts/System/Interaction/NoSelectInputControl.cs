@@ -10,24 +10,16 @@ public class NoSelectInputControl : InputControl
 
         if (Input.touchCount == 2)
         {
+            Debug.Log("--------------2 touch-------------");
             Touch touch0 = Input.GetTouch(0);
             Touch touch1 = Input.GetTouch(1);
             switch (touch0.phase)
             {
                 case TouchPhase.Began:
-                    pinching = true;
-                    deltaPinchMag = 0;
-
-                    Vector2 centerPos = (touch0.position + touch1.position) / 2;
-                    float dis = Vector3.Distance(Camera.main.transform.position, GameObject.Find("Pivots").transform.position);
-                    Vector2 pinchTranslatePos = Camera.main.ScreenToWorldPoint(
-                        new Vector3(centerPos.x, centerPos.y, dis)
-                        );
-                    Services.cameraController.SetTranslate(pinchTranslatePos.x, pinchTranslatePos.y);
-                    maxPinchMag = dis / 2;
                     break;
 
                 case TouchPhase.Moved:
+                    //Debug.Log("--------------Moved-------------");
                     if (pinching)
                     {
                         Vector2 touchPrePos0 = touch0.position - touch0.deltaPosition;
@@ -45,9 +37,24 @@ public class NoSelectInputControl : InputControl
                             Services.cameraController.FreeZoom(-dd);
                         }
                     }
+                    else
+                    {
+                        //Debug.Log("--------------Began-------------");
+                        pinching = true;
+                        deltaPinchMag = 0;
+
+                        Vector2 centerPos = (touch0.position + touch1.position) / 2;
+                        float dis = Vector3.Distance(Camera.main.transform.position, GameObject.Find("Pivots").transform.position);
+                        Vector2 pinchTranslatePos = Camera.main.ScreenToWorldPoint(
+                            new Vector3(centerPos.x, centerPos.y, dis)
+                            );
+                        Services.cameraController.SetTranslate(pinchTranslatePos.x, pinchTranslatePos.y);
+                        maxPinchMag = dis / 2;
+                    }
                     break;
 
                 case TouchPhase.Ended:
+                    //Debug.Log("--------------Ended-------------");
                     pinching = false;
                     deltaPinchMag = 0;
                     Services.cameraController.ResetTranslate();
