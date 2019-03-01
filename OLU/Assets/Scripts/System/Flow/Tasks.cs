@@ -179,7 +179,7 @@ public class TimedTransitionMaterialTask : TimedTransitionTask
     protected override void OnTick(float t)
     {
         // temp fix for transition texture
-        mat.SetFloat(attrName, Mathf.Lerp(start, end, t * 1.1f));
+        mat.SetFloat(attrName, Mathf.Lerp(start, end, t * 1.05f) + 0.05f);
     }
 }
 

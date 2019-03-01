@@ -2711,12 +2711,12 @@ PrefabInstance:
     - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
         type: 3}
       propertyPath: presets.Array.data[3].scale.x
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
         type: 3}
       propertyPath: presets.Array.data[3].scale.y
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
         type: 3}
@@ -2812,6 +2812,21 @@ PrefabInstance:
         type: 3}
       propertyPath: loadingBarSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[3].color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[3].color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415642355510170305, guid: 452f2a11f96b7964baa631fbd34bb58e,
+        type: 3}
+      propertyPath: presets.Array.data[3].color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 452f2a11f96b7964baa631fbd34bb58e, type: 3}
