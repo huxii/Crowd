@@ -2214,12 +2214,34 @@ MonoBehaviour:
   canActivateMultipleTimes: 0
   onActivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1614843341436788}
+        m_MethodName: FreeZoom
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 15
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onDeactivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1614843341436788}
+        m_MethodName: ResumeZoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   interactionCD: 0.3
@@ -5690,9 +5712,9 @@ MonoBehaviour:
     sensitivity: {x: 300, y: 300}
     translateZero: {x: 0, y: 9, z: -0.06}
     translateRange: {x: -3, y: -3, z: 3, w: 3}
-  - topRigOrbit: {x: 5, y: 30}
-    middleRigOrbit: {x: 0, y: 35}
-    bottomRigOrbit: {x: -5, y: 30}
+  - topRigOrbit: {x: 5, y: 23}
+    middleRigOrbit: {x: 0, y: 28}
+    bottomRigOrbit: {x: -5, y: 23}
     angleRange: {x: -10, y: 10}
     angleZero: {x: 0, y: 150}
     sensitivity: {x: 300, y: 300}
