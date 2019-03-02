@@ -157,6 +157,10 @@ ModelImporter:
     100302: ElevatorDoor0
     100304: ElevatorDoor1
     100306: ElevatorTrack
+    100308: CableBase
+    100310: CableBuckle
+    100312: LightBase
+    100314: RockBase
     400000: Back
     400002: Box
     400004: Handle
@@ -311,6 +315,10 @@ ModelImporter:
     400302: ElevatorDoor0
     400304: ElevatorDoor1
     400306: ElevatorTrack
+    400308: CableBase
+    400310: CableBuckle
+    400312: LightBase
+    400314: RockBase
     2100000: lambert1
     2100002: Level1_InnerMat
     2100004: Level0_InnerMat
@@ -435,6 +443,14 @@ ModelImporter:
     2300236: ElevatorDoor0
     2300238: ElevatorDoor1
     2300240: ElevatorTrack
+    2300242: Cable1
+    2300244: Cable2
+    2300246: Cable3
+    2300248: CableBase
+    2300250: CableBuckle
+    2300252: Chip
+    2300254: LightBase
+    2300256: RockBase
     3300000: Back
     3300002: Box
     3300004: Handle
@@ -556,6 +572,14 @@ ModelImporter:
     3300236: ElevatorDoor0
     3300238: ElevatorDoor1
     3300240: ElevatorTrack
+    3300242: Cable1
+    3300244: Cable2
+    3300246: Cable3
+    3300248: CableBase
+    3300250: CableBuckle
+    3300252: Chip
+    3300254: LightBase
+    3300256: RockBase
     4300000: Box
     4300002: Level1:Back
     4300004: Level1:Stair1
@@ -677,6 +701,14 @@ ModelImporter:
     4300236: ControlBarBase
     4300238: ControlBar
     4300240: ElevatorTrack
+    4300242: Cable2
+    4300244: Cable3
+    4300246: LightBase
+    4300248: RockBase
+    4300250: CableBuckle
+    4300252: CableBase
+    4300254: Chip
+    4300256: Cable1
   externalObjects: {}
   materials:
     importMaterials: 0

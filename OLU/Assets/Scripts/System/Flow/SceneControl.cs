@@ -67,63 +67,6 @@ public class SceneControl : MonoBehaviour
     /*
      * 2d -> 3d
     */
-    //public void LoadSceneWithRecord(string sceneName)
-    //{
-    //    if (Services.sceneTransitionController)
-    //    {
-    //        PreloadScene(sceneName);
-
-    //        Services.mainController.DisableInput();
-    //        Services.sceneTransitionController.RecordScreen();
-    //        WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.DOTS);
-    //    }
-    //    else
-    //    {
-    //        LoadScene(sceneName);
-    //    }
-    //}
-
-    //public void LoadSceneWithZoomAndRecord(string sceneName)
-    //{
-    //    if (Services.sceneTransitionController)
-    //    {
-    //        PreloadScene(sceneName);
-
-    //        Services.mainController.DisableInput();
-    //        Services.sceneTransitionController.RecordScreen();
-    //        Services.sceneTransitionController.ZoomInTransitionScreen(SceneTransitionControl.TransitionStyle.DOTS);
-
-    //        Services.taskManager
-    //            .Do(new ActionTask())
-    //            .Then(new ActionTask())
-    //            .Then(new ActionTask(() => ))
-    //            .Then(new Wait(1))
-    //            .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.DOTS)));
-    //    }
-    //    else
-    //    {
-    //        LoadScene(sceneName);
-    //    }
-    //}
-
-    //public void LoadSceneWithLoadingScreen(string sceneName)
-    //{
-    //    if (Services.sceneTransitionController)
-    //    {
-    //        PreloadScene(sceneName);
-
-    //        Services.taskManager
-    //            .Do(new ActionTask(Services.mainController.DisableInput))
-    //            .Then(new ActionTask(() => Services.sceneTransitionController.FadeIntoLoadingScreen(SceneTransitionControl.TransitionStyle.DOTS)))
-    //            .Then(new Wait(1))
-    //            .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.DOTS)));
-    //    }
-    //    else
-    //    {
-    //        LoadScene(sceneName);
-    //    }
-    //}
-
     public void LegacyLoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -134,6 +77,7 @@ public class SceneControl : MonoBehaviour
     {
         if (Services.sceneTransitionController)
         {
+            LoadingStarted();
             PreloadScene(sceneName);
 
             Services.mainController.DisableInput();
@@ -164,10 +108,12 @@ public class SceneControl : MonoBehaviour
     {
         if (Services.sceneTransitionController)
         {
+            LoadingStarted();
             PreloadScene(sceneName);
 
             Services.taskManager
-                .Do(new ActionTask(() => Services.sceneTransitionController.FadeIntoLoadingScreen(SceneTransitionControl.TransitionStyle.BLACK)))
+                .Do(new Wait(0.5f))
+                .Then(new ActionTask(() => Services.sceneTransitionController.FadeIntoLoadingScreen(SceneTransitionControl.TransitionStyle.BLACK)))
                 .Then(new Wait(0.5f))
                 .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.BLACK)));
         }
@@ -181,10 +127,12 @@ public class SceneControl : MonoBehaviour
     {
         if (Services.sceneTransitionController)
         {
+            LoadingStarted();
             PreloadScene(sceneName);
 
             Services.taskManager
-                .Do(new ActionTask(() => Services.sceneTransitionController.FadeIntoLoadingScreen(SceneTransitionControl.TransitionStyle.FADE)))
+                .Do(new Wait(0.5f))
+                .Then(new ActionTask(() => Services.sceneTransitionController.FadeIntoLoadingScreen(SceneTransitionControl.TransitionStyle.FADE)))
                 .Then(new Wait(0.5f))
                 .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.FADE)));
         }
@@ -193,24 +141,6 @@ public class SceneControl : MonoBehaviour
             LegacyLoadScene(sceneName);
         }
     }
-
-    //public void LoadSceneWithRecordAndZoom(string sceneName)
-    //{
-    //    if (Services.sceneTransitionController)
-    //    {
-    //        PreloadScene(sceneName);
-
-    //        Services.taskManager
-    //            .Do(new ActionTask(Services.mainController.DisableInput))
-    //            .Then(new ActionTask(() => Services.sceneTransitionController.FadeIntoTransitionScreen(SceneTransitionControl.TransitionStyle.DOTS)))
-    //            .Then(new Wait(1f))
-    //            .Then(new ActionTask(() => WaifForAsyncLoadingWithZoom(SceneTransitionControl.TransitionStyle.DOTS)));
-    //    }
-    //    else
-    //    {
-    //        LoadScene(sceneName);
-    //    }
-    //}
 
     private void WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle style)
     {
@@ -223,11 +153,6 @@ public class SceneControl : MonoBehaviour
         {
             if (async.progress >= 0.9f)
             {
-                //Services.taskManager
-                //    .Do(new ActionTask(() => Services.sceneTransitionController.FadeOutOfLoadingScreen(style)))
-                //    .Then(new Wait(1f))
-                //    .Then(new ActionTask(Services.mainController.EnableInput));
-              
                 async.allowSceneActivation = true;
             }
 
@@ -235,26 +160,13 @@ public class SceneControl : MonoBehaviour
         }
     }
 
-    //private void WaifForAsyncLoadingWithZoom(SceneTransitionControl.TransitionStyle style)
-    //{
-    //    StartCoroutine(AsyncLoadingWithZoom(style));
-    //}
+    public void LoadingStarted()
+    {
+        Services.mainController.DisableInput();
+    }
 
-    //IEnumerator AsyncLoadingWithZoom(SceneTransitionControl.TransitionStyle style)
-    //{
-    //    while (!async.isDone)
-    //    {
-    //        if (async.progress >= 0.9f)
-    //        {
-    //            Services.taskManager
-    //                .Do(new ActionTask(() => Services.sceneTransitionController.ZoomOutTransitionScreen(style)))
-    //                .Then(new Wait(1f))
-    //                .Then(new ActionTask(Services.mainController.EnableInput));
-
-    //            async.allowSceneActivation = true;
-    //        }
-
-    //        yield return null;
-    //    }
-    //}
+    public void LoadingEnded()
+    {
+        Services.mainController.EnableInput();
+    }
 }
