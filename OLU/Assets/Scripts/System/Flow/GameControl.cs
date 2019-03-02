@@ -64,6 +64,7 @@ public class GameControl : MainControl
             man.GetComponent<CrowdControl>().Flip(obj.GetComponent<PropControl>().changeScaleX);
             man.GetComponent<CrowdControl>().SwitchState(obj.GetComponent<PropControl>().changeState);
             man.transform.SetParent(obj.GetComponent<PropControl>().GetSlotObject(slotId).transform);
+            Services.gameEvents.SetCrowdAnimation(man, "busy_forever");
             obj.GetComponent<PropControl>().ReadySlot(slotId, man);           
 
             if (obj.GetComponent<PropControl>().PropFeedbackController != null && obj.GetComponent<PropControl>().IsReady())
@@ -125,6 +126,7 @@ public class GameControl : MainControl
         //Debug.Log(man + " " + obj);
         man.transform.SetParent(Services.menParentObj.transform);
         man.GetComponent<CrowdControl>().SetWorkingObject(null, -1);
+        Services.gameEvents.ClearCrowdAnimation(man, "busy_forever");
         obj.GetComponent<PropControl>().FreeSlot(slotId);
 
         if (man.GetComponent<CrowdControl>().CrowdFeedbackController != null)
