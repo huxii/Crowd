@@ -36,6 +36,7 @@ Load,animation name,"tracks [0,4] 0 = lowest priority",loop,mix time,made(do not
 1,pull,0,NOTLOOP_KEEP,0.5,,x,
 1,walk_normal,0,LOOP,0.5,finished,x,
 1,busy,4,NOTLOOP_KEEP,0.5,,x,
+1,busy_forever,4,LOOP,0.5,,,
 1,menu_pose1,2,LOOP,0.5,,x,
 1,menu_pose2,2,LOOP,0.5,,x,
 1,menu_pose3,2,LOOP,0.5,,x,
