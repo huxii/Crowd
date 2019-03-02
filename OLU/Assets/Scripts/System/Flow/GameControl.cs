@@ -165,7 +165,7 @@ public class GameControl : MainControl
             GameObject.Find("BackShell").GetComponent<ObjectControl>().Deactivate();
 
             Services.taskManager
-                .Do(new Wait(1f))
+                .Do(new Wait(0.1f))
                 .Then(new ActionTask(() => Services.sceneController.LoadSceneWithRecordAndAnimation("Title")));
             //Services.sceneController.LoadSceneWithRecordAndZoom("Title");
         }
