@@ -340,6 +340,9 @@ ModelImporter:
     100668: CarrotSoil
     100670: CeilingRopes
     100672: FirstFloorBase
+    100674: OLUOnTheWall
+    100676: CurtainLeft
+    100678: CurtainRight
     400000: BackShell
     400002: Bulb
     400004: Bulb 1
@@ -677,6 +680,9 @@ ModelImporter:
     400668: CarrotSoil
     400670: CeilingRopes
     400672: FirstFloorBase
+    400674: OLUOnTheWall
+    400676: CurtainLeft
+    400678: CurtainRight
     2100000: InnerMat
     2100002: CutoutMat
     2100004: OutterMat
