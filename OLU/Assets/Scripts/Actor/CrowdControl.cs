@@ -42,7 +42,7 @@ public class CrowdControl : ActorControl
         INFLATE_FLOAT,
         CELEBRATE,
         CONFUSED,
-        WORK,
+        EMPTY
     };
 
     //// the events when the man is selected/deselected. (removed already)
@@ -60,8 +60,8 @@ public class CrowdControl : ActorControl
     // this part is not easy to understand by a couple of lines of comments, let me know if you are interested in it.
     private Tree<CrowdControl> btree;
     [SerializeField]
-    private CrowdState state = CrowdState.IDLE;
-    private CrowdState lastState = CrowdState.IDLE;
+    private CrowdState state = CrowdState.EMPTY;
+    private CrowdState lastState = CrowdState.EMPTY;
     private float stateCoolingDown = 0;
 
     // spine animation
@@ -158,7 +158,7 @@ public class CrowdControl : ActorControl
 
                 new Sequence<CrowdControl>(
                     new IsMoving(),
-                    new Moving()
+                    new Walking()
                     ),
 
                 new Sequence<CrowdControl>(
@@ -212,12 +212,12 @@ public class CrowdControl : ActorControl
                     ),
 
                 new Sequence<CrowdControl>(
-                    new IsWorking(),
-                    new Working()
+                    new IsIdling(),
+                    new Idling()
                     ),
 
                 new Sequence<CrowdControl>(
-                    new Idling()
+                    new Empty()
                     )
                 )
             );
@@ -341,24 +341,25 @@ public class CrowdControl : ActorControl
     // busy
     public void OrderBusy()
     {
-        SwitchState(CrowdState.WORK);
-
-        //if (voiceTimer[2] <= 0)
-        //{
-        //    int id = Random.Range(0, 3) + 1;
-        //    Services.soundController.Play("noWay" + id);
-        //    voiceTimer[2] = voiceCoolDown;
-        //}
+        if (voiceTimer[2] <= 0)
+        {
+            int id = Random.Range(0, 3) + 1;
+            Services.soundController.Play("noWay" + id);
+            voiceTimer[2] = voiceCoolDown;
+        }
     }
 
     public void SwitchState(CrowdState s)
     {
-        if (state != CrowdState.CONFUSED && state != CrowdState.WORK)
+        if (state != s)
         {
-            lastState = state;
+            if (state != CrowdState.CONFUSED)
+            {
+                lastState = state;
+            }
+            state = s;
+            stateCoolingDown = DataSet.magicNumber;
         }
-        state = s;
-        stateCoolingDown = DataSet.magicNumber;
     }
 
     public void Flip(float p)
@@ -495,22 +496,11 @@ public class CrowdControl : ActorControl
         }
     }
 
-    private class IsWorking : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            return man.state == CrowdState.WORK;
-        }
-    }
-
     ///////////////////
     /// Actions
     ///////////////////
-
-    private abstract class TimedAction : Node<CrowdControl>
+    private abstract class CrowdAction : Node<CrowdControl>
     {
-        protected float interval;
-
         public override bool Update(CrowdControl man)
         {
             if (man.stateCoolingDown == DataSet.magicNumber)
@@ -519,17 +509,7 @@ public class CrowdControl : ActorControl
             }
             else
             {
-                if (man.stateCoolingDown > 0)
-                {
-                    man.stateCoolingDown -= Time.deltaTime;
-
-                    //Sprite sprite = Resources.Load<Sprite>("Sprites/Character/confuse");
-                    //man.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
-                }
-                else
-                {
-                    OnInterval(man);
-                }
+                OnUpdate(man);
             }
 
             return true;
@@ -537,6 +517,30 @@ public class CrowdControl : ActorControl
 
         public virtual void OnStart(CrowdControl man)
         {
+            // to make it not on start anymore
+            --man.stateCoolingDown;
+        }
+
+        public virtual void OnUpdate(CrowdControl man)
+        {
+        }
+    }
+
+
+    private abstract class TimedAction : CrowdAction
+    {
+        protected float interval;
+
+        public override void OnUpdate(CrowdControl man)
+        {
+            if (man.stateCoolingDown > 0)
+            {
+                man.stateCoolingDown -= Time.deltaTime;
+            }
+            else
+            {
+                OnInterval(man);
+            }
         }
 
         public virtual void OnInterval(CrowdControl man)
@@ -554,167 +558,154 @@ public class CrowdControl : ActorControl
             interval = Random.Range(3f, 8f);
             man.stateCoolingDown = interval;
 
-            man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            man.spineAnimController.SetAnimation("idle_wiggle", SpineAnimationControl.CLEAR_NOT_FACIAL);
         }
 
         public override void OnInterval(CrowdControl man)
         {
             base.OnInterval(man);
 
-            man.spineAnimController.SetRandomAnimation("idle", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            man.spineAnimController.SetRandomAnimation("idle", SpineAnimationControl.CLEAR_NOT_FACIAL);
         }
     }
 
-    private class Moving : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            man.spineAnimController.SetAnimation("walk_normal", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-            man.spineAnimController.SetRandomAnimation("arm");
-            return true;
-        }
-    }
-
-    private class Climbing : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            if (man.state == CrowdState.CLIMB_BACK)
-            {
-                man.spineAnimController.SetAnimation("climb_back", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-            }
-            else
-            {
-                man.spineAnimController.SetAnimation("climb_side", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-            }
-            return true;
-        }
-    }
-
-    private class Pulling : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            man.spineAnimController.SetAnimation("feet_pull", SpineAnimationControl.ClearPolicy.CLEARNOTBODY);
-            man.spineAnimController.SetProgress("feet_pull", man.animationProgress);
-            man.spineAnimController.SetAnimation("pull");
-            return true;
-        }
-    }
-
-    private class Pushing : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            //if (man.transform.hasChanged)
-            //{
-            //    man.spineAnimController.SetAnimation("feet_push", SpineAnimationControl.ClearPolicy.CLEARNOTBODY, 0.2f);
-            //    man.transform.hasChanged = false;
-            //}
-            //else
-            //{
-            //    man.spineAnimController.ClearAnimation("feet_push", 0.2f);
-            //}
-            man.spineAnimController.SetAnimation("feet_push", SpineAnimationControl.ClearPolicy.CLEARNOTBODY);
-            man.spineAnimController.SetProgress("feet_push", man.animationProgress);
-            man.spineAnimController.SetAnimation("push");
-            return true;
-        }
-    }
-
-    private class Riding : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            man.spineAnimController.SetAnimation("ride_bike", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-            return true;
-        }
-    }
-
-    private class Inflating : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            switch (man.state)
-            {
-                case CrowdState.INFLATE_HANDLE:
-                    man.spineAnimController.SetAnimation("inflate_pump", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-                    break;
-                case CrowdState.INFLATE_ING:
-                    man.spineAnimController.SetAnimation("inflate_mouth_prepare", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-                    break;
-                case CrowdState.INFLATE_COMPLETE:
-                    man.spineAnimController.SetAnimation("inflate_mouth_finish", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-                    break;
-                case CrowdState.INFLATE_FLOAT:
-                    man.spineAnimController.SetAnimation("inflate_mouth_drift", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-                    break;
-                default:
-                    break;
-            }        
-            return true;
-        }
-    }
-
-    private class Sitting : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            man.spineAnimController.SetAnimation("sit", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-            return true;
-        }
-    }
-
-    private class Running : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            man.spineAnimController.SetAnimation("wheel_run", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-            return true;
-        }
-    }
-
-    private class Floating : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            man.spineAnimController.SetAnimation("floating", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-            return true;
-        }
-    }
-
-    private class Dropping : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            man.spineAnimController.SetAnimation("chain_drop", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
-            return true;
-        }
-    }
-
-    private class Celebrating : TimedAction
+    private class Walking : CrowdAction
     {
         public override void OnStart(CrowdControl man)
         {
             base.OnStart(man);
 
-            interval = 10000000000;
-            man.stateCoolingDown = interval;
+            man.spineAnimController.SetAnimation("walk_normal", SpineAnimationControl.CLEAR_NOT_FACIAL);
+            man.spineAnimController.SetRandomAnimation("arm");
+        }
+    }
 
-            if (!man.IsBusy())
+    private class Climbing : CrowdAction
+    {
+        public override void OnUpdate(CrowdControl man)
+        {
+            if (man.state == CrowdState.CLIMB_BACK)
             {
-                man.spineAnimController.SetAnimation("cheers_face", SpineAnimationControl.ClearPolicy.CLEARALL);
-                man.spineAnimController.SetRandomAnimation("cheers", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL, "cheers_face");
+                man.spineAnimController.SetAnimation("climb_back", SpineAnimationControl.CLEAR_NOT_FACIAL);
             }
             else
             {
-                man.spineAnimController.SetAnimation("cheers_face", SpineAnimationControl.ClearPolicy.CLEARFACIAL);
+                man.spineAnimController.SetAnimation("climb_side", SpineAnimationControl.CLEAR_NOT_FACIAL);
             }
         }
+    }
 
-        public override void OnInterval(CrowdControl man)
+    private class Pulling : CrowdAction
+    {
+        public override void OnStart(CrowdControl man)
         {
-            base.OnInterval(man);
+            base.OnStart(man);
+
+            man.spineAnimController.SetAnimation("feet_pull", SpineAnimationControl.CLEAR_NOT_FACIAL);
+            man.spineAnimController.SetAnimation("pull");
+        }
+
+        public override void OnUpdate(CrowdControl man)
+        {
+            man.spineAnimController.SetProgress("feet_pull", man.animationProgress);
+        }
+    }
+
+    private class Pushing : CrowdAction
+    {
+        public override void OnStart(CrowdControl man)
+        {
+            base.OnStart(man);
+
+            man.spineAnimController.SetAnimation("feet_push", SpineAnimationControl.CLEAR_NOT_FACIAL);
+            man.spineAnimController.SetAnimation("push");
+        }
+
+        public override void OnUpdate(CrowdControl man)
+        {
+            man.spineAnimController.SetProgress("feet_push", man.animationProgress);
+        }
+    }
+
+    private class Riding : CrowdAction
+    {
+        public override void OnUpdate(CrowdControl man)
+        {
+            man.spineAnimController.SetAnimation("ride_bike", SpineAnimationControl.CLEAR_NOT_FACIAL);
+        }
+    }
+
+    private class Inflating : CrowdAction
+    {
+        public override void OnUpdate(CrowdControl man)
+        {
+            switch (man.state)
+            {
+                case CrowdState.INFLATE_HANDLE:
+                    man.spineAnimController.SetAnimation("inflate_pump", SpineAnimationControl.CLEAR_NOT_FACIAL);
+                    break;
+                case CrowdState.INFLATE_ING:
+                    man.spineAnimController.SetAnimation("inflate_mouth_prepare", SpineAnimationControl.CLEAR_NOT_FACIAL);
+                    break;
+                case CrowdState.INFLATE_COMPLETE:
+                    man.spineAnimController.SetAnimation("inflate_mouth_finish", SpineAnimationControl.CLEAR_NOT_FACIAL);
+                    break;
+                case CrowdState.INFLATE_FLOAT:
+                    man.spineAnimController.SetAnimation("inflate_mouth_drift", SpineAnimationControl.CLEAR_NOT_FACIAL);
+                    break;
+                default:
+                    break;
+            }        
+        }
+    }
+
+    private class Sitting : CrowdAction
+    {
+        public override void OnUpdate(CrowdControl man)
+        {
+            man.spineAnimController.SetAnimation("sit", SpineAnimationControl.CLEAR_NOT_FACIAL);
+        }
+    }
+
+    private class Running : CrowdAction
+    {
+        public override void OnUpdate(CrowdControl man)
+        {
+            man.spineAnimController.SetAnimation("wheel_run", SpineAnimationControl.CLEAR_NOT_FACIAL);
+        }
+    }
+
+    private class Floating : CrowdAction
+    {
+        public override void OnUpdate(CrowdControl man)
+        {
+            man.spineAnimController.SetAnimation("floating", SpineAnimationControl.CLEAR_NOT_FACIAL);
+        }
+    }
+
+    private class Dropping : CrowdAction
+    {
+        public override void OnUpdate(CrowdControl man)
+        {
+            man.spineAnimController.SetAnimation("chain_drop", SpineAnimationControl.CLEAR_NOT_FACIAL);
+        }
+    }
+
+    private class Celebrating : CrowdAction
+    {
+        public override void OnStart(CrowdControl man)
+        {
+            base.OnStart(man);
+
+            if (!man.IsBusy())
+            {
+                man.spineAnimController.SetAnimation("cheers_face", SpineAnimationControl.CLEAR_ALL);
+                man.spineAnimController.SetRandomAnimation("cheers", SpineAnimationControl.CLEAR_NOT_FACIAL, "cheers_face");
+            }
+            else
+            {
+                man.spineAnimController.SetAnimation("cheers_face", SpineAnimationControl.CLEAR_FACIAL);
+            }
         }
     }
 
@@ -729,11 +720,11 @@ public class CrowdControl : ActorControl
 
             if (man.gameObject.transform.localScale.x == -1)
             {
-                man.spineAnimController.SetRandomAnimation("confuse_right", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+                man.spineAnimController.SetRandomAnimation("confuse_right", SpineAnimationControl.CLEAR_NOT_FACIAL);
             }
             else
             {
-                man.spineAnimController.SetRandomAnimation("confuse_left", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+                man.spineAnimController.SetRandomAnimation("confuse_left", SpineAnimationControl.CLEAR_NOT_FACIAL);
             }
         }
 
@@ -745,23 +736,18 @@ public class CrowdControl : ActorControl
         }
     }
 
-    private class Working : TimedAction
+    private class Working : CrowdAction
     {
-        public override void OnStart(CrowdControl man)
+        public override void OnUpdate(CrowdControl man)
         {
-            base.OnStart(man);
-
-            interval = 2f;
-            man.stateCoolingDown = interval;
-
-            man.spineAnimController.SetAnimation("busy", SpineAnimationControl.ClearPolicy.CLEARTHIS);
+            man.spineAnimController.SetAnimation("busy_forever", SpineAnimationControl.CLEAR_FACIAL);
         }
+    }
 
-        public override void OnInterval(CrowdControl man)
+    private class Empty : CrowdAction
+    {
+        public override void OnUpdate(CrowdControl man)
         {
-            base.OnInterval(man);
-
-            man.SwitchState(man.lastState);
         }
     }
 }

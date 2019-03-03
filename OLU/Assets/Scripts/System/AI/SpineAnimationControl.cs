@@ -20,18 +20,13 @@ public class SpineAnimClip
 
 public class SpineAnimationControl : MonoBehaviour
 {
-    public enum ClearPolicy
-    {
-        DONT,
-        CLEARTHIS,
-        CLEARALL,
-        CLEARNOTFACIAL,
-        CLEARNOTBODY,
-        CLEARNOTSPECIAL,
-        CLEARBODY,          // 0, 1
-        CLEARFACIAL,        // 3, 4
-        CLEARSPECIAL,       // 2
-    }
+    public static int CLEAR_FACIAL = (1 << 4) | (1 << 3);
+    public static int CLEAR_BODY = (1 << 0) | (1 << 1);
+    public static int CLEAR_SPECIAL = (1 << 2);
+    public static int CLEAR_NOT_FACIAL = CLEAR_BODY | CLEAR_SPECIAL;
+    public static int CLEAR_NOT_BODY = CLEAR_FACIAL | CLEAR_SPECIAL;
+    //public static int CLEAR_THIS = (1 << 5);
+    public static int CLEAR_ALL = ~(1 << 5);
 
     Dictionary<string, SpineAnimClip> animList = new Dictionary<string, SpineAnimClip>();
     SkeletonAnimation anim;
@@ -97,12 +92,13 @@ public class SpineAnimationControl : MonoBehaviour
         {
             // if this animation is not looping
             // pick another animation in the same group
+            // 15: clear all except 4
             string[] names = name.Split('_');
-            SetRandomAnimation(names[0], ClearPolicy.CLEARNOTFACIAL, name);
+            SetRandomAnimation(names[0], CLEAR_NOT_FACIAL, name);
         }
     }
 
-    public void SetAnimation(string name, ClearPolicy clearPolicy = ClearPolicy.DONT)
+    public void SetAnimation(string name, int clearPolicy = 0)
     {
         if (!animList.ContainsKey(name))
         {
@@ -112,69 +108,40 @@ public class SpineAnimationControl : MonoBehaviour
         var state = anim.state;
         int track = animList[name].track;
         float mixTime = animList[name].mixTime;
-        switch (clearPolicy)
-        {
-            case ClearPolicy.CLEARALL:
-                for (int i = 0; i < 5; ++i)
-                {
-                    state.SetEmptyAnimation(i, mixTime);
-                }
-                break;
-            case ClearPolicy.CLEARBODY:
-                state.SetEmptyAnimation(0, mixTime);
-                state.SetEmptyAnimation(1, mixTime);
-                break;
-            case ClearPolicy.CLEARFACIAL:
-                state.SetEmptyAnimation(3, mixTime);
-                state.SetEmptyAnimation(4, mixTime);
-                break;
-            case ClearPolicy.CLEARSPECIAL:
-                state.SetEmptyAnimation(2, mixTime);
-                break;
-            case ClearPolicy.CLEARNOTFACIAL:
-                for (int i = 0; i < 3; ++i)
-                {
-                    if (i != track)
-                    {
-                        state.SetEmptyAnimation(i, mixTime);
-                    }
-                }
-                break;
-            case ClearPolicy.CLEARNOTBODY:
-                for (int i = 2; i < 5; ++i)
-                {
-                    if (i != track)
-                    {
-                        state.SetEmptyAnimation(i, mixTime);
-                    }
-                }
-                break;
-            case ClearPolicy.CLEARNOTSPECIAL:
-                for (int i = 0; i < 5; ++i)
-                {
-                    if (i != track && i != 2)
-                    {
-                        state.SetEmptyAnimation(i, mixTime);
-                    }
-                }
-                break;
-            case ClearPolicy.CLEARTHIS:
-                state.SetEmptyAnimation(track, mixTime);
-                break;
-            case ClearPolicy.DONT:
-            default:
-                break;
 
-        }
+        //int needClearThis = clearPolicy & (1 << 5);
+        //if (needClearThis == 1)
+        //{
+        //    clearPolicy |= 1 << track;
+        //}
+        //else
+        //{
+        //    clearPolicy &= ~(1 << track);
+        //}
+
+        //Debug.Log(name);
 
         if (state.GetCurrent(track) == null || state.GetCurrent(track).Animation == null || state.GetCurrent(track).Animation.Name != name)
         {
-            //Debug.Log(name);
             state.SetAnimation(track, name, animList[name].loopType == SpineAnimClip.LoopType.LOOP);
+        }
+
+        for (int i = 0; i < 5; ++i)
+        {
+            if (i != track)
+            {
+                int needClear = (clearPolicy & (1 << i)) >> i;
+                if (needClear == 1)
+                {
+                    state.SetEmptyAnimation(i, mixTime);
+                }
+
+                //Debug.Log(clearPolicy + " " + i + " " + needClear);
+            }
         }
     }
 
-    public void SetRandomAnimation(string name, ClearPolicy clearPolicy = ClearPolicy.DONT, string exception = null)
+    public void SetRandomAnimation(string name, int clearPolicy = 0, string exception = null)
     {
         var query = (animList.Where(x => x.Key.Contains(name) && x.Key != exception)).ToList();
         if (query.Count > 0)

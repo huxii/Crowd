@@ -173,9 +173,14 @@ public class GameEvents : CustomEvents
         ani.Play();
     }
 
-    public void SetCrowdAnimation(GameObject man, string aniName, SpineAnimationControl.ClearPolicy clearPolicy = SpineAnimationControl.ClearPolicy.DONT)
+    public void SetCrowdAnimation(GameObject man, string aniName, int clearPolicy = 0)
     {
         man.GetComponent<SpineAnimationControl>().SetAnimation(aniName, clearPolicy);
+    }
+
+    public void ClearCrowdAnimation(GameObject man, string aniName)
+    {
+        man.GetComponent<SpineAnimationControl>().ClearAnimation(aniName);
     }
 
     public void AddAnchor(GameObject man, GameObject obj)

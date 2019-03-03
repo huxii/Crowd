@@ -15,7 +15,7 @@ public class CanStrawBehavior : ObjectTimedDeactivateControl
             Services.taskManager
                 .Do(new Wait(1))
                 .Then(new ActionTask(() => GameObject.Find("Can").GetComponent<CanBehavior>().Activate()))
-                .Then(new ActionTask(() => Services.gameEvents.SetCrowdAnimation(man, "inflate_asshole_squeeze", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL)));
+                .Then(new ActionTask(() => Services.gameEvents.SetCrowdAnimation(man, "inflate_asshole_squeeze", SpineAnimationControl.CLEAR_NOT_FACIAL)));
 
             Activate();
         }
@@ -27,7 +27,7 @@ public class CanStrawBehavior : ObjectTimedDeactivateControl
         {
             Services.gameEvents.RemoveAnchor(man);
             // dead :)
-            Services.gameEvents.SetCrowdAnimation(man, "inflate_asshole_tired", SpineAnimationControl.ClearPolicy.CLEARNOTFACIAL);
+            Services.gameEvents.SetCrowdAnimation(man, "inflate_asshole_tired", SpineAnimationControl.CLEAR_NOT_FACIAL);
             Services.gameEvents.PlayAnimation(man.name + " ThrowOut");
 
             // prevent be pushed out by other men
