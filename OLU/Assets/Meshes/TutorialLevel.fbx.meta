@@ -162,6 +162,8 @@ ModelImporter:
     100312: LightBase
     100314: RockBase
     100316: SwitchLight
+    100318: Bulbs
+    100320: RockBase 1
     400000: Back
     400002: Box
     400004: Handle
@@ -321,6 +323,8 @@ ModelImporter:
     400312: LightBase
     400314: RockBase
     400316: SwitchLight
+    400318: Bulbs
+    400320: RockBase 1
     2100000: lambert1
     2100002: Level1_InnerMat
     2100004: Level0_InnerMat
@@ -454,6 +458,8 @@ ModelImporter:
     2300254: LightBase
     2300256: RockBase
     2300258: SwitchLight
+    2300260: RockBase 1
+    2300262: RockModel
     3300000: Back
     3300002: Box
     3300004: Handle
@@ -584,6 +590,8 @@ ModelImporter:
     3300254: LightBase
     3300256: RockBase
     3300258: SwitchLight
+    3300260: RockBase 1
+    3300262: RockModel
     4300000: Box
     4300002: Level1:Back
     4300004: Level1:Stair1
@@ -714,6 +722,7 @@ ModelImporter:
     4300254: Chip
     4300256: Cable1
     4300258: SwitchLight
+    4300260: RockModel
   externalObjects: {}
   materials:
     importMaterials: 0
