@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Tutorial.ma
-//Last modified: Sun, Mar 03, 2019 05:55:22 PM
+//Last modified: Mon, Mar 04, 2019 12:06:28 AM
 //Codeset: 936
 requires maya "2018";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "2.0.1";
@@ -16,7 +16,7 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "6EDDD1FC-8641-5A3A-9234-DC8F4E3B602B";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 6.2119072142738743 11.629961482799848 -28.546370263786045 ;
+	setAttr ".t" -type "double3" 4.1365756649568421 12.347466226799357 -47.650121824629814 ;
 	setAttr ".r" -type "double3" 2157.8616470990096 4146.2000000005264 0 ;
 	setAttr ".rp" -type "double3" 0 1.1368683772161603e-15 -1.1368683772161603e-15 ;
 	setAttr ".rpt" -type "double3" -1.8835626238773742e-17 -7.9841510845187986e-16 2.698839645418357e-15 ;
@@ -27,7 +27,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.001;
 	setAttr ".fcp" 100;
 	setAttr ".fd" 0.05;
-	setAttr ".coi" 14.157853462676679;
+	setAttr ".coi" 33.387391621345465;
 	setAttr ".ow" 0.1;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
@@ -22537,28 +22537,28 @@ createNode imagePlane -n "imagePlaneShape2" -p "imagePlane2";
 	setAttr ".h" 0.6255;
 	setAttr ".cs" -type "string" "sRGB";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "2F011A33-453B-5F58-EF46-02933E205F47";
+	rename -uid "8D60D362-4CB7-96F9-F18C-63887B2D3CE2";
 	setAttr -s 48 ".lnk";
 	setAttr -s 48 ".slnk";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "23DEB79C-4C7C-D25C-58DB-0AB7F28A3B93";
+	rename -uid "FB50E24B-4834-E831-1814-BF890329F77E";
 	setAttr ".cdl" 8;
 	setAttr -s 8 ".dli[1:7]"  8 3 2 4 5 6 7;
 	setAttr -s 4 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "AF6A757E-DA4F-EE62-16DD-0CA16EF9147F";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "7A0EBEF8-4634-6849-EE93-97A493A85D7A";
+	rename -uid "E33C7CEA-4ACE-0D99-71A6-D99D0EA428A9";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "49EFD537-C641-AAD7-7A9A-C3A377740591";
 	setAttr ".g" yes;
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "63E07DE3-4E84-72A9-BD6C-EF8999018E5D";
+	rename -uid "3EA9FB1D-4555-90ED-43B0-8AB646DC5724";
 	setAttr -s 2 ".bsdt";
 	setAttr ".bsdt[0].bscd" -type "Int32Array" 1 -1 ;
 	setAttr ".bsdt[1].bsdn" -type "string" "Level0";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "2219F91A-4B29-C097-E6FB-9C91805A1604";
+	rename -uid "91312984-4DD1-B261-6933-02AF1EAD3AC1";
 createNode script -n "uiConfigurationScriptNode";
 	rename -uid "07860BB2-8940-55A0-8B9F-22B391EF1421";
 	setAttr ".b" -type "string" (
@@ -26952,10 +26952,10 @@ createNode polyTweakUV -n "polyTweakUV30";
 		 0.014110846 -0.021537567 0.014110905 -0.021537567 0.014110905 -0.021537567 0.014110786
 		 -0.021537507 0.014110786 -0.021537626 0.014110786 -0.021537567 0.014110905 -0.021537507;
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "5EF0069C-4B4B-9E11-0330-94A79A828F89";
+	rename -uid "A01A2AD5-49CA-EAE2-83F2-979091F2F5ED";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" -1505.9523211112125 -1947.2186331175301 ;
-	setAttr ".tgi[0].vh" -type "double2" 1490.4761312499904 1950.7900615470433 ;
+	setAttr ".tgi[0].vl" -type "double2" -1506.1223891316649 -1948.8094463707941 ;
+	setAttr ".tgi[0].vh" -type "double2" 1491.8366754136146 1951.1903986571356 ;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
