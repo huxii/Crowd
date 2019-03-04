@@ -221,7 +221,7 @@ public class GameEvents : CustomEvents
         SetManTargetPosition(actor, pos, 0.1f);
     }
 
-    public void MakeFloatMan(GameObject man, float height = 2f)
+    public void MakeFloatMan(GameObject man, float height = 3.5f)
     {
         if (man == null)
         {
@@ -233,6 +233,7 @@ public class GameEvents : CustomEvents
 
         //man.GetComponent<CrowdControl>().Lock();
         man.AddComponent<FloatBehavior>();
+        man.GetComponent<FloatBehavior>().Init(height);
     }
 
     public void SelectMan(GameObject man)

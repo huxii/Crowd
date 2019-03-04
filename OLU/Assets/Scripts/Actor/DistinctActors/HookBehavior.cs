@@ -14,6 +14,8 @@ public class HookBehavior : ObjectTimedDeactivateControl
             Services.gameEvents.AddAnchor(other.gameObject, gameObject);
             man = other.gameObject;
 
+            GameObject.Find("WindZone").GetComponent<WindBehavior>().RemoveMan(man);
+
             Deactivate();
         }
     }
