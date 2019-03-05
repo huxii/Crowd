@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(ASRBehavior))]
 public class PropOneTimeDragControl : PropOneTimeControl
 {
     public enum DragAxis
@@ -26,6 +27,8 @@ public class PropOneTimeDragControl : PropOneTimeControl
     protected float hintCD = 3f;
 
     protected bool isDragging = false;
+    protected bool isMoving = false;
+    protected ASRBehavior asr = null;
 
     // on dragging for sound effect
     // Use this for initialization
@@ -45,6 +48,8 @@ public class PropOneTimeDragControl : PropOneTimeControl
         }
 
         hintTimer = 1f;
+
+        asr = GetComponent<ASRBehavior>();
     }
 
     // Update is called once per frame
@@ -58,19 +63,31 @@ public class PropOneTimeDragControl : PropOneTimeControl
             // only invoke onDragging when it's actually being dragged
             if (Vector3.Distance(targetPos, newPos) > 0.001f)
             {
+                if (!isMoving)
+                {
+                    isMoving = true;
+                    asr.Attack();
+                }
+
                 newPos = Vector3.Lerp(newPos, targetPos, Time.deltaTime * speed);
                 transform.position = newPos;
 
-                if (Vector3.Distance(targetPos, newPos) > 0.05f)
-                {
-                    onDragging.Invoke();
-                }
+                //if (Vector3.Distance(targetPos, newPos) > 0.05f)
+                //{
+                //    onDragging.Invoke();
+                //}
 
                 // syncing animation
                 Services.eventManager.Fire(new DragEvent(deltaOffset / dragOffset));
             }
             else
             {
+                if (isMoving)
+                {
+                    isMoving = false;
+                    asr.Release();
+                }
+
                 Vector3 finalPos = origPos;
                 finalPos[(int)dragAxis] += dragOffset;
 
@@ -80,6 +97,8 @@ public class PropOneTimeDragControl : PropOneTimeControl
                     onReachEnd.Invoke();
                     FreeAllMen();
                     Lock();
+
+                    asr.End();
                 }
                 else
                 {
@@ -137,7 +156,7 @@ public class PropOneTimeDragControl : PropOneTimeControl
                 Services.dotweenEvents.ScaleTo(GetComponent<PropFeedbackBehavior>().targetObj.name + " 1.1, 1.1, 1.1, 0.5");
             }        
 
-            deltaOffset = Mathf.Min(Mathf.Max(minDelta, deltaOffset + d[(int)dragAxis]), maxDelta);
+            deltaOffset = Mathf.Min(Mathf.Max(minDelta, deltaOffset + Mathf.Min(d[(int)dragAxis], 0.5f)), maxDelta);
         }
     }
 }

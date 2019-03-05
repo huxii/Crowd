@@ -102,53 +102,8 @@ public class SoundControl : MonoBehaviour
     {
     }
 
-    // the way to judge if an audio source has been taken:
-    // source.clip != null
-    public void Play(string id)
+    private AudioSource AssignNewObject(string id)
     {
-        if (soundList[id].audioClip == null)
-        {
-            // the first time playing this clip
-            soundList[id].audioClip = Resources.Load<AudioClip>("Sounds/" + soundList[id].filename);
-        }
-        else
-        {
-            // find the previous one
-            for (int i = 0; i < audioSources.Count; i++)
-            {
-                if (!isLocked[i])
-                {
-                    AudioSource source = audioSources[i].GetComponent<AudioSource>();
-                    if (source.clip != null)
-                    {
-                        if (!source.isPlaying)
-                        {
-                            // clear the current clip when it's ended.
-                            source.clip = null;
-                        }
-                        else
-                        if (source.clip.name == soundList[id].audioClip.name)
-                        {
-                            if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.NOTREPLACE)
-                            {
-                                return;
-                            }
-                            else
-                            if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.REPLACE)
-                            {
-                                Stop(source, soundList[id].fadeOutDuration);
-                                break;
-                            }
-                            else
-                            if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.MULTIPLE)
-                            {
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
         for (int i = 0; i < audioSources.Count; i++)
         {
             AudioSource source = audioSources[i].GetComponent<AudioSource>();
@@ -161,9 +116,59 @@ public class SoundControl : MonoBehaviour
                 source.PlayDelayed(soundList[id].startDelay);
                 source.volume = 0f;
                 source.DOFade(1, soundList[id].fadeInDuration);
-                break;
+                return source;
             }
         }
+
+        return null;
+    }
+
+    // the way to judge if an audio source has been taken:
+    // source.clip != null
+    public AudioSource PlayWithReturn(string id)
+    {
+        // clear finished clips
+        for (int i = 0; i < audioSources.Count; i++)
+        {
+            AudioSource source = audioSources[i].GetComponent<AudioSource>();
+            if (source.clip != null && !source.isPlaying)
+            {
+                source.clip = null;
+            }
+        }
+
+        if (soundList[id].audioClip == null)
+        {
+            // the first time playing this clip
+            soundList[id].audioClip = Resources.Load<AudioClip>("Sounds/" + soundList[id].filename);
+        }
+
+        switch (soundList[id].duplicatePolicy)
+        {
+            case SoundClip.DuplicatePolicy.REPLACE:
+                Stop(id);
+                return AssignNewObject(id);
+            case SoundClip.DuplicatePolicy.MULTIPLE:
+                return AssignNewObject(id);
+            case SoundClip.DuplicatePolicy.NOTREPLACE:
+                // find the previous one
+                for (int i = 0; i < audioSources.Count; i++)
+                {
+                    AudioSource source = audioSources[i].GetComponent<AudioSource>();
+                    if (source.clip != null && source.clip.name == soundList[id].audioClip.name)
+                    {
+                        return source;
+                    }
+                }
+                return AssignNewObject(id);
+            default:
+                return null;
+        }
+    }
+
+    public void Play(string id)
+    {
+        PlayWithReturn(id);
     }
 
     public void Stop(string id)
@@ -173,11 +178,15 @@ public class SoundControl : MonoBehaviour
             return;
         }
 
-        foreach (GameObject sourceObj in audioSources)
+        for (int i = 0; i < audioSources.Count; ++i)
         {
-            if (sourceObj.GetComponent<AudioSource>().clip && sourceObj.GetComponent<AudioSource>().clip.name == soundList[id].audioClip.name)
+            if (!isLocked[i])
             {
-                Stop(sourceObj.GetComponent<AudioSource>(), soundList[id].fadeOutDuration);
+                AudioSource source = audioSources[i].GetComponent<AudioSource>();
+                if (source.clip && source.clip.name == soundList[id].audioClip.name)
+                {
+                    Stop(source, soundList[id].fadeOutDuration);
+                }
             }
         }
     }
@@ -189,12 +198,16 @@ public class SoundControl : MonoBehaviour
             return;
         }
 
-        foreach (GameObject sourceObj in audioSources)
+        for (int i = 0; i < audioSources.Count; ++i)
         {
-            if (sourceObj.GetComponent<AudioSource>().clip && sourceObj.GetComponent<AudioSource>().clip.name == soundList[id].audioClip.name)
+            if (!isLocked[i])
             {
-                Stop(sourceObj.GetComponent<AudioSource>(), soundList[id].fadeOutDuration);
-                break;
+                AudioSource source = audioSources[i].GetComponent<AudioSource>();
+                if (source.clip && source.clip.name == soundList[id].audioClip.name)
+                {
+                    Stop(source, soundList[id].fadeOutDuration);
+                    break;
+                }
             }
         }
     }
@@ -217,10 +230,10 @@ public class SoundControl : MonoBehaviour
         }
     }
 
-    public void CrossFade(string id0, string id1)
+    public AudioSource CrossFade(string id0, string id1)
     {
         Stop(id0);
-        Play(id1);
+        return PlayWithReturn(id1);
     }
 
     /*
