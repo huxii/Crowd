@@ -7,6 +7,10 @@ public class SceneControl : MonoBehaviour
 {
     AsyncOperation async;
 
+    private float transitionAnimTime = 1f;
+    private float transitionFadeTime = 0.5f;
+    private float transitionButtonTime = 0.5f;
+
     void Awake()
     {
         async = null;
@@ -22,9 +26,9 @@ public class SceneControl : MonoBehaviour
             {
                 Services.taskManager
                     .Do(new ActionTask(() => Services.gameEvents.PlayAnimation(DataSet.recentQuitLevelName + "SelectPanel " + DataSet.recentQuitLevelName + "Select")))
-                    .Then(new Wait(0.5f))
+                    .Then(new Wait(transitionAnimTime))
                     .Then(new ActionTask(() => Services.sceneTransitionController.FadeOutOfLoadingScreen()))
-                    .Then(new Wait(0.5f))
+                    .Then(new Wait(transitionFadeTime))
                     .Then(new ActionTask(() => Services.gameEvents.PlayAnimation(DataSet.recentQuitLevelName + "SelectPanel " + DataSet.recentQuitLevelName + "Back")));
             }
         }
@@ -81,12 +85,13 @@ public class SceneControl : MonoBehaviour
             PreloadScene(sceneName);
 
             Services.mainController.DisableInput();
-            Services.gameEvents.PlayAnimation(sceneName + "SelectPanel " + sceneName + "Select");
 
             Services.taskManager
-                .Do(new Wait(0.5f))
+                .Do(new Wait(transitionButtonTime))
+                .Then(new ActionTask(() => Services.gameEvents.PlayAnimation(sceneName + "SelectPanel " + sceneName + "Select")))
+                .Then(new Wait(transitionAnimTime))
                 .Then(new ActionTask(Services.sceneTransitionController.RecordScreen))
-                .Then(new Wait(0.5f))
+                .Then(new Wait(transitionFadeTime))
                 .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.FADE)));
         }
         else
@@ -112,9 +117,9 @@ public class SceneControl : MonoBehaviour
             PreloadScene(sceneName);
 
             Services.taskManager
-                .Do(new Wait(0.5f))
+                .Do(new Wait(transitionButtonTime))
                 .Then(new ActionTask(() => Services.sceneTransitionController.FadeIntoLoadingScreen(SceneTransitionControl.TransitionStyle.BLACK)))
-                .Then(new Wait(0.5f))
+                .Then(new Wait(transitionFadeTime))
                 .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.BLACK)));
         }
         else
@@ -131,9 +136,9 @@ public class SceneControl : MonoBehaviour
             PreloadScene(sceneName);
 
             Services.taskManager
-                .Do(new Wait(0.5f))
+                .Do(new Wait(transitionButtonTime))
                 .Then(new ActionTask(() => Services.sceneTransitionController.FadeIntoLoadingScreen(SceneTransitionControl.TransitionStyle.FADE)))
-                .Then(new Wait(0.5f))
+                .Then(new Wait(transitionFadeTime))
                 .Then(new ActionTask(() => WaifForAsyncLoadingWithFade(SceneTransitionControl.TransitionStyle.FADE)));
         }
         else
