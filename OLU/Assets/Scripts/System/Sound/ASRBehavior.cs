@@ -6,24 +6,13 @@ using UnityEngine;
 public class ASRBehavior : MonoBehaviour
 {
     public List<string> sampleIds;
+    public string startSampleId;
     public string endSampleId;
     public float sustainDuration = 0.5f;
 
     private AudioSource audioSource = null;
     private string curId = null;
     private float timer = 0;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Sustain();
-    }
 
     private string PickNextString()
     {
@@ -38,33 +27,40 @@ public class ASRBehavior : MonoBehaviour
     public void Attack()
     {
         Debug.Log("Attack");
+        Services.soundController.Play(startSampleId);
+
         string nextId = PickNextString();
         audioSource = Services.soundController.PlayWithReturn(nextId);
+
         curId = nextId;
         timer = Time.time;
     }
 
     public void Sustain()
     {
-        if (audioSource != null && audioSource.isPlaying)
+        if (audioSource != null)
         {
             Debug.Log("Sustain");
             if (Time.time >= timer + sustainDuration)
             {
                 string nextId = PickNextString();
                 Services.soundController.CrossFade(curId, nextId);
-                curId = nextId;
-            }
 
+                curId = nextId;
+                timer = Time.time;
+            }
         }
     }
 
     public void Release()
     {
         Debug.Log("Release");
-        Services.soundController.Stop(curId);
-        audioSource = null;
-        curId = null;
+        if (curId != null)
+        {
+            Services.soundController.Stop(curId);
+            audioSource = null;
+            curId = null;
+        }
     }
 
     public void End()

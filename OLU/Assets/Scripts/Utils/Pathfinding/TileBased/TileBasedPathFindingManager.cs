@@ -275,10 +275,10 @@ public class TileBasedPathFindingManager : PathFindingManager
         {
             if (tile.GetComponent<Tile>().enabled)
             {
-                if (tile.name == "Tile7" || tile.name == "Tile8")
-                {
-                    Debug.Log(pos + " " + tile.name + " " + tile.transform.position + " " + Vector3.Distance(pos, tile.transform.position));
-                }
+                //if (tile.name == "Tile7" || tile.name == "Tile8")
+                //{
+                //    Debug.Log(pos + " " + tile.name + " " + tile.transform.position + " " + Vector3.Distance(pos, tile.transform.position));
+                //}
                 if (Vector3.Distance(pos, tile.transform.position) < dist)
                 {
                     dist = Vector3.Distance(pos, tile.transform.position);

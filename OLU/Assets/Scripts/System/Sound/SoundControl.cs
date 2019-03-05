@@ -87,6 +87,10 @@ public class SoundControl : MonoBehaviour
 
         foreach (SoundClip s in clips)
         {
+            //if (soundList.ContainsKey(s.id))
+            //{
+            //    Debug.Log(s.id);
+            //}
             soundList.Add(s.id, s);
         }
     }

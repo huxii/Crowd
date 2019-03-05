@@ -15,7 +15,7 @@ public class PropOneTimeDragControl : PropOneTimeControl
     [Header("Drag Settings")]
     public DragAxis dragAxis;
     public float dragOffset;
-    public UnityEvent onDragging;
+    //public UnityEvent onDragging;
     public UnityEvent onReachEnd;
 
     protected float deltaOffset;
@@ -68,6 +68,10 @@ public class PropOneTimeDragControl : PropOneTimeControl
                     isMoving = true;
                     asr.Attack();
                 }
+                else
+                {
+                    asr.Sustain();
+                }
 
                 newPos = Vector3.Lerp(newPos, targetPos, Time.deltaTime * speed);
                 transform.position = newPos;
@@ -102,7 +106,7 @@ public class PropOneTimeDragControl : PropOneTimeControl
                 }
                 else
                 {
-                    if (IsActivated())
+                    if (IsActivated() && !isDragging)
                     {
                         // automatically shake a little bit to indicate dragging
                         if (hintTimer <= 0)

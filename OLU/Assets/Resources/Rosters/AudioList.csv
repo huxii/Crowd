@@ -37,7 +37,7 @@ Level 0,,,,,,,,,,,
 1,keyShake1,keyShake1,1,0,0,0,0,MULTIPLE,sfx,,record
 1,keyShake2,keyShake2,1,0,0,0,0,MULTIPLE,,,
 1,keyTurn,keyTurn1,1,0,0,0,0,REPLACE,sfx,2,record
-,boltMove_A,bolt_A,1,0,0,0,0,NOTREPLACE,sfx,2,record
+1,boltMove_A,bolt_A,1,0,0,0,0,NOTREPLACE,sfx,2,record
 1,boltMove_S,bolt_S,1,0,0,0,0,NOTREPLACE,sfx,,
 1,boltMove_R,bolt_R,1,0,0,0,0,NOTREPLACE,sfx,,
 1,rope1,rope_clock,1,0,0,0,0,MULTIPLE,sfx,,setting drop1
@@ -96,8 +96,8 @@ Level2,,,,,,,,,,,
 1,airTube_R,airTube_R,1,0,0,0,,NOTREPLACE,sfx,,
 1,squeeze,squeezed,1,0,0,0,,NOTREPLACE,sfx,,
 1,motor,motor,-1,0,0.2,0.2,,NOTREPLACE,sfx,,
-1,switch,killSwitch1,1,0,0,0,,NOTREPLACE,sfx,,
-1,emptySwitch,killSwitch0,1,0,0,0,,NOTREPLACE,,,
+1,hookSwitch,killSwitch1,1,0,0,0,,NOTREPLACE,sfx,,
+1,hookEmptySwitch,killSwitch0,1,0,0,0,,NOTREPLACE,,,
 1,hamsterWheel,hamsterWheel,-1,0,0,0,,NOTREPLACE,,,
 1,trashChute,trashChute,1,0,0,0,,NOTREPLACE,,,
 1,pipeShake,pipeShake,1,0,0,0,,NOTREPLACE,,,
@@ -113,6 +113,6 @@ Tutorial,,,,,,,,,,,
 1,metalSlide_S,metalSlide_S,1,0,0,0,,NOTREPLACE,,,
 1,metalSlide_R,metalSlide_R,1,0,0,0,,NOTREPLACE,,,
 ,cord,cord,1,0,0,0,,NOTREPLACE,,,
-1,tutorialSwitch,switch,1,0,0,0,,NOTREPLACE,,,
-1,game,gameOn,1,0,0,0,,NOTREPLACE,,,
+1,switch,switch,1,0,0,0,,NOTREPLACE,,,
+1,gameOn,gameOn,1,0,0,0,,NOTREPLACE,,,
 ,tutorialBGM,tutorialBGM,,,,,,,,,
