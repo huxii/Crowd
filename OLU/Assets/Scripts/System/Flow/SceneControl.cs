@@ -19,22 +19,25 @@ public class SceneControl : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         //Debug.Log(level + " loaded.");
-        if (level == 0)
+        if (Services.sceneTransitionController)
         {
-            //Debug.Log(DataSet.recentQuitLevelName);
-            if (Services.sceneTransitionController.isTransiting)
+            if (level == 0)
             {
-                Services.taskManager
-                    .Do(new ActionTask(() => Services.gameEvents.PlayAnimation(DataSet.recentQuitLevelName + "SelectPanel " + DataSet.recentQuitLevelName + "Select")))
-                    .Then(new Wait(transitionAnimTime))
-                    .Then(new ActionTask(() => Services.sceneTransitionController.FadeOutOfLoadingScreen()))
-                    .Then(new Wait(transitionFadeTime))
-                    .Then(new ActionTask(() => Services.gameEvents.PlayAnimation(DataSet.recentQuitLevelName + "SelectPanel " + DataSet.recentQuitLevelName + "Back")));
+                //Debug.Log(DataSet.recentQuitLevelName);
+                if (Services.sceneTransitionController.isTransiting)
+                {
+                    Services.taskManager
+                        .Do(new ActionTask(() => Services.gameEvents.PlayAnimation(DataSet.recentQuitLevelName + "SelectPanel " + DataSet.recentQuitLevelName + "Select")))
+                        .Then(new Wait(transitionAnimTime))
+                        .Then(new ActionTask(() => Services.sceneTransitionController.FadeOutOfLoadingScreen()))
+                        .Then(new Wait(transitionFadeTime))
+                        .Then(new ActionTask(() => Services.gameEvents.PlayAnimation(DataSet.recentQuitLevelName + "SelectPanel " + DataSet.recentQuitLevelName + "Back")));
+                }
             }
-        }
-        else
-        {
-            Services.sceneTransitionController.FadeOutOfLoadingScreen();
+            else
+            {
+                Services.sceneTransitionController.FadeOutOfLoadingScreen();
+            }
         }
     }
 
