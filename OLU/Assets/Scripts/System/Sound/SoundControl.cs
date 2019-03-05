@@ -30,31 +30,35 @@ public class SoundControl : MonoBehaviour
 {
     [SerializeField]
     private List<SoundClip> clips;
-    private int pooledAudioAmount = 10; 
+    private int pooledAudioAmount = 10;
 
     List<GameObject> audioSources = new List<GameObject>();
+    bool[] isLocked;
     Dictionary<string, SoundClip> soundList = new Dictionary<string, SoundClip>();
 
     char[] splitter = { ' ', ',' };
 
     private void Awake()
     {
+        isLocked = new bool[pooledAudioAmount];
         for (int i = 0; i < pooledAudioAmount; i++)
         {
             GameObject audio = (GameObject)Instantiate(Resources.Load("Prefabs/AudioSource"), transform);
             audio.SetActive(false);
             audioSources.Add(audio);
+
+            isLocked[i] = false;
         }
 
         TextAsset textAsset = Resources.Load<TextAsset>("Rosters/AudioList");
         string texts = textAsset.text;
-        string[] lines = texts.Split('\n','\r');
+        string[] lines = texts.Split('\n', '\r');
         for (int i = 1; i < lines.Length; i++)
         {
             SoundClip clip = new SoundClip();
             string[] row = lines[i].Split(splitter);
             if (row[0] == "1")
-            {             
+            {
                 clip.id = row[1];
                 //clip.audioClip = Resources.Load<AudioClip>("Sounds/" + row[2]);
                 clip.audioClip = null;
@@ -112,29 +116,33 @@ public class SoundControl : MonoBehaviour
             // find the previous one
             for (int i = 0; i < audioSources.Count; i++)
             {
-                AudioSource source = audioSources[i].GetComponent<AudioSource>();
-                if (source.clip != null)
+                if (!isLocked[i])
                 {
-                    if (!source.isPlaying)
+                    AudioSource source = audioSources[i].GetComponent<AudioSource>();
+                    if (source.clip != null)
                     {
-                        source.clip = null;
-                    }
-                    else
-                    if (source.clip.name == soundList[id].audioClip.name)
-                    {
-                        if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.NOTREPLACE)
+                        if (!source.isPlaying)
                         {
-                            return;
+                            // clear the current clip when it's ended.
+                            source.clip = null;
                         }
                         else
-                        if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.REPLACE)
+                        if (source.clip.name == soundList[id].audioClip.name)
                         {
-                            audioSources[i].SetActive(false);
-                            break;
-                        }
-                        else
-                        if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.MULTIPLE)
-                        {
+                            if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.NOTREPLACE)
+                            {
+                                return;
+                            }
+                            else
+                            if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.REPLACE)
+                            {
+                                Stop(source, soundList[id].fadeOutDuration);
+                                break;
+                            }
+                            else
+                            if (soundList[id].duplicatePolicy == SoundClip.DuplicatePolicy.MULTIPLE)
+                            {
+                            }
                         }
                     }
                 }
@@ -160,21 +168,61 @@ public class SoundControl : MonoBehaviour
 
     public void Stop(string id)
     {
-        string[] row = id.Split(splitter);
-        foreach (GameObject source in audioSources)
+        if (soundList[id].audioClip == null)
         {
-            Debug.Log(source.GetComponent<AudioSource>());
-            if (source.GetComponent<AudioSource>().clip != null && source.GetComponent<AudioSource>().clip.name == soundList[row[0]].audioClip.name)
-            {
-                source.GetComponent<AudioSource>().DOFade(0, soundList[row[0]].fadeOutDuration).OnComplete(() => { source.SetActive(false); });
-            }
-            if (row[1] == "one")
-            {
-                break;
-            }
+            return;
+        }
 
+        foreach (GameObject sourceObj in audioSources)
+        {
+            if (sourceObj.GetComponent<AudioSource>().clip && sourceObj.GetComponent<AudioSource>().clip.name == soundList[id].audioClip.name)
+            {
+                Stop(sourceObj.GetComponent<AudioSource>(), soundList[id].fadeOutDuration);
+            }
         }
     }
+
+    public void StopOne(string id)
+    {
+        if (soundList[id].audioClip == null)
+        {
+            return;
+        }
+
+        foreach (GameObject sourceObj in audioSources)
+        {
+            if (sourceObj.GetComponent<AudioSource>().clip && sourceObj.GetComponent<AudioSource>().clip.name == soundList[id].audioClip.name)
+            {
+                Stop(sourceObj.GetComponent<AudioSource>(), soundList[id].fadeOutDuration);
+                break;
+            }
+        }
+    }
+
+    private void Stop(AudioSource source, float fadeOutDuration)
+    {
+        if (source != null)
+        {
+            source.DOFade(0, fadeOutDuration)
+                .OnStart(
+                    () => { isLocked[audioSources.IndexOf(source.gameObject)] = true; }
+                )
+                .OnComplete(
+                    () => {
+                        source.gameObject.SetActive(false);
+                        source.clip = null;
+                        isLocked[audioSources.IndexOf(source.gameObject)] = false;
+                    }
+                );
+        }
+    }
+
+    public void CrossFade(string id0, string id1)
+    {
+        Stop(id0);
+        Play(id1);
+    }
+
     /*
     public void SetVolume(string id, float volume = 0)
     {
