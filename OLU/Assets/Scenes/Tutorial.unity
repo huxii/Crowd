@@ -2429,11 +2429,6 @@ MonoBehaviour:
   deltaWeight: 0
   dragAxis: 0
   dragOffset: -2.05
-  onDragging:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   onReachEnd:
     m_PersistentCalls:
       m_Calls:
@@ -4790,6 +4785,117 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &1908836517
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8489901839879435038, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901839879435233, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901839879435233, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901839879435233, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901839879435233, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901839879435233, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901839879435233, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901839879435233, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901839879435233, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901839879435233, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901839879435233, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901839879435233, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901839248571266, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 20557030459644433}
+    - target: {fileID: 8489901839248571266, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302084873203297900, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b86d0b65676e46e48a8700218efdc8b0,
+        type: 3}
+    - target: {fileID: 1011906137789967014, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 751ba2fd149368c42b38e1c5f5d3648a,
+        type: 3}
+    - target: {fileID: 8489901838814356934, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1070
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838814356934, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -540
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838814356936, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: verticalOffset.x
+      value: -555
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838814356936, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: verticalOffset.y
+      value: -525
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 87659c24fba3d9f419ce41929790ff3b, type: 3}
 --- !u!1 &1926321155
 GameObject:
   m_ObjectHideFlags: 0
@@ -5860,7 +5966,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681085338296175}
-  m_LocalRotation: {x: -8.3846284e-11, y: 0.99999833, z: -0.0018228778, w: -0.00000004599653}
+  m_LocalRotation: {x: -7.5514824e-11, y: 0.99999833, z: -0.0018228778, w: -0.000000041426095}
   m_LocalPosition: {x: 0.000004371139, y: 8.7, z: 49.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5874,7 +5980,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279771982915951}
-  m_LocalRotation: {x: -0.000000023748077, y: 0.99986726, z: 0.016295237, w: -0.000000043306947}
+  m_LocalRotation: {x: -0.000000023748077, y: 0.99986726, z: 0.016295234, w: -0.000000043306947}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5903,7 +6009,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175609400129945}
-  m_LocalRotation: {x: -0.0000000052656994, y: 0.9999984, z: -0.0018228762, w: -0.00000004486338}
+  m_LocalRotation: {x: -0.000000005261534, y: 0.9999984, z: -0.0018228762, w: -0.00000004257816}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6028,7 +6134,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.7140887, g: 0.6740388, b: 0.764151, a: 0.62352943}
+  m_BackGroundColor: {r: 0, g: 1, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
