@@ -18,7 +18,7 @@
     {
         Tags { "RenderType"="Opaque" }
         LOD 200
-		Cull Off
+		Cull Back
 
         CGPROGRAM
 		#include "ToonLightingUtils.cginc"
