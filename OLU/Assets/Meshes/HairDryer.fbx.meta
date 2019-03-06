@@ -387,6 +387,7 @@ ModelImporter:
     100762: Web0
     100764: WheelRoom
     100766: FanFrame
+    100768: GeneratorTubeSupport
     400000: Can
     400002: CanTube
     400004: CanTube0
@@ -771,6 +772,7 @@ ModelImporter:
     400762: Web0
     400764: WheelRoom
     400766: FanFrame
+    400768: GeneratorTubeSupport
     2100000: lambert1
     2300000: Can
     2300002: CanTube
@@ -1104,6 +1106,7 @@ ModelImporter:
     2300658: Web0
     2300660: WheelRoom
     2300662: FanFrame
+    2300664: GeneratorTubeSupport
     3300000: Can
     3300002: CanTube
     3300004: CanTube0
@@ -1436,6 +1439,7 @@ ModelImporter:
     3300658: Web0
     3300660: WheelRoom
     3300662: FanFrame
+    3300664: GeneratorTubeSupport
     4300000: ControlPanelModel
     4300002: HamsterWheelModel
     4300004: ElevatorModel
@@ -1767,6 +1771,7 @@ ModelImporter:
     4300656: FrontBase
     4300658: FrontBaseButton
     4300660: FanFrame
+    4300662: GeneratorTubeSupport
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
