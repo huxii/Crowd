@@ -41,7 +41,7 @@
 		CGPROGRAM
 		#include "ToonLightingUtils.cginc"
 		#include "ToonVertUtils.cginc"
-		#pragma surface surf ToonCutout vertex:vert addshadow
+		#pragma surface surf ToonCutout vertex:vert addshadow alpha:blend
 		#pragma target 3.0
 
 		uniform sampler2D _MainTex;
@@ -63,7 +63,7 @@
 		{
 			half4 c0 = tex2D(_MainTex, IN.uv_MainTex);
 			half4 c1 = tex2D(_ReplaceTex, IN.uv_MainTex);
-			half4 c = lerp(c0, c1, _ReplaceFactor);
+			half4 c = lerp(c0, c1, _ReplaceFactor) * _Color;
 
 			float gradientX = max(0.0, min(1.0, (IN.posWorld.x - _XGradientMin) / (_XGradientMax - _XGradientMin)));
 			float gradientY = max(0.0, min(1.0, (IN.posWorld.y - _YGradientMin) / (_YGradientMax - _YGradientMin)));
