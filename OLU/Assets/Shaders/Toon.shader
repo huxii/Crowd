@@ -21,6 +21,7 @@
 		_YNegativeColor("Y- Color", Color) = (1, 1, 1, 1)
 
 		[Header(Lighting)]
+		[MaterialToggle]_MirrorLightDirection("Mirror Light Direction", Float) = 0
 		_LightRamp("Light Ramp", 2D) = "white" {}
 		_SpecMap("Specular Map", 2D) = "black" {}
 		_AOMap("AO Map", 2D) = "white" {}

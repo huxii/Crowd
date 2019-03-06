@@ -1,5 +1,6 @@
 #include "Utils.cginc"
 
+uniform float _MirrorLightDirection;
 uniform sampler2D _LightRamp;
 uniform float4 _LightRamp_ST;
 
@@ -58,6 +59,12 @@ inline half4 LightingToonCutout(SurfaceCustomOutput s, half3 lightDir, half3 vie
 
 inline half4 LightingToon(SurfaceCustomOutput s, half3 lightDir, half3 viewDir, half atten)
 {
+	half3 mirrorXYLightDir = half3(lightDir.r, lightDir.g, -lightDir.b);
+	if (_MirrorLightDirection == 1.0)
+	{
+		lightDir = mirrorXYLightDir;
+	}
+
 	half4 shadowColor = CaculateShadow(s.Albedo, s.Normal, lightDir, atten);
 	half spec = CaculateSpec(s.Specular, s.Gloss, s.Normal, lightDir, viewDir);
 	half4 rimLight = CaculateRim(s.Normal, lightDir, viewDir, atten);

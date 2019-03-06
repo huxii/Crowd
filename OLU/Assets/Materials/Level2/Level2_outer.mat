@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Level2_outer
   m_Shader: {fileID: 4800000, guid: 436d8cb566bcd104bb8e66c0b30f796a, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _MIRRORLIGHTDIRECTION_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -85,6 +85,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
+    - _MirrorLightDirection: 1
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
