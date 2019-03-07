@@ -183,6 +183,25 @@ public class GameEvents : CustomEvents
         man.GetComponent<SpineAnimationControl>().ClearAnimation(aniName);
     }
 
+    public void StartParticleEmission(GameObject psObj)
+    {
+        var emission = psObj.GetComponent<ParticleSystem>().emission;
+        emission.enabled = true;
+
+        //if (!psObj.activeSelf)
+        //{
+        //    psObj.SetActive(true);
+        //}
+    }
+
+    public void StopParticleEmission(GameObject psObj)
+    {
+        var emission = psObj.GetComponent<ParticleSystem>().emission;
+        emission.enabled = false;
+
+        //psObj.SetActive(false);
+    }
+
     public void AddAnchor(GameObject man, GameObject obj)
     {
         if (man == null)
