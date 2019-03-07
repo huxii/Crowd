@@ -517,6 +517,7 @@ ModelImporter:
     101022: Nails
     101024: WheelBase
     101026: MerryGoRoundTopModel
+    101028: InnerBase
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -1031,6 +1032,7 @@ ModelImporter:
     401022: Nails
     401024: WheelBase
     401026: MerryGoRoundTopModel
+    401028: InnerBase
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -1453,6 +1455,7 @@ ModelImporter:
     2300834: WheelBase
     2300836: MerryGoRoundBottom
     2300838: MerryGoRoundTopModel
+    2300840: InnerBase
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1873,6 +1876,7 @@ ModelImporter:
     3300834: WheelBase
     3300836: MerryGoRoundBottom
     3300838: MerryGoRoundTopModel
+    3300840: InnerBase
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -2289,6 +2293,7 @@ ModelImporter:
     4300826: WheelBase
     4300828: MerryGoRoundTopModel
     4300830: MerryGoRoundBottom
+    4300832: InnerBase
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
