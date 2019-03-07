@@ -155,20 +155,26 @@ public class GameControl : MainControl
         {
             base.Ending(cleared);
 
+            Services.cameraController.SetZoom(0);
+            GameObject.Find("BackShell").GetComponent<ObjectControl>().Deactivate();
+
+            DataSet.recentQuitLevelName = Services.sceneController.CurrentSceneName();
+
             if (cleared)
             {
                 // go back to title
                 DataSet.recentCompletedLevelIdx = Services.sceneController.CurrentSceneIdx();
+                Services.taskManager
+                    .Do(new Wait(3f))
+                    .Then(new ActionTask(() => Services.sceneController.LoadSceneWithRecordAndAnimation("Title")));
+            }
+            else
+            {
+                Services.taskManager
+                    .Do(new Wait(0.1f))
+                    .Then(new ActionTask(() => Services.sceneController.LoadSceneWithRecordAndAnimation("Title")));
             }
 
-            DataSet.recentQuitLevelName = Services.sceneController.CurrentSceneName();
-
-            Services.cameraController.SetZoom(0);
-            GameObject.Find("BackShell").GetComponent<ObjectControl>().Deactivate();
-
-            Services.taskManager
-                .Do(new Wait(0.1f))
-                .Then(new ActionTask(() => Services.sceneController.LoadSceneWithRecordAndAnimation("Title")));
             //Services.sceneController.LoadSceneWithRecordAndZoom("Title");
         }
     }
