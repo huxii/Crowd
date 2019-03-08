@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{2ed7a405-3257-4d77-ad18-2bfca9aa10a6}">
+        <property name="assetPath">
+            <value>bubble_fail.ogg</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.23312925170068027</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{472a97be-544c-40ba-ae08-1c607723e35d}</destination>
+        </relationship>
+    </object>
+</objects>

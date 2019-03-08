@@ -50,7 +50,16 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-#Maya temp files
+# Maya temp files
 *.maya[Ss]watches*
 *.swatch
 /MayaProject/Scenes/incrementalSave
+
+# Fmod
+/OLU/Assets/FMODStudioCache.asset
+/OLU/Assets/FMODStudioCache.asset.meta
+/OLU/Assets/StreamingAssets/*.bank
+/OLU/Assets/StreamingAssets/*.bank.meta
+/OLU/fmod.log
+/OLU/fmod_editor.log
+
