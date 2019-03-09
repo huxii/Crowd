@@ -49,6 +49,10 @@ ModelImporter:
     100086: LightBeam
     100088: LightChain
     100090: LightShell
+    100092: L
+    100094: O
+    100096: OLU
+    100098: U
     400000: Ballon0
     400002: Ballon1
     400004: Ballon2
@@ -95,6 +99,10 @@ ModelImporter:
     400086: LightBeam
     400088: LightChain
     400090: LightShell
+    400092: L
+    400094: O
+    400096: OLU
+    400098: U
     2100000: InnerMat
     2100002: CutoutMat
     2100004: InnerMat1
@@ -132,6 +140,9 @@ ModelImporter:
     2300058: LightBeam
     2300060: LightChain
     2300062: LightShell
+    2300064: L
+    2300066: O
+    2300068: U
     3300000: BallonLine0
     3300002: BallonLine1
     3300004: BallonLine2
@@ -164,6 +175,9 @@ ModelImporter:
     3300058: LightBeam
     3300060: LightChain
     3300062: LightShell
+    3300064: L
+    3300066: O
+    3300068: U
     4300000: PaperCraneModel
     4300002: PaperCraneRopeModel
     4300004: PaperCraneRopeModel2
@@ -196,6 +210,9 @@ ModelImporter:
     4300058: Bulb
     4300060: LightChain
     4300062: LightBeam
+    4300064: U
+    4300066: L
+    4300068: O
   externalObjects: {}
   materials:
     importMaterials: 0
