@@ -31,8 +31,8 @@
 	{			
 		Tags 
 		{ 
-			"Queue" = "AlphaTest" 
-			"RenderType" = "TransparentCutout" 
+			"Queue" = "Transparent" 
+			"RenderType" = "Transparent" 
 		}
 		LOD 200
 		Cull Off 
