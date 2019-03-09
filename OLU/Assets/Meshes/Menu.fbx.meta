@@ -1,0 +1,284 @@
+fileFormatVersion: 2
+guid: d1d4837bb31f0b54aa0125417d9d05f3
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Ballon0
+    100002: Ballon1
+    100004: Ballon2
+    100006: BallonLine0
+    100008: BallonLine1
+    100010: BallonLine2
+    100012: BallonModel0
+    100014: BallonModel1
+    100016: BallonModel2
+    100018: Case1
+    100020: Cases
+    100022: CaseSurface1
+    100024: Cloud
+    100026: Cloud0
+    100028: Cloud0Rope0
+    100030: Cloud0Rope1
+    100032: Cloud1
+    100034: Cloud1Rope0
+    100036: Cloud1Rope1
+    100038: FlagModel
+    100040: Flags
+    100042: Gear41
+    100044: Gear42
+    100046: Gear42 1
+    100048: Gear43
+    100050: Gear43 1
+    100052: Gear44
+    100054: Gear44 1
+    100056: Gear46
+    100058: Gear46 1
+    100060: Gears
+    100062: //RootNode
+    100064: PaperCraneModel
+    100066: PaperCraneRopeModel
+    100068: PaperCraneRopeModel2
+    100070: PaperCraneWithRope
+    100072: Pivot42
+    100074: Pivot43
+    100076: Pivot44
+    100078: Pivot46
+    100080: Background
+    100082: Bulb
+    100084: Light
+    100086: LightBeam
+    100088: LightChain
+    100090: LightShell
+    400000: Ballon0
+    400002: Ballon1
+    400004: Ballon2
+    400006: BallonLine0
+    400008: BallonLine1
+    400010: BallonLine2
+    400012: BallonModel0
+    400014: BallonModel1
+    400016: BallonModel2
+    400018: Case1
+    400020: Cases
+    400022: CaseSurface1
+    400024: Cloud
+    400026: Cloud0
+    400028: Cloud0Rope0
+    400030: Cloud0Rope1
+    400032: Cloud1
+    400034: Cloud1Rope0
+    400036: Cloud1Rope1
+    400038: FlagModel
+    400040: Flags
+    400042: Gear41
+    400044: Gear42
+    400046: Gear42 1
+    400048: Gear43
+    400050: Gear43 1
+    400052: Gear44
+    400054: Gear44 1
+    400056: Gear46
+    400058: Gear46 1
+    400060: Gears
+    400062: //RootNode
+    400064: PaperCraneModel
+    400066: PaperCraneRopeModel
+    400068: PaperCraneRopeModel2
+    400070: PaperCraneWithRope
+    400072: Pivot42
+    400074: Pivot43
+    400076: Pivot44
+    400078: Pivot46
+    400080: Background
+    400082: Bulb
+    400084: Light
+    400086: LightBeam
+    400088: LightChain
+    400090: LightShell
+    2100000: InnerMat
+    2100002: CutoutMat
+    2100004: InnerMat1
+    2100006: lambert1
+    2100008: CutoutMat1
+    2300000: BallonLine0
+    2300002: BallonLine1
+    2300004: BallonLine2
+    2300006: BallonModel0
+    2300008: BallonModel1
+    2300010: BallonModel2
+    2300012: Case1
+    2300014: CaseSurface1
+    2300016: Cloud0
+    2300018: Cloud0Rope0
+    2300020: Cloud0Rope1
+    2300022: Cloud1
+    2300024: Cloud1Rope0
+    2300026: Cloud1Rope1
+    2300028: FlagModel
+    2300030: Gear41
+    2300032: Gear42 1
+    2300034: Gear43 1
+    2300036: Gear44 1
+    2300038: Gear46 1
+    2300040: PaperCraneModel
+    2300042: PaperCraneRopeModel
+    2300044: PaperCraneRopeModel2
+    2300046: Pivot42
+    2300048: Pivot43
+    2300050: Pivot44
+    2300052: Pivot46
+    2300054: Background
+    2300056: Bulb
+    2300058: LightBeam
+    2300060: LightChain
+    2300062: LightShell
+    3300000: BallonLine0
+    3300002: BallonLine1
+    3300004: BallonLine2
+    3300006: BallonModel0
+    3300008: BallonModel1
+    3300010: BallonModel2
+    3300012: Case1
+    3300014: CaseSurface1
+    3300016: Cloud0
+    3300018: Cloud0Rope0
+    3300020: Cloud0Rope1
+    3300022: Cloud1
+    3300024: Cloud1Rope0
+    3300026: Cloud1Rope1
+    3300028: FlagModel
+    3300030: Gear41
+    3300032: Gear42 1
+    3300034: Gear43 1
+    3300036: Gear44 1
+    3300038: Gear46 1
+    3300040: PaperCraneModel
+    3300042: PaperCraneRopeModel
+    3300044: PaperCraneRopeModel2
+    3300046: Pivot42
+    3300048: Pivot43
+    3300050: Pivot44
+    3300052: Pivot46
+    3300054: Background
+    3300056: Bulb
+    3300058: LightBeam
+    3300060: LightChain
+    3300062: LightShell
+    4300000: PaperCraneModel
+    4300002: PaperCraneRopeModel
+    4300004: PaperCraneRopeModel2
+    4300006: Cloud1
+    4300008: Cloud1Rope0
+    4300010: Cloud0
+    4300012: Cloud0Rope0
+    4300014: Cloud1Rope1
+    4300016: Cloud0Rope1
+    4300018: Gear41
+    4300020: Gear44
+    4300022: Pivot44
+    4300024: Gear46
+    4300026: Pivot46
+    4300028: Pivot42
+    4300030: Gear42
+    4300032: Gear43
+    4300034: Pivot43
+    4300036: FlagModel
+    4300038: Case1
+    4300040: CaseSurface1
+    4300042: BallonLine0
+    4300044: BallonModel0
+    4300046: BallonLine1
+    4300048: BallonModel1
+    4300050: BallonLine2
+    4300052: BallonModel2
+    4300054: Background
+    4300056: LightShell
+    4300058: Bulb
+    4300060: LightChain
+    4300062: LightBeam
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
