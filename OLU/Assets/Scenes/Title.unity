@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17710063, g: 0.2149145, b: 0.26503062, a: 1}
+  m_IndirectSpecularColor: {r: 0.17710073, g: 0.21491471, b: 0.26503116, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4213,7 +4213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -1024.0005, y: 0}
+  m_AnchoredPosition: {x: -1024, y: 0}
   m_SizeDelta: {x: 0, y: 2732}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &309124060
@@ -6345,7 +6345,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -1.4013001}
-  m_ConnectedAnchor: {x: 0.0000005587936, y: 1.4013003}
+  m_ConnectedAnchor: {x: 0.0000006208818, y: 1.4013002}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -13369,7 +13369,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -1.4013001}
-  m_ConnectedAnchor: {x: 0.00000813355, y: 1.4013065}
+  m_ConnectedAnchor: {x: 0.000008071462, y: 1.4013066}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -14091,7 +14091,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -1.4013001}
-  m_ConnectedAnchor: {x: 0.00000018626453, y: 1.4013005}
+  m_ConnectedAnchor: {x: 0.0000002483527, y: 1.4013005}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -15046,8 +15046,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2068208465}
   m_HandleRect: {fileID: 2068208464}
   m_Direction: 0
-  m_Value: 0.00000005960465
-  m_Size: 0.20000002
+  m_Value: 0
+  m_Size: 0.2
   m_NumberOfSteps: 5
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15159,7 +15159,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -1.4013001}
-  m_ConnectedAnchor: {x: -0.0000041599073, y: 1.4012965}
+  m_ConnectedAnchor: {x: -0.0000042219954, y: 1.4012965}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -15806,7 +15806,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -1.4013001}
-  m_ConnectedAnchor: {x: 0.0000009934107, y: 1.4013016}
+  m_ConnectedAnchor: {x: 0.0000009313225, y: 1.4013016}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -23222,7 +23222,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -1.4013001}
-  m_ConnectedAnchor: {x: 0.000000062088176, y: 1.4013005}
+  m_ConnectedAnchor: {x: 0.00000012417635, y: 1.4013005}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -23506,18 +23506,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frame2
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 45289e71bdda00e4599e8346a85e44c6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 45289e71bdda00e4599e8346a85e44c6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 45289e71bdda00e4599e8346a85e44c6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 45289e71bdda00e4599e8346a85e44c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3091
@@ -23573,6 +23561,18 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 45289e71bdda00e4599e8346a85e44c6, type: 3}
       propertyPath: m_LocalScale.z
       value: 335
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 45289e71bdda00e4599e8346a85e44c6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 45289e71bdda00e4599e8346a85e44c6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 45289e71bdda00e4599e8346a85e44c6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45289e71bdda00e4599e8346a85e44c6, type: 3}
@@ -23952,6 +23952,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100080, guid: d1d4837bb31f0b54aa0125417d9d05f3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100020, guid: d1d4837bb31f0b54aa0125417d9d05f3, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -23968,15 +23972,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100070, guid: d1d4837bb31f0b54aa0125417d9d05f3, type: 3}
+    - target: {fileID: 100084, guid: d1d4837bb31f0b54aa0125417d9d05f3, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100080, guid: d1d4837bb31f0b54aa0125417d9d05f3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100084, guid: d1d4837bb31f0b54aa0125417d9d05f3, type: 3}
+    - target: {fileID: 100070, guid: d1d4837bb31f0b54aa0125417d9d05f3, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -25390,18 +25390,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frame0
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: c632f9d6352bdb440afa54a3048066fc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: c632f9d6352bdb440afa54a3048066fc, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: c632f9d6352bdb440afa54a3048066fc, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c632f9d6352bdb440afa54a3048066fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1032
@@ -25457,6 +25445,18 @@ PrefabInstance:
     - target: {fileID: 400002, guid: c632f9d6352bdb440afa54a3048066fc, type: 3}
       propertyPath: m_LocalScale.z
       value: 335
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c632f9d6352bdb440afa54a3048066fc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c632f9d6352bdb440afa54a3048066fc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c632f9d6352bdb440afa54a3048066fc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c632f9d6352bdb440afa54a3048066fc, type: 3}
@@ -26986,7 +26986,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -1.4013001}
-  m_ConnectedAnchor: {x: -0.0000041599073, y: 1.4012965}
+  m_ConnectedAnchor: {x: -0.0000042219954, y: 1.4012965}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -28010,7 +28010,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -1.4013001}
-  m_ConnectedAnchor: {x: 0.000008195639, y: 1.4013064}
+  m_ConnectedAnchor: {x: 0.00000813355, y: 1.4013064}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -28855,7 +28855,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -1.4013001}
-  m_ConnectedAnchor: {x: -0.000010741253, y: 1.401291}
+  m_ConnectedAnchor: {x: -0.000010865429, y: 1.401291}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -31320,7 +31320,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -1.4013001}
-  m_ConnectedAnchor: {x: -0.000001738469, y: 1.4012971}
+  m_ConnectedAnchor: {x: -0.0000016763807, y: 1.401297}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
