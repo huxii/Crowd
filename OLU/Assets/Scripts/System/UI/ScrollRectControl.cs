@@ -18,9 +18,42 @@ public class ScrollRectControl : ScrollRect
     private int page0 = -1;
     private int page1 = 0;
 
-    private void Update()
+    GameObject rope;
+
+    private void Start()
     {
-        //Debug.Log(page0 + " " + page1);
+        rope = GameObject.Find("Rope");
+    }
+
+    public override void OnBeginDrag(PointerEventData data)
+    {
+        base.OnBeginDrag(data);
+        Debug.Log("Began dragging " + this.name + "!");
+
+        //rope.SetActive(false);
+
+        //Rigidbody2D[] rbs = rope.GetComponentsInChildren<Rigidbody2D>();
+        //foreach (Rigidbody2D rb in rbs)
+        //{
+        //    rb.simulated = false;
+        //}
+
+        //rope.GetComponent<RopeTitleBehavior>().SetSimulated(false);
+    }
+
+    public override void OnEndDrag(PointerEventData data)
+    {
+        base.OnEndDrag(data);
+        Debug.Log("Stopped dragging " + this.name + "!");
+        //rope.SetActive(true);
+
+        //Rigidbody2D[] rbs = rope.GetComponentsInChildren<Rigidbody2D>();
+        //foreach (Rigidbody2D rb in rbs)
+        //{
+        //    rb.simulated = true;
+        //}
+
+        //rope.GetComponent<RopeTitleBehavior>().SetSimulated(true);
     }
 
     private void ScaleEffect(int page0, int page1, float value)
