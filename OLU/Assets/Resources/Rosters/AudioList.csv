@@ -30,6 +30,7 @@ System,,,,,,,,,,,
 1,clickOnPaper,click_paper,1,0,0,0,0,MULTIPLE,,2,Crane Net
 1,clickOnWool,click_curtain,,,,,,MULTIPLE,,2,curtain
 1,clickOnWoodBoard,click_woodBoard,1,0,0,0,0,MULTIPLE,,2,
+1,clickOnHairdryer,click_plastic3,1,0,0,0,0,MULTIPLE,sfx,,backCase
 1,levelEnd,levelEnd,1,0,0,0,0,NOTREPLACE,,,
 Level 0,,,,,,,,,,,
 1,lv0BGM,lv0BGM,-1,0,5,5,0,NOTREPLACE,bgm,2,inside bgm
