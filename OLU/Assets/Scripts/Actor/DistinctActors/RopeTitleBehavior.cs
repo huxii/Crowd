@@ -19,7 +19,7 @@ public class RopeTitleBehavior : MonoBehaviour
         lastSegment.GetComponent<Rigidbody2D>().isKinematic = true;
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (startAnchor != null)
         {
