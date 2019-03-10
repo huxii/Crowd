@@ -21,9 +21,14 @@ public class RopeTitleBehavior : MonoBehaviour
 
     public void Update()
     {
-        if (startAnchor & endAnchor)
+        if (startAnchor != null)
         {
             firstSegment.GetComponent<Rigidbody2D>().MovePosition(startAnchor.transform.position);
+        }
+
+        if (endAnchor != null)
+        {
+            
             lastSegment.GetComponent<Rigidbody2D>().MovePosition(endAnchor.transform.position);
         }
     }
