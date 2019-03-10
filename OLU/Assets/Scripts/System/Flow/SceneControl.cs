@@ -26,12 +26,14 @@ public class SceneControl : MonoBehaviour
                 //Debug.Log(DataSet.recentQuitLevelName);
                 if (Services.sceneTransitionController.isTransiting)
                 {
+                    GameObject panel = GameObject.Find(DataSet.recentQuitLevelName + "SelectPanel");
                     Services.taskManager
-                        .Do(new ActionTask(() => Services.gameEvents.PlayAnimation(DataSet.recentQuitLevelName + "SelectPanel " + DataSet.recentQuitLevelName + "Select")))
+                        .Do(new ActionTask(() => Services.gameEvents.TriggerAnimation(panel, "Back")))
+                        .Then(new ActionTask(() => Services.gameEvents.PauseAnimation(panel)))
                         .Then(new Wait(transitionAnimTime))
                         .Then(new ActionTask(() => Services.sceneTransitionController.FadeOutOfLoadingScreen()))
                         .Then(new Wait(transitionFadeTime))
-                        .Then(new ActionTask(() => Services.gameEvents.PlayAnimation(DataSet.recentQuitLevelName + "SelectPanel " + DataSet.recentQuitLevelName + "Back")));
+                        .Then(new ActionTask(() => Services.gameEvents.ResumeAnimation(panel)));
                 }
             }
             else
@@ -91,7 +93,8 @@ public class SceneControl : MonoBehaviour
 
             Services.taskManager
                 .Do(new Wait(transitionButtonTime))
-                .Then(new ActionTask(() => Services.gameEvents.PlayAnimation(sceneName + "SelectPanel " + sceneName + "Select")))
+                .Then(new ActionTask(() => Services.gameEvents.TriggerAnimation(GameObject.Find(sceneName + "SelectPanel"), "Select")))
+                //.Then(new ActionTask(() => Services.gameEvents.PlayAnimation(sceneName + "SelectPanel " + sceneName + "Select")))
                 .Then(new Wait(transitionAnimTime))
                 .Then(new ActionTask(Services.sceneTransitionController.RecordScreen))
                 .Then(new Wait(transitionFadeTime))

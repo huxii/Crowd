@@ -173,6 +173,24 @@ public class GameEvents : CustomEvents
         ani.Play();
     }
 
+    public void TriggerAnimation(GameObject obj, string trigger)
+    {
+        if (obj != null && obj.GetComponent<Animator>())
+        {
+            obj.GetComponent<Animator>().SetTrigger(trigger);
+        }
+    }
+
+    public void PauseAnimation(GameObject obj)
+    {
+        obj.GetComponent<Animator>().speed = 0;
+    }
+
+    public void ResumeAnimation(GameObject obj)
+    {
+        obj.GetComponent<Animator>().speed = 1;
+    }
+
     public void SetCrowdAnimation(GameObject man, string aniName, int clearPolicy = 0)
     {
         man.GetComponent<SpineAnimationControl>().SetAnimation(aniName, clearPolicy);
