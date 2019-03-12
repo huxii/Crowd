@@ -343,6 +343,7 @@ ModelImporter:
     100674: OLUOnTheWall
     100676: CurtainLeft
     100678: CurtainRight
+    100680: Shadow
     400000: BackShell
     400002: Bulb
     400004: Bulb 1
@@ -683,6 +684,7 @@ ModelImporter:
     400674: OLUOnTheWall
     400676: CurtainLeft
     400678: CurtainRight
+    400680: Shadow
     2100000: InnerMat
     2100002: CutoutMat
     2100004: OutterMat
@@ -950,6 +952,7 @@ ModelImporter:
     2300522: TreeModel
     2300524: TreeModel1
     2300526: TreeModel2
+    2300528: Shadow
     3300000: BackShell
     3300002: Bulb
     3300004: Bulb 1
@@ -1214,6 +1217,7 @@ ModelImporter:
     3300522: TreeModel
     3300524: TreeModel1
     3300526: TreeModel2
+    3300528: Shadow
     4300000: Ladder
     4300002: Wheet13
     4300004: Fence
@@ -1477,6 +1481,7 @@ ModelImporter:
     4300520: TreeModel1
     4300522: TreeModel
     4300524: FirstFloorBase
+    4300526: Shadow
     9500000: //RootNode
     13700000: Wheet13
     2186277476908879412: ImportLogs
