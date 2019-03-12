@@ -11872,6 +11872,18 @@ PrefabInstance:
       propertyPath: m_PlaneDistance
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 2302084873203297900, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 22f55b3e65a46054091152a7a3228d83,
+        type: 3}
+    - target: {fileID: 1011906137789967014, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4df6c3382a53c474c853bde990545c1d,
+        type: 3}
     - target: {fileID: 8489901838814356934, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -11926,6 +11938,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 920594155, guid: 87659c24fba3d9f419ce41929790ff3b, type: 3}
+      propertyPath: zoomScale
+      value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87659c24fba3d9f419ce41929790ff3b, type: 3}
@@ -17949,32 +17965,6 @@ Transform:
   m_Father: {fileID: 130792820}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1806819741 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8489901839879435038, guid: 87659c24fba3d9f419ce41929790ff3b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1047198344}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1806819743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806819741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  willMoveHorizontally: 0
-  horizontalRange: {x: 0, y: 0}
-  horizontalOffset: {x: 0, y: 0}
-  willMoveVertically: 0
-  verticalRange: {x: 0, y: 0}
-  verticalOffset: {x: 0, y: 0}
-  willZoomWithCamera: 1
-  zoomScale: 1.05
 --- !u!1 &1819475997 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100612, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -21485,7 +21475,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175608430156314}
-  m_LocalRotation: {x: -2.446472e-10, y: 0.99999195, z: -0.004017101, w: -0.00000006095297}
+  m_LocalRotation: {x: -2.4464566e-10, y: 0.99999195, z: -0.004017101, w: -0.00000006095297}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21561,7 +21551,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625331400867550}
-  m_LocalRotation: {x: -0.000000001352741, y: 0.9997534, z: -0.022205792, w: -0.00000006090276}
+  m_LocalRotation: {x: -5.8857785e-10, y: 0.9997534, z: -0.022205772, w: -0.000000026498478}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

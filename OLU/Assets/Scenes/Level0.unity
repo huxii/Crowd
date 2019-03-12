@@ -44346,31 +44346,9 @@ PrefabInstance:
       propertyPath: willMoveVertically
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 920594155, guid: 87659c24fba3d9f419ce41929790ff3b, type: 3}
+      propertyPath: zoomScale
+      value: 1.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87659c24fba3d9f419ce41929790ff3b, type: 3}
---- !u!1 &8489901839557906274 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8489901839879435038, guid: 87659c24fba3d9f419ce41929790ff3b,
-    type: 3}
-  m_PrefabInstance: {fileID: 8489901839557906273}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8489901839557906275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8489901839557906274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  willMoveHorizontally: 0
-  horizontalRange: {x: 0, y: 180}
-  horizontalOffset: {x: -20, y: 20}
-  willMoveVertically: 0
-  verticalRange: {x: 0, y: 180}
-  verticalOffset: {x: 0, y: 5}
-  willZoomWithCamera: 1
-  zoomScale: 1.05

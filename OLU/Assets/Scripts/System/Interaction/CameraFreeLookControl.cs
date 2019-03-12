@@ -40,7 +40,7 @@ public class CameraFreeLookControl : CameraControl
     protected Vector3 origTranslate;
     protected Vector2 cameraSpeed;
 
-    protected Vector2 zoomCameraSpeed = new Vector2(8, 8);
+    protected Vector2 zoomCameraSpeed = new Vector2(4, 4);
     protected Vector2 clickCameraSpeed = new Vector2(1, 1);
 
     private CinemachineFreeLook freeLookCam;
@@ -112,7 +112,7 @@ public class CameraFreeLookControl : CameraControl
             freeLookCam.m_Orbits[1] = new CinemachineFreeLook.Orbit(middleOrbit.x, middleOrbit.y);
             freeLookCam.m_Orbits[2] = new CinemachineFreeLook.Orbit(bottomOrbit.x, bottomOrbit.y);
 
-            pivots.transform.position = Vector3.Lerp(pivots.transform.position, targetTranslate, Time.deltaTime * 10f);
+            pivots.transform.position = Vector3.Lerp(pivots.transform.position, targetTranslate, Time.deltaTime * 4f);
 
             Services.mainController.UpdateParallaxScrolling();
         }
