@@ -93,6 +93,8 @@ Material:
     - _OcclusionStrength: 1
     - _OutlineWidth: 0
     - _Parallax: 0.02
+    - _Pattern: 0
+    - _PatternFactor: 0
     - _PatternPower: 0.1
     - _ReplaceFactor: 0
     - _RimPower: 8.3

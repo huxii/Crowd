@@ -659,6 +659,28 @@ public class GameEvents : CustomEvents
         man.GetComponent<CrowdControl>().SwitchState(state);
     }
 
+    public void DissolveBackShell(bool disappear)
+    {
+        GameObject backShellObj = GameObject.Find("BackShell");
+        if (backShellObj)
+        {
+            MeshRenderer[] meshes = backShellObj.GetComponentsInChildren<MeshRenderer>();
+            foreach (MeshRenderer mesh in meshes)
+            {
+                if (disappear)
+                {
+                    Services.taskManager
+                        .Do(new TimedMaterialTask(mesh.gameObject, "_PatternFactor", 0, 1, 3));
+                }
+                else
+                {
+                    Services.taskManager
+                        .Do(new TimedMaterialTask(mesh.gameObject, "_PatternFactor", 1, 0, 3));
+                }
+            }
+        }
+    }
+
     //public void Swipe()
     //{
     //    if (swipeObj == null)
