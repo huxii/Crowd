@@ -19,12 +19,14 @@ System,,,,,,,,,,,
 1,clickOnPlastic2,click_clockFace,1,0,0,0,0,MULTIPLE,sfx,,frountCase
 1,clickOnPlastic3,click_ClockPlasticCover,1,0,0,0,0,MULTIPLE,sfx,,TransparentPlastic
 1,clickOnPlastic5,click_Plastic5,1,0,0,0,0,MULTIPLE,sfx,,TransparentPlastic
+1,clickOnGlass,click_glass,1,0,0,0,0,MULTIPLE,sfx,,backCase
 1,clickOnMetal1,click_bellEar,1,0,0,0,0,MULTIPLE,sfx,,Bell
 1,clickOnMetal2,click_metalCase,1,0,0,0,0,MULTIPLE,sfx,,handrail
 1,clickOnMetal3,click_gear,1,0,0,0,0,MULTIPLE,sfx,,Gog
 1,clickOnMetal4,click_screw,1,0,0,0,0,MULTIPLE,sfx,,lv0 nails obj
 1,clickOnMetal5,click_cart,1,0,0,0,0,MULTIPLE,sfx,,Gargo
 1,clickOnMetal6,click_marryGoRound,1,0,0,0,0,MULTIPLE,sfx,,Marry
+1,clickOnMetal7,click_metalPipe,1,0,0,0,0,MULTIPLE,sfx,,lv2metalPipe
 1,clickOnWood1,click_woodFlour,1,0,0,0,0,MULTIPLE,sfx,0,Floor
 1,clickOnWood2,click_woodHouse,1,0,0,0,0,MULTIPLE,sfx,,
 1,clickOnFlag,click_flag,1,0,0,0,0,REPLACE,sfx,,Flag
