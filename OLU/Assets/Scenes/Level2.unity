@@ -22709,6 +22709,16 @@ PrefabInstance:
       propertyPath: verticalOffset.y
       value: -525
       objectReference: {fileID: 0}
+    - target: {fileID: 8489901838814356936, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: willMoveHorizontally
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838814356936, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: willMoveVertically
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6271144876975379030, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
       propertyPath: m_Sprite
@@ -22720,8 +22730,44 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8489901838359790097, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: willMoveHorizontally
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838359790097, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: willMoveVertically
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87659c24fba3d9f419ce41929790ff3b, type: 3}
+--- !u!1 &920594154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8489901839879435038, guid: 87659c24fba3d9f419ce41929790ff3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 920594153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &920594155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920594154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  willMoveHorizontally: 0
+  horizontalRange: {x: 0, y: 180}
+  horizontalOffset: {x: -20, y: 20}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 180}
+  verticalOffset: {x: 0, y: 5}
+  willZoomWithCamera: 1
+  zoomScale: 1.05
 --- !u!1 &921054289
 GameObject:
   m_ObjectHideFlags: 0
@@ -73851,7 +73897,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279773217180396}
-  m_LocalRotation: {x: -0.00000002405159, y: 0.9997355, z: 0.023000745, w: -0.000000026689856}
+  m_LocalRotation: {x: -0.000000023258526, y: 0.9997355, z: 0.023000745, w: -0.00000006116065}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

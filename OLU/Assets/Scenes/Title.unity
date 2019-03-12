@@ -1248,13 +1248,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 1
   horizontalRange: {x: -11264, y: -7168}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -239, y: 361}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!114 &100216666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2864,13 +2865,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 1
   horizontalRange: {x: -11264, y: -7168}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -327, y: 343}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!114 &221505411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3850,13 +3852,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 1
   horizontalRange: {x: -7168, y: -3072}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -162.5, y: 197.5}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!114 &305897936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4815,13 +4818,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 1
   horizontalRange: {x: -9216, y: -5120}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -260, y: 260}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!1 &350111316
 GameObject:
   m_ObjectHideFlags: 0
@@ -13112,13 +13116,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 1
   horizontalRange: {x: -7168, y: -3072}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -240, y: 300}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!114 &559745179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13359,13 +13364,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 1
   horizontalRange: {x: -5120, y: -1024}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -165, y: 235}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!114 &574893807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16391,13 +16397,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 0
   horizontalRange: {x: -5120, y: -1024}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -723, y: 277}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!4 &798819553 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: c632f9d6352bdb440afa54a3048066fc,
@@ -19426,13 +19433,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 0
   horizontalRange: {x: -11264, y: -7168}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -307, y: 693}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!1 &999911568
 GameObject:
   m_ObjectHideFlags: 0
@@ -22437,13 +22445,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 1
   horizontalRange: {x: -7168, y: -3072}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -299, y: 201}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!114 &1176369800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24550,13 +24559,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 0
   horizontalRange: {x: -9216, y: -5120}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -843, y: 157}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!1 &1321261445
 GameObject:
   m_ObjectHideFlags: 0
@@ -26885,13 +26895,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 1
   horizontalRange: {x: -11264, y: -7168}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -170, y: 205}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!114 &1470436010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27609,13 +27620,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 1
   horizontalRange: {x: -9216, y: -5120}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -200, y: 270}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!1 &1509554433
 GameObject:
   m_ObjectHideFlags: 0
@@ -27935,13 +27947,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 0
   horizontalRange: {x: -7168, y: -3072}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -500, y: 500}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!1 &1536547357
 GameObject:
   m_ObjectHideFlags: 0
@@ -29079,13 +29092,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 1
   horizontalRange: {x: -9216, y: -5120}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -240, y: 360}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!1 &1627776628
 GameObject:
   m_ObjectHideFlags: 0
@@ -29136,13 +29150,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 1
   horizontalRange: {x: -5120, y: -1024}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -189, y: 311}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!114 &1627776631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35154,13 +35169,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
-  isVertical: 0
+  willMoveHorizontally: 1
   horizontalRange: {x: -5120, y: -1024}
-  verticalRange: {x: 0, y: 0}
   horizontalOffset: {x: -303, y: 297}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 0}
   verticalOffset: {x: 0, y: 0}
-  speed: 5
+  willZoomWithCamera: 0
+  zoomScale: 1.2
 --- !u!114 &2022613686
 MonoBehaviour:
   m_ObjectHideFlags: 0

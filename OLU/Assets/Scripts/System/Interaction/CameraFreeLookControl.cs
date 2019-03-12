@@ -250,10 +250,7 @@ public class CameraFreeLookControl : CameraControl
                 //onExitMaxZoomOut.Invoke();
             }
 
-            if (level != zoomLevel)
-            {
-                Services.eventManager.Fire(new ZoomEvent((zoomLevelAttrs[level].angleZero - targetAngle)));
-            }
+            Services.eventManager.Fire(new ZoomEvent(level - zoomLevel));
 
             zoomLevel = level;
             targetCameraAttr = zoomLevelAttrs[zoomLevel];
@@ -276,6 +273,7 @@ public class CameraFreeLookControl : CameraControl
         {
             return;
         }
+
         if (value > 0)
         {
             ZoomIn();

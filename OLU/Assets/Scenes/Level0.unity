@@ -43280,7 +43280,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681085338296175}
-  m_LocalRotation: {x: -0.0011788376, y: 0.984785, z: -0.006685516, w: -0.17364427}
+  m_LocalRotation: {x: -0.0011788385, y: 0.984785, z: -0.0066855196, w: -0.17364433}
   m_LocalPosition: {x: 13.680815, y: 8.5, z: 40.4077}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -43323,7 +43323,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175609400129945}
-  m_LocalRotation: {x: -0.0011788425, y: 0.9847851, z: -0.0066855117, w: -0.17364433}
+  m_LocalRotation: {x: -0.0011788431, y: 0.9847851, z: -0.0066855135, w: -0.17364436}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -43399,7 +43399,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: -0.0043371553, y: 0.9845005, z: -0.024597155, w: -0.17359412}
+  m_LocalRotation: {x: -0.0043371525, y: 0.9845005, z: -0.024597133, w: -0.17359415}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -44320,11 +44320,57 @@ PrefabInstance:
       propertyPath: verticalOffset.y
       value: -475
       objectReference: {fileID: 0}
+    - target: {fileID: 8489901838814356936, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: willMoveHorizontally
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838814356936, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: willMoveVertically
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6271144876975379030, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 035dc9f6669e32347b5e6c46527c60a4,
         type: 3}
+    - target: {fileID: 8489901838359790097, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: willMoveHorizontally
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838359790097, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: willMoveVertically
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87659c24fba3d9f419ce41929790ff3b, type: 3}
+--- !u!1 &8489901839557906274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8489901839879435038, guid: 87659c24fba3d9f419ce41929790ff3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8489901839557906273}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8489901839557906275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8489901839557906274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123a7935489ebc94fa7b5123f1cdbffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  willMoveHorizontally: 0
+  horizontalRange: {x: 0, y: 180}
+  horizontalOffset: {x: -20, y: 20}
+  willMoveVertically: 0
+  verticalRange: {x: 0, y: 180}
+  verticalOffset: {x: 0, y: 5}
+  willZoomWithCamera: 1
+  zoomScale: 1.05
