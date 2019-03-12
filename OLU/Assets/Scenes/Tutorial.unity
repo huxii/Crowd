@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18132468, g: 0.22290683, b: 0.28400475, a: 1}
+  m_IndirectSpecularColor: {r: 0.1813249, g: 0.2229071, b: 0.284005, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6380,6 +6380,18 @@ PrefabInstance:
       propertyPath: m_PlaneDistance
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 2302084873203297900, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b86d0b65676e46e48a8700218efdc8b0,
+        type: 3}
+    - target: {fileID: 1011906137789967014, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 751ba2fd149368c42b38e1c5f5d3648a,
+        type: 3}
     - target: {fileID: 8489901838814356934, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -6400,18 +6412,30 @@ PrefabInstance:
       propertyPath: verticalOffset.y
       value: -525
       objectReference: {fileID: 0}
-    - target: {fileID: 2302084873203297900, guid: 87659c24fba3d9f419ce41929790ff3b,
+    - target: {fileID: 8489901838814356936, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b86d0b65676e46e48a8700218efdc8b0,
+      propertyPath: willMoveHorizontally
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838814356936, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
-    - target: {fileID: 1011906137789967014, guid: 87659c24fba3d9f419ce41929790ff3b,
+      propertyPath: willMoveVertically
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838359790097, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 751ba2fd149368c42b38e1c5f5d3648a,
+      propertyPath: willMoveHorizontally
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838359790097, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
+      propertyPath: willMoveVertically
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 920594155, guid: 87659c24fba3d9f419ce41929790ff3b, type: 3}
+      propertyPath: zoomScale
+      value: 1.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87659c24fba3d9f419ce41929790ff3b, type: 3}
 --- !u!1 &1926321155
@@ -7498,7 +7522,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279771982915951}
-  m_LocalRotation: {x: -0.000000023748077, y: 0.99986726, z: 0.016295237, w: -0.000000043306947}
+  m_LocalRotation: {x: -0.000000023748077, y: 0.99986726, z: 0.016295234, w: -0.000000043306947}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

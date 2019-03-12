@@ -245,7 +245,7 @@ public class SceneTransitionControl : MonoBehaviour
                 ApplyTransitionStyle(style, 0);
 
                 Services.taskManager.Do(new TimedTransitionMaterialTask(transitionScreen, transitionCamera, presets[(int)style].attrName, 0, 1, presets[(int)style].duration, false));
-                Services.taskManager.Do(new TimedTransitionMaterialTask(loadingBarUp, transitionCamera, "_Alpha", 0, 1, presets[(int)style].duration, false));          
+                Services.taskManager.Do(new TimedTransitionMaterialTask(loadingBarUp, transitionCamera, "_Alpha", 0, 1, presets[(int)style].duration, false));
                 Services.taskManager.Do(new TimedTransitionMaterialTask(loadingBarDown, transitionCamera, "_Alpha", 0, 1, presets[(int)style].duration, false));
 
                 float halfHeight = transitionCamera.orthographicSize;

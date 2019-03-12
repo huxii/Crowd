@@ -70,3 +70,61 @@ Shader "Custom/Unlit_transition"
 
 	FallBack off
 }
+
+
+//// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+//
+//// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+//
+//Shader "Custom/Unlit_transition"
+//{
+//	Properties
+//	{
+//		_Alpha("Alpha", Range(0.0, 1.0)) = 0.0
+//		_Progress("Progress", Range(0.0, 1.0)) = 0.0
+//		_MainTex("Base (RGB)", 2D) = "white" {}
+//		_PatternTex("Transition Pattern", 2D) = "white" {}
+//		_Color("Color", Color) = (1.0, 1.0, 1.0, 1.0)
+//		_Scale("Scale", Float) = 1.0
+//		_Offset("Offset", Float) = 0
+//	}
+//
+//	SubShader
+//	{
+//		Tags { "RenderType" = "Transparent" "Queue" = "Transparent" }
+//		Blend SrcAlpha OneMinusSrcAlpha
+//		Lighting Off
+//
+//			CGPROGRAM
+//			#include "TriPlanarUtils.cginc"
+//			#pragma surface surf Unlit alpha:blend
+//			#pragma exclude_renderers flash
+//
+//			uniform float _Alpha;
+//			uniform float _Progress;
+//			uniform sampler2D _MainTex;
+//			uniform sampler2D _PatternTex;
+//			uniform float4 _PatternTex_ST;
+//			uniform fixed4 _Color;
+//
+//			void surf(Input IN, inout SurfaceOutput o)
+//			{
+//				float4 ct = GetTriPlanarColor(_PatternTex, IN.worldPos, IN.worldNormal, _Scale, _Offset);
+//				float4 cb = tex2D(_MainTex, IN.uv_MainTex);
+//				o.Albedo = cb * _Color.rgb;
+//				o.Alpha = _Alpha;
+//				clip(_Progress - ct.r - 0.01);
+//			}
+//
+//			fixed4 LightingUnlit(SurfaceOutput s, fixed3 lightDir, fixed atten)
+//			{
+//				fixed4 c;
+//				c.rgb = s.Albedo;
+//				c.a = s.Alpha;
+//				return c;
+//			}
+//	ENDCG
+//	}
+//
+//	FallBack off
+//}

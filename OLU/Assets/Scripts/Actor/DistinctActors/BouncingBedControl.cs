@@ -15,7 +15,12 @@ public class BouncingBedControl : PropAutoTimedDeactivateControl
 
             GameObject man = GetSlotMan(0);
             Services.gameEvents.ImmediateUnboundMan(man);
-            Services.gameEvents.PlayAnimation(man.name + " BounceHigh");
+
+            Services.taskManager
+                .Do(new ActionTask(() => Services.gameEvents.LockMan(man)))
+                .Then(new ActionTask(() => Services.gameEvents.PlayAnimation(man.name + " BounceHigh")))
+                .Then(new Wait(1))
+                .Then(new ActionTask(() => Services.gameEvents.UnlockMan(man)));
         }
     }
 }
