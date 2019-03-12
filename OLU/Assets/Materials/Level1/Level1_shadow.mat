@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shadow
+  m_Name: Level1_shadow
   m_Shader: {fileID: 4800000, guid: 78209cc6ab4251441a3918e9596a5e40, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -61,7 +61,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Alpha: 0.748
-    - _AlphaCutout: 0.576
+    - _AlphaCutout: 0.4
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -82,5 +82,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.6886792, g: 0.5035155, b: 0.5035155, a: 1}
+    - _Color: {r: 0.16981131, g: 0.043518856, b: 0.020024916, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

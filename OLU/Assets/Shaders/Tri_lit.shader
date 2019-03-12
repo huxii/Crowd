@@ -31,6 +31,12 @@
 		uniform float _Offset;
 		uniform fixed4 _Color;
 			
+		struct Input
+		{
+			float3 worldPos;
+			float3 worldNormal;
+		};
+
 		void surf (Input IN, inout SurfaceOutput o) 
 		{
 			float4 c = GetTriPlanarColor(_MainTex, IN.worldPos, IN.worldNormal, _Scale, _Offset) * _Color;

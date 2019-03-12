@@ -33,12 +33,19 @@
 		uniform float _Offset;
 		uniform float _AlphaCutout;
 		
+		struct Input
+		{
+			float3 worldPos;
+			float3 worldNormal;
+			float4 color: Color;
+		};
+
 		void surf (Input IN, inout SurfaceOutput o) 
 		{
 			float4 c = GetTriPlanarColor(_MainTex, IN.worldPos, IN.worldNormal, _Scale, _Offset) * _Color;
 			o.Albedo = c.rgb;
-			o.Alpha = c.a;
-			clip(c.a - _AlphaCutout);
+			o.Alpha = c.a * IN.color.a;
+			clip(o.Alpha - _AlphaCutout);
 		} 
 
 		fixed4 LightingUnlit(SurfaceOutput s, fixed3 lightDir, fixed atten)

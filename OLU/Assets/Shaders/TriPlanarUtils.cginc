@@ -1,9 +1,3 @@
-struct Input
-{
-	float3 worldPos;
-	float3 worldNormal;
-};
-
 inline half4 GetTriPlanarColor(sampler2D tex, half3 worldPos, half3 worldNormal, float scale, float offset)
 {
 	float3 projNormal = saturate(pow(worldNormal * 1.4, 4));
