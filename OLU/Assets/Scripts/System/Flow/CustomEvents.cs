@@ -9,6 +9,11 @@ public class CustomEvents : MonoBehaviour
     protected string[] paras;
     protected int curParaIdx = 0;
 
+    protected string ParseString()
+    {
+        return paras[curParaIdx++];
+    }
+
     protected bool ParseBool(bool defaultValue)
     {
         if (curParaIdx < paras.Length)

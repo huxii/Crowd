@@ -566,6 +566,11 @@ namespace UnityEngine.UI.Extensions
         }
 
         public void StartScreenChange() { }
+
+        public Vector3 GetLerpTarget()
+        {
+            return _lerpTarget;
+        }
         #endregion
     }
 }

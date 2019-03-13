@@ -181,6 +181,16 @@ public class GameEvents : CustomEvents
         }
     }
 
+    public void TriggerAnimation(string para)
+    {
+        ParseNewPara(para);
+
+        GameObject obj = ParseGameObject();
+        string trigger = ParseString();
+
+        TriggerAnimation(obj, trigger);
+    }
+
     public void PauseAnimation(GameObject obj)
     {
         obj.GetComponent<Animator>().speed = 0;

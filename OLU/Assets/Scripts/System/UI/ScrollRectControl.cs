@@ -15,8 +15,7 @@ public class ScrollRectControl : ScrollRect
     private float contentDistance;
     private float contentWidth = 2048f;
 
-    private int page0 = -1;
-    private int page1 = 0;
+    private int targetPage = 0;
 
     GameObject rope;
 
@@ -28,32 +27,23 @@ public class ScrollRectControl : ScrollRect
     public override void OnBeginDrag(PointerEventData data)
     {
         base.OnBeginDrag(data);
-        Debug.Log("Began dragging " + this.name + "!");
-
-        //rope.SetActive(false);
-
-        //Rigidbody2D[] rbs = rope.GetComponentsInChildren<Rigidbody2D>();
-        //foreach (Rigidbody2D rb in rbs)
-        //{
-        //    rb.simulated = false;
-        //}
-
-        //rope.GetComponent<RopeTitleBehavior>().SetSimulated(false);
     }
 
     public override void OnEndDrag(PointerEventData data)
     {
         base.OnEndDrag(data);
-        Debug.Log("Stopped dragging " + this.name + "!");
-        //rope.SetActive(true);
 
-        //Rigidbody2D[] rbs = rope.GetComponentsInChildren<Rigidbody2D>();
-        //foreach (Rigidbody2D rb in rbs)
-        //{
-        //    rb.simulated = true;
-        //}
+        int currentPage = targetPage;
+        Vector3 lerpTarget = scrollSnap.GetLerpTarget();
+        targetPage = (int)((Mathf.Abs(lerpTarget.x) + 1f) / contentWidth);
 
-        //rope.GetComponent<RopeTitleBehavior>().SetSimulated(true);
+        if (currentPage != targetPage)
+        {
+            string currentName = content.GetChild(currentPage).name + "Title";
+            Services.gameEvents.TriggerAnimation(currentName + " Hide");
+            string targetName = content.GetChild(targetPage).name + "Title";
+            Services.gameEvents.TriggerAnimation(targetName + " Appear");
+        }
     }
 
     private void ScaleEffect(int page0, int page1, float value)
@@ -93,11 +83,11 @@ public class ScrollRectControl : ScrollRect
 
     public void OnValueChanged(Vector2 scroll)
     {
-        float value = scroll.x;
-        page0 = Mathf.Abs((int)((-content.anchoredPosition.x - contentWidth / 2) / contentWidth));
-        page1 = page0 + 1;
-
         Services.mainController.UpdateParallaxScrolling();
+
+        //float value = scroll.x;
+        //page0 = Mathf.Abs((int)((-content.anchoredPosition.x - contentWidth / 2 + 5f) / contentWidth));
+        //page1 = page0 + 1;
         //page0 = 0;
         //page1 = 1;
         //while (page1 < contentList.Count)
