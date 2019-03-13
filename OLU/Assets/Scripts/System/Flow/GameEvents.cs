@@ -691,6 +691,16 @@ public class GameEvents : CustomEvents
         Services.fmodController.SetOuterBGM();
     }
 
+    public void PlaySound(string id)
+    {
+        Services.soundController.Play(id);
+    }
+
+    public void StopSound(string id)
+    {
+        Services.soundController.Stop(id);
+    }
+
     //public void Swipe()
     //{
     //    if (swipeObj == null)
