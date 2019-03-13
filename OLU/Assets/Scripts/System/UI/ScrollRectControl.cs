@@ -17,51 +17,90 @@ public class ScrollRectControl : ScrollRect
 
     private int targetPage = 0;
 
-    GameObject rope;
-
-    private void Start()
-    {
-        rope = GameObject.Find("Rope");
-    }
-
-    public override void OnBeginDrag(PointerEventData data)
-    {
-        base.OnBeginDrag(data);
-    }
-
     public override void OnEndDrag(PointerEventData data)
     {
         base.OnEndDrag(data);
 
-        int currentPage = targetPage;
-        Vector3 lerpTarget = scrollSnap.GetLerpTarget();
-        targetPage = (int)((Mathf.Abs(lerpTarget.x) + 1f) / contentWidth);
+        UpdatePage();
+    }
 
-        if (currentPage != targetPage)
+    //private void ScaleEffect(int page0, int page1, float value)
+    //{
+    //    float mid = (page0 * contentDistance + page1 * contentDistance) * 0.5f;
+    //    float scale = Mathf.Max(0.0f, Mathf.Min(1.0f, Mathf.Abs(value - mid) / (contentDistance / 2)));
+    //    float minScale = effectScale;
+    //    float newScale = minScale + (1 - minScale) * scale;
+
+    //    if (page0 < contentList.Count)
+    //    {
+    //        contentList[page0].localScale = new Vector3(newScale, newScale, newScale);
+    //    }
+
+    //    if (page1 < contentList.Count)
+    //    {
+    //        contentList[page1].localScale = new Vector3(newScale, newScale, newScale);
+    //    }
+    //}
+
+    // update page on scrolling
+    private void UpdatePage(int currentPage, int nextPage)
+    {
+        if (nextPage < content.childCount && nextPage >= 0)
         {
-            string currentName = content.GetChild(currentPage).name + "Title";
-            Services.gameEvents.TriggerAnimation(currentName + " Hide");
-            string targetName = content.GetChild(targetPage).name + "Title";
-            Services.gameEvents.TriggerAnimation(targetName + " Appear");
+            targetPage = nextPage;
+            if (currentPage != targetPage)
+            {
+                string currentName = content.GetChild(currentPage).name + "Title";
+                Services.gameEvents.TriggerAnimation(currentName + " Hide");
+
+                if (targetPage > DataSet.completedLevelIdx)
+                {
+                    string targetName = content.GetChild(targetPage).name + "Title";
+                    Services.gameEvents.TriggerAnimation(targetName + " Appear");
+                }
+                else
+                {
+                    string targetName = content.GetChild(targetPage).name + "Title";
+                    Services.gameEvents.TriggerAnimation(targetName + " Appear_full");
+                }
+            }
         }
     }
 
-    private void ScaleEffect(int page0, int page1, float value)
+    // update page on scene change
+    private void UpdatePage(int currentPage)
     {
-        float mid = (page0 * contentDistance + page1 * contentDistance) * 0.5f;
-        float scale = Mathf.Max(0.0f, Mathf.Min(1.0f, Mathf.Abs(value - mid) / (contentDistance / 2)));
-        float minScale = effectScale;
-        float newScale = minScale + (1 - minScale) * scale;
-
-        if (page0 < contentList.Count)
+        if (currentPage < content.childCount && currentPage >= 0)
         {
-            contentList[page0].localScale = new Vector3(newScale, newScale, newScale);
-        }
+            string currentName = content.GetChild(currentPage).name + "Title";       
+            if (DataSet.recentCompletedLevelIdx > DataSet.completedLevelIdx)
+            {
+                //need transition
+                Services.taskManager
+                    .Do(new ActionTask(() => Services.gameEvents.TriggerAnimation(currentName + " Appear")))
+                    .Then(new Wait(1f))
+                    .Then(new ActionTask(() => Services.gameEvents.TriggerAnimation(currentName + " Transition")));
 
-        if (page1 < contentList.Count)
-        {
-            contentList[page1].localScale = new Vector3(newScale, newScale, newScale);
+                DataSet.completedLevelIdx = DataSet.recentCompletedLevelIdx;
+            }
+            else
+            {
+                if (currentPage > DataSet.completedLevelIdx)
+                {
+                    Services.gameEvents.TriggerAnimation(currentName + " Appear");
+                }
+                else
+                {
+                    Services.gameEvents.TriggerAnimation(currentName + " Appear_full");
+                }
+            }
+
         }
+    }
+
+    private void UpdatePage()
+    {        
+        UpdatePage(targetPage, (int)((Mathf.Abs(scrollSnap.GetLerpTarget().x) + 1f) / contentWidth));
     }
 
     public void RecordContentPosition()
@@ -71,14 +110,12 @@ public class ScrollRectControl : ScrollRect
 
     public void ResumeContentPosition()
     {
-        StartCoroutine(RefreshResumedContentPosition());
-    }
-
-    IEnumerator RefreshResumedContentPosition()
-    {
-        yield return null;
-        yield return null;
         content.anchoredPosition = DataSet.recentContentPos;
+        targetPage = (int)((Mathf.Abs(content.anchoredPosition.x) + 1f) / contentWidth);
+
+        Services.taskManager
+            .Do(new Wait(3f))
+            .Then(new ActionTask(() => UpdatePage(targetPage)));
     }
 
     public void OnValueChanged(Vector2 scroll)
@@ -106,88 +143,64 @@ public class ScrollRectControl : ScrollRect
 
     public void Init()
     {
-        scrollSnap = GetComponent<UnityEngine.UI.Extensions.ScrollSnap>();
+        if (DataSet.unlockedLevelIdx == -1)
+        {
+            // the first time enter the game, need to unlock title screen
+            DataSet.unlockedLevelIdx = 0;
+            DataSet.completedLevelIdx = 0;
+            DataSet.recentCompletedLevelIdx = 0;
+            targetPage = 0;
+        }
 
+        scrollSnap = GetComponent<UnityEngine.UI.Extensions.ScrollSnap>();
         contentList = new List<Transform>();
         foreach (Transform t in content)
         {
             contentList.Add(t);
-            t.gameObject.SetActive(false);
         }
         contentDistance = 1.0f / (contentList.Count - 1);
 
-        for (int i = 0; i <= DataSet.unlockedLevelIdx; ++i)
-        {
-            contentList[i].gameObject.SetActive(true);
-        }
         ResumeContentPosition();
 
-        if (unlockAllLevel)
+        if (!unlockAllLevel)
         {
-            DataSet.recentCompletedLevelIdx = contentList.Count;
-            CheckUnlockedLevel();
+            if (DataSet.recentCompletedLevelIdx == DataSet.unlockedLevelIdx && DataSet.recentCompletedLevelIdx > DataSet.completedLevelIdx)
+            {
+                // the newest level is just completed & need to unlock next level
+                if (DataSet.unlockedLevelIdx < contentList.Count - 1)
+                {
+                    // this is not the last level
+                    ++DataSet.unlockedLevelIdx;
+                }
+            }
+
+            for (int i = DataSet.unlockedLevelIdx + 1; i < contentList.Count; ++i)
+            {
+                contentList[i].gameObject.SetActive(false);
+            }
         }
         else
         {
-            CheckNextLevel();
+            DataSet.unlockedLevelIdx = contentList.Count - 1;
         }
     }
 
     public void NextScreen()
     {
         scrollSnap.NextScreen();
-    }
-
-    public void UnlockNextLevel()
-    {
-        DataSet.recentCompletedLevelIdx = DataSet.unlockedLevelIdx;
-        CheckNextLevel();
-    }
-
-    public void CheckNextLevel()
-    {
-        if (DataSet.unlockedLevelIdx == DataSet.recentCompletedLevelIdx)
-        {
-            DataSet.unlockedLevelIdx = Mathf.Min(DataSet.recentCompletedLevelIdx + 1, contentList.Count - 1);
-            if (DataSet.unlockedLevelIdx >= contentList.Count)
-            {
-                return;
-            }
-
-            contentList[DataSet.unlockedLevelIdx].gameObject.SetActive(true);
-
-            Services.taskManager
-                .Do(new Wait(1))
-                .Then(new ActionTask(NextScreen));
-        }
-    }
-
-    public void CheckUnlockedLevel()
-    {
-        if (DataSet.unlockedLevelIdx <= DataSet.recentCompletedLevelIdx)
-        {
-            for (int i = DataSet.unlockedLevelIdx + 1; i <= DataSet.recentCompletedLevelIdx + 1; ++i)
-            {
-                if (i >= contentList.Count)
-                {
-                    break;
-                }
-
-                contentList[i].gameObject.SetActive(true);
-            }
-            DataSet.unlockedLevelIdx = Mathf.Min(DataSet.recentCompletedLevelIdx + 1, contentList.Count - 1);
-        }
+        UpdatePage();
     }
 
     public void MoveToLevelSelect()
     {
         if (DataSet.unlockedLevelIdx <= 0)
         {
-            UnlockNextLevel();
+            DataSet.unlockedLevelIdx = 1;
+            contentList[1].gameObject.SetActive(true);
         }
-        else
-        {
-            NextScreen();
-        }
+
+        Services.taskManager
+            .Do(new Wait(0.5f))
+            .Then(new ActionTask(NextScreen));
     }
 }
