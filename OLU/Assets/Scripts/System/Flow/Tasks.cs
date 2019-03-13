@@ -197,3 +197,24 @@ public class TimedTransitionZoomTask : TimedTransitionTask
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, orthoSize, Mathf.Lerp(start, end, t));
     }
 }
+
+public class FmodInstanceTask : TimedTask
+{
+    FMOD.Studio.EventInstance instance;
+    protected string paraName;
+    protected float start;
+    protected float end;
+
+    public FmodInstanceTask(FMOD.Studio.EventInstance i, string para, float s, float e, float d) : base(d)
+    {
+        instance = i;
+        paraName = para;
+        start = s;
+        end = e;
+    }
+
+    protected override void OnTick(float t)
+    {
+        instance.setParameterValue(paraName, Mathf.Lerp(start, end, t));
+    }
+}

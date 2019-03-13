@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="ParameterPreset" id="{acde250a-5e4c-47c5-b060-ed3d094b329c}">
+        <property name="name">
+            <value>Level2Transition</value>
+        </property>
+        <relationship name="folder">
+            <destination>{2c5cfc11-b7d6-429a-9a1b-c9ebdaab390a}</destination>
+        </relationship>
+        <relationship name="parameter">
+            <destination>{98682175-afaf-4e44-9630-f5eb09a2d77f}</destination>
+        </relationship>
+    </object>
+    <object class="GameParameter" id="{98682175-afaf-4e44-9630-f5eb09a2d77f}">
+        <property name="initialValue">
+            <value>0</value>
+        </property>
+    </object>
+</objects>

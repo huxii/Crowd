@@ -681,6 +681,16 @@ public class GameEvents : CustomEvents
         }
     }
 
+    public void SetInnerBGM()
+    {
+        Services.fmodController.SetInnerBGM();
+    }
+
+    public void SetOuterBGM()
+    {
+        Services.fmodController.SetOuterBGM();
+    }
+
     //public void Swipe()
     //{
     //    if (swipeObj == null)
