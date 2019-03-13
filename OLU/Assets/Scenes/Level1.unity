@@ -1336,7 +1336,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -1514,7 +1514,7 @@ MonoBehaviour:
   onDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -1530,7 +1530,7 @@ MonoBehaviour:
   onMinDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -1546,7 +1546,7 @@ MonoBehaviour:
   onMaxDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -1592,7 +1592,7 @@ MonoBehaviour:
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -2669,7 +2669,7 @@ MonoBehaviour:
   onDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -2685,7 +2685,7 @@ MonoBehaviour:
   onMinDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -2701,7 +2701,7 @@ MonoBehaviour:
   onMaxDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -2747,7 +2747,7 @@ MonoBehaviour:
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -3078,7 +3078,7 @@ MonoBehaviour:
           m_StringArgument: IcecreamKanban, y, -20, 2, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -3377,7 +3377,7 @@ MonoBehaviour:
   onActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -4553,7 +4553,7 @@ MonoBehaviour:
           m_StringArgument: flag6, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -4581,7 +4581,7 @@ MonoBehaviour:
           m_StringArgument: flag6, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -4608,7 +4608,7 @@ MonoBehaviour:
           m_StringArgument: flag6, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -5096,7 +5096,7 @@ MonoBehaviour:
           m_StringArgument: CartWithLink3, z, -10, 0.5, 2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -5123,7 +5123,7 @@ MonoBehaviour:
           m_StringArgument: CartWithLink3, z, 10, 0.5, 2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -5354,7 +5354,7 @@ MonoBehaviour:
   onDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -5370,7 +5370,7 @@ MonoBehaviour:
   onMinDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -5386,7 +5386,7 @@ MonoBehaviour:
   onMaxDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -5419,7 +5419,7 @@ MonoBehaviour:
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -6335,7 +6335,7 @@ MonoBehaviour:
           m_StringArgument: CartDoor3, y, -0, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -6362,7 +6362,7 @@ MonoBehaviour:
           m_StringArgument: CartDoor3, y, -160, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -6490,7 +6490,7 @@ MonoBehaviour:
   onDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -6506,7 +6506,7 @@ MonoBehaviour:
   onMinDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -6522,7 +6522,7 @@ MonoBehaviour:
   onMaxDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -6555,7 +6555,7 @@ MonoBehaviour:
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -6650,7 +6650,7 @@ MonoBehaviour:
   onDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -6666,7 +6666,7 @@ MonoBehaviour:
   onMinDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -6682,7 +6682,7 @@ MonoBehaviour:
   onMaxDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -6728,7 +6728,7 @@ MonoBehaviour:
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -6971,7 +6971,7 @@ MonoBehaviour:
           m_StringArgument: RightEyeBall, y, 0.3, 0.125, 8, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -7013,7 +7013,7 @@ MonoBehaviour:
           m_StringArgument: RightEyeBall, x, 0.7, 0.7, 5, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -7062,7 +7062,7 @@ MonoBehaviour:
           m_StringArgument: RightEyeBall, x, -0.7, 0.7, 5, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -7245,7 +7245,7 @@ MonoBehaviour:
           m_StringArgument: flag1, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -7273,7 +7273,7 @@ MonoBehaviour:
           m_StringArgument: flag1, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -7300,7 +7300,7 @@ MonoBehaviour:
           m_StringArgument: flag1, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -7410,7 +7410,7 @@ MonoBehaviour:
   levelEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -7421,7 +7421,7 @@ MonoBehaviour:
           m_StringArgument: lv1BGMinside
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -7657,7 +7657,7 @@ MonoBehaviour:
           m_StringArgument: CartWithLink, z, -10, 0.5, 2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -7684,7 +7684,7 @@ MonoBehaviour:
           m_StringArgument: CartWithLink, z, 10, 0.5, 2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -7784,7 +7784,7 @@ MonoBehaviour:
           m_StringArgument: CartDoor2, y, -0, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -7811,7 +7811,7 @@ MonoBehaviour:
           m_StringArgument: CartDoor2, y, -160, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -7902,7 +7902,7 @@ MonoBehaviour:
           m_StringArgument: BackShell, y, 20, 1
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -7980,7 +7980,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Stop
         m_Mode: 5
         m_Arguments:
@@ -8031,7 +8031,7 @@ MonoBehaviour:
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -8585,7 +8585,7 @@ MonoBehaviour:
           m_StringArgument: CartDoor, y, -0, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -8612,7 +8612,7 @@ MonoBehaviour:
           m_StringArgument: CartDoor, y, -160, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -11409,7 +11409,7 @@ MonoBehaviour:
           m_StringArgument: RightEar, z, -5, 0.5, 8, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -11487,7 +11487,7 @@ MonoBehaviour:
           m_StringArgument: LeftEar, z, 5, 0.5, 8, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -11583,7 +11583,7 @@ MonoBehaviour:
           m_StringArgument: LeftEyeBall, y, 0.3, 0.125, 8, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -11625,7 +11625,7 @@ MonoBehaviour:
           m_StringArgument: LeftEyeBall, x, 0.7, 0.7, 5, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -11674,7 +11674,7 @@ MonoBehaviour:
           m_StringArgument: LeftEyeBall, x, -0.7, 0.7, 5, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -11790,7 +11790,7 @@ PrefabInstance:
     - target: {fileID: 8489901839879435233, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8489901839879435233, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
@@ -12011,7 +12011,7 @@ MonoBehaviour:
           m_StringArgument: flag5, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -12039,7 +12039,7 @@ MonoBehaviour:
           m_StringArgument: flag5, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -12066,7 +12066,7 @@ MonoBehaviour:
           m_StringArgument: flag5, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -12502,7 +12502,7 @@ MonoBehaviour:
           m_StringArgument: CartWithLink1, z, -10, 0.5, 2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -12529,7 +12529,7 @@ MonoBehaviour:
           m_StringArgument: CartWithLink1, z, 10, 0.5, 2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -12756,7 +12756,7 @@ MonoBehaviour:
           m_StringArgument: flag, x, -40, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -12784,7 +12784,7 @@ MonoBehaviour:
           m_StringArgument: flag, x, -40, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -12811,7 +12811,7 @@ MonoBehaviour:
           m_StringArgument: flag, x, -40, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -13159,6 +13159,63 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1001 &1205411655
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1896874295337250, guid: d3f1e9ea94c70444095979048b0b7b06, type: 3}
+      propertyPath: m_Name
+      value: SoundSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641696636445818, guid: d3f1e9ea94c70444095979048b0b7b06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641696636445818, guid: d3f1e9ea94c70444095979048b0b7b06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641696636445818, guid: d3f1e9ea94c70444095979048b0b7b06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641696636445818, guid: d3f1e9ea94c70444095979048b0b7b06, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641696636445818, guid: d3f1e9ea94c70444095979048b0b7b06, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641696636445818, guid: d3f1e9ea94c70444095979048b0b7b06, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641696636445818, guid: d3f1e9ea94c70444095979048b0b7b06, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641696636445818, guid: d3f1e9ea94c70444095979048b0b7b06, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641696636445818, guid: d3f1e9ea94c70444095979048b0b7b06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641696636445818, guid: d3f1e9ea94c70444095979048b0b7b06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641696636445818, guid: d3f1e9ea94c70444095979048b0b7b06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d3f1e9ea94c70444095979048b0b7b06, type: 3}
 --- !u!1 &1231912320 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100310, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -13226,7 +13283,7 @@ MonoBehaviour:
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -13466,7 +13523,7 @@ MonoBehaviour:
           m_StringArgument: flag3, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -13494,7 +13551,7 @@ MonoBehaviour:
           m_StringArgument: flag3, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -13521,7 +13578,7 @@ MonoBehaviour:
           m_StringArgument: flag3, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -14168,7 +14225,7 @@ MonoBehaviour:
           m_StringArgument: flag2, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -14196,7 +14253,7 @@ MonoBehaviour:
           m_StringArgument: flag2, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -14223,7 +14280,7 @@ MonoBehaviour:
           m_StringArgument: flag2, x, -20, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -14410,7 +14467,7 @@ MonoBehaviour:
           m_StringArgument: CartWithLink2, z, -10, 0.5, 2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -14437,7 +14494,7 @@ MonoBehaviour:
           m_StringArgument: CartWithLink2, z, 10, 0.5, 2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -14947,7 +15004,7 @@ MonoBehaviour:
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -15053,7 +15110,7 @@ MonoBehaviour:
           m_StringArgument: CartDoor1, y, -0, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -15080,7 +15137,7 @@ MonoBehaviour:
           m_StringArgument: CartDoor1, y, -160, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -15888,7 +15945,7 @@ MonoBehaviour:
   onDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -15904,7 +15961,7 @@ MonoBehaviour:
   onMinDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -15920,7 +15977,7 @@ MonoBehaviour:
   onMaxDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -15966,7 +16023,7 @@ MonoBehaviour:
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -16027,7 +16084,7 @@ MonoBehaviour:
           m_StringArgument: flag7, x, -10, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -16055,7 +16112,7 @@ MonoBehaviour:
           m_StringArgument: flag7, x, -10, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -16082,7 +16139,7 @@ MonoBehaviour:
           m_StringArgument: flag7, x, -10, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -16404,7 +16461,7 @@ MonoBehaviour:
           m_StringArgument: flag4, x, -5, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -16432,7 +16489,7 @@ MonoBehaviour:
           m_StringArgument: flag4, x, -5, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -16459,7 +16516,7 @@ MonoBehaviour:
           m_StringArgument: flag4, x, -5, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -17075,7 +17132,7 @@ MonoBehaviour:
           m_StringArgument: MovingPlatform, x, 0, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -17102,7 +17159,7 @@ MonoBehaviour:
           m_StringArgument: MovingPlatform, x, -90, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -17958,7 +18015,7 @@ MonoBehaviour:
           m_StringArgument: flag0, x, -40, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -17975,7 +18032,7 @@ MonoBehaviour:
   onRightRotate:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -18002,7 +18059,7 @@ MonoBehaviour:
   onLeftRotate:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -18160,7 +18217,7 @@ PrefabInstance:
     - target: {fileID: 5185874801333202833, guid: 73162b8cff30ba14e82c0ae89a646668,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5185874801333202833, guid: 73162b8cff30ba14e82c0ae89a646668,
         type: 3}
@@ -18392,7 +18449,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -18462,7 +18519,7 @@ MonoBehaviour:
           m_StringArgument: Front, EyeBalls_left
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -18571,7 +18628,7 @@ MonoBehaviour:
   onDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -18587,7 +18644,7 @@ MonoBehaviour:
   onMinDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -18603,7 +18660,7 @@ MonoBehaviour:
   onMaxDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -18636,7 +18693,7 @@ MonoBehaviour:
   onInteractionFeedback:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -19554,50 +19611,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingAngle: 5
   swingDuration: 2.7
---- !u!1 &1993309043
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1993309044}
-  - component: {fileID: 1993309045}
-  m_Layer: 0
-  m_Name: SoundSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1993309044
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993309043}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1993309045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993309043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8410d5833c1d51a4c847696f955bc174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clips: []
 --- !u!1 &2008418509 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100900, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -20282,7 +20295,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -20352,7 +20365,7 @@ MonoBehaviour:
           m_StringArgument: Front, EyeBalls_right
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -20747,7 +20760,7 @@ MonoBehaviour:
           m_StringArgument: BottomMouth, x, 20, 0.25, 2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -20787,7 +20800,7 @@ MonoBehaviour:
           m_StringArgument: Mouth, z, -1, 0.5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -20846,7 +20859,7 @@ MonoBehaviour:
           m_StringArgument: BottomMouth, x, 30, 0.25, 2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -21041,7 +21054,7 @@ MonoBehaviour:
           m_StringArgument: flag10, x, -10, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -21069,7 +21082,7 @@ MonoBehaviour:
           m_StringArgument: flag10, x, -10, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -21096,7 +21109,7 @@ MonoBehaviour:
           m_StringArgument: flag10, x, -10, 1, 4, true
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1993309045}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -21388,7 +21401,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681086170184940}
-  m_LocalRotation: {x: -3.139171e-10, y: 0.99999195, z: -0.004017103, w: -0.00000007814454}
+  m_LocalRotation: {x: -3.7269195e-11, y: 0.99999195, z: -0.0040171067, w: -0.000000009277535}
   m_LocalPosition: {x: 0.000003934025, y: 9.5, z: 45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -21402,7 +21415,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279773217180396}
-  m_LocalRotation: {x: 3.738999e-10, y: 0.9999003, z: 0.014124865, w: -0.0000000264688}
+  m_LocalRotation: {x: 8.6092394e-10, y: 0.9999003, z: 0.014124865, w: -0.00000006094527}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21431,7 +21444,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175608430156314}
-  m_LocalRotation: {x: -2.4459945e-10, y: 0.99999195, z: -0.004017101, w: -0.00000006095297}
+  m_LocalRotation: {x: -1.0627505e-10, y: 0.99999195, z: -0.004017103, w: -0.000000026519473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21507,7 +21520,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625331400867550}
-  m_LocalRotation: {x: -0.000000001352741, y: 0.9997534, z: -0.022205792, w: -0.00000006090276}
+  m_LocalRotation: {x: -5.8857785e-10, y: 0.9997534, z: -0.022205772, w: -0.000000026498478}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

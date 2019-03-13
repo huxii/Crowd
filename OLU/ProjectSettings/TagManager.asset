@@ -8,8 +8,8 @@ TagManager:
   - Object
   - Ground
   - Prop
-  - Comic
   - Transition
+  - SoundSystem
   layers:
   - Default
   - TransparentFX

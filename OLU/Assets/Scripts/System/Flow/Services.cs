@@ -13,6 +13,7 @@ public static class Services
     public static CameraControl cameraController = null;
     public static HUDControl hudController = null;
     public static SoundControl soundController = null;
+    public static FmodControl fmodController = null;
     public static SceneControl sceneController = null;
     public static SceneTransitionControl sceneTransitionController = null;
     public static LevelEventsControl levelEventsController = null;
@@ -91,11 +92,11 @@ public static class Services
             sceneTransitionController = null;
         }
 
-        if (GameObject.FindGameObjectWithTag("Comic"))
-        {
-            comicEvents = GameObject.FindGameObjectWithTag("Comic").GetComponent<ComicEvents>();
-        }
-        else
+        //if (GameObject.FindGameObjectWithTag("Comic"))
+        //{
+        //    comicEvents = GameObject.FindGameObjectWithTag("Comic").GetComponent<ComicEvents>();
+        //}
+        //else
         {
             comicEvents = null;
         }
@@ -109,13 +110,15 @@ public static class Services
             cameraController = null;
         }
 
-        if (GameObject.Find("SoundSystem"))
+        if (GameObject.FindGameObjectWithTag("SoundSystem"))
         {
-            soundController = GameObject.Find("SoundSystem").GetComponent<SoundControl>();
+            soundController = GameObject.FindGameObjectWithTag("SoundSystem").GetComponent<SoundControl>();
+            fmodController = GameObject.FindGameObjectWithTag("SoundSystem").GetComponent<FmodControl>();
         }
         else
         {
             soundController = null;
+            fmodController = null;
         }
 
         if (GameObject.Find("Canvas"))

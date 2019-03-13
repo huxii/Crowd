@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="ParameterPreset" id="{84fbbe86-43af-4ecc-b41d-2f01e43a2a74}">
         <property name="name">
-            <value>Level1OuterTransition</value>
+            <value>Level1Transition</value>
         </property>
         <relationship name="folder">
             <destination>{2c5cfc11-b7d6-429a-9a1b-c9ebdaab390a}</destination>

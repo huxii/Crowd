@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: D:\Thesis\FmodProject\OLU_audio\OLU_audio.fspro
-  SourceProjectPathUnformatted: D:\Thesis\FmodProject\OLU_audio\OLU_audio.fspro
-  SourceBankPathUnformatted: D:\Thesis\FmodProject\OLU_audio\Build
+  sourceProjectPath: Fmod\OLU_audio\OLU_audio.fspro
+  SourceProjectPathUnformatted: Fmod\OLU_audio\OLU_audio.fspro
+  SourceBankPathUnformatted: Fmod\OLU_audio\Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0
