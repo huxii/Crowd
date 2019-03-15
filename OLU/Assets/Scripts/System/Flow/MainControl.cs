@@ -41,6 +41,11 @@ public class MainControl : MonoBehaviour
         Services.Destroy();
     }
 
+    protected virtual void OnLevelWasLoaded(int level)
+    {
+        Services.fmodController.UpdateBGM(level);
+    }
+
     protected virtual void RegisterEvents()
     {
     }
