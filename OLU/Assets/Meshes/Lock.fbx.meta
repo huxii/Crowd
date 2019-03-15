@@ -344,6 +344,7 @@ ModelImporter:
     100676: CurtainLeft
     100678: CurtainRight
     100680: Shadow
+    100682: KeyAll
     400000: BackShell
     400002: Bulb
     400004: Bulb 1
@@ -685,6 +686,7 @@ ModelImporter:
     400676: CurtainLeft
     400678: CurtainRight
     400680: Shadow
+    400682: KeyAll
     2100000: InnerMat
     2100002: CutoutMat
     2100004: OutterMat
