@@ -1546,6 +1546,17 @@ MonoBehaviour:
           m_StringArgument: Key, z, 30, 2
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 273390721}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   autoNext: 1
@@ -5139,6 +5150,12 @@ Transform:
   m_Father: {fileID: 372840166}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &273390721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100600, guid: b9d5a19f32166c243824801449f95035,
+    type: 3}
+  m_PrefabInstance: {fileID: 2024776036}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &280841543
 GameObject:
   m_ObjectHideFlags: 0
@@ -35338,6 +35355,17 @@ MonoBehaviour:
           m_StringArgument: Key, z, 10, 1
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1585729582}
+        m_MethodName: Move
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: KeyChain, z, 10, 1
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   autoNext: 1
@@ -43383,7 +43411,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: -0.0043371525, y: 0.9845005, z: -0.024597133, w: -0.17359415}
+  m_LocalRotation: {x: -0.0043371553, y: 0.9845005, z: -0.024597155, w: -0.17359412}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -44302,6 +44330,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 510548763114d8e4fa61e9dc84038a35,
         type: 3}
+    - target: {fileID: 6271144876975379030, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 035dc9f6669e32347b5e6c46527c60a4,
+        type: 3}
     - target: {fileID: 8489901838814356936, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
       propertyPath: verticalOffset.x
@@ -44327,12 +44361,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c2c745ad58d784d4a8c4fd7c6bae7dfb,
-        type: 3}
-    - target: {fileID: 6271144876975379030, guid: 87659c24fba3d9f419ce41929790ff3b,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 035dc9f6669e32347b5e6c46527c60a4,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87659c24fba3d9f419ce41929790ff3b, type: 3}

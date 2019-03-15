@@ -117,6 +117,11 @@ public class GameEvents : CustomEvents
         string aniName = ParseAnimationName();
         bool isQueued = ParseIsQueued(false);
 
+        if (obj == null || obj.GetComponent<Animation>() == null)
+        {
+            return;
+        }
+
         Animation ani = obj.GetComponent<Animation>();
         if (aniName == null)
         {
