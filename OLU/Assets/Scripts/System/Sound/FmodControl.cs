@@ -26,7 +26,7 @@ public class FmodControl
         }
     }
 
-    private void OnLevelWasLoaded(int level)
+    public void UpdateBGM(int level)
     {
         if (level == 0)
         {
