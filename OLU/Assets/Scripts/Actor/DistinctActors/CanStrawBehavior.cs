@@ -29,12 +29,11 @@ public class CanStrawBehavior : ObjectTimedDeactivateControl
             // dead :)
             Services.gameEvents.SetCrowdAnimation(man, "inflate_asshole_tired", SpineAnimationControl.CLEAR_NOT_FACIAL);
             Services.gameEvents.PlayAnimation(man.name + " ThrowOut");
-
-            // prevent be pushed out by other men
-            Destroy(man.GetComponent<Collider>());
+            //Services.taskManager
+            //    .Do(new Wait(1.8f))
+            //    .Then(new ActionTask(() => Destroy(man)));
             
-            man.transform.eulerAngles = new Vector3(0, 0, 90);
-
+            //man.transform.eulerAngles = new Vector3(0, 0, 90);
             man = null;
 
             isActivated = false;
