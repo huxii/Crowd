@@ -156,6 +156,7 @@ public class GameControl : MainControl
             base.Ending(cleared);
 
             Services.cameraController.SetZoom(0);
+            Services.gameEvents.DissolveBackShell(false);
             GameObject.Find("BackShell").GetComponent<ObjectControl>().Deactivate();
 
             DataSet.recentQuitLevelName = Services.sceneController.CurrentSceneName();
