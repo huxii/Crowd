@@ -10,7 +10,7 @@ public class NoSelectInputControl : InputControl
 
         if (Input.touchCount == 2)
         {
-            Debug.Log("--------------2 touch-------------");
+            //Debug.Log("--------------2 touch-------------");
             Touch touch0 = Input.GetTouch(0);
             Touch touch1 = Input.GetTouch(1);
             switch (touch0.phase)
@@ -87,6 +87,8 @@ public class NoSelectInputControl : InputControl
         {
             return;
         }
+
+        Debug.Log("Click on " + mouseClickObject.name);
 
         //if (mouseClickObject.CompareTag("Man"))
         //{
