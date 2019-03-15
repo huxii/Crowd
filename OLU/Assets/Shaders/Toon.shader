@@ -9,7 +9,8 @@
 		_ReplaceFactor("Replace Factor", Range(0, 1)) = 0
 		_Pattern("Pattern", 2D) = "white" {}
 		_PatternPower("Pattern Power", Float) = 1.0
-		_PatternFactor("Pattern Factor", Range(0, 1)) = 0
+		_DitheringTex("Dithering Texture", 2D) = "white" {}
+		_DitheringFactor("Dithering Factor", Range(0, 1)) = 0
 
 		[Header(Gradient)]
 		_XGradientMax("Max Gradient X", Float) = 20
@@ -60,7 +61,9 @@
 		uniform sampler2D _Pattern;
 		uniform float4 _Pattern_ST;
 		uniform float _PatternPower;
-		uniform float _PatternFactor;
+		uniform sampler2D _DitheringTex;
+		uniform float4 _DitheringTex_ST;
+		uniform float _DitheringFactor;
 		uniform sampler2D _SpecMap;
 		uniform float _EmissionIntensity;
 		uniform sampler2D _EmissionMap;
@@ -82,8 +85,8 @@
 
 		void surf(Input IN, inout SurfaceCustomOutput o)
 		{
-			float noiseSample = tex2Dlod(_Pattern, float4(IN.uv_MainTex * _Pattern_ST.xy + _Pattern_ST.zw, 0, 0));
-			clip(noiseSample - _PatternFactor);
+			float noiseSample = tex2Dlod(_DitheringTex, float4(IN.uv_MainTex * _DitheringTex_ST.xy + _DitheringTex_ST.zw, 0, 0));
+			clip(noiseSample - _DitheringFactor);
 
 			half4 c0 = tex2D(_MainTex, IN.uv_MainTex);
 			half4 c1 = tex2D(_ReplaceTex, IN.uv_MainTex);

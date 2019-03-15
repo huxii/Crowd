@@ -117,6 +117,11 @@ public class GameEvents : CustomEvents
         string aniName = ParseAnimationName();
         bool isQueued = ParseIsQueued(false);
 
+        if (obj == null || obj.GetComponent<Animation>() == null)
+        {
+            return;
+        }
+
         Animation ani = obj.GetComponent<Animation>();
         if (aniName == null)
         {
@@ -680,12 +685,12 @@ public class GameEvents : CustomEvents
                 if (disappear)
                 {
                     Services.taskManager
-                        .Do(new TimedMaterialTask(mesh.gameObject, "_PatternFactor", 0, 1, 3));
+                        .Do(new TimedMaterialTask(mesh.gameObject, "_DitheringFactor", 0, 1, 1));
                 }
                 else
                 {
                     Services.taskManager
-                        .Do(new TimedMaterialTask(mesh.gameObject, "_PatternFactor", 1, 0, 3));
+                        .Do(new TimedMaterialTask(mesh.gameObject, "_DitheringFactor", 1, 0, 1));
                 }
             }
         }
