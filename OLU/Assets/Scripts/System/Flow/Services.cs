@@ -101,6 +101,18 @@ public static class Services
             comicEvents = null;
         }
 
+        if (soundController == null)
+        {
+            soundController = new SoundControl();
+            soundController.Init();
+        }
+
+        if (fmodController == null)
+        {
+            fmodController = new FmodControl();
+            fmodController.Init();
+        }
+
         if (GameObject.Find("CameraSystem"))
         {
             cameraController = GameObject.Find("CameraSystem").GetComponent<CameraControl>();
@@ -110,16 +122,16 @@ public static class Services
             cameraController = null;
         }
 
-        if (GameObject.FindGameObjectWithTag("SoundSystem"))
-        {
-            soundController = GameObject.FindGameObjectWithTag("SoundSystem").GetComponent<SoundControl>();
-            fmodController = GameObject.FindGameObjectWithTag("SoundSystem").GetComponent<FmodControl>();
-        }
-        else
-        {
-            soundController = null;
-            fmodController = null;
-        }
+        //if (GameObject.FindGameObjectWithTag("SoundSystem"))
+        //{
+        //    soundController = GameObject.FindGameObjectWithTag("SoundSystem").GetComponent<SoundControl>();
+        //    fmodController = GameObject.FindGameObjectWithTag("SoundSystem").GetComponent<FmodControl>();
+        //}
+        //else
+        //{
+        //    soundController = null;
+        //    fmodController = null;
+        //}
 
         if (GameObject.Find("Canvas"))
         {

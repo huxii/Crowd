@@ -711,6 +711,11 @@ public class GameEvents : CustomEvents
         Services.soundController.Stop(id);
     }
 
+    public void StopAllSound()
+    {
+        Services.soundController.StopAll();
+    }
+
     //public void Swipe()
     //{
     //    if (swipeObj == null)

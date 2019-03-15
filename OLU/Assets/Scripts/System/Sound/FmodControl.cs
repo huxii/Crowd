@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FmodControl : MonoBehaviour
+public class FmodControl
 {
     // BGM
     private FMOD.Studio.EventInstance bgmInstance;
@@ -17,19 +17,7 @@ public class FmodControl : MonoBehaviour
     private float outerVolume = 1.0f;
     private float innerVolume = 0.6f;
 
-    void Awake()
-    {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("SoundSystem");
-        if (objs.Length > 1)
-        {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(gameObject);
-    }
-
-    // Start is called before the first frame update
-    void Start()
+    public void Init()
     {
         bgmInstance = FMODUnity.RuntimeManager.CreateInstance("event:/BGM");
         if (Services.sceneController.CurrentSceneIdx() == 0)

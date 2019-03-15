@@ -32,24 +32,31 @@ public class SoundControl : MonoBehaviour
     private List<SoundClip> clips;
     private int pooledAudioAmount = 10;
 
+    private GameObject audioSourceRoot = null;
     List<GameObject> audioSources = new List<GameObject>();
     bool[] isLocked;
     Dictionary<string, SoundClip> soundList = new Dictionary<string, SoundClip>();
 
     char[] splitter = { ' ', ',' };
 
-    private void Awake()
+    public void Init()
     {
         isLocked = new bool[pooledAudioAmount];
+
+        audioSourceRoot = new GameObject();
+        audioSourceRoot.transform.position = new Vector3(0, 0, 0);
+        audioSourceRoot.name = "AudioSources";
+
         for (int i = 0; i < pooledAudioAmount; i++)
         {
-            GameObject audio = (GameObject)Instantiate(Resources.Load("Prefabs/AudioSource"), transform);
+            GameObject audio = (GameObject)Instantiate(Resources.Load("Prefabs/AudioSource"), audioSourceRoot.transform);
             audio.SetActive(false);
             audioSources.Add(audio);
 
             isLocked[i] = false;
         }
 
+        clips = new List<SoundClip>();
         TextAsset textAsset = Resources.Load<TextAsset>("Rosters/AudioList");
         string texts = textAsset.text;
         string[] lines = texts.Split('\n', '\r');
@@ -93,17 +100,6 @@ public class SoundControl : MonoBehaviour
             //}
             soundList.Add(s.id, s);
         }
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     private AudioSource AssignNewObject(string id)
@@ -231,6 +227,17 @@ public class SoundControl : MonoBehaviour
                         isLocked[audioSources.IndexOf(source.gameObject)] = false;
                     }
                 );
+        }
+    }
+
+    public void StopAll()
+    {
+        foreach (GameObject audio in audioSources)
+        {
+            if (audio.activeSelf)
+            {
+                Stop(audio.GetComponent<AudioSource>(), 1f);
+            }
         }
     }
 
