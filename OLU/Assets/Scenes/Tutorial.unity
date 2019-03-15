@@ -510,96 +510,6 @@ MonoBehaviour:
   - {fileID: 1574120862}
   - {fileID: 397096756}
   curEventId: 0
---- !u!1 &109322978 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100194, guid: fc01ecd81a8411d4797939f62d4847e7,
-    type: 3}
-  m_PrefabInstance: {fileID: 830115730}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &109322980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109322978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locked: 0
-  canActivateMultipleTimes: 0
-  onActivated:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onDeactivated:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  interactionCD: 0.5
-  isWalkableAfterDeactivated: 0
-  dropMenAfterDeactivated: 0
-  onClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1585729582}
-        m_MethodName: Ping
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CircleButton2, z, -0.3, 0.5
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &109322981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109322978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbed3f971926444a8dcfaf450888a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onInteractionFeedback:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1939067503}
-        m_MethodName: PlaySound
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: gameboyButton
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!65 &109322982
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109322978}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0999997, y: 1.0999999, z: 0.37845367}
-  m_Center: {x: -0.000000059604645, y: -0.000000029802322, z: 0.00000013411045}
 --- !u!1 &127227656
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +540,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 967278214}
+  m_Father: {fileID: 830115731}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &127227658
@@ -747,7 +657,7 @@ Transform:
   m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 967278214}
+  m_Father: {fileID: 830115731}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &182244468
@@ -864,7 +774,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 967278214}
+  m_Father: {fileID: 830115731}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &212429235
@@ -3167,6 +3077,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: de71c66c2071f9c41b240204b98eb25b, type: 2}
+    - target: {fileID: 400070, guid: fc01ecd81a8411d4797939f62d4847e7, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400074, guid: fc01ecd81a8411d4797939f62d4847e7, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 400326, guid: fc01ecd81a8411d4797939f62d4847e7, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300270, guid: fc01ecd81a8411d4797939f62d4847e7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a0ea56cffb3fe4155b76bc655e13b5de, type: 2}
+    - target: {fileID: 2300272, guid: fc01ecd81a8411d4797939f62d4847e7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a0ea56cffb3fe4155b76bc655e13b5de, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc01ecd81a8411d4797939f62d4847e7, type: 3}
 --- !u!4 &830115731 stripped
@@ -3579,38 +3509,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &967278213 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100198, guid: fc01ecd81a8411d4797939f62d4847e7,
-    type: 3}
-  m_PrefabInstance: {fileID: 830115730}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &967278214 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400198, guid: fc01ecd81a8411d4797939f62d4847e7,
-    type: 3}
-  m_PrefabInstance: {fileID: 830115730}
-  m_PrefabAsset: {fileID: 0}
---- !u!111 &967278217
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 967278213}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 7c0ac3ea41529cd46b5d3edf8ec57670, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 7c0ac3ea41529cd46b5d3edf8ec57670, type: 2}
-  - {fileID: 7400000, guid: 0947832f6d6bba64ea2c8cd25cda5d07, type: 2}
-  - {fileID: 7400000, guid: 7726234bc91bd0344a1f053e477eb67f, type: 2}
-  - {fileID: 7400000, guid: 10ddda896b20b10418546d07e0e61c00, type: 2}
-  - {fileID: 7400000, guid: fe2ce99a8d142d84c9c92c00bfe76c3e, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &974239126
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,96 +3737,6 @@ Transform:
   m_Father: {fileID: 830115732}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1109216003 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100196, guid: fc01ecd81a8411d4797939f62d4847e7,
-    type: 3}
-  m_PrefabInstance: {fileID: 830115730}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1109216007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109216003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7c0ad913d12d734e8c987ad7135a0b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locked: 0
-  canActivateMultipleTimes: 0
-  onActivated:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onDeactivated:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  interactionCD: 0.5
-  isWalkableAfterDeactivated: 0
-  dropMenAfterDeactivated: 0
-  onClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1585729582}
-        m_MethodName: Ping
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CircleButton3, z, -0.3, 0.5
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &1109216008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109216003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dbed3f971926444a8dcfaf450888a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onInteractionFeedback:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1939067503}
-        m_MethodName: PlaySound
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: gameboyButton
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!65 &1109216009
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109216003}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0999999, y: 1.1000006, z: 0.37845367}
-  m_Center: {x: -0.000000029802322, y: 0.00000008940697, z: 0.00000013411045}
 --- !u!4 &1124472512 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400158, guid: fc01ecd81a8411d4797939f62d4847e7,
@@ -4002,7 +3810,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1124472512}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1155863287
 BoxCollider:
@@ -4527,7 +4335,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 967278214}
+  m_Father: {fileID: 830115731}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1454920503
@@ -5951,7 +5759,7 @@ Transform:
   m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 967278214}
+  m_Father: {fileID: 830115731}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1763279621
@@ -7635,7 +7443,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681085338296175}
-  m_LocalRotation: {x: -7.5514824e-11, y: 0.99999833, z: -0.0018228778, w: -0.000000041426095}
+  m_LocalRotation: {x: -8.3846284e-11, y: 0.99999833, z: -0.0018228778, w: -0.00000004599653}
   m_LocalPosition: {x: 0.000004371139, y: 8.7, z: 49.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -7649,7 +7457,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279771982915951}
-  m_LocalRotation: {x: -0.000000023748077, y: 0.99986726, z: 0.016295234, w: -0.000000043306947}
+  m_LocalRotation: {x: -0.000000023748077, y: 0.99986726, z: 0.016295237, w: -0.000000043306947}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7678,7 +7486,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175609400129945}
-  m_LocalRotation: {x: -0.000000005261534, y: 0.9999984, z: -0.0018228762, w: -0.00000004257816}
+  m_LocalRotation: {x: -0.0000000052656994, y: 0.9999984, z: -0.0018228762, w: -0.00000004486338}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
