@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="ParameterPreset" id="{3bfc48a0-5dda-4778-b8b7-e885a56671cf}">
+        <property name="name">
+            <value>OuterBGMTransition</value>
+        </property>
+        <relationship name="folder">
+            <destination>{2c5cfc11-b7d6-429a-9a1b-c9ebdaab390a}</destination>
+        </relationship>
+        <relationship name="parameter">
+            <destination>{8b99dd78-c6e3-47b1-b078-576c0715c620}</destination>
+        </relationship>
+    </object>
+    <object class="GameParameter" id="{8b99dd78-c6e3-47b1-b078-576c0715c620}">
+        <property name="initialValue">
+            <value>1</value>
+        </property>
+    </object>
+</objects>

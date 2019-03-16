@@ -6,6 +6,7 @@ public class FmodControl
 {
     // BGM
     private FMOD.Studio.EventInstance bgmInstance;
+    private string LEVEL_OUTER_BGM_PARAS = "OuterBGMTransition";
     private string[] LEVEL_BGM_PARAS =
     {
         "",
@@ -14,8 +15,6 @@ public class FmodControl
         "Level1Transition",
         "Level2Transition",
     };
-    private float outerVolume = 1.0f;
-    private float innerVolume = 0.6f;
 
     public void Init()
     {
@@ -34,12 +33,14 @@ public class FmodControl
         }
         else
         {
-            bgmInstance.setParameterValue(LEVEL_BGM_PARAS[level], outerVolume);
+            bgmInstance.setParameterValue(LEVEL_BGM_PARAS[level], 1.0f);
+            bgmInstance.setParameterValue(LEVEL_OUTER_BGM_PARAS, 1.0f);
         }
     }
 
     public void ResetBGM()
     {
+        bgmInstance.setParameterValue(LEVEL_OUTER_BGM_PARAS, 1.0f);
         for (int i = 1; i < LEVEL_BGM_PARAS.Length; ++i)
         {
             bgmInstance.setParameterValue(LEVEL_BGM_PARAS[i], 0);
@@ -55,27 +56,23 @@ public class FmodControl
 
     public void SetInnerBGM()
     {
-        int idx = Services.sceneController.CurrentSceneIdx();
-
         // wtf????
         float value = 0;
         float finalValue = 0;
-        bgmInstance.getParameterValue(LEVEL_BGM_PARAS[idx], out value, out finalValue);
+        bgmInstance.getParameterValue(LEVEL_OUTER_BGM_PARAS, out value, out finalValue);
 
         Services.taskManager
-            .Do(new FmodInstanceTask(bgmInstance, LEVEL_BGM_PARAS[idx], value, innerVolume, 1));
+            .Do(new FmodInstanceTask(bgmInstance, LEVEL_OUTER_BGM_PARAS, value, 0, 1));
     }
 
     public void SetOuterBGM()
     {
-        int idx = Services.sceneController.CurrentSceneIdx();
-
         // wtf????
         float value = 0;
         float finalValue = 0;
-        bgmInstance.getParameterValue(LEVEL_BGM_PARAS[idx], out value, out finalValue);
+        bgmInstance.getParameterValue(LEVEL_OUTER_BGM_PARAS, out value, out finalValue);
 
         Services.taskManager
-            .Do(new FmodInstanceTask(bgmInstance, LEVEL_BGM_PARAS[idx], value, outerVolume, 1));
+            .Do(new FmodInstanceTask(bgmInstance, LEVEL_OUTER_BGM_PARAS, value, 1, 1));
     }
 }
