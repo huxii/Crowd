@@ -680,17 +680,18 @@ public class GameEvents : CustomEvents
         if (backShellObj)
         {
             MeshRenderer[] meshes = backShellObj.GetComponentsInChildren<MeshRenderer>();
+            float curValue = meshes[0].sharedMaterial.GetFloat("_DitheringFactor");
             foreach (MeshRenderer mesh in meshes)
             {
                 if (disappear)
                 {
                     Services.taskManager
-                        .Do(new TimedMaterialTask(mesh.gameObject, "_DitheringFactor", 0, 1, 1));
+                        .Do(new TimedMaterialTask(mesh.gameObject, "_DitheringFactor", curValue, 1, 1));
                 }
                 else
                 {
                     Services.taskManager
-                        .Do(new TimedMaterialTask(mesh.gameObject, "_DitheringFactor", 1, 0, 1));
+                        .Do(new TimedMaterialTask(mesh.gameObject, "_DitheringFactor", curValue, 0, 1));
                 }
             }
         }
