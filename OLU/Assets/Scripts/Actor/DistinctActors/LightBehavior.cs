@@ -49,7 +49,7 @@ public class LightBehavior : ObjectControl
         mat = null;
         foreach (MeshRenderer meshRenderer in GetComponentsInChildren<MeshRenderer>())
         {
-            if (meshRenderer.sharedMaterial.name.ToLower().Contains("inner"))
+            if (meshRenderer.sharedMaterial.name.ToLower().Contains("inner") || meshRenderer.sharedMaterial.name.ToLower().Contains("outer"))
             {
                 if (mat == null)
                 {
