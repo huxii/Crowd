@@ -24,7 +24,7 @@ public class CameraControl : MonoBehaviour
 
     public void RecordFrameToFile(string filename = null, float delayTime = 1f)
     {
-        Services.mainController.gameObject.GetComponent<FPSDisplay>().enabled = false;
+        Services.mainController.SwitchStatus(false);
         Services.hudController.gameObject.SetActive(false);
 
         if (filename == null)

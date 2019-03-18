@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class MainControl : MonoBehaviour
 {
+    public bool statusOn = true;
+
     protected bool hasEnded = false;
 
     protected virtual void Awake()
     {
         Services.Init();
+
+        SwitchStatus(statusOn);
     }
 
     // Start is called before the first frame update
@@ -72,5 +76,10 @@ public class MainControl : MonoBehaviour
 
     public virtual void UpdateParallaxScrolling()
     {
+    }
+
+    public void SwitchStatus(bool en)
+    {
+        GetComponent<FPSDisplay>().enabled = en;
     }
 }

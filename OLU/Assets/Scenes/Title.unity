@@ -35547,16 +35547,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuController
       objectReference: {fileID: 0}
-    - target: {fileID: 4493326612158123337, guid: 218db38baab3b00489e71c012ff21f31,
-        type: 3}
-      propertyPath: levelScroll
-      value: 
-      objectReference: {fileID: 262924014}
-    - target: {fileID: 4493326612158123337, guid: 218db38baab3b00489e71c012ff21f31,
-        type: 3}
-      propertyPath: scrollController
-      value: 
-      objectReference: {fileID: 262924020}
     - target: {fileID: 17036842, guid: 218db38baab3b00489e71c012ff21f31, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

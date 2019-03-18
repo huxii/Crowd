@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aadd0449a71dc284089dfd3e7ef2e011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statusOn: 0
 --- !u!114 &114512313505852240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,8 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c96976c38ecc84a92f74cba945d912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locked: 0
+  autoFocusCameraEnabled: 1
   resetCenterOnRelease: 1
+  groundEnabled: 0
   gyroEnabled: 0
 --- !u!114 &114085845466859174
 MonoBehaviour:
