@@ -86,6 +86,9 @@
         <property name="length">
             <value>87.12329166666666</value>
         </property>
+        <property name="looping">
+            <value>true</value>
+        </property>
         <relationship name="audioFile">
             <destination>{9dda9cdf-b0e0-4671-bd84-d0deffd9ceda}</destination>
         </relationship>
