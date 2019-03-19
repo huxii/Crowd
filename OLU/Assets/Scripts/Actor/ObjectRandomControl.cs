@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ObjectRandomControl : ObjectBasicControl
+public class ObjectRandomControl : ObjectControl
 {
     public List<UnityEvent> randomClickEvents;
     public bool isAutoPlaying = false;
@@ -12,7 +12,7 @@ public class ObjectRandomControl : ObjectBasicControl
     private float autoPlayingTimer;
 
     // Use this for initialization
-    void Start()
+    protected override void Start()
     {
         base.Start();
         
@@ -59,8 +59,6 @@ public class ObjectRandomControl : ObjectBasicControl
 
         if (CanActivate())
         {
-            onClick.Invoke();
-
             DoRandomEvent();
         }
     }
