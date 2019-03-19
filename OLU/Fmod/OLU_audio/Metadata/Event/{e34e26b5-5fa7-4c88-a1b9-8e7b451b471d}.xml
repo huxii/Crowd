@@ -181,9 +181,7 @@
         <property name="length">
             <value>145.33335416666668</value>
         </property>
-        <property name="name">
-            <value>MenuBGMEvent</value>
-        </property>
+        <property name="name"/>
         <relationship name="modulators">
             <destination>{c333b007-37bf-4bb7-8056-1b970e136f1e}</destination>
         </relationship>
@@ -198,9 +196,7 @@
         <property name="length">
             <value>87.12329166666666</value>
         </property>
-        <property name="name">
-            <value>Level1BGMEvent</value>
-        </property>
+        <property name="name"/>
         <relationship name="modulators">
             <destination>{fd8874bd-c711-420c-ae35-17638f361339}</destination>
         </relationship>
@@ -215,9 +211,7 @@
         <property name="length">
             <value>87.12329166666666</value>
         </property>
-        <property name="name">
-            <value>Level0BGMEvent (Nested Event (4))</value>
-        </property>
+        <property name="name"/>
         <relationship name="modulators">
             <destination>{192dc521-b43b-490a-aa8a-c198fc9b149d}</destination>
         </relationship>
@@ -232,9 +226,7 @@
         <property name="length">
             <value>87.12329166666666</value>
         </property>
-        <property name="name">
-            <value>TutorialBGMEvent</value>
-        </property>
+        <property name="name"/>
         <relationship name="modulators">
             <destination>{de336a87-034e-4aa5-a40f-6958ba8a4685}</destination>
         </relationship>
@@ -249,9 +241,7 @@
         <property name="length">
             <value>87.12329166666666</value>
         </property>
-        <property name="name">
-            <value>Level2BGMEvent</value>
-        </property>
+        <property name="name"/>
         <relationship name="modulators">
             <destination>{7733b1a9-4377-4992-b4f7-1d3c68177528}</destination>
         </relationship>
@@ -285,9 +275,7 @@
         <property name="length">
             <value>87.12329166666666</value>
         </property>
-        <property name="name">
-            <value>Level1ExtraBGMEvent</value>
-        </property>
+        <property name="name"/>
         <relationship name="modulators">
             <destination>{431607fc-7d33-4f6b-8a81-ea6b6979407d}</destination>
         </relationship>
@@ -302,9 +290,7 @@
         <property name="length">
             <value>87.12329166666666</value>
         </property>
-        <property name="name">
-            <value>TutorialExtraBGMEvent</value>
-        </property>
+        <property name="name"/>
         <relationship name="modulators">
             <destination>{b18bedc3-c295-43ca-b786-2dff823dad46}</destination>
         </relationship>
@@ -319,9 +305,7 @@
         <property name="length">
             <value>87.12329166666666</value>
         </property>
-        <property name="name">
-            <value>Level0ExtraBGMEvent</value>
-        </property>
+        <property name="name"/>
         <relationship name="modulators">
             <destination>{88063254-2a7b-41e0-b893-ec70502f5f9e}</destination>
         </relationship>
@@ -336,9 +320,7 @@
         <property name="length">
             <value>87.12329166666666</value>
         </property>
-        <property name="name">
-            <value>Level2ExtraBGMEvent</value>
-        </property>
+        <property name="name"/>
         <relationship name="modulators">
             <destination>{9a264f29-c64a-4dd6-a76f-291a1e3e7889}</destination>
         </relationship>

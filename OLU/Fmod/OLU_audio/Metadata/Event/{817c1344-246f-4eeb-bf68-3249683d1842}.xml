@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="Event" id="{817c1344-246f-4eeb-bf68-3249683d1842}">
         <property name="name">
-            <value>Nested Event (5)</value>
+            <value>TutorialBGMEvent</value>
         </property>
         <property name="outputFormat">
             <value>1</value>
