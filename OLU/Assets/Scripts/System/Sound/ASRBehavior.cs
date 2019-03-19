@@ -27,7 +27,7 @@ public class ASRBehavior : MonoBehaviour
     public void Attack()
     {
         Debug.Log("Attack");
-        Services.soundController.Play(startSampleId);
+        //Services.soundController.Play(startSampleId);
 
         string nextId = PickNextString();
         audioSource = Services.soundController.PlayWithReturn(nextId);

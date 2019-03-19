@@ -3273,7 +3273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sampleIds:
-  - metalSlide_S
+  - metalSlide_S1
+  - metalSlide_S2
   startSampleId: metalSlide_A
   endSampleId: metalSlide_R
   sustainDuration: 0.5
@@ -7708,7 +7709,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625330425388381}
-  m_LocalRotation: {x: -0.000000005214616, y: 0.9998002, z: -0.019988023, w: -0.000000026593375}
+  m_LocalRotation: {x: -0.0000000059024576, y: 0.9998002, z: -0.019988002, w: -0.00000006099926}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

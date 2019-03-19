@@ -6192,7 +6192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sampleIds:
-  - ladderMove_S
+  - ladderMove_S1
+  - ladderMove_S2
   startSampleId: ladderMove_A
   endSampleId: ladderMove_R
   sustainDuration: 0.5
@@ -13033,7 +13034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.34
+      value: -1.242
       objectReference: {fileID: 0}
     - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13041,7 +13042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.81
+      value: -2.079
       objectReference: {fileID: 0}
     - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -21470,7 +21471,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175608430156314}
-  m_LocalRotation: {x: -1.06018146e-10, y: 0.99999195, z: -0.004017103, w: -0.000000026519473}
+  m_LocalRotation: {x: -1.0600935e-10, y: 0.99999195, z: -0.004017103, w: -0.000000026519473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

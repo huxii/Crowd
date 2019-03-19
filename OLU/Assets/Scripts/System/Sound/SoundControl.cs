@@ -137,6 +137,12 @@ public class SoundControl : MonoBehaviour
             }
         }
 
+        if (!soundList.ContainsKey(id))
+        {
+            Debug.Log(id);
+            return null;
+        }
+
         if (soundList[id].audioClip == null)
         {
             // the first time playing this clip
