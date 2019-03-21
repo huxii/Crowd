@@ -519,6 +519,15 @@ ModelImporter:
     101026: MerryGoRoundTopModel
     101028: InnerBase
     101030: Shadow
+    101032: Balloon0
+    101034: Balloon1
+    101036: Balloon2
+    101038: BalloonLine0
+    101040: BalloonLine1
+    101042: BalloonLine2
+    101044: BalloonModel0
+    101046: BalloonModel1
+    101048: BalloonModel2
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -1035,6 +1044,15 @@ ModelImporter:
     401026: MerryGoRoundTopModel
     401028: InnerBase
     401030: Shadow
+    401032: Balloon0
+    401034: Balloon1
+    401036: Balloon2
+    401038: BalloonLine0
+    401040: BalloonLine1
+    401042: BalloonLine2
+    401044: BalloonModel0
+    401046: BalloonModel1
+    401048: BalloonModel2
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -1459,6 +1477,12 @@ ModelImporter:
     2300838: MerryGoRoundTopModel
     2300840: InnerBase
     2300842: Shadow
+    2300844: BalloonLine0
+    2300846: BalloonLine1
+    2300848: BalloonLine2
+    2300850: BalloonModel0
+    2300852: BalloonModel1
+    2300854: BalloonModel2
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1881,6 +1905,12 @@ ModelImporter:
     3300838: MerryGoRoundTopModel
     3300840: InnerBase
     3300842: Shadow
+    3300844: BalloonLine0
+    3300846: BalloonLine1
+    3300848: BalloonLine2
+    3300850: BalloonModel0
+    3300852: BalloonModel1
+    3300854: BalloonModel2
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -2299,6 +2329,12 @@ ModelImporter:
     4300830: MerryGoRoundBottom
     4300832: InnerBase
     4300834: Shadow
+    4300836: BalloonLine0
+    4300838: BalloonModel0
+    4300840: BalloonLine1
+    4300842: BalloonModel1
+    4300844: BalloonLine2
+    4300846: BalloonModel2
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
