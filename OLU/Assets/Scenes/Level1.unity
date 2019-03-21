@@ -198,7 +198,7 @@ MonoBehaviour:
     interval: 1
   - onOff: 11111111111
     interval: 1
-  emissionColor: {r: 1.4980392, g: 0.9098039, b: 0.44705883, a: 0}
+  emissionColor: {r: 0.7176471, g: 0.6, b: 0.627451, a: 0}
 --- !u!114 &26701857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1807,6 +1807,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1755239522}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 500179902}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onDeactivated:
@@ -2044,6 +2066,28 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 26701856}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1755239522}
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 500179902}
         m_MethodName: Deactivate
         m_Mode: 1
         m_Arguments:
@@ -5005,6 +5049,52 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1013358165}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &500179902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500179898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425cf52665c66a64d9e604cd5bc9eeca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  canActivateMultipleTimes: 0
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  interactionCD: 0.5
+  isWalkableAfterDeactivated: 0
+  dropMenAfterDeactivated: 0
+  emissionColor: {r: 1.4980392, g: 0.9098039, b: 0.44705883, a: 1}
+  duration: 1
+--- !u!114 &500179903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500179898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80dbed3f971926444a8dcfaf450888a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &506148954 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100304, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -8518,7 +8608,7 @@ MonoBehaviour:
     interval: 1
   - onOff: 111111111111111111111111111
     interval: 1
-  emissionColor: {r: 1.4980392, g: 0.9098039, b: 0.44705883, a: 0}
+  emissionColor: {r: 0.7176471, g: 0.6, b: 0.627451, a: 0}
 --- !u!1 &945058689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100796, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -11736,6 +11826,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: dbeae8539a693e9409e90ac951588004, type: 2}
     - target: {fileID: 2300854, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dbeae8539a693e9409e90ac951588004, type: 2}
+    - target: {fileID: 2300860, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dbeae8539a693e9409e90ac951588004, type: 2}
@@ -17607,19 +17701,18 @@ MonoBehaviour:
   - {fileID: 1153865671}
   - {fileID: 1936116671}
   - {fileID: 1308182638}
-  - {fileID: 500179898}
   lightOrder:
-  - onOff: 000000000000000000001
+  - onOff: 00000000000000000000
     interval: 0.5
-  - onOff: 111111110000000000001
+  - onOff: 11111111000000000000
     interval: 0.5
-  - onOff: 000011111111000000001
+  - onOff: 00001111111100000000
     interval: 0.5
-  - onOff: 000000001111111100001
+  - onOff: 00000000111111110000
     interval: 0.5
-  - onOff: 000000000000111111111
+  - onOff: 00000000000011111111
     interval: 0.5
-  - onOff: 000000000000000011111
+  - onOff: 00000000000000001111
     interval: 0.5
   emissionColor: {r: 1.4980392, g: 0.9098039, b: 0.44705883, a: 0}
 --- !u!1 &1701840099
@@ -18164,6 +18257,58 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1013358165}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1755239521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 101054, guid: b2e9286c22cb687469da9f0cc667f429,
+    type: 3}
+  m_PrefabInstance: {fileID: 1013358165}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1755239522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755239521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425cf52665c66a64d9e604cd5bc9eeca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 0
+  canActivateMultipleTimes: 0
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  interactionCD: 0.5
+  isWalkableAfterDeactivated: 0
+  dropMenAfterDeactivated: 0
+  emissionColor: {r: 1.4980392, g: 0.9098039, b: 0.44705883, a: 1}
+  duration: 1
+--- !u!114 &1755239523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755239521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80dbed3f971926444a8dcfaf450888a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInteractionFeedback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1759008537 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100888, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -21967,7 +22112,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279773217180396}
-  m_LocalRotation: {x: 8.6092394e-10, y: 0.9999003, z: 0.014124865, w: -0.00000006094527}
+  m_LocalRotation: {x: 3.738999e-10, y: 0.9999003, z: 0.014124865, w: -0.0000000264688}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21996,7 +22141,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175608430156314}
-  m_LocalRotation: {x: -1.047652e-10, y: 0.99999195, z: -0.004017103, w: -0.000000026519473}
+  m_LocalRotation: {x: -1.0475485e-10, y: 0.99999195, z: -0.004017103, w: -0.000000026519473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22072,7 +22217,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625331400867550}
-  m_LocalRotation: {x: -0.000000001352741, y: 0.9997534, z: -0.022205792, w: -0.00000006090276}
+  m_LocalRotation: {x: -5.8857785e-10, y: 0.9997534, z: -0.022205772, w: -0.000000026498478}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

@@ -528,6 +528,9 @@ ModelImporter:
     101044: BalloonModel0
     101046: BalloonModel1
     101048: BalloonModel2
+    101050: MovingPlatformLight0
+    101052: MovingPlatformLight1
+    101054: MovingPlatformLight
     400000: Axis
     400002: Axis 1
     400004: Back
@@ -1053,6 +1056,9 @@ ModelImporter:
     401044: BalloonModel0
     401046: BalloonModel1
     401048: BalloonModel2
+    401050: MovingPlatformLight0
+    401052: MovingPlatformLight1
+    401054: MovingPlatformLight
     2100000: lambert1
     2100002: lambert2
     2300000: Axis
@@ -1483,6 +1489,9 @@ ModelImporter:
     2300850: BalloonModel0
     2300852: BalloonModel1
     2300854: BalloonModel2
+    2300856: MovingPlatformLight0
+    2300858: MovingPlatformLight1
+    2300860: MovingPlatformLight
     3300000: Axis
     3300002: Axis 1
     3300004: Back
@@ -1911,6 +1920,9 @@ ModelImporter:
     3300850: BalloonModel0
     3300852: BalloonModel1
     3300854: BalloonModel2
+    3300856: MovingPlatformLight0
+    3300858: MovingPlatformLight1
+    3300860: MovingPlatformLight
     4300000: Gear5
     4300002: Rod0
     4300004: Rod2
@@ -2335,6 +2347,9 @@ ModelImporter:
     4300842: BalloonModel1
     4300844: BalloonLine2
     4300846: BalloonModel2
+    4300848: MovingPlatformLight0
+    4300850: MovingPlatformLight1
+    4300852: MovingPlatformLight
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
