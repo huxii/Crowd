@@ -187,12 +187,12 @@ public abstract class InputControl : MonoBehaviour
 
     private void MouseUp()
     {
-        //if (Vector3.Distance(Input.mousePosition, mouseClickScreenPos) > 1f)
-        //{
-        //    Services.gameEvents.Swipe();
-        //    Services.gameController.SwipeOn(mouseClickObject);
-        //}
-        //else
+        if (Vector3.Distance(Input.mousePosition, mouseClickScreenPos) > 1f)
+        {
+            //Services.gameEvents.Swipe();
+            //Services.gameController.SwipeOn(mouseClickObject);
+        }
+        else
         //if (Time.time - singleClickTime < 1f)
         {
             MouseSingleClick();
@@ -226,7 +226,7 @@ public abstract class InputControl : MonoBehaviour
             // drag object
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 100f))
+            if (Physics.Raycast(ray, out hit, 200f))
             {
                 Vector3 mouseDelta = Input.mousePosition - mouseDragScreenPos;
                 if ((mouseClickObject.CompareTag("Object") || mouseClickObject.CompareTag("Prop"))

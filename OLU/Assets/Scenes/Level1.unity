@@ -9237,7 +9237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400192, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400198, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_RootOrder
@@ -9454,6 +9454,10 @@ PrefabInstance:
     - target: {fileID: 400690, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400690, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.13917
       objectReference: {fileID: 0}
     - target: {fileID: 400702, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_LocalRotation.y
@@ -11553,7 +11557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 401038, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 1.7971536
+      value: -0.7504872
       objectReference: {fileID: 0}
     - target: {fileID: 401040, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_LocalRotation.x
@@ -11569,11 +11573,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 401040, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 6.7180386
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 401040, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.000000035723712
+      value: -0.00000003572371
       objectReference: {fileID: 0}
     - target: {fileID: 401040, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11603,6 +11607,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 401042, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 401042, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 401042, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 401042, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 401044, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.38871023
@@ -11621,7 +11641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 401044, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 2.779721
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 401044, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11649,7 +11669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 401046, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 6.6161575
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 401046, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -11685,7 +11705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 401048, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1368684e-15
+      value: -1.136868e-15
       objectReference: {fileID: 0}
     - target: {fileID: 401048, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11907,6 +11927,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: e408a9a2fc018414e9440c85386afafc, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: e408a9a2fc018414e9440c85386afafc, type: 2}
+  - {fileID: 7400000, guid: 1af2dc83fcc68794fade956570b30c08, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -15812,6 +15833,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: 077d4494fc975394aaa054e987308400, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 077d4494fc975394aaa054e987308400, type: 2}
+  - {fileID: 7400000, guid: d428f15a3b67b454aa6af06d0aa791d9, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -16167,7 +16189,7 @@ Transform:
   - {fileID: 41548896}
   - {fileID: 130792820}
   m_Father: {fileID: 1724208296}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1569421636
 MonoBehaviour:
@@ -16784,10 +16806,106 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  interactionCD: 0
+  interactionCD: 1
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  sequenceClickEvents: []
+  sequenceClickEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: PlayAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Cases, BalloonOn0
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: PlayAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Balloon0, BalloonFloat0
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: PlayAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Cases, BalloonOn1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: PlayAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Balloon1, BalloonFloat1
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: PlayAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Cases, BalloonOn2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1428080938}
+        m_MethodName: PlayAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Balloon2, BalloonFloat2
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!111 &1597877029
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597877024}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 9aec7a09a348b0b48b2beaa35005f70c, type: 2}
+  - {fileID: 7400000, guid: 8d4191b6743a73a4da9324be2080ada3, type: 2}
+  - {fileID: 7400000, guid: deb505bb2cb72074f8e628284bf14b16, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1632735219 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100892, guid: b2e9286c22cb687469da9f0cc667f429,
@@ -21835,7 +21953,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681086170184940}
-  m_LocalRotation: {x: -3.139171e-10, y: 0.99999195, z: -0.004017103, w: -0.00000007814454}
+  m_LocalRotation: {x: -3.7269195e-11, y: 0.99999195, z: -0.0040171067, w: -0.000000009277535}
   m_LocalPosition: {x: 0.000003934025, y: 9.5, z: 45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -21849,7 +21967,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279773217180396}
-  m_LocalRotation: {x: 3.738999e-10, y: 0.9999003, z: 0.014124865, w: -0.0000000264688}
+  m_LocalRotation: {x: 8.6092394e-10, y: 0.9999003, z: 0.014124865, w: -0.00000006094527}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21878,7 +21996,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175608430156314}
-  m_LocalRotation: {x: -2.4330934e-10, y: 0.99999195, z: -0.004017101, w: -0.00000006095297}
+  m_LocalRotation: {x: -1.047652e-10, y: 0.99999195, z: -0.004017103, w: -0.000000026519473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
