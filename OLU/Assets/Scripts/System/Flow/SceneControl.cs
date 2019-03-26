@@ -34,13 +34,41 @@ public class SceneControl : MonoBehaviour
                         .Then(new ActionTask(() => Services.sceneTransitionController.FadeOutOfLoadingScreen()))
                         .Then(new Wait(transitionFadeTime))
                         .Then(new ActionTask(() => Services.gameEvents.ResumeAnimation(panel)));
+
+                    float delayTime = 2f;
+                    if (DataSet.recentCompletedLevelIdx > DataSet.completedLevelIdx)
+                    {
+                        // need transition
+                        Services.taskManager
+                            .Do(new Wait(transitionAnimTime + transitionFadeTime + 3f + delayTime))
+                            .Then(new ActionTask(LoadingEnded));
+                    }
+                    else
+                    {
+                        Services.taskManager
+                            .Do(new Wait(transitionAnimTime + transitionFadeTime + delayTime))
+                            .Then(new ActionTask(LoadingEnded));
+                    }
                 }
             }
             else
             {
                 Services.sceneTransitionController.FadeOutOfLoadingScreen();
+                Services.taskManager
+                    .Do(new Wait(transitionFadeTime))
+                    .Then(new ActionTask(LoadingEnded));
             }
         }
+    }
+
+    private void LoadingStarted()
+    {
+        Services.mainController.DisableInput();
+    }
+
+    private void LoadingEnded()
+    {
+        Services.mainController.EnableInput();
     }
 
     public int CurrentSceneIdx()
@@ -169,15 +197,5 @@ public class SceneControl : MonoBehaviour
 
             yield return null;          
         }
-    }
-
-    public void LoadingStarted()
-    {
-        Services.mainController.DisableInput();
-    }
-
-    public void LoadingEnded()
-    {
-        Services.mainController.EnableInput();
     }
 }
