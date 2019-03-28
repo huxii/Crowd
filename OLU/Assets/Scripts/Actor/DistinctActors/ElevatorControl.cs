@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ElevatorControl : PropPassiveTimedDeactivateControl
 {
+    [Header("Elevator Settings")]
     public CrowdControl.CrowdState noActiveState;
 
-    private bool parentPermission = false;
+    public bool parentPermission = false;
 
     protected override void OnSlotsFull()
     {

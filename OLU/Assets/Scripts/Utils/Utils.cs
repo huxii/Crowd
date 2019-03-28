@@ -123,6 +123,20 @@ public class Utils : MonoBehaviour
         return angle;
     }
 
+    public int LCM(int a, int b)
+    {
+        int m = a;
+        int n = b;
+        while (b != 0)
+        {
+            int c = a % b;
+            a = b;
+            b = c;
+        }
+
+        return m * n / a;
+    }
+
     public float LerpRotation(float curValue, float targetValue, float speed)
     {
         float realTargetValue = Clamp360(targetValue);

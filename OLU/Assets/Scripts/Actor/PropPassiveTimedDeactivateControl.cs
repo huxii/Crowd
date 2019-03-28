@@ -9,12 +9,6 @@ public class PropPassiveTimedDeactivateControl : PropPassiveControl
 
     private float timer = 0;
 
-    // Use this for initialization
-    void Start ()
-    {
-		
-	}
-
     protected virtual void Update()
     {
         if (IsActivated())
