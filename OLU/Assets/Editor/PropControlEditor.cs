@@ -149,6 +149,15 @@ public class PropAutoTimedDeactivateControlEditor : PropAutoControlEditor
     }
 }
 
+[CustomEditor(typeof(MirrorControl))]
+public class MirrorControlEditor : PropAutoControlEditor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+    }
+}
+
 [CustomEditor(typeof(BouncingBedControl))]
 public class BouncingBedControlEditor : PropAutoTimedDeactivateControlEditor
 {

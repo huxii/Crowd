@@ -86,6 +86,12 @@ public class GameEvents : CustomEvents
         p0.GetComponent<PathPoint>().followPoint = null;
     }
 
+    public void SetMaterialColor(GameObject obj, Color c)
+    {
+        Material mat = obj.GetComponent<MeshRenderer>().material;
+        mat.color = c;
+    }
+
     public void SetMaterialColor(string para)
     {
         ParseNewPara(para);
@@ -93,8 +99,7 @@ public class GameEvents : CustomEvents
         GameObject obj = ParseGameObject();
         Color c = ParseColor();
 
-        Material mat = obj.GetComponent<MeshRenderer>().material;
-        mat.color = c;
+        SetMaterialColor(obj, c);
     }
 
     public void PlayAnimation(GameObject obj)

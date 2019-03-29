@@ -14,6 +14,17 @@ public class CycleControl : ObjectControl
     [SerializeField]
     protected int curAbsCycle = 0;
 
+    protected override void Start()
+    {
+        base.Start();
+
+        CheckCycle();
+    }
+
+    protected virtual void CheckCycle()
+    {
+    }
+
     public virtual void GoClockwise()
     {
         ++curCycle;
@@ -24,6 +35,7 @@ public class CycleControl : ObjectControl
         }
 
         Services.dotweenEvents.Rotate(gameObject.name + " y " + step + " 1");
+        CheckCycle();
     }
 
     public virtual void GoCounterClockwise()
@@ -35,5 +47,6 @@ public class CycleControl : ObjectControl
             curAbsCycle = cycle - 1;
         }
         Services.dotweenEvents.Rotate(gameObject.name + " y " + -step + " 1");
+        CheckCycle();
     }
 }
