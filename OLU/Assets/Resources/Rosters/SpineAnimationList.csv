@@ -1,4 +1,4 @@
-Load,animation name,"tracks [0,4] 0 = lowest priority",loop,mix time,made(do not read),added,notes
+ ,animation name,"tracks [0,4] 0 = lowest priority",loop,mix time,made(do not read),added,notes
 1,arm_normal,1,LOOP,0.5,finished,x,
 1,arm_stealth,1,LOOP,0.5,need polish,x,
 1,arm_swing,1,LOOP,0.5,need polish,x,
@@ -37,9 +37,13 @@ Load,animation name,"tracks [0,4] 0 = lowest priority",loop,mix time,made(do not
 1,walk_normal,0,LOOP,0.5,finished,x,
 1,busy,4,NOTLOOP_KEEP,0.5,,x,
 1,busy_forever,4,LOOP,0.5,,x,
+1,bounce,2,NOTLOOP_KEEP,0.1,,x,
+1,drop,2,LOOP,0.1,,,
+1,land,2,NOTLOOP_KEEP,0.5,,,
+1,tickle,2,NOTLOOP_KEEP,0.5,,,
+1,switchLever,2,NOTLOOP_KEEP,0.5,,,
 1,menu_pose1,2,LOOP,0.5,,x,
 1,menu_pose2,2,LOOP,0.5,,x,
 1,menu_pose3,2,LOOP,0.5,,x,
 1,menu_pose4,2,LOOP,0.5,,x,
 1,menu_pose5,2,LOOP,0.5,,x,
-,,,,,,x,
