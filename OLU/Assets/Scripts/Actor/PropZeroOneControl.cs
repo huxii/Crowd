@@ -8,7 +8,7 @@ public abstract class PropZeroOneControl : PropAutoControl
     [Header("Zero One Control")]
     public UnityEvent onActivatedZero;
 
-    private bool isOne = false;
+    protected bool isOne = false;
 
     public override void Activate()
     {
@@ -29,7 +29,7 @@ public abstract class PropZeroOneControl : PropAutoControl
         }
     }
 
-    public void SetZeroOne(bool zeroOne)
+    public virtual void SetZeroOne(bool zeroOne)
     {
         isOne = zeroOne;
     }
