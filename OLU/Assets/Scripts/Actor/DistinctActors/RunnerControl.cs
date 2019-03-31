@@ -15,14 +15,15 @@ public class RunnerControl : ObjectControl
     private ElevatorControl teleB1B0A0;
     private ElevatorControl teleB1B2;
     private ElevatorControl teleB2B1;
+    private GameObject teleB1_long;
+    private GameObject teleB1_short;
+    private GameObject teleA1_short;
 
     private int cycle;
     private int curAbsCycle = 0;
 
-    protected override void Start()
+    protected void Awake()
     {
-        base.Start();
-
         floor1 = GameObject.Find("Floor1").GetComponent<RunnerFirstControl>();
         floor2 = GameObject.Find("Floor2").GetComponent<RunnerSecondControl>();
         floor3 = GameObject.Find("Floor3").GetComponent<RunnerThirdControl>();
@@ -33,9 +34,16 @@ public class RunnerControl : ObjectControl
         teleB1B0A0 = GameObject.Find("TeleB1B0A0").GetComponent<ElevatorControl>();
         teleB1B2 = GameObject.Find("TeleB1B2").GetComponent<ElevatorControl>();
         teleB2B1 = GameObject.Find("TeleB2B1").GetComponent<ElevatorControl>();
+        teleB1_long = GameObject.Find("TeleLong");
+        teleB1_short = GameObject.Find("TeleShort");
+        teleA1_short = GameObject.Find("TeleMedium");        
+    }
+
+    protected override void Start()
+    {
+        base.Start();
 
         cycle = Services.utils.LCM(Services.utils.LCM(floor1.cycle, floor2.cycle), floor3.cycle);
-
         CheckCycle();
     }
 
@@ -56,64 +64,10 @@ public class RunnerControl : ObjectControl
         teleB1B0A0.gameObject.SetActive(true);
         teleB1B2.gameObject.SetActive(true);
         teleB2B1.gameObject.SetActive(true);
-    }
 
-    protected void CheckCycle()
-    {
-        ResetCycle();
-
-        switch (curAbsCycle)
-        {
-            case 0:
-                if (floor1.IsShort())
-                {
-                    teleA0A1.SetParentPermission(true);
-                    teleA1A0.SetParentPermission(true);
-                }
-                teleA0B1.gameObject.SetActive(false);
-                teleB0B1.SetParentPermission(true);
-                teleB1B0A0.SetParentPermission(true);
-                teleB1B2.gameObject.SetActive(false);
-                break;
-
-            case 3:
-                teleB1B0A0.gameObject.SetActive(false);
-                teleB1B2.SetParentPermission(true);
-                teleB2B1.SetParentPermission(true);
-                break;
-
-            case 4:
-                if (floor1.IsShort())
-                {
-                    teleA0A1.SetParentPermission(true);
-                    teleA1A0.SetParentPermission(true);
-                }
-                teleA0B1.gameObject.SetActive(false);
-                break;
-
-            case 5:
-                teleA0A1.gameObject.SetActive(false);
-                teleA0B1.SetParentPermission(true);
-                teleB1B0A0.SetParentPermission(true);
-                teleB1B2.gameObject.SetActive(false);
-                break;
-
-            case 8:
-                teleA0A1.SetParentPermission(true);
-                teleA0B1.gameObject.SetActive(false);
-                teleA1A0.SetParentPermission(true);
-                break;
-
-            case 1:
-            case 2:
-            case 6:
-            case 7:
-            case 9:
-            case 10:
-            case 11:
-            default:
-                break;
-        }
+        teleB1_long.SetActive(false);
+        teleB1_short.SetActive(false);
+        teleA1_short.SetActive(false);
     }
 
     protected void ClearCycle()
@@ -147,6 +101,73 @@ public class RunnerControl : ObjectControl
         teleB1B0A0.Unlock();
         teleB1B2.Unlock();
         teleB2B1.Unlock();
+    }
+
+    public void CheckCycle()
+    {
+        ResetCycle();
+
+        switch (curAbsCycle)
+        {
+            case 0:
+                if (floor1.IsShort())
+                {
+                    teleA0A1.SetParentPermission(true);
+                    teleA1A0.SetParentPermission(true);
+                    teleA1_short.SetActive(true);
+                }
+                teleA0B1.gameObject.SetActive(false);
+                teleB0B1.SetParentPermission(true);
+                teleB1B0A0.SetParentPermission(true);
+                teleB1B2.gameObject.SetActive(false);
+                teleB1_long.SetActive(true);
+                break;
+
+            case 3:
+                teleB1B0A0.gameObject.SetActive(false);
+                teleB1B2.SetParentPermission(true);
+                teleB2B1.SetParentPermission(true);
+                teleB1_short.SetActive(true);
+                break;
+
+            case 4:
+                if (floor1.IsShort())
+                {
+                    teleA0A1.SetParentPermission(true);
+                    teleA1A0.SetParentPermission(true);
+                    teleA1_short.SetActive(true);
+                }
+                teleA0B1.gameObject.SetActive(false);
+                break;
+
+            case 5:
+                teleA0A1.gameObject.SetActive(false);
+                teleA0B1.SetParentPermission(true);
+                teleB1B0A0.SetParentPermission(true);
+                teleB1B2.gameObject.SetActive(false);
+                teleB1_long.SetActive(true);
+                break;
+
+            case 8:
+                if (floor1.IsShort())
+                {
+                    teleA0A1.SetParentPermission(true);
+                    teleA1A0.SetParentPermission(true);
+                    teleA1_short.SetActive(true);
+                }
+                teleA0B1.gameObject.SetActive(false);
+                break;
+
+            case 1:
+            case 2:
+            case 6:
+            case 7:
+            case 9:
+            case 10:
+            case 11:
+            default:
+                break;
+        }
     }
 
     public void GoClockwise()

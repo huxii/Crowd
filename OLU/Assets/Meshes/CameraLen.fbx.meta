@@ -88,6 +88,12 @@ ModelImporter:
     100164: SteerModel1
     100166: Steers
     100168: Floors
+    100170: TeleLong
+    100172: TeleMedium
+    100174: TeleShort
+    100176: StairsPushHandleModel
+    100178: TopStair
+    100180: StairHead
     400000: BeamSplitter
     400002: BeamSplitter1
     400004: //RootNode
@@ -173,6 +179,12 @@ ModelImporter:
     400164: SteerModel1
     400166: Steers
     400168: Floors
+    400170: TeleLong
+    400172: TeleMedium
+    400174: TeleShort
+    400176: StairsPushHandleModel
+    400178: TopStair
+    400180: StairHead
     2100000: lambert1
     2100002: InnerMat
     2300000: BeamSplitter
@@ -224,6 +236,12 @@ ModelImporter:
     2300092: TeleB2Model
     2300094: SteerModel0
     2300096: SteerModel1
+    2300098: TeleLong
+    2300100: TeleMedium
+    2300102: TeleShort
+    2300104: StairsPushHandleModel
+    2300106: TopStair
+    2300108: Stair0
     3300000: BeamSplitter
     3300002: BeamSplitter1
     3300004: CeilingFrame
@@ -273,6 +291,12 @@ ModelImporter:
     3300092: TeleB2Model
     3300094: SteerModel0
     3300096: SteerModel1
+    3300098: TeleLong
+    3300100: TeleMedium
+    3300102: TeleShort
+    3300104: StairsPushHandleModel
+    3300106: TopStair
+    3300108: Stair0
     4300000: Floor0Model
     4300002: MahojinModel
     4300004: TeleB0Model
@@ -322,6 +346,12 @@ ModelImporter:
     4300092: BeamSplitter1
     4300094: SteerModel0
     4300096: SteerModel1
+    4300098: TeleLong
+    4300100: TeleShort
+    4300102: TeleMedium
+    4300104: StairsPushHandleModel
+    4300106: TopStair
+    4300108: Stair0
   externalObjects: {}
   materials:
     importMaterials: 0

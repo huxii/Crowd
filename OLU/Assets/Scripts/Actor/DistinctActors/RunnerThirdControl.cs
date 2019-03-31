@@ -12,12 +12,10 @@ public class RunnerThirdControl : CycleControl
     private PropAutoTimedDeactivateControl chest;
     private MirrorControl mirror;
 
-    protected override void Start()
+    protected void Awake()
     {
         chest = GameObject.Find("Chest").GetComponent<PropAutoTimedDeactivateControl>();
         mirror = GameObject.Find("Mirror1").GetComponent<MirrorControl>();
-
-        base.Start();
     }
 
     protected void ResetPaths()
