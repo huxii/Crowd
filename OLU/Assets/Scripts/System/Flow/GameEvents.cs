@@ -366,6 +366,10 @@ public class GameEvents : CustomEvents
                     {
                         Vector3 landPos = hit.point;
                         Services.dotweenEvents.MoveTo(man.name + " " + landPos.ToString() + " 1 false " + easyStr);
+                        Services.taskManager
+                            .Do(new ActionTask(() => SwitchCrowdState(man, CrowdControl.CrowdState.DROP)))
+                            .Then(new Wait(1))
+                            .Then(new ActionTask(() => SwitchCrowdState(man, CrowdControl.CrowdState.LAND)));
                         //man.transform.DOMove(landPos, 1f).SetEase(Ease.Flash);
                         break;
                     }

@@ -792,6 +792,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   timeToAutoDeactivate: 1.05
   noActiveState: 9
+  parentPermission: 0
 --- !u!114 &209985401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1037,8 +1038,8 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 961387214}
   freeManOffset: {x: 0, y: 0, z: 0}
-  changeState: 0
-  changeScaleX: -1
+  changeState: 12
+  changeScaleX: 1
   slots:
   - state: 0
     obj: {fileID: 755287979}
@@ -12888,6 +12889,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   timeToAutoDeactivate: 1.05
   noActiveState: 0
+  parentPermission: 0
 --- !u!136 &741168901
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -74121,7 +74123,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681086170184940}
-  m_LocalRotation: {x: 6.334515e-10, y: 0.99996644, z: 0.0081917355, w: -0.000000077325524}
+  m_LocalRotation: {x: 6.965098e-11, y: 0.99996644, z: 0.008191732, w: -0.000000008502301}
   m_LocalPosition: {x: -5.9999914, y: 2.13, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -74135,7 +74137,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279773217180396}
-  m_LocalRotation: {x: -0.000000023583068, y: 0.99965334, z: 0.02633124, w: -0.00000004117524}
+  m_LocalRotation: {x: -0.000000023526434, y: 0.99965334, z: 0.02633124, w: -0.000000043325294}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -74164,7 +74166,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175608430156314}
-  m_LocalRotation: {x: -0.000000004702912, y: 0.99996644, z: 0.008191734, w: -0.00000006007715}
+  m_LocalRotation: {x: -0.000000004984812, y: 0.99996644, z: 0.008191732, w: -0.000000025665539}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
