@@ -222,7 +222,12 @@ public abstract class PropControl : InteractableControl
         }
         else
         {
-            return transform.position + freeManOffset;
+            Vector3 sumPos = new Vector3(0, 0, 0);
+            foreach (SlotAttr slot in slots)
+            {
+                sumPos += slot.obj.transform.position;
+            }
+            return sumPos / slots.Count + freeManOffset;
         }
     }
 

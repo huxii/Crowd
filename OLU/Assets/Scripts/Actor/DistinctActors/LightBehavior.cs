@@ -24,9 +24,10 @@ public class LightBehavior : ObjectControl
         if (isStarting)
         {
             timer += Time.deltaTime;
-            mat.SetFloat("_EmissionIntensity", timer);
+            Debug.Log(timer + " " + duration);
+            mat.SetFloat("_EmissionIntensity", Mathf.Clamp01(timer / duration));
 
-            if (timer >= 1f)
+            if (timer >= duration)
             {
                 isStarting = false;
             }
@@ -35,7 +36,7 @@ public class LightBehavior : ObjectControl
         if (isReversing)
         {
             timer -= Time.deltaTime;
-            mat.SetFloat("_EmissionIntensity", timer);
+            mat.SetFloat("_EmissionIntensity", Mathf.Clamp01(timer / duration));
 
             if (timer <= 0)
             {
@@ -62,7 +63,7 @@ public class LightBehavior : ObjectControl
         }
 
         mat.SetColor("_EmissionColor", emissionColor);
-        mat.SetFloat("_EmissionIntensity", timer);
+        mat.SetFloat("_EmissionIntensity", 0);
     }
 
     public override void Activate()
@@ -80,6 +81,6 @@ public class LightBehavior : ObjectControl
 
         isReversing = true;
         isStarting = false;
-        timer = 1;
+        timer = duration;
     }
 }

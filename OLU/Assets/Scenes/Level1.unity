@@ -6229,7 +6229,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
   freeManTile: {fileID: 0}
-  freeManOffset: {x: 0.69, y: 0, z: 0.92}
+  freeManOffset: {x: 0, y: 0, z: 0.78}
   changeState: 5
   changeScaleX: 1
   slots:
@@ -6579,7 +6579,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
   freeManTile: {fileID: 0}
-  freeManOffset: {x: 0.15, y: -1.66, z: -1.18}
+  freeManOffset: {x: 0, y: 0, z: -0.8}
   changeState: 7
   changeScaleX: 1
   slots:
@@ -8006,7 +8006,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
   freeManTile: {fileID: 0}
-  freeManOffset: {x: 0.15, y: -1.66, z: -1.18}
+  freeManOffset: {x: 0, y: 0, z: -0.8}
   changeState: 7
   changeScaleX: 1
   slots:
@@ -8818,7 +8818,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
   freeManTile: {fileID: 0}
-  freeManOffset: {x: 0.15, y: -1.66, z: -1.18}
+  freeManOffset: {x: 0, y: 0, z: -0.8}
   changeState: 7
   changeScaleX: 1
   slots:
@@ -12364,6 +12364,11 @@ PrefabInstance:
       propertyPath: zoomScale
       value: 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 8489901839248571265, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8489901838814356934, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -12416,11 +12421,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 4df6c3382a53c474c853bde990545c1d,
         type: 3}
-    - target: {fileID: 8489901839248571265, guid: 87659c24fba3d9f419ce41929790ff3b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8489901838192480362, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
       propertyPath: m_IsActive
@@ -13160,16 +13160,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
-    - target: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
-        type: 3}
-      propertyPath: groundEnabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
-        type: 3}
-      propertyPath: autoFocusCameraEnabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4127109821785624, guid: 02262fe7c3d18114ab3b977f25fc0b84, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -13217,6 +13207,16 @@ PrefabInstance:
     - target: {fileID: 114512313505852240, guid: 02262fe7c3d18114ab3b977f25fc0b84,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
+        type: 3}
+      propertyPath: groundEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114573728889708512, guid: 02262fe7c3d18114ab3b977f25fc0b84,
+        type: 3}
+      propertyPath: autoFocusCameraEnabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -14571,7 +14571,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 603555817}
   freeManOffset: {x: 0, y: 0, z: 0}
-  changeState: 0
+  changeState: 13
   changeScaleX: 1
   slots:
   - state: 0
@@ -15572,7 +15572,7 @@ MonoBehaviour:
   dropMenAfterDeactivated: 0
   gizmoSize: 0.2
   freeManTile: {fileID: 0}
-  freeManOffset: {x: 0.15, y: -1.66, z: -1.18}
+  freeManOffset: {x: 0, y: 0, z: -0.8}
   changeState: 7
   changeScaleX: 1
   slots:
@@ -22141,7 +22141,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175608430156314}
-  m_LocalRotation: {x: -1.0475485e-10, y: 0.99999195, z: -0.004017103, w: -0.000000026519473}
+  m_LocalRotation: {x: -1.0472768e-10, y: 0.99999195, z: -0.004017103, w: -0.000000026519473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

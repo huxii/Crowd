@@ -8,8 +8,10 @@ public class PropOneTimeDragControl : PropOneTimeControl
 {
     public enum DragAxis
     {
-        X,
-        Y
+        TX,
+        TY,
+        RX,
+        RY
     };
 
     [Header("Drag Settings")]
@@ -20,6 +22,7 @@ public class PropOneTimeDragControl : PropOneTimeControl
 
     protected float deltaOffset;
     protected Vector3 origPos;
+    protected Vector3 origRot;
     protected float minDelta;
     protected float maxDelta;
     protected float speed = 5f;
@@ -32,11 +35,12 @@ public class PropOneTimeDragControl : PropOneTimeControl
 
     // on dragging for sound effect
     // Use this for initialization
-    protected override void Start ()
+    protected override void Start()
     {
         base.Start();
 
         origPos = transform.position;
+        origRot = transform.localEulerAngles;
         deltaOffset = 0;
 
         minDelta = 0;
@@ -53,15 +57,27 @@ public class PropOneTimeDragControl : PropOneTimeControl
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
         if (!IsLocked())
         {
-            Vector3 targetPos = origPos;
-            targetPos[(int)dragAxis] += deltaOffset;
-            Vector3 newPos = transform.position;
+            Vector3 targetValue;
+            Vector3 newValue;
+            if (dragAxis <= DragAxis.TY)
+            {
+                targetValue = origPos;
+                targetValue[(int)dragAxis] += deltaOffset;
+                newValue = transform.position;
+            }
+            else
+            {
+                targetValue = origRot;
+                targetValue[(int)dragAxis - 2] += deltaOffset;
+                newValue = transform.localEulerAngles;
+            }
+
             // only invoke onDragging when it's actually being dragged
-            if (Vector3.Distance(targetPos, newPos) > 0.001f)
+            if (Vector3.Distance(targetValue, newValue) > 0.001f)
             {
                 if (!isMoving)
                 {
@@ -72,17 +88,32 @@ public class PropOneTimeDragControl : PropOneTimeControl
                 {
                     asr.Sustain();
                 }
-
-                newPos = Vector3.Lerp(newPos, targetPos, Time.deltaTime * speed);
-                transform.position = newPos;
+                
+                newValue = Vector3.Lerp(newValue, targetValue, Time.deltaTime * speed);
+                if (dragAxis <= DragAxis.TY)
+                {
+                    transform.position = newValue;
+                }
+                else
+                {
+                    transform.localEulerAngles = newValue;
+                }
 
                 //if (Vector3.Distance(targetPos, newPos) > 0.05f)
                 //{
                 //    onDragging.Invoke();
                 //}
 
-                // syncing animation
-                Services.eventManager.Fire(new DragEvent(deltaOffset / dragOffset));
+                if (dragAxis <= DragAxis.TY)
+                {
+                    // syncing animation
+                    Services.eventManager.Fire(new DragEvent(Mathf.Abs((newValue[(int)dragAxis] - origPos[(int)dragAxis]) / dragOffset)));
+                }
+                else
+                {
+                    // syncing animation
+                    Services.eventManager.Fire(new DragEvent(Mathf.Abs((newValue[(int)dragAxis - 2] - origRot[(int)dragAxis - 2]) / dragOffset)));
+                }
             }
             else
             {
@@ -92,11 +123,20 @@ public class PropOneTimeDragControl : PropOneTimeControl
                     asr.Release();
                 }
 
-                Vector3 finalPos = origPos;
-                finalPos[(int)dragAxis] += dragOffset;
+                Vector3 finalValue;
+                if (dragAxis <= DragAxis.TY)
+                {
+                    finalValue = origPos;
+                    finalValue[(int)dragAxis] += dragOffset;
+                }
+                else
+                {
+                    finalValue = origRot;
+                    finalValue[(int)dragAxis - 2] += dragOffset;
+                }
 
                 // has reached the end
-                if (Vector3.Distance(newPos, finalPos) < 0.001f)
+                if (Vector3.Distance(newValue, finalValue) < 0.001f)
                 {
                     onReachEnd.Invoke();
                     FreeAllMen();
@@ -123,7 +163,7 @@ public class PropOneTimeDragControl : PropOneTimeControl
                 }
             }
         }
-	}
+    }
 
     protected override void RegisterEvents()
     {
@@ -158,9 +198,26 @@ public class PropOneTimeDragControl : PropOneTimeControl
             {
                 isDragging = true;
                 Services.dotweenEvents.ScaleTo(GetComponent<PropFeedbackBehavior>().targetObj.name + " 1.1, 1.1, 1.1, 0.5");
-            }        
+            }
 
-            deltaOffset = Mathf.Min(Mathf.Max(minDelta, deltaOffset + Mathf.Min(d[(int)dragAxis], 0.5f)), maxDelta);
+            float delta = 0;
+            if (dragAxis <= DragAxis.TY)
+            {
+                delta = d[(int)dragAxis];
+                if (Mathf.Abs(delta) > 0.5f)
+                {
+                    delta = Mathf.Sign(delta) * 0.5f;
+                }              
+            }
+            else
+            {
+                delta = d[0] * 8;
+                if (Mathf.Abs(delta) > 8)
+                {
+                    delta = Mathf.Sign(delta) * 8;
+                }
+            }
+            deltaOffset = Mathf.Min(Mathf.Max(minDelta, deltaOffset + delta), maxDelta);
         }
     }
 }

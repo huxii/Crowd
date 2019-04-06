@@ -7,11 +7,9 @@ public class RunnerFirstControl : CycleControl
 {
     private PropAutoBasicControl controlPanel;
 
-    protected override void Start()
+    protected void Awake()
     {
         controlPanel = GameObject.Find("ControlPanel0").GetComponent<PropAutoBasicControl>();
-
-        base.Start();
     }
 
     public bool IsShort()

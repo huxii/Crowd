@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class CanBehavior : ObjectCountedDeactivateControl
 {
-    // Update is called once per frame
-    void Update()
+    public void LightOnOff()
     {
-
+        LightBehavior light = GetComponent<LightBehavior>();
+        if (light != null)
+        {
+            Services.taskManager
+                .Do(new ActionTask(light.Activate))
+                .Then(new Wait(1))
+                .Then(new ActionTask(light.Deactivate));
+        }
     }
 }

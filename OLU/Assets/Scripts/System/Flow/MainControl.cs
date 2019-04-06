@@ -74,7 +74,7 @@ public class MainControl : MonoBehaviour
         DataSet.isInputEnabled = false;
     }
 
-    public virtual void UpdateParallaxScrolling()
+    public virtual void OnCameraAngleUpdated()
     {
     }
 

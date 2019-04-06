@@ -7,11 +7,9 @@ public class RunnerSecondControl : CycleControl
 {
     private MirrorControl mirror;
 
-    protected override void Start()
+    protected void Awake()
     {
         mirror = GameObject.Find("Mirror0").GetComponent<MirrorControl>();
-
-        base.Start();
     }
 
     protected override void CheckCycle()

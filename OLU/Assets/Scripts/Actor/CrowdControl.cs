@@ -32,10 +32,14 @@ public class CrowdControl : ActorControl
         SIT,
         RUN,
         FLOAT,
-        DROP,
+        DOWN,
+        TICKLE,
+        SWITCH,
+        BOUNCE,
+        LAND,
 
         // set from code
-        FALL,
+        DROP,
         INFLATE_HANDLE,
         INFLATE_ING,
         INFLATE_COMPLETE,
@@ -44,6 +48,8 @@ public class CrowdControl : ActorControl
         CONFUSED,
         EMPTY
     };
+
+    private Dictionary<CrowdState, string> simpleStateDict;
 
     //// the events when the man is selected/deselected. (removed already)
     //public UnityEvent onSelected;
@@ -88,6 +94,18 @@ public class CrowdControl : ActorControl
         base.Start();
         
         SwitchState(CrowdState.IDLE);
+
+        simpleStateDict = new Dictionary<CrowdState, string>();
+        simpleStateDict.Add(CrowdState.CLIMB_BACK, "climb_back");
+        simpleStateDict.Add(CrowdState.CLIMB_SIDE, "climb_side");
+        simpleStateDict.Add(CrowdState.RIDE, "ride_bike");
+        simpleStateDict.Add(CrowdState.SIT, "sit");
+        simpleStateDict.Add(CrowdState.RUN, "wheel_run");
+        simpleStateDict.Add(CrowdState.FLOAT, "floating");
+        simpleStateDict.Add(CrowdState.DOWN, "chain_drop");
+        simpleStateDict.Add(CrowdState.SWITCH, "switchLever");
+        simpleStateDict.Add(CrowdState.DROP, "drop");
+        simpleStateDict.Add(CrowdState.BOUNCE, "bounce");
 
         rb = GetComponent<Rigidbody>();
         targetPos = transform.position;
@@ -151,19 +169,10 @@ public class CrowdControl : ActorControl
     {
         btree = new Tree<CrowdControl>(
             new Selector<CrowdControl>(
-                new Sequence<CrowdControl>(
-                    new IsCelebrating(),
-                    new Celebrating()
-                    ),
 
                 new Sequence<CrowdControl>(
                     new IsMoving(),
                     new Walking()
-                    ),
-
-                new Sequence<CrowdControl>(
-                    new IsClimbing(),
-                    new Climbing()
                     ),
 
                 new Sequence<CrowdControl>(
@@ -177,28 +186,13 @@ public class CrowdControl : ActorControl
                     ),
 
                 new Sequence<CrowdControl>(
-                    new IsRiding(),
-                    new Riding()
+                    new IsDown(),
+                    new Down()
                     ),
 
                 new Sequence<CrowdControl>(
-                    new IsSitting(),
-                    new Sitting()
-                    ),
-
-                new Sequence<CrowdControl>(
-                    new IsRunning(),
-                    new Running()
-                    ),
-
-                new Sequence<CrowdControl>(
-                    new IsFloating(),
-                    new Floating()
-                    ),
-
-                new Sequence<CrowdControl>(
-                    new IsDropping(),
-                    new Dropping()
+                    new IsTickling(),
+                    new Tickling()
                     ),
 
                 new Sequence<CrowdControl>(
@@ -207,18 +201,63 @@ public class CrowdControl : ActorControl
                     ),
 
                 new Sequence<CrowdControl>(
+                    new IsLanding(),
+                    new Landing()
+                    ),
+
+                new Sequence<CrowdControl>(
+                    new IsCelebrating(),
+                    new Celebrating()
+                    ),
+
+                new Sequence<CrowdControl>(
                     new IsConfused(),
                     new Confused()
                     ),
 
                 new Sequence<CrowdControl>(
+                    new IsSimpleAction(),
+                    new SimpleAction()
+                    ),
+
+                new Sequence<CrowdControl>(
                     new IsIdling(),
                     new Idling()
-                    ),
+                    ),  
 
                 new Sequence<CrowdControl>(
                     new Empty()
                     )
+
+
+
+
+
+                //new Sequence<CrowdControl>(
+                //    new IsClimbing(),
+                //    new Climbing()
+                //    ),
+
+                //new Sequence<CrowdControl>(
+                //    new IsRiding(),
+                //    new Riding()
+                //    ),
+
+                //new Sequence<CrowdControl>(
+                //    new IsSitting(),
+                //    new Sitting()
+                //    ),
+
+                //new Sequence<CrowdControl>(
+                //    new IsRunning(),
+                //    new Running()
+                //    ),
+
+                //new Sequence<CrowdControl>(
+                //    new IsFloating(),
+                //    new Floating()
+                //    ),
+
                 )
             );
     }
@@ -408,14 +447,6 @@ public class CrowdControl : ActorControl
         }
     }
 
-    private class IsClimbing : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            return man.state == CrowdState.CLIMB_BACK || man.state == CrowdState.CLIMB_SIDE;
-        }
-    }
-
     private class IsPulling : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
@@ -432,43 +463,19 @@ public class CrowdControl : ActorControl
         }
     }
 
-    private class IsRiding : Node<CrowdControl>
+    private class IsDown : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
         {
-            return man.state == CrowdState.RIDE;
+            return man.state == CrowdState.DOWN;
         }
     }
 
-    private class IsSitting : Node<CrowdControl>
+    private class IsTickling : Node<CrowdControl>
     {
         public override bool Update(CrowdControl man)
         {
-            return man.state == CrowdState.SIT;
-        }
-    }
-
-    private class IsRunning : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            return man.state == CrowdState.RUN;
-        }
-    }
-
-    private class IsFloating : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            return man.state == CrowdState.FLOAT;
-        }
-    }
-
-    private class IsDropping : Node<CrowdControl>
-    {
-        public override bool Update(CrowdControl man)
-        {
-            return man.state == CrowdState.DROP;
+            return man.state == CrowdState.TICKLE;
         }
     }
 
@@ -477,6 +484,14 @@ public class CrowdControl : ActorControl
         public override bool Update(CrowdControl man)
         {
             return man.state >= CrowdState.INFLATE_HANDLE && man.state <= CrowdState.INFLATE_FLOAT;
+        }
+    }
+
+    private class IsLanding : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.LAND;
         }
     }
 
@@ -495,6 +510,64 @@ public class CrowdControl : ActorControl
             return man.state == CrowdState.CONFUSED;
         }
     }
+
+    private class IsSimpleAction : Node<CrowdControl>
+    {
+        public override bool Update(CrowdControl man)
+        {
+            return man.state == CrowdState.CLIMB_BACK
+                || man.state == CrowdState.CLIMB_SIDE
+                || man.state == CrowdState.RIDE
+                || man.state == CrowdState.SIT
+                || man.state == CrowdState.RUN
+                || man.state == CrowdState.FLOAT
+                || man.state == CrowdState.DOWN
+                || man.state == CrowdState.SWITCH
+                || man.state == CrowdState.DROP
+                || man.state == CrowdState.BOUNCE;
+                ;
+        }
+    }
+
+    //private class IsClimbing : Node<CrowdControl>
+    //{
+    //    public override bool Update(CrowdControl man)
+    //    {
+    //        return man.state == CrowdState.CLIMB_BACK || man.state == CrowdState.CLIMB_SIDE;
+    //    }
+    //}
+
+    //private class IsRiding : Node<CrowdControl>
+    //{
+    //    public override bool Update(CrowdControl man)
+    //    {
+    //        return man.state == CrowdState.RIDE;
+    //    }
+    //}
+
+    //private class IsSitting : Node<CrowdControl>
+    //{
+    //    public override bool Update(CrowdControl man)
+    //    {
+    //        return man.state == CrowdState.SIT;
+    //    }
+    //}
+
+    //private class IsRunning : Node<CrowdControl>
+    //{
+    //    public override bool Update(CrowdControl man)
+    //    {
+    //        return man.state == CrowdState.RUN;
+    //    }
+    //}
+
+    //private class IsFloating : Node<CrowdControl>
+    //{
+    //    public override bool Update(CrowdControl man)
+    //    {
+    //        return man.state == CrowdState.FLOAT;
+    //    }
+    //}
 
     ///////////////////
     /// Actions
@@ -526,7 +599,6 @@ public class CrowdControl : ActorControl
         }
     }
 
-
     private abstract class TimedAction : CrowdAction
     {
         protected float interval;
@@ -546,6 +618,19 @@ public class CrowdControl : ActorControl
         public virtual void OnInterval(CrowdControl man)
         {
             man.stateCoolingDown = interval;
+        }
+    }
+
+    private class SimpleAction : CrowdAction
+    {
+        public override void OnStart(CrowdControl man)
+        {
+            base.OnStart(man);
+
+            if (man.simpleStateDict.ContainsKey(man.state))
+            {
+                man.spineAnimController.SetAnimation(man.simpleStateDict[man.state], SpineAnimationControl.CLEAR_NOT_FACIAL);
+            }
         }
     }
 
@@ -577,21 +662,6 @@ public class CrowdControl : ActorControl
 
             man.spineAnimController.SetAnimation("walk_normal", SpineAnimationControl.CLEAR_NOT_FACIAL);
             man.spineAnimController.SetRandomAnimation("arm");
-        }
-    }
-
-    private class Climbing : CrowdAction
-    {
-        public override void OnUpdate(CrowdControl man)
-        {
-            if (man.state == CrowdState.CLIMB_BACK)
-            {
-                man.spineAnimController.SetAnimation("climb_back", SpineAnimationControl.CLEAR_NOT_FACIAL);
-            }
-            else
-            {
-                man.spineAnimController.SetAnimation("climb_side", SpineAnimationControl.CLEAR_NOT_FACIAL);
-            }
         }
     }
 
@@ -627,17 +697,9 @@ public class CrowdControl : ActorControl
         }
     }
 
-    private class Riding : CrowdAction
-    {
-        public override void OnUpdate(CrowdControl man)
-        {
-            man.spineAnimController.SetAnimation("ride_bike", SpineAnimationControl.CLEAR_NOT_FACIAL);
-        }
-    }
-
     private class Inflating : CrowdAction
     {
-        public override void OnUpdate(CrowdControl man)
+        public override void OnStart(CrowdControl man)
         {
             switch (man.state)
             {
@@ -659,35 +721,32 @@ public class CrowdControl : ActorControl
         }
     }
 
-    private class Sitting : CrowdAction
+    private class Landing : TimedAction
     {
-        public override void OnUpdate(CrowdControl man)
+        public override void OnStart(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("sit", SpineAnimationControl.CLEAR_NOT_FACIAL);
+            base.OnStart(man);
+
+            interval = 1f;
+            man.stateCoolingDown = interval;
+
+            man.spineAnimController.SetAnimation("land", SpineAnimationControl.CLEAR_NOT_FACIAL);
+        }
+
+        public override void OnInterval(CrowdControl man)
+        {
+            base.OnInterval(man);
+
+            man.SwitchState(CrowdState.IDLE);
         }
     }
 
-    private class Running : CrowdAction
+    private class Tickling : CrowdAction
     {
-        public override void OnUpdate(CrowdControl man)
+        public override void OnStart(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("wheel_run", SpineAnimationControl.CLEAR_NOT_FACIAL);
-        }
-    }
-
-    private class Floating : CrowdAction
-    {
-        public override void OnUpdate(CrowdControl man)
-        {
-            man.spineAnimController.SetAnimation("floating", SpineAnimationControl.CLEAR_NOT_FACIAL);
-        }
-    }
-
-    private class Dropping : CrowdAction
-    {
-        public override void OnUpdate(CrowdControl man)
-        {
-            man.spineAnimController.SetAnimation("chain_drop", SpineAnimationControl.CLEAR_NOT_FACIAL);
+            man.spineAnimController.SetAnimation("tickle", SpineAnimationControl.CLEAR_NOT_FACIAL);
+            man.spineAnimController.SetAnimation("mouth_openonce", SpineAnimationControl.CLEAR_FACIAL);
         }
     }
 
@@ -736,11 +795,11 @@ public class CrowdControl : ActorControl
         }
     }
 
-    private class Working : CrowdAction
+    private class Down : CrowdAction
     {
-        public override void OnUpdate(CrowdControl man)
+        public override void OnStart(CrowdControl man)
         {
-            man.spineAnimController.SetAnimation("busy_forever", SpineAnimationControl.CLEAR_FACIAL);
+            man.spineAnimController.SetAnimation("chain_drop", SpineAnimationControl.CLEAR_NOT_FACIAL);
         }
     }
 
@@ -750,4 +809,61 @@ public class CrowdControl : ActorControl
         {
         }
     }
+
+    //private class Working : CrowdAction
+    //{
+    //    public override void OnStart(CrowdControl man)
+    //    {
+    //        man.spineAnimController.SetAnimation("busy_forever", SpineAnimationControl.CLEAR_FACIAL);
+    //    }
+    //}
+
+    //private class Climbing : CrowdAction
+    //{
+    //    public override void OnStart(CrowdControl man)
+    //    {
+    //        base.OnStart(man);
+
+    //        if (man.state == CrowdState.CLIMB_BACK)
+    //        {
+    //            man.spineAnimController.SetAnimation("climb_back", SpineAnimationControl.CLEAR_NOT_FACIAL);
+    //        }
+    //        else
+    //        {
+    //            man.spineAnimController.SetAnimation("climb_side", SpineAnimationControl.CLEAR_NOT_FACIAL);
+    //        }
+    //    }
+    //}
+
+    //private class Riding : CrowdAction
+    //{
+    //    public override void OnStart(CrowdControl man)
+    //    {
+    //        man.spineAnimController.SetAnimation("ride_bike", SpineAnimationControl.CLEAR_NOT_FACIAL);
+    //    }
+    //}
+
+    //private class Sitting : CrowdAction
+    //{
+    //    public override void OnStart(CrowdControl man)
+    //    {
+    //        man.spineAnimController.SetAnimation("sit", SpineAnimationControl.CLEAR_NOT_FACIAL);
+    //    }
+    //}
+
+    //private class Running : CrowdAction
+    //{
+    //    public override void OnStart(CrowdControl man)
+    //    {
+    //        man.spineAnimController.SetAnimation("wheel_run", SpineAnimationControl.CLEAR_NOT_FACIAL);
+    //    }
+    //}
+
+    //private class Floating : CrowdAction
+    //{
+    //    public override void OnStart(CrowdControl man)
+    //    {
+    //        man.spineAnimController.SetAnimation("floating", SpineAnimationControl.CLEAR_NOT_FACIAL);
+    //    }
+    //}
 }

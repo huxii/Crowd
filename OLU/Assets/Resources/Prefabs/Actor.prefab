@@ -257,7 +257,7 @@ MonoBehaviour:
   locked: 0
   speed: 5
   animationProgress: 0
-  state: 18
+  state: 22
 --- !u!114 &114810860392653684
 MonoBehaviour:
   m_ObjectHideFlags: 0

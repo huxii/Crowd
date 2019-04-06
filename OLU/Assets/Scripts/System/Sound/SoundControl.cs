@@ -127,6 +127,11 @@ public class SoundControl : MonoBehaviour
     // source.clip != null
     public AudioSource PlayWithReturn(string id)
     {
+        if (id == null)
+        {
+            return null;
+        }
+
         // clear finished clips
         for (int i = 0; i < audioSources.Count; i++)
         {
@@ -179,7 +184,7 @@ public class SoundControl : MonoBehaviour
 
     public void Stop(string id)
     {
-        if (soundList[id].audioClip == null)
+        if (id == null || soundList[id].audioClip == null)
         {
             return;
         }
@@ -199,7 +204,7 @@ public class SoundControl : MonoBehaviour
 
     public void StopOne(string id)
     {
-        if (soundList[id].audioClip == null)
+        if (id == null || soundList[id].audioClip == null)
         {
             return;
         }
