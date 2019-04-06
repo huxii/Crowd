@@ -120,7 +120,7 @@ public class ScrollRectControl : ScrollRect
 
     public void OnValueChanged(Vector2 scroll)
     {
-        Services.mainController.UpdateParallaxScrolling();
+        Services.mainController.OnCameraAngleUpdated();
 
         //float value = scroll.x;
         //page0 = Mathf.Abs((int)((-content.anchoredPosition.x - contentWidth / 2 + 5f) / contentWidth));

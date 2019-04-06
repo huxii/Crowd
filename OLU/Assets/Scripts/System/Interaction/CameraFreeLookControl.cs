@@ -114,7 +114,7 @@ public class CameraFreeLookControl : CameraControl
 
             pivots.transform.position = Vector3.Lerp(pivots.transform.position, targetTranslate, Time.deltaTime * 4f);
 
-            Services.mainController.UpdateParallaxScrolling();
+            Services.mainController.OnCameraAngleUpdated();
         }
     }
 

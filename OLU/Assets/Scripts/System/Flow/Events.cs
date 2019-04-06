@@ -121,3 +121,12 @@ public class ParallaxScrollingEvent : Crowd.Event
         scrollValue = value;
     }
 }
+
+public class CameraAngleEvent : Crowd.Event
+{
+    public Vector2 angle;
+    public CameraAngleEvent(Vector2 value) : base()
+    {
+        angle = value;
+    }
+}

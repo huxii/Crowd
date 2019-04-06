@@ -30,9 +30,9 @@ public class MenuControl : MainControl
         Services.hudController.SetInput(false);
     }
 
-    public override void UpdateParallaxScrolling()
+    public override void OnCameraAngleUpdated()
     {
-        base.UpdateParallaxScrolling();
+        base.OnCameraAngleUpdated();
 
         Vector2 value = scrollController.content.anchoredPosition;
         Services.eventManager.Fire(new ParallaxScrollingEvent(value));
