@@ -6063,7 +6063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400174, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2300098, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6161,6 +6161,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2300126, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 995ae5e64052e7c4c977889aa320b914, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
 --- !u!1 &1324311686 stripped
@@ -8149,12 +8153,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &1766131472 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100146, guid: e515cbc9bb9b13746879884534d82ad1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1324311685}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1767118624 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1980355776856754, guid: 731fd9d139c957140bdc305f3874130d,
@@ -9323,7 +9321,7 @@ Transform:
   m_Children:
   - {fileID: 1288466800}
   m_Father: {fileID: 492879977}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2113366911
 MonoBehaviour:
@@ -9483,7 +9481,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   outlineWidth: 0.15
-  targetObj: {fileID: 1766131472}
+  targetObj: {fileID: 0}
   mats: []
 --- !u!65 &2113366913
 BoxCollider:
@@ -10059,7 +10057,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681086170184940}
-  m_LocalRotation: {x: 7.6171944e-11, y: 0.99996644, z: 0.008191732, w: -0.000000009298318}
+  m_LocalRotation: {x: 6.3997246e-10, y: 0.99996644, z: 0.0081917355, w: -0.00000007812153}
   m_LocalPosition: {x: 0.000008742278, y: 9.13, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -10102,7 +10100,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175608430156314}
-  m_LocalRotation: {x: -0.000000004978292, y: 0.99996644, z: 0.008191732, w: -0.00000002646155}
+  m_LocalRotation: {x: -0.0000000046963917, y: 0.99996644, z: 0.008191734, w: -0.000000060873155}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

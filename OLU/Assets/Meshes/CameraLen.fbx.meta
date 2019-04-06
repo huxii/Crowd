@@ -97,6 +97,16 @@ ModelImporter:
     100182: BackShell
     100184: BackShellModel
     100186: Outer
+    100188: Rune0
+    100190: Rune1
+    100192: Rune2
+    100194: Rune3
+    100196: Rune4
+    100198: Rune5
+    100200: Runes
+    100202: SteerRune
+    100204: TeleA2
+    100206: TeleA2Model
     400000: BeamSplitter
     400002: BeamSplitter1
     400004: //RootNode
@@ -191,6 +201,16 @@ ModelImporter:
     400182: BackShell
     400184: BackShellModel
     400186: Outer
+    400188: Rune0
+    400190: Rune1
+    400192: Rune2
+    400194: Rune3
+    400196: Rune4
+    400198: Rune5
+    400200: Runes
+    400202: SteerRune
+    400204: TeleA2
+    400206: TeleA2Model
     2100000: lambert1
     2100002: InnerMat
     2300000: BeamSplitter
@@ -249,6 +269,14 @@ ModelImporter:
     2300106: TopStair
     2300108: Stair0
     2300110: BackShellModel
+    2300112: Rune0
+    2300114: Rune1
+    2300116: Rune2
+    2300118: Rune3
+    2300120: Rune4
+    2300122: Rune5
+    2300124: SteerRune
+    2300126: TeleA2Model
     3300000: BeamSplitter
     3300002: BeamSplitter1
     3300004: CeilingFrame
@@ -305,6 +333,14 @@ ModelImporter:
     3300106: TopStair
     3300108: Stair0
     3300110: BackShellModel
+    3300112: Rune0
+    3300114: Rune1
+    3300116: Rune2
+    3300118: Rune3
+    3300120: Rune4
+    3300122: Rune5
+    3300124: SteerRune
+    3300126: TeleA2Model
     4300000: Floor0Model
     4300002: MahojinModel
     4300004: TeleB0Model
@@ -361,6 +397,14 @@ ModelImporter:
     4300106: TopStair
     4300108: Stair0
     4300110: BackShellModel
+    4300112: Rune3
+    4300114: Rune2
+    4300116: Rune4
+    4300118: Rune5
+    4300120: Rune1
+    4300122: Rune0
+    4300124: TeleA2Model
+    4300126: SteerRune
   externalObjects: {}
   materials:
     importMaterials: 0
