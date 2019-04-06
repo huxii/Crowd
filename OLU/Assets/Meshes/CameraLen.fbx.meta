@@ -107,6 +107,14 @@ ModelImporter:
     100202: SteerRune
     100204: TeleA2
     100206: TeleA2Model
+    100208: TeleA2A1
+    100210: TelePathA1A0
+    100212: TelePathB1A0
+    100214: TelePathB1A2
+    100216: TelePathA2A1
+    100218: TelePathB1B2
+    100220: TelePathA0A1
+    100222: Spots
     400000: BeamSplitter
     400002: BeamSplitter1
     400004: //RootNode
@@ -211,6 +219,14 @@ ModelImporter:
     400202: SteerRune
     400204: TeleA2
     400206: TeleA2Model
+    400208: TeleA2A1
+    400210: TelePathA1A0
+    400212: TelePathB1A0
+    400214: TelePathB1A2
+    400216: TelePathA2A1
+    400218: TelePathB1B2
+    400220: TelePathA0A1
+    400222: Spots
     2100000: lambert1
     2100002: InnerMat
     2300000: BeamSplitter
@@ -277,6 +293,13 @@ ModelImporter:
     2300122: Rune5
     2300124: SteerRune
     2300126: TeleA2Model
+    2300128: TeleA2A1
+    2300130: TelePathA1A0
+    2300132: TelePathB1A0
+    2300134: TelePathB1A2
+    2300136: TelePathA2A1
+    2300138: TelePathB1B2
+    2300140: TelePathA0A1
     3300000: BeamSplitter
     3300002: BeamSplitter1
     3300004: CeilingFrame
@@ -341,6 +364,13 @@ ModelImporter:
     3300122: Rune5
     3300124: SteerRune
     3300126: TeleA2Model
+    3300128: TeleA2A1
+    3300130: TelePathA1A0
+    3300132: TelePathB1A0
+    3300134: TelePathB1A2
+    3300136: TelePathA2A1
+    3300138: TelePathB1B2
+    3300140: TelePathA0A1
     4300000: Floor0Model
     4300002: MahojinModel
     4300004: TeleB0Model
@@ -405,6 +435,13 @@ ModelImporter:
     4300122: Rune0
     4300124: TeleA2Model
     4300126: SteerRune
+    4300128: TeleA2A1
+    4300130: TelePathB1A2
+    4300132: TelePathB1A0
+    4300134: TelePathA1A0
+    4300136: TelePathA2A1
+    4300138: TelePathB1B2
+    4300140: TelePathA0A1
   externalObjects: {}
   materials:
     importMaterials: 0
