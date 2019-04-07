@@ -211,7 +211,8 @@ public class PropOneTimeDragControl : PropOneTimeControl
             }
             else
             {
-                delta = d[0] * 8;
+                Debug.Log(d);
+                delta = (d[0] + d[1]) * 8;
                 if (Mathf.Abs(delta) > 8)
                 {
                     delta = Mathf.Sign(delta) * 8;

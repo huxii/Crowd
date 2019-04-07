@@ -10812,14 +10812,14 @@ MonoBehaviour:
     middleRigOrbit: {x: 0, y: 100}
     bottomRigOrbit: {x: -5, y: 90}
     angleRange: {x: -360, y: 360}
-    angleZero: {x: 180, y: 90}
+    angleZero: {x: 0, y: 90}
     sensitivity: {x: 300, y: 300}
     translateZero: {x: 0, y: 10, z: 0}
     translateRange: {x: -3, y: -3, z: 3, w: 3}
   - topRigOrbit: {x: 30, y: 40}
     middleRigOrbit: {x: 0, y: 45}
     bottomRigOrbit: {x: -3, y: 40}
-    angleRange: {x: -45, y: 45}
+    angleRange: {x: -90, y: 90}
     angleZero: {x: 0, y: 130}
     sensitivity: {x: 300, y: 300}
     translateZero: {x: 0, y: 12.5, z: 0}
@@ -10828,7 +10828,7 @@ MonoBehaviour:
     middleRigOrbit: {x: 0, y: 18}
     bottomRigOrbit: {x: -1, y: 17}
     angleRange: {x: -20, y: 20}
-    angleZero: {x: 0, y: 90}
+    angleZero: {x: 180, y: 90}
     sensitivity: {x: 200, y: 200}
     translateZero: {x: 0, y: 6.91, z: 0}
     translateRange: {x: -3, y: -3, z: 3, w: 3}
@@ -11037,7 +11037,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279773217180396}
-  m_LocalRotation: {x: -0.000000023562109, y: 0.99965334, z: 0.026331244, w: -0.000000041971006}
+  m_LocalRotation: {x: -0.000000023505475, y: 0.99965334, z: 0.026331244, w: -0.00000004412106}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
