@@ -712,8 +712,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1741532447}
-        m_MethodName: SetActive
+      - m_Target: {fileID: 1741532449}
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6280,6 +6280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraLen
       objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
     - target: {fileID: 100088, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
       propertyPath: m_TagString
       value: Prop
@@ -6587,10 +6591,6 @@ PrefabInstance:
     - target: {fileID: 100184, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100022, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_TagString
-      value: Prop
       objectReference: {fileID: 0}
     - target: {fileID: 2300126, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -8091,8 +8091,8 @@ MonoBehaviour:
   levelEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1741532447}
-        m_MethodName: SetActive
+      - m_Target: {fileID: 1741532449}
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

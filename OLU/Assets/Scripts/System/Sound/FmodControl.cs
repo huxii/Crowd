@@ -33,8 +33,11 @@ public class FmodControl
         }
         else
         {
-            bgmInstance.setParameterValue(LEVEL_BGM_PARAS[level], 1.0f);
-            bgmInstance.setParameterValue(LEVEL_OUTER_BGM_PARAS, 1.0f);
+            if (level < LEVEL_BGM_PARAS.Length)
+            {
+                bgmInstance.setParameterValue(LEVEL_BGM_PARAS[level], 1.0f);
+                bgmInstance.setParameterValue(LEVEL_OUTER_BGM_PARAS, 1.0f);
+            }
         }
     }
 
