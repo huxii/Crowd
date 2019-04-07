@@ -183,8 +183,12 @@ public class RunnerControl : ObjectControl
                 break;
 
             case 5:
+                teleB1A0.SetParentPermission(true);
                 teleA0B1.SetParentPermission(true);
                 telePathB1A0.SetActive(true);
+
+                teleB1B2.gameObject.SetActive(false);
+                teleA0A1.gameObject.SetActive(false);
                 break;
 
             case 1:
