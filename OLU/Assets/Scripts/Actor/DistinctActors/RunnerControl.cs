@@ -145,6 +145,7 @@ public class RunnerControl : ObjectControl
                     teleA1A0.SetParentPermission(true);
                     telePathA0A1.SetActive(true);
 
+                    teleA0B1.gameObject.SetActive(false);
                     teleA1A2.gameObject.SetActive(false);
                 }
                 else
@@ -161,6 +162,8 @@ public class RunnerControl : ObjectControl
                 teleB1B2.SetParentPermission(true);
                 teleB2B1.SetParentPermission(true);
                 telePathB1B2.SetActive(true);
+
+                teleB1A0.gameObject.SetActive(false);
                 break;
 
             case 4:
