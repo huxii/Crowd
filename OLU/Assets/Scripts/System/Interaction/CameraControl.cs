@@ -26,6 +26,7 @@ public class CameraControl : MonoBehaviour
     {
         Services.mainController.SwitchStatus(false);
         Services.hudController.gameObject.SetActive(false);
+        GameObject.Find("Shadow").gameObject.SetActive(false);
 
         if (filename == null)
         {
