@@ -5,22 +5,29 @@ using UnityEngine;
 public class RunnerControl : ObjectControl
 {
     [Header("Runner Settings")]
+    public int maxCycle = 6;
+
+    private int cycle;
+    private int curAbsCycle = 0;
+
     private RunnerFirstControl floor1;
     private RunnerSecondControl floor2;
     private RunnerThirdControl floor3;
     private ElevatorControl teleA0A1;
+    private ElevatorControl teleA2A1;
     private ElevatorControl teleA0B1;
-    private ElevatorControl teleA1A0;
-    private ElevatorControl teleB0B1;
-    private ElevatorControl teleB1B0A0;
-    private ElevatorControl teleB1B2;
+    private ElevatorControl teleB1A0;
     private ElevatorControl teleB2B1;
-    private GameObject teleB1_long;
-    private GameObject teleB1_short;
-    private GameObject teleA1_short;
+    private ElevatorControl teleB1B2;
+    private ElevatorControl teleA1A0;
+    private ElevatorControl teleA1A2;
 
-    private int cycle;
-    private int curAbsCycle = 0;
+    private GameObject telePathA0A1;
+    private GameObject telePathA2A1;
+    private GameObject telePathB1A0;
+    private GameObject telePathB1B2;
+
+    private GameObject runes;
 
     protected void Awake()
     {
@@ -28,15 +35,20 @@ public class RunnerControl : ObjectControl
         floor2 = GameObject.Find("Floor2").GetComponent<RunnerSecondControl>();
         floor3 = GameObject.Find("Floor3").GetComponent<RunnerThirdControl>();
         teleA0A1 = GameObject.Find("TeleA0A1").GetComponent<ElevatorControl>();
+        teleA2A1 = GameObject.Find("TeleA2A1").GetComponent<ElevatorControl>();
         teleA0B1 = GameObject.Find("TeleA0B1").GetComponent<ElevatorControl>();
-        teleA1A0 = GameObject.Find("TeleA1A0").GetComponent<ElevatorControl>();
-        teleB0B1 = GameObject.Find("TeleB0B1").GetComponent<ElevatorControl>();
-        teleB1B0A0 = GameObject.Find("TeleB1B0A0").GetComponent<ElevatorControl>();
-        teleB1B2 = GameObject.Find("TeleB1B2").GetComponent<ElevatorControl>();
+        teleB1A0 = GameObject.Find("TeleB1A0").GetComponent<ElevatorControl>();
         teleB2B1 = GameObject.Find("TeleB2B1").GetComponent<ElevatorControl>();
-        teleB1_long = GameObject.Find("TeleLong");
-        teleB1_short = GameObject.Find("TeleShort");
-        teleA1_short = GameObject.Find("TeleMedium");        
+        teleB1B2 = GameObject.Find("TeleB1B2").GetComponent<ElevatorControl>();
+        teleA1A0 = GameObject.Find("TeleA1A0").GetComponent<ElevatorControl>();
+        teleA1A2 = GameObject.Find("TeleA1A2").GetComponent<ElevatorControl>();
+
+        telePathA0A1 = GameObject.Find("TelePathA0A1");
+        telePathA2A1 = GameObject.Find("TelePathA2A1");
+        telePathB1A0 = GameObject.Find("TelePathB1A0");
+        telePathB1B2 = GameObject.Find("TelePathB1B2");
+
+        runes = GameObject.Find("Runes");
     }
 
     protected override void Start()
@@ -44,63 +56,80 @@ public class RunnerControl : ObjectControl
         base.Start();
 
         cycle = Services.utils.LCM(Services.utils.LCM(floor1.cycle, floor2.cycle), floor3.cycle);
+
+        if (maxCycle > cycle)
+        {
+            maxCycle = cycle;
+        }
+
         CheckCycle();
     }
 
     protected void ResetCycle()
     {
         teleA0A1.SetParentPermission(false);
+        teleA2A1.SetParentPermission(false);
         teleA0B1.SetParentPermission(false);
-        teleA1A0.SetParentPermission(false);
-        teleB0B1.SetParentPermission(false);
-        teleB1B0A0.SetParentPermission(false);
-        teleB1B2.SetParentPermission(false);
+        teleB1A0.SetParentPermission(false);
         teleB2B1.SetParentPermission(false);
+        teleB1B2.SetParentPermission(false);
+        teleA1A0.SetParentPermission(false);
+        teleA1A2.SetParentPermission(false);
 
         teleA0A1.gameObject.SetActive(true);
+        teleA2A1.gameObject.SetActive(true);
         teleA0B1.gameObject.SetActive(true);
-        teleA1A0.gameObject.SetActive(true);
-        teleB0B1.gameObject.SetActive(true);
-        teleB1B0A0.gameObject.SetActive(true);
-        teleB1B2.gameObject.SetActive(true);
+        teleB1A0.gameObject.SetActive(true);
         teleB2B1.gameObject.SetActive(true);
+        teleB1B2.gameObject.SetActive(true);
+        teleA1A0.gameObject.SetActive(true);
+        teleA1A2.gameObject.SetActive(true);
 
-        teleB1_long.SetActive(false);
-        teleB1_short.SetActive(false);
-        teleA1_short.SetActive(false);
+        telePathA0A1.SetActive(false);
+        telePathA2A1.SetActive(false);
+        telePathB1A0.SetActive(false);
+        telePathB1B2.SetActive(false);
+
+        foreach (Transform r in runes.transform)
+        {
+            r.GetComponent<MeshRenderer>().material.color = new Color(0, 1, 1, 1);
+        }
     }
 
     protected void ClearCycle()
     {
         teleA0A1.FreeAllMen();
+        teleA2A1.FreeAllMen();
         teleA0B1.FreeAllMen();
-        teleA1A0.FreeAllMen();
-        teleB0B1.FreeAllMen();
-        teleB1B0A0.FreeAllMen();
-        teleB1B2.FreeAllMen();
+        teleB1A0.FreeAllMen();
         teleB2B1.FreeAllMen();
+        teleB1B2.FreeAllMen();
+        teleA1A0.FreeAllMen();
+        teleA1A2.FreeAllMen();
     }
 
     protected void LockCycle()
     {
-        teleA0A1.Lock ();
+        teleA0A1.Lock();
+        teleA2A1.Lock();
         teleA0B1.Lock();
-        teleA1A0.Lock();
-        teleB0B1.Lock();
-        teleB1B0A0.Lock();
-        teleB1B2.Lock();
+        teleB1A0.Lock();
         teleB2B1.Lock();
+        teleB1B2.Lock();
+        teleA1A0.Lock();
+        teleA1A2.Lock();
     }
 
     protected void UnlockCycle()
     {
         teleA0A1.Unlock();
+        teleA2A1.Unlock();
         teleA0B1.Unlock();
-        teleA1A0.Unlock();
-        teleB0B1.Unlock();
-        teleB1B0A0.Unlock();
-        teleB1B2.Unlock();
+        teleB1A0.Unlock();
         teleB2B1.Unlock();
+        teleB1B2.Unlock();
+        teleA1A0.Unlock();
+        teleA1A2.Unlock();
     }
 
     public void CheckCycle()
@@ -110,73 +139,78 @@ public class RunnerControl : ObjectControl
         switch (curAbsCycle)
         {
             case 0:
-                if (floor1.IsShort())
+                if (floor1.IsActivated())
                 {
                     teleA0A1.SetParentPermission(true);
                     teleA1A0.SetParentPermission(true);
-                    teleA1_short.SetActive(true);
+                    telePathA0A1.SetActive(true);
+
+                    teleA0B1.gameObject.SetActive(false);
+                    teleA1A2.gameObject.SetActive(false);
                 }
-                teleA0B1.gameObject.SetActive(false);
-                teleB0B1.SetParentPermission(true);
-                teleB1B0A0.SetParentPermission(true);
-                teleB1B2.gameObject.SetActive(false);
-                teleB1_long.SetActive(true);
+                else
+                {
+                    teleA2A1.SetParentPermission(true);
+                    teleA1A2.SetParentPermission(true);
+                    telePathA2A1.SetActive(true);
+
+                    teleA1A0.gameObject.SetActive(false);
+                }
                 break;
 
             case 3:
-                teleB1B0A0.gameObject.SetActive(false);
                 teleB1B2.SetParentPermission(true);
                 teleB2B1.SetParentPermission(true);
-                teleB1_short.SetActive(true);
+                telePathB1B2.SetActive(true);
+
+                teleB1A0.gameObject.SetActive(false);
                 break;
 
             case 4:
-                if (floor1.IsShort())
+                if (floor1.IsActivated())
                 {
                     teleA0A1.SetParentPermission(true);
                     teleA1A0.SetParentPermission(true);
-                    teleA1_short.SetActive(true);
+                    telePathA0A1.SetActive(true);
+
+                    teleA1A2.gameObject.SetActive(false);
                 }
-                teleA0B1.gameObject.SetActive(false);
+                else
+                {
+                    teleA2A1.SetParentPermission(true);
+                    teleA1A2.SetParentPermission(true);
+                    telePathA2A1.SetActive(true);
+
+                    teleA1A0.gameObject.SetActive(false);
+                }
                 break;
 
             case 5:
-                teleA0A1.gameObject.SetActive(false);
+                teleB1A0.SetParentPermission(true);
                 teleA0B1.SetParentPermission(true);
-                teleB1B0A0.SetParentPermission(true);
-                teleB1B2.gameObject.SetActive(false);
-                teleB1_long.SetActive(true);
-                break;
+                telePathB1A0.SetActive(true);
 
-            case 8:
-                if (floor1.IsShort())
-                {
-                    teleA0A1.SetParentPermission(true);
-                    teleA1A0.SetParentPermission(true);
-                    teleA1_short.SetActive(true);
-                }
-                teleA0B1.gameObject.SetActive(false);
+                teleB1B2.gameObject.SetActive(false);
+                teleA0A1.gameObject.SetActive(false);
                 break;
 
             case 1:
             case 2:
-            case 6:
-            case 7:
-            case 9:
-            case 10:
-            case 11:
             default:
                 break;
         }
+
+        runes.transform.GetChild(curAbsCycle).GetComponent<MeshRenderer>().material.color = new Color(1, 0, 1, 1);
     }
 
     public void GoClockwise()
     {
-        ++curAbsCycle;
-        if (curAbsCycle >= cycle)
+        if (curAbsCycle >= maxCycle - 1)
         {
-            curAbsCycle = 0;
+            return;
         }
+
+        ++curAbsCycle;
 
         Services.taskManager
             .Do(new ActionTask(ClearCycle))
@@ -191,11 +225,12 @@ public class RunnerControl : ObjectControl
 
     public void GoCounterClockwise()
     {
-        --curAbsCycle;
-        if (curAbsCycle < 0)
+        if (curAbsCycle <= 0)
         {
-            curAbsCycle = cycle - 1;
+            return;
         }
+
+        --curAbsCycle;
 
         Services.taskManager
             .Do(new ActionTask(ClearCycle))

@@ -21,6 +21,8 @@ public class CameraFreeLookControl : CameraControl
         public Vector4 translateRange;
     }
 
+    public bool isRecording = false;
+
     public bool startWithZoom = false;
     public float startDelay = 0f;
     public GameObject pivots;
@@ -75,7 +77,10 @@ public class CameraFreeLookControl : CameraControl
         inited = false;
         freeLookCam.enabled = false;
 
-        //RecordFrameToFile(null, 1f);
+        if (isRecording)
+        {
+            RecordFrameToFile(null, 1f);
+        }
     }
 
     IEnumerator InitDelay(float startDelay)

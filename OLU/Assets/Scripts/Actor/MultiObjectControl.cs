@@ -9,27 +9,24 @@ public class MultiObjectControl : ObjectControl
     public float activateDelay = 2;
 
     protected int curObjectNumber = 0;
-    protected float timer = 0;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                base.Activate();
-            }
-        }
-    }
-
-    public override void Activate()
+    public void Charge()
     {
         ++curObjectNumber;
         if (curObjectNumber >= objectNumber)
         {
-            timer = activateDelay;
+            Services.taskManager
+                .Do(new Wait(activateDelay))
+                .Then(new ActionTask(Activate));
+        }
+    }
+
+    public void Release()
+    {
+        --curObjectNumber;
+        if (curObjectNumber == 0)
+        {
+            Deactivate();
         }
     }
 }
