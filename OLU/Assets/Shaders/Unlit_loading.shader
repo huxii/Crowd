@@ -54,7 +54,7 @@ Shader "Custom/Unlit_loading"
 				return c;
 			}
 
-		ENDCG
+			ENDCG
 		}
 	}
 
