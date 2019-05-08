@@ -731,6 +731,21 @@ public class GameEvents : CustomEvents
         Services.soundController.StopAll();
     }
 
+    public void LightBeamOn(GameObject lightBeam)
+    {
+        //Debug.Log(lightBeam);
+        //lightBeam.GetComponent<MeshRenderer>().material.SetFloat("_Width", 10);
+        Services.taskManager
+            .Do(new Wait(0.5f))
+            .Then(new TimedMaterialTask(lightBeam, "_Width", lightBeam.GetComponent<MeshRenderer>().material.GetFloat("_Width"), 10, 0.5f));
+    }
+
+    public void LightBeamOff(GameObject lightBeam)
+    {
+        Services.taskManager
+            .Do(new TimedMaterialTask(lightBeam, "_Width", lightBeam.GetComponent<MeshRenderer>().material.GetFloat("_Width"), 0, 0.5f));
+    }
+
     //public void Swipe()
     //{
     //    if (swipeObj == null)

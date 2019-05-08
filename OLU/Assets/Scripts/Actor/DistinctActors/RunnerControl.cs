@@ -85,10 +85,10 @@ public class RunnerControl : ObjectControl
         teleA1A0.gameObject.SetActive(true);
         teleA1A2.gameObject.SetActive(true);
 
-        telePathA0A1.SetActive(false);
-        telePathA2A1.SetActive(false);
-        telePathB1A0.SetActive(false);
-        telePathB1B2.SetActive(false);
+        Services.gameEvents.LightBeamOff(telePathA0A1);
+        Services.gameEvents.LightBeamOff(telePathA2A1);
+        Services.gameEvents.LightBeamOff(telePathB1A0);
+        Services.gameEvents.LightBeamOff(telePathB1B2);
 
         foreach (Transform r in runes.transform)
         {
@@ -143,7 +143,7 @@ public class RunnerControl : ObjectControl
                 {
                     teleA0A1.SetParentPermission(true);
                     teleA1A0.SetParentPermission(true);
-                    telePathA0A1.SetActive(true);
+                    Services.gameEvents.LightBeamOn(telePathA0A1);
 
                     teleA0B1.gameObject.SetActive(false);
                     teleA1A2.gameObject.SetActive(false);
@@ -152,7 +152,7 @@ public class RunnerControl : ObjectControl
                 {
                     teleA2A1.SetParentPermission(true);
                     teleA1A2.SetParentPermission(true);
-                    telePathA2A1.SetActive(true);
+                    Services.gameEvents.LightBeamOn(telePathA2A1);
 
                     teleA1A0.gameObject.SetActive(false);
                 }
@@ -161,7 +161,7 @@ public class RunnerControl : ObjectControl
             case 3:
                 teleB1B2.SetParentPermission(true);
                 teleB2B1.SetParentPermission(true);
-                telePathB1B2.SetActive(true);
+                Services.gameEvents.LightBeamOn(telePathB1B2);
 
                 teleB1A0.gameObject.SetActive(false);
                 break;
@@ -171,7 +171,7 @@ public class RunnerControl : ObjectControl
                 {
                     teleA0A1.SetParentPermission(true);
                     teleA1A0.SetParentPermission(true);
-                    telePathA0A1.SetActive(true);
+                    Services.gameEvents.LightBeamOn(telePathA0A1);
 
                     teleA1A2.gameObject.SetActive(false);
                 }
@@ -179,7 +179,7 @@ public class RunnerControl : ObjectControl
                 {
                     teleA2A1.SetParentPermission(true);
                     teleA1A2.SetParentPermission(true);
-                    telePathA2A1.SetActive(true);
+                    Services.gameEvents.LightBeamOn(telePathA2A1);
 
                     teleA1A0.gameObject.SetActive(false);
                 }
@@ -188,7 +188,7 @@ public class RunnerControl : ObjectControl
             case 5:
                 teleB1A0.SetParentPermission(true);
                 teleA0B1.SetParentPermission(true);
-                telePathB1A0.SetActive(true);
+                Services.gameEvents.LightBeamOn(telePathB1A0);
 
                 teleB1B2.gameObject.SetActive(false);
                 teleA0A1.gameObject.SetActive(false);
