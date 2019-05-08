@@ -5,6 +5,7 @@ using UnityEngine;
 public class MainControl : MonoBehaviour
 {
     public bool statusOn = true;
+    public bool bgmOn = true;
 
     protected bool hasEnded = false;
 

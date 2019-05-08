@@ -17927,7 +17927,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2068208465}
   m_HandleRect: {fileID: 2068208464}
   m_Direction: 0
-  m_Value: 0
+  m_Value: -0.1
   m_Size: 0.16666667
   m_NumberOfSteps: 6
   m_OnValueChanged:
@@ -43343,6 +43343,11 @@ PrefabInstance:
     - target: {fileID: 17036837, guid: 218db38baab3b00489e71c012ff21f31, type: 3}
       propertyPath: m_Name
       value: MenuController
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493326612158123337, guid: 218db38baab3b00489e71c012ff21f31,
+        type: 3}
+      propertyPath: bgmOn
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 17036842, guid: 218db38baab3b00489e71c012ff21f31, type: 3}
       propertyPath: m_LocalPosition.x

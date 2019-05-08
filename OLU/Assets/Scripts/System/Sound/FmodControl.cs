@@ -21,7 +21,10 @@ public class FmodControl
         bgmInstance = FMODUnity.RuntimeManager.CreateInstance("event:/BGM");
         if (Services.sceneController.CurrentSceneIdx() == 0)
         {
-            bgmInstance.start();
+            if (Services.mainController.bgmOn)
+            {
+                bgmInstance.start();
+            }
         }
     }
 
