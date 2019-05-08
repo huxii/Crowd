@@ -81,16 +81,6 @@ public class ReleaseEvent : InputEvent
     }
 }
 
-public class DragEvent : InputEvent
-{
-    public readonly float progress;
-    public DragEvent(float p)
-        : base()
-    {
-        progress = p;
-    }
-}
-
 public class ZoomEvent : InputEvent
 {
     public readonly float delta = 0;
@@ -103,6 +93,32 @@ public class ZoomEvent : InputEvent
         : base()
     {
         delta = d;
+    }
+}
+
+public class DragEvent : InputEvent
+{
+    public readonly float progress;
+    public DragEvent(float p)
+        : base()
+    {
+        progress = p;
+    }
+}
+
+public class PropDragEvent : DragEvent
+{
+    public PropDragEvent(float p)
+        : base(p)
+    {
+    }
+}
+
+public class ObjectDragEvent : DragEvent
+{
+    public ObjectDragEvent(float p)
+        : base(p)
+    {
     }
 }
 

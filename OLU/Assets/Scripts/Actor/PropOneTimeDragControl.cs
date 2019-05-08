@@ -107,12 +107,12 @@ public class PropOneTimeDragControl : PropOneTimeControl
                 if (dragAxis <= DragAxis.TY)
                 {
                     // syncing animation
-                    Services.eventManager.Fire(new DragEvent(Mathf.Abs((newValue[(int)dragAxis] - origPos[(int)dragAxis]) / dragOffset)));
+                    Services.eventManager.Fire(new PropDragEvent(Mathf.Abs((newValue[(int)dragAxis] - origPos[(int)dragAxis]) / dragOffset)));
                 }
                 else
                 {
                     // syncing animation
-                    Services.eventManager.Fire(new DragEvent(Mathf.Abs((newValue[(int)dragAxis - 2] - origRot[(int)dragAxis - 2]) / dragOffset)));
+                    Services.eventManager.Fire(new PropDragEvent(Mathf.Abs((newValue[(int)dragAxis - 2] - origRot[(int)dragAxis - 2]) / dragOffset)));
                 }
             }
             else

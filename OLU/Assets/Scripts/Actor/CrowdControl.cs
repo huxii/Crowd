@@ -151,17 +151,17 @@ public class CrowdControl : ActorControl
 
     protected override void RegisterEvents()
     {
-        Services.eventManager.Register<DragEvent>(OnDragging);
+        Services.eventManager.Register<PropDragEvent>(OnDragging);
     }
 
     protected override void UnregisterEvents()
     {
-        Services.eventManager.Unregister<DragEvent>(OnDragging);
+        Services.eventManager.Unregister<PropDragEvent>(OnDragging);
     }
 
     private void OnDragging(Crowd.Event e)
     {
-        DragEvent de = (DragEvent)e;
+        PropDragEvent de = (PropDragEvent)e;
         animationProgress = de.progress * 3;
     }
 

@@ -22,7 +22,7 @@ public class StairsBehavior : ObjectControl
 
     private void OnDraggingStairs(Crowd.Event e)
     {
-        DragEvent de = (DragEvent)e;
+        PropDragEvent de = (PropDragEvent)e;
         float deltaRot = step * stairsCount * de.progress;
         for (int i = 0; i < stairsCount; ++i)
         {
@@ -33,13 +33,13 @@ public class StairsBehavior : ObjectControl
     protected override void RegisterEvents()
     {
         base.RegisterEvents();
-        Services.eventManager.Register<DragEvent>(OnDraggingStairs);
+        Services.eventManager.Register<PropDragEvent>(OnDraggingStairs);
     }
 
     protected override void UnregisterEvents()
     {
         base.UnregisterEvents();
-        Services.eventManager.Unregister<DragEvent>(OnDraggingStairs);
+        Services.eventManager.Unregister<PropDragEvent>(OnDraggingStairs);
     }
 
     public void EnalbePathPoints()

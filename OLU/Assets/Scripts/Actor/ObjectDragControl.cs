@@ -24,6 +24,7 @@ public class ObjectDragControl : ObjectBasicControl
     public Vector2 range = new Vector2(0, 0);
     public bool isAxisRevert = false;
     public bool isSnappingBack = false;
+    public bool isSyncingProgress = false;
 
     protected Vector3 origValue = new Vector3(0, 0, 0);
     protected Vector3 deltaValue = new Vector3(0, 0, 0);
@@ -69,6 +70,11 @@ public class ObjectDragControl : ObjectBasicControl
                     targetRot[(int)dragAxis] = Services.utils.LerpRotation(curRot[(int)dragAxis], targetRot[(int)dragAxis], speed);
                     transform.localEulerAngles = targetRot;
                     newDelta = (targetRot - origValue)[(int)dragAxis];
+
+                    if (isSyncingProgress && Mathf.Abs(curDelta - newDelta) > 0.001f)
+                    {
+                        Services.eventManager.Fire(new ObjectDragEvent(Mathf.Abs((targetRot[(int)dragAxis] - origValue[(int)dragAxis]) / Mathf.Abs(range.y - range.x))));
+                    }
                 }
                 else
                 {
@@ -78,6 +84,11 @@ public class ObjectDragControl : ObjectBasicControl
                     targetPos = Vector3.Lerp(curPos, targetPos, speed * Time.deltaTime);
                     transform.localPosition = targetPos;
                     newDelta = (targetPos - origValue)[(int)dragAxis - 3];
+
+                    if (isSyncingProgress && Mathf.Abs(curDelta - newDelta) > 0.001f)
+                    {
+                        Services.eventManager.Fire(new ObjectDragEvent(Mathf.Abs((targetPos[(int)dragAxis - 3] - origValue[(int)dragAxis - 3]) / Mathf.Abs(range.y - range.x))));
+                    }
                 }
 
                 
