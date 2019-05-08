@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 100, y: 100}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 2ef91144ff952594b9b3fa5c907c74c5, type: 3}
+        m_Texture: {fileID: 2800000, guid: bd5ba820b5700644db9eef6de225db1b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LightRamp:
@@ -88,7 +88,7 @@ Material:
     - _DiffuseTransitionRange: 0.1
     - _DitheringFactor: 0
     - _DstBlend: 0
-    - _EmissionIntensity: 0
+    - _EmissionIntensity: 0.612
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
