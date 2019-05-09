@@ -104,9 +104,9 @@ Material:
     m_Colors:
     - _AOMaxColor: {r: 1, g: 1, b: 1, a: 1}
     - _AOMinColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.45789903, g: 0.7924528, b: 0.056069765, a: 1}
+    - _Color: {r: 0.254717, g: 0.12292293, b: 0.07088822, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 1, g: 0.5453086, b: 0.3160377, a: 1}
     - _XNegativeColor: {r: 1, g: 1, b: 1, a: 1}
     - _XPositiveColor: {r: 1, g: 1, b: 1, a: 1}
     - _YNegativeColor: {r: 1, g: 1, b: 1, a: 1}
