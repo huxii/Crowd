@@ -161,6 +161,13 @@ public class GameControl : MainControl
 
             DataSet.recentQuitLevelName = Services.sceneController.CurrentSceneName();
 
+            // tmp hack
+            if (Services.sceneController.CurrentSceneName() == "Level3")
+            {
+                Services.sceneController.LegacyLoadScene("Title");
+                return;
+            }
+
             if (cleared)
             {
                 // go back to title
