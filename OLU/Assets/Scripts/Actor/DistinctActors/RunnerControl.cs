@@ -27,7 +27,8 @@ public class RunnerControl : ObjectControl
     private GameObject telePathB1A0;
     private GameObject telePathB1B2;
 
-    private GameObject runes;
+    private RunesBehavior runes;
+    private List<GameObject> balanceRunes;
 
     protected void Awake()
     {
@@ -48,7 +49,19 @@ public class RunnerControl : ObjectControl
         telePathB1A0 = GameObject.Find("TelePathB1A0");
         telePathB1B2 = GameObject.Find("TelePathB1B2");
 
-        runes = GameObject.Find("Runes");
+        runes = GameObject.Find("Runes").GetComponent<RunesBehavior>();
+
+        balanceRunes = new List<GameObject>();
+        GameObject runesObj = GameObject.Find("BalanceRunes");
+        if (runesObj != null)
+        {
+            for (int i = 0; i < runesObj.transform.childCount; ++i)
+            {
+                balanceRunes.Add(runesObj.transform.GetChild(i).gameObject);
+                balanceRunes[i].SetActive(false);
+            }
+        }
+        balanceRunes[curAbsCycle].SetActive(true);
     }
 
     protected override void Start()
@@ -89,11 +102,6 @@ public class RunnerControl : ObjectControl
         Services.gameEvents.LightBeamOff(telePathA2A1);
         Services.gameEvents.LightBeamOff(telePathB1A0);
         Services.gameEvents.LightBeamOff(telePathB1B2);
-
-        foreach (Transform r in runes.transform)
-        {
-            r.GetComponent<MeshRenderer>().material.color = new Color(0, 1, 1, 1);
-        }
     }
 
     protected void ClearCycle()
@@ -199,8 +207,6 @@ public class RunnerControl : ObjectControl
             default:
                 break;
         }
-
-        runes.transform.GetChild(curAbsCycle).GetComponent<MeshRenderer>().material.color = new Color(1, 0, 1, 1);
     }
 
     public void GoClockwise()
@@ -210,6 +216,7 @@ public class RunnerControl : ObjectControl
             return;
         }
 
+        balanceRunes[curAbsCycle].SetActive(false);
         ++curAbsCycle;
 
         Services.taskManager
@@ -221,6 +228,9 @@ public class RunnerControl : ObjectControl
             .Then(new ActionTask(floor3.GoClockwise))
             .Then(new ActionTask(CheckCycle))
             .Then(new ActionTask(UnlockCycle));
+
+        balanceRunes[curAbsCycle].SetActive(true);
+        runes.SwitchRune(curAbsCycle);
     }
 
     public void GoCounterClockwise()
@@ -230,6 +240,7 @@ public class RunnerControl : ObjectControl
             return;
         }
 
+        balanceRunes[curAbsCycle].SetActive(false);
         --curAbsCycle;
 
         Services.taskManager
@@ -241,5 +252,8 @@ public class RunnerControl : ObjectControl
             .Then(new ActionTask(floor3.GoCounterClockwise))
             .Then(new ActionTask(CheckCycle))
             .Then(new ActionTask(UnlockCycle));
+
+        balanceRunes[curAbsCycle].SetActive(true);
+        runes.SwitchRune(curAbsCycle);
     }
 }

@@ -11,25 +11,11 @@ public class RunnerThirdControl : CycleControl
 
     private PropAutoTimedDeactivateControl chest;
     private MirrorControl mirror;
-    [SerializeField]
-    private List<GameObject> runes;
 
     protected void Awake()
     {
         chest = GameObject.Find("Chest").GetComponent<PropAutoTimedDeactivateControl>();
         mirror = GameObject.Find("Mirror1").GetComponent<MirrorControl>();
-
-        runes = new List<GameObject>();
-        GameObject runesObj = GameObject.Find("BalanceRunes");
-        if (runesObj != null)
-        {
-            for (int i = 0; i < runesObj.transform.childCount; ++i)
-            {
-                runes.Add(runesObj.transform.GetChild(i).gameObject);
-                runes[i].SetActive(false);
-            }
-        }
-        runes[curAbsCycle].SetActive(true);
     }
 
     protected void ResetPaths()
@@ -60,23 +46,19 @@ public class RunnerThirdControl : CycleControl
 
     public override void GoClockwise()
     {
-        runes[curAbsCycle].SetActive(false);
         ResetPaths();
 
         base.GoClockwise();
 
-        runes[curAbsCycle].SetActive(true);
         ReconnectPaths();
     }
 
     public override void GoCounterClockwise()
     {
-        runes[curAbsCycle].SetActive(false);
         ResetPaths();
 
         base.GoCounterClockwise();
 
-        runes[curAbsCycle].SetActive(true);
         ReconnectPaths();       
     }
 }
