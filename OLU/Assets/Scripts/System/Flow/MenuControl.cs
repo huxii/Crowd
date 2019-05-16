@@ -47,4 +47,21 @@ public class MenuControl : MainControl
     {
         scrollController.NextScreen();
     }
+
+    public void MenuOn(CanvasGroup canvasGroup)
+    {
+        Services.taskManager
+            .Do(new TimedCanvasGroupTask(canvasGroup, canvasGroup.alpha, 1, 0.2f))
+            .Then(new ActionTask(() => canvasGroup.interactable = true))
+            .Then(new ActionTask(() => canvasGroup.blocksRaycasts = true));
+    }
+
+    public void MenuOff(CanvasGroup canvasGroup)
+    {
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+
+        Services.taskManager
+            .Do(new TimedCanvasGroupTask(canvasGroup, canvasGroup.alpha, 0, 0.2f));
+    }
 }

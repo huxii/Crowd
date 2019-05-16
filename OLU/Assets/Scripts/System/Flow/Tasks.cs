@@ -79,6 +79,30 @@ public class Wait : TimedTask
     public Wait(float duration) : base(duration) { }
 }
 
+public class TimedCanvasGroupTask : TimedTask
+{
+    protected CanvasGroup canvasGroup;
+    protected float start;
+    protected float end;
+
+    public TimedCanvasGroupTask(CanvasGroup c, float s, float e, float d) : base(d)
+    {
+        canvasGroup = c;
+        start = s;
+        end = e;
+    }
+
+    protected override void OnTick(float t)
+    {
+        canvasGroup.alpha = Mathf.Lerp(start, end, t);
+    }
+
+    protected override void OnElapsed()
+    {
+        base.OnElapsed();
+        canvasGroup.alpha = end;
+    }
+}
 
 public class TimedMaterialTask : TimedTask
 {
@@ -111,7 +135,6 @@ public class TimedMaterialTask : TimedTask
         mat.SetFloat(attrName, Mathf.Lerp(start, end, t * 1.1f));
     }
 }
-
 
 public class TimedTransitionTask : TimedTask
 {
