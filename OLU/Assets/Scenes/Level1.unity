@@ -1690,6 +1690,7 @@ MonoBehaviour:
   range: {x: -1, y: 20}
   isAxisRevert: 0
   isSnappingBack: 1
+  isSyncingProgress: 0
 --- !u!65 &171506490
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2889,6 +2890,7 @@ MonoBehaviour:
   range: {x: -3, y: 20}
   isAxisRevert: 0
   isSnappingBack: 1
+  isSyncingProgress: 0
 --- !u!135 &248861745
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5710,6 +5712,7 @@ MonoBehaviour:
   range: {x: -1, y: 20}
   isAxisRevert: 0
   isSnappingBack: 1
+  isSyncingProgress: 0
 --- !u!114 &568146485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6838,6 +6841,7 @@ MonoBehaviour:
   range: {x: -5, y: 1}
   isAxisRevert: 0
   isSnappingBack: 1
+  isSyncingProgress: 0
 --- !u!114 &778765946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6998,6 +7002,7 @@ MonoBehaviour:
   range: {x: -20, y: 1}
   isAxisRevert: 0
   isSnappingBack: 1
+  isSyncingProgress: 0
 --- !u!135 &797331456
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8279,6 +8284,7 @@ MonoBehaviour:
   range: {x: -60, y: 0}
   isAxisRevert: 1
   isSnappingBack: 0
+  isSyncingProgress: 0
 --- !u!65 &879427524
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8966,6 +8972,10 @@ PrefabInstance:
     - target: {fileID: 100162, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Name
       value: Penguin
+      objectReference: {fileID: 0}
+    - target: {fileID: 101030, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100336, guid: b2e9286c22cb687469da9f0cc667f429, type: 3}
       propertyPath: m_Layer
@@ -16534,6 +16544,7 @@ MonoBehaviour:
   range: {x: -1, y: 8}
   isAxisRevert: 0
   isSnappingBack: 1
+  isSyncingProgress: 0
 --- !u!135 &1587384712
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19418,6 +19429,7 @@ MonoBehaviour:
   range: {x: -1, y: 20}
   isAxisRevert: 0
   isSnappingBack: 1
+  isSyncingProgress: 0
 --- !u!114 &1859129001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22129,7 +22141,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681086170184940}
-  m_LocalRotation: {x: -3.7201804e-11, y: 0.99999195, z: -0.004017105, w: -0.000000009260763}
+  m_LocalRotation: {x: -3.1398478e-10, y: 0.99999195, z: -0.004017105, w: -0.0000000781613}
   m_LocalPosition: {x: 0.000003934025, y: 9.5, z: 45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -22172,7 +22184,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175608430156314}
-  m_LocalRotation: {x: -1.0459285e-10, y: 0.99999195, z: -0.004017103, w: -0.000000026485896}
+  m_LocalRotation: {x: -2.4298424e-10, y: 0.99999195, z: -0.004017103, w: -0.000000060936166}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22248,7 +22260,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625331400867550}
-  m_LocalRotation: {x: -5.8857774e-10, y: 0.9997534, z: -0.022205772, w: -0.000000026498471}
+  m_LocalRotation: {x: -0.0000000013527409, y: 0.9997534, z: -0.022205792, w: -0.00000006090275}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
