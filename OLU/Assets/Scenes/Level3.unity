@@ -4850,6 +4850,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 79096372dbf498648a28d7f3cb861397,
         type: 3}
+    - target: {fileID: 8489901838359790095, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2688
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838814356934, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838814356934, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2156
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838814356934, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 145
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838814356936, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: verticalOffset.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838814356936, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: verticalOffset.y
+      value: 190
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87659c24fba3d9f419ce41929790ff3b, type: 3}
 --- !u!1 &921054289
@@ -13037,7 +13067,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279773217180396}
-  m_LocalRotation: {x: -0.000000023562109, y: 0.99965334, z: 0.026331244, w: -0.000000041971006}
+  m_LocalRotation: {x: -0.000000023505475, y: 0.99965334, z: 0.026331244, w: -0.00000004412106}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -13191,7 +13221,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.6431373, g: 0.61199224, b: 0.49803922, a: 1}
+  m_BackGroundColor: {r: 0, g: 1, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
