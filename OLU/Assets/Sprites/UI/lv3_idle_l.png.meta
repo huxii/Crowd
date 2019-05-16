@@ -1,0 +1,1333 @@
+fileFormatVersion: 2
+guid: bdf67e29750d7334f9134ae11e7436ff
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2116448599939378315
+    second: lv3_idle_l_0
+  - first:
+      213: 1024779160526784536
+    second: lv3_idle_l_1
+  - first:
+      213: -1438870140879205865
+    second: lv3_idle_l_2
+  - first:
+      213: -6204198874434786040
+    second: lv3_idle_l_3
+  - first:
+      213: 6961389179759762592
+    second: lv3_idle_l_4
+  - first:
+      213: 5246521547414065936
+    second: lv3_idle_l_5
+  - first:
+      213: -7795899260240305353
+    second: lv3_idle_l_6
+  - first:
+      213: 8973568740191513020
+    second: lv3_idle_l_7
+  - first:
+      213: -5534074449050512822
+    second: lv3_idle_l_8
+  - first:
+      213: 4760124169309713115
+    second: lv3_idle_l_9
+  - first:
+      213: -1442640966183170964
+    second: lv3_idle_l_10
+  - first:
+      213: -7292845376450946542
+    second: lv3_idle_l_11
+  - first:
+      213: 7838273701796581255
+    second: lv3_idle_l_12
+  - first:
+      213: -7383982541540993962
+    second: lv3_idle_l_13
+  - first:
+      213: 841827875460818835
+    second: lv3_idle_l_14
+  - first:
+      213: 7253441604428146602
+    second: lv3_idle_l_15
+  - first:
+      213: -7456120053863444756
+    second: lv3_idle_l_16
+  - first:
+      213: -6369246086857486246
+    second: lv3_idle_l_17
+  - first:
+      213: -5404354966849692353
+    second: lv3_idle_l_18
+  - first:
+      213: 5573789074223125490
+    second: lv3_idle_l_19
+  - first:
+      213: 3887330662283798483
+    second: lv3_idle_l_20
+  - first:
+      213: -5641168423113328081
+    second: lv3_idle_l_21
+  - first:
+      213: 9206930601769702093
+    second: lv3_idle_l_22
+  - first:
+      213: -5998756012881989441
+    second: lv3_idle_l_23
+  - first:
+      213: -2529176340439089268
+    second: lv3_idle_l_24
+  - first:
+      213: 8688413558800599678
+    second: lv3_idle_l_25
+  - first:
+      213: -2976595950500475981
+    second: lv3_idle_l_26
+  - first:
+      213: 6829448422676625185
+    second: lv3_idle_l_27
+  - first:
+      213: 2619478027769479363
+    second: lv3_idle_l_28
+  - first:
+      213: 8878979838360751026
+    second: lv3_idle_l_29
+  - first:
+      213: 7113817549443506181
+    second: lv3_idle_l_30
+  - first:
+      213: -5790394372127156193
+    second: lv3_idle_l_31
+  - first:
+      213: -1759866193669662404
+    second: lv3_idle_l_32
+  - first:
+      213: -207118893867328874
+    second: lv3_idle_l_33
+  - first:
+      213: -4405785791017428349
+    second: lv3_idle_l_34
+  - first:
+      213: -4283481636239807594
+    second: lv3_idle_l_35
+  - first:
+      213: 506086767581168470
+    second: lv3_idle_l_36
+  - first:
+      213: -6816938570913742318
+    second: lv3_idle_l_37
+  - first:
+      213: -7926162226704102594
+    second: lv3_idle_l_38
+  - first:
+      213: -4164555947442447902
+    second: lv3_idle_l_39
+  - first:
+      213: 6145039404578737693
+    second: lv3_idle_l_40
+  - first:
+      213: -5310725828973007841
+    second: lv3_idle_l_41
+  - first:
+      213: -3980485297920963832
+    second: lv3_idle_l_42
+  - first:
+      213: 5170301550867321355
+    second: lv3_idle_l_43
+  - first:
+      213: 987966597640299570
+    second: lv3_idle_l_44
+  - first:
+      213: -7961290082451479257
+    second: lv3_idle_l_45
+  - first:
+      213: -6906828514145072088
+    second: lv3_idle_l_46
+  - first:
+      213: 8493803370490556721
+    second: lv3_idle_l_47
+  - first:
+      213: -3855119888499702297
+    second: lv3_idle_l_48
+  - first:
+      213: 6279947864893816730
+    second: lv3_idle_l_49
+  - first:
+      213: -8703466440681269496
+    second: lv3_idle_l_50
+  - first:
+      213: 2751097430537075280
+    second: lv3_idle_l_51
+  - first:
+      213: 2685959272768777404
+    second: lv3_idle_l_52
+  - first:
+      213: 3749658901049240039
+    second: lv3_idle_l_53
+  - first:
+      213: 5817390853922963424
+    second: lv3_idle_l_54
+  - first:
+      213: 6079252236550997921
+    second: lv3_idle_l_55
+  - first:
+      213: 8832565181508421458
+    second: lv3_idle_l_56
+  - first:
+      213: -4990504398872869157
+    second: lv3_idle_l_57
+  - first:
+      213: 1111783092268843978
+    second: lv3_idle_l_58
+  - first:
+      213: -7753094710061936403
+    second: lv3_idle_l_59
+  - first:
+      213: 998431498217286112
+    second: lv3_idle_l_60
+  - first:
+      213: 8551303338533340188
+    second: lv3_idle_l_61
+  - first:
+      213: -740837279480226948
+    second: lv3_idle_l_62
+  - first:
+      213: -3974143684386953992
+    second: lv3_idle_l_63
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 65
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lv3_idle_l_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3024
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 520fb3baecc34f641b20e020aa608fa7
+      internalID: -2116448599939378315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_1
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 3024
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15da469190b68254bbb8a55b28a76862
+      internalID: 1024779160526784536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_2
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 3024
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9781dcca55ace71489291fa4eccbacb0
+      internalID: -1438870140879205865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_3
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 3024
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15552aa07f6936943a09dce0d8f7ebc2
+      internalID: -6204198874434786040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_4
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 3024
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d242c4931f03a704bbb0a811443491a4
+      internalID: 6961389179759762592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4619046be0465734c80772586762121b
+      internalID: 5246521547414065936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_6
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 2688
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8da25cd74ed7084fb7b0b68e0994877
+      internalID: -7795899260240305353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_7
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 2688
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94e1bae838b78f44ba15227ac62b2a58
+      internalID: 8973568740191513020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_8
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 2688
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8c2ecdd5e9a31a469423f7bc7b93773
+      internalID: -5534074449050512822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_9
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 2688
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e84e3b008079a74894a88ec7ef93431
+      internalID: 4760124169309713115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2352
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f72cb54d751cc459cf38c8da08e4c9
+      internalID: -1442640966183170964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_11
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 2352
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dca4575e8bf6534ba2a71fcb88dcf8d
+      internalID: -7292845376450946542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_12
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 2352
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd27392133d2f974faec76b2cbe5041b
+      internalID: 7838273701796581255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_13
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 2352
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f5bff5546a7c1b46bb040bbeeb706a8
+      internalID: -7383982541540993962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_14
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 2352
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95b093bb1867fad43a37c159bbf29143
+      internalID: 841827875460818835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2016
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9196f100a66e96d479abcfae876629bd
+      internalID: 7253441604428146602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_16
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 2016
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 398371a0b7cfa0548ac4ac9d9fbfbf95
+      internalID: -7456120053863444756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_17
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 2016
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b83551b66f4d18f439b93f8a8058e61a
+      internalID: -6369246086857486246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_18
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 2016
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d934a601d941794297ab58ae91e888a
+      internalID: -5404354966849692353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_19
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 2016
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8971a822c2a62a4d934140bc428f71a
+      internalID: 5573789074223125490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1680
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 168487a017717c843ab3af22a9ff5fb6
+      internalID: 3887330662283798483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_21
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1680
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06310fa67afca2747a26e0371c6d6a3a
+      internalID: -5641168423113328081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_22
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1680
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0268edc54dbbdd48a9ddb67b98af117
+      internalID: 9206930601769702093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_23
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 1680
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67fd4833e0f8c574e9baca8a994dbb2c
+      internalID: -5998756012881989441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_24
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 1680
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b8dc39f7062f8c4e9dac02b49627047
+      internalID: -2529176340439089268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99061c401b82c5544a169a1e19e0c050
+      internalID: 8688413558800599678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_26
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1344
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df85ef1775a37224aaa13b1641149987
+      internalID: -2976595950500475981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_27
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1344
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 940e16dcd2cbbdd44bdc3ce0068f8e6d
+      internalID: 6829448422676625185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_28
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 1344
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18dd394d07d3e6343a4de798bfec7175
+      internalID: 2619478027769479363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_29
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 1344
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464f84f225dfb4c4dbf7834f0003fceb
+      internalID: 8878979838360751026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1008
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 698d079883f4250458994420a9eaa75b
+      internalID: 7113817549443506181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_31
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1008
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45d477804078a074aa02052e8f4a4ce4
+      internalID: -5790394372127156193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_32
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1008
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5130bd680f46f6145bd99726aa8ba158
+      internalID: -1759866193669662404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_33
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 1008
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 894dfb0a1c0119346b2a65d2ffbd6831
+      internalID: -207118893867328874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_34
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 1008
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a4b41ea044a119419bed5b3274c06cc
+      internalID: -4405785791017428349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 672
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3645208ce40fc0459c7f2508dfcb966
+      internalID: -4283481636239807594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_36
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 672
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc3385fd2a4a0e94896b9c4abf4df3de
+      internalID: 506086767581168470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_37
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 672
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31874585133ae8642bf112c77f9212b7
+      internalID: -6816938570913742318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_38
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 672
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71fad8f9fad95464cbe4590a21a88f82
+      internalID: -7926162226704102594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_39
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 672
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 988c3b9773839b546a0fa47c0c06a3b6
+      internalID: -4164555947442447902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 336
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5093cf3911efd2449214653cabade03
+      internalID: 6145039404578737693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_41
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 336
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c2f24772b58df6498429e5b301dd6b3
+      internalID: -5310725828973007841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_42
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 336
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818c7239a7052c54abf641108c705ed3
+      internalID: -3980485297920963832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_43
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 336
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e02e4d536cc68c6419558368880a15da
+      internalID: 5170301550867321355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_44
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 336
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2357f8935dc86544aedaf00c13348f2
+      internalID: 987966597640299570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7201c31a666de644ca82861ae106e547
+      internalID: -7961290082451479257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_46
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 0
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8044dd3024c6e9842b3f83275757c841
+      internalID: -6906828514145072088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_47
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 0
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad7323f96fcc1ec4b97c7d5e65711a81
+      internalID: 8493803370490556721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_idle_l_48
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 0
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1ec5feb5a91bb4aaaa93076d4583ff
+      internalID: -3855119888499702297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5fcbfa6d46c516542a1a08389d0a097c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

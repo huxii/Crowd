@@ -1,0 +1,1672 @@
+fileFormatVersion: 2
+guid: 173ec862b6e7ff24f995aaea72b49498
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8803224848296962593
+    second: lv3_trans_0
+  - first:
+      213: -1523589761933719733
+    second: lv3_trans_1
+  - first:
+      213: -194932745150089334
+    second: lv3_trans_2
+  - first:
+      213: 596756069955779200
+    second: lv3_trans_3
+  - first:
+      213: -4100279548429412966
+    second: lv3_trans_4
+  - first:
+      213: -9174618583479613328
+    second: lv3_trans_5
+  - first:
+      213: -1152842921968759380
+    second: lv3_trans_6
+  - first:
+      213: 1433965466251978427
+    second: lv3_trans_7
+  - first:
+      213: 5863656192958805303
+    second: lv3_trans_8
+  - first:
+      213: 6251868774443213428
+    second: lv3_trans_9
+  - first:
+      213: -1310547249718213287
+    second: lv3_trans_10
+  - first:
+      213: -4738972693517172089
+    second: lv3_trans_11
+  - first:
+      213: -7784083966386584371
+    second: lv3_trans_12
+  - first:
+      213: 7184090501509839561
+    second: lv3_trans_13
+  - first:
+      213: 4938961133026610859
+    second: lv3_trans_14
+  - first:
+      213: 8600939765673832040
+    second: lv3_trans_15
+  - first:
+      213: 6085745516485857517
+    second: lv3_trans_16
+  - first:
+      213: 698736027738780299
+    second: lv3_trans_17
+  - first:
+      213: 7996145754765520651
+    second: lv3_trans_18
+  - first:
+      213: -7253245758556441470
+    second: lv3_trans_19
+  - first:
+      213: -3001192764243103539
+    second: lv3_trans_20
+  - first:
+      213: 155921162574124185
+    second: lv3_trans_21
+  - first:
+      213: 5081251576027477797
+    second: lv3_trans_22
+  - first:
+      213: -7967676652751487125
+    second: lv3_trans_23
+  - first:
+      213: 6913380936848983755
+    second: lv3_trans_24
+  - first:
+      213: 7066118327887244737
+    second: lv3_trans_25
+  - first:
+      213: 6385298801721660714
+    second: lv3_trans_26
+  - first:
+      213: 891408448776047828
+    second: lv3_trans_27
+  - first:
+      213: -4988106438569150372
+    second: lv3_trans_28
+  - first:
+      213: 2801121593800790885
+    second: lv3_trans_29
+  - first:
+      213: 696592704245357862
+    second: lv3_trans_30
+  - first:
+      213: 3436234455640383284
+    second: lv3_trans_31
+  - first:
+      213: -7931504296569964409
+    second: lv3_trans_32
+  - first:
+      213: -2045119056169709100
+    second: lv3_trans_33
+  - first:
+      213: 7358112306526633231
+    second: lv3_trans_34
+  - first:
+      213: -730793491125798024
+    second: lv3_trans_35
+  - first:
+      213: 3246755290950398017
+    second: lv3_trans_36
+  - first:
+      213: 5283691714991862865
+    second: lv3_trans_37
+  - first:
+      213: 4811879735380210835
+    second: lv3_trans_38
+  - first:
+      213: 3308681206587536287
+    second: lv3_trans_39
+  - first:
+      213: -5736752682390086137
+    second: lv3_trans_40
+  - first:
+      213: 954005773020739797
+    second: lv3_trans_41
+  - first:
+      213: 9100260773049655542
+    second: lv3_trans_42
+  - first:
+      213: -3305013735147206727
+    second: lv3_trans_43
+  - first:
+      213: -3754358789148028139
+    second: lv3_trans_44
+  - first:
+      213: -344866761623547319
+    second: lv3_trans_45
+  - first:
+      213: 6458454724931031325
+    second: lv3_trans_46
+  - first:
+      213: -874824658569087834
+    second: lv3_trans_47
+  - first:
+      213: 1847710418394182954
+    second: lv3_trans_48
+  - first:
+      213: 6698786319293733269
+    second: lv3_trans_49
+  - first:
+      213: 5309459606414095037
+    second: lv3_trans_50
+  - first:
+      213: -6481006770626650542
+    second: lv3_trans_51
+  - first:
+      213: -2854207696967917721
+    second: lv3_trans_52
+  - first:
+      213: -4303271703374439939
+    second: lv3_trans_53
+  - first:
+      213: -3516515365590177575
+    second: lv3_trans_54
+  - first:
+      213: 7863362041557930140
+    second: lv3_trans_55
+  - first:
+      213: -4498386772082090643
+    second: lv3_trans_56
+  - first:
+      213: -955880128207340638
+    second: lv3_trans_57
+  - first:
+      213: -5498900614201431043
+    second: lv3_trans_58
+  - first:
+      213: -1782535483732924159
+    second: lv3_trans_59
+  - first:
+      213: 6496257474380127051
+    second: lv3_trans_60
+  - first:
+      213: 2634204740520876281
+    second: lv3_trans_61
+  - first:
+      213: -8945857638971425525
+    second: lv3_trans_62
+  - first:
+      213: -3747211366070631308
+    second: lv3_trans_63
+  - first:
+      213: 5645767164590663517
+    second: lv3_trans_64
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 65
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lv3_trans_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3360
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b78a3f6fcee7861409c1005eda83ecf2
+      internalID: -8803224848296962593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_1
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 3360
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce8f679c0fc8ed5469e73dcb565a9971
+      internalID: -1523589761933719733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_2
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 3360
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdc31529d423fd742824efccfeef6d97
+      internalID: -194932745150089334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_3
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 3360
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b7f713784a44e04584db58e8f40dcf7
+      internalID: 596756069955779200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_4
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 3360
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c8d8bd471a07c6468a3ffe60ade30f7
+      internalID: -4100279548429412966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_5
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 3360
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5401e29ffddfbb49a5381e5e911c995
+      internalID: -9174618583479613328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3024
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26358dd82e7cee44f92e48daf0e4363f
+      internalID: -1152842921968759380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_7
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 3024
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe9f0b4a6c2a464d8c6a15777be3e69
+      internalID: 1433965466251978427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_8
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 3024
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20bab15b214bebb4d88c7321370d2760
+      internalID: 5863656192958805303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_9
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 3024
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e86c1f53a9d376b48ad94be3039eb1e7
+      internalID: 6251868774443213428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_10
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 3024
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef8cfaf6b5912646b6ca93ac8b952e6
+      internalID: -1310547249718213287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_11
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 3024
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 841d7bd4968776c4696a16c486b6d709
+      internalID: -4738972693517172089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd87542c3925ee64494f3b40fdaf97fa
+      internalID: -7784083966386584371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_13
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 2688
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3d2e382fe44d7a4d89b7fdbe61bf514
+      internalID: 7184090501509839561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_14
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 2688
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dd6b83af2c059a49b710de289d59ecb
+      internalID: 4938961133026610859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_15
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 2688
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 278658cf86785bc4d9e7cc5c9673d928
+      internalID: 8600939765673832040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_16
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 2688
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5adbfbd121d0d924e86c6a2bb232c556
+      internalID: 6085745516485857517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_17
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 2688
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe6b3b0a51cac443a6fecefdc7a95c3
+      internalID: 698736027738780299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2352
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d5ece5f993f3642bab61fb2e949e0d
+      internalID: 7996145754765520651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_19
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 2352
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82d5c2dccca4ec448a724fb9bf80b193
+      internalID: -7253245758556441470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_20
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 2352
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 144777373220d8242b42e216f646dfab
+      internalID: -3001192764243103539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_21
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 2352
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a81f86d2192fbf4e81fddde99047491
+      internalID: 155921162574124185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_22
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 2352
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293a5437be570ec44b84a8ce9b75bf3f
+      internalID: 5081251576027477797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_23
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 2352
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccd3be0a77e8dc04997f298e76e0ccf4
+      internalID: -7967676652751487125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2016
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2176fbf16663756409611b26c62ecbad
+      internalID: 6913380936848983755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_25
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 2016
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 279e8e702760d214c97cf5b0f7b0cfce
+      internalID: 7066118327887244737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_26
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 2016
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a56a5922d12e85b449c82c8fa9675e55
+      internalID: 6385298801721660714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_27
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 2016
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a3a32e8856b4b478f17a2ffe0d9944
+      internalID: 891408448776047828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_28
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 2016
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 541af9fc688c0b740bcc6c3ab08ecf3e
+      internalID: -4988106438569150372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_29
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 2016
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91d09e880a613284b940adddeb4625d8
+      internalID: 2801121593800790885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1680
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93559617a15415f4baa81f68cad8d3a4
+      internalID: 696592704245357862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_31
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1680
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bedf6c0e5e81de745b8a0e8a5c6ddb30
+      internalID: 3436234455640383284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_32
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1680
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc723d0ba21282f4c8ba0e3a22da178e
+      internalID: -7931504296569964409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_33
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 1680
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6663192fa5e7f874581cd7484afee495
+      internalID: -2045119056169709100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_34
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 1680
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d394f10dd18f5d14cac3d98f1325c961
+      internalID: 7358112306526633231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_35
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 1680
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5159af3bf5696546aa3fabdbad19c15
+      internalID: -730793491125798024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1bdc078c0fd4174ca02a950103e9b78
+      internalID: 3246755290950398017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_37
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1344
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d61b2f70ea3a0f4e94f2b7d3c7e9f7a
+      internalID: 5283691714991862865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_38
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1344
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c0b0e81059032943abf201948988cc2
+      internalID: 4811879735380210835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_39
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 1344
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 736062186a3c9a54e984ec20cd963c7f
+      internalID: 3308681206587536287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_40
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 1344
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8d811876a6019d4381455235937d849
+      internalID: -5736752682390086137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_41
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 1344
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010f3e31955f20b4da3b26f3da43cf3e
+      internalID: 954005773020739797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1008
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32da4253fa89d7448aba05a12ca61095
+      internalID: 9100260773049655542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_43
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1008
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25b9134ba8fccc84d9afca127f595c0f
+      internalID: -3305013735147206727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_44
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1008
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4442fbc488bdd2d4b8d0b069b980d7aa
+      internalID: -3754358789148028139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_45
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 1008
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23e2a2742fde20840b54092fbdc7b5a4
+      internalID: -344866761623547319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_46
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 1008
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2166d51a384ef84409859473fa3abb5c
+      internalID: 6458454724931031325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_47
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 1008
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91062e93a8d31d241bec3770f4e18f06
+      internalID: -874824658569087834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 672
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aad82fd28f7155f44a94376ba7869d0f
+      internalID: 1847710418394182954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_49
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 672
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b396f10e916bd5d4cb7c466a6c81c9b3
+      internalID: 6698786319293733269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_50
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 672
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 520d7298b4b24f24ca7194b62941b2f4
+      internalID: 5309459606414095037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_51
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 672
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 380db60999d48674da871ae5bba0a900
+      internalID: -6481006770626650542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_52
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 672
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d79f58cd7b348442b838d2bfecc5578
+      internalID: -2854207696967917721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_53
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 672
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2cb30610d78f3641bc81c774825f067
+      internalID: -4303271703374439939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 336
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd036bb59979e9b4b8242dec2bbb4f9e
+      internalID: -3516515365590177575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_55
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 336
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1bdf415a8ecd294f85d4df59b24c264
+      internalID: 7863362041557930140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_56
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 336
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf355faafb4fd7342888d51ebcea7a3b
+      internalID: -4498386772082090643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_57
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 336
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9f25feb8869114b8952afe6491acfa
+      internalID: -955880128207340638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_58
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 336
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89040f7901520e64da9b8b763129d46e
+      internalID: -5498900614201431043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_59
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 336
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5396eceed9882f34fb553d72a90a5528
+      internalID: -1782535483732924159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 220828e68b749d04fa352c360be1d07f
+      internalID: 6496257474380127051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_61
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 0
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dec3eba86e1313e43af673afeae6278f
+      internalID: 2634204740520876281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_62
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 0
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e91113f85fcc804ab8390d4c0253daf
+      internalID: -8945857638971425525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_63
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 0
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cda28fbee45305f4ab9638a9b7d6659f
+      internalID: -3747211366070631308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lv3_trans_64
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 0
+        width: 680
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01438eb5f6674a740959dfdd8a8b6d99
+      internalID: 5645767164590663517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: bd03452269b6dfb4687ee5461e16856e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
