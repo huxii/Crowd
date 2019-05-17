@@ -7,6 +7,7 @@
 		_MainTex("Texture", 2D) = "white" {}
 		_Speed("Speed", Float) = 0
 		_Amplitude("Amplitude", Float) = 0
+		_Offset("Offset", Float) = 0
 		_MotionTex("Motion Texture", 2D) = "white" {}
 		_MotionSpeed("Motion Speed", Float) = 0
 	}
@@ -33,12 +34,13 @@
 		uniform float4 _Color;
 		uniform float _Speed;
 		uniform float _Amplitude;
+		uniform float _Offset;
 		uniform sampler2D _MotionTex;
 		uniform float _MotionSpeed;
 
 		void vert_crystal(inout appdata_full v)
 		{
-			v.vertex.y += sin(_Time * _Speed) * _Amplitude;
+			v.vertex.y += sin(_Time * _Speed) * _Amplitude + _Offset;
 		}
 
 		void surf(Input IN, inout SurfaceCustomOutput o) 

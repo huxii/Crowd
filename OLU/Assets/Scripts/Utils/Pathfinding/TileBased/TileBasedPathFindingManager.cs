@@ -183,6 +183,12 @@ public class TileBasedPathFindingManager : PathFindingManager
             }
             else
             {
+                GameObject curTile = path.paths[1].Object();
+                if (curTile)
+                {
+                    actor.transform.SetParent(curTile.transform);
+                }
+
                 Services.gameEvents.SetManTargetPosition(actor, path.paths[1].Position(), path.tol, path.paths[1].pathType);
                 path.paths.RemoveAt(0);
             }

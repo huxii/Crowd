@@ -78,6 +78,7 @@ Material:
     - _Mode: 0
     - _MotionSpeed: 1
     - _OcclusionStrength: 1
+    - _Offset: 0
     - _Parallax: 0.02
     - _Rotation: 0.241
     - _SmoothnessTextureChannel: 0

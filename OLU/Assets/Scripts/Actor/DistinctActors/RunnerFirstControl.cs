@@ -8,13 +8,13 @@ public class RunnerFirstControl : CycleControl
     private PropAutoBasicControl controlPanel;
     private int activateCount = 0;
     private ElevatorControl teleA2A1;
-    private GameObject teleA2;
+    //private GameObject teleA2;
 
     protected void Awake()
     {
         controlPanel = GameObject.Find("ControlPanel0").GetComponent<PropAutoBasicControl>();
         teleA2A1 = GameObject.Find("TeleA2A1").GetComponent<ElevatorControl>();
-        teleA2 = GameObject.Find("TeleA2");
+        //teleA2 = GameObject.Find("TeleA2");
     }
 
     private void CheckStairs()
@@ -40,7 +40,7 @@ public class RunnerFirstControl : CycleControl
             Services.taskManager
                 .Do(new ActionTask(teleA2A1.FreeAllMen))
                 .Then(new Wait(0.1f))
-                .Then(new ActionTask(() => teleA2.SetActive(false)));
+                .Then(new ActionTask(() => teleA2A1.Lock()));
 
         }
     }
@@ -53,7 +53,7 @@ public class RunnerFirstControl : CycleControl
             base.Deactivate();
             CheckStairs();
 
-            teleA2.SetActive(true);
+            teleA2A1.Unlock();
         }
     }
 
