@@ -3296,7 +3296,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1796195643
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 989c03a9ab9979a419a4c6864a110432, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4819,7 +4819,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1796195643
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 989c03a9ab9979a419a4c6864a110432, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -15080,6 +15080,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f43716b286e26a94db530fbaa34aa2cf, type: 2}
+    - target: {fileID: 23758856388803840, guid: 731fd9d139c957140bdc305f3874130d,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1796195643
+      objectReference: {fileID: 0}
+    - target: {fileID: 23758856388803840, guid: 731fd9d139c957140bdc305f3874130d,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731fd9d139c957140bdc305f3874130d, type: 3}
 --- !u!1 &844839031
@@ -18527,7 +18537,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1796195643
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 989c03a9ab9979a419a4c6864a110432, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -38381,7 +38391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100188, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 100190, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_Layer
@@ -41282,6 +41292,10 @@ PrefabInstance:
     - target: {fileID: 400666, guid: b9d5a19f32166c243824801449f95035, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.03338394
+      objectReference: {fileID: 0}
+    - target: {fileID: 100672, guid: b9d5a19f32166c243824801449f95035, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9d5a19f32166c243824801449f95035, type: 3}
@@ -44777,6 +44791,18 @@ PrefabInstance:
       propertyPath: zoomScale
       value: 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 2302084873203297900, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 510548763114d8e4fa61e9dc84038a35,
+        type: 3}
+    - target: {fileID: 1011906137789967014, guid: 87659c24fba3d9f419ce41929790ff3b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2c745ad58d784d4a8c4fd7c6bae7dfb,
+        type: 3}
     - target: {fileID: 8489901838814356934, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -44787,22 +44813,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -485
       objectReference: {fileID: 0}
-    - target: {fileID: 8489901838359790097, guid: 87659c24fba3d9f419ce41929790ff3b,
-        type: 3}
-      propertyPath: willMoveHorizontally
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8489901838359790097, guid: 87659c24fba3d9f419ce41929790ff3b,
-        type: 3}
-      propertyPath: willMoveVertically
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2302084873203297900, guid: 87659c24fba3d9f419ce41929790ff3b,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 510548763114d8e4fa61e9dc84038a35,
-        type: 3}
     - target: {fileID: 8489901838814356936, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
       propertyPath: verticalOffset.x
@@ -44823,12 +44833,16 @@ PrefabInstance:
       propertyPath: willMoveVertically
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1011906137789967014, guid: 87659c24fba3d9f419ce41929790ff3b,
+    - target: {fileID: 8489901838359790097, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c2c745ad58d784d4a8c4fd7c6bae7dfb,
+      propertyPath: willMoveHorizontally
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489901838359790097, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
+      propertyPath: willMoveVertically
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6271144876975379030, guid: 87659c24fba3d9f419ce41929790ff3b,
         type: 3}
       propertyPath: m_Sprite

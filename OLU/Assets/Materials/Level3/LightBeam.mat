@@ -97,7 +97,7 @@ Material:
     - _SrcBlend: 1
     - _Tweak: 10
     - _UVSec: 0
-    - _Width: 10
+    - _Width: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 0.9524371, b: 0.8443396, a: 1}

@@ -139,13 +139,13 @@ Shader "Custom/SpineSprite_outline"
 				//half3 eyeNormal = half3(0,0,1);
 				half3 viewDir = 0.0;
 
-				// Lights
-				half3 lcolor = half4(0,0,0,1).rgb + color.rgb * glstate_lightmodel_ambient.rgb;
-				for (int il = 0; il < LIGHT_LOOP_LIMIT; ++il) {
-					lcolor += computeOneLight(il, eyePos, eyeNormal, viewDir, color);
-				}
+				//// Lights
+				//half3 lcolor = half4(0,0,0,1).rgb + color.rgb * glstate_lightmodel_ambient.rgb;
+				//for (int il = 0; il < LIGHT_LOOP_LIMIT; ++il) {
+				//	lcolor += computeOneLight(il, eyePos, eyeNormal, viewDir, color);
+				//}
 
-				color.rgb = lcolor.rgb;
+				//color.rgb = lcolor.rgb;
 				o.color = saturate(color);
 				o.uv0 = v.uv0;
 				o.pos = UnityObjectToClipPos(v.pos);
@@ -168,7 +168,7 @@ Shader "Custom/SpineSprite_outline"
 				float2 screenUVs = (i.screenPos.xy / i.screenPos.w);
 				screenUVs += _OverlaySpeed * _Time;
 				half4 overlayTex = tex2D(_OverlayTex, TRANSFORM_TEX(screenUVs.xy, _OverlayTex));
-				col = GetOverlayColor(col, float4(1, 1, 1, 1), overlayTex.a * _OverlayFactor) * lerp(float4(1, 1, 1, 1), _Color, _ReplaceFactor);
+				col = GetOverlayColor(col, float4(1, 1, 1, 1), overlayTex.a * _OverlayFactor) * lerp(float4(0.7, 0.7, 0.7, 1), _Color, _ReplaceFactor);
 
 				return col;
 			}

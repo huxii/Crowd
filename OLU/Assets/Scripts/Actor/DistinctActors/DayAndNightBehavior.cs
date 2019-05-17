@@ -85,7 +85,7 @@ public class DayAndNightBehavior : MonoBehaviour
         GameObject[] men = GameObject.FindGameObjectsWithTag("Man");
         foreach (GameObject man in men)
         {
-            mats.Add(man.GetComponentInChildren<MeshRenderer>().material);
+            mats.Add(man.GetComponentInChildren<MeshRenderer>().sharedMaterial);
         }
 
         foreach (Material mat in mats)

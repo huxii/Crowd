@@ -1627,8 +1627,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1796195643
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6aaadf5a213debd49a42162fb434b77a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11904,7 +11904,7 @@ PrefabInstance:
     - target: {fileID: 2300320, guid: 57e8477b7cb383240a141046c5f9c887, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d0eeb28cccb0e3a4e9d07dbd240fb985, type: 2}
+      objectReference: {fileID: 2100000, guid: a96be39a791a9c0428142839439039c5, type: 2}
     - target: {fileID: 2300324, guid: 57e8477b7cb383240a141046c5f9c887, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -12441,6 +12441,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Object
       objectReference: {fileID: 0}
+    - target: {fileID: 100028, guid: 57e8477b7cb383240a141046c5f9c887, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300322, guid: 57e8477b7cb383240a141046c5f9c887, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a96be39a791a9c0428142839439039c5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57e8477b7cb383240a141046c5f9c887, type: 3}
 --- !u!1 &588499774 stripped
@@ -23049,6 +23057,7 @@ MonoBehaviour:
   range: {x: 0, y: 90}
   isAxisRevert: 0
   isSnappingBack: 0
+  isSyncingProgress: 0
 --- !u!65 &876898640
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43938,10 +43947,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Actor1
       objectReference: {fileID: 0}
-    - target: {fileID: 1980355776856754, guid: 731fd9d139c957140bdc305f3874130d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.6520002
@@ -43974,20 +43979,22 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353552884431070, guid: 731fd9d139c957140bdc305f3874130d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 33356439744088668, guid: 731fd9d139c957140bdc305f3874130d,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 23758856388803840, guid: 731fd9d139c957140bdc305f3874130d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f43716b286e26a94db530fbaa34aa2cf, type: 2}
-    - target: {fileID: 136689480411225892, guid: 731fd9d139c957140bdc305f3874130d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731fd9d139c957140bdc305f3874130d, type: 3}
