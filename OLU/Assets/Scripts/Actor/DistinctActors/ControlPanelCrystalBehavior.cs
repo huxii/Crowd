@@ -18,7 +18,7 @@ public class ControlPanelCrystalBehavior : ObjectControl
         base.Activate();
 
         Services.taskManager
-            .Do(new TimedMaterialTask(gameObject, "_Offset", mat.GetFloat("_Offset"), -0.5f, 0.5f));
+            .Do(new TimedMaterialTask(mat, "_Offset", mat.GetFloat("_Offset"), -0.5f, 0.5f));
 
         mat.SetFloat("_Amplitude", 0);
         mat.SetFloat("_Speed", 0);
@@ -29,7 +29,7 @@ public class ControlPanelCrystalBehavior : ObjectControl
         base.Deactivate();
 
         Services.taskManager
-            .Do(new TimedMaterialTask(gameObject, "_Offset", mat.GetFloat("_Offset"), 0, 0.5f));
+            .Do(new TimedMaterialTask(mat, "_Offset", mat.GetFloat("_Offset"), 0, 0.5f));
 
         mat.SetFloat("_Amplitude", 0.05f);
         mat.SetFloat("_Speed", 50);

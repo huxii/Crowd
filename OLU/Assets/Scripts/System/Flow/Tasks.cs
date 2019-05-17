@@ -112,21 +112,35 @@ public class TimedMaterialTask : TimedTask
     protected float end;
     protected Material mat;
 
+    public TimedMaterialTask(Material m, string attr, float s, float e, float d) : base(d)
+    {
+        mat = m;
+        attrName = attr;
+        start = s;
+        end = e;
+
+        obj = null;
+    }
+
     public TimedMaterialTask(GameObject o, string attr, float s, float e, float d) : base(d)
     {
         obj = o;
         attrName = attr;
         start = s;
         end = e;
+
+        mat = obj.GetComponent<MeshRenderer>().material;
     }
 
     protected override void Init()
     {
         base.Init();
-
-        mat = obj.GetComponent<MeshRenderer>().material;
+      
         mat.SetFloat(attrName, start);
-        obj.SetActive(true);
+        if (obj != null)
+        {
+            obj.SetActive(true);
+        }
     }
 
     protected override void OnTick(float t)

@@ -5,7 +5,9 @@ Shader "Custom/SpineSprite_outline"
 	Properties
 	{
 		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
-		_Color("Tint Color", Color) = (1, 1, 1, 1)
+		_Alpha("Alpha Cutoff", Range(0, 1)) = 1
+		_Color("Color", Color) = (1, 1, 1, 1)
+		_ReplaceColor("Replace Color", Color) = (1, 1, 1, 1)
 		_ReplaceFactor("Replace Factor", Range(0, 1)) = 0
 
 		[Header(Overlay)]
@@ -119,8 +121,10 @@ Shader "Custom/SpineSprite_outline"
 			};
 
 			uniform sampler2D _MainTex;
-			uniform float _ReplaceFactor;
+			uniform float _Alpha;
 			uniform float4 _Color;
+			uniform float4 _ReplaceColor;
+			uniform float _ReplaceFactor;
 			uniform float _OverlayFactor;
 			uniform sampler2D _OverlayTex;
 			uniform float4 _OverlayTex_ST;
@@ -162,14 +166,18 @@ Shader "Custom/SpineSprite_outline"
 				col *= 2;
 				col.a = tex.a * i.color.a;
 
+				// discard outline pixels
 				clip(col.a - 0.9f);
 
 				// overlay
 				float2 screenUVs = (i.screenPos.xy / i.screenPos.w);
 				screenUVs += _OverlaySpeed * _Time;
 				half4 overlayTex = tex2D(_OverlayTex, TRANSFORM_TEX(screenUVs.xy, _OverlayTex));
-				col = GetOverlayColor(col, float4(1, 1, 1, 1), overlayTex.a * _OverlayFactor) * lerp(float4(0.7, 0.7, 0.7, 1), _Color, _ReplaceFactor);
+				col = GetOverlayColor(col, float4(1, 1, 1, 1), overlayTex.a * _OverlayFactor) * lerp(_Color, _ReplaceColor, _ReplaceFactor);
+				col.a *= _Alpha;
 
+				// opacity hack
+				clip(col.a - 0.5f);
 				return col;
 			}
 			ENDCG

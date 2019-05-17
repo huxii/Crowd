@@ -55,6 +55,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - PixelSnap: 0
+    - _Alpha: 1
+    - _AlphaCutoff: 1
     - _BlendAmount: 0
     - _Brightness: 1
     - _BumpScale: 1
@@ -82,9 +84,10 @@ Material:
     - _UseUIAlphaClip: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.5570393, g: 0.5174439, b: 0.6415094, a: 1}
+    - _Color: {r: 0.8235294, g: 0.8235294, b: 0.8235294, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _FixedNormal: {r: 0, g: 0, b: 1, a: 1}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _OverlayColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ReplaceColor: {r: 0.5568628, g: 0.5176471, b: 0.6431373, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
