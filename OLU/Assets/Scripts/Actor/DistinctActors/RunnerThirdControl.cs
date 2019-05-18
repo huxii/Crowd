@@ -18,7 +18,7 @@ public class RunnerThirdControl : CycleControl
         mirror = GameObject.Find("Mirror1").GetComponent<MirrorControl>();
 
         GameObject.Find("Ceiling").transform.localPosition += new Vector3(0, -8, 0);
-        GameObject.Find("BackShellModel1").transform.localPosition += new Vector3(0, -8, 0);
+        GameObject.Find("OuterLen").transform.localPosition += new Vector3(0, -8, 0);
     }
 
     protected void ResetPaths()
