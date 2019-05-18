@@ -10,6 +10,7 @@
 		_Offset("Offset", Float) = 0
 		_MotionTex("Motion Texture", 2D) = "white" {}
 		_MotionSpeed("Motion Speed", Float) = 0
+		_MotionStrength("Motion Strength", Range(0, 1)) = 0
 	}
 
 
@@ -37,6 +38,7 @@
 		uniform float _Offset;
 		uniform sampler2D _MotionTex;
 		uniform float _MotionSpeed;
+		uniform float _MotionStrength;
 
 		void vert_crystal(inout appdata_full v)
 		{
@@ -48,8 +50,8 @@
 			float2 motionUV = IN.uv_MainTex + _Time * _MotionSpeed;
 			half4 motion = tex2D(_MotionTex, motionUV);
 
-			half4 c = motion * tex2D(_MainTex, IN.uv_MainTex) * _Color;
-			o.Albedo = c.rgb;
+			half4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+			o.Albedo = lerp(c.rgb, c.rgb * motion.r, _MotionStrength);
 			o.Alpha = c.a;
 		}
 

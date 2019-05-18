@@ -112,6 +112,16 @@ public class TimedMaterialTask : TimedTask
     protected float end;
     protected Material mat;
 
+    public TimedMaterialTask(Material m, string attr, float e, float d) : base(d)
+    {
+        mat = m;
+        attrName = attr;
+        start = mat.GetFloat(attr);
+        end = e;
+
+        obj = null;
+    }
+
     public TimedMaterialTask(Material m, string attr, float s, float e, float d) : base(d)
     {
         mat = m;
@@ -120,6 +130,16 @@ public class TimedMaterialTask : TimedTask
         end = e;
 
         obj = null;
+    }
+
+    public TimedMaterialTask(GameObject o, string attr, float e, float d) : base(d)
+    {
+        obj = o;
+        attrName = attr;
+        end = e;
+
+        mat = obj.GetComponent<MeshRenderer>().material;
+        start = mat.GetFloat(attr);
     }
 
     public TimedMaterialTask(GameObject o, string attr, float s, float e, float d) : base(d)

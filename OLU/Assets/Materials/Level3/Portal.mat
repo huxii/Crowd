@@ -64,6 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Alpha: 0.3
     - _AlphaCutOff: 0.076
     - _Amplitude: 0.15
     - _BumpScale: 1
@@ -78,6 +79,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Radius: 0
     - _Rotation: 0.241
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

@@ -75,7 +75,7 @@ public class RunnerControl : ObjectControl
             maxCycle = cycle;
         }
 
-        CheckCycle();
+        //CheckCycle();
     }
 
     protected void ResetCycle()

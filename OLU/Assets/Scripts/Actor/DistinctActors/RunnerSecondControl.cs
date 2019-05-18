@@ -12,7 +12,7 @@ public class RunnerSecondControl : CycleControl
         mirror = GameObject.Find("Mirror0").GetComponent<MirrorControl>();
     }
 
-    protected override void CheckCycle()
+    public override void CheckCycle()
     {
         if (curAbsCycle == 0)
         {

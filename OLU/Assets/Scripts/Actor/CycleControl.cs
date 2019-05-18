@@ -18,10 +18,10 @@ public class CycleControl : ObjectControl
     {
         base.Start();
 
-        CheckCycle();
+        //CheckCycle();
     }
 
-    protected virtual void CheckCycle()
+    public virtual void CheckCycle()
     {
     }
 
@@ -35,7 +35,10 @@ public class CycleControl : ObjectControl
         }
 
         Services.dotweenEvents.Rotate(gameObject.name + " y " + step + " 1");
-        CheckCycle();
+
+        Services.taskManager
+            .Do(new Wait(0.5f))
+            .Then(new ActionTask(CheckCycle));
     }
 
     public virtual void GoCounterClockwise()
@@ -47,6 +50,9 @@ public class CycleControl : ObjectControl
             curAbsCycle = cycle - 1;
         }
         Services.dotweenEvents.Rotate(gameObject.name + " y " + -step + " 1");
-        CheckCycle();
+
+        Services.taskManager
+            .Do(new Wait(0.5f))
+            .Then(new ActionTask(CheckCycle));
     }
 }

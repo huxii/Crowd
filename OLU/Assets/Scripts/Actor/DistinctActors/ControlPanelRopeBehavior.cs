@@ -18,7 +18,7 @@ public class ControlPanelRopeBehavior : ObjectControl
         base.Activate();
 
         Services.taskManager
-            .Do(new TimedMaterialTask(mat, "_Width", mat.GetFloat("_Width"), 0, 0.3f))
+            .Do(new TimedMaterialTask(mat, "_Width", 0, 0.3f))
             .Then(new ActionTask(() => Services.gameEvents.PlayAnimation("MovingPlatform, FoldedPlatformOff")));
     }
 
@@ -29,6 +29,6 @@ public class ControlPanelRopeBehavior : ObjectControl
         Services.taskManager
             .Do(new ActionTask(() => Services.gameEvents.PlayAnimation("MovingPlatform, FoldedPlatformOn")))
             .Then(new Wait(1))
-            .Then(new TimedMaterialTask(mat, "_Width", mat.GetFloat("_Width"), 0.015f, 0.3f));
+            .Then(new TimedMaterialTask(mat, "_Width", 0.015f, 0.3f));
     }
 }

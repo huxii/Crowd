@@ -16,6 +16,9 @@ public class RunnerThirdControl : CycleControl
     {
         chest = GameObject.Find("Chest").GetComponent<PropAutoTimedDeactivateControl>();
         mirror = GameObject.Find("Mirror1").GetComponent<MirrorControl>();
+
+        GameObject.Find("Ceiling").transform.localPosition += new Vector3(0, -8, 0);
+        GameObject.Find("BackShellModel1").transform.localPosition += new Vector3(0, -8, 0);
     }
 
     protected void ResetPaths()
@@ -30,7 +33,7 @@ public class RunnerThirdControl : CycleControl
         Services.gameEvents.ConnectPath(centerTiles[1].name + " " + outerTiles[(curAbsCycle + 1) % cycle].name);
     }
 
-    protected override void CheckCycle()
+    public override void CheckCycle()
     {
         base.CheckCycle();
 

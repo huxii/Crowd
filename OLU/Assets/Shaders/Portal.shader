@@ -7,11 +7,12 @@
 		_MainTex("Texture", 2D) = "white" {}
 		_MotionTex("Motion Texture", 2D) = "white" {}
 		_NoiseTex("Noise Texture", 2D) = "white" {}
-		_AlphaCutOff("Alpha Cut Off", Range(0, 1)) = 0.3
+		_Alpha("Alpha Cut Off", Range(0, 1)) = 0.3
 		_Speed("Speed", Float) = 0
 		_Deform("Deform", Range(0, 1)) = 0
 		_Swirl("Swirlness", Range(0.01, 1)) = 0.01
 		_Rotation("Rotation", Range(0, 1)) = 0
+		_Radius("Radius", Range(0, 1)) = 1
 	}
 
 
@@ -36,11 +37,12 @@
 		uniform sampler2D _MotionTex;
 		uniform sampler2D _NoiseTex;
 		uniform float4 _Color;
-		uniform float _AlphaCutOff;
+		uniform float _Alpha;
 		uniform float _Speed;
 		uniform float _Deform;
 		uniform float _Swirl;
 		uniform float _Rotation;
+		uniform float _Radius;
 
 		void vert_portal(inout appdata_full v)
 		{
@@ -67,9 +69,10 @@
 
 			half4 c = tex2D(_MainTex, float2(noise.r, 0)) * _Color;
 			o.Albedo = c.rgb;
-			o.Alpha = c.a;
+			o.Alpha = c.a * (1 - pow(2 * r / _Radius, 2));
 
-			clip(c.a - _AlphaCutOff);
+			clip(_Radius - r * 2);
+			clip(c.a - _Alpha);
 		}
 
 		ENDCG
