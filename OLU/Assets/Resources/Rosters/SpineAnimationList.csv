@@ -47,3 +47,5 @@
 1,menu_pose3,2,LOOP,0.5,,x,
 1,menu_pose4,2,LOOP,0.5,,x,
 1,menu_pose5,2,LOOP,0.5,,x,
+1,spell,2,NOTLOOP_KEEP,0.5,,,
+1,zazen,2,LOOP,0.5,,,
