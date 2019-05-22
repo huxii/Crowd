@@ -746,6 +746,14 @@ public class GameEvents : CustomEvents
             .Do(new TimedMaterialTask(lightBeam, "_Width", 0, 0.5f));
     }
 
+    public void SetObjectRotation(string para)
+    {
+        ParseNewPara(para);
+        GameObject obj = ParseGameObject();
+        Vector3 rot = ParseIncrement();
+        obj.transform.localEulerAngles = rot;
+    }
+
     //public void Swipe()
     //{
     //    if (swipeObj == null)

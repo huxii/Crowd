@@ -93,8 +93,8 @@ public class MirrorControl : PropZeroOneControl
             .Then(new TimedMaterialTask(inner, "_Radius", 0, 0.5f));
 
         Services.taskManager
-            .Do(new TimedMaterialTask(mirroredMan.GetComponentInChildren<MeshRenderer>().material, "_Alpha", 0.01f, 1, 1))
-            .Then(new ActionTask(() => mirroredMan.transform.SetParent(freeManTile.transform)))
+            .Do(new TimedMaterialTask(mirroredMan.GetComponentInChildren<MeshRenderer>().sharedMaterial, "_Alpha", 0.01f, 1, 1))
+            .Then(new ActionTask(() => mirroredMan.transform.SetParent(mirroredFreeTile.transform)))
             .Then(new ActionTask(() => Services.gameEvents.UnlockMan(mirroredMan)));
     }
 }

@@ -167,7 +167,7 @@ public class TileBasedPathFindingManager : PathFindingManager
             {
                 // special case for hidden stairs
                 GameObject curTile = path.paths[0].Object();
-                if (curTile && curTile.GetComponent<Tile>().followObject != null)
+                if (curTile)
                 {
                     actor.transform.SetParent(curTile.transform);
                 }
