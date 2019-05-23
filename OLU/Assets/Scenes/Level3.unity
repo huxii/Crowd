@@ -242,8 +242,8 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 1022114769}
   freeManOffset: {x: 0, y: 0, z: 0}
-  changeState: 0
-  changeScaleX: 1
+  changeState: 15
+  changeScaleX: -1
   slots:
   - state: 0
     obj: {fileID: 1005364010}
@@ -569,7 +569,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 475573383}
   freeManOffset: {x: 0, y: 0, z: 0.53}
-  changeState: 0
+  changeState: 15
   changeScaleX: 1
   slots:
   - state: 0
@@ -1184,8 +1184,8 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 468513944}
   freeManOffset: {x: 0, y: 0, z: 0}
-  changeState: 0
-  changeScaleX: 1
+  changeState: 15
+  changeScaleX: -1
   slots:
   - state: 0
     obj: {fileID: 2134875140}
@@ -1295,8 +1295,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: 0
   offOffset: 0
   onAmplitude: 0
@@ -1472,7 +1472,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 1853296979}
   freeManOffset: {x: -0.64, y: 0, z: 0}
-  changeState: 0
+  changeState: 15
   changeScaleX: 1
   slots:
   - state: 0
@@ -3407,8 +3407,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: 0
   offOffset: 0
   onAmplitude: 0
@@ -3496,8 +3496,8 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 1996261467}
   freeManOffset: {x: 0.52, y: 0, z: 0}
-  changeState: 0
-  changeScaleX: 1
+  changeState: 15
+  changeScaleX: -1
   slots:
   - state: 0
     obj: {fileID: 966717494}
@@ -3562,7 +3562,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686330457}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.573, y: -1.087, z: -0.724}
+  m_LocalPosition: {x: -0.811, y: -1.087, z: -0.968}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 809206401}
@@ -3880,7 +3880,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 80716018}
   freeManOffset: {x: 0, y: 0, z: 0}
-  changeState: 0
+  changeState: 15
   changeScaleX: 1
   slots:
   - state: 0
@@ -4140,8 +4140,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: 0
   offOffset: 0
   onAmplitude: 0
@@ -5033,6 +5033,11 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114718129347546674, guid: 731fd9d139c957140bdc305f3874130d,
+        type: 3}
+      propertyPath: _animationName
+      value: spell
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731fd9d139c957140bdc305f3874130d, type: 3}
 --- !u!1 &893417725
@@ -5769,8 +5774,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: 0
   offOffset: 0
   onAmplitude: 0.05
@@ -5925,7 +5930,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005364010}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.742, y: -1, z: 0}
+  m_LocalPosition: {x: 1.18, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 415856820}
@@ -6473,7 +6478,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067046315}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.131, y: 0, z: -0.12}
+  m_LocalPosition: {x: -0.669, y: -0.156, z: -0.174}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 133673244}
@@ -6518,8 +6523,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: 0
   offOffset: 0
   onAmplitude: 0
@@ -7271,8 +7276,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: 0
   offOffset: 0
   onAmplitude: 0
@@ -7480,6 +7485,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1246912293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1112736193761533869, guid: e515cbc9bb9b13746879884534d82ad1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1324311685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1246912297
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246912293}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 26.332388, y: 12, z: 14}
+  m_Center: {x: 0, y: 0.55, z: -2.15}
 --- !u!1001 &1247394148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7800,6 +7824,94 @@ PrefabInstance:
     - target: {fileID: 100004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
       propertyPath: m_Name
       value: CameraLen
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
+    - target: {fileID: 100088, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
+    - target: {fileID: 100072, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
+    - target: {fileID: 100092, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
+    - target: {fileID: 100124, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
+    - target: {fileID: 100090, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100070, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
+      propertyPath: m_TagString
+      value: Prop
       objectReference: {fileID: 0}
     - target: {fileID: -9201185479311265239, guid: e515cbc9bb9b13746879884534d82ad1,
         type: 3}
@@ -8241,15 +8353,7 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e11261017d62cda459a93d011a6a21a6, type: 2}
-    - target: {fileID: 100012, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_TagString
-      value: Prop
-      objectReference: {fileID: 0}
     - target: {fileID: 100020, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_TagString
-      value: Prop
-      objectReference: {fileID: 0}
-    - target: {fileID: 100022, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
       propertyPath: m_TagString
       value: Prop
       objectReference: {fileID: 0}
@@ -8285,30 +8389,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 100070, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_TagString
-      value: Prop
-      objectReference: {fileID: 0}
-    - target: {fileID: 100072, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_TagString
-      value: Prop
-      objectReference: {fileID: 0}
-    - target: {fileID: 100088, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_TagString
-      value: Prop
-      objectReference: {fileID: 0}
-    - target: {fileID: 100090, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_TagString
-      value: Prop
-      objectReference: {fileID: 0}
-    - target: {fileID: 100092, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_TagString
-      value: Prop
-      objectReference: {fileID: 0}
-    - target: {fileID: 100124, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_TagString
-      value: Prop
-      objectReference: {fileID: 0}
     - target: {fileID: 100158, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
       propertyPath: m_TagString
       value: Prop
@@ -8336,62 +8416,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
       propertyPath: m_LocalPosition.z
       value: -2.5787516
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: e515cbc9bb9b13746879884534d82ad1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9860,8 +9884,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: 0
   offOffset: 0
   onAmplitude: 0
@@ -9918,8 +9942,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: 0
   offOffset: 0
   onAmplitude: 0
@@ -10674,8 +10698,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: 0
   offOffset: 0
   onAmplitude: 0
@@ -10837,7 +10861,7 @@ MonoBehaviour:
   gizmoSize: 0.2
   freeManTile: {fileID: 2013508049}
   freeManOffset: {x: 0, y: 0, z: 0}
-  changeState: 0
+  changeState: 15
   changeScaleX: 1
   slots:
   - state: 0
@@ -11507,17 +11531,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: RotateTo
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CameraLen, 90, -180, 0, 1
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 751599591}
         m_MethodName: SetActive
         m_Mode: 6
@@ -11645,8 +11658,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: 0
   offOffset: 0
   onAmplitude: 0
@@ -11706,6 +11719,17 @@ MonoBehaviour:
   onActivated:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1741532449}
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1428080941}
         m_MethodName: RotateTo
         m_Mode: 5
@@ -11714,7 +11738,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: BackShell, y, 180, 2
+          m_StringArgument: CameraLen, 0, 0, 0, 1
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -11767,12 +11791,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1637747792}
+        m_MethodName: Lock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   dragAxis: 1
   speed: 5
   range: {x: 0, y: 90}
-  isAxisRevert: 1
+  isAxisRevert: 0
   isSnappingBack: 0
   isSyncingProgress: 1
 --- !u!114 &1637747793
@@ -11923,7 +11958,7 @@ MonoBehaviour:
   dragAxis: 1
   speed: 5
   range: {x: 0, y: 90}
-  isAxisRevert: 1
+  isAxisRevert: 0
   isSnappingBack: 1
   isSyncingProgress: 0
 --- !u!114 &1663561229
@@ -12028,17 +12063,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1428080941}
-        m_MethodName: RotateTo
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CameraLen, 0, 0, 0, 1
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -12245,6 +12269,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1428080941}
+        m_MethodName: RotateTo
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: CameraLen, -90, 0, 0, 1
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   interactionCD: 0
@@ -12326,8 +12361,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: -0.75
   offOffset: 0
   onAmplitude: 0
@@ -12775,8 +12810,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: -0.75
   offOffset: 0
   onAmplitude: 0
@@ -12868,8 +12903,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: 0
   offOffset: 0
   onAmplitude: 0
@@ -13355,8 +13390,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: 0
   offOffset: 0
   onAmplitude: 0
@@ -13989,8 +14024,8 @@ MonoBehaviour:
   interactionCD: 0
   isWalkableAfterDeactivated: 0
   dropMenAfterDeactivated: 0
-  onColor: {r: 0.38412246, g: 0.85749114, b: 0.9811321, a: 1}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.5529412, g: 0.6431373, b: 0.6392157, a: 1}
   onOffset: 0
   offOffset: 0
   onAmplitude: 0
@@ -14859,7 +14894,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134875140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.311, y: 0, z: -0.038}
+  m_LocalPosition: {x: -0.783, y: -0.129, z: -0.038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1854221234}

@@ -37,6 +37,7 @@ public class CrowdControl : ActorControl
         SWITCH,
         BOUNCE,
         LAND,
+        SPELL,
 
         // set from code
         DROP,
@@ -106,6 +107,7 @@ public class CrowdControl : ActorControl
         simpleStateDict.Add(CrowdState.SWITCH, "switchLever");
         simpleStateDict.Add(CrowdState.DROP, "drop");
         simpleStateDict.Add(CrowdState.BOUNCE, "bounce");
+        simpleStateDict.Add(CrowdState.SPELL, "spell");
 
         rb = GetComponent<Rigidbody>();
         targetPos = transform.position;
@@ -524,7 +526,8 @@ public class CrowdControl : ActorControl
                 || man.state == CrowdState.DOWN
                 || man.state == CrowdState.SWITCH
                 || man.state == CrowdState.DROP
-                || man.state == CrowdState.BOUNCE;
+                || man.state == CrowdState.BOUNCE
+                || man.state == CrowdState.SPELL
                 ;
         }
     }

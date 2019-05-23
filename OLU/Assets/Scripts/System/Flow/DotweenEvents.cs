@@ -50,6 +50,8 @@ public class DotweenEvents : CustomEvents
         }
 
         obj.transform.DOLocalRotate(targetRot, time).SetEase(easeType);
+
+        Debug.Log(obj.name);
     }
 
     public void MoveRb(GameObject obj, string para)
