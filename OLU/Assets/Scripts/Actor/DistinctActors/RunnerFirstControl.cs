@@ -40,7 +40,7 @@ public class RunnerFirstControl : CycleControl
             Services.taskManager
                 .Do(new ActionTask(teleA2A1.FreeAllMen))
                 .Then(new Wait(0.1f))
-                .Then(new ActionTask(() => teleA2A1.Lock()));
+                .Then(new ActionTask(() => teleA2A1.gameObject.SetActive(false)));
 
         }
     }
@@ -53,7 +53,7 @@ public class RunnerFirstControl : CycleControl
             base.Deactivate();
             CheckStairs();
 
-            teleA2A1.Unlock();
+            teleA2A1.gameObject.SetActive(true);
         }
     }
 
